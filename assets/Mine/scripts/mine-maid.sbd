@@ -1,0 +1,6855 @@
+.debug 2
+
+.yestext Yes, Mistress
+.notext No, Mistress
+.onAllSet 9999
+.onClose 9998
+.backcolor 255 200 200
+.restore                ' restores 390 699
+.resetrange 50 199      ' reset all temp variables from main script but keep slave state, toys and achievements  
+.ssdir maid\
+
+.range 1000
+
+'All maids will sooner or later spend some time in the punishment corner. You must learn to do it properly, standing to attention with the nose in the corner. Keep the posture until the bell summons, and do not relax. If a Mistress should catch you out of attention, you would probably be up for double time. Hurry on, into the corner girl!
+'Kneeling with forehead one half of an inch above the floor. Bottom slightly raised. Body weight supported by underarms
+'This is quite irregular, but it might be events when the Mistress would like you to be a tart for the entertainment of Her guests. Extra make-up. Glossy lips. Hem of uniform dress raised to make garters and panties visible. Wiggling bottom when walking.
+'Important posture. To be used whenever you are in the same room as your Mistress, ready for instructions, such as when serving in the dining room. Position just inside the door. Straight back. Head slightly bent forward. Hands on you apron, palms inwards. The maid must be able to keep the position for a long time.
+'Adjust your apron into correct position. Keep particular attention to the bow on your back! It is possible to detect a sloppy maid from long distance by looking at her bow.
+'One day you may be required to wear a collar, attached by your Mistress. You can just as well get used to it now. Use something similar, if you don`t have a collar already.
+'Kneeling in front of your Mistress. Straight back. Head slightly bent forward. This is a high alert position, the maid must be ready for instant reaction to any signs from the Mistress.
+'Medium deep curtsey. To be used when reporting for the Mistress or being addressed by the Mistress or others, such as superior maids. Also to be used when waiting at the front door.
+'Serving tea and biscuits for the Mistress and Her friends. Keep on practising, girl!
+'Bend over a chair. Bottom up. Panties down and uniform skirt raised up your back. This position will be required for discipline, or whatever else the Mistress may have in mind. Keep posture until the bell is ringing.
+'This is an important drill. Present your face and hair for close inspection. Turn around for your Mistress to let Her look your uniform over. Skirt up, and turn around for inspection of lingerie. Panties down, to reveal any undue excitement.
+'Practice walking in high heels, preferably 4 inches or more. Keep balance. Short steps. Do not bend the knees.
+'We all know that the Mistress's words are stronger and more durable than any chains, and that fessels should not be necessary to keep the maid in line. It might however be occasions where the Mistress prefers to strap the maid down for the feminization process, tie her hands behind the back to keep them away from prohibited actions, shackle the legs to keep the maid from walking too far, or keep her in chains in case She senses some reluctance in the maid's enthusiasm to serve Her friends. The assignment is to train walking with your legs shackled with a short chain and to kneel with your hands tied behind you. A chain around your neck would also do nicely.
+'Writing lines is a very efficient punishment tool, at the same time helping the girl to anchor the devotion to her Mistress at the top her mind, always popping into her thoughts. You shall write in your best handwriting: *I must learn to obey my Mistress at all times*. Keep on writing untill the bell calls. You do understand girl? Best handwriting and full concentration!
+'Adjust position of garters and stockings. This is difficult and takes a lot of practise.
+'Your lingerie must always be in perfect condition. You never know when somebody will have a close look at it. Lingerie must be hand washed. Get at it girl!
+'Shallow curtsey to be used in recognition and to show respect when the Mistress or others are passing by while you are busy engaged with your chores.
+'Practice carrying full tray in high heels. Regulatory curtsey. Bend over for serving people sitting in deep chairs. 
+'Check apron thoroughly. Remove any stains. Iron thoroughly. Be proud of your apron girl!
+'The first curtsey of the day for your Mistress, or for strangers She introduces you to. Very deep. One continous movement in full balance. Head bent forward when the curtsey is at the deepest.
+
+
+' Slave maid training.
+' Accomplished by use of the following:
+'   assignments
+'       uniforms: rope harness
+'             or: traditional french -- heels, garters, hose, skirt, apron, wristlets, hairpiece, choker, panties
+'             or: chains
+'             or: numerous variations: bows, 
+'       piece together uniform in successive sessions?
+'   
+'   tasks
+'       cleaning (a room, or for a period of time)
+'       
+'
+'   punishment
+'       tasks can be used as punishment. 
+'       kneel on rice...
+
+'   holding positions of various types makes good training
+'   need illustrations or photographs
+'   write like others; get a list of maybe ten positions together. Times are in three
+'   increments, and extras could be added. Like corner time, but with more possibilities.
+'   to correspond with ability levels, positions should be graded for difficulty and then
+'   for time. increments of 10, 15 and 20 minutes seem good for starters, although it would
+'   be nice to allow different increments for different positions. adding "extras" is tempting
+'   but maybe we should just concentrate on the positions so as not to make things super
+'   complicated. extras may have been applied from outside by this point anyway. This also
+'   allows us to have one check against status bits to see if any position is possible (no
+'   tether, etc). We should allow for many types of positions.
+'   We should choose position and time based on difficulty. Grade each position as either easy,
+'   medium, or hard. Then consult:
+'           easy    medium  hard    extreme
+'   10m     1       2       3       4
+'   15m     2       3       4       5
+'   20m     3       4       5       6
+'   30m?    4       5       6       7
+'   these times are examples, since actual times are set in each particular position, depending.
+
+'   to advance you should really have to complete a variety of positions and times.
+'   I would also like to keep track of unsuccessful attempts somehow. Transporting 
+'   this information back to the main script is a little tricky, though. Essentially
+'   we have a three (or four) branch return value, not just two (success and failure).
+'   We need to have regular success, regular failure, success meriting advancement, and
+'   possibly failure meriting retardation. It would be better to return the level that
+'   the subject achieved, and not the fact of relative advancement, of course. Or maybe
+'   we don't need to worry about that -- we could forget about the traditional five-level
+'   system and just store it all here. That's good.... then we can use a single (or very
+'   few) special return values to indicate successful completion of the program or other
+'   milestones.
+'   We can also use these for corner-style punishments with little modification; unfortunately
+'   the punishment cycle doesn't really allow for failure. Have to think about that.
+
+
+
+' List of poses used in the script
+
+' TODO Find more naked poses on the net or in bd*
+'easy (36): Naked, wrist and ankle restraints, collar, blindfold
+'
+'400 1220 jessienude3.jpg 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
+'401 1224 naked_spanking_punishment_with_a_paddle_waiting_picture_4s.jpg standing bent over, hands on shins, ass presented, head down
+'405 1225 bd204_09.jpg   4pt kneel, hands on thighs palms up, collar
+'409 1229 bd066_44.jpg   4pt sit on heels, hands on legs palms down, wristlets, collar, heels
+'412 1232 ch51.jpg       belly on chair, ass presented, heels, holding legs of chair, head up
+'415 1235 bd222_02.jpg   standing, legs together, collar, leash, heels, hands behind butt, balancing book on head (bd222_03.jpg, 05)
+'422 1242 bd069_43.jpg   stand, legs together, hands on hips, collar, leash, big smile
+'423 1243 bd218_11.jpg   2pt sit on heels, knees together, collar, hands together in front, balancing book on head (bd218_13.jpg, 15, 17, 19)
+'424 1244 position_standing_hands_behind_head_*.jpg   standing, legs together, hands behind head, blindfolded in activity, optional in punishment
+'425 1245 position_sitting_on_heels_legs_spread_hands_on_thighs_palms_up.jpg   Sitting on heels 2pt, legs spread, hands on thighs, palms up
+'bd064_12.jpg   standing, legs together, hands behind butt, tiptoes (bd013.jpg)
+'bd064_14.jpg   standing, legs together, hands behind butt, tiptoes (bd015.jpg)
+'bd064_16.jpg   hands and knees, legs together, hands palms down 1x, head up, ass up & back arched
+'bd047_07.jpg   sit on knees, knees together, hands behind butt, collar, big smile
+'bd031_20.jpg   2pt kneel, knees together, hands behind head
+
+'bd066_49.jpg   crouch on toes, knees wide, hands on knees, heels, wristlets, collar (bd066_50.jpg, bd066_51.jpg)
+'bd066_48.jpg   crouch on toes, knees together, hands on knees, heels wristlets, collar
+'bd066_45.jpg   2pt sit on heels, hands on legs, palms down, wristlets, collar, heels
+'bd066_41.jpg   4pt kneel, 2x knees, ankles together, arms folded behind back, heels collar (bd066_42.jpg)
+'bd066_38.jpg   2pt kneel, knees together, hands behind head, wrist/collar/heel (bd066_39.jpg, bd066_40.jpg)
+'bd061_18.jpg   standing, legs 2x, hands behind head, heels, wristlets
+'bd048_52.jpg   2pt kneel, heels, wristlets, knees 1x, presenting the crop in hands palms up
+'bd047_15.jpg   standing, legs together, hands behind butt, collar
+'bd047_09.jpg   sit on heels, knees wide, hands behind head, wristlets, collar
+'bd047_08.jpg   hands and knees and toes, knees together, hands together, wristlet, collar, head up
+'bd042_27.jpg   hands and knees, hands 1.5x knees 1x, heels, collar, leash
+'bd037_47.jpg   hands and knees, head down, hands/knees 1.5x, ank/wrist/collar/heels
+'bd037_48.jpg   hands and knees, knees 2x, hands wide, head up, ank/wrist/collar/heels
+'bd037_39.jpg   2pt sitting on heels, legs together, hands on knees together, ank/wrist/collar/heels (bd037_40.jpg, bd037_41.jpg)
+'bd037_30.jpg   flat on ground, face down, legs wide, hands at sides, ank/wrist/collar/heels
+'bd037_20.jpg   2pt sitting on heels, ank/wrst/collar/heels, hands behind butt, knees 1.5x
+'bd037_22.jpg   2pt sitting on heels, ank/wrst/collar/heels, hands on legs palms up, knees wide, eyes down
+'bd037_23.jpg   2pt sitting on heels, knuckles on ground in front, ank/wrst/collar/heels, knees wide
+'bd037_16.jpg   kneeling prostrate, wristlets, collar, heels, hands forward and crossed, head down
+'bd032_11.jpg   standing, heels, collar, hands behind head
+'bd023_24.jpg   5pt kneel-over, ass up, face to side, heels, ankles tied to wrists, collar
+'bd017_03.jpg   4pt kneel, knees wide, collar, hands on legs, palms up
+'wsc00460.jpg   over chair, ass presented, on knees, heels, arms folded in front, head up
+
+'medium (29): + gag, clothes pegs, nipple clamps
+'
+'500 1221 bd259_02.jpg   2pt kneel, ankle & wrist, knees 1x, presenting tray
+'406 1226 bd075_14.jpg   hands and knees, on forearms, face down licking shoe, knees 2x, ass up, heels (bd075_15.jpg)
+'408 1228 bd228_09.jpg   4pt kneel, nipple clips, collar, hands behind butt, knees 1x
+'410 1230 bd068_22.jpg   2pt kneel, knees wide, ankles together, hands behind butt, nipple clips
+'418 1238 bd166_42.jpg   2pt kneel, sit on heels, leges together, knees 1x, collar, gag, hands boxed behind back
+'419 1239 bd180_44.jpg   4pt kneel 1x, hands behind back, nipple clamps, gag, heels
+'bd238_28.jpg   4pt sit on heels hands behind head knees 1.5x, ankles tied to thighs, rope harness, crotch rope (bd238_29.jpg)
+'bd228_11.jpg   2pt sit on heels, nipple clips, collar, hands behind butt, knees together
+'bd177_23.jpg   2pt kneel, hands near belly & tied, rope harness, collar, knees 1.5x
+'bd161_25.jpg   hands and knees, nipple clamps, heels, wristlets, hands 1x knees 1.5x
+'bd069_23.jpg   2pt sit on knees, hands on knees, knees wide, nipple clamps, collar, leash
+'bd069_21.jpg   2pt sit on knees, hands behind head, knees wide, nipple clamps, collar, leash (bd069_22.jpg)
+'bd069_17.jpg   4pt kneel, knees 1.5x, hands on thighs, collar, leash, nipple clamps
+'bd068_32.jpg   standing, legs wide, hands on hips, nipple & pussy clips
+'bd068_19.jpg   sit on heels, knees wide, hands behind head, nipple clips
+'bd064_14.jpg   standing, legs 2x, hands behind butt, tiptoes (bd064_15.jpg)
+'bd047_13.jpg   crouch on toes, knees wide, hands behind butt, wristlets, collar
+'bd042_24.jpg   2pt sit on heels, hands on legs palms up, nipple clips, collar, leash
+'bd042_20.jpg   2pt kneel, palms on ground, knees 2x, nipple clips, collar, leash
+'bd041_32.jpg   standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+'bd037_44.jpg   on back, ass raised, knees up, legs wide, hands 1x width supporting ass, ank/wrist/collar/heels (bd037_45.jpg, bd037_46.jpg)
+'bd022_48.jpg   6pt kneelover on knuckles, knees 1.5x/hands 2x, nipple clamps, head up, wrist restraints, heels
+'bd037_35.jpg   2pt kneel, legs wide, hands above head crossed, ank/wrist/collar/heels
+'bd037_27.jpg   2pt kneel ass up, face on ground, resting on elbows, hands behind head, ank/wrist/collar/heels (bd037_28.jpg)
+'bd034_27.jpg   4pt kneel, knees together, hands behind head, wristlets
+'bd024_18.jpg   standing, nipple clamps, hands behind head, legs 1.5x, heels
+'bd028_21.jpg   standing, nipple clamps, hands behind head, legs 2x, heels
+'bd028_23.jpg   standing, nipple clamps, hands folded behind back, legs 2x, heels
+'bd028_33.jpg   standing, nipple clamps, collar, legs wide, heels, hands behind butt, elbows out
+'bd019_19.jpg   2pt kneel, knees 1x shoulder, nipple clamps, hands behind head, collar, wristlets
+'pms-s2364.jpg  kneel on chair, hands on floor, bent over, head up, ass presented, heels
+
+'hard (23): + Crotch rope, pussy clamps (pegs on balls)
+'
+'402 1222 bd238_25.jpg   hands and knees, ankles tied to thighs, rope harness + crotch rope, legs 2x hands 1x (bd238_26.jpg)
+'407 1227 bd227_17.jpg   on table, crouch on toes, hands behind butt, legs wide, nipple clamps, collar, heels, big smile, crotch rope
+'411 1231 bd016_45.jpg   2pt kneel, knees together, nipple clips, arms straight down behind back, gag, collar, leash, cuffs (46)
+'413 1233 bd159_25.jpg   4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs (23, 24)
+'417 1237 bd041_32.jpg   standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+'bd250_39.jpg   standing, heels, hands behind butt, legs together, nipple clamps w/ chain in mouth, collar
+'bd238_31.jpg   2pt sit on heels, hands above head palms together & tied, rope harness, crotch rope, ankles to thighs
+'bd178_01.jpg   2pt kneel, ank/wrst/collar, nipple clamps, presenting tray, knees 1x (bd178_02.jpg)
+'bd177_22.jpg   4pt kneel, hands above head crossed & tied, rope harness, collar, knees wide
+'bd161_23.jpg   4pt kneel, knees 1.5x, hands behind head, nipple clamps, heels, wristlets (bd161_24.jpg)
+'bd069_30.jpg   2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar (bd069_31.jpg)
+'bd069_24.jpg   stand on toes, legs 1.5x, hands behind head, collar leash, nipple clamps
+'bd069_20.jpg   4pt kneel, palms on ground, knees wide, hands 1x, ankles together, collar leash, nipple clamps
+'bd069_18.jpg   4pt kneel, knees 1.5x, hands behind head, collar, leash, nipple clamps
+'bd068_27.jpg   2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips (bd068_29.jpg)
+'bd064_50.jpg   hands and knees and toes, head up, legs & hands 1.5x, nipple clips, pussy clamps
+'bd064_46.jpg   4pt kneel, hands above head and crossed, nipple clips, pussy clamps
+'bd041_29.jpg   2pt crouch on toes, heels, nipple & pussy clamps, hands behind head, knees wide
+'bd0053_09.jpg  standing, clamps nipples & pussy, hands behind head, legs 2x shoulder, heels
+'bd021_39.jpg   2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+'bd021_40.jpg   2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, gag
+'bd0053_17.jpg  2pt kneel on stool, clamps nipples & pussy, hands behind head, leaning over, knees 1x shoulder
+'bd0054_29.jpg  2pt crouch on toes, knees wide, hands behind head, nipple & pussy clips, collar, wristlets, leash
+'bd0054_33.jpg  2pt kneel, knees 2x shoulder, nipple & pussy clips, hands behind head, collar, wristlets, leash
+'411 1231 bd016_45.jpg   2pt kneel, knees together, nipple clips, arms straight down behind back, gag, collar, leash, cuffs (46)
+
+'extreme (5): Dildo, butt plug
+'
+'403 1223 EMSTsmpl01.jpg crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide (02)
+'414 1234 bd186_66.jpg   4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs (bd186_67.jpg)
+'416 bd178_06.jpg   hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
+'bd201_15.jpg   4pt kneel on canes, hands behind back, gag, collar, knees 1x (bd201_17.jpg, bd201_23.jpg)
+'bd069_26.jpg   stand on toes, legs 1.5x, hands behind butt, collar leash, nipple & pussy clamps
+'420 removed
+'421 1241 102_013.jpg   crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo (102_014.jpg)
+
+
+' 1400-1699 dispatches to the position ranges (300 entries allow for 300 positions)
+' 2000-3999 (2000 actions allow for 100 positions each 20 action)
+
+
+' toy selection and slave state as in Mine.sbd:
+'
+'	When beginning an activity or spawning something, make sure to check these
+'	bits so that the slave will be able to perform everything. Jerking off
+'	instructions are all over the place, so don't bother with checking that
+'	unless it's an integral part of the activity.
+'
+'	The flags are only set in some cases, if we have specific entry points,
+'	for instnace when training with enema applied
+'
+'	20	-	something on nipples
+'	21	-	something in butt
+'	22	-	something in mouth
+'	23	-	something on penis
+'	24	-	something on balls
+'	25	-	ankles tied
+'	26	-	wrists tied
+'	27	-	something around waist
+'	28	-	collared
+'	29	-	blindfold on
+'	30	-	can't jerk off
+'	31	-	can't sit on chair
+'	32	-	can't stand
+'	33	-	can't kneel
+'	34	-	can't type/use mouse
+'	35	-	tethered - can't leave computer area
+'   36  -   harnessed
+
+
+.askcheck 11 100    100: position short duration
+.askcheck 12 101    101: position medium duration
+.askcheck 13 102    102: position long duration
+.askcheck 14 103    103: position very long duration
+
+.askcheck 20 110    110: position easy difficulty
+.askcheck 21 111    111: position moderate difficulty
+.askcheck 22 112    112: position hard difficulty
+.askcheck 23 113    113: position extreme difficulty
+
+
+' 120: regular training session , return via 
+'      9963 -> Mine.sbd 5100 5100 (good ending)
+'      9981 -> Mine.sbd 5101 5101 (bad ending)
+' 121: debug entry/exit
+' 122: training failure 1 , 9961 -> Mine.sbd 2417 2417
+' 123: excessive disobedience , 9964 -> Mine.sbd 2416 2416
+' 124: free
+' 125: training failure 2 , 9962 -> Mine.sbd 2418 2418
+' 126: free
+
+' Comment flags: Pre-set but can be changed to adjust comments to position
+' 130:	holding	position	default: set	
+' 131:	dildo sucking   	default: unset	
+' 132:  Show licking    	default: unset
+
+' Must set defaults in 1219, and in debug entry 960 -> update when adding new flag
+'.set 130                ' comment holding position
+'.unset 131 132          ' Don't comment dildo sucking, shoe licking 
+'.unset 133              ' Multiple positions, set when the wait loop contains position changes 
+ 
+' 390-399 is used for position achivements
+' 400-699 are used as achivement bits, but these are never queried afterwards
+
+' 390 series indicates that the slave has achieved this level
+.askcheck 25 390    390: achieved positions level 1 - naked, collar, leash
+.askcheck 26 391    391: achieved positions level 2 - nipple clips/clamps, more restraints
+.askcheck 27 392    392: achieved positions level 3 - pussy clips
+.askcheck 28 393    393: achieved positions level 4 - dildo worshiping?, pain
+.askcheck 29 394    394: achieved positions level 5
+.askcheck 30 395    395: achieved positions level 6
+.askcheck 31 396    396: achieved positions level 7
+
+' levels resolve to maid training level in mine as follows:
+' 390	->	-
+' 391	->	771: * Maid Training 1
+' 392	->	772: * Maid Training 2
+' 393	->	773: * Maid Training 3
+' 394	->	774: * Maid Training 4
+' 395	->	775: * Maid Training 5
+' 396	->	---: * 
+
+.askcheck 31 398    398: Slave hadn't had necessary toys in a earlier session, used for commenting failure
+.askcheck 31 399    399: Slave had failed position a earlier session, used for commenting failure
+
+
+
+' 170 series indicates that this session is going to be at such and such a level
+.askcheck 33 170    170: Current session positions level 1
+.askcheck 34 171    171: Current session positions level 2
+.askcheck 35 172    172: Current session positions level 3
+.askcheck 36 173    173: Current session positions level 4
+.askcheck 37 174    174: Current session positions level 5
+.askcheck 38 175    175: Current session positions level 6
+.askcheck 39 176    176: Current session positions level 7
+.askcheck 41 179    179: punishment flag; repeat on fail
+
+' 180 series indicates a certain position exertion
+' for instance standing on tip toes might be more fatigueing than just standing
+' Set by the actual position
+.askcheck       45     	180	180 -	8/12/16/20 comfortable
+.askcheck       46     	181	181 -	5/10/14/18 convenient
+.askcheck       47     	182	182 -	7/11/14/16 demanding
+.askcheck       48     	183 183 -	6/10/13/15 challenging
+.askcheck       49     	184	184 -	5/ 8/10/12 exhausting
+
+' 190 series indicates the progress of the training, advanced by the duration counter
+'.askcheck       45     	190	190 -   Just started	
+'.askcheck       46     	192	192 -	progressing
+'.askcheck       47     	194	194 -	half time
+'.askcheck       48     	196 196 -	almost there
+'.askcheck       49     	198	198 -	final
+
+
+.askcheck       50     	20	20 -	something on nipples
+.askcheck       51     	21	21 -	something in butt
+.askcheck       52     	22	22 -	something in mouth
+.askcheck       53     	23	23 -	something on penis
+.askcheck       54     	24	24 -	something on balls
+.askcheck       55     	25	25 -	ankles tied
+.askcheck       56     	26	26 -	wrists tied
+.askcheck       57      27	27 -	something around waist
+.askcheck       58      28	28 -	collared
+.askcheck       59      29	29 -	blindfold on
+.askcheck       60      30	30 -	can't jerk off
+.askcheck       61      31	31 -	can't sit on chair
+.askcheck       62     	32	32 -	can't stand
+.askcheck       63      33	33 -	can't kneel
+.askcheck       64     	34	34 -	can't type/use mouse  (this is also the case when blindfolded)
+.askcheck       65      35	35 -	tethered - can't leave computer area
+.askcheck       66      36  36 -	harnessed
+.askcheck       67      37  37 -	cock harness (includes 23, 24, possibly 30)
+.askcheck       68      38  38 -	
+.askcheck       69      39  39 -	Pussy clamps  - additional to 24 something on balls 
+.askcheck       70      40  40 -	Dildo in mouth, along with 22
+.askcheck       71      41  41 -	Dildo in ass, along with 21
+
+
+' Debug
+
+.menu  1  1001 1001 Generic entry point
+.menu  2  1002 1002 From punishment (training failure 1), punishment acceptance level not set
+.menu  3  1003 1003 From punishment (excessive disobedience), Punishment acceptance 3
+.menu  4  1004 1004 From punishment (training failure 1), punishment acceptance 4
+.menu  5  1200 1200 From punishment (training failure 2)
+.menu  6  1006 1006 From punishment (training failure 2), punishment acceptance 2
+.menu  7  1007 1007 From punishment (training failure 2), punishment acceptance 4
+.menu  8  1008 1008 Enema training session
+.menu  9  1010 1010 Regular training session
+.menu 10   991  991 Status dump
+.menu 11   992  992 Custom random position
+.menu 12   993  993 Select easy positon
+.menu 13   994  994 Select moderate positon
+.menu 14   995  995 Select hard positon
+.menu 15   996  996 Select extreme positon
+.menu 16  1000 1000 Exit
+
+
+' .menu and .popup accept values from 1-99 only (otherwise PCM crashes)
+
+' easy
+.menu 20 1400 1400 400 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
+.menu 21 1401 1401 401 Standing bent over, hands on shins, ass presented, head down
+.menu 22 1402 1402 402 4pt kneel, hands on thighs palms up, collar
+.menu 23 1403 1403 403 4pt sit on heels, hands on legs palms down, wristlets, collar, heels
+.menu 24 1404 1404 404 belly on chair, ass presented, heels, holding legs of chair, head up
+.menu 25 1405 1405 405 standing, legs together, collar, leash, heels, hands behind butt, balancing book on head
+.menu 26 1406 1406 406 standing, legs together, hands on hips, collar, leash, big smile
+.menu 27 1407 1407 407 2pt sit on heels, knees together, collar, hands together in front, balancing book on head
+.menu 28 1408 1408 408 standing, legs together, hands behind head, blindfolded
+.menu 29 1409 1409 409 standing, legs together, hands behind head
+.menu 30 1410 1410 410 Sitting on heels 2pt, legs spread, hands on thighs, palms up
+
+' moderate
+.menu 40 1500 1500 500 2pt kneel, ankles & wrists, knees 1x, presenting tray
+.menu 41 1501 1501 501 Hands and knees, on forearms, face down licking shoe, knees 2x, ass up, heels
+.menu 42 1502 1502 502 4pt kneel, nipple clips, collar, hands behind butt, knees 1x
+.menu 43 1503 1503 503 2pt kneel, knees wide, ankles together, hands behind butt, nipple clips
+.menu 44 1504 1504 504 2pt kneel, sit on heels, legs together, knees 1x, collar, gag, hands boxed behind back
+.menu 45 1505 1505 505 4pt kneel 1x, hands behind back, nipple clamps, gag, heels
+.menu 46 1506 1506 506 Hands and knees, on hands, sitting on heels, face down licking shoe, knees 1x, heels
+
+' hard
+.menu 60 1575 1575 575 Hands and knees, ankles tied to thighs, rope harness + crotch rope, legs 2x hands 1x
+.menu 61 1576 1576 576 On table, crouch on toes, hands behind butt, legs wide, nipple clamps, collar, heels, big smile, crotch rope
+.menu 62 1577 1577 577 2pt kneel, knees together, nipple clips, arms straight down behind back, gag, collar, leash, cuffs
+.menu 63 1578 1578 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
+.menu 64 1579 1579 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+.menu 65 1580 1580 580 hands on back, sitting on heels, face down licking shoe, knees 1x, heels
+
+' extreme
+.menu 80 1650 1650 650 Crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide
+.menu 81 1651 1651 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
+.menu 82 1652 1652 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
+.menu 83 1653 1653 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
+
+
+[Action 990]
+Welcome to debug my code, But don't try to cheat on me.
+What would you like to do today?
+.unset 980
+.set 130                ' comment holding position
+.unset 131 132          ' Don't comment dildo sucking, shoe licking 
+.unset 133              ' Multiple positions
+.PopUp 1 19
+.Say Action
+
+
+[Action 991]
+Status dump (#11 - 66)
+.noimage
+.ask 11 71
+.unset 981
+.range 90
+
+[Action 992]
+Values for custom session (#11 - 66)
+.noimage
+.ask 50 71
+.unset 992
+.set 121                ' Debug, quit afterwards
+.range 980
+
+
+[Action 993]
+Easy positions
+.noimage
+.set 100 110            ' Short duration, easy difficulty 
+.set 121                ' Debug, quit afterwards
+.unset 993
+.PopUp 20 39 
+
+
+[Action 994]
+Moderate positions
+.noimage
+.set 100 111            ' Short duration, moderate difficulty 
+.set 121                ' Debug, quit afterwards
+.unset 994
+.PopUp 40 59 
+
+
+[Action 995]
+Hard positions
+.noimage
+.set 100 112            ' Short duration, hard difficulty 
+.set 121                ' Debug, quit afterwards
+.unset 995
+.PopUp 60 79 
+
+
+[Action 996]
+Extreme positions
+.noimage
+.set 100 113            ' Short duration, extreme difficulty 
+.set 121                ' Debug, quit afterwards
+.unset 996
+.PopUp 80 99
+
+
+' One-time init from Mine.sbd to create save state file
+[Action 998]
+.noimage
+.delay 0
+.resetrange 390 699
+.range 999
+
+[Action 999]
+.noimage
+.delay 0
+.save 390 699
+.loadsbd Mine.sbd 1030 1030
+
+
+ [Action 1000]
+.save 390 699
+.quit
+
+
+' Generic entry point
+[Action 1001]
+.delay 0
+.noimage
+.set 121                ' Generic activity, quit afterwards
+.range 1100
+
+
+' From punishment (517 training failure 1)
+[Action 1002]
+Your punishment will be to hold a slave position for such time as I see fit.
+If you fail to hold the position properly, we will simply have to try another,
+and another, until you eventually learn obedience.
+.pause
+.set 122       ' punishment (training failure 1)
+.set 179       ' punishment flag, repeat on fail
+.range 1160    ' Light punishment (according to punishment acceptance)
+.Say Action
+
+
+' From punishment (516 excessive disobedience)
+[Action 1003]
+Your punishment will be to hold a slave position for such time as I see fit.
+If you fail to hold the position properly, we will simply have to try another,
+and another, until you eventually learn obedience.
+.pause
+.set 123       ' punishment (excessive disobedience)
+.range 1170    ' Medium punishment (according to punishment acceptance)
+.Say Action
+
+
+' From punishment (518 training failure 2)
+[Action 1005]
+Your punishment will be to hold a slave position for such time as I see fit.
+If you fail to hold the position properly, we will simply have to try another,
+and another, until you eventually learn obedience.
+.pause
+.set 125       ' punishment (training failure 2)
+.set 179       ' punishment flag, repeat on fail
+.range 1180    ' Severe punishment (according to punishment acceptance)
+.Say Action
+
+
+' Free slot
+'[Action 1008]
+'.delay 0
+'.noimage
+'.set 126
+'.set 21
+'.range 1102
+
+
+' Regular training session
+[Action 1010]
+.delay 0
+.noimage
+.set 120           ' Regular training session
+.range 1100
+
+
+
+[Action 1100]
+We will now practice your slave positions. Follow all of my instructions and
+hold each position until I tell you to move. If you fail to maintain the position,
+press STOP and of course you will be punished. If you do not have the correct
+equipment for a position, you must also admit your failure.
+.pause
+.unset 179 99
+.unset 170 171 172 173 174 175 176
+.range 1190 1199
+.Say Action
+
+[Action 1101]
+Your punishment will be to hold a slave position for such time as I see fit.
+If you fail to hold the position properly, we will simply have to try another,
+and another, until you eventually learn obedience.
+.pause
+.set 179       ' punishment flag, repeat on fail
+.range 1200
+.Say Action
+
+
+' determine current level 170-176 of this session from punishment acceptance 711 715
+
+' light punishment
+
+[Action 1160]
+.delay 0
+.noimage
+.unset 170 171 172 173 174 175 176
+.range 1161 1165
+
+[Action 1161]
+.delay 0
+.noimage
+.mustnot 711 712 713 714 715
+.set 170           ' Level 1
+.range 1200
+
+[Action 1162]
+.delay 0
+.noimage
+.must 711
+.set 171           ' Level 2
+.range 1200
+
+[Action 1163]
+.delay 0
+.noimage
+.must 712
+.set 172           ' Level 3
+.range 1200
+
+[Action 1164]
+.delay 0
+.noimage
+.must 713
+.set 173           ' Level 4
+.range 1200
+
+[Action 1165]
+.delay 0
+.noimage
+.must 714
+.set 174           ' Level 5
+.range 1200
+
+[Action 1166]
+.delay 0
+.noimage
+.must 715
+.set 175           ' Level 6
+.range 1200
+
+
+' medium punishment
+
+[Action 1170]
+.delay 0
+.noimage
+.unset 170 171 172 173 174 175 176
+.range 1171 1175
+
+[Action 1171]
+.delay 0
+.noimage
+.mustnot 711 712 713 714 715
+.set 171           ' Level 2
+.range 1200
+
+[Action 1172]
+.delay 0
+.noimage
+.must 711
+.set 172           ' Level 3
+.range 1200
+
+[Action 1173]
+.delay 0
+.noimage
+.must 712
+.set 173           ' Level 4
+.range 1200
+
+[Action 1174]
+.delay 0
+.noimage
+.must 713
+.set 174           ' Level 5
+.range 1200
+
+[Action 1175]
+.delay 0
+.noimage
+.must 714
+.set 174           ' Level 6
+.range 1200
+
+[Action 1176]
+.delay 0
+.noimage
+.must 715
+.set 176           ' Level 7
+.range 1200
+
+
+' severe punishment
+
+[Action 1180]
+.delay 0
+.noimage
+.unset 170 171 172 173 174 175 176
+.range 1181 1185
+
+[Action 1181]
+.delay 0
+.noimage
+.mustnot 711 712 713 714 715
+.set 172           ' Level 3
+.range 1200
+
+[Action 1182]
+.delay 0
+.noimage
+.must 711
+.set 173           ' Level 4
+.range 1200
+
+[Action 1183]
+.delay 0
+.noimage
+.must 712
+.set 174           ' Level 5
+.range 1200
+
+[Action 1184]
+.delay 0
+.noimage
+.must 713
+.set 175           ' Level 6
+.range 1200
+
+[Action 1185]
+.delay 0
+.noimage
+.must 714
+.set 176           ' Level 7
+.range 1200
+
+[Action 1186]      ' Saturated since there are only five punishment acceptance levels
+.delay 0
+.noimage
+.must 715
+.set 176           ' Level 7
+.range 1200
+
+
+' determine current level 170-176 of this session from achievements
+
+[Action 1190]
+.delay 0
+.noimage
+.mustnot 391 392 393 394 395 396  ' On the first run, 390 hasn't been set yet
+.set 390 170
+.range 1200
+
+[Action 1191]
+.delay 0
+.noimage
+.must 391
+.set 171
+.range 1200
+
+[Action 1192]
+.delay 0
+.noimage
+.must 392
+.set 172
+.range 1200
+
+[Action 1193]
+.delay 0
+.noimage
+.must 393
+.set 173
+.range 1200
+
+[Action 1194]
+.delay 0
+.noimage
+.must 394
+.set 174
+.range 1200
+
+[Action 1195]
+.delay 0
+.noimage
+.must 395
+.set 175
+.range 1200
+
+[Action 1196]
+.delay 0
+.noimage
+.must 396
+.set 176
+.range 1200
+
+
+' Duration and difficulty from current level 170-176 
+
+[Action 1200]
+.delay 0
+.noimage
+.unset 1200
+.unset 100 101 102 103 110 111 112 113
+.resetrange 1201 9999
+.range 1201 1217
+
+' Fallback
+[Action 1201]
+.delay 0
+.noimage
+.mustnot 170 171 172 173 174 175 176
+.set 170
+.range 1202 1217
+
+' Short, easy
+[Action 1202]
+.delay 0
+.noimage
+.must 170
+.set 100 110
+.range 1219
+
+' Short, moderate
+[Action 1203]
+.delay 0
+.noimage
+.must 171
+.set 100 111
+.range 1219
+
+' Medium, easy
+[Action 1204]
+.delay 0
+.noimage
+.must 171
+.set 101 110
+.range 1219
+
+' Short, hard
+[Action 1205]
+.delay 0
+.noimage
+.must 172
+.set 100 112
+.range 1219
+
+' Medium, moderate
+[Action 1206]
+.delay 0
+.noimage
+.must 172
+.set 101 111
+.range 1219
+
+' Long, easy
+[Action 1207]
+.delay 0
+.noimage
+.must 172
+.set 102 110
+.range 1219
+
+' Short, extreme
+[Action 1208]
+.delay 0
+.noimage
+.must 173
+.set 100 113
+.range 1219
+
+' Medium, hard
+[Action 1209]
+.delay 0
+.noimage
+.must 173
+.set 101 112
+.range 1219
+
+' Long, moderate
+[Action 1210]
+.delay 0
+.noimage
+.must 173
+.set 102 111
+.range 1219
+
+' Very long, easy.
+[Action 1211]
+.delay 0
+.noimage
+.must 173
+.set 103 110
+.range 1219
+
+' Medium, extreme.
+[Action 1212]
+.delay 0
+.noimage
+.must 174
+.set 101 113
+.range 1219
+
+' Long, hard.
+[Action 1213]
+.delay 0
+.noimage
+.must 174
+.set 102 112
+.range 1219
+
+' Very long, moderate.
+[Action 1214]
+.delay 0
+.noimage
+.must 174
+.set 103 111
+.range 1219
+
+' Long, extreme.
+[Action 1215]
+.delay 0
+.noimage
+.must 175
+.set 102 113
+.range 1219
+
+' Very long, hard.
+[Action 1216]
+.delay 0
+.noimage
+.must 175
+.set 103 112
+.range 1219
+
+' Very long, extreme.
+[Action 1217]
+.delay 0
+.noimage
+.must 176
+.set 103 113
+.range 1219
+
+
+' Select position
+[Action 1219]
+.delay 0
+.noimage
+.resetrange 1200 1219
+.set 130                ' comment holding position
+.unset 131 132          ' Don't comment dildo sucking, shoe licking 
+.unset 133              ' Multiple positions
+.range 1220 1223
+
+
+' Easy
+[Action 1220]
+.delay 0
+.noimage
+.must 110
+.range 1400 1499
+
+' Moderate
+[Action 1221]
+.delay 0
+.noimage
+.must 111
+.range 1500 1574
+
+' Difficult
+[Action 1222]
+.delay 0
+.noimage
+.must 112
+.range 1575 1649
+
+' Extreme
+[Action 1223]
+.delay 0
+.noimage
+.must 113
+.range 1650 1699
+
+
+'DEBUG set tested positions for debugging and activate ask
+'Debug, choose a position.
+'.ask 11 45
+'.set 1250 1251 1252 1253 1254 1255 1256 1257 1258 1259
+'.set 1260 1261 1262 1263 1264
+
+
+' position selection 1400-1699
+' Last three digits determine the save-slot for this position
+' Jumps to position lecture in 4000-6999 -> first three digits determine the position slot
+
+' 400 position_standing_* ...
+
+' Easy positions 400-499
+
+' 400 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
+' 5/10/15/20
+[Action 1400]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 33             ' Can't kneel
+.mustnot 179            ' Not for punishments, to avoid not having items
+.set 180                ' Comfortable
+.range 4000 4003
+
+' 401 Standing bent over, hands on shins, ass presented, head down
+'9/12/15/18
+[Action 1401]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 32             ' can't stand
+.set 180                ' Comfortable
+.range 4010
+
+' 402 4pt kneel, hands on thighs palms up, collar
+'5/10/15/20
+[Action 1402]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.must 403               ' Lecture mentions "another", so another positionn has to be completed before
+.mustnot 179            ' Not for punishments, to avoid not having items
+.set 180                ' Comfortable
+.range 4020
+
+' 403 4pt sit on heels, hands on legs palms down, wristlets, collar, heels
+'5/10/15/20
+[Action 1403]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 179            ' Not for punishments, to avoid not having items
+.set 180                ' Comfortable
+.range 4030 4033
+
+' 404 belly on chair, ass presented, heels, holding legs of chair, head up
+'5/8/11/14
+[Action 1404]
+.delay 0
+.noimage
+.mustnot 20             ' Torso on chair
+.mustnot 33             ' Can't kneel
+.set 181                ' Convenient
+.range 4040
+
+' 405 standing, legs together, collar, leash, heels, hands behind butt, balancing book on head
+'9/12/15/18
+[Action 1405]
+.delay 0
+.noimage
+.mustnot 179            ' Punishment, slave should only fail on his own
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 32             ' can't stand
+.mustnot 179            ' Not for punishments, to avoid not having items
+.set 182                ' Demanding
+.range 4050 4051
+
+' 406 standing, legs together, hands on hips, collar, leash, big smile
+'7/11/15/19
+[Action 1406]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 24             ' something on balls
+.mustnot 32             ' Can't stand
+.mustnot 179            ' Not for punishments, to avoid not having items
+.must 410               ' Lecture mentions "another", so another positionn has to be completed before
+.set 180                ' Comfortable
+.range 4060 4061
+
+' 407 2pt sit on heels, knees together, collar or belt, hands together in front, balancing book on head
+'9/12/15/18
+[Action 1407]
+.delay 0
+.noimage
+.mustnot 179            ' Punishment, slave should only fail on his own
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.set 182                ' Demanding
+.range 4070 4072
+
+' 408 standing, legs together, hands behind head, blindfolded
+'5/10/15/20
+[Action 1408]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.set 181                ' Convenient
+.range 4080 4081
+
+' 409 standing, legs together, hands behind head
+'5/10/15/20
+[Action 1409]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.set 181                ' Convenient
+.range 4090
+
+' 410 Sitting on heels 2pt, legs spread, hands on thighs, palms up
+'5/10/15/20
+[Action 1410]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.set 180                ' Comfortable
+.range 4100
+
+
+' Moderate positions 500-574
+
+' 500 2pt kneel, ankles & wrists, knees 1x, presenting tray
+'5/8/12/15
+[Action 1500]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 25 26          ' Ankles, wrists tied
+.mustnot 32 33          ' Can't stand, can't kneel
+.set 182                ' Demanding
+.range 5000 5003
+
+' 501 Hands and knees, on forearms, face down licking shoe, knees 2x, ass up, heels
+'5/8/11/14
+[Action 1501]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 33             ' Can't kneel
+.unset 130              ' Comment holding position
+.set 132                ' Comment show licking
+.set 181                ' Convenient
+.range 5010
+
+' 502 4pt kneel, nipple clips, collar, hands behind butt, knees 1x
+'10/13/16/19
+[Action 1502]
+.delay 0
+.noimage
+.mustnot 22             ' something in mouth
+.mustnot 26             ' Wrists tied, as hands are behind butt
+.mustnot 43             ' Nipple clamps on nipples
+.set 181                ' Convenient
+.range 5020 5023
+
+' 503 2pt kneel, knees wide, ankles together, hands behind butt, nipple clips
+'5/10/15/20
+[Action 1503]
+.delay 0
+.noimage
+.mustnot 20             ' Position requires two pegs on each nipple
+.mustnot 22             ' something in mouth
+.mustnot 26             ' Wrists tied, as hands are hold on back
+.must 502               ' Lecture mentions "another", so similar positionn 502 has to be completed before
+.set 180                ' Comfortable
+.range 5030
+
+' 504 2pt kneel, sit on heels, legs together, knees 1x, collar, gag, hands boxed behind back
+'9/12/15/18
+[Action 1504]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 26             ' Wrists tied, as hands are boxed behind back
+.set 181                ' Convenient
+.range 5040 5043
+
+' 505 4pt kneel 1x, hands behind back, nipple clamps, gag, heels
+'6/8/10/12
+[Action 1505]
+.delay 0
+.noimage
+.mustnot 33             ' Can't kneel
+.mustnot 42             ' Clothes pegs on nipples
+.set 181                ' Convenient
+.range 5050 5053
+
+' 506 Hands and knees, on hands, sitting on heels, face down licking shoe, knees 1x, heels
+'5/8/11/14
+[Action 1506]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 33             ' Can't kneel
+.must 501               ' Show licking prequel
+.unset 130              ' Comment holding position
+.set 132                ' Comment show licking
+.set 182                ' Demanding
+.range 5010
+
+
+' Hard positions 575-649
+
+' 575 Hands and knees, ankles tied to thighs, rope harness + crotch rope, legs 2x hands 1x
+'10/15/20/25
+[Action 1575]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 32             ' can't stand
+.mustnot 36             ' harnessed
+.set 180                ' Comfortable
+.range 5750
+
+' 576 On table, crouch on toes, hands behind butt, legs wide, nipple clamps, collar, heels, big smile, crotch rope
+'10/13/16/19
+[Action 1576]
+.delay 0
+.noimage
+.mustnot 22             ' something in mouth
+.mustnot 26             ' Wrists tied, as hands are hold on back
+.mustnot 32             ' can't stand
+.mustnot 36             ' harnessed
+.must 575               ' Crotch rope referenced  "as usual" -> do 575 first
+.set 181                ' Convenient
+.range 5760
+
+' 577 2pt kneel, knees together, nipple clips, arms straight down behind back, gag, collar, leash, cuffs
+'8/12/16/20
+[Action 1577]
+.delay 0
+.noimage
+.mustnot 20             ' 2 pegs per nipple are used in this position
+.mustnot 26             ' Wrists tied, as hands are hold on back
+.mustnot 32             ' can't stand
+.set 180                ' Comfortable
+.range 5770
+
+' 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
+'7/11/15/19
+[Action 1578]
+.delay 0
+.noimage
+.mustnot 22             ' something in mouth
+.mustnot 42             ' Clothes pegs on nipples
+.set 182                ' Demanding
+.range 5780
+
+' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+'9/12/15/18
+[Action 1579]
+.delay 0
+.noimage
+.mustnot 22             ' something in mouth
+.mustnot 24             ' something on balls
+.mustnot 32             ' Can't stand
+.mustnot 42             ' Clothes pegs on nipples
+.set 181                ' Convenient
+.range 5790 5791
+
+' 580 hands on back, sitting on heels, face down licking shoe, knees 1x, heels
+'5/8/11/14
+[Action 1580]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 22             ' something in mouth
+.mustnot 33             ' Can't kneel
+.must 506               ' Show licking prequel
+.unset 130              ' Comment holding position
+.set 132                ' Comment show licking
+.set 183                ' Challenging
+.range 5010
+
+
+
+' Extreme positions 650-699
+
+' 650 Crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide
+'9/12/15/18
+[Action 1650]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.mustnot 21             ' something in butt
+.mustnot 22             ' something in mouth
+.set 181                ' Convenient
+.range 6500
+
+' 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
+'3/4/5/6
+[Action 1651]
+.delay 0
+.noimage
+.mustnot 20             ' something on nipples
+.set 184                ' Exhausting
+.range 6510
+
+' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
+'5/8/12/15
+[Action 1652]
+.delay 0
+.noimage
+.mustnot 20             ' Something on nipples
+.mustnot 22             ' Something in mouth
+.mustnot 25 26          ' Ankles tied, wrists tied
+.mustnot 32             ' Because the slave has to fetch tray and a glass from the kitchen
+.mustnot 42             ' Clothes pegs on nipples
+.set 183                ' Challenging
+.range 6520 6521
+
+' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
+'9/12/15/18 too long should start long, but not long than 12m
+[Action 1653]
+.delay 0
+.noimage
+.mustnot 42             ' Clothes pegs on nipples
+.mustnot 22             ' something in mouth
+.mustnot 24             ' something on balls
+.set 183                ' Challenging
+.unset 130              ' Comment holding position
+.set 131                ' Comment dildo sucking
+.range 6530
+
+
+' 699 ...
+
+
+
+
+
+
+' Jump to 1700 from the position lecture to start the wait loop and give comments
+' Comments are defined in 2000 3999 
+
+' loop setup, init progress counter
+[Action 1700]
+.delay 0
+.noimage
+.resetrange 190 199
+.set 1801 1802 1803 1804 1805 1806 1807 1808 1809 1810     ' This sets all progress duration counters to 0, and we can aet the real values with .repeatadd
+.unset 1811
+.range 1749 1789
+
+' default - means not set by the position
+'[Action 1749]
+'.delay 0
+'.noimage
+'.set 180
+'.range 1750 1789
+
+' setup loop duration, assume 20 seconds for comments or wait actions
+' break up duration into 10 steps for the progress indicator
+' .repeatadd add to the set state ,as we've set the count to 0 in 1700
+
+' 180	8/12/16/20 comfortable  24/36/48/60
+
+' 24
+[Action 1750]
+.delay 0
+.noimage
+.must 100
+.must 180
+.repeatadd 1801 2 2     
+.repeatadd 1802 2 2
+.repeatadd 1803 3 3
+.repeatadd 1084 2 2
+.repeatadd 1805 2 2
+.repeatadd 1806 3 3
+.repeatadd 1807 2 2
+.repeatadd 1808 2 2
+.repeatadd 1809 3 3
+.repeatadd 1810 2 2
+.range 1790
+
+' 36
+[Action 1751]
+.delay 0
+.noimage
+.must 101
+.must 180
+.repeatadd 1801 3 3    
+.repeatadd 1802 4 4
+.repeatadd 1803 3 3
+.repeatadd 1084 4 4
+.repeatadd 1805 4 4
+.repeatadd 1806 4 4
+.repeatadd 1807 3 3
+.repeatadd 1808 4 4
+.repeatadd 1809 3 3
+.repeatadd 1810 4 4
+.range 1790
+
+' 48
+[Action 1752]
+.delay 0
+.noimage
+.must 102
+.must 180
+.repeatadd 1801 4 4    
+.repeatadd 1802 5 5
+.repeatadd 1803 5 5
+.repeatadd 1084 5 5
+.repeatadd 1805 5 5
+.repeatadd 1806 5 5
+.repeatadd 1807 5 5
+.repeatadd 1808 5 5
+.repeatadd 1809 5 5
+.repeatadd 1810 4 4
+.range 1790
+
+' 60
+[Action 1753]
+.delay 0
+.noimage
+.must 103
+.must 180
+.repeatadd 1801 6 6    
+.repeatadd 1802 6 6
+.repeatadd 1803 6 6
+.repeatadd 1084 6 6
+.repeatadd 1805 6 6
+.repeatadd 1806 6 6
+.repeatadd 1807 6 6
+.repeatadd 1808 6 6
+.repeatadd 1809 6 6
+.repeatadd 1810 6 6
+.range 1790
+
+
+' 181	5/10/14/18 convenient   15/30/42/54
+
+' 15
+[Action 1754]
+.delay 0
+.noimage
+.must 100
+.must 181
+.repeatadd 1801 1 1  
+.repeatadd 1802 2 2
+.repeatadd 1803 1 1
+.repeatadd 1084 2 2
+.repeatadd 1805 1 1
+.repeatadd 1806 2 2
+.repeatadd 1807 1 1
+.repeatadd 1808 2 2
+.repeatadd 1809 1 1
+.repeatadd 1810 2 2
+.range 1790
+
+' 30
+[Action 1755]
+.delay 0
+.noimage
+.must 101
+.must 181
+.repeatadd 1801 3 3  
+.repeatadd 1802 3 3
+.repeatadd 1803 3 3
+.repeatadd 1084 3 3
+.repeatadd 1805 3 3
+.repeatadd 1806 3 3
+.repeatadd 1807 3 3
+.repeatadd 1808 3 3
+.repeatadd 1809 3 3
+.repeatadd 1810 3 3
+.range 1790
+
+' 42
+[Action 1756]
+.delay 0
+.noimage
+.must 102
+.must 181
+.repeatadd 1801 4 4  
+.repeatadd 1802 4 4
+.repeatadd 1803 5 5 
+.repeatadd 1084 4 4
+.repeatadd 1805 4 4
+.repeatadd 1806 4 4
+.repeatadd 1807 5 5
+.repeatadd 1808 4 4
+.repeatadd 1809 4 4
+.repeatadd 1810 4 4
+.range 1790
+
+' 54
+[Action 1757]
+.delay 0
+.noimage
+.must 103
+.must 181
+.repeatadd 1801 5 5
+.repeatadd 1802 6 6 
+.repeatadd 1803 5 5
+.repeatadd 1084 6 6
+.repeatadd 1805 5 5
+.repeatadd 1806 6 6
+.repeatadd 1807 5 5
+.repeatadd 1808 6 6
+.repeatadd 1809 5 5
+.repeatadd 1810 5 5
+.range 1790
+
+
+' 182	7/11/14/16 demanding    21/33/42/48
+
+' 21
+[Action 1758]
+.delay 0
+.noimage
+.must 100
+.must 182
+.repeatadd 1801 2 2  
+.repeatadd 1802 2 2
+.repeatadd 1803 2 2
+.repeatadd 1084 2 2
+.repeatadd 1805 3 3
+.repeatadd 1806 2 2
+.repeatadd 1807 2 2
+.repeatadd 1808 2 2
+.repeatadd 1809 2 2
+.repeatadd 1810 2 2
+.range 1790
+
+' 33
+[Action 1759]
+.delay 0
+.noimage
+.must 101
+.must 182
+.repeatadd 1801 3 3
+.repeatadd 1802 3 3
+.repeatadd 1803 4 4
+.repeatadd 1084 3 3
+.repeatadd 1805 3 3
+.repeatadd 1806 4 4
+.repeatadd 1807 3 3
+.repeatadd 1808 3 3
+.repeatadd 1809 4 4
+.repeatadd 1810 3 3
+.range 1790
+
+' 42
+[Action 1760]
+.delay 0
+.noimage
+.must 102
+.must 182
+.repeatadd 1801 4 4  
+.repeatadd 1802 4 4
+.repeatadd 1803 4 4
+.repeatadd 1084 5 5
+.repeatadd 1805 4 4
+.repeatadd 1806 4 4
+.repeatadd 1807 5 5
+.repeatadd 1808 4 4
+.repeatadd 1809 4 4
+.repeatadd 1810 4 4
+.range 1790
+
+' 48
+[Action 1761]
+.delay 0
+.noimage
+.must 103
+.must 182
+.repeatadd 1801 5 5  
+.repeatadd 1802 5 5
+.repeatadd 1803 5 5
+.repeatadd 1084 4 4
+.repeatadd 1805 5 5
+.repeatadd 1806 5 5
+.repeatadd 1807 5 5
+.repeatadd 1808 4 4
+.repeatadd 1809 5 5
+.repeatadd 1810 5 5
+.range 1790
+
+
+' 183	6/10/13/15 challenging  18/30/39/45
+
+' 18
+[Action 1762]
+.delay 0
+.noimage
+.must 100
+.must 183
+.repeatadd 1801 2 2  
+.repeatadd 1802 2 2
+.repeatadd 1803 2 2
+.repeatadd 1084 1 1
+.repeatadd 1805 2 2
+.repeatadd 1806 2 2
+.repeatadd 1807 1 1
+.repeatadd 1808 2 2
+.repeatadd 1809 2 2
+.repeatadd 1810 2 2
+.range 1790
+
+' 30
+[Action 1763]
+.delay 0
+.noimage
+.must 101
+.must 183
+.repeatadd 1801 3 3  
+.repeatadd 1802 3 3
+.repeatadd 1803 3 3
+.repeatadd 1084 3 3
+.repeatadd 1805 3 3
+.repeatadd 1806 3 3
+.repeatadd 1807 3 3
+.repeatadd 1808 3 3
+.repeatadd 1809 3 3
+.repeatadd 1810 3 3
+.range 1790
+
+' 39
+[Action 1764]
+.delay 0
+.noimage
+.must 102
+.must 183
+.repeatadd 1801 4 4
+.repeatadd 1802 4 4
+.repeatadd 1803 4 4
+.repeatadd 1084 4 4
+.repeatadd 1805 4 4
+.repeatadd 1806 4 4
+.repeatadd 1807 4 4
+.repeatadd 1808 4 4
+.repeatadd 1809 4 4
+.repeatadd 1810 3 3
+.range 1790
+
+' 45
+[Action 1765]
+.delay 0
+.noimage
+.must 103
+.must 183
+.repeatadd 1801 4 4 
+.repeatadd 1802 5 5
+.repeatadd 1803 4 4
+.repeatadd 1084 5 5
+.repeatadd 1805 4 4
+.repeatadd 1806 5 5
+.repeatadd 1807 4 4
+.repeatadd 1808 5 5
+.repeatadd 1809 4 4
+.repeatadd 1810 5 5
+.range 1790
+
+' 184	5/ 8/10/12 exhausting   15/24/30/36
+
+' 15
+[Action 1766]
+.delay 0
+.noimage
+.must 100
+.must 184
+.repeatadd 1801 2 2  
+.repeatadd 1802 1 1
+.repeatadd 1803 2 2
+.repeatadd 1084 1 1
+.repeatadd 1805 2 2
+.repeatadd 1806 1 1
+.repeatadd 1807 2 2
+.repeatadd 1808 1 1
+.repeatadd 1809 2 2
+.repeatadd 1810 1 1
+.range 1790
+
+' 24
+[Action 1767]
+.delay 0
+.noimage
+.must 101
+.must 184
+.repeatadd 1801 2 2  
+.repeatadd 1802 3 3
+.repeatadd 1803 2 2
+.repeatadd 1084 3 3
+.repeatadd 1805 2 2
+.repeatadd 1806 2 2
+.repeatadd 1807 3 3
+.repeatadd 1808 2 2
+.repeatadd 1809 3 3
+.repeatadd 1810 2 2
+.range 1790
+
+' 30
+[Action 1768]
+.delay 0
+.noimage
+.must 102
+.must 184
+.repeatadd 1801 3 3
+.repeatadd 1802 3 3
+.repeatadd 1803 3 3
+.repeatadd 1084 3 3
+.repeatadd 1805 3 3
+.repeatadd 1806 3 3
+.repeatadd 1807 3 3
+.repeatadd 1808 3 3
+.repeatadd 1809 3 3
+.repeatadd 1810 3 3
+.range 1790
+
+' 36
+[Action 1769]
+.delay 0
+.noimage
+.must 103
+.must 184
+.repeatadd 1801 4 4  
+.repeatadd 1802 3 3
+.repeatadd 1803 4 4
+.repeatadd 1084 3 3
+.repeatadd 1805 4 4
+.repeatadd 1806 4 4
+.repeatadd 1807 4 4
+.repeatadd 1808 3 3
+.repeatadd 1809 4 4
+.repeatadd 1810 3 3
+.range 1790
+
+' up to 1789 for ten durations
+
+
+[Action 1790]
+.delay 0
+.noimage
+.range 1800
+
+
+' Loop start and progress advancer
+
+[Action 1800]
+.delay 0
+.noimage
+.unset 1800
+.range 1801 1811
+
+[Action 1801]
+.delay 0
+.noimage
+.mustnot     191 192 193 194 195 196 197 198 199
+.set 190
+.range 1819 
+
+[Action 1802]
+.delay 0
+.noimage
+.must 1801
+.set 191
+.range 1819 
+
+[Action 1803]
+.delay 0
+.noimage
+.must 1802
+.set 192
+.range 1819 
+
+[Action 1804]
+.delay 0
+.noimage
+.must 1803
+.set 193
+.range 1819 
+
+[Action 1805]
+.delay 0
+.noimage
+.must 1804
+.set 194
+.range 1819 
+
+[Action 1806]
+.delay 0
+.noimage
+.must 1805
+.set 195
+.range 1819 
+
+[Action 1807]
+.delay 0
+.noimage
+.must 1806
+.set 196
+.range 1819 
+
+[Action 1808]
+.delay 0
+.noimage
+.must 1807
+.set 197
+.range 1819 
+
+[Action 1809]
+.delay 0
+.noimage
+.must 1808
+.set 198
+.range 1819 
+
+[Action 1810]
+.delay 0
+.noimage
+.must 1809
+.set 199
+.range 1819 
+
+[Action 1811]
+.delay 0
+.noimage
+.must 1810
+.range 8300             ' success for this pose -> put toys away
+
+' loop comments and wait duration
+[Action 1819]
+.delay 0
+.noimage
+.unset 1819
+.range 1900 1909
+
+
+' "Hold your position" comments right at the start of the loop
+
+' "Hold your position" comment
+[Action 1900]
+.delay 0
+.noimage
+.must 130               ' comment holding position
+.range 1910 1949
+
+' Dildo sucking comment
+[Action 1901]
+.delay 0
+.noimage
+.must 131               ' comment dildo sucking
+.range 1920 1929
+
+' Shoe licking comment
+[Action 1902]
+.delay 0
+.noimage
+.must 132               ' comment shoe licking
+.range 1930 1939
+
+' Skip comment if disabled
+[Action 1903]
+.delay 0
+.noimage
+.unset 1902
+.mustnot 130 131 132
+.range 1999
+
+' After the comment
+[Action 1905]
+.delay 0
+.noimage
+.must 1900              ' comment first
+.unset 1905
+.range 1999
+
+' After the comment
+[Action 1906]
+.delay 0
+.noimage
+.must 1901              ' comment first
+.unset 1906
+.range 1999
+
+' After the comment
+[Action 1907]
+.delay 0
+.noimage
+.must 1902              ' comment first
+.unset 1907
+.range 1999
+
+
+' hold your position
+
+[Action 1910]
+Hold until I tell you otherwise. 
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+[Action 1911]
+Hold this position until I tell you to move.
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+[Action 1912]
+Hold this position until I tell you time is up.
+.delay 20 20 STOP 7300
+.mustnot 133            ' Multiple positions
+.range 3990
+.say action
+
+[Action 1913]
+Hold this position until I tell you otherwise.
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+[Action 1914]
+Hold this position until I ring for you.
+.delay 20 20 STOP 7300
+.mustnot 133            ' Multiple positions
+.range 3990
+.say action
+
+[Action 1915]
+Hold this position until you're told differently, slave.
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+[Action 1916]
+Stay!
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+[Action 1917]
+Hold this position, slave.
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+[Action 1918]
+Hold this position. 
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+[Action 1919]
+I will tell you when to move.
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+
+' Dildo sucking
+
+[Action 1920]
+ Keep it up until I'm satisfied.
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+
+' Shoe licking
+
+[Action 1930]
+ Keep it up until I'm satisfied.
+.delay 20 20 STOP 7300
+.range 3990
+.say action
+
+
+' special or generic comment
+[Action 1999]
+.delay 0
+.noimage
+.unset 1999
+.range 2000 2009
+
+' 2000-3999 loop comments and wait, all comments are 20 seconds
+
+' position-specific comment 130
+[Action 2000]
+.delay 0
+.noimage
+.must 130          ' holding position
+.unset 2000
+.range 2010 3099
+
+' dildo sucking comment 131
+[Action 2001]
+.delay 0
+.noimage
+.must 131          ' sucking dildo
+.unset 2001
+.range 3100 3199
+
+' shoe licking comment 132
+[Action 2002]
+.delay 0
+.noimage
+.must 132          ' licking shoe
+.unset 2001
+.range 3200 3299
+
+'' ?? comment 133
+'[Action 2003]
+'.delay 0
+'.noimage
+'.must 133          ' ???
+'.unset 2001
+'.range 3300 3399
+
+'[Action 2004]
+'[Action 2005]
+'[Action 2006]
+'[Action 2007]
+'[Action 2008]
+
+'' ?? comment 139
+'[Action 2009]
+'.delay 0
+'.noimage
+'.must 139        ' ??? 
+'.unset 2009
+'.range 3900 3989
+
+
+' 2100-3099 holding position 130
+
+[Action 2100]
+Just hold your position, slave. 
+.delay 20 20 STOP 7300
+.must 130               ' comment holding position
+.mustnot 190 192 198 199
+.range 3990
+.say action
+
+[Action 2101]
+Stay stock-still. 
+.delay 20 20 STOP 7300
+.must 130               ' comment holding position
+.mustnot 190 192 198 199
+.range 3990
+.say action
+
+
+' 2400-2999 Position specific comments, sorted by pose
+' refer to 1400-1699 to test for active pose
+' refer to 190-199 for progress
+
+
+' 400 jessienude3.jpg 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
+
+[Action 2400]
+Arch your back, slave.
+.delay 20 20 STOP 7300
+.must 1400
+.mustnot 190 192 198 199
+.range 3990
+.say action
+
+[Action 2401]
+Keep your head up.
+.delay 20 20 STOP 7300
+.must 1400
+.mustnot 190 192 198
+.range 3990
+.say action
+
+
+' 401 Standing bent over, hands on shins, ass presented, head down
+
+[Action 2410]
+.image naked_spanking_punishment_with_a_paddle_waiting_picture_6.jpg
+.delay 20 20 STOP 7300
+.must 1401
+.poss 100               ' Right at the start 
+.range 3990
+
+
+' 410 Sitting on heels 2pt, legs spread, hands on thighs, palms up
+
+[Action 2420]
+Very good. Now we're going to variate this position a bit.
+Put your hands in the small of your back, slave.
+.image position_410_sitting_on_heels_legs_spread_hands_on_back_side_half.jpg
+.delay 20 20 STOP 7300
+.must 195
+.must 410               ' First time
+.must 1410
+.unset 1900             ' Trigger "Hold your position" comment
+.poss 100               ' Right at the start 
+.range 3990
+.say action
+
+
+[Action 2421]
+Now we're going to advance this position.
+Bend forward to kneel on all four.
+.image position_410_on_all_four_side_half.jpg
+.delay 10 10 STOP 7300
+.mustnot 100            ' Short duration
+.must 194
+.must 410               ' First time
+.must 1410
+.poss 100               ' Right at the start 
+.range 2422
+.say action
+
+[Action 2422]
+Keep your arms a bit in front of your head and arch your back.
+Your neck and head follow the curve of your spine and point slightly upward.
+.image position_410_on_all_four_side_full.jpg
+.delay 10 10 STOP 7300
+.must 2421
+.unset 1900             ' Trigger "Hold your position" comment
+.range 3990
+.say action
+
+
+[Action 2423]
+Now get back sitting on your heels while moving your arms forward
+until your nose touches the floor and submit to your mistress.
+.image position_410_sitting_on_heels_head_on_floor_side_half.jpg
+.delay 10 10 STOP 7300
+.mustnot 100            ' Short duration
+.must 198
+.must 410               ' First time
+.must 1410
+.poss 100               ' Right at the start 
+.range 2424
+.say action
+
+[Action 2424]
+Cross your wrists to show readyness to receive your restraints.
+.image position_410_sitting_on_heels_head_on_floor_front.jpg
+.delay 10 10 STOP 7300
+.must 2423
+.unset 1900             ' Trigger "Hold your position" comment
+.range 3990
+.say action
+
+ 
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3099]
+.delay 20 20 STOP 7300
+.unset 3099
+.poss 25
+.range 3990
+
+
+' 3000-3499 unused
+
+
+' 3100-3989 generic comments, sorted by type, sorted by progress
+
+
+' 3100 sucking dildo 131
+
+[Action 3100]
+Suck that dildo, slave.
+.delay 20 20 STOP 7300 
+.range 3990
+.say action
+
+[Action 3101]
+Use your tongue to tease the tip, my pet.
+.delay 20 20 STOP 7300 
+.range 3990
+.say action
+
+[Action 3102]
+Take the shaft in your mouth as deep as you can, slut.
+.delay 20 20 STOP 7300 
+.range 3990
+.say action
+
+[Action 3103]
+Fuck your mouth with that dildo, slave. In and out.
+.delay 20 20 STOP 7300 
+.range 3990
+.say action
+
+[Action 3104]
+Lick the shaft.
+.delay 20 20 STOP 7300 
+.range 3990
+.say action
+
+[Action 3105]
+Tease the tip!
+.delay 20 20 STOP 7300 
+.range 3990
+.say action
+
+[Action 3106]
+A little faster slave.
+.delay 20 20 STOP 7300
+.mustnot 190 191 192 193 
+.range 3990
+.say action
+
+[Action 3107]
+A little slower, slave.
+.delay 20 20 STOP 7300 
+.must 3106
+.range 3990
+.say action
+
+[Action 3108]
+Faster again, slave.
+.delay 20 20 STOP 7300
+.must 3107 
+.range 3990
+.say action
+
+[Action 3109]
+Don't forget about the balls. Take them in your mouth and lick them good.
+.delay 20 20 STOP 7300 
+.range 3990
+.say action
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3199]
+.delay 20 20 STOP 7300
+.unset 3199
+.poss 1
+.range 3990
+
+
+' 3200 licking shoe 132
+
+[Action 3200]
+Lick my shoe, slave.
+.delay 20 20 STOP 7300 
+.range 3990
+.must 190
+.say action
+
+[Action 3201]
+Lick the tip of my shoe, slave.
+.delay 20 20 STOP 7300 
+.mustnot 190
+.range 3990
+.say action
+
+[Action 3202]
+Don't forget about the side, slave.
+.delay 20 20 STOP 7300 
+.mustnot 190 191 192
+.range 3990
+.say action
+
+[Action 3203]
+Don't forget about the other side, slave.
+.delay 20 20 STOP 7300
+.must 3202 
+.mustnot 190 191 192
+.range 3990
+.say action
+
+[Action 3204]
+Make that shoe shine, slave.
+.delay 20 20 STOP 7300 
+.mustnot 190 191 192 193 194
+.range 3990
+.say action
+
+[Action 3205]
+Well slave, that shoe starts to look a little polished up indeed.
+.delay 20 20 STOP 7300 
+.mustnot 190 191 192 193 194 195
+.range 3990
+.say action
+
+[Action 3206]
+Don't forget about the heel, slave.
+.delay 20 20 STOP 7300 
+.mustnot 190 191 192 193 194 195 196
+.range 3990
+.say action
+
+[Action 3207]
+Come on, we're nearly finished, my pet.
+.delay 20 20 STOP 7300 
+.mustnot 190 191 192 193 194 195 196 197
+.range 3990
+.say action
+
+[Action 3208]
+Keep on the good work, slave.
+.delay 20 20 STOP 7300 
+.mustnot 190 191 192 193 194 195 196 197
+.mustnot 190
+.range 3990
+.say action
+
+[Action 3209]
+Look over there. There's still some dirt left. Lick it up!
+.delay 20 20 STOP 7300 
+.mustnot 190 191 192 193 194 195 196 197
+.mustnot 190
+.range 3990
+.say action
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3299]
+.delay 20 20 STOP 7300
+.unset 3299
+.poss 1
+.range 3990
+
+
+' 3300 ?? 133
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3399]
+.delay 20 20 STOP 7300
+.unset 3399
+.poss 1
+.range 3990
+
+
+' 3400 ?? 134
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3499]
+.delay 20 20 STOP 7300
+.unset 3499
+.poss 1
+.range 3990
+
+
+' 3500 ?? 135
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3599]
+.delay 20 20 STOP 7300
+.unset 3599
+.poss 1
+.range 3990
+
+
+' 3600 ?? 136
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3699]
+.delay 20 20 STOP 7300
+.unset 3699
+.poss 1
+.range 3990
+
+
+' 3700 ?? 137
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3799]
+.delay 20 20 STOP 7300
+.unset 3799
+.poss 1
+.range 3990
+
+
+' 3800 ?? 138
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3899]
+.delay 20 20 STOP 7300
+.unset 3899
+.poss 1
+.range 3990
+
+
+' 3900 ?? 139
+
+' Fallback: No comment, just wait an let the slave suffer
+[Action 3989]
+.delay 20 20 STOP 7300
+.unset 3989
+.poss 1
+.range 3990
+
+
+' Loop repeat
+[Action 3990]
+.delay 0
+.noimage
+.unset 3990
+.range 1800
+
+
+' 4000 6999 position lectures 10 slots each
+' set 180 189 to define the fatigueness of each pose in order to adjust the duration
+' from this setting, the actual duration is determined via the position duration 100-103
+' (which in turn is set via the level the slave has achived so far 700-706)
+
+
+' Easy positions 4000-4999
+
+
+' 400 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
+
+
+[Action 4000]
+This is a fairly easy position, slave. You may put a blanket or towel on the floor, if you
+wish. Then put on your collar and wrist restraints. You do have these items, don't you, slave?
+.mustnot 26                  ' Wrists tied
+.mustnot 28                  ' collared
+.yesno 4005 4005 7700 7719
+.Say Action
+
+[Action 4001]
+This is a fairly easy position, slave. You may put a blanket or towel on the floor, if you
+wish. Then put on your wrist restraints. You do have wrist restraints, don't you, slave?
+.mustnot 26                  ' Wrists tied
+.must 28                     ' collared
+.yesno 4005 4005 7700 7719
+.Say Action
+
+[Action 4002]
+This is a fairly easy position, slave. You may put a blanket or towel on the floor,
+if you wish. Then put on your collar. You do have a collar, don't you, slave?
+.must 26                     ' Wrists tied
+.mustnot 28                  ' collared
+.yesno 4005 4005 7700 7719
+.Say Action
+
+[Action 4003]
+This is a fairly easy position, slave. You may put a blanket or towel on the floor, if you wish.
+.must 26                     ' Wrists tied
+.must 28                     ' collared
+.range 4005
+.Say Action
+
+
+[Action 4005]
+Kneel on the ground. Sit on your heels, point your toes behind you.
+.image jessienude3.jpg
+.delay 30 30 STOP 7300
+.range 4006
+.Say Action
+
+[Action 4006]
+Arch your back and place your fingertips on the ground
+beside your butt so that your arms are straight.
+.image jessienude3.jpg
+.delay 15 15 STOP 7300
+.range 4007
+.Say Action
+
+[Action 4007]
+Very good, slave. Now keep your head up and your knees together.
+.image jessienude3.jpg
+.delay 15 15 STOP 7300
+.range 1700
+.Say Action
+
+
+' 401 Standing bent over, hands on shins, ass presented, head down
+
+[Action 4010]
+This is a very easy position, slave, but extremely important. Your
+Mistress must be able to easily thrash your bottom when you've been
+naughty, and this position is one way to offer a good target.
+.image naked_spanking_punishment_with_a_paddle_waiting_picture_3.jpg
+.delay 20 20 STOP 7300
+.range 4011
+.Say Action
+
+[Action 4011]
+All you have to do is bend over at the waist and place your hands on
+your shins. Alternatively, you may grab your ankles or your feet. 
+.image naked_spanking_punishment_with_a_paddle_waiting_picture_4s.jpg
+.delay 30 30 STOP 7300
+.range 4012
+.Say Action
+
+[Action 4012]
+Your legs should be bent slightly at the knee, so that your
+poor slave ass is gently protruding. Your head should be down.
+.image naked_spanking_punishment_with_a_paddle_waiting_picture_5.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 402 4pt kneel, hands on thighs palms up, collar
+
+[Action 4020]
+Here's another simple, basic position, slave. You should put on
+your slave collar before we begin. You do have your collar, slave?
+.mustnot 28
+.yesno 4025 4025 7744 7747
+.Say Action
+
+[Action 4021]
+Here's another simple, basic position, slave.
+.range 4025
+.Say Action
+
+[Action 4025]
+Kneel down with your back to a corner. This is a four-point kneel, so
+your toes should be curled under your feet, not stretched out behind you.
+.image bd204_08.jpg
+.delay 25 25 STOP 7300
+.range 4026
+.Say Action
+
+[Action 4026]
+Sit on your heels and place your hands, palms up, on your thighs.
+Your knees should be spread slightly. Keep your head and eyes up.
+.image bd204_09.jpg
+.delay 20 20 STOP 7300
+.range 1700
+.Say Action
+
+
+' 403 4pt sit on heels, hands on legs palms down, wristlets, collar, heels
+
+[Action 4030]
+This is a very simple submissive position. You will 
+need your wrist restraints and your collar. You do 
+have these items handy, don't you, slave?
+.mustnot 26                  ' Wrists tied
+.mustnot 28                  ' collared
+.yesno 4034 4034 7700 7719
+.Say Action
+
+[Action 4031]
+This is a very simple submissive position. You will need
+your collar. You do have a collar handy, don't you, slave?
+.mustnot 26                  ' Wrists tied
+.must 28                     ' collared
+.yesno 4035 4035 7700 7719
+.Say Action
+
+[Action 4032]
+This is a very simple submissive position. You will need your wrist
+restraints. You do have wrist restraints handy, don't you, slave?
+.must 26                     ' Wrists tied
+.mustnot 28                  ' collared
+.yesno 4036 4036 7700 7719
+.Say Action
+
+[Action 4033]
+This is a very simple submissive position.
+.must 26                     ' Wrists tied
+.must 28                     ' collared
+.range 4037
+.Say Action
+
+
+[Action 4034]
+Go ahead and put on the collar and wrist restraints now.
+.pause
+.image bd066_24.jpg
+.range 4038
+.Say Action
+
+[Action 4035]
+Go ahead and put on the collar now.
+.pause
+.image bd066_24.jpg
+.range 4038
+.Say Action
+
+[Action 4036]
+Go ahead and put on the wrist restraints now.
+.pause
+.image bd066_24.jpg
+.range 4038
+.Say Action
+
+[Action 4037]
+Kneel down on the ground, with your legs widely spread.
+This is a four-point kneel - your toes should be curled
+under your feet, not flat on the ground.
+.image bd066_44.jpg
+.delay 30 30 STOP 7300
+.range 4039
+.Say Action
+
+
+[Action 4038]
+Now, kneel down on the ground, with your legs widely spread.
+This is a four-point kneel - your toes should be curled
+under your feet, not flat on the ground.
+.image bd066_44.jpg
+.delay 30 30 STOP 7300
+.range 4039
+.Say Action
+
+[Action 4039]
+Keep your palms on your thighs and your head up. That's all there is to it.
+.delay 30 30 STOP 7300
+.image bd066_45.jpg
+.range 1700
+.Say Action
+
+
+' 404 belly on chair, ass presented, heels, holding legs of chair, head up
+
+[Action 4040]
+This is an extremely simple position that is
+nevertheless very functional for spanking and
+caning. All you will need is a chair.
+.delay 10 10 STOP 7300
+.range 4041
+.Say Action
+
+[Action 4041]
+Put your belly on the chair. Grab the legs of the chair with your hands.
+.image ch51.jpg
+.delay 20 20 STOP 7300
+.range 4042
+.Say Action
+
+[Action 4042]
+Present your ass. Your toes should be on the ground,
+but not your knees. Scoot forward on the chair if you
+need to. Keep your head up and your arms straight.
+.image ch51.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 405 standing, legs together, collar, leash, heels, hands behind butt, balancing book on head
+
+[Action 4050]
+A good maid must be able to stand straight back, and to keep this posture for a long
+time while paying attention to her mistress. For that purpose, you'll need to get
+your collar, a leash and a hard cover book. You do have all these items, don't you?
+.yesno 4055 4055 8280 8298
+.mustnot 28
+.Say Action
+
+[Action 4051]
+A good maid must be able to stand straight back, and to keep this posture for a
+long time while paying attention to her mistress. For that purpose, you'll need
+to get a leash and a hard cover book. You do have all these items, don't you?
+.yesno 4056 4056 8280 8298
+.must 28
+.Say Action
+
+[Action 4055] 
+Wonderful. First put on your collar, then attach the leash to it.
+.image bd222_01.jpg
+.delay 45 45 STOP 7300
+.range 4057
+.Say Action
+
+[Action 4056]
+Wonderful. First attach the leash to your collar.
+.image bd222_01.jpg
+.delay 30 30 STOP 7300
+.range 4057
+.Say Action
+
+[Action 4057]
+Now stand straight back, legs together, put the 
+book on your head and your hands behind your butt.
+.image bd222_02.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 406 standing, legs together, hands on hips, collar, leash, big smile
+
+[Action 4060]
+This is going to be another simple position. You'll just need your
+collar and a leash. You do have these items, slave, don't you?
+.mustnot 28                  ' collared
+.yesno 4062 4063 7752 7755
+.Say Action
+
+[Action 4061]
+This will be a fairly easy position, slave.
+You'll just need a leash. You do have one?
+.noimage
+.must 28                     ' collared
+.yesno 4062 4063 7752 7755
+.Say Action
+
+[Action 4062]
+Excellent. Let's put on your collar and attach the leash to it. 
+.image bd069_11.jpg
+.delay 40 40 STOP 7300
+.mustnot 28                  ' collared
+.range 4064
+.Say Action
+
+[Action 4063]
+Excellent. Let's attach the leash to your collar. 
+.image bd069_11.jpg
+.delay 30 30 STOP 7300
+.must 28                     ' collared
+.range 4064
+.Say Action
+
+[Action 4064]
+Now stand as shown. Keep your legs together,
+hands on your hips, and give me a big smile.
+.image bd069_43.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 407 2pt sit on heels, knees together, collar, hands together in front, balancing book on head
+
+[Action 4070]
+A good maid must be able to kneel gracefully, and to keep this posture
+for a long time while paying attention to her mistress. For that purpose,
+you'll need to put on your collar, and get a hard cover book. You do have
+all these items, don't you?
+.yesno 4073 4073 7756 7759
+.mustnot 28                  ' collared
+.Say Action
+
+[Action 4071]
+A good maid must be able to kneel gracefully, and to keep this posture
+for a long time while paying attention to her mistress. For that purpose,
+you'll need get a hard cover book. You do have a hard cover book, don't you?
+.yesno 4073 4073 7756 7759
+.must 28                     ' collared
+.Say Action
+
+[Action 4072]
+A good maid must be able to kneel gracefully, and to keep this posture for a long time
+while paying attention to her mistress. For that purpose, I want you to fetch a belt
+and put it around your neck as a collar. You'll also need get a hard cover book.
+You do have a belt and hard cover book, slave, don't you?
+.yesno 4073 4073 7756 7759
+.must 28                     ' collared
+.must 179                    ' Punishment
+.mustnot 325                 ' Collar
+.poss 100                    ' Use a belt as replacement for collar 
+.Say Action
+
+[Action 4073]
+Wonderful. Sit down on your heels, legs
+together and put the book on your head.
+.image bd218_11.jpg
+.delay 30 30 STOP 7300
+.range 4074
+.Say Action
+
+[Action 4074]
+ Place your hands together on your thighs.
+ .image bd218_15.jpg
+.delay 15 15 STOP 7300
+.range 4075
+.Say Action
+
+[Action 4075]
+.image bd218_19.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 408 standing, legs together, hands behind head, blindfolded
+
+[Action 4080]
+This is a fairly easy position, slave. All you need is
+your blindfold. You do have a blindfold, don't you, slave?
+.yesno 4085 4085 7780 7783
+.Say Action
+
+[Action 4081]
+This is a fairly easy position, slave. You'll just need your blindfold. Go get it!
+.pause 
+.must 382               ' Blindfold
+.range 4085
+.Say Action
+
+[Action 4085]
+Stand straight, legs together. Put on your blindfold
+and hold your hands behind your head.
+.image position_standing_hands_behind_head_blindfolded.jpg 
+.delay 30 30 STOP 7300
+.range 4086
+.Say Action
+
+[Action 4086]
+Very good, slave. Now keep your head up and your legs together.
+.image position_standing_hands_behind_head_blindfolded.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 409 standing, legs together, hands behind head
+
+[Action 4090]
+This is a fairly easy position, slave. 
+.delay 5 5 STOP 7300
+.range 4091
+.Say Action
+
+[Action 4091]
+Just stand straight, legs together. 
+.delay 30 30 STOP 7300
+.image position_standing_hands_behind_head_intro.jpg
+.range 4092
+.Say Action
+
+[Action 4092]
+Don't hide your genitals from me, slave. Put your
+hands behind your head to show off your sex. 
+.delay 30 30 STOP 7300
+.image position_standing_hands_behind_head.jpg
+.range 4095
+.Say Action
+
+[Action 4095]
+Very good, slave. Now keep your head up and your legs together.
+.image position_standing_hands_behind_head.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 410 Sitting on heels 2pt, legs spread, hands on thighs, palms up
+
+[Action 4100]
+I like this one, slave. It's the most basic slave position,
+so be sure to perform it right.
+.delay 10 10 STOP 7300
+.range 4101 4102
+.Say Action
+
+[Action 4101]
+Kneel on the ground and sit between your heels, your toes pointing behind you.
+If you happen to not being able to sit between your heels, you may exceptionally
+sit on them. You may also put a blanket or towel on the floor, if you wish. 
+.image position_410_sitting_on_heels_legs_spread_hands_on_thighs_palms_up_side_half.jpg
+.delay 15 15 STOP 7300
+.range 4102
+.Say Action
+
+[Action 4102]
+Lay your hands on your thighs, palms facing upward.
+.image position_410_sitting_on_heels_legs_spread_hands_on_thighs_palms_up_front.jpg
+.delay 15 15 STOP 7300
+.range 4103
+.Say Action
+
+[Action 4103]
+Finally pull your shoulders back
+to arch your back slightly and
+to thrust your breasts outward.
+.image position_410_sitting_on_heels_legs_spread_hands_on_thighs_palms_up_side_half.jpg
+.delay 15 15 STOP 7300
+.range 4104
+.Say Action
+
+[Action 4104]
+Very good, slave. Now keep your head up and your legs spread.
+.image position_410_sitting_on_heels_legs_spread_hands_on_thighs_palms_up_front.jpg
+.delay 15 15 STOP 7300
+.range 1700
+.Say Action
+
+
+
+' Moderate positions 5000 5749
+
+
+' 500 2pt kneel, ankles & wrists, knees 1x, presenting tray
+
+[Action 5000]
+This is an excellent, much used maid position - presenting a tray of food or drink.
+You'll need a tray of some kind - a cookie sheet or anything similar will serve,
+and your wrist and ankle restraints. You do have these items, don't you, slave?
+.image bd259_00.jpg
+.mustnot 25                  ' Ankles tied
+.mustnot 26                  ' Wrists tied
+.yesno 5004 5004 7720 7729
+.Say Action
+
+[Action 5001]
+This is an excellent, much used maid position - presenting a tray of food or drink.
+You'll need a tray of  some kind - a cookie sheet or anything similar will serve,
+as well as your wrist restraints. You do have these items, don't you, slave?
+.image bd259_00.jpg
+.must 25                     ' Ankles tied
+.mustnot 26                  ' Wrists tied
+.yesno 5005 5005 7720 7729
+.Say Action
+
+[Action 5002]
+This is an excellent, much used maid position - presenting a tray of food or drink.
+You'll need a tray of some kind - a cookie sheet or anything similar will serve,
+as well as your ankle restraints. You do have these items, don't you, slave?
+.image bd259_00.jpg
+.mustnot 25                  ' Ankles tied
+.must 26                     ' Wrists tied
+.yesno 5006 5006 7720 7729
+.Say Action
+
+[Action 5003]
+This is an excellent, much used maid position - presenting a tray of food or drink.
+.image bd259_00.jpg
+.delay 5
+.must 25                     ' Ankles tied
+.must 26                     ' Wrists tied
+.range 5007
+.Say Action
+
+
+[Action 5004]
+Put on your wrist and ankle restraints. Go into the kitchen and fetch the tray. Also
+fetch a glass, and fill it with water. Place the glass on the tray and return to Me.
+.image bd259_01.jpg
+.pause
+.range 5008
+.Say Action
+
+[Action 5005]
+Put on your wrist restraints. Go into the kitchen and fetch the tray. Also fetch
+a glass, and fill it with water. Place the glass on the tray and return to Me.
+.image bd259_01.jpg
+.pause
+.range 5008
+.Say Action
+
+[Action 5006]
+Put on your ankle restraints. Go into the kitchen and fetch the tray. Also fetch
+a glass, and fill it with water. Place the glass on the tray and return to Me.
+.image bd259_01.jpg
+.pause
+.range 5008
+.Say Action
+
+[Action 5007]
+Go into the kitchen and fetch a tray of some kind - a cookie sheet or anything similar will
+serve. Also fetch a glass, and fill it with water. Place the glass on the tray and return to Me.
+.image bd259_01.jpg
+.pause
+.mustnot 25                  ' Ankles tied
+.mustnot 26                  ' Wrists tied
+.range 5008
+.Say Action
+
+
+[Action 5008]
+Now, simply kneel on the floor, and present the tray in front of you. Palms
+under the tray, and keep them extended from your body as long as possible.
+.image bd259_02.jpg
+.delay 20 20 STOP 7300
+.range 5009
+.Say Action
+
+[Action 5009]
+You may bring your arms closer to your body to rest them
+periodically, but if you put down the tray you have failed.
+.image bd259_02.jpg
+.delay 10 10 STOP 7300
+.range 1700
+.Say Action
+
+
+' 501 Hands and knees, on forearms, face down licking shoe, knees 2x, ass up, heels
+
+[Action 5010]
+I like this one, slave. All you will need is one shoe.
+A high heeled would be perfection, but any shoe will do.
+.pause
+.range 5011
+.Say Action
+
+[Action 5011]
+Place the shoe on the ground at the foot of your chair. Kneel
+on the ground next to the chair. This is a four-point kneel, so
+your toes should be curled under your feet. Spread your legs.
+.image bd075_15.jpg
+.delay 30 30  STOP 7300
+.range 5012
+.Say Action
+
+[Action 5012]
+Now lean over and support your weight on your forearms;
+palms should be flat on the ground. Stick your ass up in
+the air. Put your face on the shoe, then kiss and lick it.
+.delay 30 30 STOP 7300
+.image bd075_16.jpg
+.range 1700
+.Say Action
+
+
+' Continueation of 505 4pt kneel 1x, hands behind back, nipple clamps, gag, heels
+
+[Action 5013]
+.noimage
+.delay 0
+.must 22                ' Something in mouth
+.range 5017
+.Say Action
+
+[Action 5014]
+Next you're going to put in your gag.
+.image bd180_28.jpg
+.delay 5 5 STOP 7300
+.mustnot 22             ' Something in mouth
+.range 5015
+.Say Action
+
+[Action 5015]
+Open your mouth and put the gag in.
+.image bd180_29.jpg
+.delay 10 10 STOP 7300
+.range 5016
+.Say Action
+
+[Action 5016]
+And secure it behind your head.
+.image bd180_30.jpg
+.delay 20 20 STOP 7300
+.mustnot 22
+.range 5017
+.Say Action
+
+[Action 5017]
+Are you enjoying your nipple clamps and your gag, slave?
+.image bd180_31.jpg
+.delay 10 10 STOP 7300
+.range 5018
+.Say Action
+
+[Action 5018]
+Now kneel on the floor, legs and knees together, your
+hands behind your back, touching your elbows. This is a
+four-point kneel, with your toes crouching on the floor.
+.image bd180_43.jpg
+.delay 20 20 STOP 7300
+.range 5019
+.Say Action
+
+[Action 5019]
+If the clamps fall off or if you're drooling
+on the floor, you've also failed this position.
+.image bd180_44.jpg
+.delay 20 20 STOP 7300
+.range 1700
+.Say Action
+
+
+
+' 502 4pt kneel, nipple clips, collar, hands behind butt, knees 1x
+
+[Action 5020]
+Now we have a fairly basic position which we will spice
+up a little with some light nipple torture. To that end,
+I want you to go fetch some clothes pegs, and your collar.
+You do have these items, don't you, slave?
+.mustnot 20             ' Something on nipples
+.mustnot 28             ' Somethhing around neck
+.yesno 5024 5024 8280 8298
+.Say Action
+
+[Action 5021]
+Now we have a fairly basic position which you will enjoy while
+enduring some light nipple torture. To that end, I want you to
+go fetch your collar. You do have a collar, don't you, slave?
+.must 20                ' Something on nipples
+.mustnot 28             ' Somethhing around neck
+.yesno 5025 5025 8280 8298
+.Say Action
+
+[Action 5022]
+Now we have a fairly basic position which we will spice up a little
+with some light nipple torture. To that end, I want you to go fetch
+some clothes pegs. You do have clothes pegs, don't you, slave?
+.mustnot 20             ' Something on nipples
+.must 28                ' Somethhing around neck
+.yesno 5026 5026 8280 8298
+.Say Action
+
+[Action 5023]
+Now we have a fairly basic position which you
+will enjoy while enduring light nipple torture.
+.must 20                ' Something on nipples
+.must 28                ' Somethhing around neck
+.range 5027 5027
+.Say Action
+
+
+[Action 5024]
+Go ahead, put on your collar and pop those clothes pegs on your nipples, slave.
+.image bd228_07.jpg
+.delay 20 20 STOP 7300
+.range 5028
+.Say Action
+
+[Action 5025]
+Go ahead and put on your collar, slave.
+.image bd228_09.jpg
+.delay 40 40 STOP 7300
+.range 5028
+.Say Action
+
+[Action 5026]
+Go ahead and pop those clothes pegs on your nipples, slave.
+.image bd228_09.jpg
+.delay 40 40 STOP 7300
+.range 5028
+.Say Action
+
+[Action 5027]
+Kneel down on the ground. This is a four-point
+kneel, so keep your toes curled under your feet.
+.image bd228_09.jpg
+.delay 40 40 STOP 7300
+.range 5029
+
+
+[Action 5028]
+Now kneel down on the ground. This is a four-point
+kneel, so keep your toes curled under your feet.
+.image bd228_09.jpg
+.delay 40 40 STOP 7300
+.range 5029
+.Say Action
+
+[Action 5029]
+Keep your back and legs straight as a board - no sitting
+on your heels. Place your hands behind your bottom.
+.image bd228_09.jpg
+.delay 40 40 STOP 7300
+.range 1700
+.Say Action
+
+
+' 503 2pt kneel, knees wide, ankles together, hands behind butt, nipple clips
+
+[Action 5030]
+This is a another very basic position that we will make a little
+more intersting using clothes pegs. clothes pegs make everything
+more fun! Go get four of them now. I trust you have them?
+.yesno 5031 5031 7748 7751
+
+[Action 5031]
+Very good. Now, pop two on each nipple. Make sure that they're
+nice and tight, and that they're right on the end of the nipple.
+.image bd068_20.jpg
+.delay 20 20 STOP 7300
+.range 5032
+.Say Action
+
+[Action 5032]
+If you wish you may also put a rug, towel, or blanket
+on the ground, since I'm feeling generous at the moment.
+.image bd068_21.jpg
+.pause
+.range 5033
+.Say Action
+
+[Action 5033]
+All you need to do now is kneel on the ground as illustrated. This is a two-
+point kneel, with your shins and the tops of your feet flat on the ground.
+.image bd068_22.jpg
+.delay 20 20 STOP 7300
+.range 5034
+.Say Action
+
+[Action 5034]
+Your legs should be spread about two shoulder-widths apart. Don't sit on your heels
+- keep your back and thighs straight up and down, just as the model is doing.
+.image bd068_23.jpg
+.delay 20 20 STOP 7300
+.range 5035
+.Say Action
+
+[Action 5035]
+Keep your toes together, interlace your fingers
+behind your bottom, and keep your head up.
+.image bd068_22.jpg
+.delay 20 20 STOP 7300
+.range 1700
+.Say Action
+
+
+' 504 2pt kneel, sit on heels, legs together, knees 1x, collar, gag, hands boxed behind back
+
+[Action 5037]
+Put your hands behind your back in a box position, your arms grabbing your elbows.
+.image bd166_41.jpg
+.delay 20 20 STOP 7300
+.range 5038
+.Say Action
+
+[Action 5038]
+Now sit down on your heels, with your shins and the tops of your feet flat on the ground.
+.image bd166_40.jpg
+.delay 20 20 STOP 7300
+.range 5039
+.Say Action
+
+[Action 5039]
+Keep your legs together. If you drool on the floor, you've failed this position. 
+.image bd166_42.jpg
+.delay 20 20 STOP 7300
+.range 1700
+.Say Action
+
+
+[Action 5040]
+Now we have a another fairly basic position. You'll just
+need your collar and your gag. I trust you have them?
+.yesno 5044 5044 8280 8298
+.mustnot 22
+.mustnot 28
+.Say Action
+
+[Action 5041]
+Now we have a another fairly basic position. You
+'ll just need your collar. I trust you have it?
+.yesno 5046 5046 8280 8298
+.must 22           ' Something in mouth
+.mustnot 28
+.Say Action
+
+[Action 5042]
+Now we have a another fairly basic position.
+You'll just need your gag. I trust you have it?
+.yesno 5047 5047 8280 8298
+.mustnot 22
+.must 28
+.Say Action
+
+[Action 5043]
+Now we have a another fairly basic position, which you are already suited for.
+.must 22
+.must 28
+.range 5037
+.Say Action
+
+
+[Action 5044]
+Wonderful. Let's start with your collar. Put it around your neck and secure it safely.
+.image bd166_10.jpg
+.delay 30 30 STOP 7300
+.range 5045
+.Say Action
+
+[Action 5045]
+Take your slave gag and stuff it into your mouth. Secure it safely as well.
+.image bd166_22.jpg
+.delay 30 30 STOP 7300
+.range 5037
+.Say Action
+
+
+[Action 5046]
+Wonderful. Put your collar around your neck and secure it safely.
+.image bd166_39.jpg
+.delay 30 30 STOP 7300
+.range 5037
+.Say Action
+
+[Action 5047]
+Wonderful. Take your slave gag and stuff it into your mouth. Secure it safely.
+.image bd166_22.jpg
+.delay 30 30 STOP 7300
+.range 5037
+.Say Action
+
+
+' 505 4pt kneel 1x, hands behind back, nipple clamps, gag, heels
+
+[Action 5050]
+Now we have a fairly basic position which we will spice up a little with some light
+nipple torture. To that end, I want you to go fetch your collar, your nipple clamps,
+your gag, and your heels. You do have all these items, don't you slave?
+.mustnot 20 22
+.yesno 5054 5055 8280 8298
+.mustnot 20
+.Say Action
+
+[Action 5051]
+Now we have a fairly basic position which we will spice up a little with some
+light nipple torture. To that end, I want you to go fetch your collar, nipple
+clamps, and your heels. You do have all these items, don't you slave?
+.mustnot 20
+.must 22
+.yesno 5054 5055 8280 8298
+.mustnot 20
+.Say Action
+
+[Action 5052]
+Now we have a fairly basic position which we will spice up a little
+with some light nipple torture. To that end, I want you to go fetch
+your gag and your heels. You do have these items, don't you slave?
+.must 20
+.mustnot 22
+.yesno 5054 5055 8280 8298
+.mustnot 20
+.Say Action
+
+[Action 5053]
+Now we have a fairly basic position which we will spice up a little
+with some light nipple torture. To that end, I want you to go fetch
+your collar and your heels. You do have these items, don't you slave?
+.yesno 5054 5055 8280 8298
+.must 20 22
+.Say Action
+
+[Action 5054]
+Start with your collar and put it around your neck.
+.image bd180_15.jpg
+.delay 30 30 STOP 7300
+.mustnot 28             ' collared
+.range 5056 5057
+.Say Action
+
+[Action 5055]
+.delay 0
+.noimage
+.must 28                ' collared
+.range 5056 5057
+.Say Action
+
+[Action 5056]
+Make sure those clamps sit tight.
+.image bd180_23.jpg
+.delay 10 10 STOP 7300
+.must 20                ' Something on nipples
+.range 5013 5014
+.Say Action
+
+[Action 5057]
+Now put on your nipple clamps, one after another.
+.image bd180_21.jpg
+.delay 20 20 STOP 7300
+.mustnot 20             ' Something on nipples
+.range 5058
+.Say Action
+
+[Action 5058]
+Make sure they sit tight.
+.image bd180_23.jpg
+.delay 10 10 STOP 7300
+.range 5013 5014
+.Say Action
+
+' Not enough actions to complete this position, so let's borrow some from 501 and continue at 5013
+
+
+' 506 Hands and knees, on hands, sitting on heels, face down licking shoe, knees 1x, heels
+
+[Action 5060]
+I really like this one, slave. All you will need is a shoe.
+A high heeled would be perfection, but any shoe will do.
+.pause
+.range 5061
+.Say Action
+
+[Action 5061]
+Place the shoe on the ground at the foot of your chair. Kneel
+on the ground next to the chair. This is a two-point kneel, you
+should be sitting on your heels with your feet flat on the ground.
+.image bd158_09.jpg
+.delay 30 30  STOP 7300
+.range 5062
+.Say Action
+
+[Action 5062]
+Now lean over and support your weight on your hands and
+forearms. Your palms should be placed next to your knees.
+.delay 10 10 STOP 7300
+.image bd158_12.jpg
+.range 5063
+.Say Action
+
+[Action 5063]
+Keep our upper arms next to your body.
+.delay 10 10 STOP 7300
+.image bd158_14.jpg
+.range 5064
+.Say Action
+
+[Action 5064]
+Put your face on the shoe, then kiss and lick it.
+.delay 10 10 STOP 7300
+.image bd158_13.jpg
+.range 1700
+.Say Action
+
+
+' 112 Difficult positions 5750 6449
+
+
+' 575 hands and knees, ankles tied to thighs, rope harness + crotch rope, legs 2x hands 1x
+
+[Action 5750]
+For this difficult position, you will need quite a bit
+of rope. You do have plenty of rope, don't you, slave?
+.yesno 5751 5751 7740 7743
+.Say Action
+
+[Action 5751]
+First, fashion a simple crotch rope. Make sure to put a nice knot in the rope right
+over your slave butthole, just for fun - My fun, that is. Make it nice and tight!
+.image bd238_22.jpg
+.pause
+.range 5752
+.Say Action
+
+[Action 5752]
+Now, kneel on the ground and tie your ankles to your thighs.
+Your heels shouldn't be more than six inches from your butt.
+.image bd238_27.jpg
+.pause
+.range 5753
+.Say Action
+
+[Action 5753]
+Now get on your hands and knees. Spread your knees so that they 
+are about twice your shoulder width apart. Your hands should be
+right under your shoulders and should be straighted out.
+.image bd238_26.jpg
+.delay 30 30 STOP 7300
+.range 5754
+.Say Action
+
+[Action 5754]
+Very good, slave. Now, keep your head up.
+.image bd238_25.jpg
+.delay 10 10 STOP 7300
+.range 1700
+.Say Action
+
+
+' 576 On table, crouch on toes, hands behind butt, legs wide, nipple clamps, collar, heels, big smile, crotch rope
+
+[Action 5760]
+Oh, I really like this position, slave, although I bet you won't.
+.delay 5
+.range 5761 5764
+.Say Action
+
+[Action 5761]
+Go fetch your nipple clamps, your collar, and some
+rope. You do have these toys, don't you, slave?
+.mustnot 20                  ' Something on nipples
+.mustnot 28                  ' collared
+.yesno 5765 5766 8280 8298
+.Say Action
+
+[Action 5762]
+Go fetch your collar and some rope. You
+do have these toys, don't you, slave?
+.must 20
+.mustnot 28                  ' collared
+.yesno 5765 5766 8280 8298
+.Say Action
+
+[Action 5763]
+Go fetch your nipple clamps, and some rope.
+You do have these toys, don't you, slave?
+.mustnot 20                  ' Something on nipples
+.must 28                     ' collared
+.yesno 5765 5766 8280 8298
+.Say Action
+
+[Action 5764]
+Go and fetch some rope. You do have rope, don't you, slave?
+.must 20                     ' Something on nipples
+.must 28                     ' collared
+.yesno 5765 5766 8280 8298
+.Say Action
+
+[Action 5765]
+Very good, slave. Now make a crotch rope for yourself. As usual, place
+a nice solid knot right on your anus for a little extra stimulation.
+.image bd227_18.jpg
+.pause
+.must 28                     ' collared
+.range 5767 5768
+.Say Action
+
+[Action 5766]
+Very good, slave. Put your collar on first. Then make a crotch rope for yourself.
+As usual, place a nice solid knot right on your anus for a little extra stimulation.
+.image bd227_18.jpg
+.pause
+.mustnot 28                  ' collared
+.range 5767 5768
+.Say Action
+
+
+[Action 5767]
+Excellent. Now, put your nipple clamps on, and climb onto your chair or a table.
+.image bd227_16.jpg
+.delay 30 30 STOP 7300
+.mustnot 20
+.range 21576945
+.Say Action
+
+[Action 5768]
+Excellent. Now, climb onto your chair or a table.
+.image bd227_16.jpg
+.delay 15 15 STOP 7300
+.must 20
+.range 5769
+.Say Action
+
+
+[Action 5769]
+Crouch on your toes. Spread your legs as wide as you can. Put your hands
+together behind your bottom. Give Me a nice big smile, just like the model.
+.image bd227_17.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 577 2pt kneel, knees together, nipple clips, arms straight down behind back, gag, collar, leash, cuffs
+
+[Action 5770]
+This one is a little involved, slave. You will need four clothes pegs, your gag,
+your collar, a leash or a length of chain, and either a pair of handcuffs or
+some other way you can restrain your wrists behind you. Have you got all that?
+.mustnot 22                  ' Something in mouth
+.mustnot 28                  ' collared
+.yesno 5774 5775 8280 8298
+
+[Action 5771]
+This one is a little involved, slave. You will need four clothes pegs, your
+collar, a leash or a length of chain, and either a pair of handcuffs or some
+other way you can restrain your wrists behind you. Have you got all that?
+.must 22                     ' Something in mouth
+.mustnot 28                  ' collared
+.yesno 5776 5776 8280 8298
+
+[Action 5772]
+This one is a little involved, slave. You will need four clothes pegs, your
+gag, a leash or a length of chain, and either a pair of handcuffs or some
+other way you can restrain your wrists behind you. Have you got all that?
+.mustnot 22                  ' Something in mouth
+.must 28                     ' collared
+.yesno 5774 5775 8280 8298
+
+[Action 5773]
+This one is a little involved, slave. You will need four clothes pegs, a
+leash or a length of chain, and either a pair of handcuffs or some other
+way you can restrain your wrists behind you. Have you got all that?
+.must 22                     ' Something in mouth
+.must 28                     ' collared
+.yesno 5776 5776 8280 8298
+
+
+[Action 5774]
+First, put on the collar and attach the leash to it. You may put the
+other end of the leash anywhere convenient. Tie it to the desk if
+you're so minded. Then pop the clothes pegs on your nipples, two per.
+.delay 30 30 STOP 7300
+.image bd016_47.jpg
+.mustnot 28                  ' collared
+.range 5776 5777
+.Say Action
+
+[Action 5775]
+First, attach the leash to your collar. You may put the other end
+of the leash anywhere convenient. Tie it to the desk if you're so
+minded. Then pop the clothes pegs on your nipples, two per.
+.delay 30 30 STOP 7300
+.image bd016_47.jpg
+.must 28                     ' collared
+.range 5777 5778
+.Say Action
+
+
+' put-on collar missing because there arent' any more actions left for this position 
+[Action 5776]
+First, attach the leash to your collar. You may put the other end
+of the leash anywhere convenient. Tie it to the desk if you're so
+minded. Then pop the clothes pegs on your nipples, two per.
+.delay 30 30 STOP 7300
+.image bd016_33.jpg
+.must 22                     ' Something in mouth
+.must 28                     ' collared
+.range 5777 5778
+.Say Action
+
+
+[Action 5777]
+Put the gag in and then handcuff or tie your wrists behind you. The model
+in the illustration actually has her elbows cuffed, but unfortunately that
+would be a little too hard to undo. Make sure the key is somewhere you can
+get it, of course. Keep your hands behind your butt and your arms straight.
+.image bd016_46.jpg
+.delay 80 80 STOP 7300
+.mustnot 22                  ' Something on mouth
+.range 5779
+.Say Action
+
+[Action 5778]
+Handcuff or tie your wrists behind you. The model in the illustration
+actually has her elbows cuffed, but unfortunately that's a little too
+hard to undo. Make sure the key is somewhere you can get it, of course.
+Keep your hands behind your butt and your arms straight.
+.image bd016_46.jpg
+.delay 60 60 STOP 7300
+.must 22                     ' Something in mouth
+.range 5779
+.Say Action
+
+
+[Action 5779]
+Now simply kneel on the ground, knees together and toes pointed back.
+Keep your legs and back straight - no sitting on your heels. Head up,
+arms straight, eyes down.
+.image bd016_45.jpg
+.delay 30 30 STOP 7300
+.range 1700
+.Say Action
+
+
+' 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
+
+[Action 5780]
+It's time for a harder position, slave. I will need you to
+collect your nipple clamps, a good weight to hang from the
+clamps, your handcuffs or some other way to bind your wrists,
+and a rug or a towel to kneel on. You do have all this stuff?
+.mustnot 20             ' Something on nipples
+.mustnot 26             ' Wrists tied
+.yesno 5785 5786 8280 8298
+
+[Action 5781]
+It's time for a harder position, slave. I will need you
+to collect a good weight to hang from your nipple clamps,
+your handcuffs or some other way to bind your wrists, and
+a rug or a towel to kneel on. You do have all this stuff?
+.must 20                ' Something on nipples
+.mustnot 26             ' Wrists tied
+.yesno 5785 5786 8280 8298
+
+[Action 5782]
+It's time for a harder position, slave. I will need you to collect
+your nipple clamps, a good weight to hang from the clamps, and a
+rug or a towel to kneel on. You do have all this stuff, my pet?
+.mustnot 20             ' Something on nipples
+.must 26                ' Wrists tied
+.yesno 5785 5786 8280 8298
+
+[Action 5783]
+It's time for a harder position, slave. I will need you to
+collect a good weight to hang from your nipple clamps, and
+a rug or a towel to kneel on. You do have all this stuff?
+.must 20                ' Something on nipples
+.must 26                ' Wrists tied
+.yesno 5785 5786 8280 8298
+
+
+[Action 5785]
+Excellent. Put your nipple clamps on first, and hang the
+weight from them. Then place the rug or towel on the ground. 
+.image bd159_23.jpg
+.delay 40 40 STOP 2279
+.mustnot 20             ' Something on nipples
+.range 5787
+.Say Action
+
+[Action 5786]
+Excellent. Make sure your clamps are squeezing your nipples tightly, and
+hang the weight from them. Then place the rug or towel on the ground. 
+.image bd159_23.jpg
+.delay 40 40 STOP 7300
+.must 20                ' Something on nipples
+.range 5787
+.Say Action
+
+
+[Action 5787]
+Kneel on the rug as shown. Your knees should be spread
+as wide as possible and your toes should be curled under
+your feet; your feet should be touching each other. 
+.image bd159_24.jpg
+.delay 30 30 STOP 7300
+.range 5788 5789
+.Say Action
+
+
+[Action 5788]
+Now put the handcuffs on. Keep your hands in front of your belly. Also
+keep your head and eyes up. A nice supplicative expression is appreciated. 
+.image bd159_25.jpg
+.delay 30 30 STOP 7300
+.mustnot 26             ' Wrists tied
+.range 1700
+.Say Action
+
+[Action 5789]
+Now keep your hands in front of your belly. Also keep your head
+and eyes up. A nice supplicative expression is appreciated. 
+.image bd159_25.jpg
+.delay 30 30 STOP 7300
+.must 26                ' Wrists tied
+.range 1700
+.Say Action
+
+
+' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+
+[Action 5790]
+Now we have a fairly basic position which we will spice up a little with some
+light nipple and pussy torture. To that end, I want you to go fetch your nipple
+clamps, some clothes pegs, and heels. You do have these items, don't you slave?
+.yesno 5795 5795 8280 8298
+.mustnot 20
+.Say Action
+
+[Action 5791]
+Now we have a fairly basic position which we will spice up a little with
+some light nipple and pussy torture. To that end, I want you to go fetch
+some clothes pegs and your heels. You do have these items, don't you slave?
+.yesno 5795 5795 8280 8298
+.must 20
+.Say Action
+
+[Action 5795]
+Now since you don't have a pussy to snap the pegs on, you
+'re going to snap them on your little ball sack instead.
+.delay 10 10 STOP 7300
+.image bd041_28.jpg
+.range 5796 5797
+.Say Action
+
+[Action 5796]
+Slip into your heels, snap those clothes pegs on
+your "pussy", and put on your nipple clamps.
+.image bd041_29.jpg
+.delay 45 45 STOP 7300
+.mustnot 20
+.range 5798
+.Say Action
+
+[Action 5797]
+Slip into your heels, and snap those clothes pegs on your "pussy".
+.image bd041_29.jpg
+.delay 30 30 STOP 7300
+.must 20
+.range 5798
+.Say Action
+
+[Action 5798]
+Put your hands behind your head.
+.image bd041_18.jpg
+.delay 20 20 STOP 7300
+.range 5799
+.Say Action
+
+[Action 5799]
+Stand straight, legs apart.
+.image bd041_32.jpg
+.delay 20 20 STOP 7300
+.range 1700
+.Say Action
+
+
+' 580 hands on back, sitting on heels, face down licking shoe, knees 1x, heels
+
+[Action 5800]
+I really like this one, slave. All you will need is one shoe.
+A high heeled would be perfection, but any shoe will do.
+.pause
+.range 5801
+.Say Action
+
+[Action 5801]
+Place the shoe on the ground at the foot of your chair. Kneel next
+to the chair and sit down on your heels. This is a two-point kneel.
+You should be sitting on your heels, your feet flat on the ground.
+.image bd155_19.jpg
+.delay 30 30  STOP 7300
+.range 5802
+.Say Action
+
+[Action 5802]
+Now lean over and support your torso on your thighs.
+.delay 10 10 STOP 7300
+.image bd155_20.jpg
+.range 5803
+.Say Action
+
+[Action 5803]
+Keep our arms stretched out behind your back, your hands together.
+.delay 10 10 STOP 7300
+.image bd155_23.jpg
+.range 5804
+.Say Action
+
+[Action 5804]
+Put your face on the shoe, then kiss and lick it.
+.delay 10 10 STOP 7300
+.image bd155_22.jpg
+.range 1700
+.Say Action
+
+
+' Extreme positions 6500 6999
+
+
+' 650 Crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide
+
+[Action 6500]
+Oh, goody. This will be a particularly uncomfortable position for you to endure.
+.delay 5
+.mustnot 26                  ' Wrists tied
+.range 6501 6504
+.Say Action
+
+
+[Action 6501]
+First fetch a dildo or buttplug for your ass. Also get your wrist restraints.
+Handcuffs will work too. Better also get a towel! You do have these items, I hope?
+.pause
+.mustnot 26                  ' Wrists tied
+.yesno 6505 6505 7760 7779
+.Say Action
+
+[Action 6502]
+First fetch a dildo or buttplug for your ass. Better
+get a towel, too! You do have these items, I hope?
+.pause
+.must 26                     ' Wrists tied
+.mustnot 350 388             ' Buttplug, Anal dildo
+.yesno 6505 6505 7760 7779
+.Say Action
+
+[Action 6503]
+First fetch a buttplug for your ass. Better get a towel, too!
+.pause
+.must 26                     ' Wrists tied
+.must 350                    ' Butt plug
+.mustnot 388                 ' Anal dildo, preferred
+.poss 1
+.range 6505
+.Say Action
+
+[Action 6504]
+First fetch a dildo for your ass. Better get a towel, too!
+.pause
+.must 26                     ' Wrists tied
+.must 388                    ' Anal dildo
+.range 6505
+.Say Action
+
+
+[Action 6505]
+Very good, slave. Now lube up your tight little asshole. Get it good and
+slippery. Get some on that buttplug, too. I'll give you one minute exactly.
+.delay 60 60 STOP 7300
+.image EMSTsmpl00.jpg
+.range 6506
+
+[Action 6506]
+Slide that dildo into your ass and hold it there. I'll give
+you a minute to work it in there and to get used to it.
+.delay 60 60 STOP 7300
+.image EMSTsmpl00.jpg
+.range 6507
+.Say Action
+
+[Action 6507]
+Find a wall and put the towel on the floor next to it. Then squat on
+the towel against the wall, as shown, keeping the dildo in your ass.
+Rest the dildo on the towel to ensure that it doesn't escape. If the
+dildo comes out of your ass, slave, then you've failed this position.
+.image EMSTsmpl02.jpg
+.delay 60 60 STOP 7300
+.range 6508 6509
+.Say Action
+
+
+[Action 6508]
+Now tie or handcuff your hands together in front of you. Place your
+palms together as if you are praying for mercy to your Mistress.
+Keep your head up; the back of it should be against the wall.
+Your knees should be spread as far as they will go.
+.image EMSTsmpl01.jpg
+.delay 30 30 STOP 7300 
+.mustnot 26                  ' Wrists tied
+.range 1700
+.Say Action
+
+[Action 6509]
+Now place your palms together as if you are praying for mercy to
+your Mistress. Keep your head up; the back of it should be against
+the wall. Your knees should be spread as far as they will go.
+.image EMSTsmpl01.jpg
+.delay 30 30 STOP 7300 
+.must 26                     ' Wrists tied
+.range 1700
+.Say Action
+
+
+' 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
+[Action 6510]
+This is a tough one. You'll need a gag, a collar, some beads, six clothes pegs,
+a weight for the clamps, and of course your nipple clamps. Got all that?
+.yesno 6512 6515 8280 8298
+.Say Action
+
+[Action 6511]
+This is a tough one. You'll need a collar, some beads, six clothes pegs,
+a weight for the clamps, and of course your nipple clamps. Got all that?
+.yesno 6512 6515 8280 8298
+.Say Action
+
+[Action 6512]
+Start with the collar and gag.
+.image bd186_14.jpg
+.delay 30 30 STOP 7300 
+.mustnot 22             ' Something in mouth
+.mustnot 28             ' collared
+.range 6517
+.Say Action
+
+[Action 6513]
+Put on the collar, the clamps and pegs, three pegs per slave tit.
+.image bd186_36.jpg
+.delay 60 60 STOP 7300 
+.must 22                ' Something in mouth
+.mustnot 28             ' collared
+.range 6517
+.Say Action
+
+[Action 6514]
+Start with the gag.
+.image bd186_15.jpg
+.delay 15 15 STOP 7300 
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 6517
+.Say Action
+
+[Action 6515]
+Start with the clamps and pegs, three pegs per slave tit.
+.image bd186_36.jpg
+.delay 45 45 STOP 7300 
+.must 22                ' Something in mouth
+.must 28                ' collared
+.range 6517
+.Say Action
+
+[Action 6516]
+Now add the clothes pegs and nipple clamps, three pegs per slave tit.
+.image bd186_36.jpg
+.delay 45 45 STOP 7300 
+.range 6517
+.Say Action
+
+[Action 6517]
+Add the weight to the clamps.
+.image bd186_44.jpg
+.delay 30 30 STOP 7300 
+.range 6518
+.Say Action
+
+[Action 6518]
+Spread the beads on the ground.
+.image bd186_62.jpg
+.delay 20 20 STOP 7300 
+.range 6519
+.Say Action
+
+[Action 6519]
+Now kneel on the beads, slave. This is a four point kneel with knees together.
+Keep your hands firmly on your thighs. That hurts, doesn't it? I love it.
+.image bd186_66.jpg
+.delay 30 30 STOP 7300 
+.range 1700
+.Say Action
+
+
+' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
+
+[Action 6520]
+This is an excellent, much used maid position - serving as a table for your
+mistress. You will need your collar, wrist and ankle restraints, your nipple
+clamps, a tray and a glass of water. You do have these items, don't you, slave?
+.mustnot 28                  ' collared
+.yesno 6522 6523 8280 8298
+.Say Action
+
+[Action 6521]
+This is an excellent, much used maid position - serving as a table for your
+mistress. You will need your wrist and ankle restraints, your nipple clamps,
+a tray and a glass of water. You do have these items, don't you, slave?
+.must 28                     ' collared
+.yesno 6522 6523 8280 8298
+.Say Action
+
+
+[Action 6522]
+Let's start with your collar and nipple clamps. Put your collar
+around your neck and snap the clamps on your poor little titties.
+.pause
+.mustnot 28                  ' collared
+.range 6525
+.Say Action
+
+[Action 6523]
+Let's start with your nipple clamps. Snap them on your poor little titties.
+.pause
+.must 28                     ' collared
+.range 6525
+.Say Action
+
+
+[Action 6524]
+Complete your maid dress by putting on your wrists and ankle restraints.
+.pause
+.range 6525
+.Say Action
+
+[Action 6525]
+Now go into the kitchen and fetch a tray of some kind - a cookie
+sheet or anything similar will serve. Also fetch a glass, and fill
+it with water. Place the glass on the tray and return to Me.
+.image bd178_01.jpg
+.pause
+.range 6526
+.Say Action
+
+[Action 6526]
+Simply kneel straight, and present the tray, palms under the tray.
+.image bd178_02.jpg
+.delay 60 60 STOP 7300
+.range 6527
+.Say Action
+
+[Action 6527]
+Very good, my pet. Now put the tray on the floor, kneel down
+on all four and place the glass on the small of your back.
+.image bd178_07.jpg
+.delay 20 20 STOP 7300
+.range 6528
+.Say Action
+
+[Action 6528]
+Spread your arms outward to raise your butt and present the glass to your mistress. 
+.image bd178_06.jpg
+.delay 20 20 STOP 7300
+.range 6529
+.Say Action
+
+[Action 6529]
+Don't let the glass fall off, my pet.
+.image bd178_06.jpg
+.delay 20 20 STOP 7300
+.range 1700
+.Say Action
+
+
+' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
+
+[Action 6530]
+Oh, goody. This will be a particularly challenging position for you to endure.
+First fetch a dildo or small buttplug. Also get your wrist and ankle restraints.
+Handcuffs will work too. Also get your collar and a leash, as well as nipple and
+pussy clamps, both with a connecting chain. You do have these items, I hope?
+.image 102_000.jpg
+.pause
+.yesno 6531 6532 8280 8298
+.Say Action
+
+[Action 6531]
+Let's start with those nipple clamps. Snap them on your
+poor little slave titties and make sure they sit tight.
+.image 102_001.jpg
+.delay 20 20 STOP 7300
+.mustnot 20             ' Something on nipples
+.poss 100
+.range 6532
+.Say Action
+
+[Action 6532]
+If you haven't yet, put on our ankle cuffs. Then snap your pussy clamps
+on your ball sack and attach the connecting chain to your ankle cuffs. 
+.image 102_011.jpg
+.delay 60 60 STOP 7300
+.range 6533 6534
+.Say Action
+
+[Action 6533]
+Contnue with your wrist restraints and your collar. Don't forget the leash.
+.image 102_009.jpg
+.delay 30 30 STOP 7300
+.mustnot 28             ' collared 
+.range 6535
+.Say Action
+
+[Action 6534]
+Continue with your wrist restraints. Don't forget the leash. 
+.image 102_009.jpg
+.delay 15 15 STOP 7300 
+.must 28                ' collared 
+.range 6535
+.Say Action
+
+[Action 6535]
+Finally, connect your nipple clamps with your wrist restraints.
+.image 102_010.jpg
+.delay 45 45 STOP 7300 
+.range 6536
+.Say Action
+
+[Action 6536]
+Now its time to get that dildo involved. 
+.image 102_012.jpg
+.delay 10 10 STOP 7300 
+.range 6537
+.Say Action
+
+[Action 6537]
+If your dildo has a suction cup at the base, attach it on suitable place at mouth height.
+.image 102_013.jpg
+.delay 10 10 STOP 7300 
+.range 6538
+.Say Action
+
+[Action 6538]
+Otherwise you have to hold it in your mouth and press it against
+a wall. Anyway, don't let it slip out and falling down, my pet.
+.image 102_013.jpg
+.delay 10 10 STOP 7300 
+.range 6539
+.Say Action
+
+[Action 6539]
+You're going to tease that dildo with your dirty slave mouth until I tell you to stop. If
+the dildo leaves your mouth or any of the clamps falls off, you've failed this position.
+.image 102_014.jpg
+.delay 30 30 STOP 7300 
+.range 1700
+.Say Action
+
+
+' Failure to hold position
+
+' Entry point
+[Action 7300]
+.delay 0
+.noimage
+.unset 7300
+.range 7301 7302
+
+' skip generic comment, just proceed to position specific
+[Action 7301]
+.delay 0
+.noimage
+.unset 7301
+.range 7302 7398        ' Jump to generic comments range
+
+' Issue generic comment before specific one
+[Action 7302]
+.delay 0
+.noimage
+.unset 7302
+.poss 100
+.mustnot 400 401        ' Positions to be commented with a position specific comment
+.mustnot 500            ' Positions to be commented with a position specific comment
+.mustnot 575            ' Positions to be commented with a position specific comment
+.mustnot 650 652        ' Positions to be commented with a position specific comment
+.range 7302 7398        ' Jump to generic comments range
+
+' Generic comments, if there are no toys to remove
+
+[Action 7303]
+I'm very disappointed that you couldn't hold such a simple basic position, slave.
+If that's too much for you, I don't have very high hopes for your slave training.
+.pause
+.must 110
+.mustnot 399
+.range 7399
+.say action
+
+[Action 7304]
+I wish I had a decent slave, that wasn't such a
+lazy cunt. You're just useless, you know that?
+.pause
+.mustnot 110 113        ' -> Moderate or hard
+.mustnot 399
+.range 7399
+.say action
+
+[Action 7305]
+That's very poor, slave. I'm amazed you aren't
+able to keep up with such a basic position.
+.pause
+.mustnot 112 113        ' Hard or extreme
+.mustnot 399
+.range 7399
+.say action
+
+[Action 7306]
+You don't seem to have much talent for being a slave. I wonder 
+if this is really the right path for you to take. I suppose I 
+have no alternative but to punish you for your failure.
+.pause
+.mustnot 112 113        ' Hard or extreme
+.mustnot 399
+.mustnot 710            ' Punishment
+.range 7399
+.say action
+
+[Action 7307]
+I wish I had a decent slave, that wasn't such a
+lazy cunt. You're just useless, you know that?
+.pause
+.mustnot 112 113
+.mustnot 399
+.range 7399
+.say action
+
+[Action 7308]
+I'm amazed you aren't able to do such an easy one! 
+You'd better shape up in a hurry, you wimp.
+.pause
+.must 110               ' Easy
+.mustnot 399
+.range 7399
+.say action
+
+[Action 7309]
+It's a difficult position, but you're such a pussy
+about it. I just can't stand a little wimpy slave.
+.pause
+.mustnot 110 111        ' -> Hard or extreme
+.mustnot 399
+.range 7399
+.say action
+
+
+' Comments when having failed a position before
+
+[Action 7390]
+Ugh, not again. What a poor excuse for a slave you are!
+.pause
+.must 399
+.unset 399
+.range 7399
+.Say Action
+
+[Action 7391]
+Once again you have failed in your training,
+slave. I wonder why I bother with you.
+.pause
+.must 399
+.unset 399
+.range 7399
+.Say Action
+
+[Action 7392]
+You don't seem to have much talent for being a slave. I wonder 
+if this is really the right path for you to take. I suppose I 
+have no alternative but to punish you for your failure.
+.pause
+.must 399
+.unset 399
+.range 7399
+.Say Action
+
+[Action 7393]
+Ah, you foolish cunt. It's a shame you're so worthless at everything you do. 
+.pause
+.must 399
+.unset 399
+.range 7399
+.Say Action
+
+[Action 7394]
+I try and try, slut, but you just can't seem to
+get it together. What am I going to do with you?
+.pause
+.must 399
+.unset 399
+.range 7399
+.Say Action
+
+[Action 7395]
+I wish I could say that I'm surprised at your weakness,
+but I'm all to familar with it now. I suppose I'll have
+to punish you for failing again, slave.
+.pause
+.must 399
+.unset 399
+.range 7399
+.Say Action
+
+
+' Slave failed to hold position
+
+[Action 7399]
+.delay 0
+.noimage
+.poss 1
+.unset 7399
+.range 7400 7699        ' Position dependent comment
+
+
+' Easy positions 400-499
+
+' 400 jessienude3.jpg 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
+[Action 7400]
+I'm very disappointed that you couldn't hold such a simple, basic kneeling position,
+slave. If that's too much for you, I don't have very high hopes for your slave training.
+.pause
+.must 1400
+.range 8800 8819        ' remove wrist restraints and collar
+.Say Action
+
+' 401 Standing bent over, hands on shins, ass presented, head down
+[Action 7401]
+All your failures disappoint me, slave, but especially with such an
+easy assignment. Since you are such a disobedient and incompetent
+slave it is especially important for you to learn this position!
+.pause
+.must 1401
+.range 9690             ' Naked
+.Say Action
+
+'402 4pt kneel, hands on thighs palms up, collar
+[Action 7402]
+.delay 0
+.noimage
+.must 1402
+.range 8844 8847        ' Remove collar
+
+' 403 4pt sit on heels, hands on legs palms down, wristlets, collar, heels
+[Action 7403]
+.delay 0
+.noimage
+.must 1403
+.range 8800 8819        ' remove wrist restraints and collar
+
+' 404 belly on chair, ass presented, heels, holding legs of chair, head up
+[Action 7404]
+.delay 0
+.noimage
+.must 1404
+.range 9690             ' Naked
+
+' 405 standing, legs together, collar, leash, heels, hands behind butt, balancing book on head
+[Action 7405]
+.delay 0
+.noimage
+.must 1405
+.range 8848 8849        ' Remove collar, leash and return book
+
+' 406 standing, legs together, hands on hips, collar, leash, big smile
+[Action 7406]
+.delay 0
+.noimage
+.must 1406
+.range 9068 9071        ' Remove collar and leash 
+
+' 407 2pt sit on heels, knees together, collar, hands together in front, balancing book on head
+[Action 7407]
+.delay 0
+.noimage
+.must 1407
+.range 9072 9075        ' Remove collar and return book 
+
+' 408 standing, legs together, hands behind head, blindfolded
+[Action 7408]
+.delay 0
+.noimage
+.must 1408
+.range 9690             ' Technically have to remove blindfold, but the slave probably did already before pressing the "STOP" button
+
+' 409 standing, legs together, hands behind head
+[Action 7409]
+.delay 0
+.noimage
+.must 1409
+.range 9690             ' Naked
+
+' 410 Sitting on heels 2pt, legs spread, hands on thighs, palms up
+[Action 7410]
+.delay 0
+.noimage
+.must 1410
+.range 9690             ' Naked
+
+
+
+' Moderate positions 500-574
+
+' 500 2pt kneel, ankles & wrists, knees 1x, presenting tray
+[Action 7500]
+It's very unfortunate that you were unable to hold this service position, you lazy slave.
+This is a fundamental position that you will need every day you work as a slave maid.
+.pause
+.must 1500
+.range 8024 8839        ' Rewmove wrist and ankle restraints
+.Say Action
+
+' 501 Hands and knees, on forearms, face down licking shoe, knees 2x, ass up, heels
+[Action 7501]
+.delay 0
+.noimage
+.must 1501
+.range 9690             ' Finish
+
+' 502 4pt kneel, nipple clips, collar, hands behind butt, knees 1x
+[Action 7502]
+.delay 0
+.noimage
+.must 1502
+.range 8900 8919        ' Remove clothes pegs and collar
+
+' 503 2pt kneel, knees wide, ankles together, hands behind butt, nipple clips
+[Action 7503]
+.delay 0
+.noimage
+.must 1503
+.range 8848 8851        ' Remove clothes pegs
+
+' 504 2pt kneel, sit on heels, legs together, knees 1x, collar, gag, hands boxed behind back
+[Action 7504]
+.delay 0
+.noimage
+.must 1504
+.range 9000 9019        ' Remove gag and collar
+
+' 505 4pt kneel 1x, hands behind back, nipple clamps, gag, heels
+[Action 7505]
+.delay 0
+.noimage
+.must 1505
+.range 9020 9039        ' Remove nipple clamps, gag, collar
+
+' 506 Hands and knees, on hands, sitting on heels, face down licking shoe, knees 1x, heels
+[Action 7506]
+.delay 0
+.noimage
+.must 1506
+.range 9690             ' Finish
+
+
+' Hard positions 575-649
+
+' 575 hands and knees, ankles tied to thighs, rope harness + crotch rope, legs 2x hands 1x
+[Action 7575]
+After all that time we spent tying ropes, I would figure that
+you'd want to be especially careful not to waste all the effort.
+Unfortunately you force me to punish you for your failure.
+.pause
+.must 1575
+.range 8840 8843        ' Remove crotch rope
+.Say Action
+
+' 576 On table, crouch on toes, hands behind butt, legs wide, nipple clamps, collar, heels, big smile, crotch rope
+[Action 7576]
+.delay 0
+.noimage
+.must 1576
+.range 8880 8899        ' Remove crotch rope, nipple clamps and collar
+
+' 577 2pt kneel, knees together, nipple clips, arms straight down behind back, gag, collar, leash, cuffs
+[Action 7577]
+.delay 0
+.noimage
+.must 1577
+.range 8920 8939        ' Remove clothes pegs, gag, collar, leash, cuffs
+
+' 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
+[Action 7578]
+.delay 0
+.noimage
+.must 1578
+.range 8940 8959        ' Remove clothes pegs, gag, collar, leash, cuffs
+
+' 579 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
+[Action 7579]
+.delay 0
+.noimage
+.must 1579
+.range 9060 9067        '  Remove pussy and nipple clamps, heels
+
+' 580 hands on back, sitting on heels, face down licking shoe, knees 1x, heels
+[Action 7580]
+.delay 0
+.noimage
+.must 1580
+.range 9690             ' Finish
+
+
+' Extreme positions 650-699
+
+' 650 Crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide
+[Action 7650]
+Disgraceful. After making such a mess you go and waste My valuable time. I hope you
+'re properly ashamed of your pathetic performance. Well, clean everything up, slave.
+.pause
+.must 1650
+.range 9690             ' Finish, It's just better directly 
+.Say Action
+
+' 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
+[Action 7651]
+.delay 0
+.noimage
+.must 1651
+.range 8960 8979        ' Remove nipple clamps, weight, gag, collar 
+
+' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
+[Action 7652]
+It's very unfortunate that you were unable to hold this service position, you lazy
+slave. This is a fundamental position that you will need every day you work as a
+slave maid. Return the tray and glass to their appropriate places, you sloppy cunt.
+.pause
+.must 1652
+.range 8980 8999        ' Also remove nipple clamps, weight, gag, collar
+.Say Action
+
+' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
+[Action 7653]
+.delay 0
+.noimage
+.must 1653
+.range 9040 9059        ' Remove wrist & ankle restraints, collar, leash, nipple and pussy clamps 
+.Say Action
+
+
+' jump to 9690 for naked or other poitions that don't need cleanup
+' jump to 7700+ rane to cleanup specific toys
+
+
+
+
+' Comments for not having toys:
+
+' Jump into a range here to comment this failure
+' In each set, decide from toylist about missing items
+
+
+' Collar and wrist restraints
+
+[Action 7700]
+Slave, it's absurd that you don't have wrist restraints and a collar.
+I certainly expect you to find these simple accessories before our next session.
+.pause
+.mustnot 311            ' Wrist restraints
+.mustnot 325            ' Collar
+.range 9701
+.Say Action
+
+[Action 7701]
+Slave, it's absurd that you don't have wrist restraints. I certainly
+expect you to find this simple accessory before our next session.
+.pause
+.mustnot 311            ' Wrist restraints
+.must 325               ' Collar
+.range 9701
+.Say Action
+
+[Action 7702]
+Slave, it's absurd that you don't have a slave collar. I certainly
+expect you to find this simple accessory before our next session.
+.pause
+.must 311               ' Wrist restraints
+.mustnot 325            ' Collar
+.range 9701
+.Say Action
+
+' Slave lying or confused, but we need to handle this
+[Action 7703]
+Slave, it's absurd that you don't have wrist restraints and a collar.
+I certainly expect you to find these simple accessories before our next session.
+.pause
+.must 311               ' Wrist restraints
+.must 325               ' Collar
+.range 9701
+.Say Action
+
+
+[Action 7704]
+Wrist restraints and a collar are both such basic
+items. It's mind-boggling that you don't have them.
+.pause
+.mustnot 311            ' Wrist restraints
+.mustnot 325            ' Collar
+.range 9701
+.Say Action
+
+[Action 7705]
+Wrist restraints are such a basic item.
+It's mind-boggling that you don't have them.
+.pause
+.mustnot 311            ' Wrist restraints
+.must 325               ' Collar
+.range 9701
+.Say Action
+
+[Action 7706]
+A collar is such a basic item. It's
+mind-boggling that you don't have it.
+.pause
+.must 311               ' Wrist restraints
+.mustnot 325            ' Collar
+.range 9701
+.Say Action
+
+'[Action 7707]
+'[Action 7708]
+'[Action 7709]
+
+
+' Ankle and wrist restraints
+
+[Action 7720]
+Of course you will be punished for not having such
+standard items as wrist and ankle restraints!
+.pause
+.mustnot 311            ' Wrist restraints
+.mustnot 312            ' Ankle restraints
+.range 9701
+.Say Action
+
+[Action 7721]
+Slave, it's absurd that you don't have wrist restraints. I certainly
+expect you to find this simple accessory before our next session.
+.pause
+.mustnot 311            ' Wrist restraints
+.must 312               ' Ankle restraints
+.range 9701
+.Say Action
+
+[Action 7722]
+Slave, it's absurd that you don't have ankle restraints. I certainly
+expect you to find this simple accessory before our next session.
+.pause
+.must 311               ' Wrist restraints
+.mustnot 312            ' Ankle restraints
+.range 9701
+.Say Action
+
+' Slave lying or confused, but we need to handle this
+[Action 7723]
+Of course you will be punished for not having such
+standard items as wrist and ankle restraints!
+.pause
+.must 311               ' Wrist restraints
+.must 312               ' Ankle restraints
+.range 9701
+.Say Action
+
+
+' Rope
+
+[Action 7740]
+A slave without rope is...what? Not much of a slave, for
+one thing. A slave who will be punished, for another.
+.pause
+.range 9701
+.Say Action
+
+
+' Collar
+
+[Action 7744]
+Even an ignorant slut like you should know that you need a
+collar to be a slave. I feel like I'm talking to a wall here!
+.pause
+.range 9701
+.Say Action
+
+
+' Clothes pegs
+
+[Action 7748]
+No clothes pegs! I can't believe it. You'd better get your act together
+and find some of these supplies if you expect to make any headway with Me!
+.pause
+.range 9701
+.Say Action
+
+
+' Collar and leash
+
+[Action 7752]
+Even an ignorant slut like you should know that you need a
+collar to be a slave. I feel like I'm talking to a wall here!
+.pause
+.mustnot 325            ' Collar
+.range 9701
+.Say Action
+
+[Action 7753]
+Well, slave, a leash is such an essential item for an
+ignorant slut like you. Make sure you have one next time.
+.pause
+.must 325               ' Collar
+.range 9701
+.Say Action
+
+
+' Collar and hard cover book
+
+[Action 7756]
+Even an ignorant slut like you should know that you need a
+collar to be a slave. I feel like I'm talking to a wall here!
+.pause
+.mustnot 325            ' Collar
+.range 9701
+.Say Action
+
+[Action 7757]
+What, no hard cover book? Be sure to get one 'til next time, low-brow!
+.pause
+.must 325               ' Collar
+.range 9701
+.Say Action
+
+
+' Wrist restraints and butt plug/dildo
+
+[Action 7760]
+No butt plug? No handcuffs? At this point, slave, these failures
+are hard to understand, and I for one don't mean to accept them.
+.pause
+.mustnot 311            ' Wrist restraints
+.mustnot 350            ' Butt plug 
+.range 9701
+.Say Action
+
+[Action 7761]
+No dildo? No handcuffs? At this point, slave, these failures
+are hard to understand, and I for one don't mean to accept them.
+.pause
+.mustnot 311            ' Wrist restraints
+.mustnot 388            ' Dildo 
+.range 9701
+.Say Action
+
+[Action 7762]
+No butt plug? At this point, slave, these failures are
+hard to understand, and I for one don't mean to accept them.
+.pause
+.must 311               ' Wrist restraints
+.mustnot 350            ' Butt plug 
+.range 9701
+.Say Action
+
+[Action 7763]
+No dildo? At this point, slave, these failures are hard
+to understand, and I for one don't mean to accept them.
+.pause
+.must 311               ' Wrist restraints
+.mustnot 388            ' Dildo 
+.range 9701
+.Say Action
+
+' Slave lying or confused, but we need to handle this
+[Action 7764]
+No butt plug? No handcuffs? At this point, slave, these failures
+are hard to understand, and I for one don't mean to accept them.
+.pause
+.must 311               ' Wrist restraints
+.must 350               ' Butt plug 
+.range 9701
+.Say Action
+
+' Slave lying or confused, but we need to handle this
+[Action 7765]
+No dildo? No handcuffs? At this point, slave, these failures
+are hard to understand, and I for one don't mean to accept them.
+.pause
+.must 311               ' Wrist restraints
+.must 388               ' Dildo 
+.range 9701
+.Say Action
+
+
+' Blindfold
+
+[Action 7780]
+A blindfold is such an essential item for your
+slave education. It's a shame you don't have one! 
+.pause
+.mustnot 179            ' Punishment
+.range 9701
+.Say Action
+
+[Action 7781]
+Slave, a blindfold is such an essential item for
+your punishments. It's a shame you don't have one! 
+.pause
+.must 179               ' Punishment
+.range 9701
+.Say Action
+
+[Action 7782]
+Slave, it's absurd that you don't have a simple blindfold.
+I certainly expect you to get or make one before our next session.
+.pause
+.range 9701
+.Say Action
+
+
+' Generic comments about not having toys 8280-8298
+
+[Action 8280]
+What a rotten little slut you are. Can't you 
+keep even the most basic items on hand?
+.pause
+.mustnot 398
+.set 398
+.range 8299
+.say action
+
+[Action 8281]
+It's a lot of stuff, slave, but nothing that you shouldn't already have on hand.
+You need to do some shopping, soon, if you're interested in making any progress.
+.pause
+.mustnot 110 113        ' -> Moderate or Hard
+.mustnot 398
+.set 398
+.range 8299
+.say action
+
+[Action 8282]
+It's a lot of stuff, but I expected you to have it all by now. 
+.pause
+.mustnot 398
+.mustnot 110 111        ' -> Hard or extreme
+.range 8299
+.say action
+
+[Action 8283]
+What a surprise - the stupid slut doesn't have the necessary equipment
+for his slave education. Once again you've proven yourself unworthy, slave.
+.pause
+.mustnot 398
+.mustnot 710            ' Punishment
+.set 398
+.range 8299
+.say action
+
+[Action 8284]
+What a surprise - the stupid slut doesn't have the necessary equipment
+for his punishment. Once again you've proven yourself unworthy, slave.
+.pause
+.mustnot 398
+.must 710               ' Punishment
+.set 398
+.range 8299
+.say action
+
+
+[Action 8290]
+That's pathetic, slave, and I'm just fed up with you.
+.pause
+.must 398
+.unset 398
+.range 8299
+.say action
+
+
+[Action 8299]
+.delay 0
+.noimage
+.range 9701
+
+
+' Finished position - generic compliment
+
+[Action 8300]
+.delay 0
+.noimage
+.range 8301 8398
+
+
+[Action 8301]
+Very good, slave.
+.playwav bell1.wav
+.delay 5
+.mustnot 113
+.range 8399
+.say action
+
+[Action 8302]
+Very good, slave. That was a difficult position.
+.playwav bell1.wav
+.delay 5
+.mustnot 110 111
+.range 8399
+.say action
+
+[Action 8303]
+Excellent, slave.
+.playwav bell1.wav
+.delay 5
+.mustnot 110 111
+.range 8399
+.say action
+
+[Action 8304]
+Excellent performance, slave, in a good solid position. 
+.playwav bell1.wav
+.delay 5
+.mustnot 110 111
+.range 8399
+.say action
+
+[Action 8305]
+That's very good, My pet.
+.playwav bell1.wav
+.delay 5
+.mustnot 110 111
+.range 8399
+.say action
+
+[Action 8306]
+That's a very good slut.
+.playwav bell1.wav
+.delay 5
+.mustnot 110 111
+.range 8399
+.say action
+
+[Action 8307]
+Easy as pie.
+.playwav bell1.wav
+.delay 5
+.mustnot 112 113
+.range 8399
+.say action
+
+[Action 8308]
+Very good, slave. I do believe you're starting to catch on.
+.playwav bell1.wav
+.delay 5
+.mustnot 110
+.range 8399
+.say action
+
+[Action 8309]
+Very good, slave. I'm quite pleased with you.
+.playwav bell1.wav
+.delay 5
+.range 8399
+.say action
+
+[Action 8310]
+Good job, slave.
+.playwav bell1.wav
+.delay 5
+.range 8399
+.say action
+
+[Action 8311]
+Very good. I begin to think you're shaping up, slave.
+.playwav bell1.wav
+.delay 5
+.range 8399
+.say action
+
+
+[Action 8399]
+.delay 0
+.noimage
+.range 8400 8699
+
+
+' Easy positions 400-499
+
+' 400 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
+[Action 8400]
+.delay 0
+.noimage
+.must 1400
+.set 400
+.range 8800 8819        ' Remove wrist restraints and collar
+.say action
+
+' 401 Standing bent over, hands on shins, ass presented, head down
+[Action 8401]
+.delay 0
+.noimage
+.must 1401
+.set 401
+.range 9690             ' Naked
+.Say Action
+
+'402 4pt kneel, hands on thighs palms up, collar
+[Action 8402]
+.delay 0
+.noimage
+.must 1402
+.set 402
+.range 9690             ' Naked
+.Say Action
+
+' 403 4pt sit on heels, hands on legs palms down, wristlets, collar, heels
+[Action 8403]
+.delay 0
+.noimage
+.must 1403
+.set 403
+.range 8800 8819        ' Remove wrist restraints and collar
+.Say Action
+
+' 404 belly on chair, ass presented, heels, holding legs of chair, head up
+[Action 8404]
+.delay 0
+.noimage
+.must 1404
+.set 404
+.range 9690             ' Naked
+.Say Action
+
+' 405 standing, legs together, collar, leash, heels, hands behind butt, balancing book on head
+[Action 8405]
+.delay 0
+.noimage
+.must 1405
+.set 405
+.range 8856 8859        ' Remove collar, leash and return book
+.Say Action
+
+' 406 standing, legs together, hands on hips, collar, leash, big smile
+[Action 8406]
+.delay 0
+.noimage
+.must 1406
+.set 406
+.range 9068 9071        ' Remove collar and leash 
+.Say Action
+
+' 407 2pt sit on heels, knees together, collar, hands together in front, balancing book on head
+[Action 8407]
+.delay 0
+.noimage
+.must 1407
+.set 407
+.range 9072 9075        ' Remove collar and return book 
+.Say Action
+
+' 408 standing, legs together, hands behind head, blindfolded
+[Action 8408]
+.delay 0
+.noimage
+.must 1408
+.set 408
+.range 9076 9079        ' Remove blindfold
+.Say Action
+
+' 409 standing, legs together, hands behind head
+[Action 8409]
+.delay 0
+.noimage
+.must 1409
+.set 409
+.range 9690             ' Naked
+.Say Action
+
+' 410 Sitting on heels 2pt, legs spread, hands on thighs, palms up
+[Action 8410]
+.delay 0
+.noimage
+.must 1410
+.set 410
+.range 9690             ' Naked
+.Say Action
+
+
+' Moderate positions 500-574
+
+' 500 2pt kneel, ankles & wrists, knees 1x, presenting tray
+[Action 8500]
+You may return the tray and glass to their appropriate places.
+.delay 30
+.must 1500
+.set 500
+.range 8820 8823        ' Remove wrist and ankle restraints
+.Say Action
+
+' 501 Hands and knees, on forearms, face down licking shoe, knees 2x, ass up, heels
+[Action 8501]
+I think you'd better get used to that taste.
+.must 1501
+.set 501
+.range 9960             ' Naked
+.Say Action
+
+' 502 4pt kneel, nipple clips, collar, hands behind butt, knees 1x
+[Action 8502]
+.delay 0
+.noimage
+.must 1502
+.set 502
+.range 8900 8919        ' Remove clothes pegs and collar
+
+' 503 2pt kneel, knees wide, ankles together, hands behind butt, nipple clips
+[Action 8503]
+The clothes pegs are a great reminder that you're in a training session, aren't they? 
+.must 1503
+.set 503
+.range 8848 8851        ' Remove clothes pegs 
+.Say Action
+
+' 504 2pt kneel, sit on heels, legs together, knees 1x, collar, gag, hands boxed behind back
+[Action 8504]
+.delay 0
+.noimage
+.must 1504
+.set 504
+.range 9000 9019        ' Remove gag and collar
+
+' 505 4pt kneel 1x, hands behind back, nipple clamps, gag, heels
+[Action 8505]
+.delay 0
+.noimage
+.must 1505
+.set 505
+.range 9020 9039        ' Remove nipple clamps, gag, collar
+
+' 506 Hands and knees, on hands, sitting on heels, face down licking shoe, knees 1x, heels
+[Action 8506]
+I think you'd better get used to that taste.
+.must 1506
+.set 506
+.range 9960             ' Naked
+.Say Action
+
+
+' Hard positions 575-649
+
+' 575 hands and knees, ankles tied to thighs, rope harness + crotch rope, legs 2x hands 1x
+[Action 8575]
+That was a nice long time and I enjoyed watching you suffer.
+.must 1575
+.set 575
+.range 8840 8843        ' Remove rope
+.Say Action
+
+' 576 On table, crouch on toes, hands behind butt, legs wide, nipple clamps, collar, heels, big smile, crotch rope
+[Action 8576]
+I hope that was especially uncomfortable!
+.must 1576
+.set 576
+.range 8880 8889        ' Remove crotch rope
+.Say Action
+
+' 577 2pt kneel, knees together, nipple clips, arms straight down behind back, gag, collar, leash, cuffs
+[Action 8577]
+.delay 0
+.noimage
+.must 1577
+.set 577
+.range 8920 8939        ' Remove clothes pegs, gag, collar, leash, cuffs
+.Say Action
+
+' 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
+[Action 8578]
+.delay 0
+.noimage
+.must 1578
+.set 578
+.range 8940 8959        ' Remove nipple clamps, weight, cufffs, towel or rug
+.Say Action
+
+' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+[Action 8579]
+.delay 0
+.noimage
+.must 1579
+.set 579
+.range 9060 9067        '  Remove pussy and nipple clamps, heels
+.Say Action
+
+' 580 hands on back, sitting on heels, face down licking shoe, knees 1x, heels
+[Action 8580]
+I'd say you really got used to that taste.
+.must 1580
+.set 580
+.range 9960             ' Naked
+.Say Action
+
+
+' Extreme positions 650-699
+
+' 650 Crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide
+[Action 8650]
+I hope your ass is feeling well-used.
+.delay 5
+.must 1650
+.set 650
+.range 8860 8879        ' Remvoe wrist restraints and dildo or buttplug, dildo preferred
+.Say Action
+
+' 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
+[Action 8651]
+.delay 0
+.noimage
+.must 1651
+.set 651
+.range 8960 8979        ' Remove nipple clamps, weight, gag, collar
+.Say Action
+
+' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
+[Action 8652]
+You may return the tray and glass to their appropriate places.
+.pause
+.must 1652
+.set 652
+.range 8980 8999        ' Also remove collar, wrist and ankle restraints, nipple clamps
+.Say Action
+
+' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
+[Action 8653]
+I hope your mouth is feeling well-used.
+.delay 5
+.must 1653
+.set 653
+.range 9040 9059        ' Remove wrist & ankle restraints, collar, leash, nipple and pussy clamps 
+.Say Action
+
+
+' After setting the completion flag for the position, jump to
+' 8700 8799 put toys away generics
+' 8800 9699 put away sets of toys
+
+' 8700 8799 put toys away generics
+
+
+
+' 8800 9699 put away sets of toys
+
+
+' Remove wrist restraints and collar
+
+[Action 8800]
+You may remove your wrist restraints and your collar.
+.pause
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8801]
+You may remove your your collar.
+.pause
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8802]
+You may remove your wrist restraints.
+.pause
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8803]
+You may remove your collar and the restraints.
+.pause
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8804]
+You may remove the restraints.
+.pause
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8819]
+.delay 0
+.noimage
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Remove wrist and ankle restraints
+
+[Action 8820]
+Also remove your wrist and ankle restraints.
+.pause
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.range 9690
+.say action
+
+[Action 8821]
+Also remove your ankle restraints.
+.pause
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.range 9690
+.say action
+
+[Action 8822]
+Also remove your wrist restraints.
+.pause
+.must 25                ' Ankles tied
+.mustnot 26             ' Wrists tied
+.range 9690
+.say action
+
+[Action 8823]
+.delay 0
+.noimage
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.range 9690
+.say action
+
+[Action 8824]
+You may remove your wrist and ankle restraints.
+.pause
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.range 9690
+.say action
+
+[Action 8825]
+You may remove your ankle restraints.
+.pause
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.range 9690
+.say action
+
+[Action 8826]
+You may remove your wrist restraints.
+.pause
+.must 25                ' Ankles tied
+.mustnot 26             ' Wrists tied
+.range 9690
+.say action
+
+[Action 8827]
+.delay 0
+.noimage
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.range 9690
+.say action
+
+
+' Remvoe ropes (generic)
+
+[Action 8840]
+Return to your seat after removing all the ropes.
+.pause
+'.mustnot 27             ' Something around waist TODO Crotch rope not a toy yet
+.range 9690
+.say action
+
+
+' Remove collar
+
+[Action 8844]
+Go ahead and remove your slave collar.
+.pause
+.mustnot 28             ' Something on neck
+.range 9690
+.say action
+
+[Action 8845]
+.delay 0
+.noimage
+.must 28                ' Something on neck
+.range 9690
+.say action
+
+
+' Remove clothes pegs
+
+[Action 8848]
+Go ahead and remove the clothes pegs.
+.pause
+.mustnot 20             ' Something on nipples
+.range 9690
+.say action
+
+[Action 8849]
+.delay 0
+.noimage
+.must 20                ' Something on nipples
+.range 9690
+.say action
+
+
+' Remove clothes pegs
+
+[Action 8852]
+You may remove them now. 
+.pause
+.range 9690
+.say action
+
+[Action 8853]
+.delay 0
+.noimage
+.must 20                ' Something on nipples
+.range 9690
+.say action
+
+
+' Remove collar, leash and return book
+
+[Action 8856]
+Go ahead, return the book and remove your slave collar.
+.pause
+.mustnot 28             ' Something on neck
+.range 9690
+.say action
+
+[Action 8857]
+Go ahead, return the book and detach the leash.
+.pause
+.must 28                ' Something on neck
+.range 9690
+.say action
+
+
+' Remove wrist restraints and dildo or buttplug, dildo preferred
+
+[Action 8860]
+Go ahead and remove the butt plug and your wrist restraints,
+clean up, and sit back down for the rest of the session.
+.pause
+.mustnot 26             ' Wrists tied
+.mustnot 388
+.range 9690
+.say action
+
+[Action 8861]
+Go ahead and remove the dildo and your wrist restraints,
+clean up, and sit back down for the rest of the session.
+.pause
+.mustnot 26             ' Wrists tied
+.must 388               ' Dildo
+.range 9690
+.say action
+
+[Action 8862]
+Go ahead and remove the butt plug, clean up,
+and sit back down for the rest of the session.
+.pause
+.must 26                ' Wrists tied
+.mustnot 388
+.range 9690
+.say action
+
+[Action 8863]
+Go ahead and remove the dildo, clean up, and
+sit back down for the rest of the session.
+.pause
+.must 26                ' Wrists tied
+.must 388               ' Dildo
+.range 9690
+.say action
+
+
+' Remove crotch rope, nipple clamps and collar
+
+[Action 8880]
+Remove your crotch rope first, then your collar and nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8881]
+Remove your crotch rope first, then your collar.
+.pause
+.must 20                ' Something on nipples
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8882]
+Remove your crotch rope first, then your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8883]
+You may remove the crotch rope, slave.
+.pause
+.must 20                ' Something on nipples
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Remove clothes pegs and collar
+
+[Action 8900]
+You may remove your collar and the clothes pegs now.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8901]
+You may remove your your collar now.
+.pause
+.must 20                ' Something on nipples
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8902]
+You may remove the clothes pegs now.
+.pause
+.mustnot 20             ' Something on nipples
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8903]
+.delay 0
+.noimage
+.must 20                ' Something on nipples
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Remove clothes pegs, gag, collar, leash, cuffs
+
+[Action 8920]
+You may remove the handcuffs, collar, gag, and nipple clips, in that order.
+.pause
+.mustnot 22             ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8921]
+You may remove the handcuffs, collar, and nipple clips, in that order.
+.pause
+.must 22                ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8922]
+You may remove the handcuffs, leash, gag, and nipple clips, in that order.
+.pause
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8923]
+You may remove the handcuffs, leash, and nipple clips, in that order.
+.pause
+.must 22                ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Remove nipple clamps, weight, cufffs, towel or rug
+
+[Action 8940]
+Untie yourself, and put the rug or towel away. When
+you're finished, you may remove your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 26             ' Wrists tied
+.range 9690
+.say action
+
+[Action 8941]
+Put the rug or towel away. When you're finished,
+you may remove your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.must 26                ' Wrists tied
+.range 9690
+.say action
+
+[Action 8942]
+Untie yourself, and put the rug or towel away. When you're
+finished, you may remove the weight from your nipple clamps.
+.pause
+.must 20                ' Something on nipples
+.mustnot 26             ' Wrists tied
+.range 9690
+.say action
+
+[Action 8943]
+Put the rug or towel away. When you're finished,
+you may remove the weight from your nipple clamps.
+.must 20                ' Something on nipples
+.must 26                ' Wrists tied
+.range 9690
+.say action
+
+
+' Remove nipple clamps, weight, gag, collar
+
+[Action 8960]
+You can put your gag and collar away now, and remove your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 22             ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8961]
+You can remove your gag and your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8962]
+You can put your gag and collar away now, and remove the weight from your clamps.
+But let's keep wearing the clamps and let me enjoy you suffering a little more.
+.pause
+.must 20                ' Something on nipples
+.mustnot 22             ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8963]
+You can put your gag away now and remove thee weight, but
+you keep wearing your nipple clamps and your collar.
+.pause
+.must 20                ' Something on nipples
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8964]
+You can put your collar away now, and remove your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.must 22                ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8965]
+You can remove your nipple clamps now.
+.pause
+.mustnot 20             ' Something on nipples
+.must 22                ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8966]
+You can put your collar away now, and remove the weight. But let's keep
+wearing the clamps an the gag, I'd like to see you suffer a little more.
+.pause
+.must 20                ' Something on nipples
+.must 22                ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8967]
+You can put your gag away now, as well as the weight from your clamps.
+.must 20                ' Something on nipples
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Also remove collar, wrist and ankle restraints, nipple clamps
+
+[Action 8980]
+Also remove your collar, wrist and ankle restraints,
+as well as your nipple clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8981]
+Also remove your collar, wrist and ankle restraints.
+.pause
+.must 20                ' Something on nipples
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8982]
+Also remove your collar, your wrist restraints,
+as well as your nipple clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.must 25                ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8983]
+Also remove your collar and your wrist restraints.
+.pause
+.must 20               ' Something on nipples
+.must 25               ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8984]
+Also remove your collar, your ankle restraints,
+as well as your nipple clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8985]
+Also remove your collar and your ankle restraints.
+.pause
+.must 20                ' Something on nipples
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8986]
+Also remove your collar, and your nipple clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8987]
+Also remove your collar.
+.pause
+.must 20                ' Something on nipples
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 8988]
+Also remove your wrist and ankle restraints,
+as well as your nipple clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8989]
+Also remove your wrist and ankle restraints.
+.pause
+.must 20                ' Something on nipples
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8990]
+Also remove your wrist restraints, and your nipple clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.must 25                ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8991]
+Also remove your wrist restraints.
+.pause
+.must 20                ' Something on nipples
+.must 25                ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8992]
+Also remove your ankle restraints, and your nipple clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8993]
+Also remove your ankle restraints.
+.pause
+.must 20                ' Something on nipples
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8994]
+Also remove your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 8995]
+.delay 0
+.noimage
+.must 20                ' Something on nipples
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Remove gag and collar
+
+[Action 9000]
+You may remove your gag and your collar.
+.pause
+.mustnot 22             ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9001]
+You may remove your your collar.
+.pause
+.must 22                ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9002]
+You may remove the gag.
+.pause
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9003]
+.delay 0
+.noimage
+.must 22                ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Remove nipple clamps, gag, collar
+
+[Action 9020]
+You can put your gag and collar away now, and remove your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 22             ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9021]
+You can remove your gag and your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9022]
+You can put your gag and collar away now. But let's keep wearing
+the nipple clamps and let me enjoy you suffering a little more.
+.pause
+.must 20                ' Something on nipples
+.mustnot 22             ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9023]
+You can put your gag away now, but you keep
+wearing your nipple clamps and your collar.
+.pause
+.must 20                ' Something on nipples
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9024]
+You can put your collar away now, and remove your nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.must 22                ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9025]
+You can remove your nipple clamps now.
+.pause
+.mustnot 20             ' Something on nipples
+.must 22                ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9026]
+You can put your collar away now. But let's keep wearing the
+clamps an the gag, I'd like to see you suffer a little more.
+.pause
+.must 20                ' Something on nipples
+.must 22                ' Something in mouth
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9027]
+You can put your gag away now.
+.must 20                ' Something on nipples
+.mustnot 22             ' Something in mouth
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Go ahead and remove wrist & ankle restraints, collar, leash, nipple and pussy clamps
+
+[Action 9040]
+Go ahead and remove your collar, wrist and ankle restraints,
+as well as your nipple and pussy clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9041]
+Go ahead and remove your collar, wrist and ankle
+cuffs, as well as your pusy clamps, in that order.
+.pause
+.must 20                ' Something on nipples
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9042]
+Go ahead and remove your collar, your wrist restraints,
+as well as your nipple and pussy clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.must 25                ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9043]
+Go ahead and remove your collar and wrist cuffs,
+as well as your pussy clamps, in that order.
+.pause
+.must 20               ' Something on nipples
+.must 25               ' Ankles tied
+.mustnot 26             ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9044]
+Go ahead and remove your collar, your ankle restraints,
+as well as your nipple and pussy clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9045]
+Go ahead and remove your collar and your ankle
+cuffs, as well as your pussy clamps, in that order.
+.pause
+.must 20                ' Something on nipples
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9046]
+Go ahead and remove your collar, and your
+nipple and pussy clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9047]
+Go ahead and remove your collar and your pussy clamps.
+.pause
+.must 20                ' Something on nipples
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.mustnot 28             ' collared
+.range 9690
+.say action
+
+[Action 9048]
+Go ahead and remove your wrist and ankle restraints,
+as well as your nipple and pussy clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9049]
+Go ahead and remove your wrist and ankle cuffs,
+as well as your pussy clamps, in that order.
+
+.pause
+.must 20                ' Something on nipples
+.mustnot 25             ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9050]
+Go ahead and remove your wrist restraints, as well
+as your nipple and pussy clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.must 25                ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9051]
+Go ahead and remove your wrist restraints and your pussy clamps.
+.pause
+.must 20                ' Something on nipples
+.must 25                ' Ankles tied
+.mustnot 26             ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9052]
+Go ahead and remove your ankle restraints, and
+your nipple and pussy clamps, in that order.
+.pause
+.mustnot 20             ' Something on nipples
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9053]
+Go ahead and remove your ankle cuffs and your pussy clamps.
+.pause
+.must 20                ' Something on nipples
+.mustnot 25             ' Ankles tied
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9054]
+Go ahead and remove your nipple and pussy clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+[Action 9055]
+Go ahead and remove your pussy clamps.
+.pause
+.must 20                ' Something on nipples
+.must 25                ' Ankles tied
+.must 26                ' Wrists tied
+.must 28                ' collared
+.range 9690
+.say action
+
+
+' Remove pussy and nipple clamps, heels
+
+[Action 9060]
+You may take off your heels and remove the clothes pegs and nipple clamps.
+.pause
+.mustnot 20             ' Something on nipples
+.range 9690
+.say action
+
+[Action 9061]
+You may take off your heels and remove the clothes pegs.
+.pause
+.must 20                ' Something on nipples
+.range 9690
+.say action
+
+
+' Remove collar and leash 
+
+[Action 9068]
+Go ahead, detach the leash and remove your slave collar.
+.pause
+.mustnot 28             ' Something on neck
+.range 9690
+.say action
+
+[Action 9069]
+Go ahead and detach the leash.
+.pause
+.must 28                ' Something on neck
+.range 9690
+.say action
+
+
+' Remove collar and return book
+
+[Action 9072]
+Go ahead, return the book and remove your slave collar.
+.pause
+.mustnot 28             ' Something on neck
+.range 9690
+.say action
+
+[Action 9073]
+Go ahead and return the book.
+.pause
+.must 28                ' Something on neck
+.range 9690
+.say action
+
+
+' Remove blindfold
+
+[Action 9076]
+You may remove the blindfold.
+.pause
+.range 9690
+.say action
+
+[Action 9077]
+Go ahead and remove the blindfold.
+.pause
+.range 9690
+.say action
+
+
+
+
+' end of putting away toys, either succeeded or failed to hold position
+
+[Action 9690]
+.delay 0
+.noimage
+.range 9691 9692
+
+
+[Action 9691]
+.delay 0
+.noimage
+.mustnot 1811           ' Finished position
+.range 9702             ' Failed
+
+[Action 9692]
+.delay 0
+.noimage
+.must 1811              ' Finished position
+.range 9700             ' Success
+
+
+' Success 9700
+' Haven't items 9701
+' Haven't finished position 9702 
+
+' Make sure to save before returning to Mine.sbd.
+' However, don't save anything with the bailout returns.
+
+' Success
+[Action 9700]
+.noimage
+.delay 0
+.unset 9700
+.range 9710 9729
+
+' Haven't items
+[Action 9701]
+.noimage
+.delay 0
+.unset 9701
+.range 9730 9739
+
+' Haven't finshed position
+[Action 9702]
+.noimage
+.delay 0
+.unset 9702
+.range 9750 9759
+
+
+' Success 9710-9729
+
+' Finish this activity
+[Action 9710]
+Very good, slave, that's enough for now.
+.mustnot 179
+.range 9800 9801        ' advancement attempt
+.Say Action
+
+' Another one?
+[Action 9711]
+That was so good, slave, I think we should do another.
+.mustnot 99 179         ' Not already done another, not a punishment
+.poss 25
+.set 99                 ' never more than two.
+.range 1200
+.Say Action
+
+[Action 9712]
+.delay 0
+.noimage
+.must 179               ' punishment flag
+.range 9960 9979
+
+
+' Haven't items 9730-9749, entry 9730-9739
+
+' Failure-exit for activity
+[Action 9730]
+.delay 0
+.noimage
+.mustnot 179            ' Punishment flag
+.range 9980 9981        ' Failure exit range; can't advance on a failed session
+
+' Failure exit for punishments
+[Action 9731]
+I've had it, you disobedient cunt. You are obviously not capable to perform
+the simplest tasks, and I'm not going to waste any more time on you.
+.poss 1                 ' First decrease difficulty or increase duration
+.must 110               ' Decrease to easy level first, then increase duration up to three chances
+.must 179               ' Punishment flag
+.range 9769             ' Exit to main script 2499, but can't diaplay message and .loadbsd in the same action
+.Say Action
+
+' Easy level contains poses that can be done entirely without toys,
+' just household may be needed (such things like a shoe)
+' and easy-poses that need toys are not available during punishments
+' As a result, easy level punishments are always possible - no excuses
+' Easy non-naked positions are not used for punishments
+
+' Retry position, lower difficulty until slave doesn't need any toys to complete
+[Action 9732]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 113               ' Extreme difficulty
+.mustnot 179            ' Punishment flag
+.unset 113              ' Extreme difficulty
+.set 112                ' Hard difficulty
+.range 9740 9744        ' Prolonge punishment
+.Say Action
+
+' Retry position, lower difficulty
+[Action 9733]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 112               ' Hard difficulty
+.mustnot 179            ' Punishment flag
+.unset 112              ' Hard difficulty
+.set 111                ' Moderate difficulty
+.range 9740 9744        ' Prolonge punishment
+.Say Action
+
+' Retry position, lower difficulty
+[Action 9734]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 111               ' Moderate difficulty
+.mustnot 179            ' Punishment flag
+.unset 111              ' Moderate difficulty
+.set 110                ' Easy difficulty
+.range 9740 9744        ' Prolonge punishment
+.Say Action
+
+' Retry another position with longer duration 
+[Action 9735]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 110               ' Easy difficulty
+.mustnot 179            ' Punishment flag
+.mustnot 9734 9754      ' Three attempts only
+.range 9740 9744        ' Prolonge punishment
+.Say Action
+
+' Retry another position with longer duration 
+[Action 9736]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 111               ' Easy difficulty
+.mustnot 179            ' Punishment flag
+.mustnot 9733 9753      ' Three attempts only
+.range 9740 9744        ' Prolonge punishment
+.Say Action
+
+' Retry another position with longer duration 
+[Action 9737]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 112               ' Easy difficulty
+.mustnot 179            ' Punishment flag
+.mustnot 9732 9752      ' Three attempts only
+.range 9740 9744        ' Prolonge punishment
+.Say Action
+
+
+' Prolong punishment duration comment
+
+[Action 9740]
+You certainly won't mind to make good for your incompetence in getting the items
+for your punishment by letting you suffer for your misbehaviours a little longer.
+.must 100               ' Short duration
+.unset 100              ' Short duration
+.set 101                ' Medium duration
+.range 9768
+.Say Action
+
+[Action 9741]
+I'll be graceful today and going to ignore your inability to procure the
+necessary items for your punishment and let you suffer a little longer instead.
+.must 101               ' Medium duration
+.unset 101              ' Medium duration
+.set 102                ' Long duration
+.range 9768
+.Say Action
+
+[Action 9742]
+I'll be graceful this time and going to ignore your inability to procure the
+necessary items for your punishment and let you suffer a little longer instead.
+.must 102               ' Long duration
+.unset 102              ' Long duration
+.set 103                ' Very long duration
+.range 9768
+.Say Action
+
+[Action 9743]
+.noimage
+.delay 0
+.poss 1
+.range 9768
+
+'[Action 9744]
+
+
+' Failure to hold position 9750-9799
+
+' Failure-exit for activity
+[Action 9750]
+.noimage
+.delay 0
+.mustnot 179
+.range 9980 9981        ' Failure exit range; can't advance on a failed session
+
+' Final failure for punishment
+[Action 9751]
+I've had it, you disobedient cunt. You are obviously not in the mood to accept
+a well deserved punishment, and I'm not going to waste any more time on you, bitch. 
+.poss 1
+.must 110                ' Decrease to easy level first, then increase duration up to three chances
+.must 179
+.range 9769              ' Exit to main script 2499, but can't siaplay message and .loadbsd in the same action
+.Say Action
+
+' Easy level contains poses that can be done entirely without toys,
+' just household may be needed (such things like a shoe)
+' and easy-poses that need toys are not available during punishments
+' As a result, easy level punishments are always possible - no excuses
+' Easy non-naked positions are not used for punishments
+
+' Retry position, lower difficulty until slave doesn't need any toys to complete
+[Action 9752]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 113               ' Extreme difficulty
+.mustnot 179            ' Punishment flag
+.unset 113              ' Extreme difficulty
+.set 112                ' Hard difficulty
+.range 9760 9764        ' Prolonge punishment
+.Say Action
+
+' Retry position, lower difficulty
+[Action 9753]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 112               ' Hard difficulty
+.mustnot 179            ' Punishment flag
+.unset 112              ' Hard difficulty
+.set 111                ' Moderate difficulty
+.range 9760 9764        ' Prolonge punishment
+.Say Action
+
+' Retry position, lower difficulty
+[Action 9754]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 111               ' Moderate difficulty
+.mustnot 179            ' Punishment flag
+.unset 111              ' Moderate difficulty
+.set 110                ' Easy difficulty
+.range 9760 9764        ' Prolonge punishment
+.Say Action
+
+' Retry another position with longer duration 
+[Action 9755]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 110               ' Easy difficulty
+.mustnot 179            ' Punishment flag
+.mustnot 9732 9752      ' Three attempts only
+.range 9760 9764        ' Prolonge punishment
+.Say Action
+
+' Retry another position with longer duration 
+[Action 9756]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 110               ' Easy difficulty
+.mustnot 179            ' Punishment flag
+.mustnot 9733 9753      ' Three attempts only
+.range 9760 9764        ' Prolonge punishment
+.Say Action
+
+' Retry another position with longer duration 
+[Action 9757]
+Well, slave, bailing on that position doesn't get you out of My doghouse.
+We'll just have to go back and try another punishment, as I warned you.
+.must 110               ' Easy difficulty
+.mustnot 179            ' Punishment flag
+.mustnot 9734 9754      ' Three attempts only
+.range 9760 9764        ' Prolonge punishment
+.Say Action
+
+
+' Prolong punishment duration comment
+
+[Action 9760]
+You certainly won't mind to make good for your pathetic performance
+by letting you suffer for your misbehaviours a little longer.
+.must 100               ' Short duration
+.unset 100              ' Short duration
+.set 101                ' Medium duration
+.range 9768
+.Say Action
+
+[Action 9761]
+I'll be graceful today and going to ignore your pathetic performance
+and let you suffer a little longer instead.
+.must 101               ' Medium duration
+.unset 101              ' Medium duration
+.set 102                ' Long duration
+.range 9768
+.Say Action
+
+[Action 9762]
+I'll be graceful this time and going to ignore your pathetic performance
+and let you suffer a little longer instead.
+.must 102               ' Long duration
+.unset 102              ' Long duration
+.set 103                ' Very long duration
+.range 9768
+.Say Action
+
+[Action 9763]
+.noimage
+.delay 0
+.poss 1
+.range 9768
+
+'[Action 9764]
+
+
+' Retry and select another punishment
+[action 9768]
+.noimage
+.delay 0
+.range 1219
+
+
+' Punishment cancellation final exit without further comment in main script
+[action 9769]
+.noimage
+.delay 0
+.save 390 699
+.loadsbd Mine.sbd 2499 2499
+
+
+' Success evaluation
+
+' No advance after punishment
+[Action 9800]
+.delay 0
+.noimage
+.must 179               ' Punishment
+.range 9950
+
+' Advance in activity
+[Action 9801]
+.delay 0
+.noimage
+.mustnot 179            ' Punishment
+.poss 100
+.range 9802 9819
+
+
+'   There's about a 10% chance of advancement each time the script is run.
+
+[Action 9802]
+I think you're ready for more difficult positions, slave. Good boy!
+.must 390                         ' 390 set in 1190
+.mustnot 391 392 393 394 395 396
+.poss 10
+.mustnot 121            ' Debug entry, to avoid continuing in main script 
+.unset 390
+.set 391
+.range 9901
+.Say Action
+
+[Action 9803]
+.delay 0
+.noimage
+.must 390
+.range 9900
+
+
+[Action 9804]
+I think you're ready for the next level, slave.
+Expect more difficult training next time.
+.mustnot 121            ' Debug entry, to avoid continuing in main script 
+.must 391 
+.poss 11
+.unset 390 391
+.set 392
+.range 9902
+.Say Action
+
+[Action 9805]
+.delay 0
+.noimage
+.must 391
+.range 9900
+
+
+[Action 9806]
+This was a good performance, slave, and I think
+you're ready for harder tests now. Very good boy!
+.mustnot 121            ' Debug entry, to avoid continuing in main script 
+.must 392
+.poss 11
+.unset 390 391 392
+.set 393
+.range 9903
+.Say Action
+
+[Action 9807]
+.delay 0
+.noimage
+.must 392
+.range 9900
+
+
+[Action 9808]
+You're getting better and better trained, slave. Next time
+I'm going to ramp the difficulty up a notch, because you've earned it.
+.mustnot 121            ' Debug entry, to avoid continuing in main script 
+.must 393
+.poss 12
+.unset 390 391 392 393
+.set 394
+.range 9904
+.Say Action
+
+[Action 9809]
+.delay 0
+.noimage
+.must 393
+.range 9900
+
+
+[Action 9810]
+You're really getting good at these positions, slave.
+I'm going to have to test your endurance in the future.
+.mustnot 121            ' Debug entry, to avoid continuing in main script 
+.must 394
+.poss 12
+.unset 390 391 392 393 394
+.set 395
+.range 9905
+.Say Action
+
+[Action 9811]
+.delay 0
+.noimage
+.must 394
+.range 9900
+
+
+[Action 9812]
+Well, slave, you've reached the pinnacle of position training.
+I'm extremely impressed with your progress and endurance. Good job!
+.mustnot 121            ' Debug entry, to avoid continuing in main script 
+.must 395
+.poss 12
+.unset 390 391 392 393 394 395
+.set 396
+.range 9906
+.Say Action
+
+[Action 9813]
+.delay 0
+.noimage
+.must 395
+.range 9900
+
+
+[Action 9819]
+.delay 0
+.noimage
+.must 396
+.range 9900
+
+
+' The good exits after succeeding in activity
+
+' No achivement this time
+[Action 9900]
+.delay 0
+.noimage
+.must 120               ' Regular training session
+.save 390 699
+.loadsbd Mine.sbd 5100 5100
+
+' Announce achivement 391 to Mine.sbd
+[Action 9901]
+.delay 0
+.noimage
+.save 390 699
+.loadsbd Mine.sbd 5111 5111
+
+' Announce achivement 392 to Mine.sbd
+[Action 9902]
+.delay 0
+.noimage
+.save 390 699
+.loadsbd Mine.sbd 5112 5112
+
+' Announce achivement 393 to Mine.sbd
+[Action 9903]
+.delay 0
+.noimage
+.save 390 699
+.loadsbd Mine.sbd 5113 5113
+
+' Announce achivement 394 to Mine.sbd
+[Action 9904]
+.delay 0
+.noimage
+.save 390 699
+.loadsbd Mine.sbd 5114 5114
+
+' Announce achivement 395 to Mine.sbd
+[Action 9905]
+.delay 0
+.noimage
+.save 390 699
+.loadsbd Mine.sbd 5115 5115
+
+' Announce achivement 396 to Mine.sbd
+[Action 9906]
+.delay 0
+.noimage
+.save 390 699
+.loadsbd Mine.sbd 5116 5116
+
+
+' The good exits for punishments
+
+[Action 9950]
+.delay 0
+.noimage
+.range 9950 9959
+
+
+[Action 9951]
+.delay 0
+.noimage
+.must 121               ' Generic activity, quit afterwards
+.save 390 699
+.quit
+
+[Action 9952]
+.delay 0
+.noimage
+.must 122               ' punishment (training failure 1)
+.save 390 699
+.loadsbd Mine.sbd 2417 2417
+
+[Action 9953]
+.delay 0
+.noimage
+.must 123               ' punishment (excessive disobedience)
+.save 390 699
+.loadsbd Mine.sbd 2416 2416
+
+' Free slot
+'[Action 9954]
+'.delay 0
+'.noimage
+'.must 124
+'.save 390 699
+'.loadsbd Mine.sbd 2424 2424
+
+[Action 9954]
+.delay 0
+.noimage
+.must 125               ' punishment (training failure 2)
+.save 390 699
+.loadsbd Mine.sbd 2418 2418
+
+' Free slot
+'[Action 9956]
+'.delay 0
+'.noimage
+'.must 126
+'.save 390 699
+'.loadsbd Mine.sbd XXXX XXXX
+
+
+' The bad exits (activity only, since cancelled punishments are handled via 2499)
+
+[Action 9980]
+.delay 0
+.noimage
+.must 120
+.save 390 699
+.loadsbd Mine.sbd 5101 5101
+
+[Action 9981]
+.delay 0
+.noimage
+.must 121
+.save 390 699
+.quit
+
+'[Action 9982]
+'.delay 0
+'.noimage
+'.must 122
+'.save 390 699
+'.loadsbd Mine.sbd 2417 2417
+
+'[Action 9983]
+'.delay 0
+'.noimage
+'.must 123
+'.save 390 699
+'.loadsbd Mine.sbd 2416 2416
+
+'[Action 9984]
+'.delay 0
+'.noimage
+'.must 124
+'.save 390 699
+'.loadsbd Mine.sbd XXXX XXXX
+
+'[Action 9985]
+'.delay 0
+'.noimage
+'.must 125
+'.save 390 699
+'.loadsbd Mine.sbd 2418 2418
+
+
+'[Action 9986]
+'.delay 0
+'.noimage
+'.must 126
+'.save 390 699
+'.loadsbd Mine.sbd XXXX XXXX
+
+'[Action 9997]
+
+
+' Slave closed
+[Action 9998]
+.delay 0
+.noimage
+.loadsbd Mine.sbd 5020 5029
+
+' Abnormal ending, bailing out
+[Action 9999]
+.delay 0
+.noimage
+.loadsbd Mine.sbd 5011 5011

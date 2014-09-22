@@ -1,0 +1,3794 @@
+.debug 2
+
+.yestext Yes, Mistress
+.notext No, Mistress
+.resumeText Yes, Mistress
+
+.onAllSet 9999
+.onClose 9998
+.backcolor 255 80 80
+.textcolor 0 0 0
+.ssdir nipt\
+
+.resetrange 50 199      ' reset all temp variables from main script but keep slave state, toys and achievements  
+.range 1000
+
+'                               Returns
+'   #   Entry       From        Good    Bad     +   -   Desc
+'   114 1014    5814 -> 5964    5864    5914    2   3   quick pins
+'   115 1015    5815 -> 5965    5865    5915    2   3   quick pins 16
+'   116 1016    5816 -> 5966    5866    5916    3   3   nipple clamp weight-lifting
+'   117 1017    5805 -> 5955                    1   -   light cardio nips
+'   118 1018    5817 -> 5967    5867    -       2   -   shake those titties
+
+
+' Debug
+
+.menu 40  7310 7310 quick pins
+.menu 41  7020 7020 quick pins 16
+.menu 42  7500 7500 nipple clamp weight-lifting
+.menu 43  5000 5000 light cardio nips
+.menu 44  6500 6500 shake those titties
+.menu 45  1000 1000 Exit
+
+'   Unset each indicator as you set the next. For example
+'   if you add one to the left nipple, and 7001 is set,
+'   then set 7002 and unset 7001 (and the rest).
+' 
+'               one     two     three   four    five
+'left nipple    7000    7001    7002    7003    7004    
+'right nipple   7005    7006    7007    7008    7009
+'balls          7010    7011    7012    7013    7014 
+
+.askcheck 50 7000 7000: left 1
+.askcheck 51 7001 7001: left 2
+.askcheck 52 7002 7002: left 3
+.askcheck 53 7003 7003: left 4
+.askcheck 54 7004 7004: left 5
+.askcheck 55 7005 7005: right 1
+.askcheck 56 7006 7006: right 2
+.askcheck 57 7007 7007: right 3
+.askcheck 58 7008 7008: right 4
+.askcheck 59 7009 7009: right 5
+.askcheck 60 7010 7010: balls 1
+.askcheck 61 7011 7011: balls 2
+.askcheck 62 7012 7012: balls 3
+.askcheck 63 7013 7013: balls 4
+.askcheck 64 7014 7014: balls 5
+
+'SET 6999 for long session
+
+
+[Action 990]
+Welcome to debug my code, But don't try to cheat on me.
+What would you like to do today?
+.unset 990
+.popup 40 42
+.say action
+
+
+[Action 1000]
+.quit
+
+' quick pins
+[Action 1014]
+.noimage
+.delay 0
+.set 114
+.range 7310 7311
+
+' quick pins 16
+[Action 1015]
+.noimage
+.delay 0
+.set 115
+.range 7020
+
+' nipple clamp weight-lifting 
+[Action 1016]
+.noimage
+.delay 0
+.set 116
+.range 7500 7501
+
+' light cardio nips
+[Action 1017]
+.noimage
+.delay 0
+.set 117
+.range 5000
+
+' shake Those Titties (activity version)
+[Action 1018]
+.noimage
+.delay 0
+.set 118
+.range 6500
+
+' shake Those Titties (punishment version)
+[Action 1019]
+.noimage
+.delay 0
+.set 119
+.range 6501
+
+
+'   Mild exercise with some clothes pegs
+[Action 5000]
+Since you're a pathetically weak slave, we need to get you out of that chair
+and moving around a little - exercise, in other words.
+'.range 5001 5009
+.range 5001 5004
+.Say Action
+
+[Action 5001]
+We'll do an easy cardiovascular workout today.
+My slaves have to have a nice healthy heart!
+'.range 5010
+.range 5002
+.Say Action
+
+[Action 5002]
+I always insist My slaves undergo some healthy nipple torture when I'm
+acting as their personal trainer. Make sure you have eight clothes pegs
+ready in a place you can get to them quickly.
+.range 5003
+.Say Action
+
+[Action 5003]
+Also make sure you have some floor space - clear the chair out of the way,
+and anything else. You should be able to spread your arms all the way out
+and spin in a circle without touching anything.
+.range 5004 5006
+.Say Action
+
+
+[Action 5004]
+And remember to keep that cock nice and hard during the workout, however you can.
+We'll start up with some jumping jacks, and I want to see good extension.
+.mustnot 30             ' can't jerk off
+.range 5010
+.Say Action
+
+[Action 5005]
+We'll start up with some jumping jacks, and I'd
+like to see that cage bouncing up and down too.
+.must 44                ' Chastifed
+.range 5010
+.Say Action
+
+[Action 5006]
+We'll start up with some jumping jacks.
+.must 30                ' can't jerk off
+.mustnot 44             ' Chastified
+.range 5010
+.Say Action
+
+
+[Action 5010]
+First, put one clothes peg on each nipple. Hold the remaining pegs in your hands.
+.range 5011 5015
+.Say Action
+
+
+[Action 5011]
+.playwav slap_2.wav
+Jump, slave! Spread those arms and legs!
+.unset 5011
+.delay 2
+.range 5011 5015
+
+[Action 5012]
+.playwav slap_2.wav
+Jump, slave! Keep that cock hard!
+.mustnot 30             ' can't jerk off
+.unset 5012
+.delay 2 
+.range 5011 5015
+
+[Action 5013]
+.playwav slap_2.wav
+Jump, slave!
+.must 30                ' can't jerk off
+.unset 5013
+.delay 2 
+.range 5011 5015
+
+[Action 5015]
+Okay, slave, put two clothes pegs on your ball sack.
+We're going to try some running in place now.
+.numactionsfrom 5010 10
+.range 5016
+.Say Action
+
+
+[Action 5016]
+Start running, slave. Get those knees up!
+.delay 20 40
+.range 5017
+.Say Action
+
+[Action 5017]
+Knees up, slave! Keep those legs pumping!
+.delay 20 40
+.range 5018 5019
+.Say Action
+
+[Action 5018]
+That cock better be hard, slave, and that heart better be beating good!
+.delay 20 40
+.mustnot 30             ' can't jerk off
+.range 5020
+.Say Action
+
+[Action 5019]
+And that heart better be beating good!
+.delay 20 40
+.must 30                ' can't jerk off
+.range 5020
+.Say Action
+
+[Action 5020]
+Keep running, slave, and put two more clothes pegs on your slave titties.
+.delay 20 40
+.range 5021
+.Say Action
+
+[Action 5021]
+Keep those knees up, slave!
+.delay 20 40
+.range 5022
+.Say Action
+
+[Action 5022]
+Okay, slave, you can stop running. Let's rest for a second.
+.range 5023
+.Say Action
+
+[Action 5023]
+Start shaking those titties for Me, slave. Back and forth!
+.delay 30
+.range 5024
+.Say Action
+
+[Action 5024]
+Keep shaking those nipples! Side to side!
+.delay 30
+.range 5025
+.Say Action
+
+[Action 5025]
+Now get down on your belly, slave, and give me some push-ups.
+.range 5026
+.Say Action
+
+[Action 5026]
+Give me a push-up!
+.playwav slap_2.wav
+.unset 5026
+.range 5027 5028
+.Say Action
+
+[Action 5028]
+Very good, slave. Put the last two clothes pegs on your slave titties.
+.numactionsfrom 5025 6
+.range 5030
+.Say Action
+
+[Action 5029]
+Very good, slave. Put the last four clothes pegs on your slave titties, two on each side.
+.numactionsfrom 5025 6
+.range 5030
+.Say Action
+
+
+[Action 5030]
+Put your hands behind your head, slave. We'll finish off with some bunny hops.
+.range 5031
+.Say Action
+
+[Action 5031]
+Start hopping in place!
+.delay 20 40
+.range 5032
+.Say Action
+
+[Action 5032]
+Keep hopping!
+.delay 20 40
+.range 5033
+.Say Action
+
+[Action 5033]
+Hop, bunny, hop!
+.delay 20 40
+.range 5034
+.Say Action
+
+[Action 5034]
+Okay, slave, that's enough. Come back and sit back down.
+.pause
+.range 5035 5036
+.Say Action
+
+[Action 5035]
+I'll give you a minute to cool down and to feel those clamps and pegs a little better.
+.delay 60 120
+.must 216               ' Clamps or pegs temporary (favors clamps)
+.must 301               ' nipple clamps
+.range 5044 5046
+.Say Action
+
+[Action 5036]
+I'll give you a minute to cool down and to feel those clothes pegs a little better.
+.delay 60 120
+.poss 1
+.range 5044
+.Say Action
+
+
+[Action 5044]
+Okay, slave, that was a good little workout. You may take off the clothes pegs now.
+.pause
+.range 9000 9099
+.Say Action
+
+
+' 200 -- plain pins (1) on nips
+' 201 -- plain pins (2) on nips
+' 202 -- light weight pins on nips
+' 203 -- heavy weight pins on nips
+' 204 -- clamps on nips
+
+[Action 6500]
+I've got a fun little game we can play, slut. I call it "shake those tits!"
+Sounds like fun, doesn't it? Get your nipple clamps and eight clothes pegs.
+Then put a clothespin on each nipple, just as a little warm-up.
+.unset 201 202 203 204
+.set 200                ' plain pins on nips (1 each)
+.pause
+.range 6502
+.Say Action
+
+[Action 6501]
+Your punishment will be a little game I like to play, called "shake those tits!"
+Get your nipple clamps and eight clothes pegs. Put two clothes pegs on each nipple
+to get you started.
+.pause
+.range 6502
+.set 200                ' plain pins on nips (1 each)
+.set 201                ' plain pins on nips (1 each) -> make 2 on each nipple
+.unset 202 203 204
+.Say Action
+
+[Action 6502]
+You will also need to get some small weights and some string, or thin rope, 
+or something like that. You will need four weights, two of them heavier than
+the other two - something small like a luggage lock will work perfectly.
+.pause
+.range 6503
+.Say Action
+
+[Action 6503]
+Are those nipples getting a little warmed up?
+.yesno 6505 6505 6504 6504
+.Say Action
+
+[Action 6504]
+Well, that's no good. Remove the clothes pegs and put on your nipple clamps.
+You're going to want those nipples ready for their upcoming ordeal.
+.pause
+.unset 200 201 202 203  ' Clothes pegs 
+.set 204                ' Nipple clamps
+.range 6505
+.Say Action
+
+[Action 6505]
+As you may have guessed by now you will need to attach those weights to the clothes pegs somehow.
+They should have at least a few inches of play, so that they can swing. Do that now.
+One set of two should have the lighter weights, and one set should have the heavy ones.
+If you like, you can double up two light weights on the heavy clothes pegs instead.
+.pause
+.range 6506
+.Say Action
+
+[Action 6506]
+Now, I may tell you to shake those titties, slave. When I say that, you're
+to shake them side to side by rotating your shoulders back and forth.
+.range 6507
+.Say Action
+
+[Action 6507]
+I may also tell you to bob those titties. That means up and down.
+.range 6508
+.Say Action
+
+[Action 6508]
+When I tell you to rest, those weights should be hanging free. 
+You're not allowed to hold them up.
+.range 6548 6549
+.Say Action
+
+
+[Action 6510]
+Take the clothes pegs off and replace them with the lightly weighted pins, slave.
+.delay 20 20
+.must 200
+.mustnot 201 202 203 204
+.unset 200
+.set 202
+.unset 6510
+.range 6550 6553
+.Say Action
+
+[Action 6511]
+Put the other plain pins on your nipples, babe.
+.delay 20 20
+.must 200
+.mustnot 201 202 203 204
+.set 201
+.unset 6511
+.range 6550 6553
+.Say Action
+
+[Action 6512]
+Take all four pins off, and put the lightly weighted pins on your nips, slave.
+.delay 20 20
+.must 200 201
+.mustnot 202 203 204
+.unset 200 201
+.set 202
+.unset 6512
+.range 6550 6553
+.Say Action
+
+[Action 6513]
+Take off all four clothepins, and put on the heavily weighted pins instead, slave.
+.delay 20 20
+.must 200 201
+.mustnot 202 203 204
+.unset 200 201
+.set 203
+.unset 6513
+.range 6550 6553
+.Say Action
+
+[Action 6514]
+Take off all four clothes pegs and put on the nipple clamps, slut.
+.delay 20 20
+.must 200 201
+.mustnot 202 203 204
+.unset 200 201
+.set 204
+.unset 6514
+.range 6550 6553
+.Say Action
+
+[Action 6515]
+Put two clothes pegs on each nipple, slut, right next to the clamps.
+.delay 20 20
+.must 204
+.mustnot 200 201 202 203
+.set 200 201
+.unset 6515
+.range 6550 6553
+.Say Action
+
+[Action 6516]
+Put two more clothes pegs on each nipple, slave, next to the weighted ones.
+.delay 20 20
+.must 202
+.mustnot 200 201 203 204
+.set 200 201
+.unset 6516
+.range 6550 6553
+.Say Action
+
+[Action 6517]
+Put two more clothes pegs on each nipple, cunt, right next to the weighted ones.
+.delay 20 20
+.must 203
+.mustnot 200 201 202 204
+.set 200 201
+.unset 6517
+.range 6550 6553
+.Say Action
+
+[Action 6518]
+Switch the lightly weighted pins for the heavy ones, slave.
+.delay 20 20
+.must 202
+.mustnot 200 201 203 204
+.set 203
+.unset 202
+.unset 6518
+.range 6550 6553
+.Say Action
+
+[Action 6519]
+Put the lightly weighted pins next to the heavy ones, slave.
+.delay 20 20
+.must 203
+.mustnot 200 201 202 204
+.set 202
+.unset 6519
+.range 6550 6553
+.Say Action
+
+[Action 6520]
+Put the lightly weighted pins on next to the clamps, slave, one per nipple.
+.delay 20 20
+.must 204
+.mustnot 200 201 202 203
+.set 202
+.unset 6520
+.range 6550 6553
+.Say Action
+
+[Action 6521]
+Add the heavily weighted pins to your clamps, sweetie.
+.delay 20 20
+.must 204
+.mustnot 200 201 202 203
+.set 203
+.unset 6521
+.range 6550 6553
+.Say Action
+
+[Action 6522]
+Now put the heavily weighted pins on, too, pain slut.
+.delay 20 20
+.must 202 204
+.mustnot 200 201 203
+.set 203
+.unset 6522
+.range 6550 6553
+.Say Action
+
+[Action 6523]
+Put the lightly weighted clothes pegs on now, too, slave!
+.delay 20 20
+.must 203 204
+.mustnot 200 201 202
+.set 202
+.unset 6523
+.range 6550 6553
+.Say Action
+
+[Action 6524]
+Switch the lightly weighted pins with the heavy ones, slave!
+.delay 20 20
+.must 200 201 202
+.mustnot 203 204
+.set 203
+.unset 202
+.unset 6524
+.range 6550 6553
+.Say Action
+
+[Action 6525]
+Switch the heavy pins with the clamps now, slave!
+.delay 20 20
+.must 200 201 203
+.mustnot 202 204
+.set 204
+.unset 203
+.unset 6525
+.range 6550 6553
+.Say Action
+
+[Action 6526]
+Take off the clothes pegs, slave, and replace them with the clamps.
+.delay 20 20
+.must 200
+.mustnot 201 202 203 204
+.set 204
+.unset 200
+.unset 6526
+.range 6550 6553
+.Say Action
+
+[Action 6527]
+Take off all four plain clamps and replace them with both the 
+lightly and heavily weighted clamps, one each per nipple.
+.delay 20 20
+.must 200 201 204
+.mustnot 202 203
+.set 202 203
+.unset 200 201
+.unset 6527
+.range 6550 6553
+.Say Action
+
+[Action 6528]
+Lucky slave! Fit those plain clothes pegs in too, slave, two per nipple!
+.delay 20 20
+.must 202 203 204
+.mustnot 200 201
+.unset 6528
+.set 200 201
+.range 6550 6553
+.Say Action
+
+'[Action 6529]
+'Let's start over, slave. Take everything off, and put one plain clothespin on each nipple.
+'.delay 15 15
+'.set 200
+'we can only do this one time, so don't unset.
+'.poss 10
+'.range 6550 6553
+
+[Action 6530]
+.delay 0
+.unset 6530
+.must 200 201 202
+.range 6560 6562
+
+[Action 6531]
+.delay 0
+.unset 6531
+.must 200 201 203
+.range 6560 6562
+
+[Action 6532]
+.delay 0
+.unset 6532
+.must 202 203
+.range 6560 6562
+
+[Action 6533]
+.delay 0
+.unset 6533
+.must 202 203 204
+.range 6560 6562
+
+[Action 6534]
+.delay 0
+.unset 6534
+.must 200 201 204
+.range 6560 6562
+
+[Action 6535]
+.delay 0
+.unset 6535
+.must 200 201 202 203 204
+.range 6560 6562
+
+'[Action 6539]
+'.delay 0
+'.poss 1
+'.range 6560 6562
+
+
+[Action 6548]
+Of course you're to keep that slave cock hard the whole time.
+Ready, slave?
+.mustnot 30             ' Can't jerk off 
+.range 6550 6553
+.Say Action
+
+[Action 6549]
+Ready, slave? 
+.must 30                ' Can't jerk off 
+.range 6550 6553
+.Say Action
+
+
+[Action 6550]
+Shake those titties, slave! Side to side!
+.playwav slap_2.wav
+.delay 10 20
+.unset 6550
+.range 6550 6559
+.Say Action
+
+[Action 6551]
+Shake those tits, slave!
+.playwav slap_2.wav
+.delay 20 30
+.unset 6551
+.range 6550 6559
+.Say Action
+
+[Action 6552]
+Bob those titties, slave, up and down!
+.playwav slap_2.wav
+.delay 10 20
+.unset 6552
+.range 6550 6559
+.Say Action
+
+[Action 6553]
+Bob those tits, baby!
+.playwav slap_2.wav
+.delay 20 30
+.unset 6553
+.range 6550 6559
+.Say Action
+
+[Action 6554]
+Okay, sweetie, rest those tits for a minute.
+.delay 10 20
+.unset 6554
+.range 6550 6553
+.Say Action
+
+'[Action 6555]
+'Rest those titties for a second, slave.
+'.delay 5 10
+'.unset 6555
+'.range 6550 6559
+
+'[Action 6556]
+'Okay, sweetie, rest those tits for a minute.
+'.unset 6556
+'.poss 5
+'.delay 2 2
+'.range 6550 6559
+
+'[Action 6557]
+'Shake those titties, slave! Side to side!
+'.playwav slap_2.wav
+'.unset 6557
+'.poss 5
+'.delay 10 30
+'.range 6550 6559
+
+'[Action 6558]
+'Bob those titties, slave, up and down!
+'.playwav slap_2.wav
+'.unset 6558
+'.poss 5
+'.delay 10 30
+'.range 6550 6559
+
+[Action 6559]
+.delay 0
+.unset 6559
+.range 6510 6539
+
+[Action 6560]
+Very good boy, slave. Would you like to keep going?
+.yesno 6550 6553 6570 6573
+.Say Action
+
+[Action 6561]
+Very good boy, slave. Would you like to stop now?
+.yesno 6570 6573 6550 6553
+.Say Action
+
+[Action 6562]
+.delay 0
+.unset 6562
+.range 6572 6573
+
+[Action 6570]
+Well, I'm not ready to quit yet.
+.range 6550 6553
+.Say Action
+
+[Action 6571]
+I think you can take a little more, slut.
+.range 6550 6553
+.Say Action
+
+[Action 6572]
+Okay, slave, we're almost done. Just sit there for a 
+minute or two so I can watch you suffer.
+.delay 45 60
+.range 6573 6574
+.Say Action
+
+[Action 6573]
+Almost there, slave. Just wait one more minute, I'm enjoying your suffering.
+.delay 45 60
+.range 6574
+.Say Action
+
+[Action 6574]
+Okay, slave, you may take off all your nipple toys. You've done a very good job.
+.pause
+.range 9000 9099
+.Say Action
+
+
+[Action 7020]
+We're going to be punishing your nipples and balls today,
+with one of the most versitile of all toys: clothes pegs!
+You will need 15 clothes pegs for this "activity", my pet.
+.unset 6999
+.unset 7000 7001 7002 7003 7004
+.unset 7005 7006 7007 7008 7009
+.unset 7010 7011 7012 7013 7014
+.pause
+.range 7021
+.Say Action
+
+[Action 7021]
+We'll play a little game to make it more fun.
+The rules of the game are very simple.
+.range 7022
+.Say Action
+
+[Action 7022]
+At intervals, I will tell you to put a clothespin on either one
+of your nipples, or your enslaved ballsack. Or, I may tell you
+to take one off. In either case, you should obey immediately.
+.range 7023
+.Say Action
+
+[Action 7023]
+I will be asking you to put more than one clothespin
+on each part of your little slave body, of course.
+Just pile them on as close as possible to one another.
+.range 7024
+.Say Action
+
+[Action 7024]
+The catch is that I like to move pretty fast, so it's imperative
+that you keep up. Just to make sure you're not cheating, I'll
+be asking you if a certain number of pins are on your nipples.
+If you're correct, all is well.
+.delay 15
+.range 7025
+.Say Action
+
+[Action 7025]
+If you're incorrect, we have to start over. So don't lie! When
+you have five clothes pegs on each of your nipples and your balls,
+then hit the stop button. Again, if you hit it prematurely, we
+have to go back to the beginning.
+.delay 15
+.range 7026
+.Say Action
+
+[Action 7026]
+Do you understand, slave? Are you ready to begin?
+.resetrange 7020 7026
+.yesno 7029 7029 7022 7022
+.Say Action
+
+[Action 7029]
+.delay 0
+.resetrange 7020 7199
+.range 7030 7129
+
+
+'   delays of 2, 3, 5, 8
+
+[Action 7030]
+Put a clothespin on your left nipple!
+.set 7000
+.unset 7001 7002 7003 7004
+.mustnot 7000 7001 7002 7003 7004
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7031]
+Put a clothespin on your left nipple!
+.set 7001
+.unset 7000 7002 7003 7004
+.must 7000
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7032]
+Put a clothespin on your left nipple!
+.set 7002
+.unset 7000 7001 7003 7004
+.must 7001
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7033]
+Put a clothespin on your left nipple!
+.set 7003
+.unset 7000 7001 7002 7004
+.must 7002
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7034]
+Put a clothespin on your left nipple!
+.set 7004
+.unset 7000 7001 7002 7003
+.must 7003
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7035]
+Put a clothespin on your right nipple!
+.set 7005
+.unset 7006 7007 7008 7009
+.mustnot 7005 7006 7007 7008 7009
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7036]
+Put a clothespin on your right nipple!
+.set 7006
+.unset 7005 7007 7008 7009
+.must 7005
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7037]
+Put a clothespin on your right nipple!
+.set 7007
+.unset 7005 7006 7008 7009
+.must 7006
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7038]
+Put a clothespin on your right nipple!
+.set 7008
+.unset 7005 7006 7007 7009
+.must 7007
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7039]
+Put a clothespin on your right nipple!
+.set 7009
+.unset 7005 7006 7007 7008
+.must 7008
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7040]
+Put a clothespin on your balls!
+.set 7010
+.unset 7011 7012 7013 7014
+.mustnot 7010 7011 7012 7013 7014
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7041]
+Put a clothespin on your balls!
+.set 7011
+.unset 7010 7012 7013 7014
+.must 7010
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7042]
+Put a clothespin on your balls!
+.set 7012
+.unset 7010 7011 7013 7014
+.must 7011
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7043]
+Put a clothespin on your balls!
+.set 7013
+.unset 7010 7011 7012 7014
+.must 7012
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7044]
+Put a clothespin on your balls!
+.set 7014
+.unset 7010 7011 7012 7013
+.must 7013
+.delay 2 2 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7045]
+Put a clothespin on your left nipple!
+.set 7000
+.unset 7001 7002 7003 7004
+.mustnot 7000 7001 7002 7003 7004
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7046]
+Put a clothespin on your left nipple!
+.set 7001
+.unset 7000 7002 7003 7004
+.must 7000
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7047]
+Put a clothespin on your left nipple!
+.set 7002
+.unset 7000 7001 7003 7004
+.must 7001
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7048]
+Put a clothespin on your left nipple!
+.set 7003
+.unset 7000 7001 7002 7004
+.must 7002
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7049]
+Put a clothespin on your left nipple!
+.set 7004
+.unset 7000 7001 7002 7003
+.must 7003
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7050]
+Put a clothespin on your right nipple!
+.set 7005
+.unset 7006 7007 7008 7009
+.mustnot 7005 7006 7007 7008 7009
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7051]
+Put a clothespin on your right nipple!
+.set 7006
+.unset 7005 7007 7008 7009
+.must 7005
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7052]
+Put a clothespin on your right nipple!
+.set 7007
+.unset 7005 7006 7008 7009
+.must 7006
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7053]
+Put a clothespin on your right nipple!
+.set 7008
+.unset 7005 7006 7007 7009
+.must 7007
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7054]
+Put a clothespin on your right nipple!
+.set 7009
+.unset 7005 7006 7007 7008
+.must 7008
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7055]
+Put a clothespin on your balls!
+.set 7010
+.unset 7011 7012 7013 7014
+.mustnot 7010 7011 7012 7013 7014
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7056]
+Put a clothespin on your balls!
+.set 7011
+.unset 7010 7012 7013 7014
+.must 7010
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7057]
+Put a clothespin on your balls!
+.set 7012
+.unset 7010 7011 7013 7014
+.must 7011
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7058]
+Put a clothespin on your balls!
+.set 7013
+.unset 7010 7011 7012 7014
+.must 7012
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7059]
+Put a clothespin on your balls!
+.set 7014
+.unset 7010 7011 7012 7013
+.must 7013
+.delay 3 3 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7060]
+Put a clothespin on your left nipple!
+.set 7000
+.unset 7001 7002 7003 7004
+.mustnot 7000 7001 7002 7003 7004
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7061]
+Put a clothespin on your left nipple!
+.set 7001
+.unset 7000 7002 7003 7004
+.must 7000
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7062]
+Put a clothespin on your left nipple!
+.set 7002
+.unset 7000 7001 7003 7004
+.must 7001
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7063]
+Put a clothespin on your left nipple!
+.set 7003
+.unset 7000 7001 7002 7004
+.must 7002
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7064]
+Put a clothespin on your left nipple!
+.set 7004
+.unset 7000 7001 7002 7003
+.must 7003
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7065]
+Put a clothespin on your right nipple!
+.set 7005
+.unset 7006 7007 7008 7009
+.mustnot 7005 7006 7007 7008 7009
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7066]
+Put a clothespin on your right nipple!
+.set 7006
+.unset 7005 7007 7008 7009
+.must 7005
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7067]
+Put a clothespin on your right nipple!
+.set 7007
+.unset 7005 7006 7008 7009
+.must 7006
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7068]
+Put a clothespin on your right nipple!
+.set 7008
+.unset 7005 7006 7007 7009
+.must 7007
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7069]
+Put a clothespin on your right nipple!
+.set 7009
+.unset 7005 7006 7007 7008
+.must 7008
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7070]
+Put a clothespin on your balls!
+.set 7010
+.unset 7011 7012 7013 7014
+.mustnot 7010 7011 7012 7013 7014
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7071]
+Put a clothespin on your balls!
+.set 7011
+.unset 7010 7012 7013 7014
+.must 7010
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7072]
+Put a clothespin on your balls!
+.set 7012
+.unset 7010 7011 7013 7014
+.must 7011
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7073]
+Put a clothespin on your balls!
+.set 7013
+.unset 7010 7011 7012 7014
+.must 7012
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7074]
+Put a clothespin on your balls!
+.set 7014
+.unset 7010 7011 7012 7013
+.must 7013
+.delay 5 5 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7075]
+Put a clothespin on your left nipple!
+.set 7000
+.unset 7001 7002 7003 7004
+.mustnot 7000 7001 7002 7003 7004
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7076]
+Put a clothespin on your left nipple!
+.set 7001
+.unset 7000 7002 7003 7004
+.must 7000
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7077]
+Put a clothespin on your left nipple!
+.set 7002
+.unset 7000 7001 7003 7004
+.must 7001
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7078]
+Put a clothespin on your left nipple!
+.set 7003
+.unset 7000 7001 7002 7004
+.must 7002
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7079]
+Put a clothespin on your left nipple!
+.set 7004
+.unset 7000 7001 7002 7003
+.must 7003
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7080]
+Put a clothespin on your right nipple!
+.set 7005
+.unset 7006 7007 7008 7009
+.mustnot 7005 7006 7007 7008 7009
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7081]
+Put a clothespin on your right nipple!
+.set 7006
+.unset 7005 7007 7008 7009
+.must 7005
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7082]
+Put a clothespin on your right nipple!
+.set 7007
+.unset 7005 7006 7008 7009
+.must 7006
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7083]
+Put a clothespin on your right nipple!
+.set 7008
+.unset 7005 7006 7007 7009
+.must 7007
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7084]
+Put a clothespin on your right nipple!
+.set 7009
+.unset 7005 7006 7007 7008
+.must 7008
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7085]
+Put a clothespin on your balls!
+.set 7010
+.unset 7011 7012 7013 7014
+.mustnot 7010 7011 7012 7013 7014
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7086]
+Put a clothespin on your balls!
+.set 7011
+.unset 7010 7012 7013 7014
+.must 7010
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7087]
+Put a clothespin on your balls!
+.set 7012
+.unset 7010 7011 7013 7014
+.must 7011
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7088]
+Put a clothespin on your balls!
+.set 7013
+.unset 7010 7011 7012 7014
+.must 7012
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7089]
+Put a clothespin on your balls!
+.set 7014
+.unset 7010 7011 7012 7013
+.must 7013
+.delay 8 8 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7090]
+Remove a clothespin from your left nipple!
+.set 7003
+.must 7004
+.unset 7000 7001 7002 7004
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7091]
+Remove a clothespin from your left nipple!
+.set 7002
+.must 7003
+.unset 7000 7001 7003 7004
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7092]
+Remove a clothespin from your left nipple!
+.set 7001
+.must 7002
+.unset 7000 7002 7003 7004
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7093]
+Remove a clothespin from your left nipple!
+.set 7000
+.must 7001
+.unset 7001 7002 7003 7004
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7094]
+Remove a clothespin from your left nipple!
+.must 7000
+.unset 7000 7001 7002 7003 7004
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7095]
+Remove a clothespin from your right nipple!
+.set 7008
+.must 7009
+.unset 7005 7006 7007 7009
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7096]
+Remove a clothespin from your right nipple!
+.set 7007
+.must 7008
+.unset 7005 7006 7008 7009
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7097]
+Remove a clothespin from your right nipple!
+.set 7006
+.must 7007
+.unset 7005 7007 7008 7009
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7098]
+Remove a clothespin from your right nipple!
+.set 7005
+.must 7006
+.unset 7006 7007 7008 7009
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7099]
+Remove a clothespin from your right nipple!
+.must 7005
+.unset 7005 7006 7007 7008 7009
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7100]
+Remove a clothespin from your balls!
+.set 7013
+.must 7014
+.unset 7010 7011 7012 7014
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7101]
+Remove a clothespin from your balls!
+.set 7012
+.must 7013
+.unset 7010 7011 7013 7014
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7102]
+Remove a clothespin from your balls!
+.set 7011
+.must 7012
+.unset 7010 7012 7013 7014
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7103]
+Remove a clothespin from your balls!
+.set 7010
+.must 7011
+.unset 7011 7012 7013 7014
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7104]
+Remove a clothespin from your balls!
+.must 7010
+.unset 7010 7011 7012 7013 7014
+.delay 4 4 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7105]
+Remove a clothespin from your left nipple!
+.set 7003
+.must 7004
+.must 6999
+.unset 7000 7001 7002 7004
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7106]
+Remove a clothespin from your left nipple!
+.set 7002
+.must 7003
+.must 6999
+.unset 7000 7001 7003 7004
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7107]
+Remove a clothespin from your left nipple!
+.set 7001
+.must 7002
+.must 6999
+.unset 7000 7002 7003 7004
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7108]
+Remove a clothespin from your left nipple!
+.set 7000
+.must 6999
+.must 7001
+.unset 7001 7002 7003 7004
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7109]
+Remove a clothespin from your left nipple!
+.must 6999
+.must 7000
+.unset 7000 7001 7002 7003 7004
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7110]
+Remove a clothespin from your right nipple!
+.set 7008
+.must 7009
+.must 6999
+.unset 7005 7006 7007 7009
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7111]
+Remove a clothespin from your right nipple!
+.set 7007
+.must 7008
+.must 6999
+.unset 7005 7006 7008 7009
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7112]
+Remove a clothespin from your right nipple!
+.set 7006
+.must 7007
+.must 6999
+.unset 7005 7007 7008 7009
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7113]
+Remove a clothespin from your right nipple!
+.set 7005
+.must 7006
+.must 6999
+.unset 7006 7007 7008 7009
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7114]
+Remove a clothespin from your right nipple!
+.must 7005
+.must 6999
+.unset 7005 7006 7007 7008 7009
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7115]
+Remove a clothespin from your balls!
+.set 7013
+.must 6999
+.must 7014
+.unset 7010 7011 7012 7014
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7116]
+Remove a clothespin from your balls!
+.set 7012
+.must 6999
+.must 7013
+.unset 7010 7011 7013 7014
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7117]
+Remove a clothespin from your balls!
+.set 7011
+.must 7012
+.must 6999
+.unset 7010 7012 7013 7014
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7118]
+Remove a clothespin from your balls!
+.set 7010
+.must 7011
+.must 6999
+.unset 7011 7012 7013 7014
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7119]
+Remove a clothespin from your balls!
+.must 7010
+.must 6999
+.unset 7010 7011 7012 7013 7014
+.delay 6 6 STOP 7131
+.range 7130
+.Say Action
+
+[Action 7130]
+'.ask 50 65
+.delay 0
+.range 7140 7141
+
+[Action 7131]
+.delay 0
+.range 7132 7135
+
+[Action 7132]
+That's very good, slave. You've got them all on.
+.must 7004 7009 7014
+.delay 30 30
+.range 7190
+.Say Action
+
+[Action 7133]
+That's not correct, slave. You're missing some on the 
+left nipple. That means we get to start over! Take off
+all the clothes pegs now. Would you like to give up?
+.unset 7000 7001 7002 7003 7004
+.unset 7005 7006 7007 7008 7009
+.unset 7010 7011 7012 7013 7014
+.mustnot 7004
+.yesno 9100 9199 7029 7029
+.Say Action
+
+[Action 7134]
+That's incorrect, slave, since you're missing some from
+the right nipple. Take them all off now. And we go back 
+to the beginning, unless you'd like to give up?
+.unset 7000 7001 7002 7003 7004
+.unset 7005 7006 7007 7008 7009
+.unset 7010 7011 7012 7013 7014
+.mustnot 7009
+.yesno 9100 9199 7029 7029
+.Say Action
+
+[Action 7135]
+That's not right, slave. You're missing some from your
+balls. Remove all the clothes pegs, we have to start over.
+Unless you'd like to pussy out?
+.unset 7000 7001 7002 7003 7004
+.unset 7005 7006 7007 7008 7009
+.unset 7010 7011 7012 7013 7014
+.mustnot 7014
+.yesno 9100 9199 7029 7029
+.Say Action
+
+[Action 7140]
+.delay 0
+.range 7029
+
+[Action 7141]
+.delay 0
+.poss 5
+.range 7145 7174
+
+[Action 7145]
+Do you have exactly one clothespin on your left nipple?
+'yes
+.must 7000
+.yesno 7181 7181 7180 7180
+.Say Action
+
+[Action 7146]
+Do you have exactly one clothes peg on your left nipple?
+'no
+.mustnot 7000
+.yesno 7180 7180 7181 7181
+.Say Action
+
+[Action 7147]
+Do you have exactly two clothes pegs on your left nipple?
+'yes
+.must 7001
+.yesno 7181 7181 7180 7180
+.Say Action
+
+[Action 7148]
+Do you have exactly two clothes pegs on your left nipple?
+'no
+.mustnot 7001
+.yesno 7180 7180 7181 7181
+.Say Action
+
+[Action 7149]
+Do you have exactly three clothes pegs on your left nipple?
+'yes
+.must 7002
+.yesno 7181 7181 7180 7180
+.Say Action
+
+[Action 7150]
+Do you have exactly three clothes pegs on your left nipple?
+'no
+.mustnot 7002
+.yesno 7180 7180 7181 7181
+.Say Action
+
+[Action 7180]
+Sorry, slave, that's not correct. Remove all the clothes pegs now.
+I guess we'll just have to start over. Unless you'd like to pussy out?
+.unset 7000 7001 7002 7003 7004
+.unset 7005 7006 7007 7008 7009
+.unset 7010 7011 7012 7013 7014
+.yesno 9100 9199 7029 7029
+.Say Action
+
+[Action 7181]
+Very good, slave, that's right.
+.delay 5
+.range 7182
+.Say Action
+
+[Action 7182]
+Let's just rest a moment, shall we?
+.delay 5 15
+.range 7183
+.Say Action
+
+[Action 7183]
+Keep in mind that when you have five clothes pegs on each of your
+nipples and your balls, you're to hit the stop button. Again, if
+you hit it prematurely, we have to go back to the beginning.
+.delay 15
+.range 7029
+.Say Action
+
+
+[Action 7190]
+I'll just let you sit there for a minute or two and suffer, just for fun.
+.delay 30 60
+.range 7191
+.Say Action
+
+[Action 7191]
+Don't those clips hurt so good?
+.delay 30 60
+.range 7192
+.Say Action
+
+[Action 7192]
+Okay, slave, remove all the clips. Good boy!
+.pause
+.range 9000 9099
+.Say Action
+
+
+
+'   flash a question for a second - make slave answer correctly?
+
+'   7300 - right bottom
+'   7301 - right right
+'   7302 - right top
+'   7303 - right left
+'   7304 - right nipple
+'   7305 - left bottom
+'   7306 - left left
+'   7307 - left top
+'   7308 - left right
+'   7309 - left nipple
+
+[Action 7310]
+I feel like punishing those nipples a bit today, My slave.
+The first thing I want you to do is to fetch exactly eight
+clothes pegs, as well as your nipple clamps.
+.pause
+.unset 7300 7301 7302 7303 7304
+.unset 7305 7306 7307 7308 7309
+.range 7311
+.Say Action
+
+[Action 7311]
+Your instructions aren't complicated, My pet. I'll simply
+tell you to put on or take off a particular clothespin or
+clamp.
+.range 7312
+.Say Action
+
+[Action 7312]
+Of course, there's a catch. Sometimes I'll be giving you your
+orders pretty fast. Now, if you're a good, attentive slave, and
+you're quick with the clamps, then you should have no problems.
+.range 7313
+.Say Action
+
+[Action 7313]
+On the other hand, if you're a naughty slave who let's his
+mind wander, then we may be at this a while.
+.range 7314
+.Say Action
+
+[Action 7314]
+Just to keep you honest, from time to time I'll ask you a
+question about what you have on. If you get it wrong, then
+we'll have to start over from the beginning.
+.range 7315
+.Say Action
+
+[Action 7315]
+We'll keep doing this until you've got all eight clothes pegs
+and both nipple clamps on. As soon as you have all ten on,
+hit the "STOP" button. Now, put those clamps somewhere you 
+can grab them fast, and tell me when you're ready to go.
+.pause
+.range 7317 7319
+.Say Action
+
+
+[Action 7317]
+.NumActionsFrom 7318 10
+.delay 0
+.poss 25
+.range 7450
+.unset 7317
+
+[Action 7318]
+'Fast
+.unset 7318
+.delay 0
+.range 7320 7359
+
+[Action 7319]
+'slow
+.unset 7319
+.delay 0
+.range 7360 7399
+
+
+'   removals, 7320 - 7329 ( 1 sec)
+'             7340 - 7349 ( 2 sec)
+'             7360 - 7369 ( 3 sec)
+'             7380 - 7389 (10 sec)
+
+'   addition, 7330 - 7339 ( 2 sec)
+'             7350 - 7359 ( 3 sec)
+'             7370 - 7379 ( 4 sec)
+'             7390 - 7399 (10 sec)
+
+[Action 7320]
+Remove the pin below your right nipple!
+.delay 2 2
+.poss 15
+.must 7300
+.unset 7300
+.range 7317 7319
+.unset 7320
+.Say Action
+
+[Action 7321]
+Remove the pin to the right of your right nipple!
+.delay 2 2
+.poss 15
+.must 7301
+.unset 7301
+.range 7317 7319
+.unset 7321
+.Say Action
+
+[Action 7322]
+Remove the pin above your right nipple!
+.delay 2 2
+.poss 15
+.must 7302
+.unset 7302
+.range 7317 7319
+.unset 7322
+.Say Action
+
+[Action 7323]
+Remove the pin to the left of your right nipple!
+.delay 2 2
+.poss 15
+.must 7303
+.unset 7303
+.range 7317 7319
+.unset 7323
+.Say Action
+
+[Action 7324]
+Remove the clamp on your right nipple!
+.delay 2 2
+.poss 15
+.must 7304
+.unset 7304
+.range 7317 7319
+.unset 7324
+.Say Action
+
+[Action 7325]
+Remove the pin below your left nipple!
+.delay 2 2
+.poss 15
+.must 7305
+.unset 7305
+.range 7317 7319
+.unset 7325
+.Say Action
+
+[Action 7326]
+Remove the pin to the left of your left nipple!
+.delay 2 2
+.poss 15
+.must 7306
+.unset 7306
+.range 7317 7319
+.unset 7326
+.Say Action
+
+[Action 7327]
+Remove the pin above your left nipple!
+.delay 2 2
+.poss 15
+.must 7307
+.unset 7307
+.range 7317 7319
+.unset 7327
+.Say Action
+
+[Action 7328]
+Remove the pin to the right of your left nipple!
+.delay 2 2 
+.poss 15
+.must 7308
+.unset 7308
+.range 7317 7319
+.unset 7328
+.Say Action
+
+[Action 7329]
+Remove the clamp on your left nipple!
+.delay 2 2
+.poss 15
+.must 7309
+.unset 7309
+.range 7317 7319
+.unset 7329
+.Say Action
+
+'----------------
+
+[Action 7330]
+Attach a pin below your right nipple!
+.delay 2 2 STOP 7479
+.mustnot 7300
+.set 7300
+.range 7317 7319
+.unset 7330
+.Say Action
+
+[Action 7331]
+Attach pin to the right of your right nipple!
+.delay 2 2 STOP 7479
+.mustnot 7301
+.set 7301
+.range 7317 7319
+.unset 7331
+.Say Action
+
+[Action 7332]
+Attach a pin above your right nipple!
+.delay 2 2 STOP 7479
+.mustnot 7302
+.set 7302
+.range 7317 7319
+.unset 7332
+.Say Action
+
+[Action 7333]
+Attach a pin to the left of your right nipple!
+.delay 2 2 STOP 7479
+.mustnot 7303
+.set 7303
+.range 7317 7319
+.unset 7333
+.Say Action
+
+[Action 7334]
+Attach the clamp to your right nipple!
+.delay 3 3 STOP 7479
+.mustnot 7304
+.set 7304
+.range 7317 7319
+.unset 7334
+.Say Action
+
+[Action 7335]
+Attach a pin below your left nipple!
+.delay 2 2 STOP 7479
+.mustnot 7305
+.set 7305
+.range 7317 7319
+.unset 7335
+.Say Action
+
+[Action 7336]
+Attach a pin to the left of your left nipple!
+.delay 2 2 STOP 7479
+.mustnot 7306
+.set 7306
+.range 7317 7319
+.unset 7336
+.Say Action
+
+[Action 7337]
+Attach a pin above your left nipple!
+.delay 2 2 STOP 7479
+.mustnot 7307
+.set 7307
+.range 7317 7319
+.unset 7337
+.Say Action
+
+[Action 7338]
+Attach a pin to the right of your left nipple!
+.delay 2 2 STOP 7479
+.mustnot 7308
+.set 7308
+.range 7317 7319
+.unset 7338
+.Say Action
+
+[Action 7339]
+Attach the clamp to your left nipple!
+.delay 3 3 STOP 7479
+.mustnot 7309
+.set 7309
+.range 7317 7319
+.unset 7339
+.Say Action
+
+'----------------
+
+[Action 7340]
+Remove the pin below your right nipple!
+.delay 2 2
+.poss 15
+.must 7300
+.unset 7300
+.range 7317 7319
+.unset 7340
+.Say Action
+
+[Action 7341]
+Remove the pin to the right of your right nipple!
+.delay 2 2
+.poss 15
+.must 7301
+.unset 7301
+.range 7317 7319
+.unset 7341
+.Say Action
+
+[Action 7342]
+Remove the pin above your right nipple!
+.delay 2 2
+.poss 15
+.must 7302
+.unset 7302
+.range 7317 7319
+.unset 7342
+.Say Action
+
+[Action 7343]
+Remove the pin to the left of your right nipple!
+.delay 2 2
+.poss 15
+.must 7303
+.unset 7303
+.range 7317 7319
+.unset 7343
+.Say Action
+
+[Action 7344]
+Remove the clamp on your right nipple!
+.delay 2 2
+.poss 15
+.must 7304
+.unset 7304
+.range 7317 7319
+.unset 7344
+.Say Action
+
+[Action 7345]
+Remove the pin below your left nipple!
+.delay 2 2
+.poss 15
+.must 7305
+.unset 7305
+.range 7317 7319
+.unset 7345
+.Say Action
+
+[Action 7346]
+Remove the pin to the left of your left nipple!
+.delay 2 2
+.poss 15
+.must 7306
+.unset 7306
+.range 7317 7319
+.unset 7346
+.Say Action
+
+[Action 7347]
+Remove the pin above your left nipple!
+.delay 2 2
+.poss 15
+.must 7307
+.unset 7307
+.range 7317 7319
+.unset 7347
+.Say Action
+
+[Action 7348]
+Remove the pin to the right of your left nipple!
+.delay 2 2
+.poss 15
+.must 7308
+.unset 7308
+.range 7317 7319
+.unset 7348
+.Say Action
+
+[Action 7349]
+Remove the clamp on your left nipple!
+.delay 2 2
+.poss 15
+.must 7309
+.unset 7309
+.range 7317 7319
+.unset 7349
+.Say Action
+
+'--------------
+
+[Action 7350]
+Attach a pin below your right nipple!
+.delay 3 3 STOP 7479
+.mustnot 7300
+.set 7300
+.range 7317 7319
+.unset 7350
+.Say Action
+
+[Action 7351]
+Attach pin to the right of your right nipple!
+.delay 3 3 STOP 7479
+.mustnot 7301
+.set 7301
+.range 7317 7319
+.unset 7351
+.Say Action
+
+[Action 7352]
+Attach a pin above your right nipple!
+.delay 3 3 STOP 7479
+.mustnot 7302
+.set 7302
+.range 7317 7319
+.unset 7352
+.Say Action
+
+[Action 7353]
+Attach a pin to the left of your right nipple!
+.delay 3 3 STOP 7479
+.mustnot 7303
+.set 7303
+.range 7317 7319
+.unset 7353
+.Say Action
+
+[Action 7354]
+Attach a clamp to your right nipple!
+.delay 4 4 STOP 7479
+.mustnot 7304
+.set 7304
+.range 7317 7319
+.unset 7354
+.Say Action
+
+[Action 7355]
+Attach a pin below your left nipple!
+.delay 3 3 STOP 7479
+.mustnot 7305
+.set 7305
+.range 7317 7319
+.unset 7355
+.Say Action
+
+[Action 7356]
+Attach a pin to the left of your left nipple!
+.delay 3 3 STOP 7479
+.mustnot 7306
+.set 7306
+.range 7317 7319
+.unset 7356
+.Say Action
+
+[Action 7357]
+Attach a pin above your left nipple!
+.delay 3 3 STOP 7479
+.mustnot 7307
+.set 7307
+.range 7317 7319
+.unset 7357
+.Say Action
+
+[Action 7358]
+Attach a pin to the right of your left nipple!
+.delay 3 3 STOP 7479
+.mustnot 7308
+.set 7308
+.range 7317 7319
+.unset 7358
+.Say Action
+
+[Action 7359]
+Attach a clamp to your left nipple!
+.delay 4 4 STOP 7479
+.mustnot 7309
+.set 7309
+.range 7317 7319
+.unset 7359
+.Say Action
+
+'----------------
+
+[Action 7360]
+Remove the pin below your right nipple!
+.delay 3 3
+.poss 15
+.must 7300
+.unset 7300
+.range 7317 7319
+.unset 7360
+.Say Action
+
+[Action 7361]
+Remove the pin to the right of your right nipple!
+.delay 3 3
+.poss 15
+.must 7301
+.unset 7301
+.range 7317 7319
+.unset 7361
+.Say Action
+
+[Action 7362]
+Remove the pin above your right nipple!
+.delay 3 3
+.poss 15
+.must 7302
+.unset 7302
+.range 7317 7319
+.unset 7362
+.Say Action
+
+[Action 7363]
+Remove the pin to the left of your right nipple!
+.delay 3 3
+.poss 15
+.must 7303
+.unset 7303
+.range 7317 7319
+.unset 7363
+.Say Action
+
+[Action 7364]
+Remove the clamp on your right nipple!
+.delay 3 3
+.poss 15
+.must 7304
+.unset 7304
+.range 7317 7319
+.unset 7364
+.Say Action
+
+[Action 7365]
+Remove the pin below your left nipple!
+.delay 3 3
+.poss 15
+.must 7305
+.unset 7305
+.range 7317 7319
+.unset 7365
+.Say Action
+
+[Action 7366]
+Remove the pin to the left of your left nipple!
+.delay 3 3
+.poss 15
+.must 7306
+.unset 7306
+.range 7317 7319
+.unset 7366
+.Say Action
+
+[Action 7367]
+Remove the pin above your left nipple!
+.delay 3 3
+.poss 15
+.must 7307
+.unset 7307
+.range 7317 7319
+.unset 7367
+.Say Action
+
+[Action 7368]
+Remove the pin to the right of your left nipple!
+.delay 3 3
+.poss 15
+.must 7308
+.unset 7308
+.range 7317 7319
+.unset 7368
+.Say Action
+
+[Action 7369]
+Remove the clamp on your left nipple!
+.delay 3 3
+.poss 15
+.must 7309
+.unset 7309
+.range 7317 7319
+.unset 7369
+.Say Action
+
+'----------------
+
+[Action 7370]
+Attach a pin below your right nipple!
+.delay 4 4 STOP 7479
+.mustnot 7300
+.set 7300
+.range 7317 7319
+.unset 7370
+.Say Action
+
+[Action 7371]
+Attach pin to the right of your right nipple!
+.delay 4 4 STOP 7479
+.mustnot 7301
+.set 7301
+.range 7317 7319
+.unset 7371
+.Say Action
+
+[Action 7372]
+Attach a pin above your right nipple!
+.delay 4 4 STOP 7479
+.mustnot 7302
+.set 7302
+.range 7317 7319
+.unset 7372
+.Say Action
+
+[Action 7373]
+Attach a pin to the left of your right nipple!
+.delay 4 4 STOP 7479
+.mustnot 7303
+.set 7303
+.range 7317 7319
+.unset 7373
+.Say Action
+
+[Action 7374]
+Attach the clamp to your right nipple!
+.delay 5 5 STOP 7479
+.mustnot 7304
+.set 7304
+.range 7317 7319
+.unset 7374
+.Say Action
+
+[Action 7375]
+Attach a pin below your left nipple!
+.delay 4 4 STOP 7479
+.mustnot 7305
+.set 7305
+.range 7317 7319
+.unset 7375
+.Say Action
+
+[Action 7376]
+Attach a pin to the left of your left nipple!
+.delay 4 4 STOP 7479
+.mustnot 7306
+.set 7306
+.range 7317 7319
+.unset 7376
+.Say Action
+
+[Action 7377]
+Attach a pin above your left nipple!
+.delay 4 4 STOP 7479
+.mustnot 7307
+.set 7307
+.range 7317 7319
+.unset 7377
+.Say Action
+
+[Action 7378]
+Attach a pin to the right of your left nipple!
+.delay 4 4 STOP 7479
+.mustnot 7308
+.set 7308
+.range 7317 7319
+.unset 7378
+.Say Action
+
+[Action 7379]
+Attach the clamp to your left nipple!
+.delay 5 5 STOP 7479
+.mustnot 7309
+.set 7309
+.range 7317 7319
+.unset 7379
+.Say Action
+
+'----------------
+
+[Action 7380]
+Remove the pin below your right nipple!
+.delay 8 8
+.must 7300
+.unset 7300
+.range 7317 7319
+.unset 7380
+.poss 15
+.Say Action
+
+[Action 7381]
+Remove the pin to the right of your right nipple!
+.delay 8 8
+.must 7301
+.unset 7301
+.range 7317 7319
+.unset 7381
+.poss 15
+.Say Action
+
+[Action 7382]
+Remove the pin above your right nipple!
+.delay 8 8
+.must 7302
+.unset 7302
+.range 7317 7319
+.unset 7382
+.poss 15
+.Say Action
+
+[Action 7383]
+Remove the pin to the left of your right nipple!
+.delay 8 8
+.must 7303
+.unset 7303
+.range 7317 7319
+.unset 7383
+.poss 15
+.Say Action
+
+[Action 7384]
+Remove the clamp on your right nipple!
+.delay 8 8
+.must 7304
+.unset 7304
+.range 7317 7319
+.unset 7384
+.poss 15
+.Say Action
+
+[Action 7385]
+Remove the pin below your left nipple!
+.delay 8 8
+.must 7305
+.unset 7305
+.range 7317 7319
+.unset 7385
+.poss 15
+.Say Action
+
+[Action 7386]
+Remove the pin to the left of your left nipple!
+.delay 8 8
+.must 7306
+.unset 7306
+.range 7317 7319
+.unset 7386
+.poss 15
+.Say Action
+
+[Action 7387]
+Remove the pin above your left nipple!
+.delay 8 8
+.must 7307
+.unset 7307
+.range 7317 7319
+.unset 7387
+.poss 15
+.Say Action
+
+[Action 7388]
+Remove the pin to the right of your left nipple!
+.delay 8 8
+.must 7308
+.unset 7308
+.range 7317 7319
+.unset 7388
+.poss 15
+.Say Action
+
+[Action 7389]
+Remove the clamp on your left nipple!
+.delay 8 8
+.must 7309
+.unset 7309
+.range 7317 7319
+.unset 7389
+.poss 15
+.Say Action
+
+' ----------
+
+[Action 7390]
+Attach a pin below your right nipple!
+.delay 9 9 STOP 7479
+.mustnot 7300
+.set 7300
+.range 7317 7319
+.unset 7390
+.Say Action
+
+[Action 7391]
+Attach pin to the right of your right nipple!
+.delay 9 9 STOP 7479
+.mustnot 7301
+.set 7301
+.range 7317 7319
+.unset 7391
+.Say Action
+
+[Action 7392]
+Attach a pin above your right nipple!
+.delay 9 9 STOP 7479
+.mustnot 7302
+.set 7302
+.range 7317 7319
+.unset 7392
+.Say Action
+
+[Action 7393]
+Attach a pin to the left of your right nipple!
+.delay 9 9 STOP 7479
+.mustnot 7303
+.set 7303
+.range 7317 7319
+.unset 7393
+.Say Action
+
+[Action 7394]
+Attach the clamp to your right nipple!
+.delay 9 9 STOP 7479
+.mustnot 7304
+.set 7304
+.range 7317 7319
+.unset 7394
+.Say Action
+
+[Action 7395]
+Attach a pin below your left nipple!
+.delay 9 9 STOP 7479
+.mustnot 7305
+.set 7305
+.range 7317 7319
+.unset 7395
+.Say Action
+
+[Action 7396]
+Attach a pin to the left of your left nipple!
+.delay 9 9 STOP 7479
+.mustnot 7306
+.set 7306
+.range 7317 7319
+.unset 7396
+.Say Action
+
+[Action 7397]
+Attach a pin above your left nipple!
+.delay 9 9 STOP 7479
+.mustnot 7307
+.set 7307
+.range 7317 7319
+.unset 7397
+.Say Action
+
+[Action 7398]
+Attach a pin to the right of your left nipple!
+.delay 9 9 STOP 7479
+.mustnot 7308
+.set 7308
+.range 7317 7319
+.unset 7398
+.Say Action
+
+[Action 7399]
+Attach the clamp to your left nipple!
+.delay 9 9 STOP 7479
+.mustnot 7309
+.set 7309
+.range 7317 7319
+.unset 7399
+.Say Action
+
+
+[Action 7400]
+Is there a clothespin below your right nipple?
+.unset 7400
+.yesno 7410 7411 7412 7413
+.Say Action
+
+[Action 7401]
+Is there a clothespin to the right of your right nipple?
+.unset 7401
+.yesno 7414 7415 7416 7417
+.Say Action
+
+
+[Action 7402]
+Is there a clothespin above your right nipple?
+.unset 7402
+.yesno 7418 7419 7420 7421
+.Say Action
+
+[Action 7403]
+Is there a clothespin to the left of your right nipple?
+.unset 7403
+.yesno 7422 7423 7424 7425
+.Say Action
+
+[Action 7404]
+Is there a clamp on your right nipple?
+.unset 7404
+.yesno 7426 7427 7428 7429
+.Say Action
+
+[Action 7405]
+Is there a clothespin below your left nipple?
+.unset 7405
+.yesno 7430 7431 7432 7433
+.Say Action
+
+[Action 7406]
+Is there a clothespin to the left of your left nipple?
+.unset 7406
+.yesno 7434 7435 7436 7437
+.Say Action
+
+[Action 7407]
+Is there a clothespin above your left nipple?
+.unset 7407
+.yesno 7438 7439 7440 7441
+.Say Action
+
+[Action 7408]
+Is there a clothespin to the right of your left nipple?
+.unset 7408
+.yesno 7442 7443 7444 7445
+.Say Action
+
+[Action 7409]
+Is there a clamp on your left nipple?
+.unset 7409
+.yesno 7446 7447 7448 7449
+.Say Action
+
+[Action 7410]
+Very good, slave.
+.unset 7410
+.must 7300
+.range 7460
+.Say Action
+
+[Action 7411]
+Incorrect, slave!
+.unset 7411
+.mustnot 7300
+.range 7470
+.Say Action
+
+[Action 7412]
+That's right, slave.
+.unset 7412
+.mustnot 7300
+.range 7460
+.Say Action
+
+[Action 7413]
+Wrong, slave!
+.unset 7413
+.must 7300
+.range 7470
+.Say Action
+
+
+[Action 7414]
+Very good, slave.
+.unset 7414
+.must 7301
+.range 7460
+.Say Action
+
+[Action 7415]
+Incorrect, slave!
+.unset 7415
+.mustnot 7301
+.range 7470
+.Say Action
+
+[Action 7416]
+That's right, slave.
+.unset 7416
+.mustnot 7301
+.range 7460
+.Say Action
+
+[Action 7417]
+Wrong, slave!
+.unset 7417
+.must 7301
+.range 7470
+.Say Action
+
+
+
+[Action 7418]
+Very good, slave.
+.unset 7418
+.must 7302
+.range 7460
+.Say Action
+
+[Action 7419]
+Incorrect, slave!
+.unset 7419
+.mustnot 7302
+.range 7470
+.Say Action
+
+[Action 7420]
+That's right, slave.
+.unset 7420
+.mustnot 7302
+.range 7460
+.Say Action
+
+[Action 7421]
+Wrong, slave!
+.unset 7421
+.must 7302
+.range 7470
+.Say Action
+
+
+
+
+[Action 7422]
+Very good, slave.
+.unset 7422
+.must 7303
+.range 7460
+.Say Action
+
+[Action 7423]
+Incorrect, slave!
+.unset 7423
+.mustnot 7303
+.range 7470
+.Say Action
+
+[Action 7424]
+That's right, slave.
+.unset 7424
+.mustnot 7303
+.range 7460
+.Say Action
+
+[Action 7425]
+Wrong, slave!
+.unset 7425
+.must 7303
+.range 7470
+.Say Action
+
+
+[Action 7426]
+Very good, slave.
+.unset 7426
+.must 7304
+.range 7460
+.Say Action
+
+[Action 7427]
+Incorrect, slave!
+.unset 7427
+.mustnot 7304
+.range 7470
+.Say Action
+
+[Action 7428]
+That's right, slave.
+.unset 7428
+.mustnot 7304
+.range 7460
+.Say Action
+
+[Action 7429]
+Wrong, slave!
+.unset 7429
+.must 7304
+.range 7470
+.Say Action
+
+
+[Action 7430]
+Very good, slave.
+.unset 7430
+.must 7305
+.range 7460
+.Say Action
+
+[Action 7431]
+Incorrect, slave!
+.unset 7431
+.mustnot 7305
+.range 7470
+.Say Action
+
+[Action 7432]
+That's right, slave.
+.unset 7432
+.mustnot 7305
+.range 7460
+.Say Action
+
+[Action 7433]
+Wrong, slave!
+.unset 7433
+.must 7305
+.range 7470
+.Say Action
+
+
+
+[Action 7434]
+Very good, slave.
+.unset 7434
+.must 7306
+.range 7460
+.Say Action
+
+[Action 7435]
+Incorrect, slave!
+.unset 7435
+.mustnot 7306
+.range 7470
+.Say Action
+
+[Action 7436]
+That's right, slave.
+.unset 7436
+.mustnot 7306
+.range 7460
+.Say Action
+
+[Action 7437]
+Wrong, slave!
+.unset 7437
+.must 7306
+.range 7470
+.Say Action
+
+
+
+
+[Action 7438]
+Very good, slave.
+.unset 7438
+.must 7307
+.range 7460
+.Say Action
+
+[Action 7439]
+Incorrect, slave!
+.unset 7439
+.mustnot 7307
+.range 7470
+.Say Action
+
+[Action 7440]
+That's right, slave.
+.unset 7440
+.mustnot 7307
+.range 7460
+.Say Action
+
+[Action 7441]
+Wrong, slave!
+.unset 7441
+.must 7307
+.range 7470
+.Say Action
+
+
+
+
+[Action 7442]
+Very good, slave.
+.unset 7442
+.must 7308
+.range 7460
+.Say Action
+
+[Action 7443]
+Incorrect, slave!
+.unset 7443
+.mustnot 7308
+.range 7470
+.Say Action
+
+[Action 7444]
+That's right, slave.
+.unset 7444
+.mustnot 7308
+.range 7460
+.Say Action
+
+[Action 7445]
+Wrong, slave!
+.unset 7445
+.must 7308
+.range 7470
+.Say Action
+
+
+
+[Action 7446]
+Very good, slave.
+.unset 7446
+.must 7309
+.Say Action
+
+
+.range 7460
+
+[Action 7447]
+Incorrect, slave!
+.unset 7447
+.mustnot 7309
+.range 7470
+.Say Action
+
+[Action 7448]
+That's right, slave.
+.unset 7448
+.mustnot 7309
+.range 7460
+.Say Action
+
+[Action 7449]
+Wrong, slave!
+.unset 7449
+.must 7309
+.range 7470
+.Say Action
+
+[Action 7450]
+'.delay 0
+.range 7400 7409
+'.ask 50 59
+'.askcheck 50 7300 Bottom Right
+'.askcheck 51 7301 Right Right
+'.askcheck 52 7302 Top Right
+'.askcheck 53 7303 Left Right
+'.askcheck 54 7304 Nipple Right
+'.askcheck 55 7305 Bottom Left
+'.askcheck 56 7306 Left Left
+'.askcheck 57 7307 Top Left
+'.askcheck 58 7308 Right Left
+'.askcheck 59 7309 Left Nipple
+.unset 7450
+
+' Correct answer
+[Action 7460]
+Let's wait for a moment and then continue, slave.
+.delay 10
+.range 7318 7319
+.unset 7460
+.Say Action
+
+' Wrong answer
+[Action 7470]
+That means we'll have to go back to the beginning, slave.
+Take all the clothes pegs and clamps off now. Or, if you'd 
+rather, we can quit, and you can accept the consequences 
+of failure. Well, slave? Shall we continue?
+.unset 7300 7301 7302 7303 7304 7305 7306 7307 7308 7309
+.yesno 7317 7319 9100 9199
+.unset 7470
+.Say Action
+
+' Stop pressed, all clamps/pegs on?
+'STOP!
+[Action 7479]
+.delay 0
+.unset 7479
+.range 7480 7490
+
+[Action 7480]
+Sorry, slave, you haven't got them all on!
+.unset 7480
+.mustnot 7300
+.range 7470
+.Say Action
+
+[Action 7481]
+Sorry, slave, you haven't got them all on!
+.unset 7481
+.mustnot 7301
+.range 7470
+.Say Action
+
+[Action 7482]
+Sorry, slave, you haven't got them all on!
+.unset 7482
+.mustnot 7302
+.range 7470
+.Say Action
+
+[Action 7483]
+Sorry, slave, you haven't got them all on!
+.unset 7483
+.mustnot 7303
+.range 7470
+.Say Action
+
+[Action 7484]
+Sorry, slave, you haven't got them all on!
+.unset 7484
+.mustnot 7304
+.range 7470
+.Say Action
+
+[Action 7485]
+Sorry, slave, you haven't got them all on!
+.unset 7485
+.mustnot 7305
+.range 7470
+.Say Action
+
+[Action 7486]
+Sorry, slave, you haven't got them all on!
+.unset 7486
+.mustnot 7306
+.range 7470
+.Say Action
+
+[Action 7487]
+Sorry, slave, you haven't got them all on!
+.unset 7487
+.mustnot 7307
+.range 7470
+.Say Action
+
+[Action 7488]
+Sorry, slave, you haven't got them all on!
+.unset 7488
+.mustnot 7308
+.range 7470
+.Say Action
+
+[Action 7489]
+Sorry, slave, you haven't got them all on!
+.unset 7489
+.mustnot 7309
+.range 7470
+.Say Action
+
+[Action 7490]
+Very, very good, My dear. You've got them all now.
+.must 7300 7301 7302 7303 7304 7305 7306 7307 7308 7309
+.range 7491
+.Say Action
+
+[Action 7491]
+Just sit there for a few minutes, My little bitch, and enjoy the nipple clamps.
+.delay 60
+.range 7492
+.Say Action
+
+[Action 7492]
+Don't they feel good? I love to watch those nipples suffer
+for Mistress.
+.delay 60
+.range 7493
+.Say Action
+
+[Action 7493]
+That's enough, slave. You can take all pegs and clamps off.
+.pause
+.range 9000 9099
+.Say Action
+
+
+'===============================================================
+
+' This is type 116 nipple clamp weight lifting
+
+[Action 7500]
+Today we'll be training those slave nipples of yours some more. I want you
+to fetch the strongest clamps you have. Clover clamps would be perfect, but
+anything that won't come off will do just fine. Remember to connect the clamps
+together if they aren't already. Go get them now, slave!
+.pause
+.mustnot 216            ' Clamps on nips
+.range 7502
+.Say Action
+
+[Action 7501]
+Today we'll be training those slave nipples of yours some more. I hope you've put on
+the strongest clamps you have, because if they get pulled off for any reason, you'll
+be in trouble, my dear slut. Keep in mind that clover clamps would be perfect, but
+anything that won't come off will do just fine. Remember to connect the clamps
+together if they aren't already.
+.pause
+.must 216               ' Clamps on nips
+.range 7502
+.Say Action
+
+[Action 7502]
+Good boy. Put the clamps in your mouth for the moment. I want you
+to rub those nipples, and get them nice and hard for Mistress.
+Don't forget to keep that silly cock hard, too.
+.delay 20
+.range 7503
+.Say Action
+
+[Action 7503]
+Now put the clamps on your little nips and let the chain swing free.
+Feels good, doesn't it? Let's just let that sink in for a minute.
+.delay 30
+.range 7504
+.Say Action
+
+[Action 7504]
+Play with yourself and get used to the clamps, My poor little slaveboy.
+.delay 30
+.unset 7504
+.range 7504 7505
+.Say Action
+
+[Action 7505]
+Now I want you to go get some rope for your ankles.
+Tell me when you've retrieved it, slaveboy.
+.pause
+.range 7506
+.Say Action
+
+[Action 7506]
+Now, cross your ankles and tie them together, nice and tight.
+There shouldn't be more than a couple of inches of play
+between them. Report to me when you've finished.
+.pause
+.range 7507
+.Say Action
+
+[Action 7507]
+All secure? Good. Those clamps should be settling in nicely by now. Now
+we need a heavy weight. Think of something suitable inside the house.
+It must be in another room, and it must weigh a good pound or so.
+.delay 30
+.range 7508
+.Say Action
+
+[Action 7508]
+Have you thought of something? A tennis shoe would work well, or a coffee
+cup. If you've tied your ankles properly, you shouldn't be able to walk -
+you'll have to hop. Now go fetch that weight, slave. Hop to it!
+.pause
+.range 7509
+.Say Action
+
+[Action 7509]
+Are your nipples nice and sore now? Do you need a little break from the pain?
+.yesno 7510 7510 7517 7518
+.Say Action
+
+[Action 7510]
+That's too bad, My little toy. This is supposed to be painful. In fact, let's
+just pause here for five minutes or so, just to make sure you're concentrating
+properly. Make sure to keep that little penis of yours nice and hard.
+.range 7511 7516
+.Say Action
+
+
+[Action 7511]
+Just concentrate on your nipples.
+.delay 20
+.repeat 5
+.range 7511 7516
+.Say Action
+
+[Action 7512]
+Let the chain swing freely. Just think about the pinching sensation of the clamps.
+.delay 20
+.repeat 5
+.range 7511 7516
+.Say Action
+
+[Action 7513]
+Wouldn't it be nice to take them off? They must hurt quite a bit by now.
+.delay 20
+.repeat 5
+.range 7511 7516
+.Say Action
+
+[Action 7514]
+Just let those nipples burn. I want you to think
+about those poor raw nips and the pain they're in.
+.delay 20
+.repeat 5
+.range 7511 7516
+.Say Action
+
+[Action 7515]
+We're not done by a long shot, My little sweetie. This is a cake-walk
+compared to the pain those little nipples will be in later on.
+.delay 20
+.repeat 5
+.range 7511 7516
+.Say Action
+
+[Action 7516]
+The nice thing about nipple clamps is that they torture a slave with very little effort.
+Waiting is the best punishment, but I think it's time to move on now, slave.
+.delay 30
+.NumActionsFrom 7509 14
+.range 7518
+.Say Action
+
+
+[Action 7517]
+If you like those clamps so much, I think we should just pause
+for a few minutes, so you can fully appreciate them, slave.
+.range 7511 7516
+.Say Action
+
+[Action 7518]
+I hope those nipples hurt, slave. I love to see a little slave-boy in pain,
+especially when he's not allowed to do anything about it. Nipple clamps are
+so effective because they just get worse no matter what you do.
+.delay 20
+.range 7519
+.Say Action
+
+
+[Action 7519]
+Now we're ready for the next step. I want you to get on
+your knees, slave. And keep one hand on your crotch!
+.range 7520
+.Say Action
+
+[Action 7520]
+Now, put the weight on the floor in front of you, and connect it to the chain
+between your clamps. There should be a foot or so of play between the chain
+and the weight. Make sure you tie it nice and tight. After you're done, I want
+you to lean over the weight, so that your nipples are directly over it.
+.pause
+.range 7521
+.Say Action
+
+[Action 7521]
+Now we're ready to really begin, slave. When I order it, you will stand up and
+pull the weight off the ground with your nipples. You'll stay in that position
+until I tell you to get back on your knees. Of course, you'll follow any other
+orders I give you as well. If at any time the weight falls off, or you pull a
+clamp off, or if you just can't take it anymore, you're to click the "STOP"
+button, slave, and you will fail this portion of your training. Are you ready
+to please your Mistress?
+.yesno 7522 7522 7590 7590
+.Say Action
+
+[Action 7522]
+Get ready, slut. Make sure to keep rubbing that thing of yours, and keep it hard the whole time.
+.range 7523
+.Say Action
+
+[Action 7523]
+Now stand up, slave! Hold this position!
+.delay 20 20 STOP 7590
+.range 7524
+.Say Action
+
+[Action 7524]
+Just let the weight hang. Concentrate on your nipples.
+.delay 20 20 STOP 7590
+.range 7525
+.Say Action
+
+[Action 7525]
+Feel the pull. Those nipples should be nice and sore by now, slave.
+.delay 20 20 STOP 7590
+.range 7526
+.Say Action
+
+[Action 7526]
+Very good, slave. Kneel down and lower the weight to the floor. I'll let you rest those
+poor nips for a few seconds. If the clamps are slipping off, go ahead and re-set them.
+.delay 30
+.range 7527
+.Say Action
+
+[Action 7527]
+Stand up, pain slut! Lift that weight up!
+.delay 30 30 STOP 7590
+.range 7528
+.Say Action
+
+[Action 7528]
+We're just starting out, slave. Plenty more of this to come.
+.delay 30 30 STOP 7590
+.range 7529
+.Say Action
+
+[Action 7529]
+I love to see those poor slave nipples in pain.
+.delay 30 30 STOP 7590
+.range 7530
+.Say Action
+
+[Action 7530]
+Those nipples look very sore, slave. Do you think you
+can make it?
+.delay 30 30 STOP 7590
+.range 7531
+.Say Action
+
+[Action 7531]
+Good boy. Now, slowly kneel down again. I'll let you have
+another break. Again, you can re-set them if you need to.
+.delay 30
+.range 7532
+.Say Action
+
+[Action 7532]
+Remember, if the weight or a clamp fall off, or if you're too much of a pussy to take it,
+press the "stop" button. And keep rubbing that little slave-cock for Mistress.
+.delay 30
+.range 7533
+.Say Action
+
+[Action 7533]
+Time to stand up again, slave. On your feet!
+.delay 30 30 STOP 7590
+.range 7534
+.Say Action
+
+[Action 7534]
+Let that weight hang. Plenty more of this to come, slave.
+.delay 30 30 STOP 7590
+.range 7535
+.Say Action
+
+[Action 7535]
+I want you to give that weight a good hard shove, and let it swing, My dear little slave.
+.delay 45 45 STOP 7590
+.range 7536
+.Say Action
+
+[Action 7536]
+Give it another swing, you poor baby. Concentrate on the pain in your nipples.
+.delay 45 45 STOP 7590
+.range 7537
+.Say Action
+
+[Action 7537]
+Give it another shove, love. Let it swing back and forth for My amusement.
+You should be happy to feel this pain, since it pleases your Mistress so much.
+.delay 30 30 STOP 7590
+.range 7538
+.Say Action
+
+[Action 7538]
+Just let it hang, slave. Those nipples should be on fire
+by now! I love to watch you abuse your bare slave body.
+.delay 30 30 STOP 7590
+.range 7539
+.Say Action
+
+[Action 7539]
+Another thirty seconds, slave. Can you make it? Remember you can bail
+out any time, if you're such a cunt that you can't take it any more.
+.delay 30 30 STOP 7590
+.range 7540
+.Say Action
+
+[Action 7540]
+Okay, My shameful slut, get on your knees again. I'll 
+let you have another little rest and re-set opportunity.
+.delay 30
+.range 7541
+.Say Action
+
+[Action 7541]
+When you just leave the clamps on, they tend to numb up a little bit. Put by constantly
+moving them around, I'm able to keep your pain nice and fresh. Did you notice?
+.delay 30
+.range 7542
+.Say Action
+
+[Action 7542]
+Okay, slave, break time is over! Get back on your feet!
+.delay 30 30 STOP 7590
+.range 7543
+.Say Action
+
+[Action 7543]
+Just concentrate on keeping that weight off the ground,
+My poor little slave. Endure all the pain.
+.delay 30 30 STOP 7590
+.range 7544
+.Say Action
+
+[Action 7544]
+Now I want you to hop up and down until I tell you otherwise. Start hopping!
+.delay 45 45 STOP 7590
+.range 7545
+.Say Action
+
+[Action 7545]
+Keep hopping, my little slave bunny! Around and around you go.
+.delay 45 45 STOP 7590
+.range 7546
+.Say Action
+
+[Action 7546]
+You can stop hopping, little bunny. Now, keeping the weight in the air, I want
+you to untie your ankles. You can cut the ropes if you can't get them undone.
+.delay 60 60 STOP 7590
+.range 7547
+.Say Action
+
+[Action 7547]
+Thirty more seconds, little baby. Feel that weight
+pulling mercilessly on your poor slave nipples.
+.delay 30 30 STOP 7590
+.range 7548
+.Say Action
+
+[Action 7548]
+Okay, slave, you can lower the weight again. Not too much longer, now. You're doing
+very well, My dear little slut. Make sure those clamps are going to stay on tight.
+.delay 30
+.range 7549
+.Say Action
+
+[Action 7549]
+You should be feeling very submissive at this point. A boy-slave's nipples,
+like the rest of his body, are just playthings for his vengeful Mistress.
+.delay 30
+.range 7550
+.Say Action
+
+[Action 7550]
+Time to stand up again, My poor little boy.
+.delay 30 30 STOP 7590
+.range 7551
+.Say Action
+
+[Action 7551]
+Slave, now I want you to take the weight and hold it in front of
+your head. Keep it taut - there shouldn't be any play in the line.
+.delay 30 30 STOP 7590
+.range 7552
+.Say Action
+
+[Action 7552]
+When I make you let it go, it should swing back towards you in a nice, smooth arc.
+.delay 30 30 STOP 7590
+.range 7553
+.Say Action
+
+[Action 7553]
+Now, take your hand off of your little slave dick. Whenyou hear me crack my whip,
+I want you to let weight go. Close your eyes, and don't open them until it's done!
+.delay 30 40 STOP 7590
+.range 7554
+.Say Action
+
+[Action 7554]
+Drop it!
+.delay 10 10 STOP 7590
+.playwav whip3.wav
+.range 7555
+.Say Action
+
+[Action 7555]
+Did that hurt, My little cunt? You can get on your knees and start masturbating again.
+.delay 30
+.range 7556
+.Say Action
+
+[Action 7556]
+We're almost done, little baby. This time we'll do
+some fast repetitions. That should be very nice.
+.delay 30
+.range 7557
+.Say Action
+
+[Action 7557]
+Get up, slave!
+.delay 5 5 STOP 7590
+.unset 7557
+.range 7558 7559
+.Say Action
+
+[Action 7558]
+Down on your knees!
+.delay 10 10 STOP 7590
+.unset 7558
+.range 7557
+.Say Action
+
+[Action 7559]
+That's very good, slave. Now we'll step it up a notch!
+.NumActionsFrom 7556 15 20
+.range 7560
+.Say Action
+
+[Action 7560]
+Up, slave!
+.delay 2 2 STOP 7590
+.unset 7560
+.range 7561 7562
+.Say Action
+
+[Action 7561]
+Down, slave!
+.delay 3 3 STOP 7590
+.unset 7561
+.range 7560
+.Say Action
+
+[Action 7562]
+That's a very, very good boy! You can kneel back down again, you good little slave.
+.NumActionsFrom 7559 20 30
+.range 7563
+.Say Action
+
+[Action 7563]
+Mistress is very pleased! Untie the weight from 
+the nipple clamps, but don't remove them just yet.
+.pause
+.range 7564
+.Say Action
+
+[Action 7564]
+Now get your chair and sit down, My slave. Doesn't it feel good to follow orders
+and please the Mistress? I want those poor slave nipples pinched just a little 
+bit longer. Why don't you look at some pictures and play with that little penis?
+.delay 30
+.range 7565
+.Say Action
+
+[Action 7565]
+.delay 10 10 STOP 7590
+.repeat 15
+.range 7565 7566
+
+[Action 7566]
+Very good, slave baby. You may remove the clamps.
+Rub those nipples and get the blood flowing again!
+.NumActionsFrom 7564 10
+.range 7567
+.Say Action
+
+[Action 7567]
+Now put your toys away like a good little 
+boy, and come back when you're done.
+.range 9000 9099
+.pause
+.Say Action
+
+
+[Action 7590]
+I'm very disappointed in you, slave. You've failed me again. Take those clamps
+off your nipples now, slut, and if your ankles are still tied you may untie them.
+.delay 20
+.range 7591
+.Say Action
+
+[Action 7591]
+Kneel there and think about your failure for a few mintues, you stupid whore.
+I promise you you'll be punished for this foolishness. Make sure to keep
+rubbing yourself, not that you'll be allowed to cum for quite some time.
+.delay 15
+.range 7592 7596
+.Say Action
+
+[Action 7592]
+You've been a very naughty slaveboy, and you've displeased your Mistress.
+.delay 15
+.unset 7592
+.range 7592 7596
+.Say Action
+
+[Action 7593]
+You're a real disappointment, slave. I don't know if such a
+worthless pile of crap can ever complete this training.
+.delay 15
+.repeat 7
+.range 7592 7596
+.Say Action
+
+[Action 7594]
+I hope you're ashamed of yourself. You're a worthless,
+sorry, good-for-nothing slave slut, in my opinion.
+.delay 15
+.repeat 7
+.range 7592 7596
+.Say Action
+
+[Action 7595]
+Look at yourself. A shameful, naked, lazy, slutty slaveboy, with sore nipples,
+jerking himself off but not allowed to cum, who can't even follow his Mistress's
+simple instructions correctly. What a sad spectacle.
+.delay 30
+.range 7592 7596
+.Say Action
+
+[Action 7596]
+.NumActionsFrom 7591 10
+.range 9100 9199
+.delay 0
+
+
+'   "Good" exit points.
+'   114 1014    5814 -> 5964    5864    5914    2   3   quick pins
+'   115 1015    5815 -> 5965    5865    5915    2   3   quick pins 16
+'   116 1016    5816 -> 5966    5866    5916    3   3   nipple clamp weight-lifting
+'   117 1017    5805 -> 5955                    1   -   light cardio nips
+'   118 1018    5817 -> 5967    5867    -       2   -   shake those titties
+
+[Action 9000]
+.must 100
+.quit
+
+'  quick pins
+[Action 9014]
+.must 114
+.loadsbd Mine.sbd 5864 5864
+
+' quick pins 16
+[Action 9015]
+.must 115
+.loadsbd Mine.sbd 5865 5865
+
+' nipple clamp weight-lifting
+[Action 9016]
+.must 116
+.loadsbd Mine.sbd 5866 5866 
+
+' light cardio nips
+[Action 9017]
+.must 117
+.loadsbd Mine.sbd 5855 5855
+
+' shake those titties activity
+[Action 9018]
+.must 118
+.loadsbd Mine.sbd 5867 5867
+
+' shake those titties punishment
+[Action 9019]
+.must 119
+.loadsbd Mine.sbd 2404 2404
+
+
+'   "Bad" exit points
+
+'[Action 9100]
+'.must 100
+'.quit
+
+'  quick pins
+[Action 9114]
+.must 114
+.loadsbd Mine.sbd 5914 5914
+
+' quick pins 16
+[Action 9115]
+.must 115
+.loadsbd Mine.sbd 5915 5915
+
+' nipple clamp weight-lifting
+[Action 9116]
+.must 116
+.loadsbd Mine.sbd 5916 5916
+
+
+[Action 9998]
+Slave closed.
+.loadsbd Mine.sbd 5020 5029
+
+[Action 9999]
+Abnormal ending, bailing out.
+.loadsbd Mine.sbd 5012 5012

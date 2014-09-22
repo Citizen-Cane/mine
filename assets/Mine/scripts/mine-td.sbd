@@ -1,0 +1,3166 @@
+.debug 2
+
+.yestext Yes, Mistress
+.notext No, Mistress
+.resumetext Yes, Mistress
+.onClose 9998
+.onAllSet 9999
+.resetrange 50 299      ' reset all temp variables from main script but keep slave state, toys and achievements  
+.backcolor 255 200 200
+.ssdir td
+
+.range 1000
+
+.askcheck 50 50 50: 0 repetitions: finished.
+.askcheck 51 51 51: 1 repetition.
+.askcheck 52 52 52: 2 reps.
+.askcheck 53 53 53: 3 reps.
+.askcheck 54 54 54: 4 reps.
+.askcheck 55 55 55: 5 reps.
+.askcheck 56 56 56: 6 reps.
+.askcheck 57 57 57: 7 reps.
+.askcheck 58 58 58: 8 reps.
+.askcheck 59 59 59: 9 reps.
+
+.askcheck 60 60 60: 3 minutes.
+.askcheck 61 61 61: 5 min.
+.askcheck 62 62 62: 10 min.
+.askcheck 63 63 63: 15 min.
+'   Returns
+'   #   Entry       From        Good    Bad     +   -   Desc
+'   101 1101    6001 -> 6151    6051    6101    2   5   MISSKRISS-style wanking 2-3x10m
+'   102 1102    6002 -> 6152    6052    6102    2   1   Terry & Jennifer Story Ch. 16
+'   103 1103    6003 -> 6153    6053    6103    3   3   Diary of Carolyn Ch. 1 excerpt
+'   104 1104    2595            2419    9500    -       1hr punishment wanking
+'   105 1105    6004 -> 6154    6054    6104    1   5   2 x  5m (52 61)
+'   106 1106    6005 -> 6155    6055    6105    1   5   5 x  3m (55 60)
+'   107 1107    6006 -> 6156    6056    6106    1   5   2 x 10m (52 62)
+'   108 1108    6007 -> 6157    6057    "       1   5   4 x  5m (54 61)
+'   109 1109    6008 -> 6158    6058    "       1   5   7 x  3m (57 60)
+'   110 1110    6009 -> 6159    6059    "       1   5   3 x 10m (53 62)
+'   111 1111    6010 -> 6160    6060    "       1   5   5 x  5m (55 61)
+'   112 1112    6011 -> 6161    6061    "       1   5   9 x  3m (59 60)
+'   113 1113    6012 -> 6162    6062    "       2   5   4 x 10m (54 62)
+'   114 1114    6013 -> 6163    6063    "       2   5   9 x  5m (59 61)
+'   115 1115    5404 -> 6014    6064            2       slavesinlove bd186 activity
+'   116 1116    6013 -> 6163    2401            -       slavesinlove bd186 punishment
+
+
+' 220 ankles and wrists tied
+' 221 ankles and wrists tied, key away
+
+' Debug
+
+.menu 40  2010 2010 MISSKRISS-style wanking 2-3x10m
+.menu 41  2050 2050 Terry & Jennifer Story Ch. 16
+.menu 42  2150 2150 Diary of Carolyn Ch. 1 excerpt
+.menu 43  2200 2200 1hr punishment wanking
+.menu 44  2300 2300 slavesinlove bd186
+.menu 45  2020 2020 tease and denial 2 x  5m (52 61)
+.menu 46  2021 2021 tease and denial 5 x  3m (55 60)
+.menu 47  2022 2022 tease and denial 2 x 10m (52 62)
+.menu 48  2030 2030 tease and denial 7 x  3m (57 60)
+.menu 49  1000 1000 Exit
+
+[Action 990]
+Welcome to debug my code, But don't try to cheat on me.
+What would you like to do today?
+.unset 990
+.popup 40 49
+.say action
+
+
+
+
+[Action 1000]
+.quit
+
+[Action 1101]
+.noimage
+.delay 0
+.set 101
+.range 2010
+
+[Action 1102]
+.noimage
+.delay 0
+.set 102
+.range 2050
+
+[Action 1103]
+.noimage
+.delay 0
+.set 103
+.range 2150
+
+' punishment wank
+[Action 1104]
+.noimage
+.delay 0
+.set 104
+.range 2200
+
+' wanking
+[Action 1105]
+.noimage
+.delay 0
+.set 52 61 105
+.range 2020 2021
+
+' wanking
+[Action 1106]
+.noimage
+.delay 0
+.set 55 60 106
+.range 2022 2023
+
+' wanking
+[Action 1107]
+.noimage
+.delay 0
+.set 52 62 107 
+.range 2024 2025
+
+' wanking
+[Action 1108]
+.noimage
+.delay 0
+.set 54 61 108
+.range 2030 2031
+
+' wanking
+[Action 1109]
+.noimage
+.delay 0
+.set 57 60 109
+.range 2030 2031
+
+' wanking
+[Action 1110]
+.noimage
+.delay 0
+.set 53 62 110
+.range 2030 2031
+
+' wanking
+[Action 1111]
+.noimage
+.delay 0
+.set 55 61 111
+.range 2030 2031
+
+' wanking
+[Action 1112]
+.noimage
+.delay 0
+.set 59 60 112
+.range 2030 2031
+
+' wanking
+[Action 1113]
+.noimage
+.delay 0
+.set 54 62 113
+.range 2030 2031
+
+' wanking
+[Action 1114]
+.noimage
+.delay 0
+.set 59 61 114
+.range 2030 2031
+
+' slavesinlove 186
+[Action 1115]
+.noimage
+.delay 0
+.set 115
+.range 2300
+
+' slavesinlove 186 punishment
+[Action 1116]
+.noimage
+.delay 0
+.set 116
+.range 2300
+
+
+'	directions. use the block of ten starting at (x - 100) * 10 + 2000, where
+'	x is the spawn type (100-299).
+
+[Action 2010]
+Today, slave, we're going to add a little twist to your stroking session. It's
+a trick I picked up from a compatriot of mine, MISSKRISS.
+.range 2011
+.Say Action
+
+[Action 2011]
+You're going to need a couple of things, slut: something to tie your ankles with,
+and something to tie your balls with. Rope is fine, but if you have ankle cuffs
+or a ball harness then go ahead and use those instead. You'll also need a good
+weight, maybe a pound or so.
+.pause
+.range 2012
+.Say Action
+
+[Action 2012]
+Okay, My dear slut, get that stuff, get in your chair and sit on the edge, so 
+your pathetic slave testicles are just hanging over the edge. I want you to start
+by tying that sorry sack up. Leave about six or eight inches of rope left over.
+.pause
+.range 2013
+.Say Action
+
+[Action 2013]
+Now, I want you to fasten that weight to your ball bondage, slut. It should
+hang in the air as you sit; don't let it rest on the ground.
+.pause
+.range 2014
+.Say Action
+
+[Action 2014]
+Got all that? Your balls should be stretching nicely. Now, I want you to tie
+your ankles to the chair. Your ankles should be tied high enough so that your feet
+cannot touch the ground.
+.pause
+.range 2015
+.Say Action
+
+[Action 2015]
+Now, if you've followed My instructions, you should have most of your weight
+resting on your ass, right on the edge of your seat, with your balls stretched
+and hanging over the edge. I want you to keep your knees wide apart, just
+to reinforce the vulnerability of your so-called nutsack.
+.delay 15 20
+.range 2016 2017
+.Say Action
+
+
+[Action 2016]
+.delay 0
+.set 52 62 ' 2 reps 10 min.
+.range 2018
+
+[Action 2017]
+.delay 0
+.set 53 62 ' 3 reps 10 min.
+.range 2018
+
+
+[Action 2018]
+Now, you should know the drill. Of course, you should be good and hard, as you are
+required when you are in My presence. Now you will jerk off that cock in the rhythm
+I set for you. You are not under any circumstances to deviate from this rhythm, nor
+are you (or will you be) allowed to cum, of course.
+.delay 18
+.range 2019
+.Say Action
+
+[Action 2019]
+If at any time you do cum, you are to immediately press the "STOP" button.
+Of course, you will be punished very seriously for such an infraction.
+Now, get ready to begin.
+.range 7000 7099
+.Say Action
+
+
+' Wanking inside the cage has been planned, but being avoided
+' since the cage may be chosen to be too restrictive to allow this
+
+' entry point for 105 (2x5min)
+
+[Action 2020]
+Nothing special this time, sweetheart.
+Just stroke that cock to the beat and follow all my instructions.
+Press "STOP" if you cum, which you are absolutely not to.
+.delay 12
+.mustnot 44             ' Chastified
+'.range 7100 7199
+.range 2035 2039
+.Say Action
+
+[Action 2021]
+Nothing special this time, sweetheart.
+Just move the chastity cage back and forth to stroke that cock
+by the beat and follow all my instructions.
+Press "STOP" if you cum, which you are absolutely not to.
+.must 44                ' Chastified
+.delay 12
+'.range 7100 7199
+.range 2035 2039
+.Say Action
+
+
+' entry point for 106 (3x5min)
+
+[Action 2022]
+Just sit there and follow directions, slut.
+Keep stroking that slave penis to the beat,
+and no cumming - if you do, press "STOP" at once.
+.mustnot 44             ' Chastified
+'.range 7100 7199
+.range 2035 2039
+.Say Action
+
+[Action 2023]
+Just sit there and follow directions, slut.
+Keep stroking that slave penis to the beat by moving the cage,
+and no cumming - if you do, press "STOP" at once.
+.must 44                ' Chastified
+'.range 7100 7199
+.range 2035 2039
+.Say Action
+
+
+' entry point for 107 (2x10min)
+
+[Action 2024]
+Just sit tight and follow directions, cunt.
+Play with that slave cock and keep up with the beat
+- and don't spurt or I'll make you sorry.
+If you disobey me, press "STOP" at once.
+.delay 12
+.mustnot 44             ' Chastified
+'.range 7100 7199
+.range 2035 2039
+.Say Action
+
+[Action 2025]
+Just sit tight and follow directions, cunt.
+Move the chastity cage to play with that slave cock and keep up with the beat
+- and don't spurt or I'll make you sorry.
+If you disobey me, press "STOP" at once.
+.delay 12
+.must 44                ' Chastified
+'.range 7100 7199
+.range 2035 2039
+.Say Action
+
+
+' entry point for 108-114 (20m-45m)
+
+[Action 2030]
+Okay, slave, this is just a vanilla wanking session.
+All you need to do is to keep up with the beat and don't cum.
+The "STOP" button is for if you do cum.
+.mustnot 44             ' Chastified
+'.range 7100 7199
+.range 2035 2039
+.Say Action
+
+[Action 2031]
+Okay, slave, this is just a vanilla wanking session.
+All you need to do is to move the chastity cage back and forth with the beat and don't cum.
+The "STOP" button is for if you do cum.
+.delay 12
+.must 44                ' Chastified
+'.range 7100 7199
+.range 2035 2039
+.Say Action
+
+
+' Wanking add-ons 2035 2039
+
+' Plain wanking
+[Action 2035]
+.delay 0
+.noimage
+.range 7100 7199             ' on to wanking
+
+' blindfolded
+[Action 2036]
+Let's be sure you're not distracted while you wank for me, slave.
+.mustnot 29                  ' blindfold on 
+.must 382                    ' have blindfold
+.poss 30
+.set 29                      ' blindfolded
+.range 2040
+.Say Action
+
+
+[Action 2040]
+Get your blindfold ready, and make sure you can hear my voice.
+.pause
+.unset 2040
+.range 2041
+.Say Action
+
+[Action 2041]
+Now put on your blindfold and patiently wait for my command.
+'.txt Press STOP to repeat the instructions
+.stoptext Once again, please
+.delay 30 30 STOP 2040
+.unset 2041
+.range 2042
+.Say Action
+
+' Show a blank image for some time while the slave waits blindfolded
+[Action 2042]
+.noimage
+'.txt Press STOP to repeat the instructions
+.stoptext Not so fast, Miss
+.delay 20 40 STOP 2040
+.unset 2042
+.range 7100 7199        ' on to wanking
+
+
+' Terri and Jennifer #16-21
+
+[Action 2050]
+It's storytime, slut! I'm going to relate to you a fun tale of self-bondage today;
+a chapter from one of My favorites: "The Adventures of Terri and Jennifer".
+I'm sure you'll like it.
+.range 2051
+.Say Action
+
+[Action 2051]
+All you need to do is fondle your little slave-penis while I read to you, and of course
+follow all My instructions during the story. Naturally you're not to cum! Let's begin.
+.range 2060
+.Say Action
+
+[Action 2060]
+"For this afternoon's adventure, Jennifer and I decided to tie ourselves up 
+out in a guest room that was attached to the back of my garage. I use the
+room all the time for my own self-bondage fun because I can tie myself up
+in whatever clothing I desire (i.e., nude, stockings and garter belts etc.)
+but when I have to get free by walking out to the garage or the front yard 
+to my mailbox for the key, it adds more excitement to the adventure when I
+have to make that long walk dressed the way I started. You see, if we tied 
+ourselves up in the house, it would be very simple to just put on a long 
+skirt or blouse and go outside and retrieve the key. Wearing the clothes we
+tied ourselves up in (or nothing at all) out into the open adds another bit 
+of excitement and uncertainty to the self-bondage affair."
+.pause
+.range 2061
+.Say Action
+
+[Action 2061]
+"The idea that we came up with was simple. We would tie ourselves up out in 
+the guest room using our locking wrist cuffs and put the keys in different
+locations throughout the yard, garage and house. We would therefore have to
+leave the guest room if we wanted to get free. The interesting part to this
+whole adventure was the techniques that Jennifer and I used to keep us both
+in the guest room for a few hours prior to getting out."
+.pause
+.range 2062
+.Say Action
+
+[Action 2062]
+"Earlier that morning, we had frozen the ends of two, six foot pieces of 
+string in separate ice trays. Attached to the other end of each string was a
+set of metal nipple clamps, the kind that clamp tighter when they are pulled.
+In addition to the nipple clamps, we also froze a key to mine and Jennifer's
+wrist cuffs in a separate cube with it's own string attached. At about three 
+o'clock that afternoon, the strings and keys were frozen and we were all set
+to begin."
+.pause 
+.range 2063
+.Say Action
+
+[Action 2063]
+That reminds me, slave. Go fetch your nipple clamps, or some clothes pegs. Hurry!
+.pause
+.range 2064
+.Say Action
+
+[Action 2064]
+"The first thing that we did was to pre-stage the keys to the assortment of
+locks that we were going to use to tie ourselves up with. There were fifteen
+keys in all; one for each ball gag, one for each waist belt, three each for 
+each set of wrist cuffs, one each for the locking ankle cuffs, and the key to 
+the back door of the house. Also, there were two keys to the locks that 
+Jennifer was going to use to lock her high heels on her feet. I was going to 
+wear high heeled boots."
+.pause
+.range 2065
+.Say Action
+
+[Action 2065]
+Oh, slut, I've forgotten to tell you to get your ankle and wrist restraints,
+too. Quickly fetch them for Me.
+.pause
+.range 2066
+.Say Action
+
+[Action 2066]
+"Jennifer took the key to the back door and placed it in my mailbox out in
+the front yard. The keys to our ball gags, ankle cuffs, and Jennifer's shoe
+locks were placed on the bed in the house. I then took the one set of the
+keys to our wrist cuffs that were not frozen in an ice cube, and shuffled
+them in my hand and had Jennifer pick one out. This key was placed in the
+garage on the floor. Neither one of us knew which key was in there, so we
+would have to walk out there and find out who got their hands free first.
+The other key, that Jennifer didn't pick, the ones to our waist belts and
+the other wrist cuff key were tied to a string from the ceiling out in the
+guest room. They would be out of reach when our hands were locked behind us."
+.pause
+.range 2067
+.Say Action
+
+[Action 2067]
+"The whole idea with the keys was that Jennifer and I would have to walk out
+to the garage bound and gagged, get the one key off the floor and see whose
+cuffs it would unlock. Once that person's hands were free, then we would
+have to walk back into the guest room to get the other keys that were on
+the string hanging from the ceiling. They were easy to reach once your
+hands were free. Then we would have to wait until dark in order for us to
+make that long trip to the front yard to retrieve the house key. We would
+have to go together because we were going to lock our ankles to each other
+with a four foot chain. Once we were in the house, we would be able to take
+our gags off, release our ankle cuffs and be free. Simple, huh! So we thought."
+.pause
+.range 2068
+.Say Action
+
+[Action 2068]
+You know, slave, I like the idea that Terri and Jennifer have come up with 
+here, don't you?
+.range 2069
+.Say Action
+
+[Action 2069]
+"We made sure that the garage side door was shut but not locked and that the
+key to the one set of wrist cuffs was in its place on the garage floor. We
+then set up our safety.
+"I took the last set of keys to our wrist cuffs and attached each one to a
+bucket of oil that was placed on the upper shelve in the closet. These
+buckets also had attached to them a long string that we laid on the floor
+until we were ready for the final task of tying ourselves up. More on this later."
+.pause
+.range 2070
+.Say Action
+
+[Action 2070]
+"We went back into the house to get dressed for our adventure. We would
+dress in the house, then very quickly run out back to the guest room. We
+had moved the other set of keys that were already frozen in the ice cube
+along with the nipple clamps and strings, out to the freezer. We also
+transferred my TV and VCR out back so that we could watch some good bondage
+movies to help pass the time."
+.pause
+.range 2071
+.Say Action
+
+[Action 2071]
+"Back in the house, Jennifer chose to wear a black leather mini skirt with
+back high heeled opera pumps that had five inch heels. Underneath the mini
+skirt, she wore a white silk garter belt topped off with black nylon
+stockings. There was a beautiful contrast between the stockings and
+Jennifer's tanned thighs. The mini skirt didn't cover the top of her
+stockings and I could see where the garters were attached. Jennifer did not
+wear a blouse, so she was nude from the waist up."
+.pause
+.range 2072
+.Say Action
+
+[Action 2072]
+"I chose to wear my black boned corset that required Jennifer's help to lace
+up. Attached to the corset, were six garters to which I attached a pair of
+black stockings. When the corset was tightly laced, it gave me an hourglass
+shape and its feeling of restraint felt wonderful. The corset pushed my
+breasts up, making them firm and hard. To top off my outfit, I wore a pair
+of knee-high black leather boots with five-inch spiked heels."
+.pause
+.range 2073
+.Say Action
+
+[Action 2073]
+"Under my corset, and under Jennifer's leather mini skirt we both wore a
+pair of black high-waisted latex panties with built in butt plug and dildo.
+When the panties were pulled up tight, there was a sense of full around.
+Both Jennifer and I also wore elbow length black leather gloves. We looked
+like two bondage beauties, out of a John Willie bondage magazine which, by
+the way, is where we got the idea from. It was my idea to add the latex
+panties with butt plugs and dildos."
+.pause
+.range 2074
+.Say Action
+
+[Action 2074]
+Terri has a good idea here, but I think we'll skip it for the moment--
+although a nice big rubber buttplug might keep you more compliant.
+.range 2075
+.Say Action
+
+[Action 2075]
+"After we were dressed, we checked to make sure that the keys were in their
+place on the bed, the front door was locked and all of the lights turned
+out. We then checked the backyard very carefully for any signs of my next
+door neighbors. Luckily, they were in the house and we could proceed to the
+guest room without too much trouble. Trying to run in spiked heels and
+boots was not easy to say the least especially with a rear and pussy full
+of rubber!. As I left the house, I locked the door as I shut it. Even if we
+did not tie ourselves up, we would still have to wait until dark to get
+back in the house. We could not just walk around to the front yard dressed
+the way we were. When we got to the guest room, we locked the door and
+pulled the shades. We did not want someone looking in and taking advantage
+of two helplessly bound and gagged females. (The thought was very
+stimulating, though.)"
+.pause
+.range 2076
+.Say Action
+
+[Action 2076]
+That's the end of chapter 16. It's a nice story, isn't it? Would you like
+your Mistress to read you the next chapter, sweetheart?
+.yesno 2077 2077 2078 2078
+.Say Action
+
+[Action 2077]
+Very good, My dear. On to chapter 17!
+.range 2079
+.Say Action
+
+[Action 2078]
+Oh, very well, slave. I guess we'll stop here.
+.range 9400 9599
+.Say Action
+
+[Action 2079]
+"The first thing that Jennifer did when she got to the room was to lock her
+high heel pumps on her feet with the small chains and two of the small
+locks that we had pre-staged earlier that day. Remember, the keys to these
+locks were lying on the bed in the house. We then proceeded to set up the
+TV and VCR. We put on one of my videotapes that I had prepared by copying
+three of my favorite bondage movies. It gave Jennifer and I about four
+hours of bondage entertainment to keep us from getting bored."
+.pause
+.range 2080
+.Say Action
+
+[Action 2080]
+"We then marked the spots on the floor where we were going to be tied up and
+put two hooks in the ceiling about twelve inches apart. I also had put
+three other hooks in the ceiling that I had used for past bondage
+adventures. One was directly in the ceiling over my head, another was in
+the ceiling about five feet away, and the last was hanging over the bed."
+.pause
+.range 2081
+.Say Action
+
+[Action 2081]
+"I then placed the keys to our waist belts and the unknown wrist cuff key on
+the hook hanging from the ceiling above the bed. When our hands were locked
+behind us, these keys would be out of reach. This setup forces us to walk
+out to the garage to get the key which is on the floor. The only problem
+was we did not know whose cuffs the key would unlock. We had a fifty/fifty
+chance. When one of our hands were free, we could come back into the guest
+room and reach up to get the other key and remove, some but not all, of the bondage."
+.pause
+.range 2082
+.Say Action
+
+[Action 2082]
+Now, slave, I forgot to tell you to go get your gag. While you're doing
+that, I want you to take your handcuff key and put it on the floor in the
+bathroom. Make sure it's somewhere you can get to it when you're
+handcuffed. Understand? Hop to it!
+.pause
+.range 2083
+.Say Action
+
+[Action 2083]
+"I now took the second set of keys to our wrist cuffs that were attached to
+a string, frozen in an ice cube, and tied the free end of the string to the
+hook that was going to be over my head. I then attached the ice cube to the
+other hook that was five feet away. It was attached in such a way that when
+the ice melted, the keys would swing down to where I could reach them and
+get free."
+.pause
+.range 2084
+.Say Action
+
+[Action 2084]
+"This procedure was what we were going to use as a first back up escape
+method. Remember, I usually call Jennifer and ask her to come over later
+that day and use her as a safety monitor. However, since she will be just
+as tied up as I will be, that method will not work, so therefore I will use
+the string and ice as a backup method. The size of the ice cube was such
+that it would melt in about four or five hours. We used this length of time
+to ensure that the other ice cubes for our nipple clamps would melt first,
+forcing us to go out to the garage to get free vice spending another two or
+three hours in such stringent bondage, with nipple clamps still on our
+nipples. We either go to the garage and take our chances outside, or stay
+in the room and wait for the ice cube to melt, still in tight bondage."
+.pause
+.range 2085
+.Say Action
+
+[Action 2085]
+"We then set up our second safety by attaching the strings that were tied to
+the buckets of oil to the hooks above out heads. The strings were looped in
+such a way that we could both grab the string with our bound hands.
+However, if we had to use that method to get free, the mess from the oil
+would take hours to clean up."
+.pause
+.range 2086
+.Say Action
+
+[Action 2086]
+"The next thing that we did was to thread the strings that had the nipple
+clamps attached to one end and an ice cube to the other through one of the
+hooks in the ceiling, one string per hook. The hooks were small enough so
+that the ice cube would have to melt almost completely away before it would
+allow the string to pass through.
+
+"This was the technique that Jennifer and I used to keep us tied up in the
+guest room for a while, before we would be allowed to walk to the garage.
+We would be tied to the ceiling by our nipples. When the ice melted on the
+other end of the string, we would be able to leave the room. But this
+wasn't it to our self-bondage, there was more!"
+.pause
+.range 2087
+.Say Action
+
+[Action 2087]
+"Both Jennifer and I attached a set of locking ankle cuffs around our
+ankles. Before we locked them, we made sure that the lock went through the
+end of a four-foot chain. Each lock was then locked securely. We were now
+connected by a chain attached to our ankles. The keys to the ankles cuffs
+were on the bed in the house. With the ankle cuffs locked on, I couldn't
+remove my boots, so therefore I too, like Jennifer, will have to wear my
+high heeled boots and suffer the same foot bondage, all afternoon and
+evening until I could get into the house and unlock the cuffs.
+
+"The ankles cuffs left Jennifer and I with about four inches of room between
+our ankles. We were very effectively hobbled, and as some of us may know,
+trying to walk while hobbled in high heels is a bondage all by itself.
+Jennifer and I would have to walk all the way out to the front yard while
+hobbled, connected by a four foot chain, to get the house key, so that we
+could get inside to free ourselves from the rest of our bondage."
+.pause
+.range 2088
+.Say Action
+
+[Action 2088]
+Okay, slave, it's time to put your ankle restraints on, just like in the
+story. Make sure that you don't have any more than four inches of play in
+the line. Unfortunately I don't have a slavegirl handy to tie you to, so
+you'll just have to use your filthy imagination for that part.
+.pause
+.range 2089
+.Say Action
+
+[Action 2089]
+"The next bondage item was the waist belts. Mine was a simple chastity belt
+which meant it had a leather strap that went around the waist and one that
+went through the crotch and locked in front. Jennifer's was just a black
+four inch leather waist strap that also locked like mine with a hasp lock.
+
+"Attached to both of our waist straps in the back was a large "D"-ring to
+which our leather wrist cuffs were locked to. Jennifer put her waist belt
+on and I did the same with the chastity belt, pulling it good and tight
+pushing my dildo and butt plug deeper into their respective orifices.
+However, before we locked the belts on, we ran the locks through rings that
+were attached to the ends of a four foot wooden broomstick. This would keep
+Jennifer and I separated until we got back into the guest room and could
+get the keys to our waist belts, which were hanging over the bed. I will
+explain the reason for using the broomstick a little later."
+.pause
+.range 2090
+.Say Action
+
+[Action 2090]
+"I now turned on the TV and the VCR. Jennifer and I then hobbled over to
+where the nipple clamps were hanging and got ready for the final stages of
+our adventure.
+"It was time for the ball gags. These were specially made for this
+adventure. The gags included a medium size red rubber ball with a small
+chain running through the middle. Jennifer and I picked up our gags and put
+them in our mouths and then locked the chains tightly behind our heads,
+under our hair. These gags were a little bigger then what we had been using
+the whole weekend and they filled our mouths completely."
+.pause
+.range 2091
+.Say Action
+
+[Action 2091]
+You know what to do! Put that gag in right away, cunt.
+.pause
+.range 2092
+.Say Action
+
+[Action 2092]
+"They were very effective in preventing Jennifer and I from talking to each
+other, let alone calling for help. Because of the locks, we would have to
+wear the gags for the entire period of self-bondage, because the keys to
+the locks for our gags were in the house. We would probably be wearing the
+ball gag along with the ankle cuffs and hobbles for about six or seven
+hours. It would just depend on when Jennifer and I could make that long
+trip around to the front yard to get the house key that was sitting in my mailbox."
+.pause
+.range 2093
+.Say Action
+
+[Action 2093]
+Well, slave, that's the end of chapter 17. I'm assuming you want to move
+onto number 18, so you can eventually take that gag out!
+.range 2094
+.Say Action
+
+[Action 2094]
+Before we do that, though, I want you to attach your gag to the chain on
+your nipple clamps. How exactly you manage this will be up to you, slave,
+and you can use whatever method that works, but make sure you can connect
+the clamps to your nipples! I also want you to get down on your knees, and
+to get your handcuffs ready.
+.pause
+.range 2095
+.Say Action
+
+[Action 2095]
+"I checked around the room and made sure that we had covered all aspects of
+our bondage. I also made sure one more time that our backup escape methods
+would work if we got in trouble. I made sure that I was standing in the
+right place to get the keys when they swung down. I had done this many
+times before, so I knew it would work, it would just take awhile."
+.pause
+.range 2096
+.Say Action
+
+[Action 2096]
+"Jennifer and I were now at the point of no return. We both very slowly and
+carefully attached a nipple clamp to each nipple."
+.pause
+.range 2097
+.Say Action
+
+[Action 2097]
+Now you do the same, slaveboy. Make sure those nipple clamps are nice and
+tight. If you've followed my instructions, your gag should be pulling your
+nipples up smartly.
+.pause
+.range 2098
+.Say Action
+
+[Action 2098]
+"We then tried moving around a little bit to see how much play we had. We
+didn't have much at all. We would almost have to stand in the same place
+for the whole time to prevent increasing the pressure to our nipples. The
+strings were short enough that our breasts were actually being lifted up by
+the nipples, but only a little. We could not bend our knees at all.
+Remember, these nipple clamps were the kind that got tighter as they were
+pulled, so trying to pull them off with the string would only increase the
+pressure, making matters worse. They were not going to slip off unless we
+fell or something and exerted lots of pressure. "
+.pause
+.range 2099
+.Say Action
+
+[Action 2099]
+"It was time for the final step, that moment of truth. We reached around 
+behind us and put our wrists into the wrist cuffs. We both looked at each 
+other, smiled behind our gags and locked them."
+.pause
+.range 2100
+.Say Action
+
+[Action 2100]
+Okay, slave, your turn now - cuff 'em behind your back.
+.range 2101
+.Say Action
+
+[Action 2101]
+"Our only hope now was the melting of ice to save us. We were totally bound
+and gagged, and forced to stay in the room by our nipples. The broom stick
+kept us far enough apart so that I could not somehow reach over to Jennifer
+and release her nipple clamps and vice versa. It also keeps us together,
+one of us can not leave without the other, so we would therefore have to
+wait for both of the ice cubes to melt before we would be able to walk
+outside. That would be about two hours from now. The broomstick also forces
+both of us to stay still, not only for the discomfort in our own nipples,
+but for the other person's nipples as well.  If I move, Jennifer moves, and
+we both pay for it."
+.delay 50
+.range 2102
+.Say Action
+
+[Action 2102]
+Doesn't it feel nice to be locked up, just like the girls in the story?
+We'll continue with chapters 19 and 20 now. Since you can't use the
+keyboard, I'll give you about a minute to read each paragraph.
+.range 2103
+.Say Action
+
+[Action 2103]
+"For the first couple of minutes, Jennifer and I tried to get the feel of
+our bondage. We were good. There was going to be no escape from our bondage
+until the right time. We just had to try and relax and watch our bondage
+tapes. Hopefully this would take our minds off the dull ache that was
+starting to build in our nipples and in our jaws from the oversized ball
+gags that we had used.
+"Occasionally, we would try to pull the nipple clamps to see if we could get
+the ice to break or the clamps to slip off, but all our efforts only made
+the clamps tighten down harder and increase our discomfort. We would just
+have to wait."
+.delay 50
+.range 2104
+.Say Action
+
+[Action 2104]
+"Jennifer and I were fast learning the finer points of bondage, i.e., tight
+restraint, helplessness, and loneliness. We could not talk to each other
+because of the ball gags, and we could not touch or tease each other due to
+our bondage positions. We had talked about the possibility of something
+going wrong, forcing us to remain prisoners of our own bondage for God
+knows how long! That unknown possibility made being tied up all that much
+more exciting and worth while. It's amazing what thoughts can go through
+your mind when you are all tied up and are relying on the simple melting of
+an ice cube for your freedom. (What if the string gets caught on the hook
+in the ceiling after the ice melts?? What happens if the garage door gets
+locked by mistake?... What if someone just happens to come into my backyard
+and look into the guest room?)"
+.delay 60
+.range 2105
+.Say Action
+
+[Action 2105]
+"Being tied up is not all that bad if you are tied to a chair or tied on the
+floor or bed, but being tied up and forced to stand in very high heeled
+shoes or boots, for over two hours, is very hard on the feet, and what is
+worse is when you are forced to remain standing in one place by your
+nipples, that is worse yet (but exciting)! Add this to the fullness of the
+dildo and butt plugs and the bondage is almost complete. We could have
+added blindfolds but decided that the absence of sight along with the tight
+bondage would be too much. With the way we were tied, we would not have
+been able to help each other if one of us had fallen. Getting up would be
+hard enough without the blindfold...maybe next time under less stringent
+conditions."
+.delay 60
+.range 2106
+.Say Action
+
+[Action 2106]
+"It is funny how time seems to slow down when you want something to happen
+so bad. After about two hours of standing there having to remain very
+still, both Jennifer and I were ready to be free. You could see it in our
+faces, we were both drooling down our chins on to our chests and our
+nipples were very sore from all the tension of the nipple clamps. In
+addition, our shoulders and feet ached from the tight bondage and high
+heels."
+.delay 50
+.range 2107
+.Say Action
+
+[Action 2107]
+"At about the two and one half hour point, Jennifer's ice cube melted enough
+to slip through the eyelet. She was now free but she could not go anywhere
+because she was attached to me by the broomstick and I was still attached
+to the ceiling by my nipples. Jennifer would just have to wait until I was
+free. Jennifer teased me by moving me around slightly with the broomstick,
+causing the pulling on my nipples to increase. I couldn't wait to get free
+from this clamps and pay Jennifer back!"
+.delay 50
+.range 2108
+.Say Action
+
+[Action 2108]
+"My ice cube melted about 15 minutes later and at this point we were both
+free to move out to the garage and start the second phase of our
+self-bondage adventure."
+.delay 20
+.range 2109
+.Say Action
+
+[Action 2109]
+That's the end of that chapter. Are your nipples feeling nice and sore?
+You're just lucky you don't have to wait for two hours--unless I change my
+mind. Let's move onto chapter 20.
+.delay 20
+.range 2110
+.Say Action
+
+[Action 2110]
+"The trip out to the garage was very slow. We had first checked the backyard
+to make sure it was clear and then we headed out. I had to walk backwards
+because the waist belt would not allow me or Jennifer to turn around."
+.range 2111
+.Say Action
+
+[Action 2111]
+"It took about 85 steps to reach the garage door. The trip was fairly
+uneventful (too bad). We only had one problem along the way. The string
+that was attached to Jennifer's nipple clamps was dragging along the ground
+and it got caught on a crack in the sidewalk. This stopped Jennifer in her
+tracks. We both knew that if we fell, there would be no way to stand back
+up. We would have to crawl as best as we could to get to the garage. We
+would then have to figure out how to open the door once we got there."
+.delay 45
+.range 2112
+.Say Action
+
+[Action 2112]
+"Crawling is hard too do when you are tied together and gagged and forced to
+coordinate your movements without talking. It is also hard to crawl when
+you have nipple clamps attached to your tits and these clamps have a six
+foot strings attached to them. Luckily, Jennifer's string came free when we
+backed up in the other direction."
+.delay 40
+.range 2113
+.Say Action
+
+[Action 2113]
+"Once we were in the garage, we both realized that it was going to a problem
+to reach down and retrieve the key off the floor. We did not want to just
+fall from the standing position because with our hands locked behind us, we
+would probably get hurt. So we had to very slowly bend our knees until we
+were both squatting and then carefully lean over until we fell to the
+ground. (Next time we will put the key on a shelf that is waist high). Next time!"
+.delay 45
+.range 2114
+.Say Action
+
+[Action 2114]
+Now I want you to "walk" on your knees to the bathroom and retreive the
+handcuff key. Don't use it! Just bring it back here, cunt. When you've got
+it, you'll have to figure out a way to press the "resume" button.
+.pause
+.range 2115
+.Say Action
+
+[Action 2115]
+"Luckily, Jennifer fell near the key and it was only a matter of shifting
+our bound bodies a couple of feet in order for her to get at it.
+Unfortunately the one thing that we did not practice was for Jennifer to
+try and unlock the wrist cuffs with leather gloves on. I could see that she
+was having a problem finding the key hole. It takes a lot of practice.
+However, after about five minutes, she shook her head in the yes direction
+trying to tell me that she had the key in the hole, however, as luck would
+have it, it was the wrong key. It did not fit Jennifer's cuffs."
+.delay 60
+.range 2116
+.Say Action
+
+[Action 2116]
+"We would now have to reposition ourselves in such a way that I could use
+the key. This took a few minutes and it was complicated by the fact that
+Jennifer was lying on my nipple clamp string and I could not move until she
+got off it. She did and we got turned around and I got the key to my wrist
+cuffs and unlocked them. My hands were now free."
+.delay 40
+.range 2117 2118
+.Say Action
+
+[Action 2117]
+You've been very good, so I think I'll let you be Terri. Go ahead and
+remove your handcuffs.
+.pause
+.range 2119
+.Say Action
+
+[Action 2118]
+I think you should be Jennifer this time. Don't unlock your cuffs just yet.
+.range 2125
+.Say Action
+
+[Action 2119]
+"The first thing I did was to very carefully remove the nipple clamps from
+my tits. This turned out to cause more discomfort then leaving them on.
+They started to sting as the blood rushed back into the nipples. I slowly
+sat there as caressed them with my gloved hands until the pain subsided."
+.pause
+.range 2120
+.Say Action
+
+[Action 2120]
+Go ahead and remove the clamps. dear slave.
+.pause
+.range 2121
+.Say Action
+
+[Action 2121] 
+"Jennifer was getting impatient, so I next reached over and very slowly
+pulled on Jennifer's clamps. Jennifer just closed her eyes and bit down on
+the ball gag. This was her payback for moving me around back in the guest
+room. The tough part was over."
+.pause
+.range 2122
+.Say Action
+
+[Action 2122]
+"Once my nipple clamps were off, we just laid on the floor for a few
+minutes catching our breath. When Jennifer was ready, I very carefully
+picked myself up off the floor, then I helped Jennifer up.  Remember, we
+were still kept separated by the four foot broomstick and Jennifer's hands
+were still locked behind her. After a little struggling, we were finally on
+our feet and ready to head back to the guest room.  Before we left the
+garage, I decided that Jennifer needed some more pay back. As Jennifer eyes
+widened with shock, I carefully tied her nipple clamp string to the
+broomstick between us, causing her to stoop over. She would stay that way
+until we got back into the guest room. I'm sure that my turn for punishment
+was coming!"
+.pause
+.range 2123
+.Say Action
+
+[Action 2123]
+"We first checked the backyard for any signs of intruders, there were none,
+and we started on that long walk back to the room. Again, I walked
+backwards, mainly because my hands were free and I could better balance
+myself. The trip was made without any hitches. The trip was a little slower
+due to the fact that Jennifer had to stoop over."
+.pause
+.range 2124
+.Say Action
+
+[Action 2124]
+"Once we got inside, I locked the door and we made our way over to the bed
+where I then reached up and retrieved the keys to our waist belts and
+Jennifer's wrist cuffs. In a few seconds, I was free from the broomstick
+and removed my chastity belt. I then proceeded to unlock Jennifer's wrists
+and removed her waist belt. Jennifer reached up and slowly removed her
+nipple clamps. What a relief. I could see it in her eyes. We both then
+removed our leather gloves, they had again served their purpose of
+prolonging the bondage."
+.pause
+.range 2130
+.Say Action
+
+[Action 2125] 
+"Jennifer was getting impatient, so I next reached over and very slowly
+pulled on Jennifer's clamps. Jennifer just closed her eyes and bit down on
+the ball gag. This was her payback for moving me around back in the guest
+room. The tough part was over."
+.delay 30
+.range 2126
+.Say Action
+
+[Action 2126]
+"Once my nipple clamps were off, we just laid on the floor for a few
+minutes catching our breath. When Jennifer was ready, I very carefully
+picked myself up off the floor, then I helped Jennifer up.  Remember, we
+were still kept separated by the four foot broomstick and Jennifer's hands
+were still locked behind her. After a little struggling, we were finally on
+our feet and ready to head back to the guest room.  Before we left the
+garage, I decided that Jennifer needed some more pay back. As Jennifer eyes
+widened with shock, I carefully tied her nipple clamp string to the
+broomstick between us, causing her to stoop over. She would stay that way
+until we got back into the guest room. I'm sure that my turn for punishment
+was coming!"
+.delay 70
+.range 2127
+.Say Action
+
+[Action 2127]
+"We first checked the backyard for any signs of intruders, there were none,
+and we started on that long walk back to the room. Again, I walked
+backwards, mainly because my hands were free and I could better balance
+myself. The trip was made without any hitches. The trip was a little slower
+due to the fact that Jennifer had to stoop over."
+.delay 40
+.range 2128
+.Say Action
+
+[Action 2128]
+"Once we got inside, I locked the door and we made our way over to the bed
+where I then reached up and retrieved the keys to our waist belts and
+Jennifer's wrist cuffs. In a few seconds, I was free from the broomstick
+and removed my chastity belt. I then proceeded to unlock Jennifer's wrists
+and removed her waist belt. Jennifer reached up and slowly removed her
+nipple clamps. What a relief. I could see it in her eyes. We both then
+removed our leather gloves, they had again served their purpose of
+prolonging the bondage."
+.delay 60
+.range 2129
+.Say Action
+
+[Action 2129]
+Okay, Jenny, you can take your handcuffs and nipple clamps off now.
+.range 2130
+.Say Action
+
+[Action 2130]
+"We were now free except for our ball gags, ankle cuffs, and the four foot
+chain that still connected our feet together. The keys to all these locks,
+if you will remember, are on the bed in the house."
+"All we had to do now was wait for darkness so that Jennifer and I could
+make that long trip to the front yard and get the key to the back door. It
+was five o'clock now, so we had about four or five hours to kill, we only
+hoped that our jaws would make it for that amount of time. Since our ankles
+were still locked together, we couldn't remove the latex panties and thus
+the dildo and butt plugs would remain with up the rest of the evening."
+.pause
+.range 2131
+.Say Action
+
+[Action 2131]
+"It was a long five hours to say the least. We couldn't talk because of the
+ball gags, and we were always at least four feet from each other due to the
+chain at our ankles. We just spent our five hours watching the rest of my
+bondage videos and reading bondage magazines, hoping that the time would go
+quick. Of course, it didn't. We did manage to take the time for a quick
+lesbian affair on the bed. It was quite a sight. Two women bound and
+gagged, one booted the other one in heels. Each of us spent time caressing
+the other's sore nipples and pushing the dildos in and out. Had we not been
+gagged the noise from the orgasms would have surely awakened the neighbors."
+.pause
+.range 2132
+.Say Action
+
+[Action 2132]
+Let's move right along to chapter 21, slut.
+.range 2133
+.Say Action
+
+[Action 2133]
+"At about nine-thirty that evening, we decided to try our luck at the long
+walk to the front yard. It was a very slow walk, especially in high heels
+and hobbles. We only hoped that no one would see us. It would look kind of
+funny seeing two bare-breasted females that were gagged, trying to walk out
+to the front yard."
+.pause
+.range 2134
+.Say Action
+
+[Action 2134]
+"The walk was long and fairly uneventful. We did have to wait in the shadows
+on the house for a couple on minutes while a car or two went past.
+"Eventually, we retrieved the key to the back door (even though Jennifer had
+made a mistake and put the key in my neighbors mailbox). Once we got back
+inside the house, we immediately unlocked and removed our ball gags, then
+removed our ankles cuffs. Jennifer then unlocked and removed her heels and
+I removed my boots. My feet were really sore and so were Jennifer's.
+"We got out of our bondage outfits and slowly removed the latex panties,
+dildo, and butt plugs. Needless to say the dildo was wet and slippery. We
+then took a nice long hot shower together. We then settled down for a much
+deserved drink for the both of us and a cigarette for Jennifer."
+.pause
+.range 2135
+.Say Action
+
+[Action 2135]
+Okay, slave, you too may remove your gag and ankle restraints, and then
+we'll finish the story.
+.pause
+.range 2136
+.Say Action
+
+[Action 2136]
+"During our break, we discussed our self-bondage experience. We both decided
+that we really enjoyed the experience very much but we had to admit that I
+liked the self-bondage better than Jennifer. Jennifer says that she does
+like to be tied up tightly by someone else who can then be in total control
+over her. She also stated that she prefers to be on the giving end of
+bondage more than the receiving end. That suited me just fine."
+.pause
+.range 2137
+.Say Action
+
+[Action 2137]
+"It was one of the best weekends of my life. The amount of bondage that was
+discussed, practiced, read about, and watched on video was enough to last
+most people a lifetime. What was best was that now I had a beautiful
+bondage partner that I could live out both of our many fantasies with.
+"As I walked Jennifer to the door that Sunday evening, we both looked at
+each and embraced in a long and wet kiss. We both know that we would do
+this again real soon."
+.pause
+.range 2138
+.Say Action
+
+[Action 2138]
+"After she had left, I was so excited that when I went to bed, I locked my
+big toes together with a set of thumbcuffs, gagged myself with a piece of
+grey duct tape, and then locked a set of handcuffs on my wrists in front of
+me. I then turned off the light and went fast asleep. All I could dream of
+was the many different bondage games that Jennifer and I could play."
+.pause
+.range 2139
+.Say Action
+
+[Action 2139]
+Wasn't that a happy ending? Now put all your toys away, slave. I hope you
+enjoyed our fun story-time!
+.pause
+.range 9200
+.Say Action
+
+
+[Action 2150]
+Well, slave, it's story-time again. I've chosen a selection from one of my
+favorite stories of a girl who just loves to torture herself. It's a charming
+tale called "Diary of Carolyn", written by Skull Duggery.
+.range 2151
+.Say Action
+
+[Action 2151]
+As usual, all you need to do is read along with me, and do exactly what I tell
+you. Naturally, I'll probably find some inspiration in the story, so be prepared
+to have a little fun, slave! Also, keep yourself nice and hard for your
+Mistress, and try to pay attention. Now, let's begin.
+.range 2152
+.Say Action
+
+[Action 2152]
+"The following account is of one particular autumn day just before
+I was to start my junior year of high school. If there ever was a day
+when Murphy's Law ruled, this was it. Although if it could possibly
+fuck up, it would fuck up, but it was also the most wonderful, the
+most scary, and the most sexually satisfying day of that entire
+summer. I am going to do my best to describe the whole days experience
+in as much detail as possible."
+.range 2153
+.pause
+.Say Action
+
+[Action 2153]
+"It was around six thirty in the morning when I arrived at the tree where I
+deposited my clothing to be retrieved at the end of the day when I returned. I
+covered my small bundle with leaves the same as I had done every other time. The
+first thing I began to feel after donning my birthday suit, was cold. Summer
+nights in Indiana seldom drop below sixty degrees but a cold front must have
+passed through during the night. I don't know exactly what the temperature was,
+but it was cold enough to bring millions of tiny goose bumps to my bare skin and
+set my teeth to chattering constantly. Oh well, the sun was already above the
+horizon, it would start to warm up in an hour or so, I figured I could take it
+that long anyway."
+.range 2154
+.pause
+.Say Action
+
+[Action 2154]
+Listen up, slut. I want you to go grab a pair of your tightest nipple clamps,
+and hold them in your mouth before we continue.
+.range 2155
+.pause
+.Say Action
+
+[Action 2155]
+"I had planned this day to begin by putting two metal adjustable serrated
+clamps on each nipple. This I did before beginning my trek deeper into the
+woods. I tightened each clamp until the pain was close to my limit of endurance.
+I knew from experience the pain would subside after a while and I would need to
+keep tightening them at intervals to maintain the level of pain I desired. I
+then proceeded to walk on deeper into the woods listening carefully for the
+sounds of any others who might also be in the woods. I did not want to be
+surprised by some lost camping family and have to explain what I was doing
+completely nude with metal clamps hanging from my nipples. I mean, they may not
+understand."
+.range 2156
+.pause
+.Say Action
+
+[Action 2156]
+What a sweet girl Carolyn is! Now, I want you to try to pretend to be as
+enthusasic as her as you put on your own nipple clamps.
+.range 2157
+.delay 60
+.Say Action
+
+[Action 2157]
+"I had walked for about an hour..."
+
+Hmm. It isn't quite satisfactory having you sitting in that chair, is it? I want
+you to stand up and get the chair out of the way. Now, I want you to start
+marching in place. Get those knees up! I'll give you a beat to march to in a
+minute, and I want you to keep up. If those nipple clamps don't swing around
+then you aren't doing it correctly.
+.range 2158 
+.delay 45
+.Say Action
+
+[Action 2158] 
+"I had walked for about an hour when I stopped by this big rock I had been to
+several times before. It wasn't until I stopped that I realized it wasn't
+warming up very much. While I had been walking, the pain in my nipples
+compounded by the bouncing of the heavy clamps, had kept my mind off the
+temperature. I re-tightened my nipple clamps a little and quickly the level of
+pain shot back up to where I drew a sharp breath. Although I was shivering
+enough that if I tried to speak the words came out in a staccato that would have
+been hard to understand, between that and the pain racing through my tits, I
+could feel an orgasm building rapidly. This I did not want. I knew from
+experience that one huge climax was better than a bunch of little ones and I had
+vowed I was going to push myself to my limit of endurance and fully expected to
+have an orgasm that would melt me down into a smoldering mass, if that were
+possible."
+.playwav march120s.wav
+.delay 120
+.range 2159
+.Say Action
+
+[Action 2159]
+"I was beginning to wish I had brought my clothes along this time.  Who would
+have figured on a cold snap in the first week of September anyway? And to top it
+all off, the sky had clouded over and I could barely see the sun. I thought
+about calling off my plans, but this would be the last weekday I would be out of
+school for a long time. My father was home on weekends and if I waited until my
+next weekday opportunity, it would sure as hell be colder than this. Having
+thought it all over, and since I had come this far anyway, and in spite of all
+my discomfort, I really was having a good time."
+.playwav march60s.wav
+.delay 60
+.range 2160
+.Say Action
+
+[Action 2160]
+I hope you're having a good time, too! How do those nipples feel? 
+.playwav march30s.wav
+.delay 30
+.range 2161
+.Say Action
+
+[Action 2161]
+"I was about another hours walk to the old pump house where I had planned to end
+the second leg of my ordeal. Deciding it was time to up the stakes, so to speak,
+I chose to add weights to my nipple clamps. I withdrew two sixteen ounce lead
+plum bobs from my duffel and attached two twelve inch pieces of shoe lace, one
+to each one pound weight. I then tied the free ends to my clamps."
+.playwav march45s.wav
+.delay 45
+.range 2162
+.Say Action
+
+[Action 2162]
+Okay, slave, you know what you have to do. Get some nice heavy weights and some
+rope, cord, or whatever. Tie the weights and cords to your nipples, but you can
+keep holding onto the weights until I tell you otherwise.
+.pause
+.range 2163
+.Say Action
+
+[Action 2163]
+"With everything ready, I spent a few moments mentally preparing myself for the
+sharp increase in pain I knew two pounds of weight hanging from my tender
+nipples would undoubtedly cause."
+
+Okay, slave, let those weights swing free!
+.delay 45
+.range 2164
+.Say Action
+
+[Action 2164]
+"The first time I let go of the weights I had to grab them again after about
+thirty seconds as the pain was more than I could handle. I almost grabbed them
+on my second attempt, but absolutely forced myself to leave them hanging as I
+gathered up the duffel bag. Believe me, at this point I was in sheer agony."
+.delay 45
+.range 2165
+.Say Action
+
+[Action 2165]
+Now, slave, I understand that you're a total pussy, so to make things more
+interesting I'll let you bail out any time from here on in. Of course, you won't
+get to hear the end of the story, and there will be consequences you won't like!
+And if you hang in there like a good boy, it's sure to please your Mistress!
+.delay 30
+.range 2170
+.Say Action
+
+[Action 2166]
+Too tough for you, slave? Well, you've been a major disappointment. Take those
+clamps off, then, since you're such a pussy.
+.pause
+.range 9400 9599
+.Say Action
+
+[Action 2170]
+"As I started walking, I found it impossible to prevent the weights from
+swinging and banging into each other as I walked along. It was sort of weird
+though. I was so cold I was covered with goose bumps but at the same time I
+could feel beads of sweat forming on my forehead."
+.delay 45 45 stop 2166 2166
+.playwav march45s.wav
+.range 2171
+.Say Action
+
+[Action 2171]
+"I wasn't making very good progress. Every time the weights would hit each other
+it would send daggers of pain all throughout my chest.  And each time I would
+have to stop for a few seconds while the pain eased up enough for me to be able
+to stand it the next time the weights banged each other. And that was about
+every fourth step.  Another problem that I was having was I could feel the
+clamps slowly slipping from my nipples. The thought of having to tighten them
+more brought a feeling of fear to the pit of my stomach."
+.delay 90 90 stop 2166 2166
+.playwav march90s.wav
+.range 2172
+.Say Action
+
+[Action 2172]
+"Fear or no fear, I knew what I had to do. This entire ordeal, between the pain,
+the cold, and my uncertainty if I could stand it all, had me so unbelievably
+horny I wasn't about to quit now. I gritted my chattering teeth and tightened
+each clamp until I actually cried out from the agony that engulfed me. The pain
+was so intense I nearly lost control of my bladder. I reached down to cover my
+pee hole when I felt my urine start to drip but the feeling that shot through my
+vagina from just the touch of my finger drove me to brink of orgasm. Tears were
+running down my cheeks as I started walking but the thought of the mega orgasm I
+knew I would have if only I could make it to the pump house kept me going."
+.delay 90 90 stop 2166 2166
+.playwav march90s.wav
+.range 2173
+.Say Action
+
+[Action 2173]
+"The cloud cover started to burn off shortly after I started walking again and
+the sun, now fairly high in the sky, began to quickly take the chill from the
+air. By now it was probably about ten o'clock and for the first time in three
+and a half hours I had stopped shivering. The warm autumn sun felt good on my
+naked skin. I still wasn't making very good time although the pain in my nipples
+and breasts had become slightly more tolerable. Even though I had only gone
+about one fourth of the way to the pump house, I needed to stop and rest. The
+combination of the intense pain and the extra exertion required to walk while
+trying to control the motion of the swinging weights was taking its toll."
+.delay 90 90 stop 2166 2166
+.playwav march90s.wav
+.range 2174
+.Say Action
+
+
+[Action 2174]
+"I carefully eased myself down next to an old log and then lay back letting the
+two lead weights fall to the ground on either side taking the strain off my
+throbbing tits."
+
+Slave, you may sit down for a moment as poor Caroyln is doing, and rest the
+weights on something.
+.delay 45 45 stop 2166 2166
+.range 2175
+.Say Action
+
+[Action 2175]
+"The air had really warmed up a lot.  In fact, it was starting to actually get
+hot. Most of the pain had subsided and it felt really good laying in the warm
+sun. I considered removing the clamps from my nipples but from experience I knew
+after the circulation had returned, they would be far to sore for me to put them
+back on. So I just closed my eyes and ran my fingers through my bush teasing
+myself with thoughts of things to come."
+.delay 60 60 stop 2166 2166
+.range 2176
+.Say Action
+
+[Action 2176]
+"I must have been more exhausted than I realized. The mid afternoon sun bathed
+my body with it's hot rays filtering down through the leaves as I awoke. A
+little groggy from my nap I felt panicked thinking I had slept away the whole
+day. After a couple of minutes I regained my bearings and by the position of the
+sun I knew it was only about two in the afternoon. I had napped longer than I
+had wanted to, but I figured I could still make the pump house and still get
+home by dark."
+.delay 60 60 stop 2166 2166
+.range 2177
+.Say Action
+
+[Action 2177]
+"Having rested, my excitement again began to build. As I got myself to my feet,
+and the weights brought the fire like pain back to my breasts,"
+
+Okay, slave, break time is over! Get back on your feet, just like poor Carolyn.
+.delay 30 30 stop 2166 2166
+.range 2178
+.Say Action
+
+[Action 2178]
+"I began to fantasize that I was prisoner being forced to make this trek through
+the woods. I imagined that when I had refused to give my imaginary captors the
+information they wanted, I had been stripped naked and marched through the woods
+with my nipples under torture. As I walked along becoming more absorbed in my
+fantasy, I imagined since I had come this far without breaking, that my captors
+must intend to increase my torture by now. My tits hurt like hell, but I was
+getting so excited by my little fantasy, I started to think of ways to make my
+pain worse." Uh, oh, slave!
+.delay 60 60 stop 2166 2166
+.playwav march60s.wav
+.range 2179
+.Say Action
+
+[Action 2179]
+"I had two more sixteen ounce weights in my duffel along with some more clips
+and shoe lace. I didn't think by the looks of my nipples that they could stand
+any more weights attached without causing some permanent damage, so, I began to
+consider some other possibilities.  With my limited inventory of devices, I
+imagined my captors had decided to torture my pussy for the rest of the way."
+.delay 45 45 stop 2166 2166
+.playwav march45s.wav
+.range 2180
+.Say Action
+
+[Action 2180]
+Unfortunately, little boy-slaves like you don't have a pussy to torture. But I'm
+sure we can improvise! Go get some rope and two more weights, just like young
+Carolyn, and get some clothes pegs too. When you come back, sit down, and give
+your nipples a little rest.
+.pause
+.range 2181
+.Say Action
+
+[Action 2181]
+"I stopped and dug the weights and laces out of my bag and attached the clamps
+to my pussy lips just below my clitoris as I squatted on the forest floor. I
+tightened the clamps until my eyes started to water from the pain, then,
+thinking my imaginary captors wouldn't be so kind, I gave each one another half
+turn more."
+.delay 45 45 stop 2166 2166
+.range 2182 2184
+.Say Action
+
+[Action 2182]
+Well, slave, I want you to tie the rope around your ball sack, and attach both
+weights to it. The weights should be about at your knees when you stand up.
+.pause
+.range 2185
+.Say Action
+
+[Action 2183]
+Okay, slave, I want you to attach the clothes pegs you just got to the rope, and
+suspend one of the weights from it. You must put on as many clothes pegs as
+necessary to keep the weight suspended. If it should fall off, you'll have to
+reattach it, and you know how painful that will be!
+.pause
+.range 2185
+.Say Action
+
+[Action 2184]
+Okay, slave, I want you to attach four of those clothes pegs to your balls. Then,
+tie the rope around your ballsack and attach one of the weights to it. When you
+stand up, the weight should be suspended at about knee level. And make sure
+those clothes pegs stay on!
+.pause
+.range 2185
+.Say Action
+
+[Action 2185]
+"If I had so much as touched my clit I would have orgasmed
+uncontrollably. My bladder was also full and thought about relieving
+myself while I was squatted down but going back to my fantasy, my
+captors wouldn't allow me to piss, they're trying to make me talk,
+they want me to suffer as much as possible knowing if they don't get
+me to talk before we reach the pump house, they will have failed.
+Slowly I stood up."
+.delay 60 60 stop 2166 2166
+.range 2186
+.Say Action
+
+[Action 2186]
+Okay, slave, you stand up too! If something falls off, then reattach it right
+away, or Mistress will be very very angry.
+.pause
+.range 2187
+.Say Action
+
+[Action 2187]
+"Totally engrossed in my fantasy, I told myself I wouldn't satisfy my captors by
+crying out, but when my labia lifted two pounds of lead from the ground, I could
+not keep the scream that followed from echoing through the woods fantasy or
+not."
+.delay 30 30 stop 2166 2166
+.range 2188
+.Say Action
+
+[Action 2188]
+"Every exhale of breath brought at least a loud moan from my lips as forced
+myself on through the woods with four pounds of lead weights swinging to and fro
+supported only by some of the most tender and sensitive parts of my body. The
+morning cold had turned into a typical ninety degree autumn Indiana day."
+.delay 60 60 stop 2166 2166
+.playwav march60s.wav
+.range 2189
+.Say Action
+
+[Action 2189]
+"My body glistened in the afternoon sun from the sweat coming from every pore.
+My mind moved from fantasy to reality and back as I endured the mind numbing
+pain. Just as I thought I couldn't possibly stand it any longer, the old pump
+house came into view. I mustered every ounce of determination I had. I screamed
+with every heaving breath as I went the final steps. Ha ha, I made it."
+.delay 90 90 stop 2166 2166
+.playwav march90s.wav
+.range 2190
+.Say Action
+
+[Action 2190]
+"I sunk to my knees next to the pump house, breathing heavily as the
+perspiration dripped from every part of me. Supporting myself against the wall
+with my left hand, I eased my other down through my sweat matted pubic hair and
+flicked my clitoris only once..."
+.delay 45 45 stop 2166 2166
+.range 2191
+.Say Action
+
+[Action 2191]
+Well, slave, you can go ahead and kneel on the ground, but you certainly aren't
+allowed to cum as sweet young Carolyn is about to do.
+.pause
+.range 2192
+.Say Action
+
+[Action 2192]
+"...when the first wave of orgasm exploded through me. I buried my middle finger
+deep into my vagina while rubbing my swollen clit with my thumb bringing on a
+second and more powerful orgasm that nearly caused me to pass out. No longer
+able to control my bladder, the warm piss sprayed onto my hand as I continued
+jerking myself off. I can't begin to tell you how many times I climaxed, but
+when it was finally over, my body was nothing but a sweat soaked, shuddering
+mass of exhausted flesh curled up on the forest floor."
+.delay 75 75 stop 2166 2166
+.range 2193
+.Say Action
+
+[Action 2193] 
+"It was at least half an hour before I regained enough strength to remove my
+clamps and weights." 
+.Say Action
+
+Oh, you poor thing. Half an hour would be nice, but I think five more minutes is
+about all you can take. Just lay there on the ground and endure the pain!
+.delay 60 60 stop 2166 2166
+.range 2194
+
+[Action 2194]
+.delay 30 30 stop 2166 2166
+.unset 2194
+.range 2194 2195
+
+[Action 2195]
+Okay, slave, take off all your torture devices.
+Mmm, doesn't that feel good?
+.numactionsfrom 2193 8
+.pause
+.range 2196
+.Say Action
+
+[Action 2196]
+"I went inside and pumped some cool water from the old well.  Placing myself
+under the pump spout I let the cool water run all over me. The cool water felt
+so good. My legs were still shaking from the post orgasmic state I was in. I
+just stood there, massaging my sore nipples and pussy with the cool water until
+I realized how much time had passed. I took one last drink of water and went
+back outside. The sun was now low in the western sky. Feeling a bit of panic
+knowing I had spent way to much time here I gathered my little devices into my
+duffel. I checked around to make sure nothing was forgotten, and started back
+the way I came."
+.delay 90
+.range 2197
+.Say Action
+
+[Action 2197]
+Well, story time has come to another happy ending.
+I'm glad you stuck it out, slave.
+Maybe, if you continue to be a good boy, there will be a reward for you
+later!
+.pause
+.range 9200
+.Say Action
+
+
+' Punishement wank
+
+[Action 2200]
+Part of your punishment is a good old-fashioned cocktease.
+.delay 5
+.set 62 56
+.range 2201
+.say action
+
+[Action 2201]
+You're going to just plain wank that disobedient slave cock to
+the beat for a solid hour without cumming at all.
+Then we'll see.
+.delay 10
+.range 2202
+.say action
+
+[Action 2202]
+And if you cum this time, slave, you and I are
+done for good
+- I've run out of patience with you. 
+.range 2203 2205
+.say action
+
+
+' Wanking inside the cage has been planned, but not used by the main script (action 2691 disabled)
+' since encaged punishment wanking would miss the point of the punishment 
+
+[Action 2203]
+And now remove your chastity cage!
+.pause
+.must 44           ' Chastified
+.must 45           ' Have key
+.range 2206
+.say action
+
+[Action 2204]
+And as part of your punishment, you will wank your enslaved penis inside the cage.
+.delay 5
+.must 44           ' Chastified
+.mustnot 45        ' Have key
+.range 2206
+.say action
+
+[Action 2205]
+.delay 0
+.noimage
+.mustnot 44        ' Chastified, but means "Can't jerk off" here
+.range 2206
+
+
+[Action 2206]
+'.range 7100 7199
+.noimage
+.delay 0
+.range 2210 2214
+
+
+' Wanking add-ons
+
+' Plain wanking
+[Action 2210]
+.noimage
+.delay 0
+.poss 1
+.range 7100 7199
+
+' just blindfolded
+[Action 2211]
+Well, let's be sure you're fully concentrated for your punishment.
+Make sure you can hear me, and get your blindfold ready, slave.
+.pause
+.must 382                    ' have blindfold
+.mustnot 29                  ' blindfolded
+.unset 2211
+.range 2215
+.Say Action
+
+' blindfolded and chained ankles/wrists, can't remove without keys
+[Action 2212]
+Before your are receiving your punishment I want to be sure you're totally helpless, slave. 
+.delay 30
+.mustnot 25 26 29 31 32      ' ankles tied, wrists tied, blindfold on, can't sit on chair 
+.must 311 312 334 382        ' have wrist restraints, ankle restraints, chains, blindfold
+.must 737 741                ' restraint acceptance 2, strict self bondage 1
+.set 220                     ' addons, remember to remove
+.unset 2212
+.range 2220
+.Say Action
+
+
+[Action 2215]
+.noimage
+.delay 0
+.unset 2215
+.range 2216
+
+[Action 2216]
+Put on your blindfold and patiently wait for my next command.
+'.TXT Press STOP to repeat the instructions
+.delay 30 30 STOP 2211
+.stoptext Not so fast, Miss
+.unset 2216
+.set 29                 ' blindfolded
+.range 2217
+.Say Action
+
+' Show a blank screen for some time while the slave waits blindfolded
+[Action 2217]
+.noimage
+'.TXT Press STOP to repeat the instructions
+Make sure you're completly blindfolded. I want you to be totally helpless!
+.stoptext Not so fast, Miss
+.delay 60 60 STOP 2212
+.unset 2217
+.range 7100 7199        ' punishment wank
+
+
+[Action 2220]
+For that purpose, you're going to take the the keys to your wrist and ankle cuffs and
+place them as far away as possible on the floor on the other side of the room.
+.delay 20
+.unset 2220
+.range 2221
+.Say Action
+
+[Action 2221]
+On the way back, you can fetch your your blindfold, wrist- and ankle cuffs, locks
+and some chains. And make sure you can hear my voice while you are blindfolded.
+.pause
+.unset 2221
+.range 2222
+.Say Action
+
+[Action 2222]
+Before you're going to put on your blindfold, you'll need to prepare to
+chain your wrists and ankles together tightly with very short chains.
+You should be able to wank, but neither to stand up, nor to remove the blindfold.
+.delay 20
+.unset 2222
+.range 2223
+.Say Action
+
+[Action 2223]
+Start with chaining your ankles together, then your wrists. Prepare the lock and the chains
+so that you can lock your ankles and wrists together on my command, but don't do it yet.
+Let me know when you are ready to put on your blindfold, slave.
+.pause
+.unset 2223
+.range 2224
+.Say Action
+
+[Action 2224]
+.noimage
+.delay 0
+.unset 2224
+.range 2225
+
+[Action 2225]
+Now put on your blindfold, and prepare to lock your wrist and ankles together on my command. 
+'.txt Press stop to repeat the instructions
+.stoptext Not so fast, Miss
+.delay 120 120 STOP 2212
+.unset 2225
+.set 29                 ' blindfolded
+.range 2226
+.Say Action
+
+[Action 2226]
+In about a minute, you will be a helplessly blindfolded tied up slave, totally up to my mercy.
+I hope you have placed your keys well, my pet.
+'.txt Press stop to repeat the instructions 
+.stoptext Not so fast, Miss
+.delay 30 60 STOP 2212
+.unset 2226
+.range 2227
+.Say Action
+
+[Action 2227]
+Close the lock now, slave.
+'.txt Press stop to repeat the instructions
+.stoptext Not so fast, Miss
+.playwav lock.wav 
+.delay 60 60 STOP 2212
+.unset 2227
+.set 221
+.range 7100 7199        ' punishment wank
+.Say Action
+
+
+[Action 2300]
+You'll be acting out an illustrated scenario, brought to you by those great guys
+at slavesinlove.com. You're going to need quite a bit of equipment for this one.
+Go and get a gag, your nipple clamps, six clothes pegs, a weight for the clamps,
+and a whip, or at least a length of rope.
+.pause
+.image bd186_04.jpg
+.range 2301
+.Say Action
+
+[Action 2301]
+Let's start with putting on that gag, slave. Stuff it in your mouth!
+.pause
+.image bd186_04.jpg
+.range 2302
+.Say Action
+
+[Action 2302]
+Very well, my pet.
+.delay 3
+.image bd186_04.jpg
+.range 2303
+.Say Action
+
+[Action 2303]
+You are also going to need some beads or peppercorns, or something like that.
+.pause
+.image bd186_63.jpg
+.range 2304
+.Say Action
+
+[Action 2304]
+Now kneel on the ground with your hands behind your head and prepare yourself.
+.image bd186_13.jpg
+.delay 20 40
+.range 2305
+.Say Action
+
+[Action 2305]
+Get your gag ready.
+.image bd186_14.jpg
+.range 2306
+.Say Action
+
+[Action 2306]
+And put your gag in.
+.image bd186_15.jpg
+.range 2307
+.Say Action
+
+[Action 2307]
+Does that feel good, baby?
+.image bd186_16.jpg
+.range 2308
+.Say Action
+
+[Action 2308]
+Now for the nipple clamps.
+.image bd186_17.jpg
+.range 2309
+.Say Action
+
+[Action 2309]
+Get that right one on first, slave.
+.image bd186_18.jpg
+.range 2310
+.Say Action
+
+[Action 2310]
+Make sure it's tight and set. I don't want it coming off.
+.image bd186_19.jpg
+.range 2311
+.Say Action
+
+[Action 2311]
+Mmm, hurts so good. I love to watch you suffer, but this is nothing.
+.image bd186_21.jpg
+.range 2312
+.Say Action
+
+[Action 2312]
+Get that left clamp on too.
+.image bd186_22.jpg
+.range 2313
+.Say Action
+
+[Action 2313]
+Just sit there and enjoy it, slave.
+.image bd186_23.jpg
+.range 2314
+.Say Action
+
+[Action 2314]
+.image bd186_24.jpg
+.range 2315
+
+[Action 2315]
+Nipple clamps are My favorite, slave. I just can't get enough.
+.delay 20
+.image bd186_25.jpg
+.range 2316
+.Say Action
+
+[Action 2316]
+Now pull on those clamps, slave.
+.delay 20
+.image bd186_26.jpg
+.range 2317
+.Say Action
+
+[Action 2317]
+Keep pulling, slave. I love to watch you suffer.
+.delay 20
+.image bd186_27.jpg
+.range 2318
+.Say Action
+
+[Action 2318]
+Keep pulling.
+.delay 20
+.image bd186_28.jpg
+.range 2319
+.Say Action
+
+[Action 2319]
+Okay, slave, stop pulling, and get the clothes pegs out.
+.image bd186_29.jpg
+.range 2320
+.Say Action
+
+[Action 2320]
+Put three on each tit: two to either side of the clamp, and one above.
+.image bd186_30.jpg
+.range 2321
+.Say Action
+
+[Action 2321]
+.image bd186_31.jpg
+.range 2322
+
+[Action 2322]
+.image bd186_32.jpg
+.range 2323
+
+[Action 2323]
+.image bd186_33.jpg
+.range 2324
+
+[Action 2324]
+.image bd186_34.jpg
+.range 2325
+
+[Action 2325]
+.image bd186_35.jpg
+.range 2326
+
+[Action 2326]
+Those clips really start to sting after a while, don't they?
+.image bd186_36.jpg
+.range 2327
+.Say Action
+
+[Action 2327]
+Now I want you to get the weight.
+.image bd186_44.jpg
+.range 2328
+.Say Action
+
+[Action 2328]
+And put it on.
+.image bd186_45.jpg
+.range 2329
+.Say Action
+
+[Action 2329]
+Let it swing free. I love to see a slave in pain.
+.image bd186_46.jpg
+.range 2330
+.Say Action
+
+[Action 2330]
+Now for the whip! Whip your crotch to the beat, slave!
+.image bd186_47.jpg
+.delay 4 4
+.range 2331
+.Say Action
+
+[Action 2331]
+.playwav whip4.wav
+.image bd186_47.jpg
+.delay 4 4
+.range 2332
+
+[Action 2332]
+.playwav whip4.wav
+.image bd186_48.jpg
+.delay 4 4
+.range 2333
+
+[Action 2333]
+.playwav whip4.wav
+.image bd186_48.jpg
+.delay 4 4
+.range 2334
+
+[Action 2334]
+.playwav whip4.wav
+.image bd186_49.jpg
+.delay 4 4
+.range 2335
+
+[Action 2335]
+.playwav whip4.wav
+.image bd186_50.jpg
+.delay 4 4
+.range 2336
+
+[Action 2336]
+.playwav whip4.wav 
+.image bd186_51.jpg
+.delay 4 4
+.range 2337
+
+[Action 2337]
+.playwav whip4.wav
+.image bd186_52.jpg
+.delay 4 4
+.range 2338
+
+[Action 2338]
+Now the best part, bitch. Get those beads.
+.image bd186_60.jpg
+.range 2339
+.Say Action
+
+[Action 2339]
+Spread them out on the floor.
+.image bd186_62.jpg
+.range 2340
+.Say Action
+
+[Action 2340]
+And now, kneel on them. That hurts, doesn't it?
+.delay 20
+.image bd186_65.jpg
+.range 2341
+.Say Action
+
+[Action 2341]
+.delay 20
+.image bd186_66.jpg
+.range 2341
+
+[Action 2342]
+.delay 20
+.image bd186_67.jpg
+.range 2342
+
+[Action 2343]
+.delay 20
+.image bd186_68.jpg
+.range 2344
+
+[Action 2344]
+.delay 20
+.image bd186_69.jpg
+.range 2345
+
+[Action 2345]
+.delay 20
+.image bd186_70.jpg
+.range 2346
+
+[Action 2346]
+That's enough, slave. You can get up and take all the equipment off.
+.pause
+.image bd186_71.jpg
+.range 9200
+.Say Action
+
+
+[Action 7000]
+.delay 0
+.noimage
+'2 x 10 minutes
+.must 52 62
+.range 7100 7199
+
+[Action 7001]
+.delay 0
+.noimage
+'3 x 10 minutes
+.must 53 62
+.range 7100 7199
+
+
+'   repetition decrementer
+
+[Action 7100]
+That's enough for now, My wanking slut.
+.delay 20
+.must 50
+.unset 7100
+.range 9200
+.Say Action
+
+[Action 7101]
+.delay 0
+.noimage
+.must 51
+.unset 51
+.set 50
+.unset 7101
+.range 8000 8009
+
+[Action 7102]
+.delay 0
+.noimage
+.must 52
+.unset 52
+.set 51
+.unset 7102
+.range 8000 8009
+
+[Action 7103]
+.delay 0
+.noimage
+.must 53
+.unset 53
+.set 52
+.unset 7103
+.range 8000 8009
+
+[Action 7104]
+.delay 0
+.noimage
+.must 54
+.unset 54
+.set 53
+.unset 7104
+.range 8000 8009
+
+[Action 7105]
+.delay 0
+.noimage
+.must 55
+.unset 55
+.set 54
+.unset 7105
+.range 8000 8009
+
+[Action 7106]
+.delay 0
+.noimage
+.must 56
+.unset 56
+.set 55
+.unset 7106
+.range 8000 8009
+
+[Action 7107]
+.delay 0
+.noimage
+.must 57
+.unset 57
+.set 56
+.unset 7107
+.range 8000 8009
+
+[Action 7108]
+.delay 0
+.noimage
+.must 58
+.unset 58
+.set 57
+.unset 7108
+.range 8000 8009
+
+[Action 7109]
+.delay 0
+.noimage
+.must 59
+.unset 59
+.set 58
+.unset 7109
+.range 8000 8009
+
+
+'   duration...
+
+[Action 8000]
+.delay 0
+.noimage
+.unset 8000
+.must 60
+.range 8030
+
+[Action 8001]
+.delay 0
+.noimage
+.unset 8001
+.must 61
+.range 8040
+
+[Action 8002]
+.delay 0
+.noimage
+.must 62
+.unset 8002
+.range 8010
+
+[Action 8003]
+Fifteen minute sets aren't ready, slave!
+.unset 8003
+.must 63
+.Say Action
+
+
+'   ten minutes: SMSMFSSMFxSMFMFMFMFF
+
+[Action 8010]
+Start slowly...
+.playwav 30s.wav
+.inject 8010 8099 .delay 30 30 STOP 8950 8999
+.inject 8010 8099 .stopText I came, Miss
+'.delay 30 30 STOP 8950 8999
+.unset 8010
+.range 8011 
+.Say Action
+
+[Action 8011]
+Build up a bit...
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8011
+.range 8012 
+.Say Action
+
+[Action 8012]
+Now, slower again, slave.
+.playwav 30s.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8012
+.range 8013 
+.Say Action
+
+[Action 8013]
+Now, slave, faster...
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8013
+.range 8014 
+.Say Action
+
+[Action 8014]
+Faster...
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8014
+.range 8015 
+.Say Action
+
+[Action 8015]
+Slowly again, slave...
+.playwav 30s.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8015
+.range 8016 
+.Say Action
+
+[Action 8016]
+Just keep a steady rhythm...
+.playwav 30s.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8016
+.range 8017 
+.Say Action
+
+[Action 8017]
+Faster, slave...
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8017
+.range 8018 
+.Say Action
+
+[Action 8018]
+Faster, My slut, faster...
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8018
+.range 8019 
+.Say Action
+
+[Action 8019]
+Stop, slave. Time to cool down. Place your hands on top of your head.
+.noimage
+'.delay 30 30 STOP 8950 8999
+.unset 8019
+.range 8020
+
+[Action 8020]
+Here we go again, slave. Start slowly...
+.playwav 30s.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8020
+.range 8021 
+.Say Action
+
+[Action 8021]
+Now speed up....
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8021
+.range 8022 
+.Say Action
+
+[Action 8022]
+Faster, faster...
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8022
+.range 8023 
+.Say Action
+
+[Action 8023]
+Let up a little, now, slut...
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8023
+.range 8024 
+.Say Action
+
+[Action 8024]
+Now speed up again...
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8024
+.range 8025 
+.Say Action
+
+[Action 8025]
+And slow down again...
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8025
+.range 8026 
+.Say Action
+
+[Action 8026]
+And faster, slut...
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8026
+.range 8027 
+.Say Action
+
+[Action 8027]
+Slower, now, slave. Doesn't that feel good?
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8027
+.range 8028 
+.Say Action
+
+[Action 8028]
+Very fast, now, slave! Don't you dare cum!
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8028
+.range 8029 
+.Say Action
+
+[Action 8029]
+Keep up the pace, slave! Don't slack off!
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8029
+.range 8900 8909
+.Say Action
+
+
+'   three minutes: SMSMFF
+
+[Action 8030]
+Okay, slave, let's start beating that meat slow.
+.playwav 30s.wav
+.inject 8010 8099 .delay 30 30 STOP 8950 8999
+.inject 8010 8099 .stopText I came, Miss
+'.delay 30 30 STOP 8950 8999
+.unset 8030
+.range 8031
+.Say Action
+
+[Action 8031]
+Faster now, slave. Make it feel good.
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8031
+.range 8032
+.Say Action
+
+[Action 8032]
+Slower now. It's too bad I won't let you 
+blow that load you're building up.
+.playwav 30s.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8032
+.range 8033
+.Say Action
+
+[Action 8033]
+Speed back up. I love a frustrated slaveboy.
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8033
+.range 8034
+.Say Action
+
+[Action 8034]
+Faster now. I love being in control of those orgasms.
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8034
+.range 8035
+.Say Action
+
+[Action 8035]
+Hold it in, slave. You want to please Mistress.
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8035
+.range 8900 8909
+.Say Action
+
+
+'   five minutes: SMSMFSMFFF
+
+[Action 8040]
+Here we go, slut. Keep to the beat.
+.playwav 30s.wav
+.inject 8010 8099 .delay 30 30 STOP 8950 8999
+.inject 8010 8099 .stopText I came, Miss
+'.delay 30 30 STOP 8950 8999
+.unset 8040
+.range 8041
+.Say Action
+
+[Action 8041]
+A little faster, now. Get that thing hard as a rock.
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8041
+.range 8042
+.Say Action
+
+[Action 8042]
+Back down again. I want you fully focused.
+.playwav 30s.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8042
+.range 8043
+.Say Action
+
+[Action 8043]
+Faster, slave. You're going to want it real bad soon.
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8043
+.range 8044
+.Say Action
+
+[Action 8044]
+Faster, slave. You love to obey your Mistress.
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8044
+.range 8045
+.Say Action
+
+[Action 8045]
+Okay, cool off a bit now. I don't want you doing anything foolish.
+.playwav 30s.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8045
+.range 8046
+.Say Action
+
+[Action 8046]
+And faster again. Keep those nasty slave juices inside.
+.playwav 30m.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8046
+.range 8047
+.Say Action
+
+[Action 8047]
+Faster, slave. Get your slave cock rock solid.
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8047
+.range 8048
+.Say Action
+
+[Action 8048]
+Keep it up. You love to be teased, I know it well.
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8048
+.range 8049
+.Say Action
+
+[Action 8049]
+Keep beating that meat, slave, but you're not getting any release now.
+.playwav 30f.wav
+'.delay 30 30 STOP 8950 8999
+.unset 8049
+.range 8900 8909
+.Say Action
+
+' 8099 end injection .delay 30 30 STOP 8950 8999
+
+
+' Pause comment between sets
+
+[Action 8900]
+That's it for that set, slave. I'll give you a minute to collect yourself.
+.delay 55 60 STOP 8950 8999
+.unset 8900
+.range 7100 7109
+.Say Action
+
+[Action 8901]
+That's it for that set, slave. I'll give you a minute to collect yourself. 
+.delay 10 10 STOP 8950 8999
+.mustnot 20
+.unset 8901
+.range 8911
+.Say Action
+
+[Action 8902]
+That's it for that set, slave. I'll give you a minute
+to collect yourself and enjoy your clothes pegs.
+.delay 10 10 STOP 8950 8999
+.must 20 42
+.unset 8902
+.range 8912
+.Say Action
+
+[Action 8903]
+That's it for that set, slave. I'll give you a minute
+to collect yourself and enjoy your nipple clamps.
+.delay 10 10 STOP 8950 8999
+.must 20 43
+.unset 8903
+.range 8913
+.Say Action
+
+[Action 8904]
+Slave, you don't know how erotic this is. Me, the mistress, dressed as a gorgeous
+vixen, and on the floor you, the naked slave, endlessly teased but always denied. 
+.delay 10 10 STOP 8950 8999
+.must 44                ' Chastified
+.mustnot 45             ' have key for chastity cage
+.range 8914
+.Say Action
+
+[Action 8905]
+Slave, you don't know how erotic this is. Me, the mistress, dressed as a gorgeous
+vixen, and on the floor you, the naked slave, solely there for my pleasure. 
+.delay 10 10 STOP 8950 8999
+.mustnot 44             ' Chastified
+.range 8915
+.Say Action
+
+[Action 8906]
+That's it for that set, slave. I'll give you a minute to collect yourself.
+.delay 10 10 STOP 8950 8999
+.unset 8906
+.range 8916
+.Say Action
+
+[Action 8907]
+That's it for that set, slave. I'll give you a minute to collect yourself.
+.delay 10 10 STOP 8950 8999
+.unset 8907
+.range 8917
+.Say Action
+
+[Action 8908]
+That's it for that set, slave. I'll give you a minute to collect yourself.
+.delay 10 10 STOP 8950 8999
+.unset 8908
+.range 8918
+.Say Action
+
+[Action 8909]
+That's it for that set, slave. I'll give you a minute to collect yourself.
+.delay 10 10 STOP 8950 8999
+.unset 8909
+.range 8919
+.Say Action
+
+
+[Action 8910]
+That's it for that set, slave. I'll give you a minute to collect yourself.
+.delay 45 50 STOP 8950 8999
+.unset 8910
+.range 7100 7109
+.Say Action
+
+[Action 8911]
+Tease your slave nipples and make sure they're hard and stiff. Keep it up!
+.delay 45 50 STOP 8950 8999
+.unset 8911
+.range 7100 7109
+.Say Action
+
+[Action 8912]
+Let's twist the clothes pegs to tease your nipples a little.
+.delay 45 50 STOP 8950 8999
+.unset 8912
+.range 7100 7109
+.Say Action
+
+[Action 8913]
+Let's let the chain swing freely to tease your nipple a little.
+.delay 45 50 STOP 8950 8999
+.unset 8913
+.range 7100 7109
+.Say Action
+
+[Action 8914]
+Look into my eyes while you try to cool down a bit
+and think about the pleasures to come.
+.delay 45 50 STOP 8950 8999
+.range 7100 7109
+.Say Action
+
+[Action 8915]
+Look into my eyes while you try to cool down a bit
+and think about the pleasures to come.
+.delay 45 50 STOP 8950 8999
+.range 7100 7109
+.Say Action
+
+[Action 8916]
+Just keep your hands off that prick and relax.
+.delay 45 50 STOP 8950 8999
+.unset 8916
+.range 7100 7109
+.Say Action
+
+[Action 8917]
+Just keep your hands off that prick and relax.
+.delay 45 50 STOP 8950 8999
+.unset 8917
+.range 7100 7109
+.Say Action
+
+[Action 8918]
+Just keep your hands off that prick and relax.
+.delay 45 50 STOP 8950 8999
+.unset 8918
+.range 7100 7109
+.Say Action
+
+[Action 8919]
+Just keep your hands off that prick and relax.
+.delay 45 50 STOP 8950 8999
+.unset 8919
+.range 7100 7109
+.Say Action
+
+
+' 8950-8999 cumming without permission accident
+
+[Action 8990]
+.noimage
+.delay 0
+.must 104
+.loadsbd Mine.sbd 9500 9500
+
+[Action 8999]
+Came, did you, you disobedient, filthy, disgusting slut?
+Well, I hope you enjoyed it,
+because you won't be doing it again for a while.
+.mustnot 104
+.range 9401 9599
+.Say Action
+
+
+
+
+' teasing good endings comments
+
+[Action 9170]
+Very good, slave. I hope that was frustrating and uncomfortable.
+.must 101
+.range 9199
+.Say Action
+
+[Action 9172]
+I hope you enjoyed that sultry little selfbondage story.
+.must 102
+.range 9199
+.Say Action
+
+[Action 9173]
+Did you enjoy acting out Carolyn's sick little fantasies? I bet
+you did, you dirty pain slut!
+.must 103
+.range 9199
+.Say Action
+
+[Action 9174]
+One solid hour! I hope you're properly grateful for the frustration I'm giving you.
+.must 104
+.range 9190
+.Say Action
+
+[Action 9175]
+I just love watching a slave beat his meat with no release.
+.must 105
+.range 9190
+.Say Action
+
+[Action 9176]
+Good old-fashioned masturbation with no happy ending. I love it!
+.must 106
+.range 9190
+.Say Action
+
+[Action 9177]
+Frustrating that slave cock is just about my favorite.
+.must 107
+.range 9190
+.Say Action
+
+[Action 9178]
+I love watching that wanking.
+.must 108
+.range 9190
+.Say Action
+
+[Action 9179]
+Good boy, slave. I hope you're well frustrated now.
+.must 109
+.range 9190
+.Say Action
+
+[Action 9180]
+Thirty minutes with no release. I love it!
+.must 110
+.range 9190
+.Say Action
+
+[Action 9181]
+That was fun, wasn't it, slave?
+.must 111
+.range 9190
+.Say Action
+
+[Action 9182]
+Mmmm, I do enjoy watching you get close, over and over.
+.must 112
+.range 9190
+.Say Action
+
+[Action 9183]
+What a treat! I hope you're properly grateful for the frustration I'm giving you.
+.must 113
+.range 9190
+.Say Action
+
+[Action 9184]
+Three quarters of an hour. I love it!
+.must 114
+.range 9190
+.Say Action
+
+[Action 9185]
+.noimage
+.delay 0
+.must 115
+.range 9199
+
+[Action 9186]
+.noimage
+.delay 0
+.must 116
+.range 9199
+
+
+' wanking good ending
+[Action 9190]
+.noimage
+.delay 0
+.range 9191 9198
+
+[Action 9191]
+.noimage
+.delay 0
+.mustnot 29 220 221     ' no toys
+.range 9199
+
+[Action 9196]
+By the way, you may remove your blindfold now, slave.
+.pause
+.must 29
+.mustnot 221            ' key away, ankles tied 
+.range 9199
+.Say Action
+
+[Action 9197]
+By the way, you may remove your blindfold and chains now, slave.
+.pause
+.must 29
+.must 220               ' key away, ankles tied
+.range 9199
+.Say Action
+
+[Action 9198]
+By the way, you may crawl to your keys now and remove your chains and blindfold, slave.
+.pause
+.must 29
+.must 221               ' key away, ankles tied
+.range 9199
+.Say Action
+
+
+[Action 9199]
+.noimage
+.delay 0
+.range 9201 9299        ' good ending, return to main script
+
+
+'   ---------------------------------------------------------------------------
+'   GOOD ENDINGS    -----------------------------------------------------------
+
+[Action 9200]
+.noimage
+.delay 0
+.range 9170 9189
+
+[Action 9201]
+.noimage
+.delay 0
+.must 101
+.loadsbd Mine.sbd 6051 6051
+
+[Action 9202]
+.noimage
+.delay 0
+.must 102
+.loadsbd Mine.sbd 6052 6052
+
+[Action 9203]
+.noimage
+.delay 0
+.must 103
+.loadsbd Mine.sbd 6053 6053
+
+[Action 9204]
+.noimage
+.delay 0
+.must 104
+.loadsbd Mine.sbd 2419 2419
+
+[Action 9205]
+.noimage
+.delay 0
+.must 105
+.loadsbd Mine.sbd 6054 6054
+
+[Action 9206]
+.noimage
+.delay 0
+.must 106
+.loadsbd Mine.sbd 6055 6055
+
+[Action 9207]
+.noimage
+.delay 0
+.must 107
+.loadsbd Mine.sbd 6056 6056
+
+[Action 9208]
+.noimage
+.delay 0
+.must 108
+.loadsbd Mine.sbd 6057 6057
+
+[Action 9209]
+.noimage
+.delay 0
+.must 109
+.loadsbd Mine.sbd 6058 6058
+
+[Action 9210]
+.noimage
+.delay 0
+.must 110
+.loadsbd Mine.sbd 6059 6059
+
+[Action 9211]
+.noimage
+.delay 0
+.must 111
+.loadsbd Mine.sbd 6060 6060
+
+[Action 9212]
+.noimage
+.delay 0
+.must 112
+.loadsbd Mine.sbd 6061 6061
+
+[Action 9213]
+.noimage
+.delay 0
+.must 113
+.loadsbd Mine.sbd 6062 6062
+
+[Action 9214]
+.noimage
+.delay 0
+.must 114
+.loadsbd Mine.sbd 6063 6063
+
+[Action 9215]
+.noimage
+.delay 0
+.must 115
+.loadsbd Mine.sbd 6064 6064
+
+[Action 9216]
+.noimage
+.delay 0
+.must 116
+.loadsbd Mine.sbd 2401 2401
+
+'   ---------------------------------------------------------------------------
+'   BAD ENDINGS ---------------------------------------------------------------
+
+[Action 9401]
+.noimage
+.delay 0
+.must 101
+.loadsbd Mine.sbd 6101 6101
+
+[Action 9402]
+.noimage
+.delay 0
+.must 102
+.loadsbd Mine.sbd 6102 6102
+
+[Action 9403]
+.noimage
+.delay 0
+.must 103
+.loadsbd Mine.sbd 6103 6103
+
+[Action 9405]
+.noimage
+.delay 0
+.must 105
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9406]
+.noimage
+.delay 0
+.must 106
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9407]
+.noimage
+.delay 0
+.must 107
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9408]
+.noimage
+.delay 0
+.must 108
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9409]
+.noimage
+.delay 0
+.must 109
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9410]
+.noimage
+.delay 0
+.must 110
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9411]
+.noimage
+.delay 0
+.must 111
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9412]
+.noimage
+.delay 0
+.must 112
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9413]
+.noimage
+.delay 0
+.must 113
+.loadsbd Mine.sbd 6104 6107
+
+[Action 9414]
+.noimage
+.delay 0
+.must 114
+.loadsbd Mine.sbd 6104 6107
+
+
+[Action 9998]
+Slave closed.
+.loadsbd Mine.sbd 5020 5029
+
+[Action 9999]
+Abnormal ending, bailing out.
+.loadsbd Mine.sbd 5016 5016
