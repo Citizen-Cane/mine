@@ -28,6 +28,10 @@ public class Mine {
 		Player.debugOutput = enable;
 	}
 
+	public void play() throws IOException
+	{
+		play(getClass().getSimpleName());
+	}
 	public void play(String name) throws IOException
 	{
 		String resourcesBase = "scripts/";
@@ -45,7 +49,6 @@ public class Mine {
 				assetsBasePath,
 				new SexScriptsHost(scriptInterface),
 				new SexScriptsStatePersistence("Mine", scriptInterface));
-		player.play("Debug Mine-equip");
-//		player.play(name);
+		player.play(name);
 	}
 }

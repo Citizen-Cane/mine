@@ -22,4 +22,4 @@ def Mine = Class.forName('ss.Mine', true, loader)
 Mine.enableValidateScripts(true);
 Mine.enableDebugOutput(true);
 def mine = Mine.newInstance(this);
-mine.play("Mine")
+mine.play()
