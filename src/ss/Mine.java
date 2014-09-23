@@ -74,7 +74,7 @@ public class Mine {
 						debugReader.close();
 					}
 			} catch (Throwable t) {
-				// Don't reveal we're doing this, since the debug facility is for devs only
+				// Don't reveal we're doing this, since this debug facility is meant for developers only, and not for cheating
 				// TeaseLib.log(this, t);
 			}
 		}
