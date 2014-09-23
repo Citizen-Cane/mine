@@ -43,16 +43,6 @@ public class Mine {
 	{
 		this.scriptInterface = script;
 	}
-	
-	public static void enableValidateScripts(boolean enable)
-	{
-		Player.validateScripts = enable;
-	}
-
-	public static void enableDebugOutput(boolean enable)
-	{
-		Player.debugOutput = enable;
-	}
 
 	public void play() throws IOException
 	{
@@ -62,6 +52,8 @@ public class Mine {
 		File debug = new File(resourcesBase, "debug.txt"); 
 		if (debug.exists())
 		{
+			Player.debugOutput = true;
+			Player.validateScripts = true;
 			scriptName = null;
 			try {
 				BufferedReader debugReader = new BufferedReader(new FileReader(
