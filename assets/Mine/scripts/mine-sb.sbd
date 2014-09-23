@@ -3,7 +3,6 @@
 .yestext Yes, Mistress
 .notext No, Mistress
 .onAllSet 9999
-.ActionDelay 10
 .onClose 9998
 .backcolor 0 0 0
 
@@ -63,7 +62,7 @@
 '	301	simple rope hogtie		330 
 '	302	creative indefinate
 '
-                                  Returns
+'                                 Returns
 '   #   Entry       From             Good    Bad     +   -   Description
 '   101 1101    5401 -> 5551  2010   5451    5501    2   2   bondage life simple hogtie 30m
 '   102 1102    5402 -> 5552  2020   5452    5502    3   2   " indefinate
@@ -159,18 +158,19 @@ What would you like to do today?
 
 [Action 2010]
 Now, My slave, you're going to tie yourself up for Mistress.
-This technique, though relatively mild, will nevertheless
-make you a helpless, writhing slave, which is just how I like it.
+This technique, though relatively mild, will nevertheless make you a helpless, writhing slave,
+which is just how I like it.
 .delay 20
 .range 2011
 .Say Action
 
 [Action 2011]
 This technique requires a few lengths of rope and an escape knife, My dear.
-You will also need a place to lie down, and you will need to be able to cut
-the rope with the knife with your hands behind your back. In addition, you
-should have an emergency release set up in case you screw up - which wouldn't
-suprise me a bit. Do you have all these things, My pet?
+You will also need a place to lie down,
+and you will need to be able to cut the rope with the knife with your hands behind your back.
+In addition, you should have an emergency release set up in case you screw up
+- which wouldn't suprise me a bit.
+Do you have all these things, My pet?
 .yesno 2013 2013 2012 2012
 .Say Action
 
@@ -179,11 +179,13 @@ I'm very disappointed in you, slave.
 .range 9400 9599
 .Say Action
 
+
 [Action 2013]
-Very good, slave. Get the rope, and pay attention. I want you to tie your ankles together,
-and leave a generous length left over, as shown on the left side of the picture. You'll
-notice, slave, that the end of the rope is tied into a cinch noose, which is illustrated
-on the right side. Continue when you've done this correctly, and leave the noose open.
+Very good, slave.
+Get the rope, and pay attention.
+I want you to tie your ankles together, and leave a generous length left over, as shown on the left side of the picture.
+You'll notice, slave, that the end of the rope is tied into a cinch noose, which is illustrated on the right side.
+Continue when you've done this correctly, and leave the noose open.
 There should be around a foot of play in the rope when you're finished.
 .image simplehogtie_1a.jpg
 .pause
@@ -191,49 +193,54 @@ There should be around a foot of play in the rope when you're finished.
 .Say Action
 
 [Action 2014]
-Now, examine this drawing, slave. You'll need to make a coil of rope; 3 or four coils
-should be sufficent. After you've done this, put the coil through the noose as illustrated.
+Now, examine this drawing, slave.
+You'll need to make a coil of rope; 3 or four coils should be sufficent.
+After you've done this, put the coil through the noose as illustrated.
 .image blbasics_2.jpg
 .pause
 .range 2015
 .Say Action
 
 [Action 2015]
-Still with Me, slave? Get on the ground, on your knees. Place your escape
-knife in a place where you will easily be able to reach it from the ground.
+Still with Me, slave? Get on the ground, on your knees.
+Place your escape knife in a place where you will easily be able to reach it from the ground.
 .image blbasics_3.jpg
 .delay 20
 .range 2016
 .Say Action
 
 [Action 2016]
-Now examine the illustration. You're going to put your arms behind your back and through the coils,
-as shown. Don't cinch it up until I tell you to. I'll give you a minute to work all this out.
+Now examine the illustration.
+You're going to put your arms behind your back and through the coils, as shown.
+Don't cinch it up until I tell you to.
+I'll give you a minute to work all this out.
 .image blbasics_3.jpg
 .delay 60
 .range 2016
 .Say Action
 
 [Action 2017]
-That was tricky, wasn't it? I'll give you a minute to press the stop button if you
-need me to go over the instructions again. Otherwise, just wait for My signal.
+That was tricky, wasn't it?
+I'll give you a minute to press the stop button if you
+need me to go over the instructions again.
+Otherwise, just wait for My signal.
 .image simplehogtie_2.jpg
 .unset 2010 2011 2012 2013 2014 2015 2016 2017
 .delay 60 60 STOP 2010
-.range 201z
+.range 2018
 .Say Action
 
 [Action 2018]
-Lie down on your stomach and pull that noose tight, slave! If you've
-done it correctly, you should resemble the picture - except for the tits.
+Lie down on your stomach and pull that noose tight, slave!
+If you've done it correctly, you should resemble the picture - except for the tits.
 .image simplehogtie_3.jpg
 .delay 20
 .range 2019
 .Say Action
 
 [Action 2019]
-Mmm, I like that. I think I'll leave you there for a half hour or so,
-My slave. I hope you enjoy your bondage as much as I like watching it!
+Mmm, I like that. I think I'll leave you there for a half hour or so, My slave.
+I hope you enjoy your bondage as much as I like watching it!
 .delay 20
 .range 8100
 .Say Action
@@ -248,14 +255,15 @@ bit lazy today. You're gaining a little experience at this, as well.
 .Say Action
 
 [Action 2021]
-Therefore, slave, today you're going to tie yourself up however you like. You're also going to
-set your own release method. I want your self-bondage to be as inescapable as you can make it.
+Therefore, slave, today you're going to tie yourself up however you like.
+You're also going to set your own release method.
+I want your self-bondage to be as inescapable as you can make it.
 .range 2022
 .Say Action
 
 [Action 2022]
-Your release method should keep you bound for at least 40 minutes
-or so. Now, get everything you need and start getting ready.
+Your release method should keep you bound for at least 40 minutes or so.
+Now, get everything you need and start getting ready.
 .pause
 .range 2023
 .Say Action
@@ -296,8 +304,7 @@ as the basis for future sessions, which is why you are wearing your rope harness
 .Say Action
 
 [Action 2042]
-Your self-bondage will not be particularly demanding
-but will serve as the basis for future sessions. 
+Your self-bondage will not be particularly demanding but will serve as the basis for future sessions. 
 .delay 5
 .mustnot 36             ' Harnessed
 .range 2043
@@ -313,25 +320,23 @@ For that reason, you first must put on the rope harness as you have done before.
 
 
 [Action 2045]
-Now, get your nipple clamps, two ropes not less than six feet or so
-in length, a weight for the clamps, and your wrist restraints. 
+Now, get your nipple clamps, two ropes not less than six feet or so in length, a weight for the clamps, and your wrist restraints. 
 .pause
 .range 2046
 .Say Action
 
 [Action 2046]
-Your hands will be locked behind you, slave, and attached to the harness so that you
-are unable to move them very far. You will need to be able to use your handcuff key, or
-an escape knife, with your hands in the small of your back. Note that you will also be
-forced into a kneeling position, so it may be difficult. It's important that you have a
-reliable backup mechanism, such as an extra escape knife, a note left with a friend, or
-a cell phone you can voice dial handy. Are you prepared? Do you have everything you need?
+Your hands will be locked behind you, slave, and attached to the harness so that you are unable to move them very far.
+You will need to be able to use your handcuff key, or an escape knife, with your hands in the small of your back.
+Note that you will also be forced into a kneeling position, so it may be difficult.
+It's important that you have a reliable backup mechanism, such as an extra escape knife, a note left with a friend, or a cell phone you can voice dial handy.
+Are you prepared?
+Do you have everything you need?
 .yesno 2047 2047 9400 9599
 .Say Action
 
 [Action 2047]
-Then get the ropes I mentioned, clear a space on the
-floor and tie your ankles to your thighs as shown.
+Then get the ropes I mentioned, clear a space on the floor and tie your ankles to your thighs as shown.
 .pause
 .image isb2c.jpg
 .range 2048
@@ -345,10 +350,10 @@ Now put the nipple clamps on and attach the weight.
 
 [Action 2050]
 In a minute, you will put your hands behind you and secure them using your wrist restraints;
-you will be looping your restraints through the harness in the small of your back so that
-your wrists cannot move very far. In particular, you shouldn't be able to remove the nipple
-clamps or the weight. I'll give you a minute to work this out. Remember that you will need to
-be able to release yourself after we're done!
+you will be looping your restraints through the harness in the small of your back so that your wrists cannot move very far.
+In particular, you shouldn't be able to remove the nipple clamps or the weight.
+I'll give you a minute to work this out.
+Remember that you will need to be able to release yourself after we're done!
 .delay 60 60
 .range 2051
 .Say Action
@@ -360,8 +365,9 @@ Lock your wrists together behind your back!
 .Say Action
 
 [Action 2052]
-Now you're my prisoner, slave. I hope those nipple clamps are feeling good,
-because you will be wearing them for about twenty minutes. Have fun!
+Now you're my prisoner, slave.
+I hope those nipple clamps are feeling good, because you will be wearing them for about twenty minutes.
+Have fun!
 .range 8000
 .Say Action
 
@@ -406,13 +412,14 @@ Before we begin, collect the following items and bring them to Me.
 .unset 213               ' rope as gag replacement, set in 2103
 .pause
 '.range 2102 2103
+' Gag disabled
 .range 2110
 .Say Action
 
 
 [Action 2106]
-I also see that you own a gag, is it by any chance a ring gag,
-my dear? You know, the kind you can stick your tongue through?
+I also see that you own a gag, is it by any chance a ring gag, my dear?
+You know, the kind you can stick your tongue through?
 .yesno 2110 2110 2109 2109
 .must 340               ' gag
 .Say Action
@@ -425,21 +432,22 @@ Since you don't have one, we'll have to improvise a bit.
 
 
 [Action 2108]
-I want you to make something that resembles a bit gag. You may use a
-flexible PVC tube for the bit, and some shoelace to secure it in place.
-Anyhow, don't choose the bit too thick, since you must be able
-to breathe and drool comfortably. Plain rope would be fine, too. 
+I want you to make something that resembles a bit gag.
+You may use a flexible PVC tube for the bit, and some shoelace to secure it in place.
+Anyhow, don't choose the bit too thick, since you must be able to breathe and drool comfortably.
+Plain rope would be fine, too. 
 .pause
 .unset 212              ' ring gag not available
 .set   213              ' rope as gag replacement
 .range 2109
 
 [Action 2109]
-Well, I won't risk your life by using that gag. Put it away. Instead
-you're going to make something that resembles a bit gag. Use a flexible
-PVC tube for the bit, and some shoelace to secure it in place.
-Anyhow, don't choose the bit too thick, since you must be able
-to breathe and drool comfortably. Plain rope would be fine, too. 
+Well, I won't risk your life by using that gag.
+Please put it away.
+Instead you're going to make something that resembles a bit gag.
+Use a flexible PVC tube for the bit, and some shoelace to secure it in place.
+Anyhow, don't choose the bit too thick, since you must be able to breathe and drool comfortably.
+Plain rope would be fine, too. 
 .pause
 .must 340               ' gag
 .unset 212              ' ring gag not available
@@ -464,10 +472,9 @@ You'll need to have some way to connect it to your nipple clamp chain, too.
 .Say Action
 
 [Action 2116]
-That's too bad, slave, but we can work with that. Make sure you have a key
-to your handcuffs handy and put it somewhere you can get to it. If you have
-another, go freeze it right now, so we have it for next time! In the meantime,
-you'll need a good heavy weight you can hang from those nips of yours for now.
+That's too bad, slave, but we can work with that. Make sure you have a key to your handcuffs handy and put it somewhere you can get to it.
+If you have another, go freeze it right now, so we have it for next time!
+In the meantime, you'll need a good heavy weight you can hang from those nips of yours for now.
 .pause
 .unset 210
 .set 211      ' key nearby
@@ -483,7 +490,8 @@ Now clear a space, kneel down, and get ready.
 .Say Action
 
 [Action 2118]
-Take your clothes pegs, and stick them on your enslaved balls. Quickly!
+Take your clothes pegs, and stick them on your enslaved balls.
+Quickly!
 .image isb2b.jpg
 .delay 20
 .range 2119
@@ -506,7 +514,8 @@ Put those nipple clamps on, slave. Make them nice and tight!
 
 [Action 2121]
 Now, get the ice cube, and attach it to the nipple clamp chain,
-as our model is doing. And smile when you do!
+as our model is doing.
+And smile when you do!
 .image isb2e.jpg
 .delay 20
 .must 20            ' frozen ice
@@ -514,8 +523,8 @@ as our model is doing. And smile when you do!
 .Say Action
 
 [Action 2122]
-Unfortunately, you're too stupid to have an ice cube, so we'll have to
-make do. Go ahead and put the nice weight on those nipple clamps for now.
+Unfortunately, you're too stupid to have an ice cube, so we'll have to make do.
+Go ahead and put the nice weight on those nipple clamps for now.
 .image isb2e.jpg
 .delay 20
 .must 11            ' key nearby
@@ -526,8 +535,8 @@ make do. Go ahead and put the nice weight on those nipple clamps for now.
 
 [Action 2123]
 Isn't this a pretty picture? I love gagging my slaves, because if there's
-one thing I hate it's a lot of sass out of a stupid cunt like you. Stick
-that ring gag in your cake-hole, dear!
+one thing I hate it's a lot of sass out of a stupid cunt like you.
+Stick that ring gag in your cake-hole, dear!
 .image isb2f.jpg
 .delay 45
 .must 212            ' ring gag
@@ -536,8 +545,8 @@ that ring gag in your cake-hole, dear!
 
 [Action 2124]
 Isn't this a pretty picture? I love gagging my slaves, because if there's
-one thing I hate it's a lot of sass out of a stupid cunt like you. Tie the
-bit gag-replacement around your head through your cake-hole, dear!
+one thing I hate it's a lot of sass out of a stupid cunt like you.
+Tie the bit gag-replacement around your head through your cake-hole, dear!
 .image isb2f.jpg
 .delay 30
 .must 213            ' rope as gag replacement
@@ -546,8 +555,8 @@ bit gag-replacement around your head through your cake-hole, dear!
 
 
 [Action 2125]
-Almost there, sweet-bottom. Loop those hand cuffs through the
-harness in the small of your back and start putting them on.
+Almost there, sweet-bottom.
+Loop those hand cuffs through the harness in the small of your back and start putting them on.
 .image isb2h.jpg
 .delay 60
 .must 210          ' ice cube
@@ -555,8 +564,8 @@ harness in the small of your back and start putting them on.
 .Say Action
 
 [Action 2126]
-We're nearing the moment of truth now. Get those handcuffs ready
-and make sure you can get to the key when I tell you to.
+We're nearing the moment of truth now.
+Get those handcuffs ready and make sure you can get to the key when I tell you to.
 .image isb2h.jpg
 .delay 30
 .must 211          ' key nearby
@@ -573,8 +582,9 @@ Hands behind your back, slave, and lock'em up!
 
 
 [Action 2129]
-Now just lay back and enjoy your self-bondage, slave. When the ice melts
-you can free yourself, and press "STOP" to let Me know you've finished.
+Now just lay back and enjoy your self-bondage, slave.
+When the ice melts you can free yourself,
+and press "STOP" to let Me know you've finished.
 .image isb2k.jpg
 .delay 30
 .must 210           ' ice cube
@@ -582,7 +592,8 @@ you can free yourself, and press "STOP" to let Me know you've finished.
 .Say Action
 
 [Action 2130]
-Just lay back and enjoy yourself, slave. I think you're good for a half hour or so.
+Just lay back and enjoy yourself, slave.
+I think you're good for a half hour or so.
 .image isb2k.jpg
 .delay 30
 .must 211           ' key nearby
@@ -675,7 +686,8 @@ Just lay back and enjoy yourself, slave. I think you're good for a half hour or 
 '   INTERROGATION   -----------------------------------------------------------
 
 [Action 9001]
-Very good, slave. You may use the knife to release yourself.
+Very good, slave.
+You may use the knife to release yourself.
 .pause
 .must 101
 .range 9106 9109
@@ -689,16 +701,18 @@ That's a good slave.
 .Say Action
 
 [Action 9003]
-Good boy, slave. You may take off the nipple clamps, ropes, clothes pegs, but
-you'll keep on the rope harness, which you may wear or the rest of the session.
+Good boy, slave.
+You may take off the nipple clamps, ropes, and clothes pegs,
+but you'll keep on the rope harness, which you may wear or the rest of the session.
 .pause
 .must 103
 .range 9107 9109
 .Say Action
 
 [Action 9004]
-That's a good boy, slave. You may free yourself and remove all of your toys, with 
-the exception of the rope harness. You may wear that for the rest of the session.
+That's a good boy, slave.
+You may free yourself and remove all of your toys, with the exception of the rope harness.
+You may wear that for the rest of the session.
 .pause
 .delay 30
 .must 104
