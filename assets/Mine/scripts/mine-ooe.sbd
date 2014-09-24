@@ -9,7 +9,7 @@
 .onClose 9998 9998
 .onAllSet 9999 9999
 .backcolor 127 127 127
-.ssdir ooe\
+.ssdir ooe
 
 '   Omnibus games of chance.
 
@@ -165,23 +165,21 @@ We'll play odds-and-evens, My pussy.
 .range 1151 1169
 
 ' paddle n times
-[Action 1152]
+[Action 1151]
 .noimage
 .delay 0
 .set 402
 .range 1200
-.Say Action
 
 ' nipple clamps, connected via chain
-[Action 1153]
+[Action 1152]
 .noimage
 .delay 0
 .set 403
 .range 1200
-.Say Action
 
 ' Add pin
-'[Action 1154]
+'[Action 1153]
 '.noimage
 '.delay 0
 '.set 404
@@ -189,22 +187,18 @@ We'll play odds-and-evens, My pussy.
 '.range 1200
 
 ' Paddle 20 times
-[Action 1155]
+[Action 1154]
 .noimage
 .delay 0
 .set 405
-.ActionDelay 20
 .range 1200
-.Say Action
 
 ' nipple clamps, each clamp with its own chain
-[Action 1156]
+[Action 1155]
 .noimage
 .delay 0
 .set 406
-.ActionDelay 20
 .range 1200
-.Say Action
 
 '[Action 1169]
 'Lucky slave. This time, there's no penalty for losing a round.
@@ -237,7 +231,7 @@ I'll be evens - you're odds.
 .delay 0
 .range 1301 1319
 
-[Action 1302]
+[Action 1301]
 Get your paddle, slave, and get down on your knees.
 When you lose a round, you will paddle yourself. The
 number of times you must smack your butt will be the
@@ -248,7 +242,7 @@ number of points I have.
 .Say Action
 
 ' nipple clamps, each with their own chain
-[Action 1303]
+[Action 1302]
 The first two rounds you lose you will be ordered to attach your nipple clamps.
 Every lost round from then on, you will be ordered to add a weight.
 Make sure there's plenty of room for those clamps to swing free.
@@ -258,14 +252,14 @@ Make sure there's plenty of room for those clamps to swing free.
 .range 1400
 .Say Action
 
-'[Action 1304]
+'[Action 1303]
 'Every round you lose, you will be ordered to place a
 'clothespin somewhere on your body, slaveboy.
 '.must 404
 '.ActionDelay 20
 '.range 1400
 
-[Action 1305]
+[Action 1304]
 For every round that I win, you will paddle your buns
 twenty times, slave. Get on your knees, and make sure
 you have your paddle ready to go.
@@ -275,7 +269,7 @@ you have your paddle ready to go.
 .Say Action
 
 ' nipple clamps, connected with chain
-[Action 1306]
+[Action 1305]
 The first two rounds you lose you will be ordered to attach your nipple clamps.
 Every lost round from then on, you will be ordered to add a weight.
 Make sure there's plenty of room for those clamps to swing free.
@@ -301,7 +295,6 @@ Make sure there's plenty of room for those clamps to swing free.
 .delay 0
 .mustnot 403
 .range 1499
-.Say Action
 
 [Action 1402]
 You are going to need a dozen weights for this game. Go fetch them, slave!
@@ -344,7 +337,6 @@ You are going to need two weights for this game. Go fetch them, slave!
 .delay 0
 .mustnot 403 406
 .range 1499
-.Say Action
 
 [Action 1453]
 Now this time, you need to connect your nipple clamps with a chain and
@@ -380,7 +372,6 @@ and you'd better keep that little cock hard.
 .delay 0
 .must 30                ' can't jerk off
 .range 1997
-.Say Action
 
 ' (debug)
 [Action 1997]
@@ -856,6 +847,7 @@ Now for your penalty...
 .range 3800 3999
 .unset 3290
 .delay 0
+.Say Action
 
 [Action 3291]
 .noimage
@@ -864,7 +856,6 @@ Now for your penalty...
 .must 205
 .unset 3291
 .range 5060 5099
-.Say Action
 
 [Action 3292]
 Now for your penalty...
@@ -873,6 +864,7 @@ Now for your penalty...
 .range 3800 3999
 .unset 3292
 .delay 0
+.Say Action
 
 [Action 3293]
 .noimage
@@ -888,6 +880,7 @@ Now for your penalty...
 .mustnot 215
 .unset 3294
 .range 3800 3999
+.Say Action
 
 [Action 3295]
 .noimage
@@ -896,7 +889,6 @@ Now for your penalty...
 .must 215
 .unset 3295
 .range 5060 5099
-.Say Action
 
 
 [Action 3600]
@@ -1227,28 +1219,29 @@ It looks like I won the game, slave!
 
 ' ---------------------------------- s won
 
-'[Action 9000]
-'.must 300
-'.quit
+[Action 9000]
+.must 300
+.quit
 
 [Action 9002]
-'.must 302
+.must 302
 .loadsbd Mine.sbd 5851 5851
 
 ' ---------------------------------- M won
 
-'[Action 9500]
-'.must 300
-'.quit
+[Action 9500]
+.must 300
+.quit
 
 [Action 9502]
-'.must 302
+.must 302
 .loadsbd Mine.sbd 5901 5901
 
+
+' Slave closed
 [Action 9998]
-Slave closed.
 .loadsbd Mine.sbd 5020 5029
 
+' Abnormal ending, bailing out
 [Action 9999]
-Abnormal ending, bailing out.
 .loadsbd Mine.sbd 5013 5013
