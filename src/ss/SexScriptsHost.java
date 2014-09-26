@@ -16,6 +16,7 @@ import java.util.List;
 
 import pcm.model.Interval;
 import teaselib.Host;
+import teaselib.ScriptInterruptedException;
 import teaselib.TeaseLib;
 import teaselib.TeaseScript;
 import teaselib.util.Delegate;
@@ -177,9 +178,8 @@ public class SexScriptsHost implements Host {
 		try {
 			Thread.sleep(milliseconds);
 		} catch (InterruptedException e) {
-			TeaseLib.log(this, e);
+			throw new ScriptInterruptedException();
 		}
-		// ss.waitWithGauge(seconds);
 	}
 
 	@Override
