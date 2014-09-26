@@ -3,6 +3,7 @@
 .yestext Yes, Mistress
 .notext No, Mistress
 .resumetext Yes, Mistress
+.stoptext Don't use the default text, Miss
 .onClose 9998
 .onAllSet 9999
 .resetrange 50 299      ' reset all temp variables from main script but keep slave state, toys and achievements  
@@ -56,20 +57,17 @@
 .menu 42  2150 2150 Diary of Carolyn Ch. 1 excerpt
 .menu 43  2200 2200 1hr punishment wanking
 .menu 44  2300 2300 slavesinlove bd186
-.menu 45  2020 2020 tease and denial 2 x  5m (52 61)
-.menu 46  2021 2021 tease and denial 5 x  3m (55 60)
-.menu 47  2022 2022 tease and denial 2 x 10m (52 62)
-.menu 48  2030 2030 tease and denial 7 x  3m (57 60)
+.menu 45  1105 1105 tease and denial 2 x  5m (52 61)
+.menu 46  1106 1106 tease and denial 5 x  3m (55 60)
+.menu 47  1107 1107 tease and denial 2 x 10m (52 62)
+.menu 48  1109 1109 tease and denial 7 x  3m (57 60)
 .menu 49  1000 1000 Exit
 
 [Action 990]
-Welcome to debug my code, But don't try to cheat on me.
-What would you like to do today?
+.txt Welcome to debug my code, but don't try to cheat on me.
+.txt What would you like to do today?
 .unset 990
 .popup 40 49
-.say action
-
-
 
 
 [Action 1000]
@@ -275,7 +273,7 @@ Just stroke that cock to the beat and follow all my instructions.
 Press "STOP" if you cum, which you are absolutely not to.
 .delay 12
 .mustnot 44             ' Chastified
-'.range 7100 7199
+'.range 7099
 .range 2035 2039
 .Say Action
 
@@ -286,7 +284,7 @@ by the beat and follow all my instructions.
 Press "STOP" if you cum, which you are absolutely not to.
 .must 44                ' Chastified
 .delay 12
-'.range 7100 7199
+'.range 7099
 .range 2035 2039
 .Say Action
 
@@ -298,7 +296,7 @@ Just sit there and follow directions, slut.
 Keep stroking that slave penis to the beat,
 and no cumming - if you do, press "STOP" at once.
 .mustnot 44             ' Chastified
-'.range 7100 7199
+'.range 7099
 .range 2035 2039
 .Say Action
 
@@ -307,7 +305,7 @@ Just sit there and follow directions, slut.
 Keep stroking that slave penis to the beat by moving the cage,
 and no cumming - if you do, press "STOP" at once.
 .must 44                ' Chastified
-'.range 7100 7199
+'.range 7099
 .range 2035 2039
 .Say Action
 
@@ -321,7 +319,7 @@ Play with that slave cock and keep up with the beat
 If you disobey me, press "STOP" at once.
 .delay 12
 .mustnot 44             ' Chastified
-'.range 7100 7199
+'.range 7099
 .range 2035 2039
 .Say Action
 
@@ -332,7 +330,7 @@ Move the chastity cage to play with that slave cock and keep up with the beat
 If you disobey me, press "STOP" at once.
 .delay 12
 .must 44                ' Chastified
-'.range 7100 7199
+'.range 7099
 .range 2035 2039
 .Say Action
 
@@ -344,7 +342,7 @@ Okay, slave, this is just a vanilla wanking session.
 All you need to do is to keep up with the beat and don't cum.
 The "STOP" button is for if you do cum.
 .mustnot 44             ' Chastified
-'.range 7100 7199
+'.range 7099
 .range 2035 2039
 .Say Action
 
@@ -354,7 +352,7 @@ All you need to do is to move the chastity cage back and forth with the beat and
 The "STOP" button is for if you do cum.
 .delay 12
 .must 44                ' Chastified
-'.range 7100 7199
+'.range 7099
 .range 2035 2039
 .Say Action
 
@@ -365,7 +363,7 @@ The "STOP" button is for if you do cum.
 [Action 2035]
 .delay 0
 .noimage
-.range 7100 7199             ' on to wanking
+.range 7099             ' on to wanking
 
 ' blindfolded
 [Action 2036]
@@ -401,7 +399,7 @@ Now put on your blindfold and patiently wait for my command.
 .stoptext Not so fast, Miss
 .delay 20 40 STOP 2040
 .unset 2042
-.range 7100 7199        ' on to wanking
+.range 7099        ' on to wanking
 
 
 ' Terri and Jennifer #16-21
@@ -1796,7 +1794,7 @@ And as part of your punishment, you will wank your enslaved penis inside the cag
 
 
 [Action 2206]
-'.range 7100 7199
+'.range 7099
 .noimage
 .delay 0
 .range 2210 2214
@@ -1809,7 +1807,7 @@ And as part of your punishment, you will wank your enslaved penis inside the cag
 .noimage
 .delay 0
 .poss 1
-.range 7100 7199
+.range 7099
 
 ' just blindfolded
 [Action 2211]
@@ -1855,11 +1853,12 @@ Put on your blindfold and patiently wait for my next command.
 [Action 2217]
 .noimage
 '.TXT Press STOP to repeat the instructions
-Make sure you're completly blindfolded. I want you to be totally helpless!
+Make sure you're completly blindfolded.
+I want you to be totally helpless!
 .stoptext Not so fast, Miss
 .delay 60 60 STOP 2212
 .unset 2217
-.range 7100 7199        ' punishment wank
+.range 7099        ' punishment wank
 
 
 [Action 2220]
@@ -1888,8 +1887,8 @@ You should be able to wank, but neither to stand up, nor to remove the blindfold
 .Say Action
 
 [Action 2223]
-Start with chaining your ankles together, then your wrists. Prepare the lock and the chains
-so that you can lock your ankles and wrists together on my command, but don't do it yet.
+Start with chaining your ankles together, then your wrists.
+Prepare the lock and the chains so that you can lock your ankles and wrists together on my command, but don't do it yet.
 Let me know when you are ready to put on your blindfold, slave.
 .pause
 .unset 2223
@@ -1930,7 +1929,7 @@ Close the lock now, slave.
 .delay 60 60 STOP 2212
 .unset 2227
 .set 221
-.range 7100 7199        ' punishment wank
+.range 7099        ' punishment wank
 .Say Action
 
 
@@ -2220,13 +2219,21 @@ That's enough, slave. You can get up and take all the equipment off.
 .noimage
 '2 x 10 minutes
 .must 52 62
-.range 7100 7199
+.range 7099
 
 [Action 7001]
 .delay 0
 .noimage
 '3 x 10 minutes
 .must 53 62
+.range 7099
+
+
+' Wanking start and break setup
+
+[Action 7099]
+.break 7100 8949 STOP 8950 8999
+.stopText I came, Miss
 .range 7100 7199
 
 
@@ -2247,7 +2254,7 @@ That's enough for now, My wanking slut.
 .unset 51
 .set 50
 .unset 7101
-.range 8000 8009
+.range 7999
 
 [Action 7102]
 .delay 0
@@ -2256,7 +2263,7 @@ That's enough for now, My wanking slut.
 .unset 52
 .set 51
 .unset 7102
-.range 8000 8009
+.range 7999
 
 [Action 7103]
 .delay 0
@@ -2265,7 +2272,7 @@ That's enough for now, My wanking slut.
 .unset 53
 .set 52
 .unset 7103
-.range 8000 8009
+.range 7999
 
 [Action 7104]
 .delay 0
@@ -2274,7 +2281,7 @@ That's enough for now, My wanking slut.
 .unset 54
 .set 53
 .unset 7104
-.range 8000 8009
+.range 7999
 
 [Action 7105]
 .delay 0
@@ -2283,7 +2290,7 @@ That's enough for now, My wanking slut.
 .unset 55
 .set 54
 .unset 7105
-.range 8000 8009
+.range 7999
 
 [Action 7106]
 .delay 0
@@ -2292,7 +2299,7 @@ That's enough for now, My wanking slut.
 .unset 56
 .set 55
 .unset 7106
-.range 8000 8009
+.range 7999
 
 [Action 7107]
 .delay 0
@@ -2301,7 +2308,7 @@ That's enough for now, My wanking slut.
 .unset 57
 .set 56
 .unset 7107
-.range 8000 8009
+.range 7999
 
 [Action 7108]
 .delay 0
@@ -2310,7 +2317,7 @@ That's enough for now, My wanking slut.
 .unset 58
 .set 57
 .unset 7108
-.range 8000 8009
+.range 7999
 
 [Action 7109]
 .delay 0
@@ -2319,6 +2326,11 @@ That's enough for now, My wanking slut.
 .unset 59
 .set 58
 .unset 7109
+.range 7999
+
+
+[Action 7999]
+.unset 7999
 .range 8000 8009
 
 
@@ -2357,9 +2369,7 @@ Fifteen minute sets aren't ready, slave!
 [Action 8010]
 Start slowly...
 .playwav 30s.wav
-.inject 8010 8099 .delay 30 30 STOP 8950 8999
-.inject 8010 8099 .stopText I came, Miss
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8010
 .range 8011 
 .Say Action
@@ -2367,7 +2377,7 @@ Start slowly...
 [Action 8011]
 Build up a bit...
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8011
 .range 8012 
 .Say Action
@@ -2375,7 +2385,7 @@ Build up a bit...
 [Action 8012]
 Now, slower again, slave.
 .playwav 30s.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8012
 .range 8013 
 .Say Action
@@ -2383,7 +2393,7 @@ Now, slower again, slave.
 [Action 8013]
 Now, slave, faster...
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8013
 .range 8014 
 .Say Action
@@ -2391,7 +2401,7 @@ Now, slave, faster...
 [Action 8014]
 Faster...
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8014
 .range 8015 
 .Say Action
@@ -2399,7 +2409,7 @@ Faster...
 [Action 8015]
 Slowly again, slave...
 .playwav 30s.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8015
 .range 8016 
 .Say Action
@@ -2407,7 +2417,7 @@ Slowly again, slave...
 [Action 8016]
 Just keep a steady rhythm...
 .playwav 30s.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8016
 .range 8017 
 .Say Action
@@ -2415,7 +2425,7 @@ Just keep a steady rhythm...
 [Action 8017]
 Faster, slave...
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8017
 .range 8018 
 .Say Action
@@ -2423,22 +2433,24 @@ Faster, slave...
 [Action 8018]
 Faster, My slut, faster...
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8018
 .range 8019 
 .Say Action
 
 [Action 8019]
-Stop, slave. Time to cool down. Place your hands on top of your head.
-.noimage
-'.delay 30 30 STOP 8950 8999
+Stop, slave.
+Time to cool down.
+Place your hands on top of your head.
+.actiondelay 30
 .unset 8019
 .range 8020
 
 [Action 8020]
-Here we go again, slave. Start slowly...
+Here we go again, slave.
+Start slowly...
 .playwav 30s.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8020
 .range 8021 
 .Say Action
@@ -2446,7 +2458,7 @@ Here we go again, slave. Start slowly...
 [Action 8021]
 Now speed up....
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8021
 .range 8022 
 .Say Action
@@ -2454,7 +2466,7 @@ Now speed up....
 [Action 8022]
 Faster, faster...
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8022
 .range 8023 
 .Say Action
@@ -2462,7 +2474,7 @@ Faster, faster...
 [Action 8023]
 Let up a little, now, slut...
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8023
 .range 8024 
 .Say Action
@@ -2470,7 +2482,7 @@ Let up a little, now, slut...
 [Action 8024]
 Now speed up again...
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8024
 .range 8025 
 .Say Action
@@ -2478,7 +2490,7 @@ Now speed up again...
 [Action 8025]
 And slow down again...
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8025
 .range 8026 
 .Say Action
@@ -2486,31 +2498,34 @@ And slow down again...
 [Action 8026]
 And faster, slut...
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8026
 .range 8027 
 .Say Action
 
 [Action 8027]
-Slower, now, slave. Doesn't that feel good?
+Slower, now, slave.
+Doesn't that feel good?
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8027
 .range 8028 
 .Say Action
 
 [Action 8028]
-Very fast, now, slave! Don't you dare cum!
+Very fast, now, slave!
+Don't you dare cum!
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8028
 .range 8029 
 .Say Action
 
 [Action 8029]
-Keep up the pace, slave! Don't slack off!
+Keep up the pace, slave!
+Don't slack off!
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8029
 .range 8900 8909
 .Say Action
@@ -2521,50 +2536,52 @@ Keep up the pace, slave! Don't slack off!
 [Action 8030]
 Okay, slave, let's start beating that meat slow.
 .playwav 30s.wav
-.inject 8010 8099 .delay 30 30 STOP 8950 8999
-.inject 8010 8099 .stopText I came, Miss
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8030
 .range 8031
 .Say Action
 
 [Action 8031]
-Faster now, slave. Make it feel good.
+Faster now, slave.
+Make it feel good.
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8031
 .range 8032
 .Say Action
 
 [Action 8032]
-Slower now. It's too bad I won't let you 
-blow that load you're building up.
+Slower now.
+It's too bad I won't let you blow that load you're building up.
 .playwav 30s.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8032
 .range 8033
 .Say Action
 
 [Action 8033]
-Speed back up. I love a frustrated slaveboy.
+Speed back up.
+I love a frustrated slaveboy.
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8033
 .range 8034
 .Say Action
 
 [Action 8034]
-Faster now. I love being in control of those orgasms.
+Faster now.
+I love being in control of those orgasms.
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8034
 .range 8035
 .Say Action
 
 [Action 8035]
-Hold it in, slave. You want to please Mistress.
+Hold it in, slave.
+You want to please Mistress.
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8035
 .range 8900 8909
 .Say Action
@@ -2573,195 +2590,202 @@ Hold it in, slave. You want to please Mistress.
 '   five minutes: SMSMFSMFFF
 
 [Action 8040]
-Here we go, slut. Keep to the beat.
+Here we go, slut.
+Keep to the beat.
 .playwav 30s.wav
-.inject 8010 8099 .delay 30 30 STOP 8950 8999
-.inject 8010 8099 .stopText I came, Miss
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8040
 .range 8041
 .Say Action
 
 [Action 8041]
-A little faster, now. Get that thing hard as a rock.
+A little faster, now.
+Get that thing hard as a rock.
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8041
 .range 8042
 .Say Action
 
 [Action 8042]
-Back down again. I want you fully focused.
+Back down again.
+I want you fully focused.
 .playwav 30s.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8042
 .range 8043
 .Say Action
 
 [Action 8043]
-Faster, slave. You're going to want it real bad soon.
+Faster, slave.
+You're going to want it real bad soon.
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8043
 .range 8044
 .Say Action
 
 [Action 8044]
-Faster, slave. You love to obey your Mistress.
+Faster, slave.
+You love to obey your Mistress.
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8044
 .range 8045
 .Say Action
 
 [Action 8045]
-Okay, cool off a bit now. I don't want you doing anything foolish.
+Okay, cool off a bit now.
+I don't want you doing anything foolish.
 .playwav 30s.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8045
 .range 8046
 .Say Action
 
 [Action 8046]
-And faster again. Keep those nasty slave juices inside.
+And faster again.
+Keep those nasty slave juices inside.
 .playwav 30m.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8046
 .range 8047
 .Say Action
 
 [Action 8047]
-Faster, slave. Get your slave cock rock solid.
+Faster, slave.
+Get your slave cock rock solid.
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8047
 .range 8048
 .Say Action
 
 [Action 8048]
-Keep it up. You love to be teased, I know it well.
+Keep it up.
+You love to be teased, I know it well.
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8048
 .range 8049
 .Say Action
 
 [Action 8049]
-Keep beating that meat, slave, but you're not getting any release now.
+Keep beating that meat, slave,
+but you're not getting any release now.
 .playwav 30f.wav
-'.delay 30 30 STOP 8950 8999
+.actiondelay 30
 .unset 8049
 .range 8900 8909
 .Say Action
-
-' 8099 end injection .delay 30 30 STOP 8950 8999
 
 
 ' Pause comment between sets
 
 [Action 8900]
-That's it for that set, slave. I'll give you a minute to collect yourself.
-.delay 55 60 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself.
+.actiondelay 55 60
 .unset 8900
 .range 7100 7109
 .Say Action
 
 [Action 8901]
-That's it for that set, slave. I'll give you a minute to collect yourself. 
-.delay 10 10 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself. 
 .mustnot 20
 .unset 8901
 .range 8911
 .Say Action
 
 [Action 8902]
-That's it for that set, slave. I'll give you a minute
-to collect yourself and enjoy your clothes pegs.
-.delay 10 10 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself and enjoy your clothes pegs.
 .must 20 42
 .unset 8902
 .range 8912
 .Say Action
 
 [Action 8903]
-That's it for that set, slave. I'll give you a minute
-to collect yourself and enjoy your nipple clamps.
-.delay 10 10 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself and enjoy your nipple clamps.
 .must 20 43
 .unset 8903
 .range 8913
 .Say Action
 
 [Action 8904]
-Slave, you don't know how erotic this is. Me, the mistress, dressed as a gorgeous
-vixen, and on the floor you, the naked slave, endlessly teased but always denied. 
-.delay 10 10 STOP 8950 8999
+Slave, you don't know how erotic this is.
+Me, the mistress, dressed as a gorgeous vixen, and on the floor you,
+the naked slave, endlessly teased but always denied. 
 .must 44                ' Chastified
 .mustnot 45             ' have key for chastity cage
 .range 8914
 .Say Action
 
 [Action 8905]
-Slave, you don't know how erotic this is. Me, the mistress, dressed as a gorgeous
-vixen, and on the floor you, the naked slave, solely there for my pleasure. 
-.delay 10 10 STOP 8950 8999
+Slave, you don't know how erotic this is.
+Me, the mistress, dressed as a gorgeous vixen, and on the floor you,
+the naked slave, solely wanking for my pleasure. 
 .mustnot 44             ' Chastified
 .range 8915
 .Say Action
 
 [Action 8906]
-That's it for that set, slave. I'll give you a minute to collect yourself.
-.delay 10 10 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself.
 .unset 8906
 .range 8916
 .Say Action
 
 [Action 8907]
-That's it for that set, slave. I'll give you a minute to collect yourself.
-.delay 10 10 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself.
 .unset 8907
 .range 8917
 .Say Action
 
 [Action 8908]
-That's it for that set, slave. I'll give you a minute to collect yourself.
-.delay 10 10 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself.
 .unset 8908
 .range 8918
 .Say Action
 
 [Action 8909]
-That's it for that set, slave. I'll give you a minute to collect yourself.
-.delay 10 10 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself.
 .unset 8909
 .range 8919
 .Say Action
 
 
 [Action 8910]
-That's it for that set, slave. I'll give you a minute to collect yourself.
-.delay 45 50 STOP 8950 8999
+That's it for that set, slave.
+I'll give you a minute to collect yourself.
+.actiondelay 45 50
 .unset 8910
 .range 7100 7109
 .Say Action
 
 [Action 8911]
-Tease your slave nipples and make sure they're hard and stiff. Keep it up!
-.delay 45 50 STOP 8950 8999
+Tease your slave nipples and make sure they're hard and stiff.
+Keep it up!
+.actiondelay 45 50
 .unset 8911
 .range 7100 7109
 .Say Action
 
 [Action 8912]
 Let's twist the clothes pegs to tease your nipples a little.
-.delay 45 50 STOP 8950 8999
+.actiondelay 45 50
 .unset 8912
 .range 7100 7109
 .Say Action
 
 [Action 8913]
-Let's let the chain swing freely to tease your nipple a little.
-.delay 45 50 STOP 8950 8999
+Let's let the chain swing freely to tease your nipples a little.
+.actiondelay 45 50
 .unset 8913
 .range 7100 7109
 .Say Action
@@ -2769,41 +2793,41 @@ Let's let the chain swing freely to tease your nipple a little.
 [Action 8914]
 Look into my eyes while you try to cool down a bit
 and think about the pleasures to come.
-.delay 45 50 STOP 8950 8999
+.actiondelay 45 50
 .range 7100 7109
 .Say Action
 
 [Action 8915]
 Look into my eyes while you try to cool down a bit
 and think about the pleasures to come.
-.delay 45 50 STOP 8950 8999
+.actiondelay 45 50
 .range 7100 7109
 .Say Action
 
 [Action 8916]
 Just keep your hands off that prick and relax.
-.delay 45 50 STOP 8950 8999
+.actiondelay 45 50
 .unset 8916
 .range 7100 7109
 .Say Action
 
 [Action 8917]
 Just keep your hands off that prick and relax.
-.delay 45 50 STOP 8950 8999
+.actiondelay 45 50
 .unset 8917
 .range 7100 7109
 .Say Action
 
 [Action 8918]
 Just keep your hands off that prick and relax.
-.delay 45 50 STOP 8950 8999
+.actiondelay 45 50
 .unset 8918
 .range 7100 7109
 .Say Action
 
 [Action 8919]
 Just keep your hands off that prick and relax.
-.delay 45 50 STOP 8950 8999
+.actiondelay 45 50
 .unset 8919
 .range 7100 7109
 .Say Action
@@ -2824,8 +2848,6 @@ because you won't be doing it again for a while.
 .mustnot 104
 .range 9401 9599
 .Say Action
-
-
 
 
 ' teasing good endings comments

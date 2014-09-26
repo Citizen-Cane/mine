@@ -8344,7 +8344,7 @@ When your bowels are properly filled up, detach the tubing from the nozzle,
 clean it up and come back here.
 .delay 30
 .must 21                ' Nozzle
-.range 3039 3041
+.range 3038
 .say action
 
 [Action 3031]
@@ -8354,7 +8354,7 @@ When your bowels are properly filled up, remove the tubing and the nozzle,
 clean it up and  put it all away. Then come back here.
 .delay 30
 .mustnot 21             ' Nozzle
-.range 3039 3041
+.range 3038
 .say action
 
 
@@ -8365,7 +8365,7 @@ When your bowels are properly filled up, detach the tubing,
 clean it up and come back here.
 .delay 30
 .must 21                ' Nozzle
-.range 3039 3041
+.range 3038
 .say action
 
 [Action 3033]
@@ -8375,7 +8375,7 @@ When your bowels are properly filled up, remove the tubing and the nozzle,
 clean it up, and put it all away. Then come back here.
 .delay 30
 .mustnot 21             ' Nozzle
-.range 3039 3041
+.range 3038
 .say action
 
 
@@ -8386,7 +8386,7 @@ When your bowels are properly filled up, you may detach the tubing,
 clean it up and come back here.
 .delay 30
 .must 21                ' Nozzle
-.range 3039 3041
+.range 3038
 .say action
 
 [Action 3035]
@@ -8397,47 +8397,46 @@ When your bowels are properly filled up, remove the tubing and the nozzle, clean
 Then come back here.
 .delay 30
 .mustnot 21             ' Nozzle
-.range 3039 3041
+.range 3038
 .say action
 
-'[Action 3038]
+
+[Action 3038]
+.noimage
+.delay 0
+.break 3039 3042 STOP 3043 3044
+'.txt When the enema bag is empty, press the "STOP" button.
+.stoptext The bag is empty, Miss
+.range 3039 3041
 
 
 [Action 3039]
 Tell me when you've finished, my pet.
-'.txt When the enema bag is empty, press the "STOP" button.
-.stoptext The bag is empty, Miss
+.actiondelay 30 60
 .unset 3042
-.delay 30 60 STOP 3043 3044
 .range 3039 3042
 .say action
 
 [Action 3040]
 Are you enjoying your enema, slave?
-'.txt When the enema bag is empty, press the "STOP" button.
-.stoptext The bag is empty, Miss
+.actiondelay 30 60
 .unset 3042
-.delay 30 60 STOP 3043 3044
 .range 3039 3042
 .say action
 
 [Action 3041]
 Take your time, slut.
-'.txt When the enema bag is empty, press the "STOP" button.
-.stoptext The bag is empty, Miss
+.actiondelay 30 60
 .unset 3042
-.delay 30 60 STOP 3043 3044
 .range 3039 3042
 .say action
 
 [Action 3042]
 Is the water still flowing?
 Maybe you should hang the tube a little higher.
-'.txt When the enema bag is empty, press the "STOP" button.
-.stoptext The bag is empty, Miss
+.actiondelay 30 60
 .must 3040 3041
 .unset 3039 3040 3041
-.delay 30 60 STOP 3043 3044
 .range 3039 3042
 .say action
 
