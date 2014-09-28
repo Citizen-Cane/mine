@@ -18,7 +18,6 @@ import pcm.model.Interval;
 import teaselib.Host;
 import teaselib.ScriptInterruptedException;
 import teaselib.TeaseLib;
-import teaselib.TeaseScript;
 import teaselib.util.Delegate;
 
 /**
@@ -150,16 +149,6 @@ public class SexScriptsHost implements Host {
 	}
 
 	@Override
-	public int showMenu(List<String> texts) {
-		return ss.getSelectedValue(null, texts);
-	}
-
-	@Override
-	public boolean showButton(String message, int seconds) {
-		return ss.showButton(message, seconds) < seconds;
-	}
-
-	@Override
 	public void stopSounds() {
 		try {
 			((ss.Script) ss).stopSoundThreads();
@@ -169,14 +158,12 @@ public class SexScriptsHost implements Host {
 	}
 
 	@Override
-	public void useFile(String file) {
-		ss.useFile(file);
-	}
-
-	@Override
 	public void sleep(long milliseconds) {
 		try {
-			Thread.sleep(milliseconds);
+			synchronized(this)
+			{
+				wait(milliseconds);
+			}
 		} catch (InterruptedException e) {
 			throw new ScriptInterruptedException();
 		}
@@ -244,16 +231,8 @@ public class SexScriptsHost implements Host {
 	}
 
 	@Override
-	public int choose(List<String> choices, int timeout) {
-		if (choices.size() == 1 && timeout > 0)
-		{
-			// TODO Doesn't wait for speech recognition in progress, need to solve this in TeaseScript
-			return ss.showButton(choices.get(0), (double) timeout) < timeout ? 0 : TeaseScript.Timeout;
-		}
-		else
-		{
-			return ss.getSelectedValue(null, choices);
-		}
+	public int choose(List<String> choices) {
+		return ss.getSelectedValue(null, choices);
 	}
 
 	@Override
