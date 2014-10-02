@@ -32,7 +32,7 @@
 ' * 186 2596    2596            2419                    45 min, kneeling (for cumming w/o perm)
 ' * 187 2600    2600            2420                    Wrong toys at session start
 ' * 188 2605    2605            2421                    Didn't perform assignment
-' * 189 2620    2620            2424                    Failed to hide cock between thighs
+' * 189 2620    2620            2424                    -
 
 '   97 3002    5802 -> 5952     5852   -       1       weight from balls easy
 '   98 3003    5803 -> 5953     5853   -       1       weight from balls medium
@@ -149,31 +149,23 @@
 .menu 36  2596 2599 Corner time for for cumming without permission
 .menu 37  2600 2600 Corner time for for failing to wear the proper items
 .menu 38  2605 2605 Corner time for for failing to perform assignment
-.menu 39  2620 2620 Corner time for for failing to hide cock between thighs
-.menu 40   989  989 Slave state (toys)
-.menu 41  1000 1000 Exit
+.menu 39  2620 2620 Corner time for for 524 unused
+.menu 40   988  988 Weights on balls, swinging
+.menu 41   989  989 Slave state (toys)
+.menu 42  1000 1000 Exit
 
-
-[Action 100]
-Now, slave, we're going to go through
-and choose what you'd like to endure.
-.pause
-.range 2525 2529
-'.range 110 110
-.Say Action
-
-[Action 110]
-Choose the severity you'd like today, slave.
-'.ask 11 15
-.range 3100
-.Say Action
 
 '	9100 - 9149: 10, 20, 40, 60, 100; minor upwards variation.
 '	5 second, 25 paddle-type strokes, 5 elements (9110 - 9114, control 9100, 9101-9105 harshness)
 '									breaks at 9115-9118, exit at 9149
 
-
 ' 220 300 reserved for flags
+
+[Action 988]
+Choose the severity you'd like today, slave.
+.ask 11 15
+.range 3100
+.Say Action
 
 ' Toy setup
 [Action 989]
@@ -181,13 +173,13 @@ So, what will you be wearing, slave?
 .unset 989
 .ask 74 99
 .range 990
+.say action
 
 [Action 990]
-Welcome to debug my code, But don't try to cheat on me.
-What would you like to do today?
+.txt Welcome to debug my code, But don't try to cheat on me.
+.txt What would you like to do today?
 .unset 990
-.popup 30 41
-.say action
+.popup 30 42
 
 
 [Action 1000]
@@ -199,8 +191,8 @@ What would you like to do today?
 ' marathon spanking 30 min.
 
 [Action 1500]
-Slave, in order to prove to me that you're really serious about your
-enslavement, you're going to have to endure a marathon spanking session.
+Slave, in order to prove to me that you're really serious about your enslavement,
+you're going to have to endure a marathon spanking session.
 .set 180
 .range 1501 1503
 .Say Action
@@ -229,9 +221,9 @@ You'll need your wooden spoon, of course.
 
 
 [Action 1504]
-I'll be varying the rhythm of your whipping, so you'll need
-to pay attention. Now, get into a kneeling position with your
-ass well out. Use your dominant hand to spank yourself.
+I'll be varying the rhythm of your whipping, so you'll need to pay attention.
+Now, get into a kneeling position with your ass well out.
+Use your dominant hand to spank yourself.
 .delay 15
 .range 1505
 .Say Action
@@ -267,47 +259,55 @@ Rest for a moment, slave.
 
 
 [Action 1511]
+.txt
 .playwav whip2.wav
 .delay 4 4 STOP 1518
 .unset 1511
 .range 1511 1517
 
 [Action 1512]
+.txt
 .playwav whip3.wav
 .delay 4 4 STOP 1518
 .unset 1512
 .range 1512 1517
 
 [Action 1513]
+.txt
 .playwav whip4.wav
 .delay 4 4 STOP 1518
 .unset 1513
 .range 1513 1517 
 
 [Action 1514]
+.txt
 .playwav whip6.wav
 .delay 4 4 STOP 1518
 .unset 1514
 .range 1514 1517
 
 [Action 1515]
+.txt
 .playwav whip8.wav
 .delay 4 4 STOP 1518
 .unset 1515
 .range 1510 1517
 
 [Action 1516]
-We're about halfway through, slave. Rest your bottom for a minute, 
-and rub it if you like. Then we'll start again.
+We're about halfway through, slave.
+Rest your bottom for a minute, 
+and rub it if you like.
+Then we'll start again.
 .timefrom 1502 00:15
 .delay 60
 .range 1510 1515
 .Say Action
 
 [Action 1517]
-Very good, slave. We're finally finished. Does that naughty bottom
-hurt real good? Go ahead and rub it for a minute and then we'll get 
-back to our session.
+Very good, slave.
+We're finally finished.
+Does that naughty bottom hurt real good?
+Go ahead and rub it for a minute and then we'll get back to our session.
 .timefrom 1502 00:31    '   one minute for the halfway break.
 .delay 60
 .range 1519
@@ -353,17 +353,17 @@ You'll need your wooden spoon, of course.
 .Say Action
 
 [Action 1524]
-I'll be varying the rhythm of your whipping, so you'll need
-to pay attention. Now, get into a kneeling position with your
-ass well out. Use your dominant hand to spank yourself.
+I'll be varying the rhythm of your whipping, so you'll need to pay attention.
+Now, get into a kneeling position with your ass well out.
+Use your dominant hand to spank yourself.
 .delay 15
 .range 1525
 .Say Action
 
 [Action 1525]
 We'll be going for a good hour today, so prepare yourself.
-If it becomes too much for you hit the STOP button, but you'll
-just be drawing more punishment and delaying your advancement.
+If it becomes too much for you hit the STOP button,
+but you'll just be drawing more punishment and delaying your advancement.
 .delay 15
 .range 1526 1527
 .Say Action
@@ -391,46 +391,55 @@ Rest for a moment, slave.
 .Say Action
 
 [Action 1531]
+.txt
 .playwav whip2.wav
 .delay 4 4 STOP 1538
 .unset 1531
 .range 1531 1537
 
 [Action 1532]
+.txt
 .playwav whip3.wav
 .delay 4 4 STOP 1538
 .unset 1532
 .range 1532 1537
 
 [Action 1533]
+.txt
 .playwav whip4.wav
 .delay 4 4 STOP 1538
 .unset 1533
 .range 1533 1537
 
 [Action 1534]
+.txt
 .playwav whip6.wav
 .delay 4 4 STOP 1538
 .unset 1534
 .range 1534 1537
 
 [Action 1535]
+.txt
 .playwav whip8.wav
 .delay 4 4 STOP 1538
 .unset 1535
 .range 1530 1537
 
 [Action 1536]
-We're about halfway through, slave. Rest your bottom for a minute, 
-and rub it if you like. Then we'll start again - one half hour to go.
+We're about halfway through, slave.
+Rest your bottom for a minute, and rub it if you like.
+Then we'll start again
+- one half hour to go.
 .timefrom 1522 00:30
 .delay 60
 .range 1530 1535
 .Say Action
 
 [Action 1537]
-Well, slave, you made it the whole hour. What a good slave! You're quite 
-a little trooper, and I'm proud of you. Give that red butt a good rubdown now.
+Well, slave, you made it the whole hour.
+What a good slave!
+You're quite a little trooper, and I'm proud of you.
+Give that red butt a good rubdown now.
 .timefrom 1522 00:61    '   one minute for the halfway break
 .delay 60
 .range 1539
@@ -769,15 +778,15 @@ a little trooper, and I'm proud of you. Give that red butt a good rubdown now.
 
 
 [Action 1600]
-You're going to have a punishment shower now, slave. This is like
-an ordinary shower, but of course you must obey My special rules.
+You're going to have a punishment shower now, slave.
+This is like an ordinary shower, but of course you must obey My special rules.
 .range 1601 1602
 .Say Action
 
 
 [Action 1601]
-The first rule is that you must remain hard in the shower, but
-you are not allowed to cum, as I'm sure you're well aware.
+The first rule is that you must remain hard in the shower,
+but you are not allowed to cum, as I'm sure you're well aware.
 .mustnot 44             ' Chastified
 .range 1612 1617
 .Say Action
@@ -799,36 +808,31 @@ but you are not allowed to cum, as I'm sure you're well aware.
 .range 1618 1619
 
 [Action 1613]
-The second rule is that you have only five minutes
-to complete your shower and return to Me.
+The second rule is that you have only five minutes to complete your shower and return to Me.
 .must 141
 .range 1618 1619
 .Say Action
 
 [Action 1614]
-The second rule is that you have
-seven minutes to finish your shower.
+The second rule is that you have seven minutes to finish your shower.
 .must 142
 .range 1618 1619
 .Say Action
 
 [Action 1615]
-Second, you must finish your shower
-and return to Me in ten minutes or less.
+Second, you must finish your shower and return to Me in ten minutes or less.
 .must 143
 .range 1618 1619
 .Say Action
 
 [Action 1616]
-Second, you must finish your shower
-in twelve minutes or less, cunt.
+Second, you must finish your shower in twelve minutes or less, cunt.
 .must 144
 .range 1618 1619
 .Say Action
 
 [Action 1617]
-The second rule is that you must be done
-with your shower in fifteen minutes.
+The second rule is that you must be done with your shower in fifteen minutes.
 .must 145
 .range 1618 1619
 .Say Action
@@ -841,8 +845,8 @@ with your shower in fifteen minutes.
 .range 1630 1631
 
 [Action 1619]
-And you are not allowed to use hot water in this
-punishment shower, slave. Cold water only!
+And you are not allowed to use hot water in this punishment shower, slave.
+Cold water only!
 .must 146
 .range 1620 1621
 .Say Action
@@ -856,7 +860,7 @@ punishment shower, slave. Cold water only!
 
 [Action 1621]
 You are also not allowed to dry your body after your shower, slave.
-You may want to put some towels on the floor now to drip on.
+You may want to put some towels here on the floor now to drip on.
 .pause
 .must 147
 .range 1622 1630
@@ -881,8 +885,9 @@ Tie them together now.
 .Say Action
 
 [Action 1624]
-You must shower with your wrists tied together. Use rope, not something
-that will rust (like your handcuffs, stupid bitch). Tie them together now.
+You must shower with your wrists tied together.
+Use rope, not something that will rust (like your handcuffs, stupid bitch).
+Tie them together now.
 .pause
 .must 148
 .mustnot 149
@@ -892,9 +897,11 @@ that will rust (like your handcuffs, stupid bitch). Tie them together now.
 .Say Action
 
 [Action 1625]
-You must shower with your ankles tied together with rope. Don't use metal or
-it will corrode. Also, be very careful getting into and out of the shower, slave.
-I don't want you knocking your pretty head on the floor! Tie your ankles up now.
+You must shower with your ankles tied together with rope.
+Don't use metal or it will corrode.
+Also, be very careful getting into and out of the shower, slave.
+I don't want you knocking your pretty head on the floor!
+Tie your ankles up now.
 .pause
 .must 149
 .mustnot 148
@@ -904,9 +911,10 @@ I don't want you knocking your pretty head on the floor! Tie your ankles up now.
 
 [Action 1626]
 You will bind your hands and ankles together with rope for this shower.
-Be especially careful you don't fall - you may kneel in the shower
-if you don't feel safe. I want my little slave fresh and clean,
-not all beat up, yet. Tie your wrists and ankles now.
+Be especially careful you don't fall
+- you may kneel in the shower if you don't feel safe.
+I want my little slave fresh and clean, not all beat up, yet.
+Tie your wrists and ankles now.
 .pause
 .must 148 149
 .must 330               ' Some rope
@@ -915,7 +923,7 @@ not all beat up, yet. Tie your wrists and ankles now.
 
 [Action 1627]
 You must shower with your wrists tied together.
-Get some rope or shoelace  and tie them together now.
+Get some rope or shoelace and tie them together now.
 .pause
 .must 148
 .mustnot 149
@@ -925,8 +933,9 @@ Get some rope or shoelace  and tie them together now.
 .Say Action
 
 [Action 1628]
-You must shower with your wrists tied together. Use rope or shoelace, not something
-that will rust (like your handcuffs, stupid bitch). Tie them together now.
+You must shower with your wrists tied together.
+Use rope or shoelace, not something that will rust (like your handcuffs, stupid bitch).
+Tie them together now.
 .pause
 .must 148
 .mustnot 149
@@ -936,9 +945,11 @@ that will rust (like your handcuffs, stupid bitch). Tie them together now.
 .Say Action
 
 [Action 1629]
-You must shower with your ankles tied together with rope or shoe lace. Don't use metal or
-it will corrode. Also, be very careful getting into and out of the shower, slave.
-I don't want you knocking your pretty head on the floor! Tie your ankles up now.
+You must shower with your ankles tied together with rope or shoe lace.
+Don't use metal or it will corrode.
+Also, be very careful getting into and out of the shower, slave.
+I don't want you knocking your pretty head on the floor!
+Tie your ankles up now.
 .pause
 .must 149
 .mustnot 148
@@ -948,9 +959,10 @@ I don't want you knocking your pretty head on the floor! Tie your ankles up now.
 
 [Action 1630]
 You will bind your hands and ankles together with rope or shoe lace for this shower.
-Be especially careful you don't fall - you may kneel in the shower
-if you don't feel safe. I want my little slave fresh and clean,
-not all beat up, yet. Tie your wrists and ankles now.
+Be especially careful you don't fall
+- you may kneel in the shower if you don't feel safe.
+I want my little slave fresh and clean, not all beat up, yet.
+Tie your wrists and ankles now.
 .pause
 .must 148 149
 .mustnot 330            ' Some rope
@@ -965,14 +977,16 @@ not all beat up, yet. Tie your wrists and ankles now.
 .range 1634 1635
 
 [Action 1632]
-You will wear two clothes pegs on your nipples in the shower, slave. Put them on now.
+You will wear two clothes pegs on your nipples in the shower, slave.
+Put them on now.
 .pause
 .must 150
 .range 1634 1635
 .Say Action
 
 [Action 1633]
-You will wear your nipple clamps in the shower today, cunt. Put them on now.
+You will wear your nipple clamps in the shower today, cunt.
+Put them on now.
 .pause
 .must 151
 .range 1634 1635
@@ -1001,8 +1015,8 @@ You'll wear those in the shower, too.
 .range 1638 1640
 
 [Action 1637]
-You will wear your gag in the shower. I don't want to hear
-any more complaints from your filthy mouth, so put it in now.
+You will wear your gag in the shower.
+I don't want to hear any more complaints from your filthy mouth, so put it in now.
 .pause
 .must 157               ' Gagged in shower
 .range 1638 1640
@@ -1133,14 +1147,16 @@ a full 200 firm smacks on your bare, wet, slave-butt, cunt.
 .range 1654 1659
 
 [Action 1653]
-You may not stand in the shower today, cunt - you must kneel instead.
+You may not stand in the shower today, cunt
+- you must kneel instead.
 .must 156
 .range 1654 1659
 .Say Action
 
 
 [Action 1654]
-Okay, slave, go and shower. Tell me when you're finished.
+Okay, slave, go and shower.
+Tell me when you're finished.
 .pause
 .mustnot 141 142 143 144 145
 .range 1660
@@ -1148,15 +1164,16 @@ Okay, slave, go and shower. Tell me when you're finished.
 
 [Action 1655]
 Okay, slave, you have five minutes to get back here.
-Press the STOP button when you return. Better hurry up!
+Press the STOP button when you return.
+Better hurry up!
 .must 141
 .delay 300 300 STOP 1660 
 .range 1670
 .Say Action
 
 [Action 1656]
-Better move your butt, slave. You have seven minutes to be back
-here, starting now. Press the STOP button when you get back.
+Better move your butt, slave. You have seven minutes to be back here, starting now.
+Press the STOP button when you get back.
 .must 142 
 .delay 420 420 STOP 1660
 .range 1670
@@ -1164,7 +1181,8 @@ here, starting now. Press the STOP button when you get back.
 
 [Action 1657]
 Okay, cunt, you've got ten minutes to finish up.
-Better move your ass! Press STOP when you return.
+Better move your ass!
+Press STOP when you return.
 .must 143
 .delay 600 600 STOP 1660
 .range 1670
@@ -1172,15 +1190,17 @@ Better move your ass! Press STOP when you return.
 
 [Action 1658]
 You have exactly 12 minutes to finish your shower, slave.
-Better hurry up! Press the STOP button when you're done.
+Better hurry up!
+Press the STOP button when you're done.
 .must 144
 .delay 720 720 STOP 1660
 .range 1670
 .Say Action
 
 [Action 1659]
-Time for your punishment shower, slave. You have fifteen
-minutes exactly. Press the STOP button when you're done.
+Time for your punishment shower, slave.
+You have fifteen minutes exactly.
+Press the STOP button when you're done.
 .must 145
 .delay 900 900 STOP 1660
 .range 1670
@@ -1202,8 +1222,9 @@ You may take off any punishment items you have on now.
 .Say Action
 
 [action 1662]
-Now my pet: did you follow my order and resisted to dry
-your body after your shower? Are you still wet, slave? 
+Now my pet:
+Did you follow my order and resisted to dry your body after your shower?
+Are you still wet, slave? 
 .must 147               ' No drying afterwards
 .yesno 1663 1664 1665 1665
 .say action
@@ -1222,15 +1243,18 @@ and take off any punishment items you have on now.
 
 
 [Action 1665]
-Wow. The poor cunt dared to ignore his mistress precise orders.
+Wow.
+The poor cunt dared to ignore his mistress precise orders.
 Well, you can just return to the bathroom and shower yourself off again,
-to get wet as you were supposed to be. Cold water only this time!
+to get wet as you were supposed to be.
+Cold water only this time!
 .pause
 .range 1666
 .Say Action
 
 [Action 1666]
-Very good. That was certainly refreshing, don't you think?
+Very good.
+That was certainly refreshing, don't you think?
 I hope you're properly wet this time.
 .pause
 .range 1673 1674
@@ -1238,7 +1262,8 @@ I hope you're properly wet this time.
 
 
 [Action 1670]
-Tsk, tsk, slave. You're late.
+Tsk, tsk, slave.
+You're late.
 .pause
 .range 1671 1672
 .Say Action
@@ -1286,7 +1311,8 @@ Put your hands on your head and cross your ankles while you're over there.
 [Action 1676]
 Okay, slave, that's enough.
 You can take off any punishment items you have on.
-Did you learn your lesson? I hope so, slut.
+Did you learn your lesson?
+I hope so, slut.
 .pause
 .playwav whip.wav
 .range 1699
@@ -1317,7 +1343,7 @@ Did you learn your lesson? I hope so, slut.
 '   183 - patience (505 for premature retry to attend session)
 '   187 - attention to mistress orders 520 Wrong toys at session start
 '   188 - attention to mistress orders 521 Didn't perform assignment
-'   189 - attention to mistress orders 524 Failed to hide cock between thighs
+'   189 - attention to mistress orders 524 -
 '   186 - cumming without permission (519)
 '   180 - respect (500 for bad introduction)
 '   181 - nudity rule
@@ -1486,7 +1512,7 @@ Did you learn your lesson? I hope so, slut.
 [Action 1720]
 .delay 0
 .noimage
-.range 1821 1829
+.range 1721 1729
 
 
 ' 10-15m
@@ -1537,7 +1563,7 @@ Did you learn your lesson? I hope so, slut.
 
 
 ' Corner time entry range
-' - select waiting duration by specifying range in 1831-1840
+' - select waiting duration by specifying range in 1731-1740
 ' Continue at 2110 to evaluate other flags and select cuffs and clamps
 
 ' 5 minutes
@@ -1760,6 +1786,7 @@ Did you learn your lesson? I hope so, slut.
 .delay 0
 .range 1830 1849
 
+
 ' respect - 500 for bad introduction
 [Action 1830]
 To help you learn respect, my slut, I'm going to
@@ -1892,8 +1919,9 @@ uncomfortable, and it will make you feel very stupid and naughty.
 
 
 [Action 1861]
-I want you to have something extra to think about over in the corner, so go
-fetch me your nipple clamps, and grab your handcuffs while you're at it.
+I want you to have something extra to think about over in the corner,
+so go fetch me your nipple clamps,
+and grab your handcuffs while you're at it.
 .pause
 .must 123 130
 .range 1870
@@ -1909,8 +1937,8 @@ so go fetch your handcuffs before we get started.
 .Say Action
 
 [Action 1863]
-I think a little nipple-pain will help you concentrate in
-your corner. Grab your nipple clamps and keep them handy.
+I think a little nipple-pain will help you concentrate in your corner.
+Grab your nipple clamps and keep them handy.
 .pause
 .must 130
 .mustnot 123
@@ -1932,10 +1960,11 @@ your corner. Grab your nipple clamps and keep them handy.
 .range 1871 1879
 
 [Action 1871]
-Today I'll have you kneel in the corner. You may not bring a pillow or anything
-else: Just kneel right on the floor. If you have carpeting, I want you to cover
-up your space in the corner with a board or something similar. I'm sure you know
-how uncomfortable kneeling for a long period of time is!
+Today I'll have you kneel in the corner.
+You may not bring a pillow or anything else:
+Just kneel right on the floor.
+If you have carpeting, I want you to cover up your space in the corner with a board or something similar.
+I'm sure you know how uncomfortable kneeling for a long period of time is!
 .pause
 .must 121
 .range 1880
@@ -1967,8 +1996,9 @@ I'm sure it will further train you to refrain from wasting my valuable time.
 
 [Action 1881]
 Since you'll be wearing nipple clamps today, you will have to do a little extra preparation.
-I want you to find a way to attach the chain of your clamps to the corner itself, so that you
-are tethered by your nipples to the corner. This is one of My favorite ways to immobilize slaveboys,
+I want you to find a way to attach the chain of your clamps to the corner itself,
+so that you are tethered by your nipples to the corner.
+This is one of My favorite ways to immobilize slaveboys,
 especially since you'll have to stay very still in order to keep from pulling your nipples.
 .must 130
 .mustnot 267 268        ' Enema carried out, completed voiding the enema, ready for plug
@@ -1990,24 +2020,24 @@ especially since you'll have to stay very still in order to keep from pulling yo
 .range 1891 1899
 
 [Action 1891]
-Since your hands will be free, I'll generously allow you to play with your
-slave penis while you're in the corner. Of course you aren't allowed to cum.
+Since your hands will be free, I'll generously allow you to play with your slave penis while you're in the corner.
+Of course you aren't allowed to cum.
 .mustnot 30             ' Can't jerk off
 .mustnot 123            ' Handcuffed
 .range 1900
 .Say Action
 
 [Action 1892]
-I'm leaving your hands free today, but I want you to keep them on the top
-of your head, fingers laced together. That should keep them out of trouble.
+I'm leaving your hands free today, but I want you to keep them on the top of your head, fingers laced together.
+That should keep them out of trouble.
 .mustnot 123
 .range 1900
 .Say Action
 
 [Action 1893]
-While you're in the corner, I want you to grasp your balls with
-both hands. You aren't allowed to play with yourself - I just
-want you to hold your pathetic slave nuts while you wait there.
+While you're in the corner, I want you to grasp your balls with both hands.
+You aren't allowed to play with yourself
+- I justwant you to hold your pathetic slave nuts while you wait there.
 .delay 15
 .mustnot 30             ' Can't jerk off
 .mustnot 123
@@ -2016,8 +2046,8 @@ want you to hold your pathetic slave nuts while you wait there.
 
 [Action 1894]
 While you're in the corner, I want you to grasp your balls with both hands.
-You aren't allowed to play with yourself - well not that you could - 
-I just want you to hold your pathetic slave nuts while you wait there.
+You aren't allowed to play with yourself - well not that you could
+- I just want you to hold your pathetic slave nuts while you wait there.
 .delay 15
 .must 30                ' Can't jerk off
 .mustnot 123
@@ -2025,10 +2055,11 @@ I just want you to hold your pathetic slave nuts while you wait there.
 .Say Action
 
 [Action 1895]
-I don't want you playing with yourself in the corner, so while you're there
-I want you to firmly grasp one of your slave buns in each hand, spread them open,
-and keep them spread the whole time. That cool breeze on your asshole should
-remind you that you are a pathetic slaveboy, being punished in the corner.
+I don't want you playing with yourself in the corner,
+so while you're there I want you to firmly grasp one of your slave buns in each hand, spread them open,
+and keep them spread the whole time.
+That cool breeze on your asshole should remind you that you are a pathetic slaveboy,
+being punished in the corner.
 .delay 20
 .mustnot 30             ' Can't jerk off
 .mustnot 123
@@ -2036,10 +2067,12 @@ remind you that you are a pathetic slaveboy, being punished in the corner.
 .Say Action
 
 [Action 1896]
-I don't want you playing with yourself in the corner at all, so while you're there
-I want you to firmly grasp one of your slave buns in each hand, spread them open,
-and keep them spread the whole time. That cool breeze on your asshole should
-remind you that you are a pathetic slaveboy, being punished in the corner.
+I don't want you playing with yourself in the corner at all,
+- well not that you could
+- so while you're there I want you to firmly grasp one of your slave buns in each hand, spread them open,
+and keep them spread the whole time.
+That cool breeze on your asshole should remind you that you are a pathetic slaveboy,
+being punished in the corner.
 .delay 20
 .must 30                ' Can't jerk off
 .mustnot 123
@@ -2080,16 +2113,16 @@ I guess I'm just in a forgiving mood.
 .Say Action
 
 [Action 1962]
-I think about five minutes in the corner should be enough
-for you today. I guess I'm just in a forgiving mood.
+I think about five minutes in the corner should be enough for you today.
+I guess I'm just in a forgiving mood.
 .mustnot 113 114 115 116 117 118 119 120
 .range 1980
 .Say Action
 
 
 [Action 1963]
-I think five or ten minutes in the corner should be enough
-for you today. I guess I'm just in a forgiving mood.
+I think five or ten minutes in the corner should be enough for you today.
+I guess I'm just in a forgiving mood.
 .mustnot 113 114 115 116 117 118 119 120
 .range 1980
 .Say Action
@@ -2101,7 +2134,8 @@ You'll be in the corner for ten or fifteen minutes today.
 .Say Action
 
 [Action 1965]
-I think ten or fifteen minutes of corner time is about right, give or take.
+I think ten or fifteen minutes of corner time is about right,
+give or take.
 .mustnot 111 114 115 116 117 118 119 120
 .range 1980
 .Say Action
@@ -2113,52 +2147,59 @@ You'll be in the corner for fifteen or twenty minutes today.
 .Say Action
 
 [Action 1967]
-I think fifteen or twenty minutes of corner time is about right, give or take.
+I think fifteen or twenty minutes of corner time is about right,
+give or take.
 .mustnot 111 112 116 117 118 119 120
 .range 1980
 .Say Action
 
 [Action 1968]
-I think about twenty minutes of corner time is about right, give or take.
+I think about twenty minutes of corner time is about right,
+give or take.
 .mustnot 111 112 116 117 118 119 120
 .range 1980
 .Say Action
 
 [Action 1969]
-I'm quite angry at you today, so I think I'll make today's corner
-time about a half hour long. I hope you use that time wisely, slut.
+I'm quite angry at you today,
+so I think I'll make today's corner time about a half hour long.
+I hope you use that time wisely, slut.
 .mustnot 111 112 113 114 118 119 120
 .range 1980
 .Say Action
 
 [Action 1970]
-I'm quite angry at you today, so you'll be in that corner
-for a good half hour. I hope you use that time wisely, slut.
+I'm quite angry at you today,
+so you'll be in that corner for a good half hour.
+I hope you use that time wisely, slut.
 .mustnot 111 112 113 114 115 118 119 120
 .range 1980
 .Say Action
 
 [Action 1971]
-You've made me very angry today, slave, so you'll be in that corner
-for about forty minutes. That should give you plenty of time to think
-about the ways in which you've displeasured me, and how to make amends.
+You've made me very angry today, slave,
+so you'll be in that corner for about forty minutes.
+That should give you plenty of time to think about the ways in which you've displeasured me,
+and how to make amends.
 .delay 15
 .mustnot 111 112 113 114 115 116 120
 .range 1980
 .Say Action
 
 [Action 1972]
-You've made me very very angry today, slave, so you'll be in that corner
-for a good forty minutes. That should give you plenty of time to think
-about the ways in which you've displeasured me, and how to make amends.
+You've made me very very angry today, slave,
+so you'll be in that corner for a good forty minutes.
+That should give you plenty of time to think about the ways in which you've displeasured me,
+and how to make amends.
 .delay 15
 .mustnot 111 112 113 114 115 116 117 120
 .range 1980
 .Say Action
 
 [Action 1973]
-You've been a complete cunt today, slave, and I think I'll reward you with a
-full hour in the corner. I'm sure you'll have a much better attitude after that!
+You've been a complete cunt today, slave,
+and I think I'll reward you with a full hour in the corner.
+I'm sure you'll have a much better attitude after that! 
 .must 120
 .range 1980
 .Say Action
@@ -2172,7 +2213,8 @@ full hour in the corner. I'm sure you'll have a much better attitude after that!
 
 
 [Action 1981]
-Put your nipple clamps on now, slave, and make sure they're nice and tight.
+Put your nipple clamps on now, slave,
+and make sure they're nice and tight.
 .pause
 .must 130
 .range 1990
@@ -2194,8 +2236,9 @@ Put your nipple clamps on now, slave, and make sure they're nice and tight.
 
 
 [Action 1991]
-Now put your handcuffs on, behind your back. Make sure that the key is
-somewhere you can get at it - of course, not anywhere near the corner.
+Now put your handcuffs on, behind your back.
+Make sure that the key is somewhere you can get at it
+- of course, not anywhere near the corner.
 .delay 20
 .must 123
 .range 2000
@@ -2220,21 +2263,18 @@ somewhere you can get at it - of course, not anywhere near the corner.
 .delay 0
 .mustnot 121 122   ' Standing
 .range 2010
-.Say Action
 
 [Action 2002]
 .noimage
 .delay 0
 .must 121          ' Kneeling
 .range 2020
-.Say Action
 
 [Action 2003]
 .noimage
 .delay 0
 .must 122          ' Tip toes
 .range 2030
-.Say Action
 
 
 ' Standing
@@ -2246,11 +2286,12 @@ It's time to go stand in the corner, slave.
 .say action
 
 [Action 2011]
-I want you to face into the corner, and you are not allowed to turn your head. When your
-time is up, I will let you know with my whip. If you've been given any special instructions,
-make sure you follow them to the letter. You are also not allowed to touch or lean up
-against the walls. When you hear my whip, come right back here, but don't remove any
-torture or bondage items that you're wearing until I tell you otherwise.
+I want you to face into the corner, and you are not allowed to turn your head.
+When your time is up, I will let you know with my whip.
+If you've been given any special instructions, make sure you follow them to the letter.
+You are also not allowed to touch or lean up against the walls.
+When you hear my whip, come right back here,
+but don't remove any torture or bondage items that you're wearing until I tell you otherwise.
 .delay 30
 .range 2018
 .Say Action
@@ -2269,8 +2310,7 @@ Now march into the corner, slut, and meditate on your naughty behavior.
 .txt If you've been given any special instructions, make sure you follow them to the letter.
 .txt You are also not allowed to touch or lean up against the walls.
 .txt When you hear my whip, come right back here, but don't remove any torture or bondage items that you're wearing until I tell you otherwise.
-Now march into the corner, slut, and meditate on your naughty behavior.
-.delay 60
+.actiondelay 60
 .range 2110
 
 
@@ -2283,11 +2323,11 @@ It's time for you to go into the corner now, slave.
 .say action
 
 [Action 2021]
-I want you to crawl over there on your knees, and get in a kneeling position on the floor,
-or the boards if you needed them.
+I want you to crawl over there on your knees, and get in a kneeling position on the floor, or the boards if you needed them.
 You are to face into the corner, and you must not touch the walls or lean against them.
 You are not to turn your head for any reason, such as to look at the clock.
-You may not rest your butt on your heels - you must remain in an upright kneeling position,
+You may not rest your butt on your heels
+- you must remain in an upright kneeling position,
 although I'm sure that will be very uncomfortable.
 You must also follow any other instructions I've given you.
 When your time is up, I will crack my whip, at which time you will come back here (on your knees),
@@ -2310,8 +2350,7 @@ Now crawl over to the corner, slaveboy!
 .txt You are not to turn your head for any reason, such as to look at the clock.
 .txt You may not rest your butt on your heels - you must remain in an upright kneeling position, although I'm sure that will be very uncomfortable.
 .txt You must also follow any other instructions I've given you. When your time is up, I will crack my whip, at which time you will come back here (on your knees), but you are not allowed to remove any bondage or torture devices until I tell you to.
-Now crawl over to the corner, slaveboy!
-.delay 60
+.actiondelay 60
 .range 2110
 
 
@@ -2350,8 +2389,7 @@ Now tiptoe over to that corner, you naughty boy, and think about the error of yo
 .txt You must also follow any special instructions I've given you today.
 .txt When your time is up, I will crack my whip.
 .txt You are to immediately come back here, but you are not allowed to remove any bondage or torture toys until I tell you to.
-Now tiptoe over to that corner, you naughty boy, and think about the error of your ways!
-.delay 60
+.actiondelay 60
 .range 2110
 
 
@@ -2368,73 +2406,85 @@ Now tiptoe over to that corner, you naughty boy, and think about the error of yo
 ' Five minutes = 300s
 [Action 2111]
 .noimage
+.txt
 .must 111
-.delay 240
+.actiondelay 240
 .range 2130
 
 ' Ten minutes = 600s
 [Action 2112]
 .noimage
+.txt
 .must 112
-.delay 540
+.actiondelay 540
 .range 2130
 
 ' Fifteen minutes = 900s
 [Action 2113]
 .noimage
+.txt
 .must 113
-.delay 840
+.actiondelay 840
 .range 2130
 
 ' 20m = 1200s
 [Action 2114]
 .noimage
+.txt
 .must 114
-.delay 1140
+.actiondelay 1140
 .range 2130
 
 ' 25m = 1500s
 [Action 2115]
 .noimage
+.txt
 .must 115
-.delay 1440
+.actiondelay 1440
 .range 2130
 
 ' 30m = 1800s
 [Action 2116]
 .noimage
+.txt
 .must 116
-.delay 1740
+.actiondelay 1740
 .range 2130
 
 ' 35m = 2100s
 [Action 2117]
 .noimage
+.txt
 .must 117
-.delay 2040
+.actiondelay 2040
 .range 2130
 
 ' 40m = 2400s
 [Action 2118]
 .noimage
+.txt
 .must 118
-.delay 2340
+.actiondelay 2340
 .range 2130
 
 ' 45m = 2700s
 [Action 2119]
 .noimage
+.txt
 .must 119
-.delay 2640
+.actiondelay 2640
 .range 2130
 
 ' 60m = 3600s
 [Action 2120]
 .noimage
+.txt
 .must 120
-.delay 3540
+.actiondelay 3540
 .range 2130
 
+
+' Finished corner time
 
 [Action 2130]
 .noimage
@@ -2443,7 +2493,8 @@ Now tiptoe over to that corner, you naughty boy, and think about the error of yo
 
 
 [Action 2131]
-Very good, slave. You may now take off your handcuffs and nipple clamps.
+Very good, slave.
+You may now take off your handcuffs and nipple clamps.
 .pause
 .playwav whip.wav
 .must 123 130
@@ -2451,7 +2502,8 @@ Very good, slave. You may now take off your handcuffs and nipple clamps.
 .Say Action
 
 [Action 2132]
-Good boy. You may take off those nipple clamps now.
+Good boy.
+You may take off those nipple clamps now.
 .pause
 .playwav whip.wav
 .must 130
@@ -2460,7 +2512,8 @@ Good boy. You may take off those nipple clamps now.
 .Say Action
 
 [Action 2133]
-Good boy. You may take off the handcuffs.
+Good boy.
+You may take off the handcuffs.
 .pause
 .playwav whip.wav
 .must 123
@@ -2576,7 +2629,7 @@ Okay slave, get your magic marker.
 [Action 2230]
 .noimage
 .delay 0
-.must 189          ' 512 Forgot to put cock between thighs when supposed to 
+.must 189          ' 524 - 
 .range 2320
 
 
@@ -2588,16 +2641,18 @@ Okay slave, get your magic marker.
 .range 2241 2242
 
 [Action 2241]
-Now I want you to take your marker, and write the word "BAD" on your
-left buttcheek, and the word "SLAVE" on your right buttcheek.
-Understand, slave? You must be properly shamed for your lack of respect.
+Now I want you to take your marker, and write the word "BAD" on your left buttcheek,
+and the word "SLAVE" on your right buttcheek.
+Understand, slave?
+You must be properly shamed for your lack of respect.
 .pause
 .range 1700        ' Light punishment
 .say action
 
 [Action 2242]
-With that marker, I want you to write "NAUGHTY" on your
-left asscheek, and "SLAVE" on your right. Understand?
+With that marker, I want you to write "NAUGHTY" on your left asscheek,
+and "SLAVE" on your right.
+Understand?
 You have been a naughty and disrespectful slave.
 .pause
 .range 1700        ' Light punishment
@@ -2613,7 +2668,8 @@ You have been a naughty and disrespectful slave.
 
 
 [Action 2251]
-Take it and write "NAKED" on your left buttcheek, and "SLUT" on your right.
+Take it and write "NAKED" on your left buttcheek,
+and "SLUT" on your right.
 You must remember that you are My naked slut, after all!
 .pause
 .range 1700        ' Light punishment
@@ -2629,10 +2685,16 @@ You must remember that you are My naked slut, after all!
 
 
 [Action 2261]
-I hope I can get through to you this time. On your left asscheek,
-write "BARE NAKED" and on your right asscheek, "NAUGHTY SLAVE".
-On your right tit, write the word "SLUTTY"  and on your left, "CUNT".
-Got all that? Get to it!
+I hope I can get through to you this time.
+On your left asscheek,
+write "BARE NAKED" and on your right asscheek,
+"NAUGHTY SLAVE".
+On your right tit,
+write the word "SLUTTY",
+ and on your left,
+ "CUNT".
+Got all that?
+Get to it!
 .pause
 .range 1710        ' medium punishment
 .say action
@@ -2656,18 +2718,20 @@ Got all that? Get to it!
 
 [Action 2281]
 With that marker, I want you to write "STUPID" on your right ball,
-and "SLAVE" on your left ball. Understand, slave? What else but
-stupid is a slave that can't keep his meat hard for his mistress!
+and "SLAVE" on your left ball.
+Understand, slave?
+What else but stupid is a slave that can't keep his meat hard for his mistress!
 .pause
 .mustnot 30        ' something on penis, can't jerk off
 .range 1700        ' light punishment
 .say action
 
 [Action 2282]
-I want you to wank your silly slave penis hard and erect. Then take
-your marker, and write "STUPID" on the right side of your cock, and
-"CUNT" on the left side. Understand, slave? What else is a slave
-that can't keep his meat hard for his mistress but a stupid cunt!
+I want you to wank your silly slave penis hard and erect.
+Then take your marker, and write "STUPID" on the right side of your cock,
+and "CUNT" on the left side.
+Understand, slave?
+What else is a slave that can't keep his meat hard for his mistress but a stupid cunt!
 .pause
 .must 30           ' something on penis, can't jerk off
 .range 1700        ' light punishment
@@ -2683,19 +2747,22 @@ that can't keep his meat hard for his mistress but a stupid cunt!
 
 
 [Action 2291]
-I want you to take your marker, and write the word "BAD" on your right ball,
-and the word "GIRL" on your left ball. Understand, slave? You are a bad girl
-for not keeping your member stiff for me when you absolutely were to.
+I want you to take your marker,
+and write the word "BAD" on your right ball,
+and the word "GIRL" on your left ball.
+Understand, slave?
+You are a bad girl for not keeping your member stiff for me when you absolutely were to.
 .pause
 .mustnot 30        ' something on penis, can't jerk off
 .range 1710        ' medium punishment
 .say action
 
 [Action 2292]
-I want you to wank your silly slave penis hard and erect. Then take your marker,
-and write the word "BAD" on the right side of your cock, and the word "SLAVE"
-on the left side. Understand, slave? You are a bad slave for not keeping your
-member stiff for me when you were to.
+I want you to wank your silly slave penis hard and erect.
+Then take your marker, and write the word "BAD" on the right side of your cock,
+and the word "SLAVE" on the left side.
+Understand, slave?
+You are a bad slave for not keeping your member stiff for me when you were to.
 .pause
 .must 30           ' Can't jerk off
 .range 1710        ' medium punishment
@@ -2710,24 +2777,28 @@ member stiff for me when you were to.
 .range 2301
 
 [Action 2301]
-I want you to take your marker, write the word "BAD" on your right ball,
-and the word "GIRL" on your left ball. Understand, slave? You have been
-a bad girl for spurting your load when you were not to do so.
+I want you to take your marker,
+write the word "BAD" on your right ball,
+and the word "GIRL" on your left ball.
+Understand, slave?
+You have been a bad girl for spurting your load when you were not to do so.
 .pause
 .range 2302
 .Say Action
 
 [Action 2302]
-Next, I want you to write "DISOBEDIENT" below your belly button
-half way down to your cock, and "SLAVE" right below. Understand, slave?
-You've been a very disobedient slave because you came without my permission.
+Next, I want you to write "DISOBEDIENT" below your belly button half way down to your cock,
+and "SLAVE" right below.
+Understand, slave?
+You've been a very disobedient slave when you came without my permission.
 .pause
 .range 2303
 .Say Action
 
 [Action 2303]
 Now go ahead and write the word "CUNT" on your cock,
-vertically in large bold letters. Understand, slave?
+vertically in large bold letters.
+Understand, slave?
 You are a cunt, and so is that filthy prick of yours.
 .pause
 .mustnot 23 30
@@ -2735,9 +2806,10 @@ You are a cunt, and so is that filthy prick of yours.
 .Say Action
 
 [Action 2304]
-Finally, write "NAUGHTY" on your right thigh, and "SLUTTY" on your left.
-Understand slave? It was very naughty of you to spurt your load without
-permission and you are a slutty slave for doing so.
+Finally, write "NAUGHTY" on your right thigh,
+and "SLUTTY" on your left.
+Understand slave?
+It was very naughty of you to spurt your load without permission and you are a slutty slave for doing so.
 .pause
 .range 2307 2309
 .Say Action
@@ -2777,26 +2849,31 @@ Now you are properly shamed for your lack of respect.
 
 
 [Action 2311]
-I want you to take your marker, and write the word "SLUTTY" on your
-right thigh, and the word "CUNT" on your left thigh. Understand, slave?
+I want you to take your marker,
+and write the word "SLUTTY" on your right thigh,
+and the word "CUNT" on your left thigh.
+Understand, slave?
 You are a slutty cunt for your improper appearance when approaching me.
 .pause
 .range 2318 2319
 .Say Action
 
 [Action 2312]
-With that marker, I want you to write "DISOBEDIENT" below your
-belly button half way down to your cock, and "SLUT" right below.
-Understand, slave? You are a disobedient slut for ignoring your
-mistress precise assignment on how to appear for this session.
+With that marker,
+I want you to write "DISOBEDIENT" below your
+belly button half way down to your cock,
+and "SLUT" right below.
+Understand, slave?
+You are a disobedient slut for ignoring your mistress precise assignment on how to appear for this session.
 .pause
 .range 2318 2319
 .Say Action
 
 [Action 2313]
-I want you to take your marker, and write the word "STUPID" on your right
-hip, and the word "SLAVE" on your left hip. Understand, slave? You are
-a stupid slave because you've failed to carry out a simple assignment.
+I want you to take your marker,
+and write the word "STUPID" on your right hip,
+and the word "SLAVE" on your left hip.
+Understand, slave? You are a stupid slave because you've failed to carry out a simple assignment.
 .pause
 .range 2318 2319
 .Say Action
@@ -2824,41 +2901,49 @@ a stupid slave because you've failed to carry out a simple assignment.
 
 
 [Action 2321]
-I want you to take your marker, and write the word "SLUTTY" on your
-right thigh, and the word "CUNT" on your left thigh. Understand, slave?
+I want you to take your marker,
+and write the word "SLUTTY" on your right thigh,
+and the word "CUNT" on your left thigh.
+Understand, slave?
 You are a slutty cunt because you didn't carry out your assignment.
 .pause
 .range 1710
 .Say Action
 
 [Action 2322]
-With that marker, I want you to write "STUPID" below your belly button
-half way down to your cock, and "SLAVE" right below. Understand, slave?
+With that marker,
+I want you to write "STUPID" below your belly button half way down to your cock,
+and "SLAVE" right below. Understand, slave?
 You are a stupid slave for forgetting to perform your mistress' orders.
 .pause
 .range 1710
 .Say Action
 
 [Action 2323]
-I want you to take your marker, and write the word "DISOBEDIENT" on your
-right hip, and the word "SLUT" on your left hip. Understand, slave?
+I want you to take your marker,
+and write the word "DISOBEDIENT" on your right hip, and the word "SLUT" on your left hip.
+Understand, slave?
 You are a disobedient slut for not performing your mistress' orders.
 .pause
 .range 1710
 .Say Action
 
 
-' 524 ??? (currently not in use)
+' 524 - (currently not in use so the text can be ignored)
 
 [Action 2330]
-Very good. Now kneel down and hide your silly prick
-between your thighs, as you were supposed to do.
+Very good.
+Now kneel down and hide your silly prick between your thighs,
+as you were supposed to do.
 .delay 10
 .range 2331 2339
+.Say Action
 
 [Action 2331]
-I want you to take your marker, and write the word "BAD" on your
-right thigh, and the word "GIRL" on your left thigh. Understand, slave?
+I want you to take your marker,
+and write the word "BAD" on your right thigh,
+and the word "GIRL" on your left thigh.
+Understand, slave?
 You have been a bad girl when you vulgarly displayed your flacid slave
 penis to your mistress although you we not allowed to do so.
 .pause
@@ -2866,11 +2951,15 @@ penis to your mistress although you we not allowed to do so.
 .Say Action
 
 [Action 2332]
-The first part of your punishment is to shame yourself. With that marker,
-I want you to write "SLUTTY" on your right tigh, and "NAUGHTY" on your left.
-On your cock, you'll write the words "SLAVE" and "MEAT". Understand, slave?
+The first part of your punishment is to shame yourself.
+With that marker,
+I want you to write "SLUTTY" on your right tigh,
+and "NAUGHTY" on your left.
+On your cock,
+you'll write the words "SLAVE" and "MEAT".
+Understand, slave?
 It was very slutty and naughty of you to show off your flacid slave meat
-to your mistress when you were not allowed to do so.
+to your mistress when you were not supposed to do so.
 .pause
 .range 1700
 .Say Action
@@ -2892,7 +2981,6 @@ to your mistress when you were not allowed to do so.
 .unset 121 122 125 126 128 129
 .set 180                          ' Punishment dispatch
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
-.Say Action
 
 
 ' 501 impatience
@@ -2907,7 +2995,6 @@ to your mistress when you were not allowed to do so.
 .unset 121 122 123 124 126 127 129
 .set 181
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
-.Say Action
 
 
 ' 503 "naked rule" violation, level 2
@@ -2919,7 +3006,6 @@ to your mistress when you were not allowed to do so.
 .unset 121 122 123 124 126 127 129
 .set 182
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
-.Say Action
 
 
 ' 504 general disobedience
@@ -2955,7 +3041,6 @@ to your mistress when you were not allowed to do so.
 .unset 121 122 123 124 126 127 129
 .set 184
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
-.Say Action
 
 
 ' 512 Lack of hardness, write on cock or balls
@@ -2967,7 +3052,6 @@ to your mistress when you were not allowed to do so.
 .unset 121 122 123 124 126 127 129
 .set 185
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
-.Say Action
 
 
 ' 513 Voluntary punishment upon slave's request, level 1
@@ -3419,17 +3503,19 @@ to your mistress when you were not allowed to do so.
 
 
 [Action 3100]
-I'm going to punish your slave balls now, My dear. Those silly
-balls are just asking for it. But first we must prepare.
+I'm going to punish your slave balls now, My dear.
+Those silly balls are just asking for it.
+But first we must prepare.
 '.ask 11 15
 .range 3101 3104
 .Say Action
 
 [Action 3101]
-I want you to fetch a rope or a chain for your ball sack first, slave. Tie it around your balls,
-and leave about two feet of it dangling or so. I want you to make sure that rope isn't coming off
-- make sure it's tight! If you have a ball harness or something similar, go ahead and use it,
-and connect a rope to that instead.
+I want you to fetch a rope or a chain for your ball sack first, slave.
+Tie it around your balls, and leave about two feet of it dangling or so.
+I want you to make sure that rope isn't coming off
+- make sure it's tight!
+If you have a ball harness or something similar, go ahead and use it, and connect a rope to that instead.
 .pause
 .mustnot 214 219        ' Neither cock harness nor cock bondage
 .mustnot 385
@@ -3437,9 +3523,10 @@ and connect a rope to that instead.
 .Say Action
 
 [Action 3102]
-I want you to fetch your cock harness and put it on your ball sack first, slave. Also
-fetch some rope, connect it to your ball harness and leave about two feet of it dangling
-or so. I want you to make sure that rope isn't coming off - make sure it's tight!  
+I want you to fetch your cock harness and put it on your ball sack first, slave.
+Also fetch some rope, connect it to your ball harness and leave about two feet of it dangling or so.
+I want you to make sure that rope isn't coming off
+- make sure it's tight!  
 .pause
 .mustnot 214 219        ' Neither cock harness nor cock bondage
 .must 385
@@ -3447,18 +3534,21 @@ or so. I want you to make sure that rope isn't coming off - make sure it's tight
 .Say Action
 
 [Action 3103]
-I want you to fetch a rope or a chain for your ball sack first. Attach it to the ball
-spreader part of your cock harness, My slave, and leave about two feet of it dangling
-or so. I want you to make sure that rope isn't coming off - make sure it's tight!
+I want you to fetch a rope or a chain for your ball sack first.
+Attach it to the ball spreader part of your cock harness, My slave,
+and leave about two feet of it dangling or so.
+I want you to make sure that rope isn't coming off
+- make sure it's tight!
 .pause
 .must 219               ' cock harness
 .range 3105 3109
 .Say Action
 
 [Action 3104]
-I want you to Add a rope or a chain for your cock bondage, slave. Tie it
-around your balls, and leave about two feet of it dangling or so. I want
-you to make sure that rope isn't coming off - make sure it's tight!
+I want you to Add a rope or a chain for your cock bondage, slave.
+Tie it around your balls, and leave about two feet of it dangling or so.
+I want you to make sure that rope isn't coming off
+- make sure it's tight!
 .pause
 .must 214               ' cock bondage
 .range 3105 3109
@@ -3466,18 +3556,20 @@ you to make sure that rope isn't coming off - make sure it's tight!
 
 
 [Action 3105]
-Now I want you to find a good weight of one or two pounds. A coffee cup or
-a tennis shoe would be fine. Tie that to the end of the rope you left before,
-My slave. Make sure that's tight, too!
+Now I want you to find a good weight of one or two pounds.
+A coffee cup or a tennis shoe would be fine.
+Tie that to the end of the rope you left before, My slave.
+Make sure that's tight, too!
 .pause
 .mustnot 37             ' cock harness
 .range 3110
 .Say Action
 
 [Action 3106]
-Now I want you to find a good weight of one or two pounds. A coffee cup or
-a tennis shoe would be fine. Tie that to the end of the rope you left before,
-My slave. Make sure that's tight, too!
+Now I want you to find a good weight of one or two pounds.
+A coffee cup or a tennis shoe would be fine.
+Tie that to the end of the rope you left before, My slave.
+Make sure that's tight, too!
 .pause
 .must 37                ' cock harness
 .range 3110
@@ -3485,31 +3577,35 @@ My slave. Make sure that's tight, too!
 
 
 [Action 3110]
-Stand up now, slave, and turn around. You can read My instructions over your
-shoulder. I want you to place the weight on the top of the desk. If you
-like, you can use a convenient table instead, slave, but make sure it's at
-least waist high. The weight is behind your back, My dear.
+Stand up now, slave, and turn around.
+You can read My instructions over your shoulder.
+I want you to place the weight on the top of the desk.
+If you like, you can use a convenient table instead, slave,
+but make sure it's at least waist high.
+The weight is behind your back, My dear.
 .pause
 .range 3111
 .Say Action
 
 [Action 3111]
-Now, slave, here's what we're going to do. You're going to turn around, and
-I'm going to wait for a moment, and then crack my whip. When I do that, you
-will take one good step forward -away from the weight. You will do this such
-that the weight will be dragged off by the rope and will fall. Then you're to
-let it swing freely until I clap My hands. That's your signal to put the 
-weight back and turn around again. We'll keep doing this until I'm satisfied.
+Now, slave, here's what we're going to do.
+You're going to turn around, and I'm going to wait for a moment, and then crack my whip.
+When I do that, you will take one good step forward
+- away from the weight.
+You will do this such that the weight will be dragged off by the rope and will fall.
+Then you're to let it swing freely until I clap My hands.
+That's your signal to put the weight back and turn around again.
+We'll keep doing this until I'm satisfied.
 .pause
 .range 3112
 .Say Action
 
 [Action 3112]
-Remember, slave, you're not to interfere with the weight's movement in any way
-after it's fallen, and you're not to touch your silly little slut-balls at all.
-Nor are you allowed to watch as the weight falls - keep your head turned until
-it's dragged off. As usual, I expect you to keep wanking that penis and to 
-keep it hard the whole time.
+Remember, slave, you're not to interfere with the weight's movement in any way after it's fallen,
+and you're not to touch your silly little slut-balls at all.
+Nor are you allowed to watch as the weight falls
+- keep your head turned until it's dragged off.
+As usual, I expect you to keep wanking that penis and to keep it hard the whole time.
 .pause
 .range 9200
 .Say Action
@@ -3561,19 +3657,17 @@ I'm going to make you paddle your naughty bottom good today.
 .Say Action
 
 ' Ten smacks
-'[Action 9011]
-'I think a good ten smacks or so should be good
-'enough for this special session, don't you?
-'.pause
-'.set 101
-'.unset 102 103 104 105
-'.range 9020 9027
-'.Say Action
+[Action 9011]
+I think a good ten smacks or so should be good enough for this special session, don't you?
+.pause
+.set 101
+.unset 102 103 104 105
+.range 9020 9027
+.Say Action
 
 ' Twenty smacks
 [Action 9012]
-I think a good twenty smacks or so should be good
-enough for this special session, don't you?
+I think a good twenty smacks or so should be good enough for this special session, don't you?
 .pause
 .set 102
 .unset 101 103 104 105
@@ -3624,7 +3718,8 @@ Forty whacks with the bare hand sounds about right.
 
 ' Sixty paddles
 [Action 9017]
-Lucky slave! You'll be getting a good sixty paddles on that naughty bum.
+Lucky slave!
+You'll be getting a good sixty paddles on that naughty bum.
 .pause
 .set 104
 .unset 101 102 103 105
@@ -3633,7 +3728,8 @@ Lucky slave! You'll be getting a good sixty paddles on that naughty bum.
 
 ' hundred paddles
 [Action 9018]
-Lucky slave! You'll be getting a good hundred paddles on that naughty bum.
+Lucky slave!
+You'll be getting a good hundred paddles on that naughty bum.
 .pause
 .set 105
 .unset 101 102 103 104
@@ -3646,7 +3742,8 @@ Lucky slave! You'll be getting a good hundred paddles on that naughty bum.
 ' Sort out paddle, hair brush, wooden spoon, hand and chastification comments 
 
 [Action 9020]
-Now get down on your knees. Take that paddle in your dominant hand,
+Now get down on your knees.
+Take that paddle in your dominant hand,
 and make sure to keep that other hand on your little cock there.
 .pause
 .mustnot 44             ' Chastified
@@ -3655,7 +3752,8 @@ and make sure to keep that other hand on your little cock there.
 .Say Action
 
 [Action 9021]
-Now get down on your knees. Take that hair brush in your dominant hand,
+Now get down on your knees.
+Take that hair brush in your dominant hand,
 and make sure to keep that other hand on your little cock there.
 .pause
 .mustnot 44             ' Chastified
@@ -3665,7 +3763,8 @@ and make sure to keep that other hand on your little cock there.
 .Say Action
 
 [Action 9022]
-Now get down on your knees. Take that wooden spoon in your dominant hand,
+Now get down on your knees.
+Take that wooden spoon in your dominant hand,
 and make sure to keep that other hand on your little cock there.
 .pause
 .mustnot 44             ' Chastified
@@ -3675,7 +3774,8 @@ and make sure to keep that other hand on your little cock there.
 .Say Action
 
 [Action 9023]
-Now get down on your knees. Use your dominant hand to spank yourself,
+Now get down on your knees.
+Use your dominant hand to spank yourself,
 and make sure to keep that other hand on your little cock there.
 .pause
 .mustnot 44             ' Chastified
@@ -3685,7 +3785,8 @@ and make sure to keep that other hand on your little cock there.
 .Say Action
 
 [Action 9024]
-Now get down on your knees. Take that paddle in your dominant hand,
+Now get down on your knees.
+Take that paddle in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
 .pause
 .must 44                ' Chastified
@@ -3694,7 +3795,8 @@ and make sure to keep that other hand on your chastity cage there.
 .Say Action
 
 [Action 9025]
-Now get down on your knees. Take that hair brush in your dominant hand,
+Now get down on your knees.
+Take that hair brush in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
 .pause
 .must 44                ' Chastified
@@ -3704,7 +3806,8 @@ and make sure to keep that other hand on your chastity cage there.
 .Say Action
 
 [Action 9026]
-Now get down on your knees. Take that wooden spoon in your dominant hand,
+Now get down on your knees.
+Take that wooden spoon in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
 .pause
 .must 44                ' Chastified
@@ -3714,7 +3817,8 @@ and make sure to keep that other hand on your chastity cage there.
 .Say Action
 
 [Action 9027]
-Now get down on your knees. Use your dominant hand to spank yourself,
+Now get down on your knees.
+Use your dominant hand to spank yourself,
 and make sure to keep that other hand on your chastity cage there.
 .pause
 .must 44                ' Chastified
@@ -3779,7 +3883,8 @@ quick smacks on the ass with the bare hand.
 
 ' 105 -> 400 strokes
 [Action 9044]
-You've done it now, slave. I'm giving you four hundred smacks this time.
+You've done it now, slave.
+I'm giving you four hundred smacks this time.
 And I expect them to be good and hard.
 .pause
 .must 105
@@ -3789,7 +3894,8 @@ And I expect them to be good and hard.
 ' 514 voluntary punishment - 103 160 fast strokes 
 [Action 9045]
 I'm giving you one hundred and sixty fast strokes with the paddle today,
-My dear punishment slut. I hope you aren't having second thoughts,
+My dear punishment slut.
+I hope you aren't having second thoughts,
 because it's too late for that now.
 .pause
 .must 103
@@ -3800,7 +3906,8 @@ because it's too late for that now.
 
 [Action 9046]
 I'm giving you one hundred and sixty fast strokes with the hairbrush today,
-My dear punishment slut. I hope you aren't having second thoughts,
+My dear punishment slut.
+I hope you aren't having second thoughts,
 because it's too late for that now.
 .pause
 .must 103
@@ -3812,7 +3919,8 @@ because it's too late for that now.
 
 [Action 9047]
 I'm giving you one hundred and sixty fast strokes with the wooden spoon today,
-My dear punishment slut. I hope you aren't having second thoughts,
+My dear punishment slut.
+I hope you aren't having second thoughts,
 because it's too late for that now.
 .pause
 .must 103
@@ -3824,7 +3932,8 @@ because it's too late for that now.
 
 [Action 9048]
 I'm giving you one hundred and sixty fast strokes with the bare hand today,
-My dear punishment slut. I hope you aren't having second thoughts,
+My dear punishment slut.
+I hope you aren't having second thoughts,
 because it's too late for that now.
 .pause
 .must 103
@@ -3836,7 +3945,8 @@ because it's too late for that now.
 ' 515 voluntary punishment - 105 400 fast strokes 
 [Action 9049]
 You'll be given four hundred smacks with the paddle today, slave,
-for your volunteer punishment. I know you'll enjoy it, you good boy.
+for your volunteer punishment.
+I know you'll enjoy it, you good boy.
 .pause
 .must 105
 .must 167
@@ -3846,7 +3956,8 @@ for your volunteer punishment. I know you'll enjoy it, you good boy.
 
 [Action 9050]
 You'll be given four hundred smacks with the hair brush today, slave,
-for your volunteer punishment. I know you'll enjoy it, you good boy.
+for your volunteer punishment.
+I know you'll enjoy it, you good boy.
 .pause
 .must 105
 .must 167
@@ -3857,7 +3968,8 @@ for your volunteer punishment. I know you'll enjoy it, you good boy.
 
 [Action 9051]
 You'll be given four hundred smacks with the wooden spoon today, slave,
-for your volunteer punishment. I know you'll enjoy it, you good boy.
+for your volunteer punishment.
+I know you'll enjoy it, you good boy.
 .pause
 .must 105
 .must 167
@@ -3868,7 +3980,8 @@ for your volunteer punishment. I know you'll enjoy it, you good boy.
 
 [Action 9052]
 You'll be given four hundred smacks with the bare hand today, slave,
-for your volunteer punishment. I know you'll enjoy it, you good boy.
+for your volunteer punishment.
+I know you'll enjoy it, you good boy.
 .pause
 .must 105
 .must 167
@@ -3908,19 +4021,20 @@ I think two hundered and forty strokes is appropriate.
 [Action 9060]
 .noimage
 .delay 0
-.range 9071 9079
+.range 9061 9069
 
 
 [Action 9061]
-This time I want you bent over the chair with your ass
-in the air. These will be quick strokes, so keep up!
+This time I want you bent over the chair with your ass in the air.
+These will be quick strokes, so keep up!
 .pause
 .mustnot 105            ' 400 strokes intense
 .range 9070
 .say action
 
 [Action 9062]
-I hope you learn something from this. Get on your knees!
+I hope you learn something from this.
+Get on your knees!
 .pause
 .mustnot 105            ' 400 strokes intense
 .range 9070
@@ -4075,8 +4189,8 @@ Take a moment to rub those buns good!
 .Say Action
 
 [Action 9116]
-Halfway through, slaveboy. I hope
-those naughty buns are feeling the burn!
+Halfway through, slaveboy.
+I hope those naughty buns are feeling the burn!
 .mustnot 101 102 103 105
 .numactionsfrom 9100 30
 .delay 30
@@ -4084,7 +4198,8 @@ those naughty buns are feeling the burn!
 .Say Action
 
 [Action 9117]
-Halfway there, dear slave. Getting warm?
+Halfway there, dear slave.
+Getting warm?
 Take a break and feel that hot, naughty bottom!
 .mustnot 101 102 103 104
 .numactionsfrom 9100 50
@@ -4093,8 +4208,8 @@ Take a break and feel that hot, naughty bottom!
 .Say Action
 
 [Action 9118]
-Only about 10 left to go, My pet. That naughty 
-slave butt should be good and red now!
+Only about 10 left to go, My pet.
+That naughty slave butt should be good and red now!
 .mustnot 101 102 103 104
 .numactionsfrom 9100 90
 .delay 15
@@ -4143,8 +4258,8 @@ That's enough for now, slave.
 ' Corner time not given yet
 
 [Action 9153]
-One hundred and sixty, give or take. Now hurry over for five minutes of
-well-deserved corner time to think about what a naughty boy you've been.
+One hundred and sixty, give or take.
+Now hurry over for five minutes of well-deserved corner time to think about what a naughty boy you've been.
 Don't rub that red butt, and don't come back until I tell you to.
 .mustnot 104 105
 .numactionsfrom 9150 41
@@ -4156,10 +4271,11 @@ Don't rub that red butt, and don't come back until I tell you to.
 .Say Action
 
 [Action 9154]
-240 smacks! I bet you learned your lesson! To make sure,
-you can go stand in the corner with your bright red fanny
-on display for five minutes. You may not rub your bottom,
-you naughty boy. Don't come back until I tell you to.
+240 smacks!
+I bet you learned your lesson!
+To make sure, you can go stand in the corner with your bright red fanny on display for five minutes.
+You may not rub your bottom, you naughty boy.
+Don't come back until I tell you to.
 .mustnot 105
 .numactionsfrom 9150 61
 .delay 30 30
@@ -4170,9 +4286,10 @@ you naughty boy. Don't come back until I tell you to.
 .Say Action
 
 [Action 9155]
-Four hundred smacks. That should teach you a lesson you won't forget.
-I want you to go into the corner now for ten minutes to think about
-what a bad boy you've been. Don't you dare rub that naughty bottom.
+Four hundred smacks.
+That should teach you a lesson you won't forget.
+I want you to go into the corner now for ten minutes to think about what a bad boy you've been.
+Don't you dare rub that naughty bottom.
 Don't come back until you hear me call for you.
 .numactionsfrom 9150 100
 .delay 30 30
@@ -4186,7 +4303,8 @@ Don't come back until you hear me call for you.
 ' Corner time already given 
 
 [Action 9156]
-One hundred and sixty, give or take.
+One hundred and sixty,
+give or take.
 .mustnot 104 105
 .numactionsfrom 9150 41
 .must 258               ' Corner time already given
@@ -4194,7 +4312,8 @@ One hundred and sixty, give or take.
 .Say Action
 
 [Action 9157]
-Two hundred and forty smacks! I bet you learned your lesson!
+Two hundred and forty smacks!
+I bet you learned your lesson!
 .mustnot 105
 .numactionsfrom 9150 61
 .delay 30 30
@@ -4203,7 +4322,8 @@ Two hundred and forty smacks! I bet you learned your lesson!
 .Say Action
 
 [Action 9158]
-Four hundred smacks. That should teach you a lesson you won't forget.
+Four hundred smacks.
+That should teach you a lesson you won't forget.
 .numactionsfrom 9150 100
 .mustnot 258            ' Corner time already given
 .range 9199
@@ -4257,7 +4377,8 @@ Four spanks on that bare butt!
 
 
 [Action 9185]
-Halfway there, slave. I hope you're learning your lesson.
+Halfway there, slave.
+I hope you're learning your lesson.
 .mustnot 101 102 104 105
 .numactionsfrom 9150 20
 .delay 30
@@ -4265,7 +4386,8 @@ Halfway there, slave. I hope you're learning your lesson.
 .Say Action
 
 [Action 9186]
-Halfway through, slaveboy. Those buns should be good and hot.
+Halfway through, slaveboy.
+Those buns should be good and hot.
 .mustnot 101 102 103 105
 .numactionsfrom 9150 30
 .delay 30
@@ -4273,7 +4395,8 @@ Halfway through, slaveboy. Those buns should be good and hot.
 .Say Action
 
 [Action 9187]
-Halfway there, dear slave. Rub that sore butt a few times!
+Halfway there, dear slave.
+Rub that sore butt a few times!
 .mustnot 101 102 103 104
 .numactionsfrom 9150 50
 .delay 30
@@ -4281,7 +4404,8 @@ Halfway there, dear slave. Rub that sore butt a few times!
 .Say Action
 
 [Action 9188]
-Take a rest. 40 more smacks before you're done, slave.
+Take a rest.
+40 more smacks before you're done, slave.
 .mustnot 101 102 103 104
 .numactionsfrom 9150 90
 .delay 15
