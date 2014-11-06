@@ -5,8 +5,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
+import java.util.StringTokenizer;
 
 import pcm.controller.Player;
+import pcm.model.ActionRange;
 import teaselib.TeaseLib;
 
 
@@ -48,13 +50,13 @@ public class Mine {
 	{
 		String resourcesBase = "scripts/";
 		String libBase = "lib/";
-		String scriptName = null;
+		String script = null;
 		File debug = new File(resourcesBase, "debug.txt"); 
 		if (debug.exists())
 		{
 			Player.debugOutput = true;
 			Player.validateScripts = true;
-			scriptName = null;
+			script = null;
 			try {
 				BufferedReader debugReader = new BufferedReader(new FileReader(
 						debug));
@@ -62,7 +64,7 @@ public class Mine {
 						String line;
 						while ((line = debugReader.readLine()) != null) {
 							if (!line.startsWith("//")) {
-								scriptName = line;
+								script = line;
 								break;
 							}
 						}
@@ -78,13 +80,14 @@ public class Mine {
 				// TeaseLib.log(this, t);
 			}
 		}
-		if (scriptName == null)
+		if (script == null)
 		{
-			scriptName = getClass().getSimpleName(); 
+			script = getClass().getSimpleName(); 
 		}
-		play(scriptName, resourcesBase, libBase);
+		play(script, resourcesBase, libBase);
 	}
-	public void play(String name, String resourcesBase, String libBase) throws IOException
+
+	public void play(String script, String resourcesBase, String libBase) throws IOException
 	{
 		URI[] uris = {
 				new File(resourcesBase + assetsBasePath).toURI(),
@@ -99,6 +102,27 @@ public class Mine {
 				assetsBasePath,
 				new SexScriptsHost(scriptInterface),
 				new SexScriptsStatePersistence("Mine", scriptInterface));
-		player.play(name);
+		TeaseLib.log("PCMPlayer: " + script + " ( resourcesBase = " + resourcesBase + ", libBase = " + libBase + ")");
+		StringTokenizer argv = new StringTokenizer(script.trim(), " ");
+		String scriptName = argv.nextToken();
+		final ActionRange range;
+		if (argv.hasMoreElements())
+		{
+			int start = Integer.parseInt(argv.nextToken());
+			if (argv.hasMoreElements())
+			{
+				int end = Integer.parseInt(argv.nextToken());
+				range = new ActionRange(start, end);
+			}
+			else
+			{
+				range = new ActionRange(start);
+			}
+		}
+		else
+		{
+			range = null;
+		}
+		player.play(scriptName, range);
 	}
 }
