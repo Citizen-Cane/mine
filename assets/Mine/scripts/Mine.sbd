@@ -7220,7 +7220,6 @@ Unfortunately your attention deficit disorder must go unavenged today.
 .set 260
 .save 1 799
 .loadsbd mine-dildo.sbd 903 903
-.Say Action
 
 [Action 2572]
 Get some rope or shoelace and tie your wrists together.
@@ -7890,6 +7889,7 @@ Hopefully this will get through to you!
 .delay 0
 .range 2901 2909
 
+
 ' Keep wearing secondary toys (butt plug, gag, collar, chains)
 
 [Action 2901]
@@ -7939,7 +7939,6 @@ As an additional reminder you will stay in chains for the rest of the session.
 .mustnot 228 229 233 234     ' All processed
 .mustnot 308 309 313 314     ' All processed
 .range 2910
-.Say Action
 
 
 ' Primary items, unset assignments and flags
@@ -8010,7 +8009,7 @@ But you better remove those clamps instead before your nipples fall off.
 .mustnot 222 223 224 225 226 235  ' All processed
 .mustnot 302 303 304 305 306 315  ' All processed
 .range 2920
-.Say Action
+
 
 [Action 2920]
 .noimage
@@ -8473,9 +8472,11 @@ Well done, my little pet.
 
 ' Inflatable nozzle
 [Action 3045]
-Let's pump up the nozzle once more, slave. Just to be sure.
+Let's pump up the nozzle once more, slave!
+Just to be sure.
 .must 21                ' Something in butt, enema nozzle
 .range 3047 3050
+.say action
 
 ' Plain nozzle
 [Action 3046]
@@ -8520,13 +8521,13 @@ Let's take off your nipple clamps.
 .mustnot 3031 3032 3033
 .unset 35               ' Tethered
 .range 3058 3059
-.say action
 
 
 ' Inflatable nozzle
 [Action 3055]
-Very good. Slave. You may go to the bath room, detach the tubing,
-clean it up together with the bag, and put it away. Then come back here.
+Very good. Slave.
+You may go to the bath room, detach the tubing, clean it up together with the bag.
+Then come back here.
 .pause
 .must 21                ' Something in butt, enema nozzle
 .range 3057
@@ -8534,15 +8535,17 @@ clean it up together with the bag, and put it away. Then come back here.
 
 ' Plain nozzle
 [Action 3056]
-Very good. Slave. You may go to the bath room, remove the nozzle,
-clean it up together with the bag, and put it away. Then come back here.
+Very good. Slave.
+You may go to the bath room, remove the nozzle, clean it up together with the bag.
+Then come back here.
 .pause
 .mustnot 21             ' Something in butt, enema nozzle
 .range 3058 3059
 .say action
 
 [Action 3057]
-Well, let's pump up the nozzle once more, slave. Just to be sure.
+Well, let's pump up the nozzle once more, slave!
+Just to be sure.
 .pause
 .must 21                ' Something in butt, enema nozzle
 .range 3058 3059
@@ -8566,7 +8569,6 @@ You certainly won't mind holding your enema for a while, slave, will you?
 .delay 0
 .must 21                     ' Something in butt, inflatable enema nozzle, no help needed
 .range 3085
-.say action
 
 '[Action 3061]
 
@@ -8673,13 +8675,12 @@ Very well my little pet.
 .delay 0
 .settime 56        ' Restart the enema timer to make good for the time the slave wasted while taking the enema
 .range 3076
-.say action
+'.say action
  
 ' TODO Make such comments at the start of each activity
 [Action 3076]
 You might feel the urge to relief yourself soon enough,
-but I don't like my slaves running out of the room all
-of a sudden without my consent.
+but I don't like my slaves running out of the room all of a sudden without my consent.
 .delay 15
 .range 3077
 .say action
@@ -8692,9 +8693,9 @@ On the other hand, I don't want you to have an accident either.
 
 ' TODO Only allow stopable activities 
 [Action 3078]
-So should you feel the urge to relief becomes inevitable, I'll
-graciously allow you to quit the session on the condition that you
-tell me by cancelling the activity or closing the program window.
+So should you feel the urge to relief becomes inevitable,
+I'll graciously allow you to quit the session on the condition
+that you tell me by cancelling the activity.
 .pause
 .range 3089
 .say action
@@ -8709,12 +8710,12 @@ tell me by cancelling the activity or closing the program window.
 .delay 0
 .settime 56        ' Restart the enema timer to make good for the time the slave wasted while taking the enema
 .range 3076
-.say action
+'.say action
  
 ' TODO Make such comments at the start of each activity
 [Action 3081]
-Well slave, I don't like my slaves running out of the room
-all of a sudden, regadless how urgent the issue might be.
+Well slave, I don't like my slaves running out of the room all of a sudden,
+regadless how urgent the issue might be.
 .delay 15
 .range 3083 3884
 .say action
@@ -8737,8 +8738,8 @@ I bet the dildo will help to keep everything in place.
 
 
 [Action 3085]
-With the help of the inflated cuff, your backdoor should be
-well sealed up, regardless how intense the cramping might get.
+With the help of the inflated cuff, your backdoor should be well sealed up,
+regardless how intense the cramping might get.
 Just in case, push the pump to inflate the cuff a bit more.
 .pause
 .settime 56        ' Restart the enema timer to make good for the time the slave wasted while taking the enema
@@ -8750,7 +8751,7 @@ Just in case, push the pump to inflate the cuff a bit more.
 [Action 3088]
 Should you nevertheless feel the urge to relief becomes inevitable,
 I'll graciously allow you to quit the session on the condition
-that you tell me beforehand by closing the program window.
+that you tell me beforehand by by cancelling the activity.
 .pause
 .range 3089
 .say action
@@ -9897,9 +9898,9 @@ and slept with your butt plug, slave?
 
 ' Butt plug all day 
 [Action 3902]
-In My last session, I ordered you to wear your butt plug over the
-course of a day, for solid 12 hours, indoors and out, to train
-you to be a more subservient slave. Did you follow my orders, bitch?
+In My last session, I ordered you to wear your butt plug over the course of a day,
+for a solid 12 hours, indoors and out, to train you to be a more subservient slave.
+Did you follow my orders, bitch?
 .mustnot 596         ' temp to skip any anal assignment question
 .must 622
 .yesno 3922 3922 3923 3923
@@ -9916,8 +9917,8 @@ and kept your butt plug in until bedtime, slave?
 
 ' butt plug 4 hours
 [action 3904]
-Did you follow my instructions last time, and kept
-your butt plug inside your slave ass all night, slave?
+Did you follow my instructions last time,
+and kept your butt plug inside your slave ass all night, slave?
 .mustnot 596         ' temp to skip any anal assignment question
 .must 629
 .yesno 3926 3926 3927 3927 
@@ -9925,9 +9926,9 @@ your butt plug inside your slave ass all night, slave?
 
 ' butt plug 8 hours
 [action 3905]
-In My last session, I ordered you to wear your butt plug for
-solid 8 hours, indoors and out, to train you to be a more
-subservient slave. Well, did you follow my orders, bitch?
+In My last session, I ordered you to wear your butt plug for a solid 8 hours, indoors and out,
+to train you to be a more subservient slave.
+Well, did you follow my orders, bitch?
 .mustnot 596         ' temp to skip any anal assignment question
 .must 630
 .yesno 3928 3928 3929 3929
@@ -9935,8 +9936,8 @@ subservient slave. Well, did you follow my orders, bitch?
 
 ' dildo until bedtime
 [action 3906]
-Did you follow my instructions last time, and kept
-your slave ass plugged with your dildo all night?
+Did you follow my instructions last time,
+and kept your slave ass plugged with your dildo all night?
 .mustnot 596         ' temp to skip any anal assignment question
 .must 633
 .yesno 3930 3930 3931 3931 
@@ -9944,9 +9945,9 @@ your slave ass plugged with your dildo all night?
 
 ' dildo 4 hours
 [action 3907]
-In My last session, I ordered you to wear your dildo
-solid four hours, indoors and out, to train you to be a more
-subservient slave. Well, did you follow my orders, bitch?
+In My last session, I ordered you to wear your dildo solid four hours, indoors and out,
+to train you to be a more subservient slave.
+Well, did you follow my orders, bitch?
 .mustnot 596         ' temp to skip any anal assignment question
 .must 631
 .yesno 3932 3932 3933 3933 
@@ -9954,9 +9955,9 @@ subservient slave. Well, did you follow my orders, bitch?
 
 ' dildo 8 hours
 [action 3908]
-In My last session, I ordered you to wear your dildo
-solid eight hours, indoors and out, to train you to be
-a more subservient slave. Did you follow my orders, bitch?
+In My last session, I ordered you to wear your dildo a solid eight hours, indoors and out,
+to train you to be a more subservient slave.
+Did you follow my orders, bitch?
 .mustnot 596         ' temp to skip any anal assignment question
 .must 632
 .yesno 3934 3934 3935 3935
@@ -9964,8 +9965,8 @@ a more subservient slave. Did you follow my orders, bitch?
 
 ' dildo over night
 [Action 3909]
-Did you follow my instructions last time, and slept
-plugged with your dildo inside your slave anus, slave?
+Did you follow my instructions last time,
+and slept with your dildo plugged inside your slave anus, slave?
 .mustnot 596         ' temp to skip any anal assignment question
 .must 636
 .yesno 3920 3920 3921 3921 
@@ -9973,9 +9974,9 @@ plugged with your dildo inside your slave anus, slave?
 
 ' dildo all day 
 [Action 3910]
-In My last session, I ordered you to wear your dildo over the
-course of a day, for solid 12 hours, indoors and out, to train
-you to be a more subservient slave. Did you follow my orders, bitch?
+In My last session, I ordered you to wear your dildo over the course of a day,
+for a solid 12 hours, indoors and out, to train you to be a more subservient slave.
+Well, did you follow my orders, bitch?
 .mustnot 596         ' temp to skip any anal assignment question
 .must 635
 .yesno 3922 3922 3923 3923
@@ -10002,8 +10003,8 @@ you to be a more subservient slave. Did you follow my orders, bitch?
 ' Buttplug over night
 
 [Action 3920]
-Very good, slave. I am pleased that you are learning the
-psychological importance of humiliation in your slavery.
+Very good, slave.
+I am pleased that you are learning the psychological importance of humiliation in your slavery.
 .set 423           ' assignment complete
 .set 759           ' anal training 4
 .unset 623         ' assignment no longer in progress
@@ -10019,8 +10020,8 @@ psychological importance of humiliation in your slavery.
 ' Butt plug all day
 
 [Action 3922]
-Excellent, my dear slave. You are learning much about the value 
-of humiliation and punishment on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of humiliation and punishment on your obedience and development. 
 You may make a good slave yet!
 .pause
 .set 422           ' Sleeping with buttplug assignment completed
@@ -10030,7 +10031,8 @@ You may make a good slave yet!
 .Say Action
 
 [Action 3923]
-Well slave, it was a tough assignment. I'm not pleased that you gave up,
+Well slave, it was a tough assignment.
+I'm not pleased that you gave up,
 but I understand that you need more training than I thought. 
 .pause
 .unset 622         ' Sleep with butt plug
@@ -10041,8 +10043,8 @@ but I understand that you need more training than I thought.
 ' Butt plug until bedtime
 
 [Action 3924]
-Excellent, my dear slave. You are learning much about the value 
-of humiliation and punishment on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of humiliation and punishment on your obedience and development. 
 You may make a good slave yet!
 .set 434
 .unset 634
@@ -10058,8 +10060,8 @@ You may make a good slave yet!
 ' Butt plug 4 hours
 
 [Action 3926]
-Excellent, my dear slave. You are learning much about the value 
-of humiliation and punishment on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of humiliation and punishment on your obedience and development. 
 You may make a good slave yet!
 .set 429
 .unset 629
@@ -10072,13 +10074,14 @@ But I understand that you need more training than I thought.
 .pause
 .unset 629
 .range 3950        ' restart
+.Say Action
 
 
 ' Butt plug 8 hours
 
 [Action 3928]
-Excellent, my dear slave. You are learning much about the value 
-of humiliation and punishment on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of humiliation and punishment on your obedience and development. 
 You may make a good slave yet!
 .set 430
 .unset 630
@@ -10086,17 +10089,19 @@ You may make a good slave yet!
 .Say Action
 
 [Action 3929]
-Well slave, it was a tough assignment. I'm not pleased that you gave up,
+Well slave, it was a tough assignment.
+I'm not pleased that you gave up,
 but I understand that you need more training than I thought. 
 .unset 630
 .range 3950        ' restart
+.Say Action
 
 
 ' dildo until bedtime
 
 [Action 3930]
-Excellent, my dear slave. You are learning much about the value 
-of humiliation and punishment on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of humiliation and punishment on your obedience and development. 
 You may make a good slave yet!
 .set 433
 .unset 633
@@ -10112,8 +10117,8 @@ You may make a good slave yet!
 ' dildo 4 hours
 
 [Action 3932]
-Excellent, my dear slave. You are learning much about the value 
-of humiliation and punishment on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of humiliation and punishment on your obedience and development. 
 You may make a good slave yet!
 .set 431
 .unset 631
@@ -10125,13 +10130,14 @@ Well slave, I'm not pleased to hear that.
 But I understand that you need more training than I thought. 
 .unset 631
 .range 3950        ' restart
+.Say Action
 
 
 ' dildo 8 hours
 
 [Action 3934]
-Excellent, my dear slave. You are learning much about the value 
-of humiliation and punishment on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of humiliation and punishment on your obedience and development. 
 You may make a good slave yet!
 .set 432
 .unset 632
@@ -10143,13 +10149,14 @@ Well slave, it was a tough assignment. I'm not pleased that you gave up,
 but I understand that you need more training than I thought. 
 .unset 632
 .range 3950        ' restart
+.Say Action
 
 
 ' dildo over night
 
 [Action 3936]
-Very good, slave. I am pleased that you are learning the
-psychological importance of humiliation in your slavery.
+Very good, slave.
+I am pleased that you are learning the psychological importance of humiliation in your slavery.
 .set 436           ' assignment complete
 .set 759           ' anal training 4
 .unset 636         ' assignment no longer in progress
@@ -10165,8 +10172,8 @@ psychological importance of humiliation in your slavery.
 ' dildo all day
 
 [Action 3938]
-Excellent, my dear slave. You are learning much about the value 
-of humiliation and punishment on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of humiliation and punishment on your obedience and development. 
 You may make a good slave yet!
 .pause
 .set 435           ' Sleeping with buttplug assignment completed
@@ -10176,8 +10183,8 @@ You may make a good slave yet!
 .Say Action
 
 [Action 3939]
-Well slave, it was a tough assignment. I'm not pleased that you gave up,
-but I understand that you need more training than I thought. 
+Well slave, it was a tough assignment.
+I'm not pleased that you gave up, but I understand that you need more training than I thought. 
 .pause
 .unset 635         ' day with dildo
 .range 3950
@@ -10191,9 +10198,12 @@ but I understand that you need more training than I thought.
 .delay 0
 .range 3941 3949
 
+
 [action 3941]
-Oh, really? In that case you can complete your assignment tonight.
-Put the butt plug in now, and don't take it off until bedtime.
+Oh, really?
+In that case you can complete your assignment tonight.
+Put the butt plug in now,
+and don't take it off until bedtime.
 .pause
 .mustnot 21             ' Something in butt
 .must 350               ' Have butt plug
@@ -10206,7 +10216,8 @@ Put the butt plug in now, and don't take it off until bedtime.
 [action 3942]
 Oh, really?
 In that case you can complete your assignment tonight.
-Put the dildo in now, fix it with a good crotch rope,
+Put the dildo in now,
+fix it with a good crotch rope,
 and don't take it off until bedtime.
 .pause
 .mustnot 21             ' Something in butt
@@ -10234,7 +10245,8 @@ Keep wearing the plug until bedtime, and don't take it off before.
 [action 3944]
 Oh, really?
 Well slave, in this case you can complete your assignment tonight.
-Keep wearing the dildo until bedtime, and don't take it off before.
+Keep wearing the dildo until bedtime,
+and don't take it off before.
 .pause
 .must 21 41             ' Something in butt, dildo
 .must 388               ' Have dildo
@@ -10245,17 +10257,21 @@ Keep wearing the dildo until bedtime, and don't take it off before.
 
 [action 3945]
 Oh, really?
-Well slave, that's disgusting. I'll give you a demerit for your
-unwillingness to follow my orders. Plus some punishment next time.
+Well slave, that's disgusting.
+I'll give you a demerit for your unwillingness to follow my orders.
+Plus some punishment next time.
 .pause
 .set 200
 .set 504 518             ' General disobedience, training failure 2
 .unset 633 634
 .range 3960
+.Say Action
 
 [action 3946]
-Oh, really? In that case you can complete your assignment tonight.
-Put the butt plug in now, and don't take it off until morning.
+Oh, really?
+In that case you can complete your assignment tonight.
+Put the butt plug in now,
+and don't take it off until morning.
 .pause
 .mustnot 21             ' Something in butt
 .must 350               ' Have butt plug
@@ -10282,7 +10298,8 @@ and don't take it off until morning.
 [action 3948]
 Oh, really?
 Well slave, in this case you can complete your assignment tonight.
-Keep wearing the plug until morning, and don't take it off before.
+Keep wearing the plug until morning,
+and don't take it off before.
 .pause
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo
@@ -10296,7 +10313,8 @@ Keep wearing the plug until morning, and don't take it off before.
 [action 3949]
 Oh, really?
 Well slave, in this case you can complete your assignment tonight.
-Keep wearing the dildo until morning, and don't take it off before.
+Keep wearing the dildo until morning,
+and don't take it off before.
 .pause
 .must 21 41             ' Something in butt, dildo
 .must 388               ' Have dildo
@@ -10318,7 +10336,8 @@ Keep wearing the dildo until morning, and don't take it off before.
 [action 3951]
 You know what?
 You can continue your anal training right now. 
-Put your butt plug in, and don't take it off until bedtime.
+Put your butt plug in now,
+and don't take it off until bedtime.
 .pause
 .mustnot 21             ' Something in butt
 .must 350               ' Have butt plug
@@ -10332,7 +10351,8 @@ Put your butt plug in, and don't take it off until bedtime.
 Oh, really?
 You know what, slave?
 You can continue your anal training right now. 
-Keep wearing your plug until bedtime, and don't take it off before.
+Keep wearing your plug until bedtime,
+and don't take it off before.
 .pause
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo
@@ -10347,7 +10367,8 @@ Keep wearing your plug until bedtime, and don't take it off before.
 Oh, really?
 You know what, slave?
 You can continue your anal training right now. 
-Keep wearing the dildo until bedtime, and don't take it off before.
+Keep wearing the dildo until bedtime,
+and don't take it off before.
 .pause
 .must 21 41             ' Something in butt, dildo
 .must 388               ' Have dildo
@@ -10375,9 +10396,10 @@ Keep wearing the dildo until bedtime, and don't take it off before.
 
 
 [action 3956]
-You know what, slave? You can continue your anal training
-right now. Put the dildo in now, fix it with a good
-crotch rope, and don't take it off until bedtime.
+You know what, slave?
+You can continue your anal training right now.
+Put the dildo in now, fix it with a good crotch rope,
+and don't take it off until bedtime.
 .pause
 .mustnot 21             ' Something in butt
 .must 388               ' Have dildo
@@ -10389,8 +10411,10 @@ crotch rope, and don't take it off until bedtime.
 
 [action 3957]
 Oh, really?
-You know what, slave? You can continue your anal training right now. 
-Keep wearing the dildo until bedtime, and don't take it off before.
+You know what, slave?
+You can continue your anal training right now. 
+Keep wearing the dildo until bedtime,
+and don't take it off before.
 .pause
 .must 21 41             ' Something in butt, dildo
 .must 388               ' Have dildo
@@ -10400,8 +10424,10 @@ Keep wearing the dildo until bedtime, and don't take it off before.
 .say action
 
 [action 3958]
-You know what, slave? You can continue your anal training right now. 
-Keep wearing your plug until bedtime, and don't take it off before.
+You know what, slave?
+You can continue your anal training right now. 
+Keep wearing your plug until bedtime,
+and don't take it off before.
 .pause
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo
@@ -10458,8 +10484,9 @@ Have you completed your "naked day" assignment, slave?
 .range 4015
 
 [Action 4012]
-Very good boy! I hope it tought you a valuable lesson in enforced
-nudity. Being bare-naked is the first step to being a good slave boy.
+Very good boy!
+I hope it tought you a valuable lesson in enforced nudity.
+Being bare-naked is the first step to being a good slave boy.
 .set 400           ' naked day finished
 .set 703           ' naked acceptance 3
 .unset 600
@@ -10467,9 +10494,10 @@ nudity. Being bare-naked is the first step to being a good slave boy.
 .Say Action
 
 [Action 4013]
-What a naughty slave! I remember distinctly that you were not to come back into
-My presence before you had completed your assignment. You just earned some extra
-punishment, slut. Now get out of here until you've completed your assignment!
+What a naughty slave!
+I remember distinctly that you were not to come back into My presence before you had completed your assignment.
+You just earned some extra punishment, slut.
+Now get out of here until you've completed your assignment!
 .set 503 509
 .range 850
 .Say Action
@@ -10482,17 +10510,16 @@ punishment, slut. Now get out of here until you've completed your assignment!
 
 [Action 4016]
 Did you follow my instructions last time, 
-and wear your rope harness all night, slave?
+and wore your rope harness all night, slave?
 .mustnot 598
 .must 626
 .yesno 4025 4025 4035 4035 
 .Say Action
 
 [Action 4017]
-In My last session, I ordered you to wear your
-rope harness for a full day, indoors and out, to
-train you to be a more subservient slave. Did you
-follow my orders, bitch?
+In My last session, I ordered you to wear your rope harness for a full day, indoors and out,
+to  train you to be a more subservient slave.
+Did you follow my orders, bitch?
 .mustnot 598
 .must 627
 .yesno 4030 4030 4040 4040
@@ -10513,8 +10540,8 @@ follow my orders, bitch?
 
 
 [Action 4025]
-Very good, slave. I am pleased that you are learning the
-psychological importance of restraint in your slavery.
+Very good, slave.
+I am pleased that you are learning the psychological importance of restraint in your slavery.
 .set 426                ' assignment complete
 .set 737                ' restraint acceptance 2
 .unset 626              ' assignment no longer in progress.
@@ -10523,8 +10550,8 @@ psychological importance of restraint in your slavery.
 
 
 [Action 4030]
-Excellent, my dear slave. You are learning much about the value 
-of physical restraint on your obedience and development. 
+Excellent, my dear slave.
+You are learning much about the value of physical restraint on your obedience and development. 
 You may make a good slave yet!
 .set 427
 .set 738                ' restraint acceptance 3
@@ -10534,7 +10561,8 @@ You may make a good slave yet!
 
 
 [Action 4035]
-Oh, really? In that case you can complete your assignment tonight.
+Oh, really?
+In that case you can complete your assignment tonight.
 Put the harness on now, as illustrated, and don't take it off until morning.
 Then leave me, and expect punishment for your flagrant disobedience tomorrow.
 Do not return until you have finished My assignment!
@@ -10546,9 +10574,10 @@ Do not return until you have finished My assignment!
 
 
 [Action 4040]
-Unbelievable. Well, slave, you can expect punishment, of course, for your
-lack of obedience. And you can go ahead and put on the harness right now,
-as you should have done last time. Wear it for 24 solid hours, cunt!
+Unbelievable.
+Well, slave, you can expect punishment, of course, for your lack of obedience.
+And you can go ahead and put on the harness right now, as you should have done last time.
+Wear it for 24 solid hours, cunt!
 You need to be reminded of who is the Mistress in this relationship.
 Do not return until you have finished the assignment!
 .image babc.jpg
@@ -10567,9 +10596,9 @@ Do not return until you have finished the assignment!
 
 
 [Action 4051]
-Tell me about your naked-week assignment, slave! Have you completed
-your first day of your naked-week assignment? Have you followed my
-rules to remain naked at all times when you were at home?
+Tell me about your naked-week assignment, slave!
+Have you completed your first day of your naked-week assignment?
+Have you followed my rules to remain naked at all times when you were at home?
 .must 601                    ' Day 1
 .must 608                    ' naked-week
 .unset 597
@@ -10578,7 +10607,8 @@ rules to remain naked at all times when you were at home?
 .say action
 
 [Action 4052]
-Tell me slave! Have you completed the second day of your "naked-week" assignment?
+Tell me slave!
+Have you completed the second day of your "naked-week" assignment?
 .must 602                    ' Day 2
 .must 608                    ' naked-week
 .unset 602
@@ -10656,7 +10686,8 @@ Have you remained naked at all times when you were at home?
 ' naked-week advance
 
 [Action 4060]
-Very good, my pet. I see that you're taking your assignment serious.
+Very good, my pet.
+I see that you're taking your assignment serious.
 .delay 5
 .range 4100
 .Say Action
@@ -10669,8 +10700,9 @@ Very good, my pet. I see that you're taking your assignment serious.
 
 ' Completed
 [action 4065]
-Very good boy! I hope it tought you a valuable lesson in enforced
-nudity. Being bare-naked is essential to being a good slave boy.
+Very good boy!
+I hope it tought you a valuable lesson in enforced nudity.
+Being bare-naked is essential to being a good slave boy.
 .set 408           ' naked week assignment completed
 .unset 608         ' clear naked-week assignment
 .set 704           ' Naked acceptance 4
@@ -10688,16 +10720,16 @@ nudity. Being bare-naked is essential to being a good slave boy.
 .range 4071 4078
 
 [Action 4071]
-Well slave, I told you not to miss a day! You are supposed to
-stay naked as long as you are at at home for a solid, continous week.
+Well slave, I told you not to miss a day!
+You are supposed to stay naked as long as you are at at home for a solid, continous week.
 .must 601
 .range 4079
 .say Action
 
 [Action 4072]
-Well slave, I told you not to miss a day! You are supposed to
-stay naked at home for a solid, continous week, and for that reason
-you're going to start over at day one.
+Well slave, I told you not to miss a day!
+You are supposed to stay naked at home for a solid, continous week,
+and for that reason you're going to start over at day one.
 .delay 15
 .mustnot 601
 .set 601
@@ -10711,8 +10743,8 @@ you're going to start over at day one.
 '[Action 4077]
 
 [Action 4079]
-It can't be that difficult, my pet, can it? After the session,
-just stay naked, and strip off immediately when you walk in the door.
+It can't be that difficult, my pet, can it?
+After the session, just stay naked, and strip off immediately when you walk in the door.
 .delay 15
 .unset 602 603 604 605 606 607
 .range 4080 4084
@@ -10749,7 +10781,6 @@ You better catch up If you want me to let you cum again.
 .delay 0
 .poss 1
 .range 4086
-.say action
 
 '[Action 4083]
 
@@ -10786,7 +10817,6 @@ some punishment next time for disobeying your mistress.
 .noimage
 .delay 0
 .range 4100
-.say action
 
 
 [Action 4100]
@@ -10819,8 +10849,8 @@ and I'm in such a bad mood I don't see any reason you should be.
 .Say Action
 
 [Action 4753]
-I seem to remember that you aren't allowed to cum until further 
-notice, and I certainly can't think of any reason you should be.
+I seem to remember that you aren't allowed to cum until further notice,
+and I certainly can't think of any reason you should be.
 .must 699
 .unset 698
 .range 4781
@@ -10829,7 +10859,8 @@ notice, and I certainly can't think of any reason you should be.
 [Action 4754]
 I've decided to allow you to cum again, sometime in the future.
 But you're going to have to pay Me back with three missed
-cumming opportunities to show your devotion. Agreed?
+cumming opportunities to show your devotion.
+Agreed?
 .yesno 4769 4769 4770 4770
 .must 699
 .mustnot 691 692 693 694 695 696 697
@@ -10850,33 +10881,37 @@ opportunities in order to straighten you out.
 .Say Action
 
 [Action 4757]
-I see that in addition to not being able to cum indefinately, you're
-scheduled to miss your next cumming opportunity. I think I'll add
-three more to that to pay off your penalty, so four total. Agreed?
+I see that in addition to not being able to cum indefinately,
+you're scheduled to miss your next cumming opportunity.
+I think I'll add three more to that to pay off your penalty, so four total.
+Agreed?
 .yesno 4768 4768 4770 4770
 .must 691 699
 .Say Action
 
 [Action 4758]
 Well, you've got two days left on your not-to-cum schedule, in addition
-to being on indefinate not-to-cum punishment. We'll even things out
-by adding three days to the two, for a total of five. Agreed?
+to being on indefinate not-to-cum punishment.
+We'll even things out by adding three days to the two, for a total of five.
+Agreed?
 .yesno 4767 4767 4770 4770
 .must 692 699
 .Say Action
 
 [Action 4759]
-You've got three days left on your not-to-cum schedule, and you're also
-on indefinate not-to-cum hold as punishment. I think adding three days 
-to your schedule is an appropriate tradeoff. Don't you agree?
+You've got three days left on your not-to-cum schedule,
+and you're also on indefinate not-to-cum hold as punishment.
+I think adding three days to your schedule is an appropriate tradeoff.
+Don't you agree?
 .yesno 4766 4766 4770 4770
 .must 693 699
 .Say Action
 
 [Action 4760]
 To clear out this annoying can't-cum-forever punishment I'm adding
-three days to your existing four day can't-cum schedule, for a
-total of seven. What a pain in the ass you are, slave.
+three days to your existing four day can't-cum schedule,
+for a total of seven.
+What a pain in the ass you are, slave.
 .pause
 .must 694 699
 .set 697
@@ -10886,8 +10921,10 @@ total of seven. What a pain in the ass you are, slave.
 
 [Action 4761]
 To pay off your indefinate denial punishment, I'm giving you a regular
-punishment session for next time, plus five demerits for this session,
-and we'll add two days to your can't-cum schedule, for a total of seven.
+punishment session for next time,
+plus five demerits for this session,
+and we'll add two days to your can't-cum schedule,
+for a total of seven.
 .pause
 .must 695 699
 .unset 200 201 202 203
@@ -10900,8 +10937,10 @@ and we'll add two days to your can't-cum schedule, for a total of seven.
 
 [Action 4762]
 To pay off your indefinate denial punishment, I'm giving you two regular
-punishment sessions for next time, plus five demerits for this session,
-and we'll add a day to your can't-cum schedule, for a total of seven.
+punishment sessions for next time,
+plus five demerits for this session,
+and we'll add a day to your can't-cum schedule,
+for a total of seven.
 .pause
 .must 696 699
 .unset 200 201 202 203
@@ -10913,10 +10952,10 @@ and we'll add a day to your can't-cum schedule, for a total of seven.
 .Say Action
 
 [Action 4763]
-What a slave. You've stored up seven skipped cumming opportunities,
-plus an indefinate denial punishment. To pay this off I'm giving you
-a total of six punishment sessions for next time, plus five demerits
-for this session, and we'll resume the seven-day schedule next time.
+What a slave.
+You've stored up seven skipped cumming opportunities, plus an indefinate denial punishment.
+To pay this off I'm giving you a total of six punishment sessions for next time,
+plus five demerits for this session, and we'll resume the seven-day schedule next time.
 .pause
 .must 697 699
 .unset 200 201 202 203
@@ -11124,6 +11163,7 @@ Do you remember and understand my little class about the
 basic implements of torture and restraint, My slave?
 .mustnot 507                  ' Attention deficit
 .yesno 4829 4829 4828 4828
+.Say Action
 
 
 [Action 4828]
@@ -11250,7 +11290,6 @@ Maybe you do after receiving the punishment you've earned for your lack of atten
 .noimage
 .delay 0
 .range 4900
-.say action
 
 
 ' Activity loop
@@ -11606,7 +11645,6 @@ Go fetch me a long piece of rope, slave.
 .delay 0
 .poss 1                 ' Fallback
 .range 4985
-.Say Action
 
 
 ' 4970-4989 toy selection continuations
@@ -11908,7 +11946,6 @@ Well. That didn't work out as expected. Let's see...
 .noimage
 .delay 0
 .range 5021 5022
-.Say Action
 
 ' Left punishment without permission
 [Action 5021]
@@ -11978,7 +12015,6 @@ plenty of pain. I'm going to get through to you somehow!
 .delay 0
 .must 270               ' Activity cycle
 .range 7200             ' Failed this activity
-.Say Action
 
 [Action 5036]
 You can come back in an hour if you want to get back into my good graces.
@@ -12298,7 +12334,7 @@ Well, 2 merits seem appropriate for such a good training session.
 '.pause
 '.set 680                ' get or make high heels
 .range 7201
-.Say Action
+'.Say Action
 
 ' Achivement 602
 [Action 5122]
@@ -15230,7 +15266,6 @@ No getting up for you now.
 .noimage
 .unset 7575
 .range 7580 7584
-.Say Action
 
 '[Action 7576]
 
@@ -15244,7 +15279,6 @@ No getting up for you now.
 .noimage
 .unset 7580
 .range 7585 7589
-.Say Action
 
 
 ' remove cock bondage
@@ -15284,7 +15318,6 @@ Just in case, your cock and balls stay tied up, sweetheart.
 .noimage
 .unset 7590
 .range 7595 7598
-.Say Action
 
 
 [Action 7595]
@@ -16438,7 +16471,6 @@ not allowed to cum until further notice, My poor little slut.
 .noimage
 .delay 0
 .range 8100 8119
-.Say Action
 
 ' Cum in time
 [Action 8092]
@@ -17157,7 +17189,6 @@ It's good to know your silly slave penis is safely locked up.
 .delay 0
 .must 45                ' have key for chastity cage 
 .range 8249
-.say action
 
 [action 8246]
 Well, on my part you can beg your key holder for a release.
@@ -17171,10 +17202,6 @@ Maybe she's generous tonight and gives you a nice milking. hihi.
 .noimage
 .delay 0 
 .range 9000
-.say action
-
-
-
 
 
 ' Cum comments standard entry/dispatch:
@@ -17211,6 +17238,7 @@ Well, that was a great performance!
 I doubt I can leave you alone in a cage you managed to cum in.
 .must 8240         ' Slave answered "yes" after cum-cycle timeout
 .range 8990
+.say action
 
 
 [action 8989]
@@ -18442,14 +18470,14 @@ When it's time, you will cum on it. And make sure you catch it all.
 .noimage
 .delay 0
 .range 8130 8149
-.Say Action
 
 
 ' cum-slut scenarios "cleanup" actions
 
 ' Entry after slave came
 [Action 9639]
-I hope that felt good. Isn't it fun to be a good slave boy?
+I hope that felt good.
+Isn't it fun to be a good slave boy?
 .delay 15
 .range 9640 9649
 .Say Action
@@ -18814,7 +18842,6 @@ I think that's enough for now. You may lick your hands and the floor clean.
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
 .range 8130 8149                       ' choose how to cum range
-.Say Action
 
 [Action 9701]
 Okay, slave. I seem to remember that you're scheduled to miss your next cumming opportunity,
@@ -18947,7 +18974,6 @@ want to. Are you sure you'd like to cum, sweetie?
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
 .range 9720 9721
-.Say Action
 
 [Action 9714]
 .noimage
@@ -18958,7 +18984,6 @@ want to. Are you sure you'd like to cum, sweetie?
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
 .range 9720 9721
-.Say Action
 
 [Action 9715]
 .noimage
@@ -18969,7 +18994,6 @@ want to. Are you sure you'd like to cum, sweetie?
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
 .range 9720 9721
-.Say Action
 
 [Action 9716]
 .noimage
@@ -18979,7 +19003,6 @@ want to. Are you sure you'd like to cum, sweetie?
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
 .range 9720 9721
-.Say Action
 
 ' slave is already a cum-slut
 [Action 9717]
@@ -19179,7 +19202,6 @@ and get ready for the rest of My instructions.
 .delay 0
 .mustnot 786                 ' first time
 .range 9757 9759
-.say action
 
 [Action 9752]
 .noimage
@@ -19187,7 +19209,6 @@ and get ready for the rest of My instructions.
 .must 257                    ' Intensified training
 .must 786                    ' Have had enema before
 .range 9757 9759
-.say action
 
 [Action 9753]
 .noimage
@@ -19195,7 +19216,6 @@ and get ready for the rest of My instructions.
 .mustnot 257                 ' Intensified training
 .must 786                    ' Have had enema before
 .range 9757 9759
-.say action
 
 '[Action 9754]
 '[Action 9755]
@@ -19384,7 +19404,6 @@ Ah! Don't forget a towel and some rope.
 .noimage
 .delay 0
 .range 9799
-.say action
 
 
 [Action 9799]
@@ -19399,7 +19418,7 @@ Ah! Don't forget a towel and some rope.
 .noimage
 .delay 0
 .range 9801 9804
-.Say Action
+
 
 ' Nothing in butt - skip
 [Action 9801]
@@ -19416,6 +19435,7 @@ It's time to move on with your anal training, slave.
 .must 41                ' Dildo in ass
 .must 776               ' Dildo worshiping 1
 .range 9810 9819
+.say action
 
 ' butt plug assignments
 [Action 9803]
@@ -19424,6 +19444,7 @@ It's time to move on with your anal training, slave.
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo in ass
 .range 9820 9829
+.say action
 
 '[Action 9804]
 
