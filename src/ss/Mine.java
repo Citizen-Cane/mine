@@ -63,7 +63,7 @@ public class Mine {
 					try {
 						String line;
 						while ((line = debugReader.readLine()) != null) {
-							if (!line.startsWith("//")) {
+							if (!line.startsWith("//") && !line.isEmpty()) {
 								script = line;
 								break;
 							}
