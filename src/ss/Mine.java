@@ -63,7 +63,17 @@ public class Mine {
 					try {
 						String line;
 						while ((line = debugReader.readLine()) != null) {
-							if (!line.startsWith("//") && !line.isEmpty()) {
+							line = line.trim();
+							int comment = line.indexOf("//");
+							if (comment == 0)
+							{
+								continue;
+							}
+							else if (comment > 0)
+							{
+								line = line.substring(0, comment -1);
+							}
+							if (!line.isEmpty()) {
 								script = line;
 								break;
 							}
@@ -103,7 +113,7 @@ public class Mine {
 				new SexScriptsHost(scriptInterface),
 				new SexScriptsStatePersistence("Mine", scriptInterface));
 		TeaseLib.log("PCMPlayer: " + script + " ( resourcesBase = " + resourcesBase + ", libBase = " + libBase + ")");
-		StringTokenizer argv = new StringTokenizer(script.trim(), " ");
+		StringTokenizer argv = new StringTokenizer(script, " ");
 		String scriptName = argv.nextToken();
 		final ActionRange range;
 		if (argv.hasMoreElements())
