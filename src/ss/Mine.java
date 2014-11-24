@@ -39,7 +39,7 @@ public class Mine {
 
 	private final IScript scriptInterface;
 	
-	final String assetsBasePath = "Mine/";
+	final String assetRoot = "Mine/";
 	
 	public Mine(IScript script)
 	{
@@ -97,22 +97,23 @@ public class Mine {
 		play(script, resourcesBase, libBase);
 	}
 
-	public void play(String script, String resourcesBase, String libBase) throws IOException
+	public void play(String script, String basePath, String libBase) throws IOException
 	{
-		URI[] uris = {
-				new File(resourcesBase + assetsBasePath).toURI(),
-				new File(resourcesBase + "Mine Scripts.zip").toURI(),
-				new File(resourcesBase + "Mine Resources.zip").toURI(),
-				new File(resourcesBase + "Mine Mistress.zip").toURI(),
-				new File(resourcesBase + "Mine.jar").toURI(),
+		URI[] assets = {
+				new File(basePath + "Mine Scripts.zip").toURI(),
+				new File(basePath + "Mine Resources.zip").toURI(),
+				new File(basePath + "Mine Mistress.zip").toURI(),
+				new File(basePath + "Mine Speech.zip").toURI(),
+				new File(basePath + "Mine.jar").toURI(),
 				new File(libBase + "TeaseLib.jar").toURI()
 		};
 		Player player = new Player(
-				uris,
-				assetsBasePath,
+				basePath,
+				assets,
+				assetRoot,
 				new SexScriptsHost(scriptInterface),
 				new SexScriptsStatePersistence("Mine", scriptInterface));
-		TeaseLib.log("PCMPlayer: " + script + " ( resourcesBase = " + resourcesBase + ", libBase = " + libBase + ")");
+		TeaseLib.log("PCMPlayer: " + script + " ( basePath = " + basePath + ", libBase = " + libBase + ")");
 		StringTokenizer argv = new StringTokenizer(script, " ");
 		String scriptName = argv.nextToken();
 		final ActionRange range;

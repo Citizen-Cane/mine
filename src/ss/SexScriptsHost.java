@@ -78,17 +78,26 @@ public class SexScriptsHost implements Host {
 	}
 
 	@Override
-	public void playSound(String file) {
-		ss.playBackgroundSound(file);
+	public void playSound(String path, InputStream inputStream) {
+		// SexScripts doesn't accept WAV input streams or sound objects,
+		// so we're going to cache them in the Sounds folder
+		File file = ensureFile(path, inputStream);
+		ss.playSound(file.getAbsolutePath());
 	}
 
 	@Override
-	public void playBackgroundSound(String path, InputStream sound) {
+	public void playBackgroundSound(String path, InputStream inputStream) {
 		// SexScripts doesn't accept WAV input streams or sound objects,
 		// so we're going to cache them in the Sounds folder
+		File file = ensureFile(path, inputStream);
+		ss.playBackgroundSound(file.getAbsolutePath());
+	}
+
+	private File ensureFile(String path, InputStream sound) {
 		File file = new File(path);
 		if (!file.exists()) {
 			try {
+				file.getParentFile().mkdirs();
 				Files.copy(sound, Paths.get(file.toURI()));
 			} catch (IOException e) {
 				// ignore
@@ -97,7 +106,7 @@ public class SexScriptsHost implements Host {
 				}
 			}
 		}
-		ss.playBackgroundSound(file.getAbsolutePath());
+		return file;
 	}
 
 	@Override
