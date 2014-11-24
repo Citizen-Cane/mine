@@ -49,9 +49,9 @@ public class Mine {
 	public void play() throws IOException
 	{
 		String resourcesBase = "scripts/";
-		String libBase = "lib/";
+		String teaselibBase = "lib/TeaseLib";
 		String script = null;
-		File debug = new File(resourcesBase, "debug.txt"); 
+		File debug = new File(resourcesBase + "/" + assetRoot, "debug.txt"); 
 		if (debug.exists())
 		{
 			Player.debugOutput = true;
@@ -94,7 +94,7 @@ public class Mine {
 		{
 			script = getClass().getSimpleName(); 
 		}
-		play(script, resourcesBase, libBase);
+		play(script, resourcesBase, teaselibBase);
 	}
 
 	public void play(String script, String basePath, String libBase) throws IOException

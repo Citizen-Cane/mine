@@ -28,7 +28,7 @@
             </manifest>
             <fileset dir="../mine-assets/assets" includes="Mine/mistress/**"/>
         </jar>
-        <jar destfile="../../Extras/SexScripts/lib/TeaseLib.jar">
+        <jar destfile="../../Extras/SexScripts/lib/TeaseLib/TeaseLib.jar">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
@@ -37,8 +37,8 @@
         <copy todir="../../Extras/SexScripts/scripts/Mine/accessories/">
             <fileset dir="../mine-assets/assets/Mine/accessories/"/>
         </copy>
-        <copy todir="../../Extras/SexScripts/lib/">
-            <fileset dir="../TeaseLib/lib/" excludes="**.pdb"/>
+        <copy todir="../../Extras/SexScripts/lib/TeaseLib">
+            <fileset dir="../TeaseLib/lib/" excludes="**.pdb,**.exp,**.ilk,**.lib"/>
         </copy>
     </target>
 </project>
