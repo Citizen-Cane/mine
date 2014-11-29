@@ -45,7 +45,7 @@ public class Mine {
 
 	public void play() throws IOException {
 		String resourcesBase = "scripts/";
-		String teaselibBase = "lib/TeaseLib";
+		String teaselibBase = "lib/TeaseLib/";
 		String script = null;
 		File debug = new File(resourcesBase + "/" + assetRoot, "debug.txt");
 		if (debug.exists()) {
