@@ -108,8 +108,8 @@
 [Action 901]
 .delay 0
 .noimage
-.set 170
 .must 260               ' Already done this session
+.set 170
 .range 3206 3208
 
 ' Dildo worshiping 504 general disobedience, level 1
@@ -169,12 +169,13 @@
 '.range 3200 3202
 
 
- Dildo worshiping
+' Dildo worshiping
 [Action 989]
 So, what will you be wearing, slave?
 .unset 989
 .ask 74 99
 .range 990
+.say action
 
 [Action 990]
 Welcome to debug my code, But don't try to cheat on me.
@@ -828,7 +829,7 @@ Of course you won't sit on your chair. You'll be kneeling as you already do.
 .delay 0
 .noimage 
 .range 3298 3299
-.Say Action
+
 
 [Action 3298]
 Since your silly slave penis is securly locked up, you won't need your hands
@@ -844,15 +845,12 @@ at all and are to keep them on the desk's edge at all times.
 .mustnot 10 11          ' Wrists bound on back or to ankles
 .mustnot 30             ' Can't jerk off
 .range 3398 3399
-.Say Action
 
 
 ' 3224 Mount dildo on wall or cupboard, suck kneeling upright, ride standing, bending forward, supported by chair or opposite wall
 [Action 3300]
-.delay 5
 .set 13                 ' Rub against wall
 .range 3301
-.Say Action
 
 [Action 3301]
 You're going to kneel down upright this time.
@@ -866,12 +864,12 @@ Mount your dildo at a nearby wall, a cupboard or door.
 .range 3303 3304
 .Say Action
 
+
 [Action 3303]
 .delay 0
 .noimage
 .poss 1
 .range 3398 3399
-.Say Action
 
 [Action 3304]
 .delay 0
@@ -882,7 +880,7 @@ Mount your dildo at a nearby wall, a cupboard or door.
 .must 26                ' Wrists tied, otherwise jerk off
 .set 13                 ' Rub against wall
 .range 3398 3399
-.Say Action
+'.Say Action
 
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
@@ -1104,7 +1102,6 @@ to prevent you from doing something naughty, my pet.
 .delay 0
 .mustnot 30             ' can't jerk off
 .range 3398 3399
-.Say Action
 
 
 ' 3239 wall mounted, nipple clamps attached to dildo 
@@ -1138,14 +1135,12 @@ Very good.
 .delay 0
 .must 22                ' Something in mouth
 .range 3541 3545        ' Advance to riding stage
-.Say Action
 
 [Action 3399]
 .noimage
 .delay 0
 .set 42                 ' Dildo in mouth
 .range 3400 3404
-.Say Action
 
 
 ' Can't rub
@@ -1236,11 +1231,12 @@ nor are you (or will you be) allowed to cum, of course.
 
 ' Can't handle cumming and aborting the scenario in PCM,
 ' so we have to save this for SexScripts
-'[Action 3417]
+[Action 3417]
 'If at any time you do cum, you are to immediately press the "STOP" button. Of course,
 'you will be punished very seriously for such an infraction. Now, get ready to begin.
 '.range 3420 3443
 '.Say Action
+.range 3418 3419
 
 [Action 3418]
 If at any time you feel the urge to cum, stop stroking for any other reason,
@@ -1846,6 +1842,7 @@ Keep on teasing the tip and rub your cock on the furniture to stay hard.
 .must 14                ' Rub against furniture
 .unset 3503
 .range 3460 3469
+.say action
 
 [Action 3504]
 That's it for that set, slave. I'll let you relax a bit to collect yourself.
@@ -1854,6 +1851,7 @@ Keep on teasing the tip and rub your cock on the furniture to stay hard.
 .must 15                ' Wank to stay hard
 .unset 3504
 .range 3460 3469
+.say action
 
 
 ' Blow job end - Back to desk or continue 3505-3514
@@ -1937,7 +1935,6 @@ Very good. Carry on teasing, my dirty slut.
 .noimage
 .delay 0
 .range 3530 3531
-.Say Action
 
 ' wall mounted, nipple clamps attached to dildo
 '[Action 3521]
@@ -1983,7 +1980,6 @@ Very good. Carry on teasing, my dirty slut.
 .delay 0
 .must 21                ' Something in butt 
 .range 4349             ' end of dildo worshiping
-.Say Action
 
 ' Can't ride if harnessed
 [Action 3533]
@@ -1991,7 +1987,6 @@ Very good. Carry on teasing, my dirty slut.
 .delay 0
 .must 36                ' Harnessed
 .range 4349
-.Say Action
 
 ' Not interested in anal training
 [Action 3534]
@@ -1999,7 +1994,6 @@ Very good. Carry on teasing, my dirty slut.
 .delay 0
 .mustnot 756            ' Anal training 1 
 .range 4349             ' end of dildo worshiping
-.Say Action
 
 ' Ask whether slave wants to ride the dildo
 [Action 3535]
@@ -2009,7 +2003,6 @@ Very good. Carry on teasing, my dirty slut.
 .mustnot 36             ' Harnessed 
 .mustnot 267 268 269    ' Enema carrying out or holding, voided completly, to favour buttplug assignments
 .range 3539 3559        ' Decide for each scenario whether riding is possible
-.Say Action
 
 
 ' 3539-3559             ' Decide for each scenario if riding is possible
@@ -2021,7 +2014,6 @@ Very good. Carry on teasing, my dirty slut.
 .delay 0
 .poss 1
 .range 4349             ' end of dildo worshiping
-.Say Action
 
 ' 3220 lie down on the floor, riding fully penetrated on the floor
 ' The scenario requires just to sit down, so 32 33 could be relaxed if 776 is set
@@ -2115,7 +2107,6 @@ Very good. Carry on teasing, my dirty slut.
 .noimage
 .delay 0
 .range 3561 3565
-.Say Action
 
 
 ' Already have dildo, it is in the slave's mouth
@@ -2153,7 +2144,6 @@ Well slave, you surely want to ride your dildo, won't you?
 .delay 0
 .must 778               ' Dildo worshiping 3
 .range 3575 3579
-.Say Action
 
 
 ' Starting anal training
@@ -2406,7 +2396,6 @@ Then slowly sit down to let it gently slide into your back door.
 .delay 0
 .must 3226
 .range 3649
-.Say Action
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 3607]
@@ -2747,7 +2736,6 @@ against the wall to insert the dildo to its full length.
 .noimage
 .delay 0
 .range 3769
-.Say Action
 
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
@@ -3997,18 +3985,18 @@ and pour the water away in the kitchen sink.
 
 [Action 4335]
 Then come back here.
-.delay 10  
+.actiondelay 10  
 .range 4336
 .Say Action
 
 [Action 4336]
-And take care of your dildo. Haha.
-.delay 40  
+And take care of your dildo. Hihi.
+.actiondelay 40  
 .range 4339
 .Say Action
 
 [Action 4339]
-Ah, you're back, sweatheart.
+.txt Ah, you're back, sweatheart.
 .pause  
 .range 4349
 ' This is just meant to be displayed, we can't detect the slave returning,
@@ -4023,7 +4011,7 @@ Ah, you're back, sweatheart.
 You're a bit of a disappointment today, aren't you, slave?
 .delay 5
 .range 4349
-
+.say action
 
 ' Achievements
 
@@ -4156,7 +4144,6 @@ You're a bit of a disappointment today, aren't you, slave?
 .delay 0
 .mustnot 10 11 16 17
 .range 4390
-.say action
 
 [Action 4382]
 You can untie your wrists, slave.
@@ -4494,7 +4481,6 @@ And it's time to take off your nipple clamps as well.
 .must 3239
 .must 20
 .range 4490
-.Say Action
 
 ' Mount dildo on a mirror or window pane, sit on heels, nipple clamps
 [Action 4474]
@@ -4512,7 +4498,6 @@ And it's time to take off your nipple clamps as well.
 .must 3237
 .must 20
 .range 4490
-.Say Action
 
 
 [Action 4490]
@@ -4533,7 +4518,7 @@ And it's time to take off your nipple clamps as well.
 .noimage
 .delay 0
 .mustnot 4348                ' Cancelled
-.range 9800 9899             ' good exit range
+.range 9850 9899             ' good exit range
 
 
 ' From 3280, dildo yoga scenario preparation
@@ -4590,10 +4575,12 @@ advance into the Downward-Facing Dog.
 
 ' Bhujangasana, Cobra Pose
 [Action 5050]
-Lie prone on the floor. Stretch your legs back, tops of the feet on the floor.
-Spread your hands on the floor under your shoulders and hug the elbows back into
-your body. Press the tops of the feet, thighs and the pubis firmly into the floor. 
+Lie prone on the floor.
+Stretch your legs back, tops of the feet on the floor.
+Spread your hands on the floor under your shoulders and hug the elbows back into your body.
+Press the tops of the feet, thighs and the pubis firmly into the floor.
 .image RebeccaYoga(05).jpg
+.actiondelay 30
 .range 5051
 .Say Action
 
@@ -4603,14 +4590,17 @@ Inhale and begin to straighten the arms to lift the chest off the floor.
 Just go to the height at which you can maintain a connection
 through your pubis to your legs to advance to The Cobra.
 .image RebeccaYoga(05).jpg
+.actiondelay 20
 .range 5052
 .Say Action
 
 [Action 5052]
-Well done. Lower your arms to get your chest back to the ground,
+Well done.
+Lower your arms to get your chest back to the ground,
 place your arms next to your shoulders and lift your chest to
 enter the Dog Tilt Pose again.
 .image RebeccaYoga(03).jpg
+.actiondelay 20
 .range 3398 3399                  ' Continue dildo worshiping, blow job
 .Say Action
 
@@ -4618,9 +4608,10 @@ enter the Dog Tilt Pose again.
 ' Urdhva Hastasana , Upward Salute, Standing, arms raised
 [Action 5060]
 Stand up, keep your arms next to your body, turning your arms outward so your palms
-face away from your torso and thumbs point backward. With an inhale, sweep your arms
-out to the sides and up toward the ceiling.
+face away from your torso and thumbs point backward.
+With an inhale, sweep your arms out to the sides and up toward the ceiling.
 .image RebeccaYoga(06).jpg
+.actiondelay 15
 .range 5070
 .Say Action
 
@@ -4628,6 +4619,7 @@ out to the sides and up toward the ceiling.
 [Action 5070]
 From behind it looks like this.
 .image RebeccaYoga(07).jpg
+.actiondelay 10
 .range 5080
 .Say Action
 
@@ -4637,36 +4629,45 @@ Touch your toes with your fingers to advance into the Big Toe Pose.
 Keep your inner feet parallel and about six inches apart, Exhale and
 bend forward from your hip joints, moving your torso and head as one unit.
 .image RebeccaYoga(08).jpg
+.actiondelay 20
 .range 5090
 .Say Action
 
 ' Skip, it´s almost identical to pose 8 
 [Action 5090]
+Now, while keeping the pose, lift your head to look forward! 
+.actiondelay 10
 .image RebeccaYoga(09).jpg
 .range 5100
 .Say Action
+
 
 ' Adho Mukha Svanasana, Downward-Facing Dog
 [Action 5100]
 Step forward with your arms and advance to the Downward-Facing Dog.
 .image RebeccaYoga(10).jpg
+.actiondelay 15
 .range 5110
 .Say Action
 
 ' Adho Mukha Svanasana, Downward-Facing Dog, heels on floor
 [Action 5110]
-Let's enjoy this pose for a minute or so.
+Let's enjoy this pose for a minute.
 .image RebeccaYoga(11).jpg
+.actiondelay 40
 .range 5120
 .Say Action
 
 ´ Plank pose
 ´ http://www.yogajournal.com/poses/470
 [Action 5120]
-Draw your torso forward until the arms are perpendicular to the floor
-and the shoulders directly over the wrists, torso parallel to the floor
-to reach the Plank Pose, then get down on your belly.
+Very good!
+Now draw your torso forward until the arms are perpendicular to the floor
+and the shoulders directly over the wrists,
+torso parallel to the floor to reach the Plank Pose.
+Then get down on your belly.
 .image RebeccaYoga(12).jpg
+.actiondelay 20
 .range 5130
 .Say Action
 
@@ -4676,6 +4677,7 @@ As before, inhale and begin to straighten the arms to lift the chest off the flo
 to advance into the Cobra Pose. Only go to the height at which you can maintain
 a connection to the floor through your pubis to your legs.
 .image RebeccaYoga(13).jpg
+.actiondelay 20
 .range 5140
 .Say Action
 
@@ -4684,6 +4686,7 @@ a connection to the floor through your pubis to your legs.
 Now, move your buttocks back until you are in the Extended Puppy Pose.
 Your arms are stretched forward, the palms stretching the floor.
 .image RebeccaYoga(14).jpg
+.actiondelay 20
 .range 5150
 .Say Action
 
@@ -4691,6 +4694,7 @@ Your arms are stretched forward, the palms stretching the floor.
 [Action 5150]
 And finally, rest your buttocks on your heels to enter the Child pose.
 .image RebeccaYoga(15).jpg
+.actiondelay 20
 .range 5160
 .Say Action
 
@@ -4698,6 +4702,7 @@ And finally, rest your buttocks on your heels to enter the Child pose.
 [Action 5160]
 Now comes the part where you can show how flexible you are.
 .image RebeccaYoga(16).jpg
+.actiondelay 20
 .range 5170
 .Say Action
 
@@ -4710,31 +4715,35 @@ Position one heel under your crotch, so that it ends up in your ass crack.
 Then straighten the other leg as shown so that the foot of the bent leg is
 under the thigh of the stretched one.
 .image RebeccaYoga(17).jpg
+.actiondelay 20
 .range 5180
 .Say Action
 
 [Action 5180]
 Bend your back forward to touch the floor with your nose.
 .image RebeccaYoga(18).jpg
+.actiondelay 15
 .range 5185
 .Say Action
 
 [Action 5185]
 If you did anything right you have your Dildo and lube in front of you.
 Lube it up!
-.delay 20 
+.actiondelay 20
 .range 5190
 .Say Action
 
 [Action 5190]
-Bend your back back up, and place the dildo under your backdoor.
+Bend your back back up, and place the dildo under your naughty backdoor.
 .image RebeccaYoga(19).jpg
+.actiondelay 20
 .range 5200
 .Say Action
 
 ´Skip?
 [Action 5200]
 .image RebeccaYoga(20).jpg
+.actiondelay 15
 .range 5210
 .Say Action
 
@@ -4742,148 +4751,165 @@ Bend your back back up, and place the dildo under your backdoor.
 [Action 5210]
 Now sink down to let it gently slide into your back door.
 .image RebeccaYoga(22).jpg
+.actiondelay 20
 .set 21 41                   ' Something in butt, dildo
 .range 5220
 .Say Action
 
 [Action 5220]
-You may use your hands to push it in deeper.
+If you need to, you may use your hands to push it in deeper.
 .image RebeccaYoga(21).jpg
+.actiondelay 20
 .range 5230
 .Say Action
 
 [Action 5230]
 Let´s see if you can lift the dildo up a bit.
 .image RebeccaYoga(23).jpg
+.actiondelay 20
 .range 5240
 .Say Action
 
 ' Sukhasana, Easy Pose, palms together
 ' http://www.yogajournal.com/poses/484
 [Action 5240]
-Very well. Get your legs in front to sit down in the Easy Pose.
+Very well.
+Get your legs in front to sit down in the Easy Pose.
 .image RebeccaYoga(24).jpg
+.actiondelay 20
 .range 5241
 .Say Action
 
 [Action 5241]
 Let´s enjoy this relaxing pose for a minute.
 .image RebeccaYoga(24).jpg
+.actiondelay 40
 .range 5250
 .Say Action
 
-' On all four, skip this and advance directly into (26)
+' On all four
 [Action 5250]
+Now get up on all four!
 .image RebeccaYoga(25).jpg
+.actiondelay 20
 .range 5260
 .Say Action
 
 ' Catuspadapitham , Crab Pose
 [Action 5260]
 Lean back into the arms and slowly inhale and lift the hips up a bit,
-as if you want to enter the Crab Pose. However just squat, and try to
-keep the dildo inside your naughty slave ass. 
+as if you want to enter the Crab Pose.
+However just squat, and try to keep the dildo inside your naughty slave ass. 
 .image RebeccaYoga(26).jpg
+.actiondelay 20
 .range 5270
 .Say Action
 
 ' Variation of 26
 [Action 5270]
-Let's enjoy this pose a little.
+Let's enjoy this pose a little as well.
 .image RebeccaYoga(27).jpg
+.actiondelay 20
 .range 5280
 .Say Action
 
 [Action 5280]
 If the dildo comes out too much, sit down and push it back in.
-.delay 5
 .image RebeccaYoga(28).jpg
+.actiondelay 20
 .range 5281
 .Say Action
 
 [Action 5281]
-If the dildo comes out too much, sit down and push it back in.
+.txt If the dildo comes out too much, sit down and push it back in.
 .image RebeccaYoga(27).jpg
 .range 5282
 ' Don't say that again, just display it
 
 [Action 5282]
+.txt
 .image RebeccaYoga(27).jpg
+.actiondelay 10
 .range 5283
 
 [Action 5283]
+.txt
 .image RebeccaYoga(28).jpg
+.actiondelay 10
 .range 5284
 
 [Action 5284]
+.txt
 .image RebeccaYoga(27).jpg
+.actiondelay 10
 .range 5290
 
 
 [Action 5290]
 Now sit down on your dildo and spread your legs.
 .image RebeccaYoga(29).jpg
+.actiondelay 20
 .range 5300
 .Say Action
 
 [Action 5300]
 Are you as involved as Rebecca?
-.delay 4
 .image RebeccaYoga(30).jpg
+.actiondelay 5
 .range 5301
 .Say Action
 
 [Action 5301]
-Are you as involved as Rebecca?
-.delay 4
+.txt Are you as involved as Rebecca?
 .image RebeccaYoga(29).jpg
+.actiondelay 5
 .range 5302
 ' Don't say that again, just display it
 
 [Action 5302]
-Are you as involved as Rebecca?
-.delay 4
+.txt Are you as involved as Rebecca?
 .image RebeccaYoga(30).jpg
+.actiondelay 5
 .range 5303                  ' On to riding instructions
 ' Don't say that again, just display it
 
 [Action 5303]
 Well, it looks like you've gotten the hang of it.
-.delay 4
 .image RebeccaYoga(28).jpg
 '.range 5310 
 .range 3920                  ' On to riding instructions
 ' Don't say that again, just display it
+.say action
 
-
-' From End of ride, put on the panties, respectively the crotch rope
+' continue from End of ride, put on the panties, respectively the crotch rope
 [Action 5310]
-Well, it's time to make use of that rope.
+Let's do a little twisting to relay your muscles.
 .image RebeccaYoga(31).jpg
-'.range 5320
-.range 5340
+.range 5320
 .Say Action
 
 ' Put on the panties, not clearly visible
-'[Action 5320]
-'Let's do a little twisting to relay your muscles. Cross the left leg
-'over the right leg as shown, use your arms to support agsint your foot,
-'and twist your torso to look down along your arm at your right foot.
-'.image RebeccaYoga(32).jpg
-'.range 5330
-'.Say Action
+[Action 5320]
+Cross the left leg over the right leg as shown, use your arms to support agaisnt your foot.
+Then twist your torso to look down along your arm at your right foot.
+.image RebeccaYoga(32).jpg
+.range 5330
+.Say Action
 
 ' Put on the panties, not clearly visible
-'[Action 5330]
-'Let's do a little yoga.
-'.image RebeccaYoga(33).jpg
-'.range 5340
-'.Say Action
+[Action 5330]
+Now bend your torso forward.
+Stay in this position!
+.image RebeccaYoga(33).jpg
+.actiondelay 40
+.range 5340
+.Say Action
 
 ' Put on the panties, clearly visible
 [Action 5340]
-Our model Rebecca puts her panties on to keep the dildo in her pussy.
-I think you can make a nice crotch rope from your rope. Hurry up, slave.
+Our model Rebecca is going to put her panties on to keep the dildo in her pussy.
+I think you can make a nice crotch rope instead.
+Hurry up, slave!
 .image RebeccaYoga(34).jpg
 .delay 30
 .set 27                      ' Something around waist
@@ -4893,6 +4919,7 @@ I think you can make a nice crotch rope from your rope. Hurry up, slave.
 [Action 5350]
 Are you ready?
 .image RebeccaYoga(35).jpg
+.pause
 .range 5360
 .Say Action
 
@@ -4903,27 +4930,31 @@ Are you ready?
 [Action 5360]
 Let's continue our yoga exercise. Get on all four into the cow pose again. 
 .image RebeccaYoga(36).jpg
+.actiondelay 20
 .range 5360
 .Say Action
 
 ' kneel straight
 [Action 5370]
-Get on your knees.
+Get up on your knees.
 .image RebeccaYoga(37).jpg
+.actiondelay 20
 .range 5380
 .Say Action
 
 [Action 5380]
-And sit back down again.
+And sit back down again between your heels.
 .image RebeccaYoga(38).jpg
+.actiondelay 20
 .range 5390
 .Say Action
 
 ' legs straight in front, arms on lower legs
 [Action 5390]
-Get your legs straight in front of you, and bend down a bit
-to rest yuour palms on your knees. 
+Get your legs straight in front of you,
+and bend down a bit to rest yuour palms on your knees. 
 .image RebeccaYoga(39).jpg
+.actiondelay 20
 .range 5400
 .Say Action
 
@@ -4932,20 +4963,23 @@ to rest yuour palms on your knees.
 [Action 5400]
 And, as you exhale, bend down into a seated forward bent.
 .image RebeccaYoga(40).jpg
+.actiondelay 20
 .range 5410
 .Say Action
 
 ' Just sitting 
 [Action 5410]
 Sit up again, as you inhale.
+.actiondelay 15
 .image RebeccaYoga(41).jpg
 .range 5420
 .Say Action
 
 ' Seated, Arms up
 [Action 5420]
-Arms up and inhale!
+Arms up!
 .image RebeccaYoga(42).jpg
+.actiondelay 15
 .range 5430
 .Say Action
 
@@ -4954,14 +4988,16 @@ Arms up and inhale!
 [Action 5430]
 And again, bend down and reach, as you exhale, to your toes.
 .image RebeccaYoga(43).jpg
+.actiondelay 20
 .range 5440
 .Say Action 
 
 ' Arms up, legs spread, to the right 
 [Action 5440]
-Let's do this again. Sit wide-legged, inhale while raising your arms,
+Spread to sit wide-legged, inhale while raising your arms,
 exhale while bending down, and reach to your right foot. 
 .image RebeccaYoga(44).jpg
+.actiondelay 20
 .range 5450
 .Say Action
 ' There's no image of Rebeccxa reaching her toes in this pose
@@ -4969,21 +5005,24 @@ exhale while bending down, and reach to your right foot.
 
 ' Arms up, legs spread, to the left 
 [Action 5450]
-Let's do this again, this time the other leg. inhale while raising your arms,
+Let's do this again, this time the other leg.
+Inhale while raising your arms,
 exhale while bending down, and reach to your right foot. 
 .image RebeccaYoga(45).jpg
+.actiondelay 20
 .range 5460
 .Say Action
 
 [Action 5460]
 Wasn't that a nice workout?
 .image RebeccaYoga(46).jpg
+.actiondelay 20
 .set 779                     ' advance to dildo worshiping 4
 .range 4299                  ' On to dildo worshiping finish
 .Say Action
 
 
-' Good exits 9800-9899
+' Good exits 9850-9899
 
 ' Dildo worshiping activity
 [Action 9850]

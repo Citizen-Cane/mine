@@ -62,6 +62,7 @@
 [Action 990]
 Welcome to debug my code, But don't try to cheat on me.
 What would you like to do today?
+.set 100
 .unset 990
 .popup 40 42
 .say action
@@ -177,6 +178,7 @@ Jump, slave! Spread those arms and legs!
 .unset 5011
 .delay 2
 .range 5011 5015
+.Say Action
 
 [Action 5012]
 .playwav slap_2.wav
@@ -185,6 +187,7 @@ Jump, slave! Keep that cock hard!
 .unset 5012
 .delay 2 
 .range 5011 5015
+.Say Action
 
 [Action 5013]
 .playwav slap_2.wav
@@ -193,6 +196,7 @@ Jump, slave!
 .unset 5013
 .delay 2 
 .range 5011 5015
+.Say Action
 
 [Action 5015]
 Okay, slave, put two clothes pegs on your ball sack.
@@ -266,8 +270,9 @@ Now get down on your belly, slave, and give me some push-ups.
 Give me a push-up!
 .playwav slap_2.wav
 .unset 5026
-.range 5027 5028
+.range 5028 5029
 .Say Action
+
 
 [Action 5028]
 Very good, slave. Put the last two clothes pegs on your slave titties.
@@ -1692,9 +1697,11 @@ That's very good, slave. You've got them all on.
 .Say Action
 
 [Action 7133]
-That's not correct, slave. You're missing some on the 
-left nipple. That means we get to start over! Take off
-all the clothes pegs now. Would you like to give up?
+That's not correct, slave.
+You're missing some on the left nipple.
+That means we get to start over!
+Take off all the clothes pegs now.
+Would you like to give up?
 .unset 7000 7001 7002 7003 7004
 .unset 7005 7006 7007 7008 7009
 .unset 7010 7011 7012 7013 7014
@@ -1703,9 +1710,9 @@ all the clothes pegs now. Would you like to give up?
 .Say Action
 
 [Action 7134]
-That's incorrect, slave, since you're missing some from
-the right nipple. Take them all off now. And we go back 
-to the beginning, unless you'd like to give up?
+That's incorrect, slave, since you're missing some from the right nipple.
+Take them all off now.
+And we go back to the beginning, unless you'd like to give up?
 .unset 7000 7001 7002 7003 7004
 .unset 7005 7006 7007 7008 7009
 .unset 7010 7011 7012 7013 7014
@@ -1714,8 +1721,9 @@ to the beginning, unless you'd like to give up?
 .Say Action
 
 [Action 7135]
-That's not right, slave. You're missing some from your
-balls. Remove all the clothes pegs, we have to start over.
+That's not right, slave.
+You're missing some from your balls.
+Remove all the clothes pegs, we have to start over.
 Unless you'd like to pussy out?
 .unset 7000 7001 7002 7003 7004
 .unset 7005 7006 7007 7008 7009
@@ -3642,20 +3650,23 @@ the nipple clamps, but don't remove them just yet.
 .Say Action
 
 [Action 7564]
-Now get your chair and sit down, My slave. Doesn't it feel good to follow orders
-and please the Mistress? I want those poor slave nipples pinched just a little 
-bit longer. Why don't you look at some pictures and play with that little penis?
+Now get your chair and sit down, My slave.
+Doesn't it feel good to follow orders and please the Mistress?
+I want those poor slave nipples pinched just a little bit longer.
+Why don't you look at some pictures and play with that little penis?
 .delay 30
 .range 7565
 .Say Action
 
 [Action 7565]
+.txt
 .delay 10 10 STOP 7590
 .repeat 15
 .range 7565 7566
 
 [Action 7566]
-Very good, slave baby. You may remove the clamps.
+Very good, slave baby.
+You may remove the clamps.
 Rub those nipples and get the blood flowing again!
 .NumActionsFrom 7564 10
 .range 7567
@@ -3716,9 +3727,9 @@ simple instructions correctly. What a sad spectacle.
 .Say Action
 
 [Action 7596]
+.delay 0
 .NumActionsFrom 7591 10
 .range 9100 9199
-.delay 0
 
 
 '   "Good" exit points.
@@ -3728,6 +3739,7 @@ simple instructions correctly. What a sad spectacle.
 '   117 1017    5805 -> 5955                    1   -   light cardio nips
 '   118 1018    5817 -> 5967    5867    -       2   -   shake those titties
 
+' Debug
 [Action 9000]
 .must 100
 .quit
@@ -3765,9 +3777,10 @@ simple instructions correctly. What a sad spectacle.
 
 '   "Bad" exit points
 
-'[Action 9100]
-'.must 100
-'.quit
+' Debug
+[Action 9100]
+.must 100
+.quit
 
 '  quick pins
 [Action 9114]
@@ -3785,10 +3798,10 @@ simple instructions correctly. What a sad spectacle.
 .loadsbd Mine.sbd 5916 5916
 
 
+' Slave closed
 [Action 9998]
-Slave closed.
 .loadsbd Mine.sbd 5020 5029
 
+' Abnormal ending, bailing out
 [Action 9999]
-Abnormal ending, bailing out.
 .loadsbd Mine.sbd 5012 5012

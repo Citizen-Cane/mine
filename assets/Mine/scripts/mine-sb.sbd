@@ -116,6 +116,7 @@
 Welcome to debug my code, But don't try to cheat on me.
 What would you like to do today?
 .unset 990
+.set 100
 .popup 40 44
 .say action
 
@@ -399,7 +400,6 @@ First, you must put on the rope harness as you have done before.
 .delay 0
 .must 36                ' Harnessed
 .range 2105
-.Say Action
 
 
 [Action 2105]
@@ -411,11 +411,13 @@ Before we begin, collect the following items and bring them to Me.
 .set   212               ' ring gag as default, unset in 2103
 .unset 213               ' rope as gag replacement, set in 2103
 .pause
-'.range 2102 2103
+'.range 2106 2107
 ' Gag disabled
 .range 2110
 .Say Action
 
+
+' Ring gag - disabled
 
 [Action 2106]
 I also see that you own a gag, is it by any chance a ring gag, my dear?
@@ -429,7 +431,7 @@ Well slave, we need a ring gag for our scenario.
 Since you don't have one, we'll have to improvise a bit.
 .mustnot 340            ' gag
 .range 2108
-
+.say action
 
 [Action 2108]
 I want you to make something that resembles a bit gag.
@@ -440,6 +442,7 @@ Plain rope would be fine, too.
 .unset 212              ' ring gag not available
 .set   213              ' rope as gag replacement
 .range 2109
+.say action
 
 [Action 2109]
 Well, I won't risk your life by using that gag.
@@ -617,52 +620,62 @@ I think you're good for a half hour or so.
 .delay 0
 .range 9400 9599
 
+
 '20 minutes or so
 [Action 8000]
+.txt
 .unset 8000
 .delay 25 35 STOP 7999
 .range 8000 8099
 
 [Action 8099]
+.txt
 .numactionsfrom 8000 29
 .delay 25 35 STOP 7999
-.range 9000 9099
+.range 9001 9099
 
 '30 min
 [Action 8100]
+.txt
 .unset 8100
 .delay 25 35 STOP 7999
 .range 8100 8199
 
 [Action 8199]
+.txt
 .numactionsfrom 8100 59
 .delay 25 35 STOP 7999
-.range 9000 9099
+.range 9001 9099
 
 '45 min
 [Action 8200]
+.txt
 .unset 8200
 .delay 25 35 STOP 7999
 .range 8200 8299
 
 [Action 8299]
+.txt
 .numactionsfrom 8200 89
 .delay 25 35 STOP 7999
-.range 9000 9099
+.range 9001 9099
 
 '60 min
 [Action 8300]
+.txt
 .unset 8300
 .delay 25 35 STOP 7999
 .range 8300 8399
 
 [Action 8399]
+.txt
 .numactionsfrom 8300 119
 .delay 25 35 STOP 7999
-.range 9000 9099
+.range 9001 9099
 '----   
 
 [Action 8800]
+.txt
 .unset 8800
 .delay 20 40 STOP 8899
 .range 8800
@@ -673,6 +686,7 @@ I think you're good for a half hour or so.
 
 
 [Action 8900]
+.txt
 .unset 8800
 .delay 40 80 STOP 8999
 .range 8800
@@ -751,6 +765,12 @@ Now, did you faithfully execute all my instructions, slave?
 
 ' bondage life simple hogtie 30m
 
+[Action 9200]
+.noimage
+.delay 0
+.must 100
+.quit
+
 [Action 9201]
 .noimage
 .delay 0
@@ -782,6 +802,12 @@ Now, did you faithfully execute all my instructions, slave?
 '   ---------------------------------------------------------------------------
 '   BAD ENDINGS ---------------------------------------------------------------
 
+[Action 9400]
+.noimage
+.delay 0
+.must 100
+.quit
+
 [Action 9401]
 .noimage
 .delay 0
@@ -807,10 +833,10 @@ Now, did you faithfully execute all my instructions, slave?
 .loadsbd Mine.sbd 5504 5504
 
 
+' Slave closed
 [Action 9998]
-Slave closed.
 .loadsbd Mine.sbd 5020 5029
 
+' Abnormal ending, bailing out
 [Action 9999]
-Abnormal ending, bailing out.
 .loadsbd Mine.sbd 5015 5015
