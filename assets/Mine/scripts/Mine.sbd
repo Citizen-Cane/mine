@@ -13801,13 +13801,8 @@ Maybe later.
 ' teasing bad endings
 
 [Action 6101]
-Cumming without permission!
-You've done it this time, you stupid slut.
-There will be punishment for this, and in addition you aren't allowed to cum until further notice.
-.set 519 699 894        ' came w/o perm, no cum 5 demerits
-.unset 525              ' P.O. for cumming after denial
-.range 6149
-.Say Action
+.set 891                ' 2 demerits
+.range 6130
 
 [Action 6102]
 I'll give you a demerit since you didn't want to listen to the whole story, you ungrateful slave.
@@ -13822,48 +13817,128 @@ What a bad slave!
 .range 7200
 .Say Action
 
-
-[Action 6104]
-I can't believe you would disobey me like this.
-You won't be cumming until further notice.
-.set 519 699 894        ' came w/o perm, no cum 5 demerits
-.unset 525              ' P.O. for cumming after denial
-.range 6149
-.Say Action
+'[Action 6104]
 
 [Action 6105]
-A failed slave is such a sorry sight.
+.set 890                ' 1 demerit
+.range 6130
+
+[Action 6106]
+.set 891                ' 2 demerits
+.range 6130
+
+[Action 6107]
+.set 891                ' 2 demerits
+.range 6130
+
+[Action 6108]
+.set 891                ' 2 demerits
+.range 6130
+
+[Action 6109]
+.set 891                ' 2 demerits
+.range 6130
+
+[Action 6110]
+.set 892                ' 3 demerits
+.range 6130
+
+[Action 6111]
+.set 892                ' 3 demerits
+.range 6130
+
+[Action 6112]
+.set 892                ' 3 demerits
+.range 6130
+
+[Action 6113]
+.set 893                ' 4 demerits
+.range 6130
+
+[Action 6114]
+.set 893                ' 4 demerits
+.range 6130
+
+[Action 6115]
+.set 893                ' 4 demerits
+.range 7200
+
+
+' Cancelled wanking comments
+
+[Action 6130]
+.range 6131 6138
+
+
+[Action 6131]
+What a pathetic performance!
+.range 6139
+.Say Action
+
+[Action 6132]
+What a disapointment!
+.range 6139
+.Say Action
+
+'
+
+[Action 6138]
+That was a disappointing performance!
+.range 6139
+.Say Action
+
+
+[Action 6139]
+.range 7200
+
+
+' slave came without permission - comments
+
+[Action 6140]
+Came, did you, you disobedient, filthy, disgusting slut?
+Well, I hope you enjoyed it,
+because you won't be doing it again for a while.
+.range 6141 6148
+.say action
+
+[Action 6141]
+I can't believe you would disobey me like this.
 You won't be cumming until further notice.
-.set 519 699 894        ' came w/o perm, no cum 5 demerits, 
-.unset 525              ' P.O. for cumming after denial
 .range 6149
 .Say Action
 
-[Action 6106]
+[Action 6142]
+A failed slave is such a sorry sight.
+You won't be cumming until further notice.
+.range 6149
+.Say Action
+
+[Action 6143]
 Cumming without any permission is such an affront.
 You'll be sorry for this!
 As partial punishment, you won't be cumming until further notice.
-.set 519 699 894        ' came w/o perm, no cum 5 demerits, 
-.unset 525              ' P.O. for cumming after denial
 .range 6149
 .Say Action
 
-[Action 6107]
+[Action 6144]
 You'll pay for this mistake, My dear.
 For one thing, you aren't allowed to cum until further notice.
-.set 519 699 894        ' came w/o perm, no cum 5 demerits, 
-.unset 525              ' P.O. for cumming after denial
 .range 6149
 .Say Action
 
-' slaves in love 186 doesn't have a bad return
+[Action 6145]
+Cumming without permission!
+You've done it this time, you stupid slut.
+There will be punishment for this, and in addition you aren't allowed to cum until further notice.
+.range 6149
+.Say Action
 
 
-' Slave came without permission forward (checked from 7700-7729)
+' Slave came without permission forward (checked from 7716)
 [Action 6149]
-.noimage
-.delay 0
-.range 7604 7609        ' Skip toy removal for extended embarassment
+.set 519 699 894        ' came w/o perm, no cum 5 demerits
+.unset 525              ' P.O. for cumming after denial
+.range 7604 7609        ' Skip toy removal for extended humiliation
 
 
 [Action 6151]
@@ -16325,7 +16400,7 @@ Well, I've had enough, even if you haven't.
 Maybe next time you'll do enough to earn a reward,
 but for today you're going to hold in all that nasty slave jizz.
 I don't want to see it!
-.delay 15
+.mustnot 6149           ' Not if slave just came without permission
 .set 103
 .range 7730 7734
 .Say Action
