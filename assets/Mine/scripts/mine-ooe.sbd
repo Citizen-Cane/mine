@@ -154,90 +154,71 @@ Let's play odds and evens, slut.
 
 [Action 1101]
 We'll play odds-and-evens, My pussy.
-.delay 5
 .range 1200
 .Say Action
 
 ' Select a game
 [Action 1150]
-.noimage 
-.delay 0
 .range 1151 1169
 
 ' paddle n times
 [Action 1151]
-.noimage
-.delay 0
 .set 402
 .range 1200
 
 ' nipple clamps, connected via chain
 [Action 1152]
-.noimage
-.delay 0
 .set 403
 .range 1200
 
 ' Add pin
 '[Action 1153]
-'.noimage
-'.delay 0
 '.set 404
 '.ActionDelay 20
 '.range 1200
 
 ' Paddle 20 times
 [Action 1154]
-.noimage
-.delay 0
 .set 405
 .range 1200
 
 ' nipple clamps, each clamp with its own chain
 [Action 1155]
-.noimage
-.delay 0
 .set 406
 .range 1200
 
 '[Action 1169]
-'Lucky slave. This time, there's no penalty for losing a round.
+'Lucky slave.
+'This time, there's no penalty for losing a round.
 '.set 401
 '.range 1200
 
 
 [Action 1200]
-.noimage
-.delay 0
 .range 1201 1202
 
 [Action 1201]
 I'll be odds, which makes you evens, slave.
-.delay 5
 .set 11
 .range 1300
 .Say Action
 
 [Action 1202]
 I'll be evens - you're odds.
-.delay 5
 .set 10
 .range 1300
 .Say Action
 
 
 [Action 1300]
-.noimage
-.delay 0
 .range 1301 1319
 
 [Action 1301]
 Get your paddle, slave, and get down on your knees.
-When you lose a round, you will paddle yourself. The
-number of times you must smack your butt will be the
+When you lose a round, you will paddle yourself.
+The number of times you must smack your butt will be the
 number of points I have.
 .must 402
-.delay 15
 .range 1400
 .Say Action
 
@@ -247,7 +228,6 @@ The first two rounds you lose you will be ordered to attach your nipple clamps.
 Every lost round from then on, you will be ordered to add a weight.
 Make sure there's plenty of room for those clamps to swing free.
 .must 403
-.delay 15
 .unset 406
 .range 1400
 .Say Action
@@ -260,11 +240,9 @@ Make sure there's plenty of room for those clamps to swing free.
 '.range 1400
 
 [Action 1304]
-For every round that I win, you will paddle your buns
-twenty times, slave. Get on your knees, and make sure
-you have your paddle ready to go.
+For every round that I win, you will paddle your buns twenty times, slave.
+Get on your knees, and make sure you have your paddle ready to go.
 .must 405
-.delay 15
 .range 1400
 .Say Action
 
@@ -274,7 +252,6 @@ The first two rounds you lose you will be ordered to attach your nipple clamps.
 Every lost round from then on, you will be ordered to add a weight.
 Make sure there's plenty of room for those clamps to swing free.
 .must 406
-.delay 15
 .unset 403
 .range 1400
 .Say Action
@@ -286,18 +263,15 @@ Make sure there's plenty of room for those clamps to swing free.
 
 
 [Action 1400]
-.noimage
-.delay 0
 .range 1401 1419
 
 [Action 1401]
-.noimage
-.delay 0
 .mustnot 403
 .range 1499
 
 [Action 1402]
-You are going to need a dozen weights for this game. Go fetch them, slave!
+You are going to need a dozen weights for this game.
+Go fetch them, slave!
 .pause
 .must 403
 .must 60 70
@@ -305,7 +279,8 @@ You are going to need a dozen weights for this game. Go fetch them, slave!
 .Say Action
 
 [Action 1403]
-You are going to need seven weights for this game. Go fetch them, slave!
+You are going to need seven weights for this game.
+Go fetch them, slave!
 .pause
 .must 403
 .must 61 71
@@ -313,7 +288,8 @@ You are going to need seven weights for this game. Go fetch them, slave!
 .Say Action
 
 [Action 1404]
-You are going to need two weights for this game. Go fetch them, slave!
+You are going to need two weights for this game.
+Go fetch them, slave!
 .pause
 .must 403
 .must 62 72
@@ -322,33 +298,27 @@ You are going to need two weights for this game. Go fetch them, slave!
 
 
 [Action 1419]
-.noimage
-.delay 0
 .range 1450
 
 
 [Action 1450]
-.noimage
-.delay 0
 .range 1451 1469
 
 [Action 1451]
-.noimage
-.delay 0
 .mustnot 403 406
 .range 1499
 
 [Action 1453]
-Now this time, you need to connect your nipple clamps with a chain and
-add the weights to the middle of the chain.
+Now this time, you need to connect your nipple clamps with a chain
+and add the weights to the middle of the chain.
 .pause
 .must 403
 .range 1499
 .Say Action
 
 [Action 1456]
-Now this time, you add a single chain to each clamps. This means
-you'll add the weight to the clamp that I order you to, my pussy.
+Now this time, you add a single chain to each clamps.
+This means you'll add the weight to the clamp that I order you to, my pussy.
 .pause
 .must 406
 .range 1499
@@ -356,42 +326,32 @@ you'll add the weight to the clamp that I order you to, my pussy.
 
 
 [Action 1499]
-.noimage
-.delay 0
 .range 1500
 
 [Action 1500]
-Remember, My standard rules apply. You'd better be naked,
-and you'd better keep that little cock hard.
+Remember, My standard rules apply.
+You'd better be naked, and you'd better keep that little cock hard.
 .mustnot 30             ' can't jerk off
 .range 1997
 .Say Action
 
 [Action 1501]
-.noimage
-.delay 0
 .must 30                ' can't jerk off
 .range 1997
 
 ' (debug)
 [Action 1997]
-.noimage
-.delay 0
 '.ask 60 69
 .range 1998
 
 ' (debug)
 [Action 1998]
-.noimage
-.delay 0
 '.ask 10 29
 .unset 1998
 .range 1999
 
 ' (debug)
 [Action 1999]
-.noimage
-.delay 0
 '.ask 40 59
 .unset 1999
 .range 2001 2099
@@ -500,19 +460,16 @@ You're odds, so you win, slave.
 'You've won this round.
 .unset 3020
 .range 3100 3100
-.delay 0
+
 
 [Action 3060]
 'You've lost this round.
 .unset 3060
 .range 3200 3200
-.delay 0
 
 
-'   Give point to s
+' Give point to s
 [Action 3100]
-.noimage
-.delay 0
 .unset 3100
 .range 3101 3115
 
@@ -651,48 +608,36 @@ You've got fifteen points, you dirty little whore!
 .Say Action
 
 [Action 3190]
-.noimage
-.delay 0
 .must 62
 .mustnot 105
 .unset 3190
 .range 3600 3799
 
 [Action 3191]
-.noimage
-.delay 0
 .must 62
 .must 105
 .unset 3191
 .range 5020 5059
 
 [Action 3192]
-.noimage
-.delay 0
 .must 61
 .mustnot 110
 .unset 3192
 .range 3600 3799
 
 [Action 3193]
-.noimage
-.delay 0
 .must 61
 .must 110
 .unset 3193
 .range 5020 5059
 
 [Action 3194]
-.noimage
-.delay 0
 .must 60
 .mustnot 115
 .unset 3194
 .range 3600 3799
 
 [Action 3195]
-.noimage
-.delay 0
 .must 60
 .must 115
 .unset 3195
@@ -701,8 +646,6 @@ You've got fifteen points, you dirty little whore!
 
 '   Give point to Mistress.
 [Action 3200]
-.noimage
-.delay 0
 .unset 3200
 .range 3201 3215
 
@@ -846,12 +789,9 @@ Now for your penalty...
 .must 62
 .range 3800 3999
 .unset 3290
-.delay 0
 .Say Action
 
 [Action 3291]
-.noimage
-.delay 0
 .must 62
 .must 205
 .unset 3291
@@ -863,12 +803,9 @@ Now for your penalty...
 .must 61
 .range 3800 3999
 .unset 3292
-.delay 0
 .Say Action
 
 [Action 3293]
-.noimage
-.delay 0
 .must 61
 .must 210
 .unset 3293
@@ -883,8 +820,6 @@ Now for your penalty...
 .Say Action
 
 [Action 3295]
-.noimage
-.delay 0
 .must 60
 .must 215
 .unset 3295
@@ -892,14 +827,10 @@ Now for your penalty...
 
 
 [Action 3600]
-.noimage
-.delay 0
 .unset 3600
 .range 2000 2000
 
 [Action 3800]
-.noimage
-.delay 0
 .must 401
 .unset 3800
 .range 2000 2000
@@ -1190,7 +1121,7 @@ Add another weight to your left slave-nipple!
 You lucky slave! Cum for Mistress, hurry!
 .must 300
 .range 9000 9499
-.delay 20
+.actiondelay 30
 .Say Action
 
 [Action 5022]
