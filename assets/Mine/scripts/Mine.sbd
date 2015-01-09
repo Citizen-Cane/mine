@@ -94,7 +94,7 @@
 .askcheck       4      310     Clothes pegs
 .askcheck       5      311     Wrist restraints (e.g. handcuffs)
 .askcheck       6      312     Ankle restraints (e.g. leg irons)
-.askcheck       7      325     A collar
+.askcheck       7      325     A slave collar
 .askcheck       8      330     Some rope (about 60 feet)
 .askcheck       9      340     A gag
 .askcheck      10      350     A butt plug
@@ -104,10 +104,10 @@
 .askcheck      14      384     A humbler
 .askcheck      15      383     An enema kit
 .askcheck	   16      388     A realistic dildo
-.askcheck	   17      385     My personal ball harness
-'.askcheck	   18      389     A vibrator
-'.askcheck	   19      387     Some "Pussy clamps"
-'.askcheck	   18      386
+'.askcheck	   17      386
+.askcheck2     18      389 771 A vibrator
+.askcheck2     19      387 772 Some Pussy clamps with attached chain
+.askcheck2     20      385 749 My personal ball harness
 
 
 ' ingame toys (not on list)
@@ -3214,42 +3214,23 @@ make you skip your next seven cumming opportunities.
 .range 1449
 .Say Action
 
-
+' Chastity training interval end
 [Action 1449]
-.unset 250
-.range 1498 1500
+.unset 250              ' Reset freebie for next session -> choose new chastity interval  
+.range 1500
 
-
-' ball harness is special, so just show it after toy has been requested to be built
-[Action 1498]
-Now, My dear, I want you to examine this list,
-and make sure everything you have is checked.
-Quickly, slave.
-.ask 1 17 LEFT CENTER
-.must 679               ' slave has assignment to get ball harness
-.range 1501 1505
-.Say Action
-
-[Action 1499]
-Now, My dear, I want you to examine this list,
-and make sure everything you have is checked.
-Quickly, slave.
-.ask 1 17 LEFT CENTER
-.must 385               ' slave has ball harness
-.range 1501 1505
-.Say Action
 
 [Action 1500]
 Now, My dear, I want you to examine this list,
 and make sure everything you have is checked.
 Quickly, slave.
-.ask 1 16 LEFT CENTER
+.ask 1 19 LEFT CENTER
 .mustnot 385 679        ' slave has neither assignments nor toy
 .range 1501 1505
 .Say Action
 
 
-'chains
+' Chains
 [Action 1501]
 .must 334
 .mustnot 667
@@ -3292,6 +3273,7 @@ We will talk of this a little later.
 .Say Action
 
 
+' Nipple clamps
 [Action 1506]
 .must 301
 .mustnot 668
@@ -3333,6 +3315,7 @@ We'll talk about this a little later.
 .Say Action
 
 
+' Clothes pegs
 [Action 1511]
 .must 310
 .mustnot 669
@@ -3372,6 +3355,7 @@ We shall talk of this more in a moment.
 .Say Action
 
 
+' Wrist restraints
 [Action 1516]
 .must 311
 .mustnot 670
@@ -3411,6 +3395,7 @@ We shall talk of this more in a moment.
 .Say Action
 
 
+' Ankle restraints
 [Action 1521]
 .must 312
 .mustnot 671
@@ -3449,6 +3434,7 @@ We shall talk of this more in a moment.
 .Say Action
 
 
+' Slave collar
 [Action 1526]
 .must 325
 .mustnot 672
@@ -3487,6 +3473,7 @@ We shall talk more about this in a moment.
 .Say Action
 
 
+' Rope
 [Action 1531]
 .must 330
 .mustnot 673
@@ -3526,6 +3513,7 @@ We will talk of this a little later.
 .Say Action
 
 
+' Gag
 [Action 1536]
 .must 340
 .mustnot 674
@@ -3563,6 +3551,7 @@ We'll talk about this more in a minute.
 .Say Action
 
 
+' Butt plug
 [Action 1541]
 .must 350
 .mustnot 675
@@ -3605,6 +3594,7 @@ We will talk of this a little later.
 .Say Action
 
 
+' Paddle
 [Action 1546]
 .must 370               ' Have paddle
 .mustnot 676
@@ -3645,6 +3635,7 @@ We'll talk about this more in a minute.
 .Say Action
 
 
+' Chastity cage
 [Action 1551]
 .must 380
 .mustnot 677
@@ -3673,7 +3664,7 @@ make progress in your chastity training.
 .range 1556 1560
 
 [Action 1555]
-We've come far enough along in your chastity training that I want you to get a chastity belt.
+We've come far enough along in your chastity training that I want you to get a chastity cage.
 This can be somewhat expensive and it may take you some time to procure one,
 so it won't be necessary to have it before our next training session.
 However, it will not be possible for you to make further progress in your chastity training until you get it.
@@ -3686,6 +3677,7 @@ However, it will not be possible for you to make further progress in your chasti
 .Say Action
 
 
+' Humbler
 [Action 1556]
 .must 384
 .mustnot 678
@@ -3725,6 +3717,7 @@ Understand?
 .Say Action
 
 
+' Ball harness
 [Action 1561]
 .must 385
 .mustnot 679
@@ -3809,6 +3802,7 @@ We will be talking of this in a minute.
 '.Say Action
 
 
+' Blindfold
 [Action 1571]
 .must 382
 .mustnot 682
@@ -3849,53 +3843,52 @@ Make sure you have one next time. We will talk about this in a minute.
 .Say Action
 
 
-' TODO Pussy clamps disabled until we have some activites/punishments for it besides their use in maid training
-' They're requested by the mistress in Action 5122, Achivement 602, Maid Training Level 3, but this might as well an informal request
+' Pussy clamps
 [Action 1576]
-.unset 387 683       ' reset pussy clamps
+.must 387
+.mustnot 683
 .range 1581 1585
 
-'[Action 1576]
-'.must 387
-'.mustnot 683
-'.range 1581 1585
-'
-'[Action 1577]
-'I'm glad to see you got those pussy clamps, sweetheart.
-'.must 387
-'.must 683
-'.unset 683
-'.set 772               ' maid training level 2
-'.range 1581 1585
-'.Say Action
+[Action 1577]
+I'm glad to see you got those pussy clamps, sweetheart.
+.must 387
+.must 683
+.unset 683
+.set 772               ' maid training level 2
+.range 1581 1585
+.Say Action
 
-'[Action 1578]
-'Slave, you were to get some pusy clamps, and you haven't.
-'That means you have to be punished.
-'.mustnot 387
-'.must 683
-'.set 504
-'.range 1581 1585
-'.Say Action
+[Action 1578]
+Slave, you were to get some pusy clamps, and you haven't.
+That means you have to be punished.
+.mustnot 387
+.must 683
+.set 504
+.range 1581 1585
+.Say Action
 
-'[Action 1579]
-'.mustnot 387
-'.mustnot 683
-'.range 1581 1585
+[Action 1579]
+.mustnot 387
+.mustnot 683
+.range 1581 1585
 
-'[Action 1580]
-'In order to enhance your maid training, you'l need to get some dedicated pussy clamps,
-'with a connecting chain, my little cunt.
-'We will talk about this in a minute.
-'.mustnot 387
-'.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
-'.must 772               ' maid training level 2
-'.set 683
-'.poss 10
-'.range 1581 1585
-'.Say Action
+' Triggered by achievement 772 in 5112
+[Action 1580]
+A good maid such as your yourself defintely needs a pair of nice pussy clamps.
+Some metal clamps with a nice connecting chain will suit you well, my dear.
+They will absolutely look great on your slutty ball sack.
+We will talk about this in a minute.
+.mustnot 387
+.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
+.must 772               ' maid training level 2
+.poss 100
+.set 683
+.poss 10
+.range 1581 1585
+.Say Action
 
 
+' Dildo
 [Action 1581]
 .must 388
 .mustnot 684
@@ -3923,19 +3916,23 @@ That means you have to be punished.
 .mustnot 684
 .range 1586 1590
 
+' Triggered by achievement 773 in 5113
 [Action 1585]
-In order to enhance your maid training, you'll need to get a dildo.
+As a good maid such as yourself, to make progress in your maid training,
+you're going to need a realistically sized dildo with a suction cup.
+Make sure you have one until next time, baby.
 We will talk about this in a minute.
 .mustnot 388            ' A realistic dildo
-.mustnot 350            ' A butt plug, one anal toy is enough
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .must 773               ' maid training level 3
+.poss 100
 .set 684
 .poss 10
 .range 1586 1590
 .Say Action
 
 
+' Enema kit
 [Action 1586]
 .must 383
 .mustnot 681
@@ -3967,7 +3964,7 @@ That means you have to be punished.
 .range 1591 1595
 
 [Action 1590]
-In order to enhance your anal training,
+In order to deepen your anal training,
 I want you to get an enema kit. 
 Make sure you have one next time.
 We will talk about this in a minute.
@@ -3980,47 +3977,48 @@ We will talk about this in a minute.
 .Say Action
 
 
-' Vibrator disabled until we decide about it
+' Vibrator
 [Action 1591]
-.unset 389 685
+.must 389
+.mustnot 685
 .range 1596 1599
 
-'[Action 1591]
-'.must 389
-'.mustnot 685
-'.range 1596 1599
+[Action 1592]
+I'm glad to see you've gotten that vibrator, sweetheart.
+.must 389
+.must 685
+.unset 685
+.range 1596 1599
+.Say Action
 
-'[Action 1592]
-'I'm glad to see you've gotten that vibrator, sweetheart.
-'.must 389
-'.must 685
-'.unset 685
-'.range 1596 1599
-'.Say Action
+[Action 1593]
+Slave, you were to get a vibrator, and you haven't.
+That means you have to be punished.
+.mustnot 389
+.must 685
+.set 504
+.range 1596 1599
+.Say Action
 
-'[Action 1593]
-'Slave, you were to get a vibrator, and you haven't.
-'That means you have to be punished.
-'.mustnot 389
-'.must 685
-'.set 504
-'.range 1596 1599
-'.Say Action
+[Action 1594]
+.mustnot 389
+.mustnot 685
+.range 1596 1599
 
-'[Action 1594]
-'.mustnot 389
-'.mustnot 685
-'.range 1596 1599
-
-'[Action 1595]
-'In order to enhance your training, you'l need to get a nice vibrator
-'that you can put on your penis. We'll talk about this in a minute.
-'.mustnot 389
-'.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
-'.set 685
-'.poss 10
-'.range 1596 1599
-'.Say Action
+' Triggered by achievement 771 in 5111
+[Action 1595]
+To deepen your maid training,
+you'l need to get a nice vibrator or other stimulation toy
+that you can attach to your silly slave penis.
+We'll talk about this in a minute.
+.mustnot 389
+.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
+.must 771
+.poss 100
+.set 685
+.poss 10
+.range 1596 1599
+.Say Action
 
 
 ' Another slot for toys
@@ -10593,6 +10591,16 @@ In that case I'll make it a full seven missed opportunities.
 .save 1 799
 .loadsbd mine-equip.sbd 3700 3700
 
+[Action 4818]
+.must 685      ' get a vibrator
+.save 1 799
+.loadsbd mine-equip.sbd 3800 3800
+
+[Action 4819]
+.must 683      ' get some pussy clamps
+.save 1 799
+.loadsbd mine-equip.sbd 3900 3900
+
 '
 
 [Action 4825]
@@ -11672,14 +11680,14 @@ Well, 2 merits seem appropriate for a good training session.
 .Say Action
 
 
-' Special award when the slave reaches a new Maid Training Level
+' Forward achievements to main script
 
 ' Achivement 601
 [Action 5111]
 Well, 2 merits seem appropriate for such a good training session.
 .set 896
 .set 771                ' Maid Training 1
-.range 5121
+.range 5120 5121
 .Say Action
 
 ' Achivement 602
@@ -11687,7 +11695,7 @@ Well, 2 merits seem appropriate for such a good training session.
 Well, 2 merits seem appropriate for such a good training session.
 .set 896
 .set 772                ' Maid Training 2
-.range 5122
+.range 5122 5123
 .Say Action
 
 ' Achivement 603
@@ -11695,7 +11703,7 @@ Well, 2 merits seem appropriate for such a good training session.
 Well, 2 merits seem appropriate for such a good training session.
 .set 896
 .set 773                ' Maid Training 3
-.range 5123
+.range 5124 5125
 .Say Action
 
 ' Achivement 604
@@ -11722,30 +11730,65 @@ Well, 2 merits seem appropriate for such a good training session.
 .Say Action
 
 
-' Achivement 601
+' Achivement 601 -> vibrator as motivation for longer durations
+[Action 5120]
+To deepen your maid training,
+you'll need a nice vibrator or other stimulation toy
+that you can attach to your silly slave penis.
+Consider getting one until next time.
+.pause
+.poss 100
+.mustnot 389            ' Have vibrator
+.mustnot 685
+' Only a signle assignment may be action, so we have to
+' start it in the toy managment section instead of here
+'.set 685                ' get or make vibrator assignment
+.range 7201
+.Say Action
+
 [Action 5121]
 .range 7201
 '.Say Action
 
-' Achivement 602
+' Achivement 602 -> pussy clamps for nicer decorations in level 3 
 [Action 5122]
-Some nice pussy clamps would suit you well, my dear.
-They will definitely look great on your slutty ball sack.
-Consider getting some until next time.
+A good maid such as your yourself defintely needs a pair of nice pussy clamps.
+Some metal clamps with a nice connecting chain will suit you well, my dear.
+They will absolutely look great on your slutty ball sack.
+Get them until next time, slut.
 .pause
+.poss 100
+.mustnot 387            ' Have pussy clamps
+.mustnot 683
+' Only a signle assignment may be action, so we have to
+' start it in the toy managment section instead of here
 '.set 683                ' get or make pussy clamps assignment
 .range 7201
 .Say Action
 
-' Achivement 603
 [Action 5123]
-As a good maid such as yourself,
-you're going to need a dildo to make progress in your maid training.
+.range 7201
+'.Say Action
+
+
+' Achivement 603 -> Dildo for dildo training, dildo positions 
+[Action 5124]
+As a good maid such as yourself, to make progress in your maid training,
+you're going to need a realistically sized dildo with a suction cup.
 Make sure you have one until next time, baby.
 .pause
-.set 684                ' get a dildo assignment
+.poss 100
+.mustnot 388            ' Have dildo
+.mustnot 684
+' Only a signle assignment may be action, so we have to
+' start it in the toy managment section instead of here
+'.set 684                ' get a dildo assignment
 .range 7201
 .Say Action
+
+[Action 5125]
+.range 7201
+'.Say Action
 
 
 ' Maid training jump pad
@@ -13174,8 +13217,8 @@ What kind of household are you living in?
 
 [Action 7125]
 Since a paddle is a very basic necessity for a slave boy,
-you're going to get one before or our next visit together!
-In the meantime, you will use your bare hand.
+you're going to get one before our next visit together!
+In the meantime, you can use your bare hand.
 .pause
 .set 676                ' Get a paddle
 .range 7128

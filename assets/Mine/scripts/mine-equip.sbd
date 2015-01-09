@@ -32,16 +32,18 @@
 .menu 54  3500 3500 Enema kit
 .menu 55  3600 3600 Blindfold
 .menu 56  3700 3700 Dildo
-.menu 57 3309 3309 Test exec command
-.menu 58 3303 3303 Image sequence
-.menu 59  9000 9000 Exit
+.menu 56  3800 3800 Vibrator
+.menu 57  3900 3900 Pussy clamps
+.menu 58 3309 3309 Test exec command
+.menu 59 3303 3303 Image sequence
+.menu 60  9000 9000 Exit
 
 [Action 990]
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
 .unset 990
 .set 100
-.PopUp 40 59
+.PopUp 40 60
 
 [Action 1000]
 .noimage
@@ -1158,6 +1160,99 @@ That will ensure the size will be about right.
 [Action 3709]
 .range 9000 9001	' common exit point for equipment classes
 
+
+' Vibrator
+
+[Action 3800]
+Since you don't have a vibrator,
+I'm assigning you the task of getting one by our next session.
+.range 3801
+.Say Action
+
+[Action 3801]
+Well, I bet You can already guess that this little extra excitement
+on your side won't be solely for your pleasure, but for mine.
+.pause
+.range 3802
+.Say Action
+
+[Action 3802]
+Keeping the slave aroused keeps him focused on the job,
+and there will be situations I'd like my slaves fully aroused
+even at times their hands aren't free.
+.image equip_toy_strap-on-vibe (1a).jpg
+.pause
+.range 3803
+.Say Action
+
+[Action 3803]
+You certainly don't mind some extra arousal, slave, do you?
+But don't think you're ever allowed to cum wearing this little get-up.
+.pause
+.range 3804
+.Say Action
+
+[Action 3804]
+A little vibe is such a great tool is orgasm control and denial.
+'A slave, constantly teased while performing their training is such a sight.
+So get one before our next visit together!
+.image equip_toy_strap-on-vibe (3).jpg
+.pause
+.range 3805
+.Say Action
+
+[Action 3805]
+Well, I leave the details to you.
+Just make sure the vibe isn't too bulky,
+and it won't slip off so easy.
+.pause
+.range 3809
+.Say Action
+
+[Action 3809]
+.range 9000 9001	' common exit point for equipment classes
+
+
+' Vibrator
+
+[Action 3900]
+Since you don't have pussy clamps,
+I'm assigning you the task of getting some by our next session.
+.range 3901
+.Say Action
+
+[Action 3901]
+Pussy clamps are usually clamped to the outer labia.
+However in your case they will likely end up on your slutty ballsack.
+.pause
+.range 3902
+.Say Action
+
+[Action 3902]
+The connected chain adds weight, thus increasing sensation.
+Especially when supported by an extra weight.
+.pause
+.range 3903
+.Say Action
+
+[Action 3903]
+Most types of nipple clamps can also be used.
+Try out yours!
+.pause
+.range 3904
+.Say Action
+
+[Action 3904]
+'If you're unsure, start with a pair of your favorite clothes pegs.
+.range 3905
+.Say Action
+
+[Action 3905]
+.range 3909
+.Say Action
+
+[Action 3909]
+.range 9000 9001	' common exit point for equipment classes
 
 
 ' returns
