@@ -158,11 +158,11 @@ So, what will you be wearing, slave?
 .say action
 
 [Action 990]
-Welcome to debug my code, But don't try to cheat on me.
-What would you like to do today?
+.txt Welcome to debug my code, But don't try to cheat on me.
+.txt What would you like to do today?
+.set 100
 .unset 990
 .popup 40 48
-.say action
 
 
 [Action 991]
@@ -4712,13 +4712,14 @@ Wasn't that a nice workout?
 
 ' Dildo worshiping activity
 [Action 9850]
+.mustnot 100
 .must 170
-.mustnot 990
 .mustnot 756            ' Anal training 1
 .mustnot 776            ' Dildo worshiping 1 Full penetration
 .loadsbd Mine.sbd 5150 5150
 
 [Action 9851]
+.mustnot 100
 .must 170
 .must 776               ' level 1
 .mustnot 777            ' level 2
@@ -4726,6 +4727,7 @@ Wasn't that a nice workout?
 .loadsbd Mine.sbd 5151 5151
 
 [Action 9852]
+.mustnot 100
 .must 170
 .must 777               ' level 2
 .mustnot 778            ' level 3
@@ -4733,6 +4735,7 @@ Wasn't that a nice workout?
 .loadsbd Mine.sbd 5152 5152
 
 [Action 9853]
+.mustnot 100
 .must 170
 .must 778               ' level 3
 .mustnot 779            ' level 4
@@ -4740,6 +4743,7 @@ Wasn't that a nice workout?
 .loadsbd Mine.sbd 5153 5153
 
 [Action 9854]
+.mustnot 100
 .must 170
 .must 779               ' level 4
 .mustnot 780            ' level 5
@@ -4747,17 +4751,24 @@ Wasn't that a nice workout?
 .loadsbd Mine.sbd 5154 5154
 
 [Action 9855]
+.mustnot 100
 .must 170
 .must 780               ' level 5
 .mustnot 990
 .loadsbd Mine.sbd 5155 5155
 
 [Action 9858]
+.mustnot 100
 .must 170
 .must 756               ' Anal training 1
 .mustnot 776            ' Dildo worshiping 1 Full penetration
 .mustnot 990
 .loadsbd Mine.sbd 5158 5158
+
+[Action 9859]
+.must 100
+.noimage
+.quit
 
 
 ' Dildo worshiping punishments sucess
@@ -4768,83 +4779,89 @@ Wasn't that a nice workout?
 '.loadsbd Mine.sbd xxxx xxxx
 
 [Action 9862]
+.mustnot 100
 .must 172
-.mustnot 990
 .loadsbd Mine.sbd 2404 2404
 
 [Action 9863]
+.mustnot 100
 .must 173
-.mustnot 990
 .loadsbd Mine.sbd 2407 2407
 
 '[Action 9864]
+'.mustnot 100
 '.must 174
-'.mustnot 990
 '.loadsbd Mine.sbd XXXX XXXX
 
 [Action 9865]
+.mustnot 100
 .must 175
-.mustnot 990
 .loadsbd Mine.sbd 2401 2401
 
 '[Action 9866]
+'.mustnot 100
 '.must 176
-'.mustnot 990
 '.loadsbd Mine.sbd xxxx xxxx
 
 '[Action 9867]
+'.mustnot 100
 '.must 177
-'.mustnot 990
 '.loadsbd Mine.sbd xxxx xxxx
 
 '[Action 9868]
+'.mustnot 100
 '.must 178
-'.mustnot 990
 '.loadsbd Mine.sbd xxxx xxxx
 
 '[Action 9869]
+'.mustnot 100
 '.must 179
-'.mustnot 990
 '.loadsbd Mine.sbd xxxx xxxx
+
+[Action 9869]
+.must 100
+.noimage
+.quit
 
 
 ' Bad exits 9900-9990
 
 ' worshping activity
 [Action 9900]
+.mustnot 100
 .must 170
-.mustnot 990
 .loadsbd Mine.sbd 5159 5159
 
 ' worshiping punishment
 [Action 9901]
+.mustnot 100
 .must 171
-.mustnot 990
 .loadsbd Mine.sbd 2490 2490
 
 [Action 9902]
+.mustnot 100
 .must 172
-.mustnot 990
 .loadsbd Mine.sbd 2490 2490
 
 [Action 9903]
+.mustnot 100
 .must 173
-.mustnot 990
 .loadsbd Mine.sbd 2490 2490
 
 [Action 9904]
+.mustnot 100
 .must 174
-.mustnot 990
 .loadsbd Mine.sbd 2490 2490
 
 [Action 9905]
+.mustnot 100
 .must 175
-.mustnot 990
 .loadsbd Mine.sbd 2490 2490
 
 ' Debug
 [Action 9909]
-.must 990
+.must 100
+.noimage
 .quit
 
 
