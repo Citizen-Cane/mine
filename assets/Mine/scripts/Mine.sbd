@@ -3843,49 +3843,53 @@ Make sure you have one next time. We will talk about this in a minute.
 .Say Action
 
 
-' Pussy clamps
+' Pussy clamps - disabled again, doesn't make much sense in mine-equip
 [Action 1576]
-.must 387
-.mustnot 683
 .range 1581 1585
 
-[Action 1577]
-I'm glad to see you got those pussy clamps, sweetheart.
-.must 387
-.must 683
-.unset 683
-.set 772               ' maid training level 2
-.range 1581 1585
-.Say Action
+'' Pussy clamps
+'[Action 1576]
+'.must 387
+'.mustnot 683
+'.range 1581 1585
 
-[Action 1578]
-Slave, you were to get some pusy clamps, and you haven't.
-That means you have to be punished.
-.mustnot 387
-.must 683
-.set 504
-.range 1581 1585
-.Say Action
+'[Action 1577]
+'I'm glad to see you got those pussy clamps, sweetheart.
+'.must 387
+'.must 683
+'.unset 683
+'.set 772               ' maid training level 2
+'.range 1581 1585
+'.Say Action
 
-[Action 1579]
-.mustnot 387
-.mustnot 683
-.range 1581 1585
+'[Action 1578]
+'Slave, you were to get some pusy clamps, and you haven't.
+'That means you have to be punished.
+'.mustnot 387
+'.must 683
+'.set 504
+'.range 1581 1585
+'.Say Action
 
-' Triggered by achievement 772 in 5112
-[Action 1580]
-A good maid such as your yourself defintely needs a pair of nice pussy clamps.
-Some metal clamps with a nice connecting chain will suit you well, my dear.
-They will absolutely look great on your slutty ball sack.
-We will talk about this in a minute.
-.mustnot 387
-.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
-.must 772               ' maid training level 2
-.poss 100
-.set 683
-.poss 10
-.range 1581 1585
-.Say Action
+'[Action 1579]
+'.mustnot 387
+'.mustnot 683
+'.range 1581 1585
+
+'' Triggered by achievement 772 in 5112
+'[Action 1580]
+'A good maid such as your yourself defintely needs a pair of pussy clamps.
+'Some metal clamps with a nice connecting chain will suit you well, my dear.
+'They will absolutely look great on your slutty ball sack.
+'We will talk about this in a minute.
+'.mustnot 387
+'.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
+'.must 772               ' maid training level 2
+'.poss 100
+'.set 683
+'.poss 10
+'.range 1581 1585
+'.Say Action
 
 
 ' Dildo
@@ -10587,7 +10591,7 @@ In that case I'll make it a full seven missed opportunities.
 .loadsbd mine-equip.sbd 3600 3600
 
 [Action 4817]
-.must 683      ' get a dildo
+.must 684      ' get a dildo
 .save 1 799
 .loadsbd mine-equip.sbd 3700 3700
 
@@ -11740,7 +11744,7 @@ Consider getting one until next time.
 .poss 100
 .mustnot 389            ' Have vibrator
 .mustnot 685
-' Only a signle assignment may be action, so we have to
+' Only one assignment may be active at the same time, so we have to
 ' start it in the toy managment section instead of here
 '.set 685                ' get or make vibrator assignment
 .range 7201
@@ -11750,21 +11754,24 @@ Consider getting one until next time.
 .range 7201
 '.Say Action
 
-' Achivement 602 -> pussy clamps for nicer decorations in level 3 
+'' Achivement 602 -> pussy clamps for nicer decorations in level 3 - once they're done 
 [Action 5122]
-A good maid such as your yourself defintely needs a pair of nice pussy clamps.
-Some metal clamps with a nice connecting chain will suit you well, my dear.
-They will absolutely look great on your slutty ball sack.
-Get them until next time, slut.
-.pause
-.poss 100
-.mustnot 387            ' Have pussy clamps
-.mustnot 683
-' Only a signle assignment may be action, so we have to
-' start it in the toy managment section instead of here
-'.set 683                ' get or make pussy clamps assignment
 .range 7201
-.Say Action
+
+'[Action 5122]
+'A good maid such as your yourself defintely needs a pair of nice pussy clamps.
+'Some metal clamps with a nice connecting chain will suit you well, my dear.
+'They will absolutely look great on your slutty ball sack.
+'Get them until next time, slut.
+'.pause
+'.poss 100
+'.mustnot 387            ' Have pussy clamps
+'.mustnot 683
+'' Only one assignment may be active at the same time, so we have to
+'' start it in the toy managment section instead of here
+''.set 683                ' get or make pussy clamps assignment
+'.range 7201
+'.Say Action
 
 [Action 5123]
 .range 7201
@@ -11780,7 +11787,7 @@ Make sure you have one until next time, baby.
 .poss 100
 .mustnot 388            ' Have dildo
 .mustnot 684
-' Only a signle assignment may be action, so we have to
+' Only one assignment may be active at the same time, so we have to
 ' start it in the toy managment section instead of here
 '.set 684                ' get a dildo assignment
 .range 7201
