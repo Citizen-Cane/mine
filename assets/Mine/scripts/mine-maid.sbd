@@ -455,7 +455,7 @@
 [Action 990]
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
-.unset 980
+.unset 990
 .set 121                ' Debug, quit afterwards
 .set 130                ' comment holding position
 .unset 131 132          ' Don't comment dildo sucking, shoe licking 
@@ -749,7 +749,6 @@ and another, until you eventually learn obedience.
 
 [Action 1200]
 .unset 100 101 102 103 110 111 112 113
-.resetrange 1200 1219
 .range 1201 1217
 
 ' Fallback
@@ -857,6 +856,7 @@ and another, until you eventually learn obedience.
 
 ' Select position
 [Action 1219]
+.resetrange 1200 1219   ' in case another position is needed, if doing another on after a seucessful position, very long duration is disabled in 9711
 .resetrange 1400 1699   ' reset position selector - means that the same position an be selected twice but otherwise the wrong toy removal would be selected 
 .set 130                ' comment holding position
 .unset 131 132          ' Don't comment dildo sucking, shoe licking 
@@ -4105,14 +4105,13 @@ You do have these items, I hope?
 [Action 6506]
 .mustnot 6502 6504           ' Dildo selected 
 Very good, slave.
-EMSTsmpl00.jpg
 Now lube up your tight little asshole.
 Get it good and slippery.
 Get some on that butt plug, too.
 I'll give you one minute exactly.
 delay 60
 []
-EMSTsmpl00.jpg
+EMSTsmpl00a.jpg
 Slide the upper half of the plug up to the thickest part into your ass and hold it there.
 I'll give you a minute to work it in there and to get used to it.
 delay 60
@@ -4129,14 +4128,13 @@ delay 40
 [Action 6507]
 .mustnot 6501 6503           ' Buttplug selected 
 Very good, slave.
-EMSTsmpl00.jpg
 Now lube up your tight little asshole.
 Get it good and slippery.
 Get some on that dildo, too.
 I'll give you one minute exactly.
 delay 60
 []
-EMSTsmpl00.jpg
+EMSTsmpl00a.jpg
 Slide that dildo half way into your ass and hold it there.
 I'll give you a minute to work it in there and to get used to it.
 delay 60
@@ -6531,9 +6529,13 @@ That's enough for now.
 ' Another one?
 [Action 9711]
 That was so good, slave, I think we should do another.
-.mustnot 99 179         ' Not already done another, not a punishment
+.mustnot 99             ' already done another
+.mustnot 103            ' avoid very long duration
+.mustnot 179            ' punishment
 .poss 25
-.set 99                 ' never more than two.
+.set 99                 ' never more than two
+.set 1211 1214          ' disable very long durations
+.set 1216 1217
 .range 1200
 .Say Action
 
