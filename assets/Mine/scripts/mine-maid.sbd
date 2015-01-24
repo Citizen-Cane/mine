@@ -1208,14 +1208,15 @@ and another, until you eventually learn obedience.
 ' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
 '9/12/15/18 too long should start long, but not long than 12m
 [Action 1653]
-.mustnot 42             ' Clothes pegs on nipples
 .mustnot 22             ' something in mouth
 .mustnot 24             ' something on balls
-.mustnot 6530 6531      ' prevent using this position again
+.mustnot 25 26          ' Ankles tied, wrists tied
+.mustnot 42             ' Clothes pegs on nipples
+.mustnot 6530 6531 6532 6533 ' prevent using this position again
 .set 183                ' Challenging
 .unset 130              ' Comment holding position
 .set 131                ' Comment dildo sucking
-.range 6530 6531
+.range 6530 6533
 
 
 ' 699 ...
@@ -1927,66 +1928,74 @@ Head up!
 ' 410 Sitting on heels 2pt, legs spread, hands on thighs, palms up
 
 [Action 2420]
-Very good.
-Let's variate this position a bit!
-Put your hands in the small of your back, slave.
-.image position_410_sitting_on_heels_legs_spread_hands_on_back_side_half.jpg
-.actiondelay 20
 .must 195               ' In the middle
 .mustnot 410            ' First time
 .must 1410
-.unset 1900             ' Trigger "Hold your position" comment
 .poss 100               ' Right at the start 
+Very good.
+Let's variate this position a bit!
+position_410_sitting_on_heels_legs_spread_hands_on_back_side_half.jpg
+Put your hands in the small of your back, slave.
+.actiondelay 20
+.unset 1900             ' Trigger "Hold your position" comment
 .range 3990
 .say action
 
-
 [Action 2421]
-Now we're going to advance this position.
-Bend forward to kneel on all four.
-.image position_410_on_all_four_side_half.jpg
-.actiondelay 10
 .mustnot 100            ' Short duration
 .must 194
 .must 410               ' First time
 .must 1410
 .poss 100               ' Right at the start 
-.range 2422
-.say action
-
-[Action 2422]
+position_410_on_all_four_side_half.jpg
+Now we're going to advance this position.
+Bend forward to kneel on all four.
+[]
+position_410_on_all_four_side_full.jpg
 Keep your arms a bit in front of your head and arch your back.
 Your neck and head follow the curve of your spine and point slightly upward.
-.image position_410_on_all_four_side_full.jpg
-.actiondelay 10
+.actiondelay 20
 .must 2421
 .unset 1900             ' Re-Trigger "Hold your position" comment
 .range 3990
 .say action
 
-
-[Action 2423]
-Now get back sitting on your heels while moving your arms forward
-until your nose touches the floor and submit to your mistress.
-.image position_410_sitting_on_heels_head_on_floor_side_half.jpg
-.actiondelay 10
+[Action 2422]
 .mustnot 100            ' Short duration
 .must 198
 .must 410               ' First time
 .must 1410
 .poss 100               ' Right at the start 
-.range 2424
-.say action
-
-[Action 2424]
+position_410_sitting_on_heels_head_on_floor_side_half.jpg
+Now get back sitting on your heels while moving your arms forward
+until your nose touches the floor and submit to your mistress.
+[]
+position_410_sitting_on_heels_head_on_floor_front.jpg
 Cross your wrists to show readyness to receive your restraints.
-.image position_410_sitting_on_heels_head_on_floor_front.jpg
-.actiondelay 10
-.must 2423
+.actiondelay 20
 .unset 1900             ' Trigger "Hold your position" comment
 .range 3990
 .say action
 
+
+' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
+
+[action 2652]
+.mustnot 190 191 192 193
+.poss 25
+.must 1652
+.image bd178_06.jpg
+.delay 20
+.range 3990
+
+
+[action 2653]
+.mustnot 190 191 192 193
+.poss 25
+.must 1652
+.image 102_014.jpg
+.delay 20
+.range 3990
 
 
 ' more generic hold your position comments
@@ -4291,81 +4300,88 @@ delay 10
 ' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
 
 [Action 6520]
+.mustnot 20                  ' something on nipples
+.mustnot 28                  ' collared
 This is an excellent, much used maid position
 - serving as a table for your mistress.
 You will need your collar, wrist and ankle restraints,
 your nipple clamps, a tray and a glass of water.
+A nice apron is appreciated, too.
 You do have these items, don't you, slave?
-.mustnot 20                  ' something on nipples
-.mustnot 28                  ' collared
 .yesno 6524 6525 8280 8298
 .Say Action
 
 [Action 6521]
+.mustnot 20                  ' something on nipples
+.must 28                     ' collared
 This is an excellent, much used maid position
 - serving as a table for your mistress.
 You will need your wrist and ankle restraints,
 your nipple clamps, a tray and a glass of water.
+A nice apron is appreciated, too.
 You do have these items, don't you, slave?
-.mustnot 20                  ' something on nipples
-.must 28                     ' collared
 .yesno 6524 6525 8280 8298
 .Say Action
 
 [Action 6522]
+.must 20                     ' something on nipples
+.mustnot 28                  ' collared
 This is an excellent, much used maid position
 - serving as a table for your mistress.
 For that purpose I want you to put on your collar, as well as your wrist and ankle restraints.
 You will also need a tray and a glass of water.
+A nice apron is appreciated, too.
 You do have these items, don't you, slave?
-.must 20                     ' something on nipples
-.mustnot 28                  ' collared
 .yesno 6527 6527 8280 8298
 .Say Action
 
 [Action 6523]
-This is an excellent, much used maid position
-- serving as a table for your mistress.
-For that purpose, I want you to put on your wrist and ankle restraints.
-You will also need a tray and a glass of water.
-You do have these items, don't you, slave?
 .must 20                     ' something on nipples
 .must 28                     ' collared
-.yesno 6527 6527 8280 8298
+This is an excellent, much used maid position
+- serving as a table for your mistress.
+For that purpose, I want you to fetch your wrist and ankle restraints.
+You will also need a tray and a glass of water.
+A nice apron is appreciated, too.
+You do have these items, don't you, slave?
+.yesno 6526 6526 8280 8298
 .Say Action
 
 
 [Action 6524]
-Let's start with your collar and nipple clamps.
-Put your collar around your neck and snap the clamps on your poor little titties.
-.pause
 .mustnot 28                  ' collared
+Let's start with your collar and nipple clamps.
+bd178_10.jpg
+Put the collar around your neck and snap the clamps on your poor little titties.
+.pause
 .range 6526
 .Say Action
 
 [Action 6525]
-Let's start with the nipple clamps.
+.must 28                     ' collared
+Let's start with the clamps.
+bd178_10.jpg
 Snap them on your poor little titties.
 .pause
-.must 28                     ' collared
 .range 6526
 .Say Action
 
 
 [Action 6526]
 Very good, my pet.
-Complete your maid dress by putting on your wrists and ankle restraints.
+Complete your maid dress by putting on the restraints.
 .pause
 .range 6527
 .Say Action
 
 [Action 6527]
 Wonderful.
+bd178_08.jpg
 Now go into the kitchen and fetch a tray of some kind
 - a cookie sheet or anything similar will serve.
 Also fetch a glass, and fill it with water.
+bd178_02.jpg
 Place the glass on the tray and return to Me.
-.image bd178_01.jpg
 .pause
 .range 6528
 .Say Action
@@ -4375,23 +4391,22 @@ Place the glass on the tray and return to Me.
 .range 6529
 
 [Action 6529]
-bd178_02.jpg
+bd178_01.jpg
 Simply kneel straight, and present the tray, palms under the tray.
 delay 60
 []
-bd178_02.jpg
 Very good, my pet.
-bd178_07.jpg
+bd178_06.jpg
 Now put the tray on the floor, kneel down on all four
 and place the glass on the small of your back.
-delay 20
+delay 40
 []
-bd178_06.jpg
+bd178_04.jpg
 Spread your arms outward and raise your butt to
 present the glass to your mistress. 
 delay 20
 []
-bd178_06.jpg
+bd178_07.jpg
 Don't let the glass fall off, my pet.
 delay 20
 .range 1700
@@ -4401,112 +4416,147 @@ delay 20
 ' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
 
 [Action 6530]
-.mustnot 20                     ' something on nipples
+.mustnot 20             ' something on nipples
+.mustnot 28             ' something around neck
 Oh, goody.
 This will be a particularly challenging position for you to endure.
-Go fetch a dildo or small buttplug.
+Go fetch a dildo or a small buttplug.
 Also get your wrist and ankle restraints.
 Handcuffs will work too.
-Also get your collar and a leash, as well as nipple and pussy clamps,
+You'll also need your collar and a leash, and your nipple and pussy clamps,
 both with a connecting chain.
 You do have these items, I hope?
-.image 102_000.jpg
-.pause
-.yesno 6532 6533 8280 8298
+.yesno 6534 6535 8280 8298
 .Say Action
 
 [Action 6531]
-.must 20                     ' something on nipples
+.must 20                ' something on nipples
+.mustnot 28             ' something around neck
 Oh, goody.
 This will be a particularly challenging position for you to endure.
-Go fetch a dildo or small buttplug.
+Go fetch a dildo or a small buttplug.
 Also get your wrist and ankle restraints.
 Handcuffs will work too.
-Also get your collar and a leash, and your pussy clamps.
+You'll also need your collar and a leash, and your pussy clamps.
 You do have these items, I hope?
-.image 102_000.jpg
-.pause
-.yesno 6532 6533 8280 8298
+.yesno 6534 6535 8280 8298
 .Say Action
-
 
 [Action 6532]
-.mustnot 20             ' Something on nipples
-.poss 100
-Let's start with those nipple clamps.
-102_001.jpg
-Snap them on your poor little slave titties and make sure they sit tight.
-.pause
-.range 6533
+.mustnot 20             ' something on nipples
+.must 28                ' something around neck
+Oh, goody.
+This will be a particularly challenging position for you to endure.
+Go fetch a dildo or a small buttplug.
+Also get your wrist and ankle restraints.
+Handcuffs will work too.
+You'll also need a leash, and your nipple and pussy clamps,
+both with a connecting chain.
+You do have these items, I hope?
+.yesno 6534 6535 8280 8298
 .Say Action
 
-
 [Action 6533]
-102_011.jpg
-If you haven't yet, put on our ankle cuffs.
-Then snap the pussy clamps on your ball sack,
-squat down and attach the connecting chain to your ankle cuffs.
-delay 10
-If you don't have rope or a small lock handy,
-you may just entwine the connecting chains.
-.pause
-.range 6534
+.must 20                ' something on nipples
+.must 28                ' something around neck
+Oh, goody.
+This will be a particularly challenging position for you to endure.
+Go fetch a dildo or a small buttplug.
+Also get your wrist and ankle restraints.
+Handcuffs will work too.
+You'll also need a leash, and your pussy clamps.
+You do have these items, I hope?
+.yesno 6534 6535 8280 8298
 .Say Action
 
 
 [Action 6534]
-.gosub 1820                  ' setup break buttons and vibrator
-.range 6535 6536
+.mustnot 20             ' Something on nipples
+.poss 100
+102_000.jpg
+Let's start with those nipple clamps.
+102_001.jpg
+Snap them on your poor little slave titties and make sure they sit tight.
+.pause
+.range 6535
+.Say Action
 
 
 [Action 6535]
+If you haven't yet, put on our ankle cuffs.
+102_011.jpg
+Then snap the pussy clamps on your slutty ball sack,
+kneel down and attach the connecting chain to your ankle cuffs.
+delay 10
+If you don't have snap hooks or a small lock handy,
+you may just entwine the connecting chains.
+.pause
+.range 6536
+.Say Action
+
+
+[Action 6536]
+.gosub 1820                  ' setup break buttons and vibrator
+.range 6537 6538
+
+
+[Action 6537]
 .mustnot 28             ' collared 
 102_009.jpg
-Continue with your collar.
-Put it around your neck and don't forget to attach the leash.
-delay 30
-Then snap on your wrist restraints.
-delay 60
+It's time to put on your collar.
+delay 10
+Don't forget to attach the leash.
+delay 15
+[]
+102_007.jpg
+Now I want you to connect the nipple clamps with your wrist restraints
+as you did with your "pussy" clamps and ankle cuffs.
+delay 10
+Again, if you're missing snap hooks, you may just entwine the connecting chains.
+delay 10
+102_010.jpg
+Finally snap on your wrist restraints and squat as shown.
+delay 35
 .range 6539
 .Say Action
 
-[Action 6536]
+[Action 6538]
 .must 28                ' collared 
 102_009.jpg
 Attach the leash to your collar.
-Then snap on your wrist restraints.
-delay 30 
+delay 10
+[]
+102_007.jpg
+Now I want you to connect the nipple clamps with your wrist restraints
+as you did with your "pussy" clamps and ankle cuffs.
+delay 10
+Again, if you're missing snap hooks, you may just entwine the connecting chains.
+delay 10
+102_010.jpg
+Finally snap on your wrist restraints and squat as shown.
+delay 35
 .range 6539
 .Say Action
 
 
 [Action 6539]
-102_010.jpg
-Now connect the nipple clamps with your wrist restraints
-the same way you did with your "pussy" clamps and ankles cuffs.
-delay 40
-[]
 102_012.jpg
 It's time to get that dildo involved, my dear slut.
 Pick it up and hold it in your mouth! 
-delay 8
+delay 10
 []
 102_013.jpg
 If your dildo has a suction cup at the base,
-attach it to a suitable smooth wall at about mouth height.
+plug it to a nearby wall at about mouth height.
 delay 15
-[]
-102_013.jpg
-Otherwise you have to use your mouth to press it against the wall.
-delay 5
-Well, if there's no suitable wall nearby, you may also place it on a seat or table.
+Otherwise you may also place it on a seat or table.
 delay 5
 Anyway, don't let it slip out or let it fall down, my pet.
 delay 5
 []
 102_014.jpg
 You're going to tease that dildo with your naughty slave mouth until I tell you to stop.
-If the dildo slips out of your mouth or any of the clamps falls off, you've failed this position.
+If the dildo slips out of your mouth or any of the clamps slip off, you've failed this position.
 delay 10
 .range 1700
 .Say Action
@@ -4836,11 +4886,11 @@ Well, clean everything up, slave.
 
 ' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
 [Action 7652]
+.must 1652
 It's very unfortunate that you were unable to hold this service position, you lazy slave.
 This is a fundamental position that you will need every day you work as a slave maid.
 Return the tray and glass to their appropriate places, you sloppy cunt.
 .pause
-.must 1652
 .range 8980 8999        ' Also remove nipple clamps, weight, gag, collar
 .Say Action
 
@@ -5501,9 +5551,9 @@ I hope your ass is feeling well-used.
 
 ' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
 [Action 8652]
+.must 1652
 You may return the tray and glass to their appropriate places.
 .pause
-.must 1652
 .set 652
 .range 8980 8999        ' Also remove collar, wrist and ankle restraints, nipple clamps
 .Say Action
