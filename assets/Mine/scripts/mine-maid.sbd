@@ -1930,7 +1930,7 @@ Head up!
 [Action 2420]
 .must 195               ' In the middle
 .mustnot 410            ' First time
-.must 1410
+.must 1410              ' This position
 .poss 100               ' Right at the start 
 Very good.
 Let's variate this position a bit!
@@ -1945,34 +1945,35 @@ Put your hands in the small of your back, slave.
 .mustnot 100            ' Short duration
 .must 194
 .must 410               ' First time
-.must 1410
+.must 1410              ' This position
 .poss 100               ' Right at the start 
 position_410_on_all_four_side_half.jpg
 Now we're going to advance this position.
 Bend forward to kneel on all four.
+delay 5
 []
 position_410_on_all_four_side_full.jpg
 Keep your arms a bit in front of your head and arch your back.
 Your neck and head follow the curve of your spine and point slightly upward.
-.actiondelay 20
-.must 2421
+.delay 30               ' Exception to the 20s delay rule
 .unset 1900             ' Re-Trigger "Hold your position" comment
 .range 3990
 .say action
 
 [Action 2422]
 .mustnot 100            ' Short duration
-.must 198
+.must 197
 .must 410               ' First time
-.must 1410
+.must 1410              ' This position
 .poss 100               ' Right at the start 
 position_410_sitting_on_heels_head_on_floor_side_half.jpg
 Now get back sitting on your heels while moving your arms forward
 until your nose touches the floor and submit to your mistress.
+delay 5
 []
 position_410_sitting_on_heels_head_on_floor_front.jpg
 Cross your wrists to show readyness to receive your restraints.
-.actiondelay 20
+.delay 30               ' Exception to the 20s delay rule
 .unset 1900             ' Trigger "Hold your position" comment
 .range 3990
 .say action
