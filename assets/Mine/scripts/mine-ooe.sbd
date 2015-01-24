@@ -129,7 +129,6 @@ So you'd like to play a game a chance, slave? Let me think...
 .set 300 60 70
 .set 401 501
 .range 1100 
-.Say Action
 
 [Action 1002]
 I think a nipple-torture game would be fun, don't you?
@@ -143,18 +142,15 @@ Naturally, it'll be your nipples being tortured, slave.
 .set 302 501 60 70                ' activity, nothing, 15 rounds
 '.set 10 302 403 501 62 72 101 102 103 104 201 202 203 204
 .range 1101
-.Say Action
 
 [Action 1100]
 Let's play odds and evens, slut.
 .unset 10 11
 .range 1150
-.Say Action
 
 [Action 1101]
 We'll play odds-and-evens, My pussy.
 .range 1200
-.Say Action
 
 ' Select a game
 [Action 1150]
@@ -200,13 +196,11 @@ We'll play odds-and-evens, My pussy.
 I'll be odds, which makes you evens, slave.
 .set 11
 .range 1300
-.Say Action
 
 [Action 1202]
 I'll be evens - you're odds.
 .set 10
 .range 1300
-.Say Action
 
 
 [Action 1300]
@@ -219,7 +213,6 @@ The number of times you must smack your butt will be the
 number of points I have.
 .must 402
 .range 1400
-.Say Action
 
 ' nipple clamps, each with their own chain
 [Action 1302]
@@ -229,7 +222,6 @@ Make sure there's plenty of room for those clamps to swing free.
 .must 403
 .unset 406
 .range 1400
-.Say Action
 
 '[Action 1303]
 'Every round you lose, you will be ordered to place a
@@ -243,7 +235,6 @@ For every round that I win, you will paddle your buns twenty times, slave.
 Get on your knees, and make sure you have your paddle ready to go.
 .must 405
 .range 1400
-.Say Action
 
 ' nipple clamps, connected with chain
 [Action 1305]
@@ -253,7 +244,6 @@ Make sure there's plenty of room for those clamps to swing free.
 .must 406
 .unset 403
 .range 1400
-.Say Action
 
 '[Action 1319]
 'Lucky slave. This time, there's no penalty for losing a round.
@@ -275,7 +265,6 @@ Go fetch them, slave!
 .must 403
 .must 60 70
 .range 1499
-.Say Action
 
 [Action 1403]
 You are going to need seven weights for this game.
@@ -284,7 +273,6 @@ Go fetch them, slave!
 .must 403
 .must 61 71
 .range 1499
-.Say Action
 
 [Action 1404]
 You are going to need two weights for this game.
@@ -293,7 +281,6 @@ Go fetch them, slave!
 .must 403
 .must 62 72
 .range 1499
-.Say Action
 
 
 [Action 1419]
@@ -313,7 +300,6 @@ and add the weights to the middle of the chain.
 .pause
 .must 403
 .range 1499
-.Say Action
 
 [Action 1456]
 Now this time, you add a single chain to each clamps.
@@ -321,7 +307,6 @@ This means you'll add the weight to the clamp that I order you to, my pussy.
 .pause
 .must 406
 .range 1499
-.Say Action
 
 
 [Action 1499]
@@ -332,7 +317,6 @@ Remember, My standard rules apply.
 You'd better be naked, and you'd better keep that little cock hard.
 .mustnot 30             ' can't jerk off
 .range 1997
-.Say Action
 
 [Action 1501]
 .must 30                ' can't jerk off
@@ -360,7 +344,6 @@ Okay, slave, let's start the round.
 .unset 2000
 .range 2001 2099
 '.range 1998 1998
-.Say Action
 
 'Odds/evens
 [Action 2001]
@@ -368,92 +351,78 @@ What do you choose, slut?
 .must 10
 .unset 2001
 .yesno 2100 2100 2101 2101
-.Say Action
 
 [Action 2002]
 One or two, slave?
 .must 11
 .unset 2002
 .yesno 2100 2100 2101 2101
-.Say Action
 
 [Action 2003]
 What's your choice, slave?
 .must 10
 .unset 2003
 .yesno 2100 2100 2101 2101
-.Say Action
 
 [Action 2004]
 Which do you want, slave?
 .must 11
 .unset 2004
 .yesno 2100 2100 2101 2101
-.Say Action
 
 [Action 2100]
 One it is, slave. I choose...
 .unset 2100
 .range 2110 2111
-.Say Action
 
 [Action 2101]
 Two it is, slave. I choose...
 .unset 2101
 .range 2112 2113
-.Say Action
 
 [Action 2110]
 One -- evens!
 .unset 2110
 .range 2120 2129
-.Say Action
 
 [Action 2111]
 Two -- odds!
 .unset 2111
 .range 2130 2139
-.Say Action
 
 [Action 2112]
 One -- odds!
 .unset 2112
 .range 2130 2139
-.Say Action
 
 [Action 2113]
 Two -- evens!
 .unset 2113
 .range 2120 2129
-.Say Action
 
 [Action 2120]
 I'm evens, so this round goes to your Mistress.
 .must 10
 .unset 2120
 .range 3060 3099
-.Say Action
 
 [Action 2121]
 You're evens, slave, so you win this round.
 .must 11
 .unset 2121
 .range 3020 3059
-.Say Action
 
 [Action 2130]
 I'm odds, so I win, slut.
 .must 11
 .unset 2130
 .range 3060 3099
-.Say Action
 
 [Action 2131]
 You're odds, so you win, slave.
 .must 10
 .unset 2131
 .range 3020 3059
-.Say Action
 
 [Action 3020]
 'You've won this round.
@@ -478,7 +447,6 @@ That's your first point, slave.
 .set 101
 .unset 3101
 .range 3190 3199
-.Say Action
 
 [Action 3102]
 Two points for you, My slave.
@@ -487,7 +455,6 @@ Two points for you, My slave.
 .set 102
 .unset 3102
 .range 3190 3199
-.Say Action
 
 [Action 3103]
 That's your third point, slut.
@@ -496,7 +463,6 @@ That's your third point, slut.
 .set 103
 .unset 3103
 .range 3190 3199
-.Say Action
 
 [Action 3104]
 You've got four points, bitch.
@@ -505,7 +471,6 @@ You've got four points, bitch.
 .set 104
 .unset 3104
 .range 3190 3199
-.Say Action
 
 [Action 3105]
 That's your fifth point, little boy.
@@ -514,7 +479,6 @@ That's your fifth point, little boy.
 .set 105
 .unset 3105
 .range 3190 3199
-.Say Action
 
 [Action 3106]
 Six points for you, slaveboy.
@@ -523,7 +487,6 @@ Six points for you, slaveboy.
 .set 106
 .unset 3106
 .range 3190 3199
-.Say Action
 
 [Action 3107]
 That's seven points, slaveboy.
@@ -532,7 +495,6 @@ That's seven points, slaveboy.
 .set 107
 .unset 3107
 .range 3190 3199
-.Say Action
 
 [Action 3108]
 That's your eighth point, My little slut.
@@ -541,7 +503,6 @@ That's your eighth point, My little slut.
 .unset 3108
 .set 108
 .range 3190 3199
-.Say Action
 
 [Action 3109]
 Nine points, slave.
@@ -550,7 +511,6 @@ Nine points, slave.
 .unset 3109
 .set 109
 .range 3190 3199
-.Say Action
 
 [Action 3110]
 That's ten points for you.
@@ -559,7 +519,6 @@ That's ten points for you.
 .unset 3110
 .set 110
 .range 3190 3199
-.Say Action
 
 [Action 3111]
 Now you've got eleven, slave.
@@ -568,7 +527,6 @@ Now you've got eleven, slave.
 .unset 3111
 .set 111
 .range 3190 3199
-.Say Action
 
 [Action 3112]
 That's twelve points, slaveboy.
@@ -577,7 +535,6 @@ That's twelve points, slaveboy.
 .unset 3112
 .set 112
 .range 3190 3199
-.Say Action
 
 [Action 3113]
 Unlucky thirteen for you, My slut.
@@ -586,7 +543,6 @@ Unlucky thirteen for you, My slut.
 .unset 112
 .set 113
 .range 3190 3199
-.Say Action
 
 [Action 3114]
 That's fourteen points, you little trollop.
@@ -595,7 +551,6 @@ That's fourteen points, you little trollop.
 .unset 3114
 .set 114
 .range 3190 3199
-.Say Action
 
 [Action 3115]
 You've got fifteen points, you dirty little whore!
@@ -604,7 +559,6 @@ You've got fifteen points, you dirty little whore!
 .unset 3115
 .set 115
 .range 3190 3199
-.Say Action
 
 [Action 3190]
 .must 62
@@ -654,7 +608,6 @@ I've got one lousy point, slut.
 .set 201
 .range 3290 3299
 .unset 3201
-.Say Action
 
 [Action 3202]
 Your Mistress has two points now.
@@ -663,7 +616,6 @@ Your Mistress has two points now.
 .set 202
 .range 3290 3299
 .unset 3202
-.Say Action
 
 [Action 3203]
 I've got three points, boy-whore.
@@ -672,7 +624,6 @@ I've got three points, boy-whore.
 .set 203
 .range 3290 3299
 .unset 3203
-.Say Action
 
 [Action 3204]
 That's four points, My little bitch.
@@ -681,7 +632,6 @@ That's four points, My little bitch.
 .set 204
 .range 3290 3299
 .unset 3204
-.Say Action
 
 [Action 3205]
 Five points for the Mistress.
@@ -690,7 +640,6 @@ Five points for the Mistress.
 .set 205
 .range 3290 3299
 .unset 3205
-.Say Action
 
 [Action 3206]
 That's six for Me, slave.
@@ -699,7 +648,6 @@ That's six for Me, slave.
 .set 206
 .range 3290 3299
 .unset 3206
-.Say Action
 
 [Action 3207]
 Lucky seven for Me, slut.
@@ -708,7 +656,6 @@ Lucky seven for Me, slut.
 .set 207
 .range 3290 3299
 .unset 3207
-.Say Action
 
 [Action 3208]
 That's my eighth point, slave.
@@ -717,7 +664,6 @@ That's my eighth point, slave.
 .set 208
 .range 3290 3299
 .unset 3208
-.Say Action
 
 [Action 3209]
 Nine points now, slave.
@@ -726,7 +672,6 @@ Nine points now, slave.
 .set 209
 .range 3290 3299
 .unset 3209
-.Say Action
 
 [Action 3210]
 Ten points for the Mistress.
@@ -735,7 +680,6 @@ Ten points for the Mistress.
 .set 210
 .range 3290 3299
 .unset 3210
-.Say Action
 
 [Action 3211]
 That's eleven for Me.
@@ -744,7 +688,6 @@ That's eleven for Me.
 .set 211
 .range 3290 3299
 .unset 3211
-.Say Action
 
 [Action 3212]
 A even dozen for your Mistress.
@@ -753,7 +696,6 @@ A even dozen for your Mistress.
 .set 212
 .range 3290 3299
 .unset 3212
-.Say Action
 
 [Action 3213]
 Thirteen for Me, My slaveboy.
@@ -762,7 +704,6 @@ Thirteen for Me, My slaveboy.
 .set 213
 .range 3290 3299
 .unset 3213
-.Say Action
 
 [Action 3214]
 That's my fourteenth, My little bitch.
@@ -771,7 +712,6 @@ That's my fourteenth, My little bitch.
 .set 214
 .range 3290 3299
 .unset 3214
-.Say Action
 
 [Action 3215]
 Finally, fifteen points for Me.
@@ -780,7 +720,6 @@ Finally, fifteen points for Me.
 .set 215
 .range 3290 3299
 .unset 3215
-.Say Action
 
 [Action 3290]
 Now for your penalty...
@@ -788,7 +727,6 @@ Now for your penalty...
 .must 62
 .range 3800 3999
 .unset 3290
-.Say Action
 
 [Action 3291]
 .must 62
@@ -802,7 +740,6 @@ Now for your penalty...
 .must 61
 .range 3800 3999
 .unset 3292
-.Say Action
 
 [Action 3293]
 .must 61
@@ -816,7 +753,6 @@ Now for your penalty...
 .mustnot 215
 .unset 3294
 .range 3800 3999
-.Say Action
 
 [Action 3295]
 .must 60
@@ -840,7 +776,6 @@ Give that slut-butt one good smack!
 .must 402 201
 .unset 3801
 .range 2000 2000
-.Say Action
 
 [Action 3802]
 Paddle that butt twice, slave!
@@ -848,7 +783,6 @@ Paddle that butt twice, slave!
 .must 402 202
 .unset 3802
 .range 2000 2000
-.Say Action
 
 [Action 3803]
 You owe me three smacks on the buns, slaveboy.
@@ -856,7 +790,6 @@ You owe me three smacks on the buns, slaveboy.
 .must 402 203
 .range 2000 2000
 .unset 3803
-.Say Action
 
 [Action 3804]
 Paddle that butt four times, slave.
@@ -864,7 +797,6 @@ Paddle that butt four times, slave.
 .must 402 204
 .range 2000 2000
 .unset 3804
-.Say Action
 
 [Action 3805]
 Slap those cheeks five times, slut.
@@ -872,7 +804,6 @@ Slap those cheeks five times, slut.
 .must 402 205
 .range 2000 2000
 .unset 3805
-.Say Action
 
 [Action 3806]
 Smack those slave-buns six times, My little baby.
@@ -880,7 +811,6 @@ Smack those slave-buns six times, My little baby.
 .must 402 206
 .range 2000 2000
 .unset 3806
-.Say Action
 
 [Action 3807]
 Give that red butt seven more good smacks.
@@ -888,7 +818,6 @@ Give that red butt seven more good smacks.
 .must 402 207
 .range 2000 2000
 .unset 3807
-.Say Action
 
 [Action 3808]
 Paddle your little bottom eight more times, slut.
@@ -896,7 +825,6 @@ Paddle your little bottom eight more times, slut.
 .must 402 208
 .range 2000 2000
 .unset 3808
-.Say Action
 
 [Action 3809]
 Give yourself another nine smacks on the bum, My little bitch.
@@ -904,7 +832,6 @@ Give yourself another nine smacks on the bum, My little bitch.
 .must 402 209
 .range 2000 2000
 .unset 3809
-.Say Action
 
 [Action 3810]
 .pause
@@ -912,7 +839,6 @@ That's ten smacks on the ass, slave.
 .must 402 210
 .range 2000 2000
 .unset 3810
-.Say Action
 
 [Action 3811]
 Eleven more on the butt, you dirty slut.
@@ -920,7 +846,6 @@ Eleven more on the butt, you dirty slut.
 .must 402 211
 .range 2000 2000
 .unset 3811
-.Say Action
 
 [Action 3812]
 Twelve more on the butt, slut!
@@ -928,7 +853,6 @@ Twelve more on the butt, slut!
 .must 402 212
 .range 2000 2000
 .unset 3812
-.Say Action
 
 [Action 3813]
 Give those pink cheeks thirteen, you bitch.
@@ -936,7 +860,6 @@ Give those pink cheeks thirteen, you bitch.
 .must 402 213
 .range 2000 2000
 .unset 3813
-.Say Action
 
 [Action 3814]
 Give that saucy butt fourteen more, slave.
@@ -944,7 +867,6 @@ Give that saucy butt fourteen more, slave.
 .must 402 214
 .range 2000 2000
 .unset 3814
-.Say Action
 
 [Action 3816]
 Put a clamp on your left nipple, and make sure it's nice and tight.
@@ -952,7 +874,6 @@ Put a clamp on your left nipple, and make sure it's nice and tight.
 .must 403 201
 .range 2000 2000
 .unset 3816
-.Say Action
 
 [Action 3817]
 Put a clamp on your right nipple, slave, and make sure it's tight!
@@ -960,7 +881,6 @@ Put a clamp on your right nipple, slave, and make sure it's tight!
 .must 403 201
 .range 2000 2000
 .unset 3817
-.Say Action
 
 [Action 3818]
 Now put a clamp on your other nipple, slut.
@@ -968,7 +888,6 @@ Now put a clamp on your other nipple, slut.
 .must 403 202
 .range 2000 2000
 .unset 3818
-.Say Action
 
 [Action 3819]
 Add a weight to your right nipple, slave!
@@ -977,7 +896,6 @@ Add a weight to your right nipple, slave!
 .mustnot 201 202
 .range 2000 2000
 .unset 3819
-.Say Action
 
 [Action 3820]
 Add a weight to your left slave-nipple!
@@ -986,7 +904,6 @@ Add a weight to your left slave-nipple!
 .mustnot 201 202
 .range 2000 2000
 .unset 3820
-.Say Action
 
 [Action 3821]
 Smack that slave butt twenty times!
@@ -994,7 +911,6 @@ Smack that slave butt twenty times!
 .must 405
 .range 2000 2000
 .unset 3821
-.Say Action
 
 [Action 3822]
 Give that ass twenty slaps, slut!
@@ -1002,7 +918,6 @@ Give that ass twenty slaps, slut!
 .must 405
 .range 2000 2000
 .unset 3822
-.Say Action
 
 [Action 3823]
 Paddle that naughty bottom twenty times, slave!
@@ -1010,7 +925,6 @@ Paddle that naughty bottom twenty times, slave!
 .must 405
 .range 2000 2000
 .unset 3823
-.Say Action
 
 [Action 3824]
 Smack those buns twenty times, slut!
@@ -1018,7 +932,6 @@ Smack those buns twenty times, slut!
 .must 405
 .range 2000 2000
 .unset 3824
-.Say Action
 
 [Action 3825]
 Give that pink slave-butt twenty smacks!
@@ -1026,7 +939,6 @@ Give that pink slave-butt twenty smacks!
 .must 405
 .range 2000 2000
 .unset 3825
-.Say Action
 
 [Action 3826]
 Put a clamp on your left nipple, and make sure it's nice and tight.
@@ -1034,7 +946,6 @@ Put a clamp on your left nipple, and make sure it's nice and tight.
 .must 406 201
 .range 2000 2000
 .unset 3826
-.Say Action
 
 [Action 3827]
 Put a clamp on your right nipple, slave, and make sure it's tight!
@@ -1042,7 +953,6 @@ Put a clamp on your right nipple, slave, and make sure it's tight!
 .must 406 201
 .range 2000 2000
 .unset 3827
-.Say Action
 
 [Action 3828]
 Now put a clamp on your other nipple, slut.
@@ -1050,7 +960,6 @@ Now put a clamp on your other nipple, slut.
 .must 406 202
 .range 2000 2000
 .unset 3828
-.Say Action
 
 [Action 3829]
 Add a weight to your nipple clamps, slave!
@@ -1059,7 +968,6 @@ Add a weight to your nipple clamps, slave!
 .mustnot 201 202
 .range 2000 2000
 .unset 3829
-.Say Action
 
 [Action 3830]
 Add another weight to your nipple clamps!
@@ -1068,7 +976,6 @@ Add another weight to your nipple clamps!
 .mustnot 201 202 203
 .range 2000 2000
 .unset 3830
-.Say Action
 
 [Action 3831]
 Add another weight to your nipple clamps, slave!
@@ -1077,7 +984,6 @@ Add another weight to your nipple clamps, slave!
 .mustnot 201 202 203
 .range 2000 2000
 .unset 3831
-.Say Action
 
 [Action 3832]
 Add another weight to the chain, slave!
@@ -1086,7 +992,6 @@ Add another weight to the chain, slave!
 .mustnot 201 202 203
 .range 2000 2000
 .unset 3832
-.Say Action
 
 [Action 3833]
 Add another weight, slave!
@@ -1095,7 +1000,6 @@ Add another weight, slave!
 .mustnot 201 202 203
 .range 2000 2000
 .unset 3833
-.Say Action
 
 [Action 3834]
 Add another weight to your right nipple, slave!
@@ -1104,7 +1008,6 @@ Add another weight to your right nipple, slave!
 .mustnot 201 202 203
 .range 2000 2000
 .unset 3834
-.Say Action
 
 [Action 3835]
 Add another weight to your left slave-nipple!
@@ -1113,7 +1016,6 @@ Add another weight to your left slave-nipple!
 .mustnot 201 202 203
 .range 2000 2000
 .unset 3835
-.Say Action
 
 
 [Action 5020]
@@ -1121,31 +1023,26 @@ You lucky slave! Cum for Mistress, hurry!
 .must 300
 .range 9000 9499
 .actiondelay 30
-.Say Action
 
 [Action 5022]
 It looks like you won the game, slave!
 .must 302
 .range 9000 9499
-.Say Action
 
 [Action 5060]
 I won, and the game is over, slut. Too bad!
 .must 300
 .range 9500 9599
-.Say Action
 
 [Action 5061]
 I won, and the game is over, slut. Too bad!
 .must 301
 .range 9500 9599
-.Say Action
 
 [Action 5062]
 It looks like I won the game, slave!
 .must 302
 .range 9500 9599
-.Say Action
 
 ' ---------------------------------- s won
 
