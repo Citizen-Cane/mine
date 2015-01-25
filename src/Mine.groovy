@@ -11,13 +11,41 @@ if (loader == null)
 	showButton("No class loader, bailing out")
 }
 
-def jar = new File('Scripts/Mine.jar')
-if (!jar.exists())
+def tljar = new File('lib/TeaseLib/TeaseLib.jar')
+if (!tljar.exists())
 {
-	showButton(jar.getAbsolutePath() + " not found - bailing out")
+	showButton(tljar.getAbsolutePath() + " not found - bailing out")
 }
-loader.addURL(jar.toURI().toURL())
+loader.addURL(tljar.toURI().toURL())
 
+def minejar = new File('scripts/Mine.jar')
+if (!minejar.exists())
+{
+	showButton(minejar.getAbsolutePath() + " not found - bailing out")
+}
+loader.addURL(minejar.toURI().toURL())
+
+// def host = new ss.SexScriptsHost(this);
+def Host = Class.forName('ss.SexScriptsHost', true, loader)
+def host = Host.newInstance(this)
+
+// def persistence = new ss.SexScriptsStatePersistence("Mine", this);
+def Persistence = Class.forName('ss.SexScriptsStatePersistence', true, loader)
+def persistence = Persistence.newInstance(this, "Mine")
+
+// teaseLib = new teaselib.TeaseLib(
+def TeaseLib = Class.forName('teaselib.TeaseLib', true, loader)
+def teaseLib = TeaseLib.newInstance(
+	host,
+	persistence,
+	"scripts/",
+	"Mine")
+teaseLib.addAssets(
+	"Mine Scripts.zip",
+	"Mine Resources.zip",
+	"Mine Mistress.zip");
+
+//def mine = new Mine();
 def Mine = Class.forName('ss.Mine', true, loader)
-def mine = Mine.newInstance(this);
-mine.play()
+def mine = Mine.newInstance(teaseLib)
+mine.run()
