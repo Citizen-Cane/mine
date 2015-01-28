@@ -10,7 +10,7 @@ public class SexScriptsStatePersistence implements Persistence {
     private final String root;
     private final ss.IScript host;
 
-    private final Map<String, String> mapping = new HashMap<>();
+    private final Map<String, String> mapping = new HashMap<String, String>();
 
     public SexScriptsStatePersistence(IScript host, String root) {
         this.host = host;
