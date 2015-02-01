@@ -109,8 +109,7 @@ public class SexScriptsHost implements Host {
         return file;
     }
 
-    @Override
-    public void setImage(Image image) {
+    private void setImage(Image image) {
         if (image != null) {
             int width = image.getWidth(null);
             int height = image.getHeight(null);
@@ -136,14 +135,26 @@ public class SexScriptsHost implements Host {
         }
     }
 
-    @Override
-    public void show(String message) {
+    private void show(String message) {
         // TODO Align text to top
         // TODO Fix width of jlabel
         // -> Text always starts at the same position, better anchor point for
         // viewing
         // PROBLEM: Text top right, buttons bottom right
         ss.show(message);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see teaselib.Host#show(java.awt.Image, java.lang.String)
+     */
+    // TODO Set at once to overcome layout glitches (mostly the delay between
+    // displaying the new image and then displaying the text
+    @Override
+    public void show(Image image, String text) {
+        setImage(image);
+        show(text);
     }
 
     // @Override
@@ -242,10 +253,5 @@ public class SexScriptsHost implements Host {
     @Override
     public int choose(List<String> choices) {
         return ss.getSelectedValue(null, choices);
-    }
-
-    @Override
-    public void showText(String text) {
-        show(text);
     }
 }
