@@ -86,11 +86,12 @@ public class SexScriptsHost implements Host {
     }
 
     @Override
-    public void playBackgroundSound(String path, InputStream inputStream) {
+    public Object playBackgroundSound(String path, InputStream inputStream) {
         // SexScripts doesn't accept WAV input streams or sound objects,
-        // so we're going to cache them in the Sounds folder
+        // so we need to cache them in the Sounds folder
         File file = ensureFile(path, inputStream);
         ss.playBackgroundSound(file.getAbsolutePath());
+        return inputStream;
     }
 
     private File ensureFile(String path, InputStream sound) {
@@ -107,6 +108,25 @@ public class SexScriptsHost implements Host {
             }
         }
         return file;
+    }
+
+    @Override
+    public void stopSounds() {
+        try {
+            ((ss.Script) ss).stopSoundThreads();
+        } catch (Exception e) {
+            TeaseLib.log(this, e);
+        }
+    }
+
+    @Override
+    public void stopSound(Object handle) {
+        // Just stop all sounds for now
+        try {
+            ((ss.Script) ss).stopSoundThreads();
+        } catch (Exception e) {
+            TeaseLib.log(this, e);
+        }
     }
 
     private void setImage(Image image) {
@@ -166,15 +186,6 @@ public class SexScriptsHost implements Host {
     public List<Boolean> showCheckboxes(String caption, List<String> texts,
             List<Boolean> values) {
         return ss.getBooleans(caption, texts, values);
-    }
-
-    @Override
-    public void stopSounds() {
-        try {
-            ((ss.Script) ss).stopSoundThreads();
-        } catch (Exception e) {
-            TeaseLib.log(this, e);
-        }
     }
 
     @Override
