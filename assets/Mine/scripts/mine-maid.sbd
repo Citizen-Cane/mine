@@ -1852,21 +1852,97 @@ Stay stock-still.
 .range 3990
 
 
-' 2400-2999 Position specific comments, sorted by pose
+' more generic hold your position comments
+
+[Action 2189]
+Just stay! 
+.delay 20
+.range 3990
+
+[Action 2190]
+Keep it up, slave!
+.delay 20
+.range 3990
+
+[Action 2191]
+Don't move.
+.delay 20
+.range 3990
+
+[Action 2192]
+You're doing good, slave.
+.mustnot 195 196 197 198 199
+.delay 20
+.range 3990
+
+[Action 2193]
+Remember slave:
+You can give up anytime if you want to.
+.mustnot 190 191 192 193 194 
+.delay 20
+.range 3990
+
+[Action 2194]
+Do you think you're going to make it?
+Or are you pussying out?
+.delay 20
+.mustnot 190 191 192 193 194 
+.mustnot 180 181             ' demanding, challenging or exhausting position 
+.range 3990
+
+[Action 2195]
+Yes, slave,
+I know it's demanding.
+delay 2
+But I just enjoy to see you suffer!
+.delay 20
+.mustnot 190 191 192 193 194 
+.mustnot 180 181             ' demanding, challenging or exhausting position 
+.range 3990
+
+[Action 2196]
+Just hold your position!
+.delay 20
+.mustnot 190 191 193
+.range 3990
+
+[Action 2197]
+Just hold your position, slave.
+.delay 20
+.range 3990
+
+[Action 2198]
+Don't tell me you're getting tired already. 
+.delay 20
+.mustnot 190 191 192 193 194 
+.range 3990
+
+ 
+' Fallback: No comment, just wait an let the slave suffer
+
+[Action 2199]
+.delay 20
+.unset 2199
+.poss 25
+.range 3990
+
+
+' 2200-3099 Position specific comments, sorted by pose
+' 3 slots per position: 2200 + (pos - 400) * 3
 ' refer to 1400-1699 to test for active pose
 ' refer to 190-199 for progress
 
 
 ' 400 jessienude3.jpg 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
 
-[Action 2400]
+[Action 2200]
 Arch your back, slave.
 .delay 20
 .must 1400
 .mustnot 190 192 198 199
 .range 3990
 
-[Action 2401]
+[Action 2201]
 Keep your head up.
 .delay 20
 .must 1400
@@ -1876,7 +1952,7 @@ Keep your head up.
 
 ' 401 Standing bent over, hands on shins, ass presented, head down
 
-[Action 2410]
+[Action 2203]
 .image naked_spanking_punishment_with_a_paddle_waiting_picture_6.jpg
 .delay 20
 .must 1401
@@ -1886,7 +1962,7 @@ Keep your head up.
 
 ' 404 belly on chair, ass presented, heels, holding legs of chair, head up
 
-[Action 2416]
+[Action 2412]
 Keep your knees off the ground, slave!
 .image ch51b.jpg
 .delay 20
@@ -1894,7 +1970,7 @@ Keep your knees off the ground, slave!
 .must 1404
 .range 3990
 
-[Action 2417]
+[Action 2413]
 Head up!
 .image ch51b.jpg
 .delay 20
@@ -1905,7 +1981,7 @@ Head up!
 
 ' 410 Sitting on heels 2pt, legs spread, hands on thighs, palms up
 
-[Action 2420]
+[Action 2230]
 .must 195               ' In the middle
 .mustnot 410            ' First time
 .must 1410              ' This position
@@ -1918,7 +1994,7 @@ Put your hands in the small of your back, slave.
 .unset 1900             ' Trigger "Hold your position" comment
 .range 3990
 
-[Action 2421]
+[Action 2231]
 .mustnot 100            ' Short duration
 .must 194
 .must 410               ' First time
@@ -1936,7 +2012,7 @@ Your neck and head follow the curve of your spine and point slightly upward.
 .unset 1900             ' Re-Trigger "Hold your position" comment
 .range 3990
 
-[Action 2422]
+[Action 2232]
 .mustnot 100            ' Short duration
 .must 197
 .must 410               ' First time
@@ -1949,14 +2025,15 @@ delay 5
 []
 position_410_sitting_on_heels_head_on_floor_front.jpg
 Cross your wrists to show readyness to receive your restraints.
-.delay 30               ' Exception to the 20s delay rule
+delay 5
+.delay 20               ' Exception to the 20s delay rule
 .unset 1900             ' Trigger "Hold your position" comment
 .range 3990
 
 
 ' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
 
-[action 2652]
+[action 2956]
 .mustnot 190 191 192 193
 .poss 25
 .must 1652
@@ -1965,86 +2042,30 @@ Cross your wrists to show readyness to receive your restraints.
 .range 3990
 
 
-[action 2653]
-.mustnot 190 191 192 193
-.poss 25
-.must 1652
-.image 102_014.jpg
+' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
+
+[action 2959]
+.must 192
+.poss 100
+.must 1653
+.image bd645_054.jpg
 .delay 20
 .range 3990
 
-
-' more generic hold your position comments
-
-[Action 3089]
-Just stay! 
+[action 2960]
+.must 195
+.poss 100
+.must 1653
+.image bd645_051.jpg
 .delay 20
 .range 3990
 
-[Action 3090]
-Keep it up, slave!
+[action 2961]
+.must 197
+.poss 100
+.must 1653
+.image bd645_048.jpg
 .delay 20
-.range 3990
-
-[Action 3091]
-Don't move.
-.delay 20
-.range 3990
-
-[Action 3092]
-You're doing good, slave.
-.must 191 192 193 194
-.delay 20
-.range 3990
-
-[Action 3093]
-Remember slave:
-You can give up anytime if you want to.
-.must 196 197 198 199
-.delay 20
-.range 3990
-
-[Action 3094]
-Do you think you're going to make it?
-Or are you pussying out?
-.delay 20
-.must 196 197 198 199
-.must 182 183 184             ' demanding, challenging or exhausting position 
-.range 3990
-
-[Action 3095]
-Yes, slave,
-I know it's demanding.
-But I just enjoy to see you suffer!
-.delay 20
-.must 195 196 197 198 199
-.must 1 82 183 184             ' demanding, challenging or exhausting position 
-.range 3990
-
-[Action 3096]
-Just hold your position!
-.delay 20
-.mustnot 190 191 193
-.range 3990
-
-[Action 3097]
-Just hold your position, slave.
-.delay 20
-.range 3990
-
-[Action 3098]
-Don't tell me you're getting tired already. 
-.delay 20
-.must 195 196 197 198 199 
-.range 3990
-
- 
-' Fallback: No comment, just wait an let the slave suffer
-
-[Action 3099]
-.delay 20
-.unset 3099
-.poss 25
 .range 3990
 
 
@@ -4235,9 +4256,9 @@ You do have these items, I hope?
 [Action 6534]
 .mustnot 20             ' Something on nipples
 .poss 100
-102_000.jpg
+bd645_003.jpg
 Let's start with those nipple clamps.
-102_001.jpg
+bd645_005.jpg
 Snap them on your poor little slave titties and make sure they sit tight.
 .pause My tits are clamped, Miss
 .range 6535
@@ -4245,11 +4266,19 @@ Snap them on your poor little slave titties and make sure they sit tight.
 
 [Action 6535]
 If you haven't yet, put on our ankle cuffs.
-102_011.jpg
-Then snap the pussy clamps on your slutty ball sack,
-kneel down and attach the connecting chain to your ankle cuffs.
-delay 10
-If you don't have snap hooks or a small lock handy,
+.delay 30
+bd645_012.jpg
+Then crawl over and fetch your pussy clamps.
+delay 20
+bd645_014.jpg
+Snap them on your slutty ball sack, and make sure they sit tight.
+delay 20
+bd645_049.jpg
+Now kneel down and attach the connecting chain to your ankle cuffs.
+ShowChoices
+delay 20
+bd645_044.jpg
+If you don't have snap hooks or padlocks handy,
 you may just entwine the connecting chains.
 .pause All done, Miss
 .range 6536 6537
@@ -4258,9 +4287,10 @@ you may just entwine the connecting chains.
 [Action 6536]
 .mustnot 28             ' collared
 Not quite yet, my little pet.
-102_009.jpg
+bd645_008.jpg
 You'll also need to put on your collar.
-delay 10
+delay 5
+bd645_042.jpg
 Don't forget to attach the leash.
 delay 15
 .range 6538
@@ -4268,44 +4298,47 @@ delay 15
 [Action 6537]
 .must 28                ' collared 
 Not quite yet, my little pet.
-102_009.jpg
+bd645_042.jpg
 You'll also need to attach the leash to your collar.
-delay 10
+delay 15
 .range 6538
 
-
+' Last chance to put on the vibrator
 [Action 6538]
 .gosub 1820                  ' setup break buttons and vibrator
 .range 6539
 
 
 [Action 6539]
-102_007.jpg
+bd645_040.jpg
 Now I want you to connect the nipple clamps with your wrist restraints
-as you did with your "pussy" clamps and ankle cuffs.
+as you did with your pussy clamps and ankle cuffs.
 delay 10
 Again, if you're missing snap hooks, you may just entwine the connecting chains.
 delay 10
-102_010.jpg
+bd645_043.jpg
 Finally snap on your wrist restraints and squat as shown.
 delay 35
 []
-102_012.jpg
+bd645_045.jpg
 It's time to get that dildo involved, my dear slut.
 Pick it up and hold it in your mouth! 
 delay 15
 []
-102_013.jpg
+bd645_046.jpg
 If your dildo has a suction cup at the base,
 plug it to a nearby wall at about mouth height.
 delay 15
 Otherwise you may also place it on a seat or table.
-delay 5
+delay 3
+bd645_052.jpg
 Anyway, don't let it slip out or let it fall down, my pet.
-delay 5
+delay 8
 []
-102_014.jpg
-You're going to tease that dildo with your naughty slave mouth until I tell you to stop.
+bd645_048.jpg
+You're going to tease and suck the dildo with your naughty slave mouth until I tell you to stop.
+delay 5
+bd645_051.jpg
 If the dildo slips out of your mouth or any of the clamps slip off, you've failed this position.
 delay 10
 .range 1700
