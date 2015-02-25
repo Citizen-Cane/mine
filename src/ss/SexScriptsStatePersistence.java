@@ -1,16 +1,14 @@
 package ss;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import teaselib.Persistence;
+import teaselib.persistence.Clothes;
+import teaselib.persistence.Item;
+import teaselib.persistence.Toys;
 
 public class SexScriptsStatePersistence implements Persistence {
 
     private final String root;
     private final ss.IScript host;
-
-    private final Map<String, String> mapping = new HashMap<String, String>();
 
     public SexScriptsStatePersistence(IScript host, String root) {
         this.host = host;
@@ -18,10 +16,20 @@ public class SexScriptsStatePersistence implements Persistence {
     }
 
     @Override
-    public String read(String name) {
+    public String get(String name) {
         String value = host.loadString(root + name);
         return value;
     }
+
+    @Override
+    public void set(String name, String value) {
+        host.save(root + name, value);
+    }
+
+    // @Override
+    // public void write(String name, int value) {
+    // host.save(root + "." + name, new Integer(value));
+    // }
 
     // @Override
     // public int read(String name, int defaultValue) {
@@ -35,21 +43,14 @@ public class SexScriptsStatePersistence implements Persistence {
     // return defaultValue;
     // }
     // }
-    //
 
     @Override
-    public void write(String name, String value) {
-        host.save(root + name, value);
+    public Item get(Toys toy) {
+        return new Item("toys." + toy.toString().toLowerCase(), this);
     }
-
-    // @Override
-    // public void write(String name, int value) {
-    // host.save(root + "." + name, new Integer(value));
-    // }
 
     @Override
-    public void setMapping(String internal, String external) {
-        mapping.put(internal, root + external);
+    public Item get(Clothes item) {
+        return new Item("clothes." + item.toString().toLowerCase(), this);
     }
-
 }
