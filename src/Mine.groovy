@@ -29,9 +29,9 @@ loader.addURL(minejar.toURI().toURL())
 def Host = Class.forName('ss.SexScriptsHost', true, loader)
 def host = Host.newInstance(this)
 
-// def persistence = new ss.SexScriptsStatePersistence("Mine", this);
+// def persistence = new ss.SexScriptsStatePersistence(this);
 def Persistence = Class.forName('ss.SexScriptsStatePersistence', true, loader)
-def persistence = Persistence.newInstance(this, "Mine")
+def persistence = Persistence.newInstance(this)
 
 // teaseLib = new teaselib.TeaseLib(
 def TeaseLib = Class.forName('teaselib.TeaseLib', true, loader)

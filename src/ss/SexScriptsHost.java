@@ -184,8 +184,13 @@ public class SexScriptsHost implements Host {
 
     @Override
     public List<Boolean> showCheckboxes(String caption, List<String> texts,
-            List<Boolean> values) {
-        return ss.getBooleans(caption, texts, values);
+            List<Boolean> values, boolean allowCancel) {
+        List<Boolean> results;
+        do {
+            results = ss.getBooleans(caption, texts, values);
+            ; // Loop until the user pressed OK -> != null
+        } while (results == null && !allowCancel);
+        return results;
     }
 
     @Override
