@@ -3915,29 +3915,35 @@ And you know I like my slaves horny!
 ' TODO The sound cannot be the last item in the message
 [Action 1641]
 For one thing you can wank the cage to tease your slave penis
-until it completly fills out the cage.
+until it completly fills the cage.
+delay 2
 Try it!
 30s.wav
-delay 30
-'.delay 30
-'.playwav 30s.wav
-'.range 1642
-'
-'[Action 1642]
-Fondle your balls and wank your encaged slave penis to get your member stiff.
+delay 10
+Wank your encaged cock for me, slave.
+awaitSoundCompletion
+.range 1642
+
+[Action 1642]
 30m.wav
-delay 30
-'.playwav 30m.wav
-'.range 1643
-'
-'[Action 1643]
-Does your penis squeeze against the walls of the cage, slave?
+Now a little faster, slave!
+delay 10
+Fondle your balls and wank your encaged slave penis to get your member stiff.
+delay 10
+awaitSoundCompletion
+.range 1643
+
+[Action 1643]
+30s.wav
+Now slower again.
+delay 10
+Do you feel your penis squeezing against the walls of the cage, slave?
 .pause
 .range 1644
 
 [Action 1644]
 Very good, my pet.
-Now keep it up and tease your encaged slave penis all the time.
+Now keep it up and tease your encaged slave penis at all times.
 .range 1645
 
 ' stiff nipples lecture
@@ -5140,10 +5146,11 @@ Do you have any extra punishment coming to you?
 That's a very good answer, My dear slave.
 I don't remember you offending Me recently, either.
 But are you saying you haven't done anything I don't know about?
+delay 3
 You're quite sure you don't deserve any extra punishment?
 '	answered no, and no POs, self-incrim. opp. w/ prej.
-.set 10
 .mustnot 9
+.set 10
 .yesno 2004 2007 2011 2011
 
 [Action 2002]
@@ -5175,8 +5182,8 @@ In fact, you've put me in such a bad mood I think
 I'll take some of my aggression out on your poor slave body anyway,
 as is my right.
 '	answered no, and no POs, but impatient
-.must 103	            ' mistress is impatient but hasn't given punishmentment yet
 .mustnot 9
+.must 103	            ' mistress is impatient but hasn't given punishment yet
 .set 501                ' Now she has
 .range 2025 2029
 
@@ -5190,8 +5197,8 @@ but it's just a matter of time before you land in hot water, I suppose.
 
 [Action 2007]
 Well, let's just check anyway, my little sissyboy.
-.set 10
 .must 9
+.set 10
 .range 2029 2029
 
 [Action 2008]
@@ -5203,6 +5210,7 @@ but apparently we still have some more work to do.
 .mustnot 9
 .unset 402 715	'	unset it
 .range 3000 3000
+
 
 [Action 2011]
 So you have been a bad slave!
