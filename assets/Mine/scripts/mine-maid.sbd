@@ -523,9 +523,17 @@
 
 ' Regular training session
 [Action 1000]
+We will now practice your slave positions.
+Follow all of my instructions and hold each position until I tell you to move.
+If you fail to maintain the position, you're going to tell me and of course you will be punished.
+If you do not have the correct equipment for a position, you must also admit your failure.
+.pause I understand, Miss
 .set 120                ' Regular training session
-.range 1100
+.unset 179 99
+.unset 170 171 172 173 174 175 176
+.range 1190 1199
 
+'[Action 1001]
 
 ' From punishment (517 training failure 1)
 [Action 1002]
@@ -564,25 +572,6 @@ and another, until you eventually learn obedience.
 '.set 126
 '.set 21
 '.range 1102
-
-
-[Action 1100]
-We will now practice your slave positions.
-Follow all of my instructions and hold each position until I tell you to move.
-If you fail to maintain the position, you're going to tell me and of course you will be punished.
-If you do not have the correct equipment for a position, you must also admit your failure.
-.pause I understand, Miss
-.unset 179 99
-.unset 170 171 172 173 174 175 176
-.range 1190 1199
-
-[Action 1101]
-Your punishment will be to hold a slave position for such time as I see fit.
-If you fail to hold the position properly, we will simply have to try another,
-and another, until you eventually learn obedience.
-.pause I understand, Miss
-.set 179       ' punishment flag, repeat on fail
-.range 1200
 
 
 ' determine current level 170-176 of this session from punishment acceptance 711 715
