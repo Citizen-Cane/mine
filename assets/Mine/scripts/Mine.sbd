@@ -241,7 +241,7 @@
 ' 270          Used for punishing punishment cancellations, used by the quit handler:
 '              unset during punishment cycle, set when starting activity loop
 ' 271          Maid training punishment once per session
-
+' 272          Toy lecture given
 ' Assignment completions 400-499
 
 
@@ -270,7 +270,7 @@
 '.askcheck      32      506     506: P.O. for lying to mistress (was retrying during wait period
 '.askcheck      33      507     507: P.O. for attention deficit - not listening carefully - repeating instructions: escalates -> 507 -> 103 -> 508 + optional 1 hour penalty   
 '.askcheck      34      508     508: P.O. for inattentiveness - part of obeyance punishment sequence  504 508 516 501
-'.askcheck      35      509     509: P.O. for wasting Mistress's time
+'.askcheck      35      509     509: P.O. for wasting Mistress's time, too much time to answer simple questions, ruining the session
 '.askcheck      36      510     510: P.O. for ignorance. (not getting/making toys) still TODO
 '.askcheck      37      511     511: P.O. for lack of hardness, level 1
 '.askcheck      38      512     512: P.O. for lack of hardness, level 2
@@ -3068,7 +3068,7 @@ Quickly, slave.
 .range 1506 1510
 
 [Action 1502]
-I'm delighted you managed to procure some slave chains,  as per My orders.
+I'm delighted you managed to procure some slave chains, as per My orders.
 We'll have a lot of fun with those.
 .must 334
 .must 667
@@ -3081,7 +3081,7 @@ which you haven't done.
 You will be punished for this oversight.
 .mustnot 334
 .must 667
-.set 504
+.set 510
 .range 1506 1510
 
 [Action 1504]
@@ -3094,8 +3094,9 @@ I notice you're lacking chains.
 Before our next session, I expect you to have some.
 We will talk of this a little later.
 .mustnot 334
-.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .must 311 312	        ' must already have ankle and wrist restraints
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
+.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 667
 .poss 10
 .range 1506 1510
@@ -3120,7 +3121,7 @@ I'm quite sure that you were told to have nipple clamps ready for this session, 
 The fact that you don't means you will be punished.
 .mustnot 301
 .must 668
-.set 504
+.set 510
 .range 1511 1515
 
 [Action 1509]
@@ -3134,6 +3135,7 @@ Therefore I order you to make or buy some before our
 next session.
 We'll talk about this a little later.
 .mustnot 301
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 668
 .poss 10
@@ -3158,7 +3160,7 @@ Slave, you know you're supposed to have clothes pegs by now.
 There's nothing for it but to give you some punishment.
 .mustnot 310
 .must 669
-.set 504
+.set 510
 .range 1516 1520
 
 [Action 1514]
@@ -3171,6 +3173,7 @@ Slave, clothes pegs are an intregal part of My training program.
 Make sure you have some before we meet next time.
 We shall talk of this more in a moment.
 .mustnot 310
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 669
 .poss 50
@@ -3196,7 +3199,7 @@ Slave, I'm quite sure I told you to make or buy some wrist restraints.
 You'll have to be punished for disregarding My instructions.
 .mustnot 311
 .must 670
-.set 504
+.set 510
 .range 1521 1525
 
 [Action 1519]
@@ -3208,6 +3211,7 @@ You'll have to be punished for disregarding My instructions.
 I am going to need you to have some simple wrist restraints before our next session, slave.
 We shall talk of this more in a moment.
 .mustnot 311
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 670
 .poss 10
@@ -3232,7 +3236,7 @@ Pardon me, slave, but didn't I tell you not to come back without ankle restraint
 You will be punished for not following orders.
 .mustnot 312
 .must 671
-.set 504
+.set 510
 .range 1526 1530
 
 [Action 1524]
@@ -3244,6 +3248,7 @@ You will be punished for not following orders.
 Slave, you're to procure a set of ankle restraints before our next session.
 We shall talk of this more in a moment.
 .mustnot 312
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 671
 .poss 10
@@ -3268,7 +3273,7 @@ I told you distinctly to have a slave collar ready for this session, slut.
 This means punishment.
 .mustnot 325
 .must 672
-.set 504
+.set 510
 .range 1531 1535
 
 [Action 1529]
@@ -3280,6 +3285,7 @@ This means punishment.
 Okay, slave, I want you to get yourself an appropriate slave collar before our next visit together.
 We shall talk more about this in a moment.
 .mustnot 325
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 672
 .poss 10
@@ -3304,7 +3310,7 @@ Slave, you were told to get rope before this session.
 You will be punished for not getting it.
 .mustnot 330
 .must 673
-.set 504
+.set 510
 .range 1536 1540
 
 [Action 1534]
@@ -3317,6 +3323,7 @@ Slave, without rope, we're severely limited in what we can do.
 Make sure you have some before next time.
 We will talk of this a little later. 
 .mustnot 330
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .poss 10
 .set 673
@@ -3340,7 +3347,7 @@ I'm glad to see you were able to get a gag, slave.
 The gag you were supposed to get, but didn't, will cost you some punishment, slave.
 .mustnot 340
 .must 674
-.set 504
+.set 510
 .range 1541 1545
 
 [Action 1539]
@@ -3352,6 +3359,7 @@ The gag you were supposed to get, but didn't, will cost you some punishment, sla
 Okay, slave, you'll need to get or make a gag before you come back next time.
 We'll talk about this more in a minute.
 .mustnot 340
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .poss 10
 .set 674
@@ -3377,7 +3385,7 @@ No butt plug, eh, slave?
 Since you were told to get one, that means you need to be punished for failing to.
 .mustnot 350
 .must 675
-.set 504
+.set 510
 .range 1546 1550
 
 [Action 1544]
@@ -3392,6 +3400,7 @@ We will talk of this a little later.
 .must 756               ' Anal training 1
 .mustnot 350            ' A butt plug
 .mustnot 388            ' A realistic dildo, one anal toy is enough
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .poss 10
 .set 675
@@ -3417,7 +3426,7 @@ I told you to get a paddle before this session, cunt.
 You will be punished for not doing so.
 .mustnot 370
 .must 676
-.set 504
+.set 510
 .range 1551 1555
 
 [Action 1549]
@@ -3430,6 +3439,7 @@ Slave, a paddle a very basic necessity for a slave boy, and you don't have one.
 Get one before next time!
 We'll talk about this more in a minute.
 .mustnot 370            ' Have paddle
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .poss 10
 .set 676
@@ -3468,6 +3478,7 @@ This can be somewhat expensive and it may take you some time to procure one,
 so it won't be necessary to have it before our next training session.
 However, it will not be possible for you to make further progress in your chastity training until you get it.
 .mustnot 380
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .must 764               
 .poss 10
@@ -3493,7 +3504,7 @@ Slave, you were to get a humbler, and you haven't.
 That means you have to be punished.
 .mustnot 384
 .must 678
-.set 504
+.set 510
 .range 1561 1565
 
 [Action 1559]
@@ -3502,10 +3513,10 @@ That means you have to be punished.
 .range 1561 1565
 
 [Action 1560]
-Slave, you are going to need to get a humbler
-before our next session.
+Slave, you are going to need to get a humbler before our next session.
 Understand?
 .mustnot 384
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 678
 .poss 10
@@ -3526,11 +3537,11 @@ I'm glad to see you've gotten your ball harness, sweetheart.
 .range 1566 1570
 
 [Action 1563]
-Slave, you were to get a ball harness, and you haven't.
+Slave, you were to craft a ball harness, and you haven't.
 That means you have to be punished.
 .mustnot 385
 .must 679
-.set 504
+.set 510
 .range 1566 1570
 
 [Action 1564]
@@ -3542,6 +3553,7 @@ That means you have to be punished.
 You are going to make a ball harness for our next session.
 We will be talking of this in a minute.
 .mustnot 385
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .must 749	            ' cbt 4, since this should be a surprise
 .set 679                ' ball harness assignment
@@ -3572,7 +3584,7 @@ We will be talking of this in a minute.
 'That means you have to be punished.
 '.mustnot 386
 '.must 680
-'.set 504
+'.set 510
 '.range 1571 1575
 ''
 '[Action 1569]
@@ -3584,6 +3596,7 @@ We will be talking of this in a minute.
 'In order to enhance your XXX training, you'l need to get or make
 'a XXX. We will talk about this in a minute.
 '.mustnot 386
+'.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 '.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 '.must XXX      ' 
 '.set 680
@@ -3599,8 +3612,9 @@ We will be talking of this in a minute.
 
 [Action 1572]
 I'm glad to see you've gotten that blindfold, sweetheart.
-Make sure that you have Text-To-Speech turned on so that
-you can follow all my orders when you are blindfolded.
+' TODO Emphasize this? Should add tutorial at the start or check before putting blindfold on
+'Make sure that you have Text-To-Speech turned on so that
+'you can follow all my orders when you are blindfolded.
 .must 382
 .must 682
 .unset 682
@@ -3611,7 +3625,7 @@ Slave, you were to get a blindfold, and you haven't.
 That means you have to be punished.
 .mustnot 382
 .must 682
-.set 504
+.set 510
 .range 1576 1580
 
 [Action 1574]
@@ -3620,9 +3634,11 @@ That means you have to be punished.
 .range 1576 1580
 
 [Action 1575]
-In order to enhance your slave training, I want you to get a blindfold. 
-Make sure you have one next time. We will talk about this in a minute.
+In order to deepen your slave training, I want you to get a blindfold. 
+Make sure you have one next time.
+We will talk about this in a minute.
 .mustnot 382
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 682
 .poss 10
@@ -3652,7 +3668,7 @@ Make sure you have one next time. We will talk about this in a minute.
 'That means you have to be punished.
 '.mustnot 387
 '.must 683
-'.set 504
+'.set 510
 '.range 1581 1585
 '
 '[Action 1579]
@@ -3667,6 +3683,7 @@ Make sure you have one next time. We will talk about this in a minute.
 'They will absolutely look great on your slutty ball sack.
 'We will talk about this in a minute.
 '.mustnot 387
+'.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 '.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 '.must 772               ' maid training level 2
 '.poss 100
@@ -3682,18 +3699,18 @@ Make sure you have one next time. We will talk about this in a minute.
 .range 1586 1590
 
 [Action 1582]
-I'm glad to see you've gotten that anal dildo, sweetheart.
+I'm glad to see you've gotten that dildo, sweetheart.
 .must 388
 .must 684
 .unset 684
 .range 1586 1590
 
 [Action 1583]
-Slave, you were to get a anal dildo, and you haven't.
+Slave, you were to get a dildo, and you haven't.
 That means you have to be punished.
 .mustnot 388
 .must 684
-.set 504
+.set 510
 .range 1586 1590
 
 [Action 1584]
@@ -3704,10 +3721,11 @@ That means you have to be punished.
 ' Triggered by achievement 773 in 5113
 [Action 1585]
 As a good maid such as yourself, to make progress in your maid training,
-you're going to need a realistically sized anal dildo with a suction cup.
+you're going to need a realistically sized dildo with a suction cup.
 Make sure you have one until next time, baby.
 We will talk about this in a minute.
 .mustnot 388            ' A realistic dildo
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .must 773               ' maid training level 3
 .poss 100
@@ -3737,7 +3755,7 @@ Slave, you were to get an enema kit, and you haven't.
 That means you have to be punished.
 .mustnot 383
 .must 681
-.set 504
+.set 510
 .range 1591 1595
 
 [Action 1589]
@@ -3752,6 +3770,7 @@ Make sure you have one next time.
 We will talk about this in a minute.
 .must 758               ' anal training level 3
 .mustnot 383
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 681
 .poss 10
@@ -3776,7 +3795,7 @@ Slave, you were to get a vibrator, and you haven't.
 That means you have to be punished.
 .mustnot 389
 .must 685
-.set 504
+.set 510
 .range 1596 1599
 
 [Action 1594]
@@ -3791,6 +3810,7 @@ you'l need to get a nice vibrator or other stimulation toy
 that you can attach to your silly slave penis.
 We'll talk about this in a minute.
 .mustnot 389
+.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .must 771
 .poss 100
@@ -5771,10 +5791,11 @@ and that Mistresses are to be obeyed without question!
 .range 2990 2994
 
 
-' have to take care of at least a couple and all
-' actions that are 'severe' and thus must be taken care of
+' have to take care of at least a couple, p.o. related to this session (voluntary, classes)
+' and all actions that are 'severe' and thus must be taken care of
 [Action 2250]
-.mustnot 506 513 514 515 516 519 520 525    ' Severe actions
+.mustnot 506 516 519 520 525               ' Severe punishments
+.mustnot 510 513 514 515                   ' punishments related to this session
 .mustnot 2150                               ' Perform at least one punishment
 .range 2260
 
@@ -5828,7 +5849,7 @@ However, I think we'll save those sessions until next time.
 '[Action 2263]
 
 ' No more outstanding punishments left
-' TODO There is a slight chance that action 3364 is triggered,
+' TODO There is a slight chance that action 2264 is triggered,
 ' because we can't query correctly in PCM script
 ' ".poss 100" is used as a hint for the java player 
 [Action 2264]
@@ -6622,23 +6643,42 @@ When you move around, you will have plenty of time to think about your misdoings
 ' 510 ignorance - haven't got/made toy
 
 [Action 2600]
-But I haven't quite finished that class yet. 
-Next time, slave, next time.
-.poss 1                 ' Fallback
-.range 2410
+.poss 1            ' Fallback
+.range 2605        ' Lecture
 
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2601]
-Instead of beating you raw, I'm going to have you put in a punishment plug today.
+In order to increase your attention span regarding my assignments,
+I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
-You can leave it in there for our entire session, slave.
+ShowChoices
+delay 30
+You can leave it in there for our entire session, slave!
 .pause
-.mustnot 21             ' Something in ass
-.must 350               ' Buttplug
-.must 756               ' Anal training 1
-.set 21                 ' Something in ass
-.set 758                ' Anal training 3
+.mustnot 21        ' Something in ass
+.must 350          ' Buttplug
+.mustnot 677       ' chastity cage - expensive tool, so no punishemnt
+.must 756          ' Anal training 1
+.set 21            ' Something in ass
+.set 758           ' Anal training 3
+.range 2605
+
+' Lecture
+[Action 2605]
+.gosub 4800        ' Toy lecture
+.poss 1            ' Fallback
+.range 2606 2609
+
+' Punishment
+[Action 2606]
+' TODO Spanking or corner time
+.mustnot 677       ' chastity cage - expensive tool, so no punishemnt
+.range 2410
+
+' No punishment
+[Action 2609]
+.must 677          ' chastity cage - expensive tool, so no punishemnt
 .range 2410
 
 
@@ -7886,14 +7926,12 @@ that you tell me beforehand by by cancelling the activity.
 
 ' unique add-ons (no classification)
 [Action 3100]
-.unset 3100             ' unique items can be combined quite well and don't restict activities
 .range 3110 3139
 
 ' impatience add-ons
 [Action 3101]
 .must 103	
 .poss 50 
-.unset 3101             ' if the mistress is impatient the slave is in trouble
 .range 3140 3159
 
 ' just tying wrist and ankles, chains
@@ -7915,7 +7953,7 @@ that you tell me beforehand by by cancelling the activity.
 .mustnot 23 24 30 37    ' Something on penis, something on balls, can't jerk off, ball harness 
 .range 3250 3289
 
-' Fallback
+' End extras section if there's aren't any more to apply
 [Action 3109]
 I don't think I'll add anything more to today's session.
 .poss 1
@@ -8753,6 +8791,7 @@ Leave it that way for the whole session, slave.
 .range 3300
 
 
+' Another one?
 [Action 3300]
 .unset 3300
 .range 3301 3310
@@ -8760,6 +8799,8 @@ Leave it that way for the whole session, slave.
 '	1/7 of adding another extra +1/1 for 501, +1/1 for 102, +1/1 for 103
 '   one of 102, 103 or 501 doubles chances for another extra to 2/7
 [Action 3301]
+.unset 3100             ' unique items can be combined quite well and don't restict activities
+.unset 3101             ' if the mistress is impatient the slave is in trouble
 .unset 3301
 .range 3100 3299        ' another one
 
@@ -8793,7 +8834,7 @@ Leave it that way for the whole session, slave.
 .must 103               ' mistress impatient
 .range 3100 3299
 
-
+' End of Extras selection
 [Action 3400]
 .range 3900
 
@@ -9627,7 +9668,7 @@ some punishment next time for disobeying your mistress.
 
 [Action 4751]
 .mustnot 699
-.range 4781
+.range 4777
 
 [Action 4752]
 I seem to remember that you aren't allowed to cum until further notice, 
@@ -9635,14 +9676,14 @@ and I'm in such a bad mood I don't see any reason you should be.
 .must 103               ' impatence penalty
 .must 699
 .unset 698
-.range 4781
+.range 4777
 
 [Action 4753]
 I seem to remember that you aren't allowed to cum until further notice,
 and I certainly can't think of any reason you should be.
 .must 699
 .unset 698
-.range 4781
+.range 4777
 
 [Action 4754]
 I've decided to allow you to cum again, sometime in the future.
@@ -9664,7 +9705,7 @@ opportunities in order to straighten you out.
 .mustnot 691 692 693 694 695 696 697
 .set 697
 .unset 698 699
-.range 4781
+.range 4777
 
 [Action 4757]
 I see that in addition to not being able to cum indefinately,
@@ -9699,7 +9740,7 @@ What a pain in the ass you are, slave.
 .must 694 699
 .set 697
 .unset 694 698 699
-.range 4781
+.range 4777
 
 [Action 4761]
 To pay off your indefinate denial punishment, I'm giving you a regular
@@ -9714,7 +9755,7 @@ for a total of seven.
 .set 516
 .set 697
 .unset 695 698 699
-.range 4781
+.range 4777
 
 [Action 4762]
 To pay off your indefinate denial punishment, I'm giving you two regular
@@ -9729,7 +9770,7 @@ for a total of seven.
 .set 504 516 
 .set 697
 .unset 696 698 699
-.range 4781
+.range 4777
 
 [Action 4763]
 What a slave.
@@ -9743,33 +9784,33 @@ plus five demerits for this session, and we'll resume the seven-day schedule nex
 .set 501 504 505 516 517 518
 .set 697
 .unset 698 699
-.range 4781
+.range 4777
 
 
 [Action 4766]
 Let's hope my generosity makes you see reason from now on, my pet.
 .set 696
 .unset 693 698 699
-.range 4781
+.range 4777
 
 [Action 4767]
 Let's hope my generosity makes you see reason from now on, my pet.
 .set 695
 .unset 692 698 699
-.range 4781
+.range 4777
 
 [Action 4768]
 Let's hope my generosity makes you see reason from now on, my pet.
 .must 691 699
 .set 694
 .unset 691 698 699
-.range 4781
+.range 4777
 
 [Action 4769]
 Let's hope my generosity makes you see reason from now on, my pet.
 .set 693
 .unset 698 699
-.range 4781
+.range 4777
 
 [Action 4770]
 In that case I'll make it a full seven missed opportunities.
@@ -9777,116 +9818,132 @@ In that case I'll make it a full seven missed opportunities.
 .set 697
 .set 103
 .unset 699
-.range 4781
+.range 4777
 
 
-[Action 4781]
-.range 4800
+[Action 4777]
+.range 4778 4779
 
 
-' explain toys the slave has been ordered to make or get
+' Toy lecture
+[Action 4778]
+.mustnot 272
+.gosub 4800   ' Toy lecture
+.range 4830   ' Continue with chastity cage security measures
+
+' Toy lecture - already done
+[Action 4779]
+.must 272
+.range 4830   ' Continue with chastity cage security measures
+
+
+' toy lecture - explain toys the slave has been ordered to make or get
+'               also used as little class about the basic implements of torture and restraint
+
 [Action 4800]
+.set 272           ' Once per session
 .range 4801 4825
 
 ' 29 dispatch entries to call mine-equip.sbd
 
 [Action 4801]
-.must 667      ' get or make some chains
+.must 667          ' get or make some chains
 .save 1 799
-.loadsbd mine-equip.sbd 2100 2100
+.loadsbd mine-equip.sbd 2100 2109
 
 [Action 4802]
-.must 668      ' get or make some nipple clamps
+.must 668          ' get or make some nipple clamps
 .save 1 799
-.loadsbd mine-equip.sbd 2200 2200
+.loadsbd mine-equip.sbd 2200 2209
 
 [Action 4803]
-.must 669      ' get or make some clothes pegs
+.must 669          ' get or make some clothes pegs
 .save 1 799
-.loadsbd mine-equip.sbd 2300 2300
+.loadsbd mine-equip.sbd 2300 2309
 
 [Action 4804]
-.must 670      ' get or make some wrist restraints
+.must 670          ' get or make some wrist restraints
 .save 1 799
-.loadsbd mine-equip.sbd 2400 2400
+.loadsbd mine-equip.sbd 2400 2409
 
 [Action 4805]
-.must 671      ' get or make some ankles restraints
+.must 671          ' get or make some ankles restraints
 .save 1 799
-.loadsbd mine-equip.sbd 2500 2500
+.loadsbd mine-equip.sbd 2500 2509
 
 [Action 4806]
-.must 672      ' get or make a collar
+.must 672          ' get or make a collar
 .save 1 799
-.loadsbd mine-equip.sbd 2600 2600
+.loadsbd mine-equip.sbd 2600 2609
 
 [Action 4807]
-.must 673      ' get some rope
+.must 673          ' get some rope
 .save 1 799
-.loadsbd mine-equip.sbd 2700 2700
+.loadsbd mine-equip.sbd 2700 2709
 
 [Action 4808]
-.must 674      ' get or make a gag
+.must 674          ' get or make a gag
 .save 1 799
-.loadsbd mine-equip.sbd 2800 2800
+.loadsbd mine-equip.sbd 2800 2809
 
 [Action 4809]
-.must 675      ' get or make a butt plug
+.must 675          ' get or make a butt plug
 .save 1 799
-.loadsbd mine-equip.sbd 2900 2900
+.loadsbd mine-equip.sbd 2900 2909
 
 [Action 4810]
-.must 676      ' get or make a whip
+.must 676          ' get or make a whip
 .save 1 799
-.loadsbd mine-equip.sbd 3000 3000
+.loadsbd mine-equip.sbd 3000 3009
 
 [Action 4811]
-.must 677      ' get or make a chastity device
+.must 677          ' get or make a chastity device
 .save 1 799
-.loadsbd mine-equip.sbd 3100 3100
+.loadsbd mine-equip.sbd 3100 3109
 
 [Action 4812]
-.must 678      ' get or make a humbler
+.must 678          ' get or make a humbler
 .save 1 799
-.loadsbd mine-equip.sbd 3200 3200
+.loadsbd mine-equip.sbd 3200 3209
 
 [Action 4813]
-.must 679      ' get or make ball harness
+.must 679          ' get or make ball harness
 .save 1 799
-.loadsbd mine-equip.sbd 3300 3300
+.loadsbd mine-equip.sbd 3300 3309
 
 [Action 4814]
-.must 680      ' 
+.must 680          ' 
 .save 1 799
-.loadsbd mine-equip.sbd 3400 3400
+.loadsbd mine-equip.sbd 3400 3409
 
 [Action 4815]
-.must 681      ' get an enema kit
+.must 681          ' get an enema kit
 .save 1 799
-.loadsbd mine-equip.sbd 3500 3500
+.loadsbd mine-equip.sbd 3500 3509
 
 [Action 4816]
-.must 682      ' get a blindfold
+.must 682          ' get a blindfold
 .save 1 799
-.loadsbd mine-equip.sbd 3600 3600
+.loadsbd mine-equip.sbd 3600 3609
 
 [Action 4817]
-.must 684      ' get a dildo
+.must 684          ' get a dildo
 .save 1 799
-.loadsbd mine-equip.sbd 3700 3700
+.loadsbd mine-equip.sbd 3700 3709
 
 [Action 4818]
-.must 685      ' get a vibrator
+.must 685          ' get a vibrator
 .save 1 799
-.loadsbd mine-equip.sbd 3800 3800
+.loadsbd mine-equip.sbd 3800 3809
 
 [Action 4819]
-.must 683      ' get some pussy clamps
+.must 683          ' get some pussy clamps
 .save 1 799
-.loadsbd mine-equip.sbd 3900 3900
+.loadsbd mine-equip.sbd 3900 3909
 
 '
 
+' no lecture
 [Action 4825]
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .range 4830
@@ -9919,7 +9976,8 @@ I'll repeat Myself, but this time pay attention.
 [Action 4829]
 Very good, My little bitch.
 I'm curious what you're going to bring next time.
-.range 4830
+.resetrange 4800 4829   ' cleanup gosub range, as this is going to be called multiple times
+.return
 
 
 ' Ask slave whether chastity cage security measures have been implemented
@@ -9933,7 +9991,7 @@ I'm curious what you're going to bring next time.
 .mustnot 116
 .range 4849
 
-' Ask slave if safety measure have been implemented
+' Ask slave if chastity cage security measure have been implemented
 
 [Action 4832]
 Did you follow my recommendations to make your chastity cage safer

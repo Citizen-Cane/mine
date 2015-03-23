@@ -9,35 +9,41 @@
 
 .range 1000
 
-.menu 40  2100 2100 Chains
-.menu 41  2200 2200 Nipple clamps
-.menu 42  2300 2300 Clothes pegs
-.menu 43  2400 2400 Wrist restraints
-.menu 44  2500 2500 Ankle restraints
-.menu 45  2600 2600 Collar
-.menu 46  2700 2700 Rope
-.menu 47  2800 2800 Gag
-.menu 48  2900 2900 Butt plug
-.menu 49  3000 3000 Whip and paddle
-.menu 50  3100 3100 Chastity cage
-.menu 51  3200 3200 Humbler
-.menu 52  3300 3300 ball harness
-.menu 53  3400 3400 - free slot -
-.menu 54  3500 3500 Enema kit
-.menu 55  3600 3600 Blindfold
-.menu 56  3700 3700 Dildo
-.menu 57  3800 3800 Vibrator
-.menu 58  3900 3900 Pussy clamps
+.menu 40  2100 2109 Chains
+.menu 41  2200 2209 Nipple clamps
+.menu 42  2300 2309 Clothes pegs
+.menu 43  2400 2409 Wrist restraints
+.menu 44  2500 2509 Ankle restraints
+.menu 45  2600 2609 Collar
+.menu 46  2700 2709 Rope
+.menu 47  2800 2809 Gag
+.menu 48  2900 2909 Butt plug
+.menu 49  3000 3009 Whip and paddle
+.menu 50  3100 3109 Chastity cage
+.menu 51  3200 3209 Humbler
+.menu 52  3300 3309 ball harness
+.menu 53  3400 3409 - free slot -
+.menu 54  3500 3509 Enema kit
+.menu 55  3600 3609 Blindfold
+.menu 56  3700 3709 Dildo
+.menu 57  3800 3809 Vibrator
+.menu 58  3900 3909 Pussy clamps
 .menu 59  3309 3309 Test exec command
 .menu 60  3303 3303 Image sequence
 .menu 61  9000 9000 Exit
 
+' Debug menu
 [Action 990]
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
 .unset 990
 .set 100
 .PopUp 40 61
+
+' Debug menu, test p.o. 510
+[Action 991]
+.set 510
+.range 990
 
 [Action 1000]
 .noimage
@@ -47,50 +53,58 @@
 ' chains
 
 [Action 2100]
+.mustnot 510                      ' Standard lecture
 Since you don't have chains,
 I'm assigning you the task of getting some by our next session.
-.range 2101
+.range 2111
 
 [Action 2101]
+.must 510                         ' Lecture during punishment
+I distinctly remember telling you to get some chains before our next session.
+Next time, I expect you to have some, slut!
+.range 2111
+
+
+[Action 2111]
 bd023_18.jpg
 Chains are used to tie your ankles and wrists together or to other objects
 in order to force your body into a submissive posture.
 delay 5
-.range 2102
+.range 2112
 
-[Action 2102]
+[Action 2112]
 bd023_25.jpg
 Usually, the length of your chains should be chosen such as long that you can
 just kneel straight with your arms next to your body, but no more,
 in order to properly follow my orders during the session.
 delay 5
 .pause I see, Miss
-.range 2103
+.range 2113
 
-[Action 2103]
+[Action 2113]
 bd023_33.jpg
 However, for certain activities I might allow you to
 wear somewhat longer chains.
 delay 5
-.range 2104
+.range 2114
 
-[Action 2104]
+[Action 2114]
 bd023_24.jpg
-But I might as well put you in some more humiliating position
+But I might as well shorten them to put you in some more humiliating position
 if I feel like it. 
 ' TODO more humiliating chained restricted
 .pause Please don't, Miss
-.range 2105
+.range 2115
 
-[Action 2105]
+[Action 2115]
 Of course I'll do!
 pg_3879.jpg
 And we might as well use those chains in our self bondage scenarios.
 delay 7
  ' TODO self bondage hogtie leather restraints
-.range 2106
+.range 2116
 
-[Action 2106]
+[Action 2116]
 p1000570.jpg
 If you have leather cuffs and do like leather,
 you might want to get a leather chain cross.
@@ -98,374 +112,452 @@ It's a decent match in terms of style,
 and provides a good amount of restriction.
 ' TODO .image leather chains cross
 delay 7
-.range 2107
+.range 2117
 
-[Action 2107]
+[Action 2117]
 ' TODO different
 Suit_22_large.jpg
 But if you like metal or already have metal cuffs,
 then just get metal chains and use snap hooks or padlocks to connect the chains with the cuffs. 
 .pause Thank you, Miss
-.range 2109
+.range 2119
 
-[Action 2109]
+[Action 2119]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' clamps
 
 [Action 2200]
+.mustnot 510                      ' Standard lecture
 Since you don't have nipple clamps,
 I'm assigning you the task of getting some by our next session.
-.range 2201
+.range 2211
 
 [Action 2201]
+.must 510                         ' Lecture during punishment
+I'm quite sure that you were told to have nipple clamps ready for this session, slave.
+But you haven't!
+[]
+Without nipple clamps, I'm afraid you just aren't much of a slave.
+This is especially regrettable, as you just seem to deserve a painful correction. 
+.range 2211
+
+
+[Action 2211]
 Nipple clamps are one of my favorites, and they come in a thousand varieties.
 delay 1
-.range 2202
+.range 2212
 
-[Action 2202]
+[Action 2212]
 Clover clamps are my favorite.
-nipple_clamps_128.jpg
 If you plan on buying clamps, I suggest you get these.
+nipple_clamps_128.jpg
 They are strong, they don't slip easily,
 and they have the amazing property of getting tighter if they are pulled.
 A set shouldn't cost more than about twenty dollars.
 delay 5
 ' .image ann 27.jpg ' TODO SIL clover clamps
 ' .image nipple_clamps_128.jpg ' clover clamps with connecting chains
-.range 2204
+.range 2214
 
-[Action 2204]
+[Action 2214]
 Plus the connecting chain makes it easy to attach suspend weights.
 .image bd161_29.jpg
 .pause Oh no, Miss
-.range 2205
+.range 2215
 
-[Action 2205]
+[Action 2215]
 Don't be such a wimp, slave.
 ' TODO image kneeling post?
 nikki0278pj.jpg
 And because of they get tighter when pulled,
 they're great to attach the connecting chain to other objects.
 .pause Please don't, Miss
-.range 2206
+.range 2216
 
-[Action 2206]
-Well, if you had suitable nipple  clamps, you would be walking on that treadmill already, slave.
+[Action 2216]
+Well, if you had suitable nipple clamps, you would be walking on that treadmill already, slave.
+delay 2
+[]
 bd067_20.jpg
 Here are some flat, adjustable clamps.
 They are better suited for large nipples,
 and like all self-adjusting clamps are not strong enough for my taste.
 Slaves left to themselves generally do not tighten them enough.
 .pause You're right, Miss
-.range 2207
+.range 2217
 
-[Action 2207]
+[Action 2217]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' Clothes pegs
 
 [Action 2300]
+.mustnot 510                      ' Standard lecture
 Since you don't have clothes pegs,
 I'm assigning you the task of getting some by our next session.
 delay 1
-.range 2301
+.range 2311
 
 [Action 2301]
-Clothes pegs are one of my favorites,
-they are a very versatile toy for slave training and they come in a thousand varieties.
-delay 1
-.range 2302
+.must 510                         ' Lecture during punishment
+Slave, you know you're supposed to have clothes pegs by now.
+But you haven't!
+It's a shame you've plumb forgotten about this important assignment.
+delay 3
+.range 2311
 
-[Action 2302]
+
+[Action 2311]
+Clothes pegs are an intregal part of My training program.
+They are a very versatile toy for slave training and they come in a thousand varieties.
+delay 1
+.range 2312
+
+[Action 2312]
 .image IMG_2286.JPG ' TODO .image better wooden pegs
 Wooden clothes pegs are considered a bit kinder,
 so you might want to start out with these.
-delay 10
-.range 2303
+delay 7
+.range 2313
 
-[Action 2303]
+[Action 2313]
 .image bd003_08.jpg
 Plastic clothes pegs tend to feel much stronger,
 but that depends too on the actual type of peg.
-delay 10
-.range 2304
+delay 7
+.range 2314
 
-[Action 2304]
+[Action 2314]
 For extra severe punishments, I recommend mini clothes pegs.
-'They are 'very nasty indeed, and my slaves usually want them to be taken off immediately.
 ' TODO .image suffering from mini clothes pegs
+'They are 'very nasty indeed, and my slaves usually want them to be taken off immediately.
 ' .pause
 delay 5
-.range 2305
+.range 2315
 '
-[Action 2305]
-.image 007_sara_stone_pussy_pain.jpg ' TODO simple pussy clamps, fll body
+[Action 2315]
+.image 007_sara_stone_pussy_pain.jpg ' TODO simple pussy clamps, full body
 Another great usage for clothes pegs is to use them as pussy clamps,
 in your case on your little ball sack and shaft, my slave pet.
-delay 10
-.range 2306
+delay 7
+.range 2316
 
-[Action 2306]
+[Action 2316]
 .image clothes_pegs_15.jpg
 Clothes pegs have lots of applications, and I can assure you that under my hand, you will experience most of them.
 .pause Yes, Miss
-.range 2307
+.range 2317
 
-[Action 2307]
+[Action 2317]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' wrist restraints
 
 [Action 2400]
+.mustnot 510                      ' Standard lecture
 Since you don't have wrist restraints,
 I'm assigning you the task of getting some by our next session.
-.range 2401
+.range 2411
 
 [Action 2401]
+.must 510                         ' Lecture during punishment
+Slave, I'm quite sure I told you to make or buy some wrist restraints.
+But you didn't!
+delay 2
+I am going to need you to have them before our next session, slut.
+.range 2411
+
+
+[Action 2411]
 .image wrist_cuffs_8.jpg ' TODO image is great but needs better description pointing to importance of wrist cuffs
 Wrist cuffs are a great way to put the slave's hands out of the way when they're not needed.
-delay 10
-.range 2402
+delay 8
+.range 2412
 
-[Action 2402]
+[Action 2412]
 Basically you can get metal or leather wrist cuffs.
-.range 2403
+.range 2413
 
-[Action 2403]
+[Action 2413]
 .image bd003_05.jpg ' TODO .image inescapable metal wrist cuffs
 Metal cuffs are almost inescapable, but may become a little uncomfortable over time.
 .pause I understand, Miss
-.range 2404
+.range 2414
 
-[Action 2404]
+[Action 2414]
 .image bd028_38.jpg ' TODO .image leather cuffs solo attaching anchor rings
 Leather cuffs are more comfortable to wear over longer periods of time,
 and they usually have anchor rings to chain them together.
 delay 8
-.range 2405
+.range 2415
 
-[Action 2405]
+[Action 2415]
  ' TODO .image leather cuffs spread eagle
 bd023_25.jpg
 Because leather cuffs can be worn detached from each other,
 they allow for a greater number of positions for suspending the slave.
 delay 8
-.range 2406
+.range 2416
 
-[Action 2406]
+[Action 2416]
 .image belt+padlocked.jpg ' TODO .image emmabound padlock leather cuffs
 You can easily make lockable wrist cuffs from leather belts and padlocks,
 as you can see from this picture.
 .pause Thank you, Miss, I see the idea
-.range 2407
+.range 2417
 
-[Action 2407]
+[Action 2417]
 bd645_043.jpg
 However, both metal and leather cuffs allow for diverse kinds of restrictions,
 whether to humiliate or to punish you. 
 delay 8
-.range 2409
+.range 2419
 
-[Action 2409]
+[Action 2419]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' ankle restraints
 
 [Action 2500]
+.mustnot 510                      ' Standard lecture
 Since you don't have ankle restraints,
 I'm assigning you the task of getting some by our next session.
-.range 2501
+.range 2511
 
 [Action 2501]
+.must 510                         ' Lecture during punishment
+Pardon me, slave, but didn't I tell you not to come back without ankle restraints?
+delay 1
+You're to procure a set of them before our next session
+- no excuses!
+.range 2511
+
+
+[Action 2511]
 .image pg_3878.jpg ' TODO .image great ankle cuff image
 Ankle cuffs are a great way to immobilize a slave.
-delay 10
-.range 2502
+delay 8
+.range 2512
 
-[Action 2502]
+[Action 2512]
 Basically you can get metal or leather ankle cuffs.
-.range 2503
+.range 2513
 
-[Action 2503]
+[Action 2513]
 .image cg069-07.JPG ' TODO .image inescapable metal ankle cuffs
 Metal cuffs are almost inescapable.
 delay 10
-.range 2504
+.range 2514
 
-[Action 2504]
+[Action 2514]
 .image bd037_15.jpg ' TODO .image leather cuffs solo attaching
 Leather cuffs however are more comfortable to wear over longer periods of time,
 as they don't cut into the flesh as much as metal cuffs do.
 delay 8
-.range 2505
+.range 2515
 
-[Action 2505]
+[Action 2515]
 .image bd023_25.jpg ' TODO .image leather cuffs spread eagle
 Because leather cuffs can be worn detached from each other,
 they allow for suspending the slaves in a greater range of positions.
 delay 8
-.range 2506
+.range 2516
 
-[Action 2506]
+[Action 2516]
 .image belt+padlocked.jpg ' TODO .image emmabound padlock leather cuffs
 You can easily make lockable ankle cuffs from leather belts and padlocks,
 as you can see from this picture.
 .pause Thank you, Miss, I see the idea
-.range 2507
+.range 2517
 
-[Action 2507]
+[Action 2517]
 bd645_043.jpg
 However, both metal and leather cuffs allow for diverse kinds of restriction,
 whether to humiliate or to punish you. 
 .delay 8
-.range 2509
+.range 2519
 
-[Action 2509]
+[Action 2519]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' collar
 
 [Action 2600]
+.mustnot 510                      ' Standard lecture
 Since you don't have a slave collar,
 I'm assigning you the task of getting some by our next session.
-.range 2601
+.range 2611
 
 [Action 2601]
+.must 510                         ' Lecture during punishment
+I told you distinctly to have a slave collar ready for this session, slut.
+But you haven't!
+delay 2
+I want you to get yourself an appropriate slave collar before our next visit together!
+delay 3
+.range 2611
+
+
+[Action 2611]
 By wearing a collar, you show that you are a submissive slave,
 and that your are the sole property of your mistress.
 delay 5
-.range 2602
+.range 2612
 
-[Action 2602]
+[Action 2612]
 .image archw0214.jpg ' TODO .image collar black with d ring/leash
 The standard slave collar is a black leather belt around the neck.
 Often there is a metal D-ring added to allow the attachment of a leash.
 delay 8
-.range 2603
+.range 2613
 
-[Action 2603]
+[Action 2613]
 Collars are also available as so called posture collars.
+' TODO Collar not really flaring out
 s4lf5_25_08_10.jpg
 These typically flare widely at the front to reach from the chin down to the collar bone,
 preventing the slave from hanging their head or looking downward.
 But in my eyes they limit my slaves to much for the type of training I have in mind.
 .pause Yes, Miss
-.range 2604
+.range 2614
 
-[Action 2604]
+[Action 2614]
 .image pg_101.jpg ' TODO image collar with leash
 A collar is also good attachment point for the wrists,
 keeping the slave from doing naughty things with their hands.
 delay 7
-.range 2605
+.range 2615
 
-[Action 2605]
+[Action 2615]
 Besides leather, other materials like rubber, PVC or metal are also used.
 ' TODO image collar with leash
 archw0214.jpg
 Choose what matches your taste, but make sure it's lockable and has at least one D-ring to allow the attachment of a leash.
 .pause I'll do, Miss
-.range 2609
+.range 2619
 
-[Action 2609]
+[Action 2619]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' rope
 
 [Action 2700]
+.mustnot 510                      ' Standard lecture
 Since you don't seem to have rope,
 I'm assigning you the task of getting some by our next session.
-.range 2701
+.range 2711
 
 [Action 2701]
+.must 510                         ' Lecture during punishment
+Slave, you were told to get rope before this session.
+But you didn't!
+delay 2
+Without rope, we're severely limited in what we can do.
+Make sure you have some before next time.
+.range 2711
+
+
+[Action 2711]
 .image archw0165.jpg
 As you might imagine, I will use rope to tie you up in many unpleasant ways.
 delay 2
-.range 2702
+.range 2712
 
-[Action 2702]
+[Action 2712]
 .image archw0033.jpg ' TODO image strict rope hog tie
 Well, unpleasant for you, my dear.
 delay 10
-.range 2703
+.range 2713
 
-[Action 2703]
+[Action 2713]
 In rope bondage, care must be taken to not make the tie too strong
 in order to allow the blood to continue flowing through the tied up limbs.
-This one is probably tied up a bit too tight, and will cause numb limbs rather sooner than later.
-Since you will be responsible to be able to untie yourself, so in order to play safe, you have to especially take care to avoid this situation.
 ' TODO image insex/hogtied counter example
+This one is probably tied up a bit too tight, and will cause numb limbs rather sooner than later.
+Since you will be responsible to be able to untie yourself,
+in order to play safe, you have to especially take care to avoid this situation.
 .pause I promise to take care, Miss
-.range 2704
+.range 2714
 
-[Action 2704]
-Crissy_Moran_bondage1_big.jpg
+[Action 2714]
 Very good, slave.
+Crissy_Moran_bondage1_big.jpg
 A good tie loops multiple times around the limbs,
 then the rope is fastened in the middle,
 until it shapes like the figure of the digit "8".
 delay 8
-.range 2708
+.range 2718
 
-[Action 2708]
+[Action 2718]
 .image Crissy_Moran_bondage7_big.jpg ' TODO image rope size
 You can never have enough rope, but I think 60 feet or so should be sufficient for our needs.
 Just make sure it's soft and thick enough, about a quarter of an inch.
 .pause I'll have it next time, Miss
-.range 2709
+.range 2719
 
-[Action 2709]
+[Action 2719]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' gag
 
 [Action 2800]
+.mustnot 510                      ' Standard lecture
 Since you don't have a gag,
 I'm assigning you the task of getting one by our next session.
-.range 2801
+.range 2811
 
 [Action 2801]
+.must 510                         ' Lecture during punishment
+Slave, you were told to get a gag before this session.
+But you didn't!
+delay 2
+Okay, slave, you'll need to get or make one before you come back next time
+- no excuses!
+.range 2811
+
+
+[Action 2811]
 I like my slaves wearing a gag, since it increases their sense of helplessness and anxiety.
 Besides that they can just moan when I punish them.
 .image Headgear_Honey_080315-313.jpg
 .pause Yes, Miss
-.range 2802
+.range 2812
 
-[Action 2802]
+[Action 2812]
 Ball gags are a good choice in general.
 archw0336.jpg
 They fill out the mouth completely, allowing only for moaning,
 they fit well between the teeth and because of their slight soft surface they're very comfortably to wear. 
 delay 7
-.range 2803
+.range 2813
 
-[Action 2803]
+[Action 2813]
 .image fb08_116.jpg
 Gags may also come with an included head harness, to help to secure the victims mouth,
 and to increase the sense of objectification and erotic helplessness.
 delay 2
 They may also function as a gag themselves, by restricting the ability to open the mouth.
 delay 8
-.range 2804
+.range 2814
 
-[Action 2804]
+[Action 2814]
 .image bit-gag-28.jpg	' TODO bit gag drooling
 The bit gag is styled like the bit used in the bridle for a horse and often used for pony play.
 The rubber bit doesn't silence the slave completely, leaving some room for breathing and drooling.
 Well slave, would you like to be my pony?
 .pause I I'd love to, Miss
-.range 2805
+.range 2815
 
 ' TODO image shows an inflatable gag, not a penis gag 
-[Action 2805]
+[Action 2815]
 Very well, my little pet.
 Some day we will make that happen, promised!
 delay 3
@@ -474,9 +566,9 @@ pizza7.jpg
 But the gag that arouses me the most, however, is the penis gag.
 It consists of a muzzle holding a penis shaped object, that reaches deep into the victim's mouth.
 delay 5
-.range 2806
+.range 2816
 
-[Action 2806]
+[Action 2816]
 pizza6s.jpg
 delay  
 Nothing humiliates a slave more than the constant resemblance to having a penis in his mouth.
@@ -485,28 +577,30 @@ delay 5
 DominantImage
 However take care that the penis isn't too long, to prevent sudden choking.
 The last thing I want is a slave that choked himself to death.
-.pause You're right, Miss, I'll take care.
-.range 2807
+.pause You're right, Miss, I'll take care
+.range 2817
 
-[Action 2807]
+[Action 2817]
 That reminds me, slave!
 When using a gag in self bondage scenarios,
 you must choose one that doesn't restrict breathing, to avoid asphyxia.
 Vomiting and choking may also become a problem and have to be considered.
 .pause Is there any gag I could use, Miss?
-.range 2808
+.range 2818
 
-[Action 2808]
+[Action 2818]
+Let's see.
 calico5.jpg
 Wiffle gags, often used in japanese bondage scenarios, might be a good alternative to the ball gag.
 The wiffle gag replaces the standard solid rubber ball with a light hollow perforated plastic ball,
 similar to the one used for the game of floorball.
 The openings cause the slave to start drooling, which adds to the overall humiliation of wearing the gag.
-Oh, I like watching her drool!
+' TODO Better voice, emphazised wrong
+'Oh, I like watching her drool!
 delay 2
-.range 2810
+.range 2820
 
-[Action 2810]
+[Action 2820]
 ' TODO .image 1016lf12_3_08_20.jpg find true ball gag with tube image
 Ball gags may also come with an integrated tube, also allowing to breathe.
 []
@@ -514,67 +608,78 @@ But keep in mind, as with the wiffle gag, it helps breathing,
 but I seriously doubt that the openings are large enough to
 let pass vomit or other stuff you might cough up when a self bondage scenario goes wrong.
 .pause I understand the risk, Miss
-.range 2811
+.range 2821
 
-[Action 2811]
-A suitable gag for self bondage scenarios is the ring gag.
+[Action 2821]
+One gag I see suitable for self bondage scenarios is the ring gag.
 a-little-drool-4385-bdsm.jpg
 Not only does it allow for unrestricted breathing, but it also lets the slave start drooling uncontrollably, even more than with the wiffle gag.
 Ring gags are usually made from metal, but need a soft rubber surface for comfortable wear and to protect the teeth.
 Because of the small seating, falling down may cause serious teeth damage.
 .pause Yes, Miss
-.range 2812
+.range 2822
 
-[Action 2812]
+[Action 2822]
 55141_DSC02384_123_241lo.jpg
 If the ring gag is supported by a head harness and inch wide straps, it cannot be spit out.
 So if you plan to get or make a gag for self bondage,
 I'd recommend a soft surfaced ring gag with a head harness.
 .pause Understood, Miss
-.range 2814
+.range 2824
 
-[Action 2814]
+[Action 2824]
 Getting or making a good gag may take a while,
 so for the time being you might as well use a rope or a belt to tie around your head and between your teeth.
 ' Must use exec explicitly here since we want to open a jpg image on the desktop (and on on the host display)
 exec accessories/DIY/EasyPonygirlBitgag.jpg
-Or you may build a bit gag according to these instructions.
+Or you may build a nice bit gag according to these instructions.
 Sort it out after the session, slave! 
 .pause I'll do, Miss
-.range 2815
+.range 2825
 
-[Action 2815]
+[Action 2825]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' butt plug
 
 [Action 2900]
+.mustnot 510                      ' Standard lecture
 Since you don't seem to have a butt plug, I'm assigning you the task of getting one by our next session.
-.range 2901
+.range 2911
 
 [Action 2901]
+.must 510                         ' Lecture during punishment
+Slave, I'm quite sure I told you to get a butt plug for this session.
+But you didn't!
+delay 2
+To start training your butt, slave, we'll need a butt plug.
+So get one before next time!
+.range 2911
+
+
+[Action 2911]
 A buttplug is a very handy slave training tool for,
 as it humiliates and arouses the slave at the same time.
 delay 3
-.range 2902
+.range 2912
 
-[Action 2902]
+[Action 2912]
 .image DSC00271.jpg ' TODO .image slave gets plug inserted
 Firstly the plug humiliates the slave by the constant feeling of being stuffed,
 becoming more and more intense and uncomfortable to wear over time.
 delay 5
-.range 2903
+.range 2913
 
-[Action 2903]
+[Action 2913]
 .image 689_1000.jpg ' TODO .image anal plug cum denial chastity cage
 Secondly the constant pressure against the slave's prostata causes
 a never ending arousal and production of precum, increasing the slaves desire to cum,
 however denied by his mistress.
 delay 5
-.range 2904
+.range 2914
 
-[Action 2904]
+[Action 2914]
 ' TODO nice image but not really related to the text
 .image dsc03012.jpg ' TODO .image slave household work
 Also having to wear the plug over longer periods of time,
@@ -583,9 +688,9 @@ constantly reminds the slave that he is the sole possession of his mistress.
 DominantImage
 Don't you think that's true, slave?
 .pause Yes Miss, I'm yours!
-.range 2905
+.range 2915
 
-[Action 2905]
+[Action 2915]
 Indeed you are, my little slut.
 buttplug_7.jpg
 ' TODO .image butt plug harness with locks, begging slave
@@ -593,118 +698,139 @@ The plug may also be part of a harness, sometimes lockable,
 to prevent unauthorized removal,
 leaving the slave at the total mercy of his mistress.
 delay 5
-.range 2906
+.range 2916
 
-[Action 2906]
-.range 2907
+[Action 2916]
+.range 2917
 
-[Action 2907]
+[Action 2917]
 .image cry8925.jpg
 To start your anal training as soon as possible,
 I suggest to get a mid-sized plug, along with a good amount of lube.
 .pause I'll get one for next time, Miss
-.range 2908
+.range 2918
 
-[Action 2908]
+[Action 2918]
 ' TODO nice image but not really related to the text
 1272630326635.jpg
 Watch out for the "waist" to have a conical form on the flared end as well,
 as such plugs have a tighter fit and are less noticeable when worn under clothes.
 .pause All right, Miss
-.range 2909
+.range 2919
 
-[Action 2909]
+[Action 2919]
 Once you're comfortable wearing your new toy for some time,
 you can think about increasing the size or getting a larger-sized punishment plug as well.
 .pause Of course, Miss
-.range 2910
+.range 2920
 
-[Action 2910]
+[Action 2920]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' whip or paddle
 
 [Action 3000]
+.mustnot 510                      ' Standard lecture
 Since you neither seem to have a crop, whip nor a paddle,
 I'm assigning you the task of getting one by our next session.
-.range 3001
+.range 3011
 
 [Action 3001]
+.must 510                         ' Lecture during punishment
+I told you to get a paddle before this session, cunt.
+But you haven't!
+delay 2
+A paddle is a very basic necessity for a slave boy, so get one before next time!
+.range 3011
+
+
+[Action 3011]
 bd048_14.jpg
 Crops, whips and paddles are an important part of your slave training,
 as they are a good way to discipline a slave for his misbehaviours.
 delay 5
-.range 3002
+.range 3012
 
-[Action 3002]
+[Action 3012]
 bd048_33.jpg
 The crop provides good handling and aiming and produces a stingy
 painful sensation on the subjects impact area.
 delay 5
-.range 3006
+.range 3016
 
-[Action 3006]
+[Action 3016]
 naked_spanking_punishment_with_a_paddle_waiting_picture_7.jpg
 For a more thorough punishment however, I'd rather use the paddle,
 since even if its type of sensation feels more dull, it lasts longer.
 delay 5
-.range 3007
+.range 3017
 
-[Action 3007]
-.range 3009
+[Action 3017]
+.range 3019
 
-[Action 3009]
+[Action 3019]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' chastity device
 
 [Action 3100]
+.mustnot 510                      ' Standard lecture
 Since you don't have a chastity device,
 I'm assigning you the task of getting one by our next session.
 .range 3101
 
 [Action 3101]
+.must 510                         ' Lecture during punishment
+Slave, without a chastity device you cannot make progress in your chastity training.
+delay 2
+This can be somewhat expensive and it may take you some time to procure one,
+so it won't be necessary to have it before our next training session.
+However, it will not be possible for you to make further progress in your chastity training until you get it.
+.range 3101
+
+
+[Action 3111]
 moanformonica_07.jpg
 Keeping the slave from fondling his cock while the mistress is away
 is the best way to avoid cumming without permission.
 delay 6
-.range 3102
+.range 3112
 
-[Action 3102]
+[Action 3112]
 1127911865.jpg
 By not being able to wank and to cum, you have to focus all your hopes
 for release on me, your Mistress, to gracefully allow you
 the orgasm you desire so much, but denied for your chastity.
 delay 6
-.range 3103
+.range 3113
 
-[Action 3103]
+[Action 3113]
 Therefore I'm going to lock you up in a chastity cage, and I'm going to
 unlock you only if I feel like letting you wank a bit for my pleasure.
 1312341339.jpg
 However, you can be sure you'll be locked away right afterwards,
 and cumming will be a rare opportunity for you. 
 delay 6
-.range 3104
+.range 3114
 
-[Action 3104]
+[Action 3114]
 There are lots of different chastity devices available.
 p1010162.jpg
 Here you see a curved steel cage.
 delay 6
-.range 3105
+.range 3115
 
-[Action 3105]
+[Action 3115]
 chastity_cage_closed_tube.jpg
 You can also get one with a closed tube, but they both work the same.
 The curved tube in which the flacid penis is inserted, forbids any erections,
 while perforations allow fluids to drain easily.
 .pause I see, Miss
-.range 3106
+.range 3116
 
-[Action 3106]
+[Action 3116]
 chastity_device_1.jpg
 The tube is usually attached to a ring or belt around the penis base,
 holding the testicles in a gap close enough to prevent the penis from being pulled out.
@@ -716,48 +842,59 @@ delay 5
 DominantImage
 Are you with me, slave?
 .pause Yes, please go on, Miss
-.range 3107
+.range 3117
 
-[Action 3107]
+[Action 3117]
 2029728547.jpg
 Once the cage has been locked, the keys are held by the mistress,
 and the slave is unable to wank or to spurt off as long as she likes.
 delay 5
-.range 3108
+.range 3118
 
-[Action 3108]
+[Action 3118]
 chastity_cage_with_spikes.jpg
 To improve the uncomfortness of erections inside the curved tube,
 the cage may feature spikes or other constrictions which make erections long lasting and painful,
 forcing the wearer to avoid any arousing thoughts.
 delay 5
-.range 3109
+.range 3119
 
-[Action 3109]
+[Action 3119]
 I can't wait to lock you up and keep you frustated,
 so go and get your chastity cage as soon as possible.
 .pause As you wish, Miss
-.range 3111
+.range 3120
 
-[Action 3111]
+[Action 3120]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' Humbler
 
 [Action 3200]
+.mustnot 510                      ' Standard lecture
 Since you don't have a humbler,
 I'm assigning you the task of getting one by our next session.
-.range 3201
+.range 3211
 
 [Action 3201]
+.must 510                         ' Lecture during punishment
+Slave, you were to get a humbler, and you haven't!
+delay 2
+You are going to need to get one before our next session!
+Understand?
+.pause Yes, Miss
+.range 3211
+
+
+[Action 3211]
 144_1000.jpg
 A humbler is a great tool for helping the slave
 to assume and maintain the proper position before his mistress.
 delay 7
-.range 3202
+.range 3212
 
-[Action 3202]
+[Action 3212]
 humbler-homomaster02.jpg
 The balls are clamped in the centre of a bar that passes behind the thighs at the base of the buttocks.
 delay 3
@@ -766,16 +903,16 @@ This forces the wearer to keep his legs folded forward,
 as any attempt to straighten the legs even slightly pulls directly on the scrotum,
 causing from considerable discomfort to extreme pain.
 delay 6
-.range 3203
+.range 3213
 
-[Action 3203]
+[Action 3213]
 93514202.jpg
 The curvature prevents the humbler from twisting,
 ensuring that the the balls are properly pulled when the slave tries to get up.
 delay 7
-.range 3208
+.range 3218
 
-[Action 3208]
+[Action 3218]
 299525490_b.jpg
 A humbler can be easily made from shopsticks or other kind of bars,
 so there's no excuse for not having one.
@@ -784,45 +921,55 @@ delay 5
 DominantImage
 Will you be able to make that happen, slave?
 .pause Yes Miss, I'll have one next time
-.range 3209
+.range 3219
 
-[Action 3209]
+[Action 3219]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' ball harness
 
 [Action 3300]
+.mustnot 510                      ' Standard lecture
 Well, my dear pet.
 I'd always wanted to make you a present,
 as a remembrance for all the good times we're having together.
-.range 3301
+.range 3311
 
 [Action 3301]
+.must 510                         ' Lecture during punishment
+Slave, you were to craft a ball harness, and you haven't!
+delay 2
+Make one until next time, or you'll regret it!
+.pause Yes, Miss
+.range 3313
+
+
+[Action 3311]
 I first thought of buying you something neat,
 but I figured that would have been rather cheap of me.
-.range 3302
+.range 3312
 
-[Action 3302]
+[Action 3312]
 Instead I'm going to make you crafting it yourself,
 according to my suggestions.
 Isn't that nice, slave?
 .pause Thank you, Miss
-.range 3303
+.range 3313
 
-[Action 3303]
+[Action 3313]
 I want you to craft a nice and tight ball harness,
 with all the bells and whistles.
 delay 5
-.range 3304
+.range 3314
 
-[Action 3304]
+[Action 3314]
 ball_stretcher7.jpg
 I'm thinking of a combined ball-strecher and divider, similar to the one seen here.
 .pause Really, Miss?
-.range 3305
+.range 3315
 
-[Action 3305]
+[Action 3315]
 ' TODO different image than before
 Of course!
 I think it's a good way to get you by the balls, isn't it?
@@ -832,9 +979,9 @@ Well, as you can see in the picture, a ball spreader is a wide strap
 around the ball sack and a small strap to separate the balls,
 thereby putting sizable pressure on them.
 delay 7
-.range 3306
+.range 3316
 
-[Action 3306]
+[Action 3316]
 ' TODO image stretching ball sack
 For the stretching part, the strap around the ball sack has to feature
 an attachment ring of some sort for adding weights or chaining wrists and ankles to it.
@@ -842,23 +989,23 @@ delay 5
 DominantImage
 Are you still with me, slave?
 .pause Yes, Miss
-.range 3307
+.range 3317
 
-[Action 3307]
+[Action 3317]
 Good.
 You may of course add other add-ons and gadgets you may see fit to impress me,
 like additional straps around base and shaft,
 a lock to prevent removal,
 and of course anything else that might please me.
 .pause I'm delighted, Miss
-.range 3308
+.range 3318
 
-[Action 3308]
+[Action 3318]
 Just make sure the pressure on your balls can be adjusted from tight to extra tight.
 delay 3
-.range 3309
+.range 3319
 
-[Action 3309]
+[Action 3319]
 Well, Let's save the details for you to work out by yourself after the session.
 accessories/DIY/Ball Harness/cbttoys.shtml
 Have a look at Sartan's web pages for some nice examples and further instructions
@@ -870,187 +1017,225 @@ delay 7
 ' Free slot 680
 
 [Action 3400]
-.range 3401
+.mustnot 510                      ' Standard lecture
+Since you don't have a XXX,
+I'm assigning you the task of getting one by our next session.
+.range 3411
 
 [Action 3401]
-.range 3421
+.must 510                         ' Lecture during punishment
+Slave, you were to get a XXX, and you haven't.
+.range 3411
 
-[Action 3421]
-.range 3422
 
-[Action 3422]
-.range 3423
+[Action 3411]
+.range 3412
 
-[Action 3423]
-.range 3424
+[Action 3412]
+.range 3413
 
-[Action 3424]
-.range 3425
+[Action 3413]
+.range 3414
 
-[Action 3425]
-.range 3426
+[Action 3414]
+.range 3415
 
-[Action 3426]
-.range 3427
+[Action 3415]
+.range 3416
 
-[Action 3427]
-.range 3429
+[Action 3416]
+.range 3417
 
-[Action 3428]
-.range 3429
+[Action 3417]
+.range 3418
 
-[Action 3429]
+[Action 3418]
+.range 3419
+
+[Action 3419]
+.range 3420
+
+[Action 3420]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' Enema kit
 
 [Action 3500]
+.mustnot 510                      ' Standard lecture
 Since you don't have an enema kit,
 I'm assigning you the task of getting one by our next session.
-.range 3501
+.range 3511
 
 [Action 3501]
+.must 510                         ' Lecture during punishment
+Slave, you were to get an enema kit, and you haven't.
+delay 2
+An enema kit is very essential to deepen your anal training,
+so make sure you have one next time.
+.range 3511
+
+
+[Action 3511]
 enema-ass-play.jpg
 Enemas are used to to clean the slave's colon with a liquid,
 usually warm water, in order to prepare the slave for prolonged anal training.
 delay 7
-.range 3502
+.range 3512
 
-[Action 3502]
+[Action 3512]
 The enema kit consists of a container for the liquid, tube and nozzle.
 enema-tube-insert.jpg
 The simplest nozzle type is a plain tube with two bulges at the end.
 delay 7
-.range 3503
+.range 3513
 
-[Action 3503]
+[Action 3513]
 TA_ON_19991201_09_11_L.jpg
 The nozzle might also be inflatable, to prevent the tube from accidentally slipping out while the liquid is administered.
 delay 7
-.range 3504
+.range 3514
 
-[Action 3504]
+[Action 3514]
 milk-enema.jpg
 If the tube can be dismounted, the nozzle can just stay in place after the enema has applied.
 Doing so enforces holding the enema in, especially when applying large amounts of liquid.
 This way I can keep my slaves busy around the house without worrying about unpleasant accidents.
 delay 6
-.range 3505
+.range 3515
 
-[Action 3505]
+[Action 3515]
 enema-dominant-position.jpg
 My favourite position for my slaves to receive an enema is the kneel-chest position,
 not only because it's a very submissive position,
 but also because it allows the water to flow down
 from the rectum to the transverse colon by gravity. 
 delay 7
-.range 3506
+.range 3516
 
-[Action 3506]
+[Action 3516]
 dominant-mistress.jpg
 After the enema has been applied,
 the slave usually has to hold it in for a while while serving me.
-.range 3507
+.range 3517
 
-[Action 3507]
+[Action 3517]
 enema-bag-milk.jpg
 When you get your equipment, make sure your enema bag
 can hold at least two quarts, or about two litres of liquid.
 .pause I'll do, Miss
-.range 3508
+.range 3518
 
-[Action 3508]
+[Action 3518]
 Don't worry, you'll begin your training with a small enema,
 and I'll work you up as you get more experienced.
 .pause Thank you, Miss
-.range 3509
+.range 3519
 
-[Action 3509]
+[Action 3519]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' Blindfold
 
 [Action 3600]
+.mustnot 510                      ' Standard lecture
 Since you don't have a blindfold,
 I'm assigning you the task of getting one by our next session.
-.range 3601
+.range 3611
 
 [Action 3601]
+.must 510                         ' Lecture during punishment
+Slave, you were to get a blindfold, and you haven't!
+delay 2
+In order to deepen your slave training, you'll need one. 
+Make sure you have it next time!
+.range 3611
+
+
+[Action 3611]
 petr lewis - slave2 - 0002 - bude to bolet.jpg
 A blindfold is the most effective tool to render the slave totally helpless
 at the mercy of the mistress, as the slave cannot see what to expect next.
 delay 7
-.range 3602
+.range 3612
 
-[Action 3602]
+[Action 3612]
 petr lewis - slave - 0007 - vylepsime to.jpg
 Wearing a blindfold is said to enhance the remaining senses of the wearer,
 focusing attention on sound, smells and physical contact.
 It also requires trust of the submissive,
 with all the emotional ramifications that entails.
 delay 7
-.range 3603
+.range 3613
 
-[Action 3603]
+[Action 3613]
 position_standing_hands_behind_head_blindfolded.jpg
 A blindfold can be just a simple scarf.
 delay 7
-.range 3604
+.range 3614
 
-[Action 3604]
+[Action 3614]
 img_1291.jpg
 A sleepmask.
 delay 7
-.range 3605
+.range 3615
 
-[Action 3605]
+[Action 3615]
 leat1942.jpg
 A hood.
 delay 7
-.range 3606
+.range 3616
 
-[Action 3606]
+[Action 3616]
 p1070315.jpg
 Or it can be part of a head harness, which - as the hood - makes it
 impossible for the slave to get rid of the blindfold whilst in bondage. 
 delay 7
-.range 3607
+.range 3617
 
-[Action 3607]
+[Action 3617]
 Choose the kind of blindfold you like.
 I only require it to be pitch black,
 as I don't want you to see the slightest shade of light whilst wearing it.
 .pause I'll have one next time, Miss
-.range 3609
+.range 3619
 
-[Action 3609]
+[Action 3619]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' Dildo
 
 [Action 3700]
+.mustnot 510                      ' Standard lecture
 Since you don't have a dildo,
 I'm assigning you the task of getting one by our next session.
-.range 3701
+.range 3711
 
 [Action 3701]
+.must 510                         ' Lecture during punishment
+Slave, you were to get a dildo, and you haven't.
+delay 2
+Make sure you have one, so I can give you the training you deserve, slut!
+.range 3711
+
+
+[Action 3711]
 A dildo is a very essential tool to train a slave,
 as for serving your Mistress as her pleasure slave,
 and to deepen your sexual servitude by offering all your slave holes for abuse.
 .pause Off course, Miss
-.range 3702
+.range 3712
 
-[Action 3702]
+[Action 3712]
 Well, slave, you might have already guessed how I will use your dildo on you, haven't you?
-.yesno 3704 3704 3704 3704
+.yesno 3714 3714 3714 3714
 .yestext To fuck my mouth, Miss
 .notext To fuck my ass, Miss
 '.choice3 To fuck my cunt, Miss
 
-[Action 3704]
+[Action 3714]
 Half right, slave.
 delay 1
 I'm thinking about filling all your holes.
@@ -1066,45 +1251,54 @@ delay 5
 []
 Just measure your own slave penis and the size will be about right.
 .pause Understood, Miss
-.range 3705
+.range 3715
 
 
-[Action 3705]
+[Action 3715]
 dildo_worshiping_suck_kneeling_ride_all_four_suck_ready.jpg
 Moreover, for an efficient training, make sure your dildo has a suction cup to mount it on smooth surfaces.
 delay 4
 DominantImage
 Got that?
 .pause I'll get one as ordered, Miss
-.range 3709
+.range 3719
 
-[Action 3709]
+[Action 3719]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' Vibrator
 
 [Action 3800]
+.mustnot 510                      ' Standard lecture
 Since you don't have a vibrator,
 I'm assigning you the task of getting one by our next session.
 delay 2
-.range 3801
+.range 3811
 
 [Action 3801]
+.must 510                         ' Lecture during punishment
+Slave, you were to get a vibrator, and you haven't.
+delay 2
+Get one before next time, slut!
+.range 3811
+
+
+[Action 3811]
 I bet You can already guess that this little extra excitement
 on your side won't be solely for your pleasure, but for mine.
 .pause What do you mean, Miss?
-.range 3802
+.range 3812
 
-[Action 3802]
+[Action 3812]
 Well, keeping the slave aroused keeps him focused on the job,
 and there will be situations I'd like my slaves fully aroused
 even at times their hands aren't free.
 But don't think you're ever allowed to cum wearing this little get-up.
 .pause Of course not, Miss
-.range 3803
+.range 3813
 
-[Action 3803]
+[Action 3813]
 equip_toy_strap-on-vibe (3).jpg
 The sub here in the picture for example has a vibrator strapped to her pussy while she awaits her well-deserved punishment.
 Should she dare to cum I bet she won't just get it on the butt!
@@ -1113,9 +1307,9 @@ delay 7
 Naughty slave girls may also enjoy wearing a butterfly vibrator.
 Again it's attached via straps, but unlike the previous one the butterfly focuses on the clit.
 ' TODO slave girl with butterfly vib 
-.range 3804
+.range 3814
 
-[Action 3804]
+[Action 3814]
 As a male slave, you'll probably be well served with a penis vibrator.
 ' TODO penis vibrator
 It consists of a tight rubber ring that holds a vibrating egg at your sweet spot, even of you prick becomes flaccid.
@@ -1128,36 +1322,46 @@ delay 5
 DominantImage
 So get one before our next visit together!
 .pause I promise I'll do, Miss
-.range 3805
+.range 3815
 
-[Action 3805]
+[Action 3815]
 Well, I leave the details to you.
 Just make sure the vibe isn't too bulky,
 and it won't slip off too easy.
 .pause Of course, Miss
-.range 3809
+.range 3819
 
-[Action 3809]
+[Action 3819]
 .range 9000 9001	' common exit point for equipment classes
 
 
 ' Pussy clamps
 
 [Action 3900]
+.mustnot 510                      ' Standard lecture
 Since you don't have pussy clamps,
 I'm assigning you the task of getting some by our next session.
-.range 3901
+.range 3911
 
 [Action 3901]
+.must 510                         ' Lecture during punishment
+Slave, you were to get some pusy clamps, but you haven't!
+delay 2
+You cannot make progress in your slave training without, so make sure you have some next time!
+.pause Yes, Miss 
+.range 3911
+
+
+[Action 3911]
 als_fayereagan_s3_226_b.jpg
 Pussy clamps are usually attached to the outer labia.
 delay 7
 DominantImage
 However in your case they will likely end up on your slutty ball sack.
 .pause Uh, doesn't that hurt, Miss?
-.range 3902
+.range 3912
 
-[Action 3902]
+[Action 3912]
 Well I hope so, Slave.
 als_fayereagan_s3_241.jpg
 The connecting chain adds weight, thus increasing sensation.
@@ -1166,9 +1370,9 @@ delay 5
 []
 The skin of the ball sack is very sensitive, but you may as well attach the clamps at the base of the sack, where the skin is a bit thicker and is underlaid with a bit more flesh than the sack itself.
 .pause That's very gracious of you, Miss
-.range 3903 3904
+.range 3913 3914
 
-[Action 3903]
+[Action 3913]
 .must 310
 Is it?
 1370169984.jpg
@@ -1182,9 +1386,9 @@ delay 20
 Let me know when the shoe is swinging freely, slave.
 delay 10
 .pause It's very uncomfortable, Miss
-.range 3905
+.range 3915
 
-[Action 3904]
+[Action 3914]
 .mustnot 310
 Is it?
 Well, that way there's more weight to hang from them.
@@ -1195,9 +1399,9 @@ A shoe would be perfect.
 delay 20
 Let me know when it's hanging from your ball sack and swinging freely, slave.
 .pause It's very uncomfortable, Miss
-.range 3905
+.range 3915
 
-[Action 3905]
+[Action 3915]
 Yes, slave - that's intended.
 I just like to see you suffer.
 Let's enjoy this situation for a minute or so while you swing your shoe.
@@ -1208,37 +1412,37 @@ Higher.
 delay 15
 Let it swing!
 delay 15
-.range 3906 3907
+.range 3916 3917
 
-[Action 3906]
+[Action 3916]
 Very good.
 delay 10
 You may remove the pussy clamps - for now!
 .pause Thank you, Miss
-.range 3908 3909
+.range 3918 3919
 
-[Action 3907]
+[Action 3917]
 .mustnot 310
 You may remove the clothes pegs - for now!
 .pause Thank you, Miss
-.range 3908 3909
+.range 3918 3919
 
-[Action 3908]
+[Action 3918]
 .must 310
 I expect you to have an distinct pair of pussy clamps together with a good weight by or next visit together.
 And make sure you'll have a pair of each, since I like to torture your nipples and your pussy at the same time.
 Can you make this happen, slave?
 .pause Yes, Miss!
-.range 3910
+.range 3920
 
-[Action 3909]
+[Action 3919]
 .mustnot 310
 I expect you to have a pair of pussy clamps together with a good weight by or next visit together.
 Can you make this happen, slave?
 .pause Yes, Miss!
-.range 3910
+.range 3920
 
-[action 3910]
+[action 3920]
 .range 9000 9001	' common exit point for equipment classes
 
 
