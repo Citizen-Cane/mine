@@ -1,9 +1,3 @@
-.debug 2
-
-.yestext Yes, Mistress
-.notext No, Mistress
-.resumeText Yes, Mistress
-
 .onAllSet 9999
 .onClose 9998
 .backcolor 255 80 80
@@ -56,7 +50,7 @@
 .askcheck 63 7013 7013: balls 4
 .askcheck 64 7014 7014: balls 5
 
-'SET 6999 for long session
+'set 6999 for long session
 
 
 [Action 990]
@@ -106,18 +100,17 @@
 Since you're a pathetically weak slave,
 we need to get you out of that chair and moving around a little
 - exercise, in other words.
-'.range 5001 5009
-.range 5001 5004
+.range 5001
 
 [Action 5001]
 We'll do an easy cardiovascular workout today.
 My slaves have to have a nice healthy heart!
-'.range 5010
 .range 5002
 
 [Action 5002]
 I always insist My slaves undergo some healthy nipple torture when I'm acting as their personal trainer.
 Make sure you have eight clothes pegs ready in a place you can get to them quickly.
+.pause I have them ready, Miss
 .range 5003
 
 [Action 5003]
@@ -125,6 +118,7 @@ Also make sure you have some floor space
 - clear the chair out of the way, and anything else.
 You should be able to spread your arms all the way out
 and spin in a circle without touching anything.
+delay 5
 .range 5004 5006
 
 
@@ -150,6 +144,7 @@ We'll start up with some jumping jacks.
 [Action 5010]
 First, put one clothes peg on each nipple.
 Hold the remaining pegs in your hands.
+delay 15
 .range 5011 5015
 
 ' TODO Add repeating slap sounds, with timing according to the workout
@@ -182,6 +177,7 @@ Jump, slave!
 [Action 5015]
 Okay, slave, put two clothes pegs on your ball sack.
 We're going to try some running in place now.
+.delay 20
 .numactionsfrom 5010 10
 .range 5016
 
@@ -222,7 +218,9 @@ Keep those knees up, slave!
 
 [Action 5022]
 Okay, slave, you can stop running.
+delay 2
 Let's rest for a second.
+.delay 20
 .range 5023
 
 [Action 5023]
@@ -252,12 +250,14 @@ Give me a push-up!
 [Action 5028]
 Very good, slave.
 Put the last two clothes pegs on your slave titties.
+.delay 15
 .numactionsfrom 5025 10
 .range 5030
 
 [Action 5029]
 Very good, slave.
 Put the last four clothes pegs on your slave titties, two on each side.
+.delay 20
 .numactionsfrom 5025 6
 .range 5030
 
@@ -284,8 +284,7 @@ Hop, bunny, hop!
 
 [Action 5034]
 Okay, slave, that's enough.
-Come back and sit back down.
-.pause
+Come back and kneel back down.
 .range 5035 5036
 
 [Action 5035]
@@ -305,7 +304,7 @@ I'll give you a minute to cool down and to feel those clothes pegs a little bett
 [Action 5044]
 Okay, slave, that was a good little workout.
 You may take off the clothes pegs now.
-.pause
+.pause Thank you, Miss
 .range 9000 9099
 
 
@@ -323,49 +322,54 @@ Get your nipple clamps and eight clothes pegs.
 Then put a clothespin on each nipple, just as a little warm-up.
 .unset 201 202 203 204
 .set 200                ' plain pins on nips (1 each)
-.pause
+.pause I'm Ready, Miss
 .range 6502
 
 [Action 6501]
 Your punishment will be a little game I like to play, called "shake those tits!"
 Get your nipple clamps and eight clothes pegs.
 Put two clothes pegs on each nipple to get you started.
-.pause
-.range 6502
+.pause I'm ready, Miss
 .set 200                ' plain pins on nips (1 each)
 .set 201                ' plain pins on nips (1 each) -> make 2 on each nipple
 .unset 202 203 204
+.range 6502
 
 [Action 6502]
 You will also need to get some small weights and some string, or thin rope,  or something like that.
 You will need four weights, two of them heavier than the other two
 - something small like a luggage lock will work perfectly.
-.pause
+.pause I have them, Miss
 .range 6503
 
 [Action 6503]
 Are those nipples getting a little warmed up?
 .yesno 6505 6505 6504 6504
+.yestext Uh, they're in pain, Miss
+.notext They're feeling good, Miss
 
 [Action 6504]
 Well, that's no good.
 Remove the clothes pegs and put on your nipple clamps.
 You're going to want those nipples ready for their upcoming ordeal.
-.pause
+.pause Ouch, Miss, they're painful
 .unset 200 201 202 203  ' Clothes pegs 
 .set 204                ' Nipple clamps
 .range 6505
 
 [Action 6505]
+Very good, my little slut!
 As you may have guessed by now you will need to attach those weights to the clothes pegs somehow.
 They should have at least a few inches of play, so that they can swing.
 Do that now.
 One set of two should have the lighter weights, and one set should have the heavy ones.
 If you like, you can double up two light weights on the heavy clothes pegs instead.
-.pause
+.pause All weights attached, Miss
 .range 6506
 
 [Action 6506]
+Excellent, slave.
+[]
 Now, I may tell you to shake those titties, slave.
 When I say that, you're to shake them side to side by rotating your shoulders back and forth.
 .range 6507
@@ -376,189 +380,189 @@ That means up and down.
 .range 6508
 
 [Action 6508]
-When I tell you to rest, those weights should be hanging free. 
+When I tell you to rest, those weights should be hanging free.
 You're not allowed to hold them up.
 .range 6548 6549
 
 
 [Action 6510]
-Take the clothes pegs off and replace them with the lightly weighted pins, slave.
-.delay 20 20
 .must 200
 .mustnot 201 202 203 204
+Take the clothes pegs off and replace them with the lightly weighted pins, slave.
+.delay 20 20
 .unset 200
 .set 202
 .unset 6510
 .range 6550 6553
 
 [Action 6511]
-Put the other plain pins on your nipples, babe.
-.delay 20 20
 .must 200
 .mustnot 201 202 203 204
+Put the other plain pins on your nipples, babe.
+.delay 20 20
 .set 201
 .unset 6511
 .range 6550 6553
 
 [Action 6512]
-Take all four pins off, and put the lightly weighted pins on your nips, slave.
-.delay 20 20
 .must 200 201
 .mustnot 202 203 204
+Take all four pins off, and put the lightly weighted pins on your nips, slave.
+.delay 20 20
 .unset 200 201
 .set 202
 .unset 6512
 .range 6550 6553
 
 [Action 6513]
-Take off all four clothepins, and put on the heavily weighted pins instead, slave.
-.delay 20 20
 .must 200 201
 .mustnot 202 203 204
+Take off all four clothepins, and put on the heavily weighted pins instead, slave.
+.delay 20 20
 .unset 200 201
 .set 203
 .unset 6513
 .range 6550 6553
 
 [Action 6514]
-Take off all four clothes pegs and put on the nipple clamps, slut.
-.delay 20 20
 .must 200 201
 .mustnot 202 203 204
+Take off all four clothes pegs and put on the nipple clamps, slut.
+.delay 20 20
 .unset 200 201
 .set 204
 .unset 6514
 .range 6550 6553
 
 [Action 6515]
-Put two clothes pegs on each nipple, slut, right next to the clamps.
-.delay 20 20
 .must 204
 .mustnot 200 201 202 203
+Put two clothes pegs on each nipple, slut, right next to the clamps.
+.delay 20 20
 .set 200 201
 .unset 6515
 .range 6550 6553
 
 [Action 6516]
-Put two more clothes pegs on each nipple, slave, next to the weighted ones.
-.delay 20 20
 .must 202
 .mustnot 200 201 203 204
+Put two more clothes pegs on each nipple, slave, next to the weighted ones.
+.delay 20 20
 .set 200 201
 .unset 6516
 .range 6550 6553
 
 [Action 6517]
-Put two more clothes pegs on each nipple, cunt, right next to the weighted ones.
-.delay 20 20
 .must 203
 .mustnot 200 201 202 204
+Put two more clothes pegs on each nipple, cunt, right next to the weighted ones.
+.delay 20 20
 .set 200 201
 .unset 6517
 .range 6550 6553
 
 [Action 6518]
-Switch the lightly weighted pins for the heavy ones, slave.
-.delay 20 20
 .must 202
 .mustnot 200 201 203 204
+Switch the lightly weighted pins for the heavy ones, slave.
+.delay 20 20
 .set 203
 .unset 202
 .unset 6518
 .range 6550 6553
 
 [Action 6519]
-Put the lightly weighted pins next to the heavy ones, slave.
-.delay 20 20
 .must 203
 .mustnot 200 201 202 204
+Put the lightly weighted pins next to the heavy ones, slave.
+.delay 20 20
 .set 202
 .unset 6519
 .range 6550 6553
 
 [Action 6520]
-Put the lightly weighted pins on next to the clamps, slave, one per nipple.
-.delay 20 20
 .must 204
 .mustnot 200 201 202 203
+Put the lightly weighted pins on next to the clamps, slave, one per nipple.
+.delay 20 20
 .set 202
 .unset 6520
 .range 6550 6553
 
 [Action 6521]
-Add the heavily weighted pins to your clamps, sweetie.
-.delay 20 20
 .must 204
 .mustnot 200 201 202 203
+Add the heavily weighted pins to your clamps, sweetie.
+.delay 20 20
 .set 203
 .unset 6521
 .range 6550 6553
 
 [Action 6522]
-Now put the heavily weighted pins on, too, pain slut.
-.delay 20 20
 .must 202 204
 .mustnot 200 201 203
+Now put the heavily weighted pins on, too, pain slut.
+.delay 20 20
 .set 203
 .unset 6522
 .range 6550 6553
 
 [Action 6523]
-Put the lightly weighted clothes pegs on now, too, slave!
-.delay 20 20
 .must 203 204
 .mustnot 200 201 202
+Put the lightly weighted clothes pegs on now, too, slave!
+.delay 20 20
 .set 202
 .unset 6523
 .range 6550 6553
 
 [Action 6524]
-Switch the lightly weighted pins with the heavy ones, slave!
-.delay 20 20
 .must 200 201 202
 .mustnot 203 204
+Switch the lightly weighted pins with the heavy ones, slave!
+.delay 20 20
 .set 203
 .unset 202
 .unset 6524
 .range 6550 6553
 
 [Action 6525]
-Switch the heavy pins with the clamps now, slave!
-.delay 20 20
 .must 200 201 203
 .mustnot 202 204
+Switch the heavy pins with the clamps now, slave!
+.delay 20 20
 .set 204
 .unset 203
 .unset 6525
 .range 6550 6553
 
 [Action 6526]
-Take off the clothes pegs, slave, and replace them with the clamps.
-.delay 20 20
 .must 200
 .mustnot 201 202 203 204
+Take off the clothes pegs, slave, and replace them with the clamps.
+.delay 20 20
 .set 204
 .unset 200
 .unset 6526
 .range 6550 6553
 
 [Action 6527]
+.must 200 201 204
+.mustnot 202 203
 Take off all four plain clamps and replace them with both the 
 lightly and heavily weighted clamps, one each per nipple.
 .delay 20 20
-.must 200 201 204
-.mustnot 202 203
 .set 202 203
 .unset 200 201
 .unset 6527
 .range 6550 6553
 
 [Action 6528]
+.must 202 203 204
+.mustnot 200 201
 Lucky slave!
 Fit those plain clothes pegs in too, slave, two per nipple!
 .delay 20 20
-.must 202 203 204
-.mustnot 200 201
 .unset 6528
 .set 200 201
 .range 6550 6553
@@ -572,33 +576,33 @@ Fit those plain clothes pegs in too, slave, two per nipple!
 '.range 6550 6553
 
 [Action 6530]
-.unset 6530
 .must 200 201 202
+.unset 6530
 .range 6560 6562
 
 [Action 6531]
-.unset 6531
 .must 200 201 203
+.unset 6531
 .range 6560 6562
 
 [Action 6532]
-.unset 6532
 .must 202 203
+.unset 6532
 .range 6560 6562
 
 [Action 6533]
-.unset 6533
 .must 202 203 204
+.unset 6533
 .range 6560 6562
 
 [Action 6534]
-.unset 6534
 .must 200 201 204
+.unset 6534
 .range 6560 6562
 
 [Action 6535]
-.unset 6535
 .must 200 201 202 203 204
+.unset 6535
 .range 6560 6562
 
 '[Action 6539]
@@ -607,14 +611,14 @@ Fit those plain clothes pegs in too, slave, two per nipple!
 
 
 [Action 6548]
+.mustnot 30             ' Can't jerk off 
 Of course you're to keep that slave cock hard the whole time.
 Ready, slave?
-.mustnot 30             ' Can't jerk off 
 .range 6550 6553
 
 [Action 6549]
-Ready, slave? 
 .must 30                ' Can't jerk off 
+Ready, slave? 
 .range 6550 6553
 
 
@@ -692,11 +696,15 @@ Bob those titties, slave, up and down!
 Very good boy, slave.
 Would you like to keep going?
 .yesno 6550 6553 6570 6573
+.yestext Yes Miss, if it pleases you
+.notext No thanks, Miss
 
 [Action 6561]
 Very good boy, slave.
 Would you like to stop now?
 .yesno 6570 6573 6550 6553
+.yestext Yes please, Miss
+.notext No, please punish me more, Miss
 
 [Action 6562]
 .unset 6562
@@ -725,7 +733,7 @@ Just wait one more minute, I'm enjoying your suffering.
 [Action 6574]
 Okay, slave, you may take off all your nipple toys.
 You've done a very good job.
-.pause
+.pause Thank you, Miss
 .range 9000 9099
 
 
@@ -733,12 +741,13 @@ You've done a very good job.
 We're going to be punishing your nipples and balls today,
 with one of the most versitile of all toys:
 Clothes pegs!
-You will need 15 clothes pegs for this "activity", my pet.
+You will need fifteen clothes pegs for this "activity", my pet.
+Go fetch then now!
+.pause I have them ready, Miss
 .unset 6999
 .unset 7000 7001 7002 7003 7004
 .unset 7005 7006 7007 7008 7009
 .unset 7010 7011 7012 7013 7014
-.pause
 .range 7021
 
 [Action 7021]
@@ -760,25 +769,31 @@ Just pile them on as close as possible to one another.
 .range 7024
 
 [Action 7024]
-The catch is that I like to move pretty fast, so it's imperative that you keep up.
-Just to make sure you're not cheating, I'll be asking you if a certain number of pins are on your nipples.
+The catch is that I like to move pretty fast,
+so it's imperative that you keep up.
+Just to make sure you're not cheating,
+I'll be asking you if a certain number of pins are on your nipples.
+delay 2
 If you're correct, all is well.
 .range 7025
 
 [Action 7025]
 If you're incorrect, we have to start over.
+delay 2
 So don't lie!
 When you have five clothes pegs on each of your nipples and your balls,
 then hit the stop button.
 Again, if you hit it prematurely, we have to go back to the beginning.
-.pause
+.pause Okay, Miss
 .range 7026
 
 [Action 7026]
 Do you understand, slave?
 Are you ready to begin?
-.resetrange 7020 7026
 .yesno 7029 7029 7022 7022
+.yestext Yes Miss, I'm ready
+.notext Can you please tell me again, Miss?
+.resetrange 7020 7026
 
 [Action 7029]
 .resetrange 7020 7199
@@ -1524,9 +1539,9 @@ Remove a clothespin from your balls!
 .range 7132 7135
 
 [Action 7132]
+.must 7004 7009 7014
 That's very good, slave.
 You've got them all on.
-.must 7004 7009 7014
 .delay 30 30
 .range 7190
 
@@ -1541,16 +1556,22 @@ Would you like to give up?
 .unset 7010 7011 7012 7013 7014
 .mustnot 7004
 .yesno 9100 9199 7029 7029
+.yestext Yes please, Miss
+.notext No Miss, I want to try again
 
 [Action 7134]
-That's incorrect, slave, since you're missing some from the right nipple.
+That's incorrect, slave,
+since you're missing some from the right nipple.
 Take them all off now.
-And we go back to the beginning, unless you'd like to give up?
+And we go back to the beginning,
+unless you'd like to give up?
 .unset 7000 7001 7002 7003 7004
 .unset 7005 7006 7007 7008 7009
 .unset 7010 7011 7012 7013 7014
 .mustnot 7009
 .yesno 9100 9199 7029 7029
+.yestext I want to give up, Miss
+.notext No Miss, I want to try again
 
 [Action 7135]
 That's not right, slave.
@@ -1562,6 +1583,8 @@ Unless you'd like to pussy out?
 .unset 7010 7011 7012 7013 7014
 .mustnot 7014
 .yesno 9100 9199 7029 7029
+.yestext I like to pussy out, Miss
+.notext No Miss, I want to try again
 
 [Action 7140]
 .range 7029
@@ -1575,45 +1598,60 @@ Do you have exactly one clothespin on your left nipple?
 'yes
 .must 7000
 .yesno 7181 7181 7180 7180
+.yestext Yes Miss, just one
+.notext No Miss, I haven't
 
 [Action 7146]
 Do you have exactly one clothes peg on your left nipple?
 'no
 .mustnot 7000
 .yesno 7180 7180 7181 7181
+.yestext Yes Miss, one exactly
+.notext No Miss, I haven't
 
 [Action 7147]
 Do you have exactly two clothes pegs on your left nipple?
 'yes
 .must 7001
 .yesno 7181 7181 7180 7180
+.yestext Yes Miss, two exactly
+.notext No Miss, I haven't
 
 [Action 7148]
 Do you have exactly two clothes pegs on your left nipple?
 'no
 .mustnot 7001
 .yesno 7180 7180 7181 7181
+.yestext Yes Miss, exactly two
+.notext No Miss, I haven't
 
 [Action 7149]
 Do you have exactly three clothes pegs on your left nipple?
 'yes
 .must 7002
 .yesno 7181 7181 7180 7180
+.yestext Yes Miss, three pegs
+.notext No Miss, I haven't
 
 [Action 7150]
 Do you have exactly three clothes pegs on your left nipple?
 'no
 .mustnot 7002
 .yesno 7180 7180 7181 7181
+.yestext Yes Miss, exactly three
+.notext No Miss, I haven't
 
 [Action 7180]
-Sorry, slave, that's not correct. Remove all the clothes pegs now.
+Sorry, slave, that's not correct.
+Remove all the clothes pegs now.
 I guess we'll just have to start over.
 Unless you'd like to pussy out?
 .unset 7000 7001 7002 7003 7004
 .unset 7005 7006 7007 7008 7009
 .unset 7010 7011 7012 7013 7014
 .yesno 9100 9199 7029 7029
+.yestext Yes Miss, I'd like to pussy out
+.notext No Miss, I want to start over
 
 [Action 7181]
 Very good, slave, that's right.
@@ -1642,10 +1680,12 @@ Don't those clips hurt so good?
 .range 7192
 
 [Action 7192]
-Okay, slave, remove all the clips. Good boy!
-.pause
+Okay, slave, remove all the clips.
+ShowChoices
+delay 5
+Good boy!
+.pause Thank you, Miss
 .range 9000 9099
-
 
 
 '   flash a question for a second - make slave answer correctly?
@@ -1665,7 +1705,7 @@ Okay, slave, remove all the clips. Good boy!
 I feel like punishing those nipples a bit today, My slave.
 The first thing I want you to do is to fetch exactly eight
 clothes pegs, as well as your nipple clamps.
-.pause
+.pause I have them, Miss
 .unset 7300 7301 7302 7303 7304
 .unset 7305 7306 7307 7308 7309
 .range 7311
@@ -1679,13 +1719,15 @@ clamp.
 [Action 7312]
 Of course, there's a catch.
 Sometimes I'll be giving you your orders pretty fast.
-Now, if you're a good, attentive slave, and
-you're quick with the clamps, then you should have no problems.
+Now, if you're a good, attentive slave,
+and you're quick with the clamps,
+then you should have no problems.
 .range 7313
 
 [Action 7313]
-On the other hand, if you're a naughty slave who let's his
-mind wander, then we may be at this a while.
+On the other hand,
+if you're a naughty slave who let's his mind wander,
+then we may be at this a while.
 .range 7314
 
 [Action 7314]
@@ -1700,7 +1742,7 @@ all eight clothes pegs and both nipple clamps on.
 As soon as you have all ten on, hit the "STOP" button.
 Now, put those clamps somewhere you can grab them fast,
 and tell me when you're ready to go.
-.pause
+.pause I'm ready, Miss
 .range 7317 7319
 
 
@@ -2430,52 +2472,72 @@ Attach the clamp to your left nipple!
 Is there a clothespin below your right nipple?
 .unset 7400
 .yesno 7410 7411 7412 7413
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7401]
 Is there a clothespin to the right of your right nipple?
 .unset 7401
 .yesno 7414 7415 7416 7417
-
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7402]
 Is there a clothespin above your right nipple?
 .unset 7402
 .yesno 7418 7419 7420 7421
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7403]
 Is there a clothespin to the left of your right nipple?
 .unset 7403
 .yesno 7422 7423 7424 7425
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7404]
 Is there a clamp on your right nipple?
 .unset 7404
 .yesno 7426 7427 7428 7429
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7405]
 Is there a clothespin below your left nipple?
 .unset 7405
 .yesno 7430 7431 7432 7433
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7406]
 Is there a clothespin to the left of your left nipple?
 .unset 7406
 .yesno 7434 7435 7436 7437
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7407]
 Is there a clothespin above your left nipple?
 .unset 7407
 .yesno 7438 7439 7440 7441
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7408]
 Is there a clothespin to the right of your left nipple?
 .unset 7408
 .yesno 7442 7443 7444 7445
+.yestext Yes Miss
+.notext No Miss
 
 [Action 7409]
 Is there a clamp on your left nipple?
 .unset 7409
 .yesno 7446 7447 7448 7449
+.yestext Yes Miss
+.notext No Miss
+
 
 [Action 7410]
 Very good, slave.
@@ -2527,7 +2589,6 @@ Wrong, slave!
 .range 7470
 
 
-
 [Action 7418]
 Very good, slave.
 .unset 7418
@@ -2551,8 +2612,6 @@ Wrong, slave!
 .unset 7421
 .must 7302
 .range 7470
-
-
 
 
 [Action 7422]
@@ -2630,7 +2689,6 @@ Wrong, slave!
 .range 7470
 
 
-
 [Action 7434]
 Very good, slave.
 .unset 7434
@@ -2654,8 +2712,6 @@ Wrong, slave!
 .unset 7437
 .must 7306
 .range 7470
-
-
 
 
 [Action 7438]
@@ -2683,8 +2739,6 @@ Wrong, slave!
 .range 7470
 
 
-
-
 [Action 7442]
 Very good, slave.
 .unset 7442
@@ -2708,7 +2762,6 @@ Wrong, slave!
 .unset 7445
 .must 7308
 .range 7470
-
 
 
 [Action 7446]
@@ -2737,6 +2790,7 @@ Wrong, slave!
 .must 7309
 .range 7470
 
+
 [Action 7450]
 .range 7400 7409
 '.ask 50 59
@@ -2751,6 +2805,7 @@ Wrong, slave!
 '.askcheck 58 7308 Right Left
 '.askcheck 59 7309 Left Nipple
 .unset 7450
+
 
 ' Correct answer
 [Action 7460]
@@ -2768,6 +2823,8 @@ Well, slave?
 Shall we continue?
 .unset 7300 7301 7302 7303 7304 7305 7306 7307 7308 7309
 .yesno 7317 7319 9100 9199
+.yestext Yes Miss, please continue
+.notext No Miss, I want to quit
 .unset 7470
 
 ' Stop pressed, all clamps/pegs on?
@@ -2837,7 +2894,8 @@ Sorry, slave, you haven't got them all on!
 .range 7470
 
 [Action 7490]
-Very, very good, My dear. You've got them all now.
+Very, very good, My dear.
+You've got them all now.
 .must 7300 7301 7302 7303 7304 7305 7306 7307 7308 7309
 .range 7491
 
@@ -2855,7 +2913,7 @@ I love to watch those nipples suffer for Mistress.
 [Action 7493]
 That's enough, slave.
 You can take all pegs and clamps off.
-.pause
+.pause Thank you, Miss
 .range 9000 9099
 
 
@@ -2869,7 +2927,8 @@ I want you to fetch the strongest clamps you have.
 Clover clamps would be perfect, but anything that won't come off will do just fine.
 Remember to connect the clamps together if they aren't already.
 Go get them now, slave!
-.pause
+delay 5
+.pause I have them ready, Miss
 .mustnot 216            ' Clamps on nips
 .range 7502
 
@@ -2879,12 +2938,14 @@ I hope you've put on the strongest clamps you have,
 because if they get pulled off for any reason, you'll be in trouble, my dear slut.
 Keep in mind that clover clamps would be perfect, but anything that won't come off will do just fine.
 Remember to connect the clamps together if they aren't already.
-.pause
+delay 5
+.pause I have them ready, Miss
 .must 216               ' Clamps on nips
 .range 7502
 
 [Action 7502]
-Good boy. Put the clamps in your mouth for the moment.
+Good boy.
+Put the clamps in your mouth for the moment.
 I want you to rub those nipples, and get them nice and hard for Mistress.
 Don't forget to keep that silly cock hard, too.
 .delay 20
@@ -2892,9 +2953,11 @@ Don't forget to keep that silly cock hard, too.
 
 [Action 7503]
 Now put the clamps on your little nips and let the chain swing free.
+delay 10
 Feels good, doesn't it?
+delay 10
 Let's just let that sink in for a minute.
-.delay 30
+delay 10
 .range 7504
 
 [Action 7504]
@@ -2904,16 +2967,17 @@ Play with yourself and get used to the clamps, My poor little slaveboy.
 .range 7504 7505
 
 [Action 7505]
+Good.
 Now I want you to go get some rope for your ankles.
 Tell me when you've retrieved it, slaveboy.
-.pause
+.pause I have it, Miss
 .range 7506
 
 [Action 7506]
 Now, cross your ankles and tie them together, nice and tight.
-There shouldn't be more than a couple of inches of play between them.
+There shouldn't be more than an inch of play between them.
 Report to me when you've finished.
-.pause
+.pause My ankles are tied up, Miss
 .range 7507
 
 [Action 7507]
@@ -2933,13 +2997,16 @@ If you've tied your ankles properly, you shouldn't be able to walk
 - you'll have to hop.
 Now go fetch that weight, slave.
 Hop to it!
-.pause
+delay 10
+.pause I have the weight, Miss
 .range 7509
 
 [Action 7509]
 Are your nipples nice and sore now?
 Do you need a little break from the pain?
 .yesno 7510 7510 7517 7518
+.yestext Yes please, my nipples are sore already
+.notext No Miss, I'm fine
 
 [Action 7510]
 That's too bad, My little toy.
@@ -2965,6 +3032,7 @@ Just think about the pinching sensation of the clamps.
 
 [Action 7513]
 Wouldn't it be nice to take them off?
+delay 2
 They must hurt quite a bit by now.
 .delay 20
 .repeat 5
@@ -2972,6 +3040,7 @@ They must hurt quite a bit by now.
 
 [Action 7514]
 Just let those nipples burn.
+delay 2
 I want you to think about those poor raw nips and the pain they're in.
 .delay 20
 .repeat 5
@@ -2979,6 +3048,7 @@ I want you to think about those poor raw nips and the pain they're in.
 
 [Action 7515]
 We're not done by a long shot, My little sweetie.
+delay 2
 This is a cake-walk compared to the pain those little nipples will be in later on.
 .delay 20
 .repeat 5
@@ -2986,6 +3056,8 @@ This is a cake-walk compared to the pain those little nipples will be in later o
 
 [Action 7516]
 The nice thing about nipple clamps is that they torture a slave with very little effort.
+delay 2
+delay 2
 Waiting is the best punishment, but I think it's time to move on now, slave.
 .delay 30
 .NumActionsFrom 7509 14
@@ -2997,11 +3069,13 @@ If you like those clamps so much, I think we should just pause
 for a few minutes, so you can fully appreciate them, slave.
 .range 7511 7516
 
+
 [Action 7518]
 I hope those nipples hurt, slave.
 I love to see a little slave-boy in pain,
 especially when he's not allowed to do anything about it.
-Nipple clamps are so effective because they just get worse no matter what you do.
+Nipple clamps are so effective because
+they just get worse no matter what you do.
 .delay 20
 .range 7519
 
@@ -3018,7 +3092,7 @@ and connect it to the chain between your clamps.
 There should be a foot or so of play between the chain and the weight.
 Make sure you tie it nice and tight.
 After you're done, I want you to lean over the weight, so that your nipples are directly over it.
-.pause
+.pause I'm leaning over, Miss
 .range 7521
 
 [Action 7521]
@@ -3031,6 +3105,8 @@ or if you just can't take it anymore, you're to tell me to stop, slave,
 and you will fail this portion of your training.
 Are you ready to please your Mistress?
 .yesno 7522 7522 7590 7590
+.yestext Yes Miss, I'm ready to please you
+.notext No Miss, I think I'm not
 
 [Action 7522]
 Get ready, slut.
@@ -3040,7 +3116,9 @@ Make sure to keep rubbing that thing of yours, and keep it hard the whole time.
 .range 7523
 
 [Action 7523]
-Now stand up, slave! Hold this position!
+Now stand up, slave!
+delay 2
+Hold this position!
 .delay 20 20
 .range 7524
 
@@ -3059,7 +3137,9 @@ Those nipples should be nice and sore by now, slave.
 [Action 7526]
 Very good, slave.
 Kneel down and lower the weight to the floor.
+delay 2
 I'll let you rest those poor nips for a few seconds.
+delay 2
 If the clamps are slipping off, go ahead and re-set them.
 .delay 30
 .break 7527 7530 STOP 7590
@@ -3074,6 +3154,7 @@ Lift that weight up!
 
 [Action 7528]
 We're just starting out, slave.
+delay 2
 Plenty more of this to come.
 .delay 30 30
 .range 7529
@@ -3085,6 +3166,7 @@ I love to see those poor slave nipples in pain.
 
 [Action 7530]
 Those nipples look very sore, slave.
+delay 5
 Do you think you can make it?
 .delay 30 30
 .range 7531
@@ -3093,13 +3175,15 @@ Do you think you can make it?
 Good boy.
 Now, slowly kneel down again.
 I'll let you have another break.
-Again, you can re-set them if you need to.
+Again, you can re-set the clamps if you need to.
 .delay 30
 .range 7532
 
+' todo add "clamps fell off, Miss" to break statement
 [Action 7532]
 Remember, if the weight or a clamp fall off,
 or if you're too much of a pussy to take it, tell me to stop.
+delay 2
 And keep rubbing that little slave-cock for Mistress!
 .delay 30
 .break 7533 7540 STOP 7590
@@ -3114,17 +3198,20 @@ On your feet!
 
 [Action 7534]
 Let that weight hang.
+delay 2
 Plenty more of this to come, slave.
 .delay 30 30
 .range 7535
 
 [Action 7535]
-I want you to give that weight a good hard shove, and let it swing, My dear little slave.
+I want you to give that weight a good hard shove,
+and let it swing, My dear little slave.
 .delay 45 45
 .range 7536
 
 [Action 7536]
 Give it another swing, you poor baby.
+delay 2
 Concentrate on the pain in your nipples.
 .delay 45 45
 .range 7537
@@ -3132,6 +3219,7 @@ Concentrate on the pain in your nipples.
 [Action 7537]
 Give it another shove, love.
 Let it swing back and forth for My amusement.
+delay 5
 You should be happy to feel this pain,
 since it pleases your Mistress so much.
 .delay 30 30
@@ -3139,7 +3227,9 @@ since it pleases your Mistress so much.
 
 [Action 7538]
 Just let it hang, slave.
+delay 2
 Those nipples should be on fire by now!
+delay 5
 I love to watch you abuse your bare slave body.
 .delay 30 30
 .range 7539
@@ -3147,6 +3237,7 @@ I love to watch you abuse your bare slave body.
 [Action 7539]
 Another thirty seconds, slave.
 Can you make it?
+delay 5
 Remember you can bail out any time,
 if you're such a cunt that you can't take it any more.
 .delay 30 30
@@ -3160,7 +3251,8 @@ I'll let you have another little rest and re-set opportunity.
 
 [Action 7541]
 When you just leave the clamps on, they tend to numb up a little bit.
-Put by constantly moving them around, I'm able to keep your pain nice and fresh.
+Put by constantly moving them around,
+I'm able to keep your pain nice and fresh.
 Did you notice?
 .delay 30
 .break 7542 7547 STOP 7590
@@ -3188,13 +3280,16 @@ Start hopping!
 
 [Action 7545]
 Keep hopping, my little slave bunny!
+delay 2
 Around and around you go.
 .delay 45 45
 .range 7546
 
 [Action 7546]
 You can stop hopping, little bunny.
+delay 2
 Now, keeping the weight in the air, I want you to untie your ankles.
+delay 5
 You can cut the ropes if you can't get them undone.
 .delay 60 60
 .range 7547
@@ -3206,7 +3301,9 @@ Feel that weight pulling mercilessly on your poor slave nipples.
 .range 7548
 
 [Action 7548]
-Okay, slave, you can lower the weight again. Not too much longer, now.
+Okay, slave, you can lower the weight again. 
+Not too much longer, now.
+delay 5
 You're doing very well, My dear little slut.
 Make sure those clamps are going to stay on tight.
 .delay 30
@@ -3214,7 +3311,8 @@ Make sure those clamps are going to stay on tight.
 
 [Action 7549]
 You should be feeling very submissive at this point.
-A boy-slave's nipples, like the rest of his body, are just playthings for his vengeful Mistress.
+A boy-slave's nipples, like the rest of his body,
+are just playthings for his vengeful Mistress.
 .delay 30
 .break 7550 7554 STOP 7590
 .stoptext Please stop it, Miss
@@ -3296,18 +3394,21 @@ Down, slave!
 
 [Action 7562]
 That's a very, very good boy!
+delay 2
 You can kneel back down again, you good little slave.
 .NumActionsFrom 7559 20 30
 .range 7563
 
 [Action 7563]
 Mistress is very pleased!
-Untie the weight from the nipple clamps, but don't remove them just yet.
-.pause
+Untie the weight from the nipple clamps,
+but don't remove them just yet.
+.pause Weight untied, Miss
 .range 7564
 
 [Action 7564]
 Now get your chair and sit down, My slave.
+delay 2
 Doesn't it feel good to follow orders and please the Mistress?
 I want those poor slave nipples pinched just a little bit longer.
 Why don't you look at some pictures and play with that little penis?
@@ -3322,33 +3423,41 @@ Why don't you look at some pictures and play with that little penis?
 [Action 7566]
 Very good, slave baby.
 You may remove the clamps.
+delay 2
 Rub those nipples and get the blood flowing again!
 .NumActionsFrom 7564 10
 .range 7567
 
 [Action 7567]
-Now put your toys away like a good little 
-boy, and come back when you're done.
+Now put your toys away like a good little boy,
+and come back when you're done.
+delay 10
+.pause All put away, Miss
 .range 9000 9099
-.pause
 
 
 [Action 7590]
 I'm very disappointed in you, slave.
-You've failed me again. Take those clamps off your nipples now, slut,
+delay 2
+You've failed me again.
+Take those clamps off your nipples now, slut,
 and if your ankles are still tied you may untie them.
 .delay 20
 .range 7591
 
 [Action 7591]
-Kneel there and think about your failure for a few mintues, you stupid whore.
+Kneel there and think about your failure for a few mintues,
+you stupid whore.
+delay 5
 I promise you you'll be punished for this foolishness.
-Make sure to keep rubbing yourself, not that you'll be allowed to cum for quite some time.
-.delay 15
+Make sure to keep rubbing yourself,
+not that you'll be allowed to cum for quite some time.
+delay 10
 .range 7592 7596
 
 [Action 7592]
-You've been a very naughty slaveboy, and you've displeased your Mistress.
+You've been a very naughty slaveboy,
+and you've displeased your Mistress.
 .delay 15
 .unset 7592
 .range 7592 7596
@@ -3373,6 +3482,7 @@ A shameful, naked, lazy, slutty slaveboy, with sore nipples,
 jerking himself off but not allowed to cum,
 who can't even follow his Mistress's
 simple instructions correctly.
+delay 2
 What a sad spectacle.
 .delay 30
 .range 7592 7596
