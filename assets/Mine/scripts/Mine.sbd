@@ -176,9 +176,10 @@
 .askcheck      48      113     113: Chastity cage safety suggestion 1
 .askcheck      49      114     114: Chastity cage safety suggestion 2	 
 .askcheck      50      115     115: Chastity cage safety suggestion 3
-.askcheck      50      116     116: Chastity cage suggestions check due
+.askcheck      50      116     116: Chastity cage safety suggestion 4
 '.askcheck      51      117     117: Spanking lecture, introduction
 '.askcheck      52      118     118: no-cum lecture
+.askcheck      50      119     119: Chastity cage suggestions check due
 
 
 ' temp variables for use within the session
@@ -337,7 +338,7 @@
 '.askcheck      70      632     632: AO dildo 8 hours; 432
 '.askcheck      71      633     633: AO dildo until bedtime; 433
 '.askcheck      71      634     634: AO Butt plug until bedtime; 434
-.askcheck      60      635     635: AO dildo all day; 436
+.askcheck      60      635     635: AO dildo all day; 435
 .askcheck      61      636     636: AO sleep with dildo; 436   
 
 .askcheck      66      667     667: Get some chains (334)
@@ -2032,8 +2033,8 @@ Have you been keeping yourself nice and hard for your Mistress?
 .set 256                     ' Hardness question one-time per session     
 .unset 1202
 .yesno 1197 1199 1219 1223
-.yestext Of course, Miss
-.notext No Miss, I haven't
+.yestext Of course, Miss, all the time
+.notext I'm sorry Miss, but I haven't
 
 '[Action 1207]
 '[Action 1208]
@@ -9726,8 +9727,9 @@ and for that reason you're going to start over at day one.
 
 [Action 4079]
 It can't be that difficult, my pet, can it?
-After the session, just stay naked, and strip off immediately when you walk in the door.
-.pause
+After the session, just stay naked,
+and strip off immediately each time you walk in the door.
+.pause Yes Miss
 .unset 602 603 604 605 606 607
 .range 4080 4084
 
@@ -9738,32 +9740,32 @@ After the session, just stay naked, and strip off immediately when you walk in t
 As a little motivation to take your naked week assignment a little graver,
 you're also going to skip your next cumming opportunity.
 Be a decent slave and catch up on your naked-week assignment, and I might let you cum again. 
-.pause
+.pause Yes Miss
 .must 45           ' Must have key for chastity cage (set by default)
 .mustnot 698 699
 .set 698
-.range 4085
+.range 4085 4086
 
 [Action 4081]
 As my little negligent slut seems to need some additional motivation to perform his assignment,
 I'm going to put you on a temporary cum-denial during the course of the naked week.
 You better catch up If you want me to let you cum again.
-.pause
+.pause Yes Miss
 .must 45           ' Must have key for chastity cage (set by default)
 .must 698
 .mustnot 699
 .set 699
-.range 4085
+.range 4085 4086
 
 [Action 4082]
 .poss 1
-.range 4086
+.range 4085 4086
 
 '[Action 4083]
 
 [Action 4084]
 .must 698 699
-.range 4086
+.range 4085 4086
 
 
 [Action 4085]
@@ -9772,8 +9774,7 @@ punishment for disobeying your mistress next time.
 .unset 200 201 202 203
 .set 204                ' five demerits
 .set 503 509            ' Violating naked rule, wasting mistress time
-.range 4090
-
+.range 4089
 
 [Action 4086]
 And I think you've earned five demerits today and
@@ -9781,9 +9782,15 @@ some punishment next time for disobeying your mistress.
 .unset 200 201 202 203
 .set 204                ' five demerits
 .set 503 509            ' Violating naked rule, wasting mistress time
-.range 4090
+.range 4089
 
 
+' skip infinite cumming negotiaion since we just gave that as a punishment
+[action 4089]
+.range 4777
+
+
+' Naked week normal exit
 [action 4090]
 .range 4100
 
@@ -9803,93 +9810,93 @@ some punishment next time for disobeying your mistress.
 .range 4777
 
 [Action 4752]
+.must 103               ' impatience penalty
+.must 699
 I seem to remember that you aren't allowed to cum until further notice, 
 and I'm in such a bad mood I don't see any reason you should be.
-.must 103               ' impatence penalty
-.must 699
 .unset 698
 .range 4777
 
 [Action 4753]
+.must 699
 I seem to remember that you aren't allowed to cum until further notice,
 and I certainly can't think of any reason you should be.
-.must 699
 .unset 698
 .range 4777
 
 [Action 4754]
+.must 699
+.mustnot 691 692 693 694 695 696 697
 I've decided to allow you to cum again, sometime in the future.
 But you're going to have to pay Me back with three missed
 cumming opportunities to show your devotion.
 Agreed?
 .yesno 4769 4769 4770 4770
-.yestext 
-.notext 
-.must 699
-.mustnot 691 692 693 694 695 696 697
+.yestext Thank you, Miss, for your generosity
+.notext No, Miss, that's too much
 
 [Action 4755]
+.must 103
+.must 699
+.mustnot 691 692 693 694 695 696 697
 I've reluctantly decided that you should be able to cum again someday.
 But I'm not convinced that you've shown the proper devotion to Me.
 Therefore I've concluded that you must miss your next seven cumming
 opportunities in order to straighten you out.
-.pause
-.must 699
-.must 103
-.mustnot 691 692 693 694 695 696 697
+.pause Thank you very much , Miss
 .set 697
 .unset 698 699
 .range 4777
 
 [Action 4757]
+.must 691 699
 I see that in addition to not being able to cum indefinately,
 you're scheduled to miss your next cumming opportunity.
 I think I'll add three more to that to pay off your penalty, so four total.
 Agreed?
 .yesno 4768 4768 4770 4770
-.yestext 
-.notext 
-.must 691 699
+.yestext Thank you, Miss, for your generosity
+.notext No, Miss, that's too much
 
 [Action 4758]
+.must 692 699
 Well, you've got two days left on your not-to-cum schedule, in addition
 to being on indefinate not-to-cum punishment.
 We'll even things out by adding three days to the two, for a total of five.
 Agreed?
 .yesno 4767 4767 4770 4770
-.yestext 
-.notext 
-.must 692 699
+.yestext Thank you, Miss, for your generosity
+.notext No, Miss, that's too much
 
 [Action 4759]
+.must 693 699
 You've got three days left on your not-to-cum schedule,
 and you're also on indefinate not-to-cum hold as punishment.
 I think adding three days to your schedule is an appropriate tradeoff.
 Don't you agree?
 .yesno 4766 4766 4770 4770
-.yestext 
-.notext 
-.must 693 699
+.yestext Thank you, Miss, for your generosity
+.notext No, Miss, that's too much
 
 [Action 4760]
+.must 694 699
 To clear out this annoying can't-cum-forever punishment I'm adding
 three days to your existing four day can't-cum schedule,
 for a total of seven.
 What a pain in the ass you are, slave.
-.pause
-.must 694 699
+.pause Thank you very very much, Miss
 .set 697
 .unset 694 698 699
 .range 4777
 
 [Action 4761]
+.must 695 699
 To pay off your indefinate denial punishment, I'm giving you a regular
 punishment session for next time,
 plus five demerits for this session,
 and we'll add two days to your can't-cum schedule,
 for a total of seven.
-.pause
-.must 695 699
+.pause Thank you very much, Miss
 .unset 200 201 202 203
 .set 204
 .set 516
@@ -9898,13 +9905,13 @@ for a total of seven.
 .range 4777
 
 [Action 4762]
+.must 696 699
 To pay off your indefinate denial punishment, I'm giving you two regular
 punishment sessions for next time,
 plus five demerits for this session,
 and we'll add a day to your can't-cum schedule,
 for a total of seven.
-.pause
-.must 696 699
+.pause Thank you very much, Miss
 .unset 200 201 202 203
 .set 204
 .set 504 516 
@@ -9913,12 +9920,12 @@ for a total of seven.
 .range 4777
 
 [Action 4763]
+.must 697 699
 What a slave.
 You've stored up seven skipped cumming opportunities, plus an indefinate denial punishment.
 To pay this off I'm giving you a total of six punishment sessions for next time,
 plus five demerits for this session, and we'll resume the seven-day schedule next time.
-.pause
-.must 697 699
+.pause Thank you very very much, Miss
 .unset 200 201 202 203
 .set 204
 .set 501 504 505 516 517 518
@@ -9953,19 +9960,22 @@ Let's hope my generosity makes you see reason from now on, my pet.
 .range 4777
 
 [Action 4770]
-In that case I'll make it a full seven missed opportunities.
+In that case I'll make it a full seven missed opportunities,
+you worthless cunt.
+delay 5
+.set 103
 .unset 691 692 693 694 695 696
 .set 697
-.set 103
 .unset 699
 .range 4777
 
+
+' Toy lectures
 
 [Action 4777]
 .range 4778 4779
 
 
-' Toy lecture
 [Action 4778]
 .mustnot 272
 .gosub 4800   ' Toy lecture
@@ -10101,15 +10111,15 @@ Do you remember and understand my little class about the
 basic implements of torture and restraint, My slave?
 .mustnot 507                  ' Attention deficit
 .yesno 4829 4829 4828 4828
-.yestext 
-.notext 
+.yestext Yes, Miss, I remember 
+.notext Not really , Miss
 
 
 [Action 4828]
 So, my little cocktease, you weren't listening carefully?
 You'll draw a little extra punishment for that later on.
 I'll repeat Myself, but this time pay attention.
-.pause
+.pause Thank you, Miss
 .set 507
 .resetrange 4800 4824
 .range 4800
@@ -10118,7 +10128,7 @@ I'll repeat Myself, but this time pay attention.
 [Action 4829]
 Very good, My little bitch.
 I'm curious what you're going to bring next time.
-.resetrange 4800 4829   ' cleanup gosub range, as this is going to be called multiple times
+.resetrange 4800 4829   ' cleanup gosub range, as this is may be called multiple times
 .return
 
 
@@ -10130,47 +10140,52 @@ I'm curious what you're going to bring next time.
 
 ' Skip
 [Action 4831]
-.mustnot 116
+.mustnot 119
 .range 4849
 
 ' Ask slave if chastity cage security measure have been implemented
+' one-shot, no repeat, since chastity cage changes are sort of expensive, and I don't want to ruin my slaves
 
 [Action 4832]
 Did you follow my recommendations to make your chastity cage safer
-by using a smaller A-Ring and a ring around your penis tip?
+by using a smaller ring around the base of your cock?
 .mustnot 113 114 115
-.must 116
+.must 119
 .yesno 4836 4836 4840 4841
-.yestext 
-.notext 
+.yestext Yes Miss, the base ring is tighter now
+.notext Not yet, Miss
+.set 113
 
 [Action 4833]
 Did you follow my suggestions to make your chastity cage safer and got a shorter tube?
 .must 113
 .mustnot 114 115
-.must 116
+.must 119
 .yesno 4837 4837 4840 4841
-.yestext 
-.notext 
+.yestext Yes Miss, the tube is shorter now
+.notext Not yet, Miss
+.set 114
 
 [Action 4834]
-Did you follow my advice to prevent your encaged silly slave penis
-from getting aroused by adding a spiked ring to your cage?
+Did you follow my advice to prevent your encaged slave penis
+from getting aroused by adding a couple of spikes to your cage?
 .must 113 114
 .mustnot 115
-.must 116
+.must 119
 .yesno 4838 4838 4840 4841
-.yestext 
-.notext 
+.yestext Yes Miss, my erections are very painful now
+.notext Not yet, Miss
+.set 115
 
 [Action 4835]
 Did you follow my suggestions to make your chastity cage safer and
-got a shorter tube, or a smaller A-Ring and a ring around your penis tip?
+improved your chastity cage with an integrated urethra tube?
 .must 113 114 115
-.must 116
+.must 119
 .yesno 4839 4839 4840 4841
-.yestext 
-.notext 
+.yestext Yes Miss, my encaged penis is impaled now 
+.notext Not yet, Miss
+.set 116
 
 
 ' Yes
@@ -10178,56 +10193,50 @@ got a shorter tube, or a smaller A-Ring and a ring around your penis tip?
 [Action 4836]
 Wonderful, my little pet.
 I just cannot wait to tease your encaged cock again.
-.set 113
-.unset 116
 .range 4849
 
 [Action 4837]
 Very good.
 No chance to get aroused for my little cock toy.
 How delightful.
-.set 114
-.unset 116
 .range 4849
 
 [Action 4838]
 Very good, my little pet.
-Now don't get aroused too much while we go on.
-.set 115
-.unset 116
+Now don't get too aroused while we go on.
 .range 4849
 
 [Action 4839]
 Very good.
-No more unauthorisized cummings, slave.
+No more unauthorisized cummings, slave!
+With the tube inside your uthera I'm sure you can't even think of wanking.
 I'm delighted.  
-.unset 116
 .range 4849
 
 
-' No
+' No, clear one-shot assignment
+
 [Action 4840]
 What a disappointment your are, slave.
 I know you could do better than that!
-Maybe you do after receiving the punishment I'll give you for your lack of obedience.
-.pause
+Maybe you do after receiving the punishment I'll give you for ignoring your Mistress orders.
+.pause I'm sorry, Miss
 .mustnot 504            ' General disobedience
-.unset 116
 .set 504
 .range 4849
 
 [Action 4841]
 What a poor excuse of a slave you are.
 I know you could do better than that!
-Maybe you do after receiving the punishment you've earned for your lack of attentiveness.
-.pause
+Maybe you do after receiving the punishment you've earned for ignoring your Mistress orders.
+.pause I'm sorry, Miss
 .must 504               ' General disobedience
-.unset 116
 .set 508                ' inattentiveness      
 .range 4849
 
 
 [Action 4849]
+.unset 119
 .range 4900
 
 
@@ -10297,62 +10306,61 @@ What would you like to do today?
 .range 4949                  ' continue with toy selection
 
 [Action 4911]
-I can't help but notice that you've gotten yourself a butt plug,
-even though you supposedly aren't interested in anal training.
-Have you changed your mind, slave?
-Would you like me to fill your enslaved ass?
 .mustnot 220 251
 .mustnot 21                  ' Something in butt
 .must 350
 .mustnot 756                 ' Anal training level 1
-.poss 5
-.set 251                     ' buttplug once per session
+.poss 20
+I can't help but notice that you've gotten yourself a butt plug,
+even though you supposedly aren't interested in anal training.
+Have you changed your mind, slave?
+Would you like me to fill your enslaved ass?
 .yesno 4918 4918 4949 4949   ' insert plug or continue with toy selection
+.yestext Yes Miss, please fill my enslaved ass
+.notext Not now Miss, please
+.set 251                     ' buttplug once per session
 
 [Action 4912]
-You may lube up your slave anus and insert your buttplug now,  slave.
-I want your ass pleasantly filled for our next activity.
-.pause
 .mustnot 220 251             ' not already doing this
 .mustnot 21                  ' nothing in butt
 .must 350                    ' have a plug
-'.mustnot 388                 ' dildo, since this blocks riding the dildo
 .must 756                    ' anal training 1
+You may lube up your slave anus and insert your buttplug now, slave.
+I want your ass pleasantly filled for our next activity.
+.pause I'm plugged, Miss
 .set 21 220 251              ' something in butt, buttplug temp, buttplug once per session.poss 10
 .range 4949                  ' continue with toy selection
 
 [Action 4913]
-You may lube up your enslaved anus and insert your buttplug now, slave.
-I want your ass pleasantly filled for our next activity.
-.pause
 .mustnot 220 251             ' not already doing this
 .mustnot 21                  ' nothing in butt
 .must 350                    ' have a plug
-'.mustnot 388                 ' dildo, since this blocks riding the dildo
 .must 756                    ' anal training 2
+.poss 10
+You may lube up your enslaved anus and insert your buttplug now, slave.
+I want your ass pleasantly filled for our next activity.
+.pause I'm plugged, Miss
 .set 21 220 251              ' something in butt, buttplug temp, buttplug once per session
 .set 757                     ' advancement
-.poss 10
 .range 4949                  ' continue with toy selection
 
 [Action 4914]
-You may lube up your slave ass and insert your buttplug now, slave.
-I want your ass pleasantly filled for our next activity.
-.pause
 .mustnot 220 251             ' not already doing this
 .mustnot 21                  ' nothing in butt
 .must 350                    ' have a plug
-'.mustnot 388                 ' dildo, since this blocks riding the dildo
 .must 757                    ' additional chance at lev. 2
-.set 21 220 251              ' Something in butt, buttplug temp, buttplug once per session
 .poss 10
+You may lube up your slave ass and insert your buttplug now, slave.
+I want your ass pleasantly filled for our next activity.
+.pause I'm plugged, Miss
+.set 21 220 251              ' Something in butt, buttplug temp, buttplug once per session
 .range 4949                  ' continue with toy selection
 
 [Action 4915]
+.must 757                    ' Anal training level 2
 You may lube up your slave ass and insert your buttplug now, slave.
 I want your ass pleasantly filled.
-.pause
-.must 757                    ' Anal training level 2
+.pause I'm plugged, Miss
 .poss 10
 .range 4949                  ' continue with toy selection
 
@@ -10364,7 +10372,7 @@ I want your ass pleasantly filled.
 Very good, slave.
 I'm sure you enjoy being an anal slut for your Mistress.
 Lube up that plug and insert it into your bottom now.
-.pause
+.pause I'm plugged, Miss
 .set 21 220                  ' something in butt, buttplug temp
 .range 4949                  ' continue with toy selection
 
@@ -10377,22 +10385,24 @@ Lube up that plug and insert it into your bottom now.
 .range 4949                  ' continue with toy selection
 
 [Action 4921]
+.mustnot 21                  ' Something in butt
+.must 350                    ' Butt plug
+.mustnot 756                 ' Anal training level 1
 I can't help but notice that you've gotten yourself a butt plug,
 even though you supposedly aren't interested in anal training.
 Have you changed your mind, slave?
 Would you like me to fill your enslaved ass?
-.mustnot 21                  ' Something in butt
-.must 350                    ' Butt plug
-.mustnot 756                 ' Anal training level 1
 .yesno 4929 4929 4949 4949   ' insert plug or continue with toy selection
+.yestext Yes Miss, please fill my enslaved ass
+.notext Not now Miss, please
 
 [Action 4922]
-You may lube up your slave ass and insert your buttplug now, slave.
-I want your ass pleasantly filled.
-.pause
 .mustnot 21                  ' Something in butt
 .must 350                    ' have a plug
 .must 757                    ' Anal training level 2
+You may lube up your slave ass and insert your buttplug now, slave.
+I want your ass pleasantly filled.
+.pause I'm plugged, Miss
 .set 21                      ' Something in butt
 .range 4949                  ' continue toy selection
 
@@ -10404,9 +10414,10 @@ I want your ass pleasantly filled.
 '[Action 4928]
 
 [Action 4929]
-Very good, slave. I'm sure you enjoy being an anal slut for your Mistress.
+Very good, slave.
+I'm sure you enjoy being an anal slut for your Mistress.
 Lube up that plug and insert it into your bottom now.
-.pause
+.pause I'm plugged, Miss
 .set 21                      ' something in butt, buttplug temp
 .range 4949                  ' continue with toy selection
 
@@ -10417,39 +10428,40 @@ Lube up that plug and insert it into your bottom now.
 .range 4949                  ' continue with toy selection
 
 [Action 4931]
-You may tie yourself a tight crotch rope, slave.
-I want to make sure that butt plug sits extra tight in your anus. 
 .must 21                ' Plug inserted, ready for crotch rope or harness
 .mustnot 25 26          ' Ankles tied, wrists tied
 .mustnot 32 33 34 35    ' Can't stand, can't kneel, can't type/use mouse, tethered
 .must 330               ' Some rope
+I want to make sure that butt plug sits extra tight in your anus. 
+For that reason you may tie yourself a tight crotch rope now, slave.
 .range 4935
 
 [Action 4932]
-You may tie yourself a nice rope harness, slave.
-I want to make sure that butt plug sits extra tight in your anus.
 .must 21                ' Plug inserted, ready for crotch rope or harness
 .mustnot 25 26          ' Ankles tied, wrists tied
 .mustnot 32 33 34 35    ' Can't stand, can't kneel, can't type/use mouse, tethered
 .must 330               ' Some rope
 .must 426               ' Sleep in harness assignment completed 
+I want to make sure that butt plug sits extra tight in your anus.
+For that reason you may tie yourself a nice rope harness now, slave.
+.pause I'm all tied up, Miss
 .range 4936
 
 
 [Action 4935]
+.image bd227_18.jpg     ' crotch rope close-up
 As usual, tie a knot in such a way that, when the rope is taut,
 it rests directly on your anus, or as of now, on your butt plug.
-.pause
-.image bd227_18.jpg     ' crotch rope close-up
+.pause I'm tied up, Miss
 .set 27                 ' Something around waist
 .range 4949             ' continue with toy selection
 
 [Action 4936]
+.image babc-alt.jpg
 You know the drill, slave, so get on it.
 As usual, tie a knot in such a way that, when the rope is taut,
 it rests directly on your anus, or as of now, on your butt plug.  
-.pause
-.image babc-alt.jpg
+.pause I'm all tied up, Miss
 .set 36                 ' Harnessed
 .range 4949             ' continue with toy selection
 
@@ -10489,36 +10501,36 @@ it rests directly on your anus, or as of now, on your butt plug.
 '
 
 [Action 4955]
-I want your balls stand out nicely for out next activity,
-my dear slave, so let's put on your ball harness.
-.pause
 .mustnot 219 253        ' not already doing this, not having alreay done it
 .mustnot 37             ' already wearing ball harness
 .mustnot 23 24          ' something on penis, something on balls
 .must 385               ' have ball harness
+I want your balls stand out nicely for out next activity,
+my dear slave, so let's put on your ball harness.
+.pause Done as ordered, Miss
 .set 219                ' Let's do this
 .set 24 37              ' something on balls, ball harness
 .range 4985
 
 [Action 4956]
-I want you to be quiet for our next activity.
-Open your mouth and insert your gag now, slave.
-.pause
 .mustnot 221 254        ' not already doing this, not having alreay done it
 .mustnot 22             ' nothing in mouth
 .must 340               ' have a gag
+I want you to be quiet for our next activity.
+Open your mouth and insert your gag now, slave.
+.pause I'm gagged, Miss
 .set 22 221             ' something in mouth
 .range 4985
 
 [Action 4957]
-I want you to assume the right position for our next activity.
-Get down on your knees and put on your humbler, slave.
-.pause
 .mustnot 217 255        ' not already doing this, done ball sack pulling already
 .mustnot 267 268        ' Enema carrying out or holding
 .mustnot 23 24          ' something on penis, something on balls
 .must 384               ' have a humbler
 .must 746               ' cbt level 1
+I want you to assume the right position for our next activity.
+Get down on your knees and put on your humbler, slave.
+.pause I'm wearing it, Miss
 .set 24 217             ' something on balls, humber
 .range 4985
 
@@ -10532,9 +10544,9 @@ Get down on your knees and put on your humbler, slave.
 
 [Action 4962]
 Go fetch me a long piece of rope, slave.
-.pause
 .mustnot 214 261        ' not already doing this, not having alreay done it
 .mustnot 23 24          ' something on penis, something on balls
+.pause Here you are, Miss
 .range 4975 4979
 
 
@@ -10557,7 +10569,7 @@ Now tie up the base of your cock, followed by your slutty ball sack.
 Don't forget to separate your balls on the way.
 When done, complete your cock bondage with a couple of tight loops around the shaft.
 When done, you shouldn't be able to wank anymore, slut.
-.pause
+.pause My cock is tied up, Miss
 .set 23 24              ' something on penis, something on balls
 .set 214                ' Cock bondage temporary
 .range 4985
@@ -10567,13 +10579,13 @@ Good.
 Now wrap the rope once around your slutty ball sack, separate your balls,
 and continue wrapping up your ball sack until there's only a short lenght of rope left.
 Tie the left-over around the base and fix it up with a good knot.
-.pause
+.pause My cock is tied up, Miss
 .set 24                 ' something on balls 
 .set 214                ' Cock bondage temporary
 .range 4985
 
 
-' Put off chastity device?
+' Take off chastity device?
 [Action 4985]
 .unset 4985
 .range 4986 4999
@@ -10618,7 +10630,7 @@ so let's leave that shriveld old prick locked up.
 [Action 4991]
 I want you your cock hard and wet for our next activity,
 so let's take off the chastity cage.
-.pause
+.pause Thank you, Miss
 .mustnot 4951           ' Toy selecttion
 .poss 16
 .must 44                ' chastified
@@ -10629,7 +10641,7 @@ so let's take off the chastity cage.
 
 [Action 4992]
 I want you your cock hard and wet, so let's take the cage off.
-.pause
+.pause Thank you, Miss
 .mustnot 4951           ' Toy selecttion
 .poss 16
 .must 44                ' chastified
@@ -10664,7 +10676,7 @@ so let's leave that shriveld old prick locked up.
 [Action 4995]
 And I also want you your cock hard and wet for our
 next activity, so let's remove the chastity cage.
-.pause
+.pause Thank you, Miss
 .must 4951              ' Toy selecttion
 .poss 16
 .must 44                ' chastified
@@ -10675,7 +10687,7 @@ next activity, so let's remove the chastity cage.
 
 [Action 4996]
 And I want you your cock hard and wet, so let's take the cage off.
-.pause
+.pause Thank you, Miss
 .must 4951              ' Toy selecttion
 .poss 16
 .must 44                ' chastified
@@ -11137,7 +11149,7 @@ To deepen your maid training,
 you'll need a nice vibrator or other stimulation toy
 that you can attach to your silly slave penis.
 Consider getting one until next time.
-.pause
+.pause Yes, Miss
 .poss 100
 .mustnot 389            ' Have vibrator
 .mustnot 685
@@ -11158,7 +11170,7 @@ Consider getting one until next time.
 'Some metal clamps with a nice connecting chain will suit you well, my dear.
 'They will absolutely look great on your slutty ball sack.
 'Get them until next time, slut.
-'.pause
+'.pause Yes, Miss
 '.poss 100
 '.mustnot 387            ' Have pussy clamps
 '.mustnot 683
@@ -11174,9 +11186,9 @@ Consider getting one until next time.
 ' Achivement 603 -> Dildo for dildo training, dildo positions 
 [Action 5124]
 As a good maid such as yourself, to make progress in your maid training,
-you're going to need a realistically sized dildo with a suction cup.
+you're going to need a naturally sized dildo with a suction cup.
 Make sure you have one until next time, baby.
-.pause
+.pause Yes, Miss
 .poss 100
 .mustnot 388            ' Have dildo
 .mustnot 684
@@ -12494,20 +12506,22 @@ Let's see what else we can use to spank your naughty bottom.
 .range 7116
 
 [Action 7116]
+.image equip_wooden_spoon.jpg     ' TODO Better image with naked slave girl
 A wooden spoon can be a wonderful spanking implement, don't you think?
 Its long handle makes it the perfect tool for a good and well deserved spanking.
-.pause
-.image equip_wooden_spoon.jpg     ' TODO Better image with naked slave girl
+delay 5
 .range 7117
 
 [Action 7117]
 You do have a wooden spoon, slave, don't you?
 .yesno 7118 7118 7119 7119
+.yestext Yes, Miss
+.notext No, Miss
 
 [Action 7118]
 Very good, my pet.
 Go fetch it for me!
-.pause
+.pause I have it, Miss
 .set 372                ' Have wooden spoon
 .range 7129
 
@@ -12518,22 +12532,26 @@ Don't you ever cook a meal from time to time?
 
 
 [Action 7120]
-Well, my dear slave. what about a hair brush?
+Well, my dear slave.
+What about a hair brush?
+' TODO better image with naked slave girl
+equip_hairbrush.jpg
 It lies comfortably in the hand, and its convenient weight and size
 makes it a very effective punishment implement for naughty slaves.
 And you just earned a good beating for not having a wooden spoon.
-.pause
-.image equip_hairbrush.jpg   ' TODO better image with naked slave girl 
+delay 5
 .range 7121
 
 [Action 7121]
 Do you have a hairbrush, slave?
 .yesno 7122 7122 7123 7123
+.yestext Yes, Miss
+.notext No, Miss
 
 [Action 7122]
 Very good, my little bitch.
 Go fetch it for me!
-.pause
+.pause I have it, Miss
 .set 371                ' Have hair brush
 .range 7129
 
@@ -12549,7 +12567,7 @@ What kind of household are you living in?
 Since a paddle is a very basic necessity for a slave boy,
 you're going to get one before our next visit together!
 In the meantime, you can use your bare hand.
-.pause
+.pause Yes, Miss
 .set 676                ' Get a paddle
 .range 7128
 
@@ -12797,12 +12815,24 @@ Now take your "paddle" and carefully listen to my instructions.
 
 [Action 7320]
 Well, does my naughty anal slut like his enema?
-.pause
+.pause Not really, Miss
 .must 7201              ' Successfully finished activity
 .range 7330 7334
 
-'[Action 7321]
-'[Action 7322]
+[Action 7321]
+Well, how does my dear anal slut feel about his enema?
+.pause Please Miss, I can barely hold it
+.must 7201              ' Successfully finished activity
+.range 7330 7334
+
+[Action 7322]
+Do you like holding your enema, slave?
+Would you like to relieve yourself?
+Tell me!
+.pause Please Miss, I can barely hold it
+.must 7201              ' Successfully finished activity
+.range 7330 7334
+
 '[Action 7323]
 
 ' Activity cancelled?
@@ -12811,18 +12841,33 @@ Well, does my naughty anal slut actually
 feel the urge to visit the toilet so soon?
 .must 7200              ' Stop-button in activity pressed
 .yesno 7360 7362 7330 7334
+.yestext Yes Miss, please let me go
+.notext I can just manage to hold it, Miss 
 
 
-' Time left, with help utilities
+' Time left, with help utilities (crotch rope plus towel)
+' todo is is duplicated, but we can comment towel or enema bulb
 
 [Action 7325]
 Well, does my naughty anal slut like his enema?
-.pause
+.pause Not really, Miss
 .must 7201              ' Successfully finished activity
 .range 7330 7334
 
-'[Action 7326]
-'[Action 7327]
+[Action 7326]
+Well, how does my dear anal slut feel about his enema?
+.pause Please Miss, I can barely hold it
+.must 7201              ' Successfully finished activity
+.range 7330 7334
+
+[Action 7327]
+Well slave, Do you like holding your enema?
+Would you like to relieve yourself?
+Tell me!
+.pause Please Miss, I can barely hold it
+.must 7201              ' Successfully finished activity
+.range 7330 7334
+
 '[Action 7328]
 
 ' Activity cancelled?
@@ -12831,6 +12876,8 @@ Well, does my naughty anal slut actually
 feel the urge to visit the toilet so soon?
 .must 7200              ' Stop-button in activity pressed
 .yesno 7360 7362 7330 7334
+.yestext Yes Miss, please let me go
+.notext I can just manage to hold it, Miss 
 
 
 ' compliments when having to hold one more activity
@@ -12852,12 +12899,17 @@ I think you can hold it a little longer.
 How's your enema doing, can you still hold it, my dear?
 .must 7201              ' Successfully finished activity
 .yesno 7365 7369 7360 7362
+.yesext Yes,I can just manage to hold it, Miss 
+.notext No Miss, please let me go to the toilet
 
 [Action 7356]
 Slave, tell me:
+How does it feel to hold all that iquid inside?
 Do you like your enema?
 .must 7201              ' Successfully finished activity
 .yesno 7365 7369 7360 7362
+.yestext I can just manage to hold it, Miss 
+.notext No Miss, please let me relieve myself
 
 '[Action 7357]
 '[Action 7358]
@@ -12867,8 +12919,12 @@ Well, does my naughty anal slave actually
 feel the urge to visit the toilet so soon?
 .must 7200              ' Pressed stop-button in activity
 .yesno 7360 7362 7365 7372
+.yestext Yes Miss, please let me go
+.notext No, I can just manage to hold it, Miss 
 
 
+' deepen anal training handling 
+ 
 [Action 7360]
 Slave!
 This enema is intended as a preparation to deepen your anal traning.
@@ -12885,13 +12941,15 @@ you lazy anal slut.
 .must 257               ' Enema intensified training
 .range 7364
 
-' TODO Enable this but make sure it's not called twice
+' todo Enable this but make sure it's not called twice, in order to not hold the enema too long
 '[Action 7362]
-'Slave. This enema is intended as a preparation to deepen your anal
-'traning. It's uncomfortable because it's meant to be uncomfortable.
+'Slave!
+'This enema is intended as a preparation to deepen your anal traning.
+'It's uncomfortable because it's meant to be uncomfortable.
 'And to get used to it, you're going to hold it for another round.
+'delay 2
 '.must 257               ' Enema intensified training
-'.range 7379
+'.range 7399
 '
 
 ' Start intensifying training
@@ -12906,8 +12964,8 @@ amount of liquid you have currently inside your gut.
 
 ' Bluffing
 [Action 7364]
-I'll gracefully allow you to relieve yourself early this
-time, but you certainly need more training to become
+I'll gracefully allow you to relieve yourself early this time,
+but you certainly need more training to become
 comfortable with the current amount of liquid inside you.
 .unset 257              ' End intensified training - no more than two times in a row
 .range 7373 7379
@@ -12986,77 +13044,111 @@ Very well, my anal pet!
 
 ' Harness & towel
 [Action 7373]
-You may now go to the bath room,
-remove the rope harness and the towel,
-and relieve yourself.
-.pause
 .mustnot 21             ' Something in butt, enema doesn't count
 .must 36                ' Harnessed
 .must 267               ' Enema applied
+You may now go to the bath room,
+remove the rope harness and the towel,
+and relieve yourself.
+.delay 60 60 STOP 7395 7396
+.stoptext Thank you Miss
 .unset 36               ' Harnessed
 .range 7390
 
 ' Crotch rope & towel
 [Action 7375]
-You may now go to the bath room,
-remove the crotch rope and the towel,
-and relieve yourself.
-.pause
 .mustnot 21             ' Something in butt, enema doesn't count
 .must 27                ' Something around waist
 .must 267               ' Enema applied
+You may now go to the bath room,
+remove the crotch rope and the towel,
+and relieve yourself.
+.delay 60 60 STOP 7395 7396
+.stoptext Thank you Miss
 .unset 27               ' Something around waist
 .range 7390
 
 ' Crotch rope & dildo
 [Action 7376]
-You may now go to the bath room,
-remove the crotch rope and the dildo,
-and relieve yourself.
-.pause
 .must 21                ' Something in butt, enema doesn't count
 .must 27                ' Something around waist
 .must 41                ' Dildo in ass
 .must 267               ' Enema applied
+You may now go to the bath room,
+remove the crotch rope and the dildo,
+and relieve yourself.
+.delay 60 60 STOP 7395 7396
+.stoptext Thank you Miss
 .unset 21 27 41         ' Something in butt, something around waist, dildo
 .range 7390
 
 ' Harness & dildo
 [Action 7377]
-You may now go to the bath room,
-remove the rope harness and the dildo,
-and relieve yourself.
-.pause
 .must 21                ' Something in butt, enema doesn't count
 .must 36                ' Harnessed
 .must 41                ' Dildo in ass
 .must 267               ' Enema applied
+You may now go to the bath room,
+remove the rope harness and the dildo,
+and relieve yourself.
+.delay 60 60 STOP 7395 7396
+.stoptext Thank you Miss
 .unset 21 36 41         ' Something in butt, harnessed, dildo
 .range 7390
 
 ' nozzle with inflatable cuff
 [Action 7378]
-You may now go to the bath room, deflate and
-remove the enema nozzle, and relieve yourself.
-.pause
 .must 21                ' Something in butt, nozzle with inflatable cuff
 .mustnot 41             ' Dildo in ass
 .must 267               ' Enema applied
+You may now go to the bath room, deflate and
+remove the enema nozzle, and relieve yourself.
+.delay 60 60 STOP 7395 7396
+.stoptext Thank you Miss
 .unset 21               ' Something in butt
 .set 786 787 788        ' Advance to enema quantity 1.5l
 .range 7390
 
 ' No help
 [Action 7379]
-You may now go to the bath room and relieve yourself.
-.pause
 .mustnot 21             ' Something in butt, enema doesn't count
 .mustnot 27 36          ' Neither crotch rope nor harness
 .must 267               ' Enema applied
+You may now go to the bath room and relieve yourself.
+.delay 60 60 STOP 7395 7396
+.stoptext Thank you Miss
 .range 7390
 
 
+' Awaiting the slave back from voiding the enema   
+
 [Action 7390]
+Tell me when you've finished, my pet.
+.pause I'm back, Miss 
+.range 7398
+
+[Action 7395]
+.mustnot 21             ' Something in butt, enema doesn't count
+Don't start celebrating just yet, slave.
+And now go, before you make a mess on the floor!
+delay 60
+[]
+Tell me when you've finished, my pet.
+.pause I'm back, Miss 
+.range 7398
+
+[Action 7396]
+.must 21                ' Something in butt, enema doesn't count, enema bulb
+Don't start celebrating just yet, slave.
+And now go!
+delay 60
+[]
+Tell me when you've finished, my pet.
+.pause I'm back, Miss 
+.range 7398
+
+
+[Action 7398]
 .unset 267              ' Carry out enema
 .set 268                ' Enema aftermath
 .range 7399
@@ -13069,7 +13161,7 @@ You may now go to the bath room and relieve yourself.
 ' Enema aftermath: Go again on the toilet, then issue butt plug assignment
 
 [Action 7400]
-.range 7401 7402
+.range 7401 7403
 
 ' No enema or still holding it
 [Action 7401]
@@ -13077,7 +13169,7 @@ You may now go to the bath room and relieve yourself.
 .mustnot 269              ' completed voiding the enema, ready for plug
 .range 7479               ' Continue
 
-' Voiding stage, query if stage has to got to the toilet to void one more time
+' Voiding stage, query if slave has to go to the toilet to void one more time
 [Action 7402]
 .must 268                 ' enema aftermath
 .range 7410 7414          ' Enema aftermath
@@ -13091,21 +13183,31 @@ You may now go to the bath room and relieve yourself.
 ' Any more visits to the toilet?
 
 [Action 7410]
-Well, does my naughty anal slut need to visit the toilet again?
-.pause
 .must 7201              ' Successfully finished activity
+Well, does my naughty anal slut need to visit the toilet again?
 .yesno 7420 7424 7440 7444
+.yestext Yes please, that would be good, Miss
+.notext No Miss, I think I have it all voided
 
-'[Action 7411]
+[Action 7411]
+.must 7201              ' Successfully finished activity
+Well, slave, are your bowels completly empty?
+Or does my naughty anal slut need to visit the toilet again?
+.yesno 7420 7424 7440 7444
+.yestext Yes please, that would be good, Miss
+.notext No Miss, I think I have it all voided
+
 '[Action 7412]
 '[Action 7413]
 
-' Activity cancelled
 [Action 7414]
+.must 7200              ' Pressed stop-button in activity
 Well, does my naughty anal slut actually feel
 the urge to visit the toilet again so soon?
-.must 7200              ' Pressed stop-button in activity
 .yesno 7420 7424 7440 7444
+.yestext Yes please, that would be good, Miss
+.notext No Miss, I think I have it all voided
+
 
 ' Yes, slave needs to void another time
 [Action 7420]
@@ -13120,8 +13222,9 @@ and it takes some time to get it all out.
 '[Action 7424]
 
 [Action 7430]
-Hurry up, slave, and come back when you feel fully relieved.
-.pause
+Hurry up, and just come back when you feel fully relieved.
+delay 60
+.pause I'm back, Miss
 .range 7439 
 
 '[Action 7431]
@@ -13155,10 +13258,9 @@ It seems that you've voided the enema completely.
 .range 7451 7453
 
 
-' In PCM, we can't check the time of the day,
-' so just assume this is played in the evening or at night
+' todo check the time of the day, so we don't have to assume this is played in the evening or at night
 
-' Have neither butt plug not dildo -> no assignments, finished
+' Have neither butt plug nor dildo -> no assignments, finished
 [Action 7451]
 .mustnot 350 388        ' Butt plug, dildo
 .range 7479
@@ -13184,59 +13286,75 @@ It seems that you've voided the enema completely.
 .range 7600               ' Judgement, hardness, toys-off
 
 
-' Wear bells til the end of the session
+' Jingle balls: Wear bells til the end of the session
 
 [Action 7480]
-Get some chains, loop it a around the base of your flacid penis, and lock it up.
+.must 334               ' some chains
+Plus a little reminder right now.
+delay 2
+Get a chain, loop it a around the base of your flacid penis, and lock it up.
 Be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
-.pause
-.must 334               ' some chains
+.pause My cock is collared, Miss
 .Range 7482
 
 [Action 7481]
+.mustnot 334            ' some chains
+Plus a little reminder right now.
+delay 2
 Get some rope or shoelace, and tie it around the base of your flacid penis.
 Be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
-.pause
-.mustnot 334            ' some chains
+.pause My cock is collared, Miss
 .Range 7482
 
 [Action 7482]
-Next you'll need a bell or something else that can be used to resemble the chiming of bells.
+You'll also need a bell or anything else that can be used to resemble one.
 Use some loose chains, a bunch of keys or something similar.
 The more the better.
-Five items are satisfying.
-Three if you can produce an actual bell.
-.pause
+Five items are satisfying,
+three if you can produce an actual bell.
+Go slave, fetch them!
+delay 15
+.yesno 7484 7484 7484 7484
+.yestext Look Miss, I've got a bell!
+.notext I have found some items, Miss
 .Range 7484
 
 [Action 7484]
-Now connect all those chiming items to your cock "collar".
-.pause
+Now connect all those jingling items to your cock-"collar".
+.pause Done, Miss
 .Range 7485
 
 [Action 7485]
 Well, isn't that nice, slave?
-Now wank for me, I'd like to hear those bells jingle.
+And now wank for me, I'd like to hear those bells jingle.
+delay 10
+I want to hear you wanking your member stiff for me, slave!
 .delay 30
 .playwav 30m.wav
 .Range 7486
 
 [Action 7486]
 Louder slave!
-Let those bells jingle.
+delay 10
+Let those bells jingle!
+delay 10
+I said "Louder slave"!
+Come on!
 .delay 30
 .playwav 30f.wav
 .Range 7487
 
 [Action 7487]
-Well, I think that's good enough.
+Well slave, that's good enough.
+delay 2
 .Range 7488
 
 [Action 7488]
 Now let your bells jingle over the course of the session in a regular manner,
-or I will punish you a more humiliating and painful reminder.
+and keep your member stiff at all times.
+delay 2
 .unset 706              ' entitled for lighter punishment
 .range 7549             ' Continue the session
 
@@ -13298,6 +13416,8 @@ Now, My dear slut, tell Me the truth...
 Remember, My slave, you should never lie to me.
 Are you sure you haven't been playing with yourself at all?
 .yesno 7504 7504 7516 7516
+.yestext Yes, Miss, I'm sure
+.notext Well Miss, maybe I have
 
 [Action 7504]
 Well, My little slave, that's not acceptable.
@@ -13329,66 +13449,66 @@ A soft and small boy penis can do none of those things,
 so you keep playing with that meat even if it's raw and sore.
 I'll mark you down for a little extra reminder later on as well.
 Keep a hand on that silly prick from now on!
-.pause
+.pause Yes, Miss
 .set 511                     ' not being hard punishment 1
 .unset 709 710
 .range 7549                  ' Continue the session
 
 
 [Action 7509]
+.mustnot 708
 Is that so, you smutty slave?
 I know I've told you before to keep that member stiff!
 It's a very sorry slave who can't even play with himself, I must say.
 It looks like I'll have to give you a little extra punishment later on.
-.pause
-.mustnot 708
+.pause Please forgive me, Miss
 .set 512                          ' not being hard punishment 2
 .unset 111 707 708 709 710        ' reset all lectures
 .range 7480 7481
 
 [Action 7510]
+.must 708
 That's very curious, dog, because I seem to remember telling you to
 keep your hand on that prick at all times.
 You must be extremely stupid even for a boy-slave if you can't even masturbate correctly!
 A couple of punishment sessions should fix the problem, I hope.
-.pause
-.must 708
+.pause I'm so sorry, Miss
 .set 511 512                      ' not being hard punishment 1&2
 .unset 111 707 708 709 710        ' reset lectures
 .range 7480 7481
 
 [Action 7511]
+.must 103
 You dare insult Me with that wretched flaccid thing?
 You've been an extremely disobedient slave, indeed!
 Don't worry, I'll soon give you something to remember,
 and you can look forward to another series of harsh training sessions that will
 hopefully make you regret your foolishness, you worthless cunt.
-.pause
-.must 103
+.pause I'm so sorry, Miss
 .set 501                          ' impatience punishment
 .set 511 512                      ' both not hard punishments
 .unset 111 707 708 709 710        ' reset lectures
 .range 7480 7481
 
 [Action 7512]
+.must 709
+.mustnot 710
 Is that so, you smutty slave?
 I know I've told you before to keep that member stiff!
 It's a very sorry slave who can't even play with himself, I must say.
 It looks like I'll have to give you a little extra punishment later on.
-.pause
-.must 709
-.mustnot 710
+.pause Please forgive me, Miss
 .set 512                          ' not being hard punishment 2
 .unset 111 707 708 709 710        ' reset all lectures
 .range 7480 7481
 
 [Action 7513]
+.must 710
 That's very curious, dog, because I seem to remember telling you to
 keep your hand on that prick at all times.
 You must be extremely stupid even for a boy-slave if you can't even masturbate correctly!
 A couple of punishment sessions should fix the problem, I hope.
-.pause
-.must 710
+.pause Please forgive me, Miss
 .set 511 512                      ' not being hard punishment 1&2
 .unset 111 707 708 709 710        ' reset lectures
 .range 7480 7481
@@ -13399,10 +13519,10 @@ My little slave: How can one not sure about that!
 If there's one thing I can't stand, it's a foul-mannered slave who has
 the gall to insult his Mistress by lying right to Her face.
 I've got plenty of extra torture in store for you, my poor little cocktoy.
+.pause Please forgive me, Miss
 .set 103
 .set 504 506 512                  ' general disobeyience, lying, not being hard
 .unset 111 707 708 709 710        ' reset lectures
-.pause
 .range 7480 7481
 
 
@@ -13444,7 +13564,7 @@ There you are, bare naked and endlessly playing with yourself,
 but never to cum without permission.
 Mistresses get to cum whenever they like,
 but naughty slaveboys like you must hold it in all the time.
-.pause
+.pause Of course, Miss
 .range 7524
 
 [Action 7524]
@@ -13534,7 +13654,7 @@ But obviously you had the guts to let me wait
 for that answer a far too long time.
 You can expect a little reminder
 for your disrespectful behaviour next time, cunt.
-.pause
+.pause I'm sorry, Miss, please forgive me
 .set 509                     ' p.o. for wasting mistress time
 .range 7549                  ' Continue the session
 
@@ -13544,17 +13664,23 @@ for your disrespectful behaviour next time, cunt.
 [Action 7540]
 Are you keeping yourself nice and hard for your Mistress?
 .yesno 7528 7533 7503 7503
+.yestext Of course, Miss, all the time
+.notext I'm sorry Miss, but I havent't
 
 [Action 7541]
 Are you keeping that little penis hard and stiff for your Mistress?
 .unset 7541
 .yesno 7545 7548 7509 7513
+.yestext Of course, Miss, all the time
+.notext I'm sorry  Miss, but I haven't
 
 [Action 7542]
 Are you following my orders to play with that slave-penis
 at all times to keep it hard and erect?
 .unset 7542
 .yesno 7545 7548 7509 7513
+.yestext Of course, Miss, all the time
+.notext I'm sorry Miss, but I haven't
 
 
 ' Having waited too long before pressing the "yes"-button
@@ -13572,28 +13698,30 @@ Well, was your slave penis properly hard and stiff when I asked?
 .mustnot 103
 .set 103                     ' mistress impatient after waiting so long for this easy question
 .yesno 7539 7539 7516 7516
+.yestext Yes, Miss, my slave penis was hard when you asked
+.notext I'm sorry Miss, but it wasn't
 
 [Action 7546]
+.mustnot 103 
+.mustnot 509
 If there's one thing I can't stand it's a sluggish slave boy
 who doesn't answer his Mistress question promptly.
  You'll deserve a punishment for this next time, slave.
  Hopefully this will be enough to remind you to answer my questions promptly next time, for pity's sake.
-.pause
+.pause I'm sorry, Miss
 .timefrom 55 00:00"15
-.mustnot 103 
-.mustnot 509
 .set 103                     ' mistress impatient after waiting so long for this easy question
 .set 509                     ' p.o. for wasting mistress time
 .range 7538
 
 [Action 7547]
+.must 103
 Little cunt!
 I've had enough of your time-wasting behaviour.
 You can expect a lession you'll remember for long next time.
 Hopefully this will help you to answer my questions promptly.
-.pause
+.pause I'm so sorry, Miss
 .timefrom 55 00:00"15
-.must 103
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 509                     ' p.o. for wasting mistress time
 .range 7549                  ' Continue the session
@@ -13627,7 +13755,7 @@ Hopefully this will help you to answer my questions promptly.
 
 [Action 7552]
 Oh, by the way, you may take the butt plug out now, sweetheart.
-.pause
+.pause Thank you, Miss
 .must 220
 .mustnot 36             ' harnessed
 .unset 220
@@ -13654,7 +13782,7 @@ Oh, by the way, that butt plug stays in, sweetheart.
 
 [Action 7556]
 Oh, before I forget, you may take off your ball harness, sweetheart.
-.pause
+.pause Thank you, Miss
 .must 219               ' ball harness temporary
 .unset 24 37            ' something on penis, something on balls, ball harness
 .unset 219              ' ball harness temporary
@@ -13696,7 +13824,7 @@ Just in case, your ball harness stay on, sweetheart.
 
 [Action 7571]
 Oh, before I forget, you may take off your humbler, sweetheart.
-.pause
+.pause Thank you, Miss
 .must 217               ' humbler temporary
 .unset 24               ' something on balls
 .unset 217              ' humbler temporary
@@ -13706,7 +13834,6 @@ Oh, before I forget, you may take off your humbler, sweetheart.
 
 [Action 7572]
 Just in case, those balls stays trapped between those bars, sweetheart.
-No getting up for you now.
 .must 217 746           ' Continue to wear humbler at cbt level 1
 .mustnot 255            ' ensure this is only called once
 .set 255                ' set one-time per session now so that relase after the next activity is ensured
@@ -13741,7 +13868,7 @@ No getting up for you now.
 
 [Action 7586]
 Oh, before I forget, you may untie your cock bondage, sweetheart.
-.pause
+.pause Thank you, Miss
 .must 214               ' cock bondage temporary
 .unset 23 24 30         ' something on penis, something on balls, can't jerk off
 .unset 214              ' Cock bondage temporary
@@ -13771,7 +13898,7 @@ Just in case, your cock and balls stay tied up, sweetheart.
 
 [Action 7596]
 Oh, before I forget, you may take the gag out now, sweetheart.
-.pause
+.pause Thank you, Miss
 .must 221               ' Gag temporary
 .unset 22               ' something in mouth
 .unset 221              ' Gag temporary
@@ -14492,7 +14619,7 @@ Won't that be nice?
 [Action 7726]
 You've been a very good slave.
 Wouldn't it be nice to remove your cage and cum for your Mistress tonight?
-.pause
+.pause Yes Miss, that would be very nice
 .must 44                ' Chastified
 .unset 103
 .range 9700 9719
@@ -14672,6 +14799,7 @@ Quickly!
 Okay, slave, hands off your hot wet cock.
 I seem to remember that you're scheduled to miss your next cumming opportunity, and this is it.
 Next time, if you're a good boy, maybe you can finally get some release!
+delay 5
 .must 691
 .unset 691
 .set 250
@@ -14683,6 +14811,7 @@ Well, slave, as we agreed you're scheduled
 to miss your next two reward opportunities,
 and this is one of them.
 No release for you today!
+delay 5
 .must 692
 .unset 692
 .set 691
@@ -14693,6 +14822,7 @@ No release for you today!
 Sorry to rain on your parade, slave,
 but as you know you're scheduled to miss your next three cums,
 and this is one of them. 
+delay 5
 .must 693
 .unset 693
 .set 692
@@ -14702,7 +14832,9 @@ and this is one of them.
 [Action 8024]
 I hope you didn't get too worked up, slave,
 because you're scheduled to miss your next four cumming opportunities.
+delay 2
 It's three now.
+delay 5
 .must 694
 .unset 694
 .set 693
@@ -14713,7 +14845,9 @@ It's three now.
 Hands off your cock, now, slave.
 You're not to cum the next five times,
 and this is one of them.
+delay 2
 Four more to go!
+delay 5
 .must 695
 .unset 695
 .set 694
@@ -14724,6 +14858,7 @@ Four more to go!
 Stop touching yourself now, slave.
 There won't be any release for you today,
 since you're scheduled for six missed cums - well, five, now.
+delay 5
 .must 696
 .unset 696
 .set 695
@@ -14733,6 +14868,7 @@ since you're scheduled for six missed cums - well, five, now.
 [Action 8027]
 Oh, slave, you're not scheduled to cum for seven solid opportunities, 
 so there won't be any release for that hot slave cum today.
+delay 5
 .must 697
 .unset 697
 .set 696
@@ -14747,7 +14883,7 @@ Unfortunately for you, slave, part of your punishment is that
 you lost the privilege to cum one time.
 So instead of cumming, you have to pay off the punishment.
 Isn't that terrible, slave?
-.pause
+.pause Yes Miss, it is
 .must 698
 .unset 698
 .range 9000
@@ -14758,7 +14894,7 @@ Unfortunately for you, part of your punishment
 is that you lost the privilege to cum one time.
 So instead of cumming, you have to pay  off the punishment.
 Isn't that terrible, slave?
-.pause
+.pause Yes Miss, it is
 .must 698
 .unset 698
 .range 9000
@@ -14821,7 +14957,7 @@ you're going take your hands off your hot cock immediately
 and are to press the "STOP" button at once,
 whether you came or not.
 Understood, slave?
-.pause
+.pause Understood, Miss
 .range 8100 8119
 
 
@@ -15152,7 +15288,7 @@ Get your paddle ready, slave, and put on your blindfold.
 [Action 8140]
 You need it so badly, slave, don't you?
 Remove that cage and get your member stiff!
-.pause
+.pause I'm wanking my cock stiff, miss
 .must 44                          ' chastified
 .must 45                          ' Have key for chastity cage
 .unset 23 30 44                   ' something on penis, can't jerk off, chastified
@@ -15163,7 +15299,7 @@ Let's see how safe your chastity cage really is.
 You're going to keep your slave penis locked up and will wank your cage, slut.
 .must 44                          ' chastified
 .mustnot 115                      ' Don't test anymore after all suggestions have been made
-.mustnot 116                      ' Not until safety measures are implemented
+.mustnot 119                      ' Not until safety measures are implemented
 .must 380                         ' chastity device
 .range 8090                       ' choose how to cum range again
 
@@ -15173,7 +15309,7 @@ Well slave, this would be your scheduled cumming opportunity,
 but without having the key, I recommend crawling to your
 key holder to beg for an release.
 Good luck with that!
-.pause
+.pause Thank you, Miss
 .must 44                               ' chastified
 .mustnot 45                            ' Must have key
 .range 9000
@@ -15215,14 +15351,19 @@ Keep yourself fully aroused, slave, and wait for my command...
 
 ' Cum!
 
+' todo Distinguish between stop (in cage) and cum (with or without cage)
+' todo avoid wanking in cage with uthera pipe (113 114 115 116)
+ 
 [Action 8190]
-.break 8191 8207 STOP 9639  ' cum slut end
+.break 8191 8207 CUM 9639  ' cum slut end
+.cumtext I came, Miss
 .range 8191 8207
 
 
 ' Bail out after a while when slave can't cum in cage
 [Action 8191]
 .must 44                ' Chastified
+.poss 100
 .numactionsfrom 8190 20 ' 20 * 15 seconds = 5 minutes
 .range 8240
 
@@ -15255,8 +15396,9 @@ Tease those nipples and wank that cage, slave!
 .numactionsfrom 8190 4  ' 1 minute
 .range 8191 8207
 
+
 [Action 8200]
-You may take off your blindfold now.
+You may take your blindfold off now.
 .delay 45 90
 .must 29
 .mustnot 44             ' Chastified
@@ -15270,7 +15412,6 @@ Tell me when you've finished, My pet.
 .unset 8201
 .range 8191 8207
 
-'[Action 8201]
 '[Action 8202]
 '[Action 8203]
 '[Action 8204]
@@ -15283,28 +15424,25 @@ Tell me when you've finished, My pet.
 
 ' Putting hands behind head can also be done with wrist restraints, but not with chains
 [Action 8208]
+.must 26                                         ' Wrists tied
+.mustnot 691 692 693 694 695 696 697 698 699
 Stop it, slave!
 Hands off your hot cock!
 'and press the "STOP" button at once.
 .delay 15 20 STOP 8213                     ' Ask whether slave came although to late
-.must 26                                         ' Wrists tied
-.mustnot 691 692 693 694 695 696 697 698 699
+.stoptext Ready, Miss
 .range 8210 8212
 '.txt Press the "STOP" button at once.
-.stoptext Done, Miss
 
 [Action 8209]
-Stop it, slave!
-Hands off your hot cock, behind your head!
-'Stop it, slave! Hands off your hot cock!
-'Press the "STOP" button at once,
-'and put your hands behind your head.
-.delay 15 20 STOP 8213                     ' Ask whether slave came although to late
 .mustnot 26                                      ' Wrists tied
 .mustnot 691 692 693 694 695 696 697 698 699
+Stop it, slave!
+Hands behind your head!
+.delay 15 20 STOP 8213                     ' Ask whether slave came although to late
+.stoptext Ready, Miss
 .range 8210 8212
 '.txt Press the "STOP" button at once.
-.stoptext Done, Miss
 
 
 ' Too late: schedule for disobedience punishment
@@ -15327,6 +15465,7 @@ You can expect some punishment for your negligence next time.
 
 
 ' Ask whether slave came although too late
+
 [Action 8213]
 Well, that was close, wasn't it, slave?
 .range 8214
@@ -15334,6 +15473,8 @@ Well, that was close, wasn't it, slave?
 [Action 8214]
 Did you cum at least, my pet?
 .yesno 8215 8215 8217 8217
+.yestext Yes Miss, I did
+.notext Sadly not, Miss 
 
 
 ' Slave was too late but spurted off nevertheless
@@ -15347,7 +15488,8 @@ But you didn't!
 
 [Action 8216]
 I guess I'll let you off the hook today,
-but we're going to talk about this next time.
+but I'll mark you down for some punishment next time.
+delay 2
 .set 525                ' interrogate next time, P.O. for cumming after denial
 .range 9000	            ' this jumps to the good ending, just to make the slave feel safe 
 
@@ -15379,6 +15521,8 @@ But I'm proud you showed some self control.
 [Action 8221]
 Well my dear pet, did you actually cum?
 .yesno 8222 8224 8227 8227
+.yestext Yes Miss, I did
+.notext Sadly not, Miss 
 
 
 ' slave came in time
@@ -15400,7 +15544,8 @@ I'm so sorry for you.
 .range 8228
 
 [Action 8228]
-However if you did't manage to spurt it off,
+Well, not really actually.
+If you did't manage to spurt off in time,
 you probably didn't needed it so bad anyway.
 .range 8229
 
@@ -15417,15 +15562,19 @@ I might let you cum next time.
 Well, that's enough, slave.
 Did you cum?
 .yesno 8241 8242 8243 8244 
+.yestext Yes Miss, I did
+.notext Sadly not, Miss 
 
 
 ' Slave was able to cum in cage
 [action 8241]
 Wow you did!
-Son of a bitch.
+Son of a bitch!
 .range 9639             ' cum slut end, forwards to comment cumming in cage
 
-'[action 8241]
+[action 8242]
+Did you, son of a bitch!
+.range 9639             ' cum slut end, forwards to comment cumming in cage
 
 
 ' Didn't cum
@@ -15456,7 +15605,7 @@ Hihi.
 .range 9000
 
 
-' Cum comments standard entry/dispatch:
+' Cum comments standard entry/dispatch (from plain cumming or cum-eating)
 
 [action 8980]
 .range 8981 8982
@@ -15490,6 +15639,7 @@ But I doubt I can leave you alone in a cage you managed to cum in.
 
 [action 8990]
 Come stand before me and let me take a look at it.
+delay 10
 .range 8991
 
 [action 8991]
@@ -15498,16 +15648,17 @@ Hmm.
 .range 8995 8998
 
 
+' non-repeatable assignments to improve chastity cage
+
 ' smaller A-Ring, shorter tube
 [action 8995]
 Well, I think in order to prevent unauthorized orgasms,
 your silly slave penis has to fill out the tube more completly.
-I recommend using a tighter ring around the base and
-putting another tight a ring around the tip.
+I recommend using a tighter ring around the base.
 Sort it out until next time.
-.pause
-.mustnot 113 114 115
-.set 116
+.pause Yes Miss, I'll sort it out
+.mustnot 113 114 115 116
+.set 119
 .range 9000
 
 ' smaller A-Ring, shorter tube
@@ -15515,36 +15666,38 @@ Sort it out until next time.
 Well, I think in order to prevent unauthorized orgasms, your chastity cage needs a shorter tube.
 This will keep your silly slave penis from being moved inside the tube, resulting in less arousal.
 Sort it out until next time.
-.pause
+.pause Yes Miss, I'll sort it out
 .must 113
-.mustnot 114 115
-.set 116
+.mustnot 114 115 116
+.set 119
 .range 9000
 
 ' spiked ring
 [action 8997]
 Well, I think in order to prevent unauthorized orgasms,
-we'll have to restrict your desire to arouse yourself.
-A spiked ring around the penis tip, the base of the shaft of your cock
+we must restrict the desire to arouse yourself.
+Some spikes on a ring around the penis tip, the base or the shaft of your cock
 will painfully remind you to the fact that arousal has to be avoided.
-Be sure to have that little accesory next time.
-.pause
+Be sure to have that little accessory applied next time.
+.pause Yes Miss, I'll sort it out
 .must 113 114
-.mustnot 115
-.set 116
+.mustnot 115 116
+.set 119
 .range 9000
 
-' Spiked ring around glans, urethra tube
+' urethra tube
+' todo find out correct wording
 [action 8998]
 Well, as it looks, my naughty little cock tease needs a lot more discipline than I thought
 to keep his hands from his encaged slave penis.
 To continue thrusting your chastity attempts,
-I see no other way for you but to wear an urethra tube attached to the inside of your cage.
-That may keep you and your nasty wanking habits in line.
+I see no other way for you but to install an intregated urethra tube in your cage.
+That will keep your nasty wanking habits in line and certaily prevent any arousal.
 Sort it out until next time, slave.
-.pause
+.pause Yes Miss, I'll sort it out
 .must 113 114 115
-.set 116
+.mustnot 116
+.set 119
 .range 9000
 
 ' When all suggestions have been made, the safety is never checked again,
@@ -15611,7 +15764,7 @@ Sort it out until next time, slave.
 [Action 9010]
 Slave, before we end the session,
 I want you to put on your nipple clamps.
-.pause
+.pause Ready, Miss
 .must 301               ' nipple clamps
 .mustnot 20             ' something on nipples
 .set 20 302	            ' clamps on nipples, remember for next session
@@ -15619,9 +15772,9 @@ I want you to put on your nipple clamps.
 .range 9019
 
 [Action 9011]
-Slave, before we end the session, I want you to
-snap a clothes peg on your nipples.
-.pause
+Slave, before we end the session,
+I want you to snap a clothes peg on your nipples.
+.pause Ready, Miss
 .must 310               ' clothes pegs
 .mustnot 20             ' something on nipples
 .set 20 303             ' pins on nipples, remember for next session
@@ -15629,9 +15782,9 @@ snap a clothes peg on your nipples.
 .range 9019
 
 [Action 9012]
-Slave, before we end the session, I want you to
-put four clothes pegs on your ball sack.
-.pause
+Slave, before we end the session,
+I want you to put four clothes pegs on your ball sack.
+.pause Ready, Miss
 .mustnot 686            ' Chastity belt rules apply
 .must 310               ' clothes pegs
 .mustnot 23 24          ' something on penis, something on ball sack
@@ -15641,7 +15794,7 @@ put four clothes pegs on your ball sack.
 
 [Action 9013]
 Slave, before we end the session, I want you to put on your humbler.
-.pause
+.pause Ready, Miss
 .mustnot 686            ' Chastity belt rules apply
 .must 384               ' humbler
 .mustnot 23 24          ' someting on penis, something on balls
@@ -15651,7 +15804,7 @@ Slave, before we end the session, I want you to put on your humbler.
 
 [Action 9014]
 Slave, before we end the session, I want you to put on your ball harness.
-.pause
+.pause Ready, Miss
 .mustnot 686            ' Chastity belt rules apply
 .must 385               ' ball harness
 .mustnot 23 24 37       ' something on penis, balls, ball harness
@@ -15662,7 +15815,7 @@ Slave, before we end the session, I want you to put on your ball harness.
 [Action 9015]
 Slave, before we end the session, I want you to put on
 your nipple clamps and attach a good weight to them.
-.pause
+.pause Ready, Miss
 .must 301 717           ' nipple clamps, nipple tolerance 2
 .mustnot 20             ' something on nipples
 .set 20 315	            ' clamps on nipples, remember clamps with weight for next session
@@ -15685,13 +15838,15 @@ your nipple clamps and attach a good weight to them.
 ' 9050-9053 questions about honesty within the session, different wording based on the alternative ending 
 
 [Action 9050]
+.poss 100                             ' !else
+.mustnot 302 303 304 305 306 315      ' primary toy for next session
 My pet, before we finish I want to know if you honestly
 followed all of My instructions in today's session.
 If you cheated in any way I'm giving you this chance to make good.
 Well, did you obey Me at all times in today's session?
 .yesno 9060 9064 9054 9054
-.poss 100                             ' !else
-.mustnot 302 303 304 305 306 315      ' primary toy for next session
+.yestext Yes Miss, I obeyed you all the time
+.notext Mostly, Miss, mostly
 
 ' different start of sentence to avoid two times "before we end/finish the session"
 [Action 9051]
@@ -15699,6 +15854,11 @@ My pet, I want to know if you honestly followed all of My instructions in today'
 If you cheated in any way I'm giving you this chance to make good.
 Well, did you obey Me at all times in today's session?
 .yesno 9060 9064 9054 9054
+.yestext Yes Miss, I obeyed you all the time
+.notext Mostly, Miss, mostly
+
+'[Action 9052]
+'[Action 9053]
 
 
 [Action 9054]
@@ -15737,10 +15897,12 @@ I'll be forced to punish you for this disobedience.
 
 [Action 9060]
 That's very good, slave, as I expected.
+delay 2
 .range 9900
 
 [Action 9061]
 You're a very good boy-slave.
+delay 2
 .range 9900
 
 '[Action 9062]
@@ -15754,7 +15916,7 @@ You're a very good boy-slave.
 You seem to like your mistress waiting, don't you, slave?
 Please remind me to teach you a little lesson on the topic
 of answering my questions promptly later on.   
-.pause
+.pause I'ms sorry, Miss
 .timefrom 55 00:00"15
 .mustnot 103                 ' Impatience
 .mustnot 509                 ' P.O. for wasting mistress time
@@ -15766,7 +15928,7 @@ I can't believe that it takes you so long to answer such a simple question.
 You'll deserve a couple of demerits for your sluggish attitude, slave.
 Hopefully that will be enough to remind you to answer my questions promptly,
 for pity's sake.
-.pause
+.pause I'm so sorry, Miss
 .timefrom 55 00:00"15
 .mustnot 501
 .must 509
@@ -15782,7 +15944,7 @@ It surely doesn't take so long to answer such a simple question
 and I've had enough of your lazy and sluggish attitude.
 You can come back in an hour or so when you're ready to pay attention to your Mistress!
 And for your own good, you'll better stay bare naked and locked up that hour.
-.pause
+.pause Sorry, Miss, I'm so sorry
 .timefrom 55 00:00"15
 .must 103                    ' Impatient
 .set 501                     ' mistress impatient after waiting so long for this easy question
@@ -15803,17 +15965,23 @@ It's a pleasure to see a slave and his chastity cage.
 Are you wearing it already?
 .settime 55                  ' Impatience trap
 .yesno 9196 9199 9215 9215
+.yestext Yes Miss, my slave penis is locked up
+.notext I'm sorry Miss, but I don't
 
 [Action 9201]
 What about your chastity cage, sweetie?
 Are you already wearing it?
 .settime 55
 .yesno 9196 9199 9215 9215
+.yestext Yes Miss, my slave penis is locked up
+.notext I'm sorry Miss, but I don't
 
 [Action 9202]
 Are you wearing your chastity cage right now?
 .settime 55
 .yesno 9196 9199 9215 9215
+.yestext Yes Miss, my slave penis is locked up
+.notext I'm sorry Miss, but I don't
 
 
 [Action 9203]
@@ -15872,11 +16040,15 @@ to your key holder and beg for a release after the session.
 [Action 9210]
 You surely want to be allowed to take that castity cage off, don't you, slave?
 .yesno 9230 9239 9205 9207
+.yestext Yes Miss, please let me take it off
+.notext Thanks Miss, I'm fine
 
 
 [Action 9211]
 Your swollen hot cock surely bursts inside that tight cage, doesn't it?
 .yesno 9240 9249 9208 9209
+.yestext Yes, please let me take it off, Miss
+.notext Thanks Miss, I'm fine
 .mustnot 103
 
 [Action 9212]
@@ -15896,13 +16068,13 @@ Maybe I'll allow you to wank for me a little later.
 .must 45                ' Have key for chastity cage 
 .range 9251             ' Chastified
 
-' TODO Punishments outstanding, can't query for any outstanding punishment
+' TODO Punishments outstanding, but can't query for any outstanding punishment
 [Action 9214]
 You surely want to be released from your chastity cage, don't you slave?
 But being released from the cage and allowed to wank is a privilege
 you have to earn through submission and discipline.
 We'll see later, whether you make up a good enough slave to be allowed to touch yourself.
-.pause
+.pause Thank you, Miss
 .poss 11
 .must 45                ' Have key for chastity cage 
 .mustnot 103
@@ -15914,6 +16086,8 @@ We'll see later, whether you make up a good enough slave to be allowed to touch 
 [Action 9215]
 Well slave, you surely remember my orders to approach me with your chastity cage, do you?
 .yesno 9216 9216 9217 9220
+.yestext Yes Miss, I do
+.notext I'm sorry Miss, but I don't
 
 
 ' Slave remembered orders, but ignored them
@@ -15948,8 +16122,9 @@ certain that your unthoughtfulness will be taken care of later.
 ' neutral
 [Action 9219]
 Well, to fully enjoy your cage, you can put it on now and spent the next hour locked up in it.
+delay 10
 And I hope for your own sake that you will still be wearing it when you come back to me.
-.pause
+.pause Of course, Miss
 .must 103               ' mistress impatient
 .set 49                 ' come back in an hour
 .settime 50
@@ -15961,8 +16136,9 @@ And I hope for your own sake that you will still be wearing it when you come bac
 When I hate something, it's a foul slave ignoring his mistress orders.
 Well my dear, you're going to make up for it:
 To fully enjoy your cage, you can put it on now and spend the next hour locked up.
+delay 10
 And I hope for your own sake that you will still be wearing it when you crawl back to me.
-.pause
+.pause Of course, Miss
 .must 103
 .set 508                ' inattentiveness punishment
 .set 516                ' excessive disobedience punishment
@@ -15987,14 +16163,14 @@ You can expect some punishment later on for this lapse.
 [Action 9224]
 You may put on your cage now, slave.
 But don't expect to be released again any time soon.
-.pause
+.pause Ready Miss, I'm locked up
 .range 9251             ' Chastified
 
 ' neutral
 [Action 9225]
 And now get your silly slave penis locked up in that cage
 immediately if you want to stay in my good graces. 
-.pause
+.pause Ready Miss, I'm locked up
 .range 9251             ' Chastified
 
 '[Action 9226]
@@ -16004,7 +16180,7 @@ immediately if you want to stay in my good graces.
 [Action 9228]
 And now get that silly slave penis into your chastity cage, slave.
 And prepare yourself for a though session to make up for your impudent ignorance.
-.pause
+.pause I'm locked up, Miss
 .range 9251             ' Chastified
 
 
@@ -16130,6 +16306,8 @@ Let'see if you can earn a release later on.
 [action 9255]
 Well, does my dear chastity slave actually have the key for his cage?
 .yesno 9260 9264 9270 9274 
+.yestext Yes, Miss, I have it
+.notext I'm sorry Miss, but I haven't
 
 '[action 9256]
 '[action 9257]
@@ -16179,10 +16357,14 @@ What a poor slut you are.
 But you surely want to be allowed to take
 the castity cage off, don't you, slave?
 .yesno 9290 9294 9205 9207
+.yestext Yes please Miss
+.notext Thanks Miss, but I'm fine
 
 [Action 9281]
 But your swollen hot cock surely bursts inside that tight cage, doesn't it?
 .yesno 9290 9294 9208 9209
+.yestext Yes Miss, I'm so horny
+.notext No Miss, it's flaccid
 
 '[Action 9282]
 '[Action 9283]
@@ -16202,7 +16384,7 @@ Unfortunately you don't have the key, my poor pet.
 Well, don't mind, slave.
 I'm going to work you up as high as possible, and after the session
 you can crawl to your key holder and beg for a release.
-.pause
+.pause Thank you, Miss
 .set 23 30 44           ' something on penis, can't jerk off, chastified
 .range 9251
 
@@ -16219,7 +16401,7 @@ I'm done with you, slave.
 It's clear to me that you're not interested in following orders and I've run out of patience.
 You can start your training over with some other Mistress, cunt.
 Goodbye.
-.pause
+.pause Please don't leave, Miss
 .resetrange 1 799
 .save 1 799
 .range 9501
@@ -16348,13 +16530,13 @@ You can be sure I will appreciate that in the future too.
 Whether I make you cum in your hands, your body or on the floor,
 you're going to eat it all up the way I order you to.
 Understood slave?
-.pause
+.pause Yes Miss, I'm eating it all up
 .range 9556
 
 [Action 9556]
-If you happen to have a carpet, I graciuously allow you to
-cum on a plate in order to enjoy the full taste of your cum.
-.pause
+If you happen to have a carpet, I graciuously allow you to cum on a plate.
+That way, you can enjoy the full taste of your cum.
+.pause Thank you, Miss
 .range 9557
 
 [Action 9557]
@@ -16362,7 +16544,7 @@ cum on a plate in order to enjoy the full taste of your cum.
 
 [Action 9559]
 Now for todays session, when you cum I want you to collect
-as much of your cum as you can with your hands.
+as much of your cum in your hands as you can.
 '.unset 9640
 .range 9629
 
@@ -16387,7 +16569,7 @@ Then, you will eat it all up, slut.
 
 [Action 9564]
 Did I made myself clear, slave?
-.pause
+.pause Yes Miss, I will collect all cum in my hands
 .range 9629
 
 
@@ -16413,7 +16595,7 @@ as well cum on a plate or similar.
 
 [Action 9574]
 Did I made myself clear, slave?
-.pause
+.pause Yes, I will lick up my cum from the floor, Miss
 .range 9629
 
 
@@ -16443,7 +16625,7 @@ on the floor or on your body, will you slave?
 [Action 9585]
 I want it all in your hands.
 Understood that, slave?
-.pause
+.pause Yes, I will collect my cum in my hands
 .range 9586
 
 [Action 9586]
@@ -16481,17 +16663,21 @@ It can be anything, it just has to fit in your mouth.
 .range 9594
 
 [Action 9594]
-Do you have it?
+Do you have something?
 .yesno 9596 9596 9595 9595
+.yestext Yes, Miss
+.notext I'm sorry, Miss
 
 [Action 9595]
 That's too bad slave.
 If you like to cum, you'll better have one next time.
-.range 9050	' no cumming
+delay 5
+.range 9050 9053        ' no cumming
 
 [Action 9596]
-When it's time, you will cum on it.
-And make sure you catch it all.
+Okay.
+When it's time, you will cum on your dildo.
+And make sure you'll spurt at much as you can on it.
 .range 9597
 
 [Action 9597]
@@ -16545,7 +16731,7 @@ And make sure you catch it all.
 [Action 9639]
 I hope that felt good.
 Isn't it fun to be a good slave boy?
-.pause
+.pause Yes Miss, it is
 .range 9640 9649
 
 
@@ -16582,7 +16768,7 @@ Isn't it fun to be a good slave boy?
 ' Plain cumming without cum-eating
 [Action 9649]
 .mustnot 9540 9541 9542 9543 9544 9545 9546 9547 9548 9549
-.range 8990
+.range 8980
 
 
 ' Lecture continued
@@ -16607,7 +16793,7 @@ Let's rub your hands off on your belly.
 .range 9655
 
 [Action 9655]
-Now put your fingers one after another in your mouth and lick them clean.
+Now put your fingers, one after another, in your mouth and lick them clean.
 .delay 20
 .range 9656 9658
 
@@ -16622,16 +16808,16 @@ Lick your fingers clean for me, my little cum slut.
 .range 9656 9658
 
 [Action 9658]
-If there are any cum drops fallen on the floor,
-I want you to kneel down and lick them up too.
 .must 9656 9657
-.pause
+If there have any cum drops fallen on the floor,
+I want you to kneel down and lick them up too.
+.pause I've licked it all up, Miss
 .range 9659
 
 [Action 9659]
 Well done, my little slave pet.
 .set 731
-.range 8990
+.range 8980
 
 
 [Action 9660]
@@ -16645,10 +16831,11 @@ Today we will train your cum-eating skills.
 
 [Action 9662]
 Distribute your cum equally in both hands.
+delay 5
 .range 9663
 
 [Action 9663]
-You will clean one hand after another.
+Lick your hands clean, one after another.
 While you clean up the first, the other stays full of cum.
 Let's start with your wanking hand.
 .range 9664 9665
@@ -16659,32 +16846,32 @@ Eat all that cum.
 .range 9664 9666
 
 [Action 9665]
-Put your fingers one after another in your mouth and lick them clean.
+Put your fingers in your mouth and lick them clean.
 .delay 30
 .range 9664 9666
 
 [Action 9666]
 Tell me when you're done with that hand, my pet.
-.pause
+.pause My hand is clean, Miss
 .must 9664 9665
 .range 9667
 
 [Action 9667]
 Now your other hand.
 Lick your fingers clean for me, my little cum slut.
-.delay 60
+.delay 30
 .range 9668
 
 [Action 9668]
 If there are any cum drops fallen on the floor,
 you might want to kneel down and lick them up too.
-.pause
+.pause I've licked it all up, Miss
 .range 9669
 
 [Action 9669]
 Well done, my little slave pet.
 .set 732
-.range 8990
+.range 8980
 
 
 
@@ -16700,39 +16887,48 @@ Now kneel before the mess you've made, face down to the floor.
 
 [Action 9672]
 Smell your cum and wait for my command.
+.delay 30
 .range 9673
 
 [Action 9673]
 Lick it all up, cum slut.
+delay 2
 Slowly and carefully.
+.delay 20
 .range 9674 9678
 
 [Action 9674]
-Every single drop.
+Every single drop!
+delay 5
+Enjoy the taste.
+.delay 20
 .range 9674 9678
 
 [Action 9675]
 Don't miss a stain.
+.delay 20
 .range 9674 9678
 
 [Action 9676]
 I want the floor clean as new.
+.delay 20
 .range 9674 9678
 
 [Action 9677]
 Salty, isn't it?
+.delay 20
 .range 9674 9678
 
 [Action 9678]
 Tell me when you're finished, cum-slut.
 .must 9674 9675 9676 9677
-.pause
+.pause I've licked it all up, Miss
 .range 9679
 
 [Action 9679]
 I hope you've enjoyed eating your own cum.
 .set 733
-.range 8990
+.range 8980
 
 
 [Action 9680]
@@ -16764,33 +16960,36 @@ Rub it all into your face, my litle cum-pet.
 .range 9685
 
 [Action 9685]
-You may lick your hands clean!
+Very good.
+delay 2
+Now start licking your hands clean!
+delay 2
 Put two fingers into your mouth at once and lick them clean.
 .delay 30
 .range 9686 9689
 
 [Action 9686]
 Swallow it all, slave.
-.delay 30
+.delay 20
 .range 9686 9689
 
 [Action 9687]
 Lick'em all clean.
-.delay 30
+.delay 20
 .range 9686 9689
 
 [Action 9688]
 You're doing well with all this cum, my slave-pet.
-.delay 30
+.delay 20
 .range 9686 9689
 
 [Action 9689]
 Okay, that's enough.
 You'll keep your cum on your face til the end of the session.
-.pause
+.pause Yes, Miss
 .must 9686 9687 9688
 .set 734
-.range 8990
+.range 8980
 
 
 [Action 9690]
@@ -16800,6 +16999,7 @@ I hope you have managed to collect all your cum on the dildo.
 
 [Action 9691]
 You're going to fuck your mouth, cum-slut.
+.delay 15
 .range 9692 9697
 
 [Action 9692]
@@ -16819,7 +17019,7 @@ Deppthroat your dildo, cum-slut.
 
 [Action 9695]
 Play with your tongue around the tip of that dildo, slave.
-.delay 20
+.delay 15
 .range 9692 9698
 
 [Action 9696]
@@ -16837,8 +17037,8 @@ I think that's enough for now.
 You may lick your hands and the floor clean.
 .must 9692 9693 9694 9695 9696 9697
 .set 735                ' cum slut 5
-.pause
-.range 8990
+.pause I've licked it all up, Miss
+.range 8980
 
 
 '   CUM CYCLE   -----------------------------------------------------------
@@ -16859,7 +17059,7 @@ Okay, slave.
 I seem to remember that you're scheduled to miss your next cumming opportunity,
 and this is it.
 Next time, if you're a good boy, maybe you can finally get some release!
-.pause
+.pause As you wish, Miss
 .must 44                ' Chastified
 .must 691
 .unset 691
@@ -16872,7 +17072,7 @@ Well, slave, as we agreed you're scheduled to
 miss your next two reward opportunities,
 and this is one of them.
 No release for you today!
-.pause
+.pause Yes, Miss, as you wish
 .must 44                ' Chastified
 .must 692
 .unset 692
@@ -16883,7 +17083,7 @@ No release for you today!
 [Action 9703]
 Sorry to rain on your parade, slave, but as you know you're 
 scheduled to miss your next three cums, and this is one of them. 
-.pause
+.pause As you wish, Miss
 .must 44                ' Chastified
 .must 693
 .unset 693
@@ -16895,7 +17095,7 @@ scheduled to miss your next three cums, and this is one of them.
 I hope you didn't need it so badly, slave,
 because you're scheduled to miss your next four cumming opportunities.
 It's three now.
-.pause
+.pause As you wish, Miss
 .must 44                ' Chastified
 .must 694
 .unset 694
@@ -16908,7 +17108,7 @@ Well, slave.
 You're not to cum the next five times,
 and this is one of them.
 Four more to go!
-.pause
+.pause As you wish, Miss
 .must 44                ' Chastified
 .must 695
 .unset 695
@@ -16920,7 +17120,7 @@ Four more to go!
 Sorry, slave.
 There won't be any release for you today,
 since you're scheduled for six missed cums - well, five, now.
-.pause
+.pause As you wish, Miss
 .must 44                ' Chastified
 .must 696
 .unset 696
@@ -16931,7 +17131,7 @@ since you're scheduled for six missed cums - well, five, now.
 [Action 9707]
 Oh, slave, you're not scheduled to cum for seven solid opportunities, 
 so there won't be any release for that hot slave cum today.
-.pause
+.pause As you wish, Miss
 .must 44                ' Chastified
 .must 697
 .unset 697
@@ -16944,7 +17144,7 @@ Unfortunately for you, slave, part of your punishment is
 that you lost the privilege to cum one time.
 So instead of cumming, you have to pay off the punishment.
 Isn't that terrible, slave?
-.pause
+.pause Yes, Miss, as you wish
 .must 44                ' Chastified
 .must 698
 .unset 698
@@ -16952,25 +17152,30 @@ Isn't that terrible, slave?
 
 [Action 9709]
 Unfortunately, you're not allowed to cum until further notice, My poor little slut.
-.pause
+.pause As you wish, Miss
 .must 44                ' Chastified
 .must 699
 .range 9000
 
 [Action 9711]
+.mustnot 209                           ' 5 merits already
 Of course, we could continue the session
 if you want to extend your training regimen.
 Would you like to do that?
 .yesno 9726 9726 9700 9719
-.mustnot 209                           ' 5 merits already
+.yestext Yes Miss, please
+.notext No Miss, I'd like to cum, please 
 
 [Action 9712]
-Of course, you don't have to cum if you don't want to.
-Are you sure you'd like to cum, sweetie?
 .must 45                               ' Have key for chastity cage
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot     699                       ' Not scheduled to cum as a punishment 
+Of course, you don't have to cum if you don't want to.
+Are you sure you'd like to cum, sweetie?
 .yesno 9700 9719 9724 9725
+.yesstext Yes, please let me cum, Miss
+.notext No, I want to stay chaste for your pleasure, Miss
+
 
 ' punishments for permission to cum
 
@@ -17007,14 +17212,16 @@ Are you sure you'd like to cum, sweetie?
 
 ' slave is already a cum-slut
 [Action 9717]
-You seem to have liked it the last time, slave.
-I'll let you cum, but you have to eat it up.
 .poss 10
 .must 45                               ' Have key for chastity cage
 .must 731                              ' Cumslut training 1                            
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
+You seem to have liked it the last time, slave.
+I'll let you cum, but you have to eat it up.
 .yesno 9540 9549 9729 9729
+.yestext Okay Miss, I'll eat up my cum
+.notext No thanks, Miss
 
 ' Regular cumming
 [Action 9718]
@@ -17034,6 +17241,8 @@ Because of your bad behavior in our session though, I can't just  let you cum.
 If I do, will you agree to eat it all up?
 .mustnot 22	                 ' something in mouth
 .yesno 9540 9545 9722 9722
+.yestext Okay Miss, I'll eat up my cum
+.notext No thanks, Miss
 
 ' Get punished for demerits
 [Action 9721]
@@ -17041,6 +17250,8 @@ Because of your bad behavior in our session, though, I can't just let you cum.
 If I do let you, will you agree to be punished for it next time we meet?
 I won't go easy on you - you'll have to earn this pleasure, slave.
 .yesno 9727 9729 9723 9723
+.yestext Okay Miss, please punish me
+.notext No thanks, Miss
 
 
 [Action 9722]
@@ -17051,7 +17262,8 @@ You won't get to cum, but you also won't have to eat it.
 
 
 [Action 9723]
-Certainly baby. You won't get to cum, but you also won't be punished for cumming.
+Certainly baby.
+You won't get to cum, but you also won't be punished for cumming.
 .set 726 727 728        ' Denial and self control 3
 .range 9000
 
@@ -17107,27 +17319,34 @@ We'll do another round.
 
 ' In PCM, we can't check the time of the day,
 ' so just assume this is played in the evening
+
 [Action 9741]
+.mustnot 257                 ' enema intensified training
+.mustnot 786 787 788 789     ' First time
 Well, My dear slave, you certainly won't mind to
 start your enema training next time, won't you?
 .yesno 9745 9748 9757 9759
-.mustnot 257                 ' enema intensified training
-.mustnot 786 787 788 789     ' First time
+.yestext Please Miss, do we really have to?
+.notext No Miss, I'm an anal slut
 
 ' Intensified training 
 [Action 9742]
+.mustnot 257                 ' enema intensified training
+.mustnot 786                 ' Another time
 Well, My dear slave, you certainly won't mind to
 continue your enema training next time, won't you?
 .yesno 9745 9748 9757 9759
-.mustnot 257                 ' enema intensified training
-.mustnot 786                 ' Another time
+.yestext Please Miss, do we really have to?
+.notext No Miss, I'm an anal slut
 
 ' Intensified training 
 [Action 9743]
+.must 257                    ' enema intensified training
 Well, My dear slave, you certainly won't mind to
 deepen your enema training next time, won't you?
 .yesno 9745 9748 9757 9759
-.must 257                    ' enema intensified training
+.yestext Please Miss, do we really have to?
+.notext No Miss, I'm an anal slut
 
 '[Action 9744]
 
@@ -17151,6 +17370,8 @@ Come again, slave?
 I don't think I heard you properly.
 I said, would you like to take an enema next time, cunt?
 .yesno 9750 9750 9749 9749
+.notext Yes Miss, I'm an anal slut
+.yestext No please, I don't like it, Miss
 .mustnot 103
 .mustnot 257                 ' enema intensified training
 .mustnot 504                 ' P.O. for general disobedience
@@ -17160,13 +17381,15 @@ Come again, slave?
 I don't think I heard you properly.
 I said, would you like to take another enema next time, cunt?
 .yesno 9750 9750 9749 9749
+.notext Yes Miss, I'm an anal slut
+.yestext No please, I don't like it, Miss
 .mustnot 103
 .must 257                    ' enema intensified training
 .mustnot 504                 ' P.O. for general disobedience
 
 
 [Action 9749]
-That's enough, slut.
+That's enough, slut!
 Get your nude ass over here and get ready for the rest of My instructions.
 .playwav whip.wav
 .range 9757 9759
@@ -17205,17 +17428,20 @@ Get your nude ass over here and get ready for the rest of My instructions.
 ' Camomile and olive oil appear safe too, so let's use them in the advanced levels
 
 [Action 9760]
-For our next session, I want you  to prepare a plain
+Very good, my anal slut.
+For our next session, I want you to prepare a plain
 hand warm water enema along with a good dash of salt.
 .range 9765 9774
 
 [Action 9761]
+Very good, my anal slut.
 For our next session, I want you to prepare a hand warm
 camomile enema along with a good dash of salt, slave.
 .must 788                    ' Have had enema before, 1.5l
 .range 9765 9774
 
 [Action 9762]
+Very good, my anal slut.
 For our next session, I want you to prepare a hand-warm water
 enema, along with a good dash of salt and one-tenth of olive oil.
 .must 790                    ' Have had enema before, 2.0l
@@ -17289,26 +17515,27 @@ two full litres, and no less, cunt.
 .range 9777 9779
 
 
-' TODO Afer receipe
+' TODO After receipe
+
 [Action 9777]
 Now Setting up the enema tubing, heating up the water,
 filling the enema bag and so on may take its time,
 and I don't like sitting around waiting.
 So I expect you to have it already prepared when you approach me next time.
-.pause
+.pause Of course, Miss
 .range 9780 9784
 
 [Action 9778]
 As usual you are going to take the enema right at the beginning of our next session,
 so make sure the liquid in your enema bag is just a little more than luke-warm when you approach me.   
-.pause
+.pause Of course, Miss
 .must 786
 .range 9780 9784
 
 [Action 9779]
 And make sure you'll have it all ready
 when you'll approach me next time.
-.pause
+.pause Of course, Miss
 .must 787
 .range 9780 9784
 
@@ -17346,8 +17573,8 @@ I'm sure we'll be having a good time.
 
 [Action 9786]
 Ah!
-Don't forget to prepare a towel and some rope.
-.pause
+Don't forget to bring a towel and some rope.
+.pause Yes, Miss
 .range 9799
 
 [Action 9787]
@@ -17371,7 +17598,7 @@ Don't forget to prepare a towel and some rope.
 
 ' Dildo assignments
 [Action 9802]
-It's time to move on with your anal training, slave.
+It's time to deepen your anal training, slave.
 .must 21                ' Something in butt
 .must 41                ' Dildo in ass
 .must 776               ' Dildo worshiping 1
@@ -17379,7 +17606,7 @@ It's time to move on with your anal training, slave.
 
 ' butt plug assignments
 [Action 9803]
-It's time to move on with your anal training, slave.
+It's time to deepen your anal training, slave.
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo in ass
 .range 9820 9829
@@ -17391,113 +17618,117 @@ It's time to move on with your anal training, slave.
 
 ' Sleeping with dildo
 [Action 9810]
+.mustnot 436       ' first time
 Since your bowels are now clean and empty, I see no excuse for
 not sleeping with that nice plug in your slave butt tonight.
+delay 2
 You 're going to keep it in until breakfast, slut.
-.pause
-.mustnot 436       ' first time
+.pause As you wish, Miss
 .set 636           ' sleeping with dildo assignment
 .range 9838
 
 ' Sleeping with dildo - again
 [Action 9811]
-You certainly remember sleeping with your dildo, don't you, slave?
-Tonight, you will do it again. Keep it inside until breakfast, slut.
-.pause
 .must 436          ' sleeping with dildo assignment already completed earlier
 .must 760          ' Anal training 5
+You certainly remember sleeping with your dildo, don't you, slave?
+Tonight, you will do it again.
+Keep it inside until breakfast, slut.
+.pause As you wish, Miss
 .set 636           ' sleeping with dildo assignment
 .range 9838
 
 ' dildo over day 
 [Action 9812]
-Since your bowels are now clean and empty, I see no excuse
-for not wearing that dildo for an entire day.
-You're going to keep it inside your anus for a solid 12 hours, slut.
-.pause
 .mustnot 422       ' first time
 .must 435          ' sleeping with buttplug assignment already completed earlier
+Since your bowels are now clean and empty,
+I see no excuse for not wearing that dildo for an entire day.
+You're going to keep it inside your anus for a solid twelve hours, slut.
+.pause As you wish, Miss
 .set 635           ' day with dildo assignment
 .range 9838
 
 ' dildo over day - again 
 [Action 9813]
+.must 435          ' day with dildo assignment already completed earlier
+.must 760          ' Anal training 5
 You certainly remember wearing your dildo for a whole day, don't you slave?
 Today, you will do it again.
 Keep that dildo inside your butt for a solid 12 hours, you dirty anal slut.
-.pause
-.must 435          ' day with dildo assignment already completed earlier
-.must 760          ' Anal training 5
-.set 635           ' day with buttplug assignment
+.pause As you wish, Miss
+.set 635           ' day with dildo assignment
 .range 9838
 
 ' Dildo to bed time
 [Action 9814]
-Tonight, my dear, you'll be wearing your dildo until bedtime. You may remove it
-only as the last activity before going to bed, after shutting down the computer,
+.mustnot 433  ' First time
+Tonight, my dear, you'll be wearing your dildo until bedtime.
+You may remove it only as the last activity before going to bed, after shutting down the computer,
 after brushing your teeth, after setting the table for breakfast, and only after
 finishing up any other chores you might have to take care of, you dirty anal slut.
-.mustnot 433  ' First time
-.pause
+.pause As you wish, Miss
+.set 633           ' dildo to bedtime assignment
 .range 9832
 
 ' Dildo to bed time - again
 [Action 9815]
+.must 433
+.must 760          ' Anal training 5
 You certainly remember wearing your dildo until bed time, don't you, slave?
 Well, tonight, my dear, you'll be doing it again. You may remove it only as
 the last activity before going to bed, after shutting down the computer,
 after brushing your teeth, after setting the table for breakfast, and only after
 finishing up any other chores you might have to take care of, you dirty anal slut.
-.pause
-.must 433
-.must 760          ' Anal training 5
+.pause As you wish, Miss
+.set 633           ' dildo to bedtime assignment
 .range 9832
 
-' Plugged 4 hours
+' Dildo 4 hours
 [Action 9816]
+.mustnot 431
 Today, my dear, you'll be wearing your dildo for solid four hours, starting from now.
 You're to wear the plug the whole time, and are not to remove it, you dirty anal slut.
 If you take it out for any reason, or you'll have to restart this assignment.
-.pause
-.mustnot 431
-.set 631
+.pause As you wish, Miss
+.set 631           ' dildo 4 hours assignment
 .range 9842 9848
 
 ' Plugged 4 hours again
 [Action 9817]
+.must 431
+.must 760          ' Anal training 5
 You certainly remember your recent four hour ride with the dildo,
 don't you, slave? Today, my dear, you'll be doing it again!
 You're to wear the plug the whole time, and are not to remove it,
 you dirty anal slut.
  If you do, you'll have to restart this assignment.
-.pause
-.must 431
-.must 760          ' Anal training 5
-.set 631
+.pause As you wish, Miss
+.set 631           ' dildo 4 hours assignment
 .range 9842 9848
 
 ' Plugged 8 hours
 [Action 9818]
+.must 431
+.mustnot 432
 Today, my dear, you'll be wearing your dildo for solid eight hours,
 starting from now.
 You're to wear the plug the whole time,
 you dirty anal slut.
-.pause
-.must 431
-.mustnot 432
-.set 632
+.pause As you wish, Miss
+.set 632           ' dildo 8 hours assignment
 .range 9833
 
 ' Plugged 8 hours again
 [Action 9819]
+.must 432
+.must 760          ' Anal training 5
 You certainly remember your recent eight hour ride with the dildo,
 don't you, slave?
 Today, my dear, you'll be doing it again!
 You're to wear the plug the whole time, you dirty anal slut.
-.pause
-.must 432
-.must 760          ' Anal training 5
-.set 632
+.pause As you wish, Miss
+.set 632           ' dildo 8 hours assignment
 .range 9833
 
 
@@ -17505,61 +17736,64 @@ You're to wear the plug the whole time, you dirty anal slut.
 
 ' Sleeping with butt plug
 [Action 9820]
+.mustnot 423  ' first time
 Since your bowels are now clean and empty, I see no excuse for
 not sleeping with that nice plug in your slave butt tonight.
 You're going to keep it in until breakfast, slut.
-.pause
-.mustnot 423  ' first time
+.pause As you wish, Miss
 .set 623      ' sleeping with buttplug assignment
 .range 9838
 
 ' Sleeping with butt plug - again
 [Action 9821]
+.must 423     ' sleeping with buttplug assignment already completed earlier
+.must 760     ' Anal training 5
 You certainly remember sleeping with your butt plug, don't you, slave?
 Tonight, you will do it again.
 Keep it inside until breakfast, slut.
-.pause
-.must 423     ' sleeping with buttplug assignment already completed earlier
-.must 760     ' Anal training 5
+.pause As you wish, Miss
 .set 623      ' sleeping with buttplug assignment
 .range 9838
 
 ' Butt plug over day 
 [Action 9822]
+.mustnot 422  ' first time
+.must 423     ' sleeping with buttplug assignment already completed earlier
 Since your bowels are now clean and empty, I see no excuse for not
 wearing your butt plug over the course of an entire day.
 You're going to keep that plug inside your anus for a solid 12 hours, slut.
-.pause
-.mustnot 422  ' first time
-.must 423     ' sleeping with buttplug assignment already completed earlier
+.pause As you wish, Miss
 .set 622      ' day with buttplug assignment
 .range 9838
 
 ' Butt plug over day - again 
 [Action 9823]
+.must 422          ' day with buttplug assignment already completed earlier
+.must 760          ' Anal training 5
 You certainly remember wearing your butt plug for a whole day, don't you slave?
 Today, you will do it again. Keep that plug inside your butt for a solid 12 hours,
 you dirty anal slut.
-.pause
-.must 422     ' day with buttplug assignment already completed earlier
-.must 760     ' Anal training 5
-.set 622      ' day with buttplug assignment
+.pause As you wish, Miss
+.set 622           ' day with buttplug assignment
 .range 9838
 
 ' Butt plug til bedtime
 [Action 9824]
+.mustnot 434       ' First time
 Tonight, you'll be wearing your butt plug until you go to bed.
 You may take it out only as the last activity before going to bed,
 after shutting down the computer, after brushing your teeth,
 after setting the table for breakfast, and only after
 finishing up any other chores you might have to take care of,
 you dirty anal slut.
-.pause
-.mustnot 434  ' First time
+.pause As you wish, Miss
+.set 634           ' buttplug til bedtime assignment
 .range 9837
 
 ' Butt plug til bedtime - again
 [Action 9825]
+.must 434
+.must 760          ' Anal training 5
 You certainly remember wearing you butt plug until bedtime, don't you, slave?
 Well tonight, you'll be doing it again.
 As usual you may take it out only as the last activity before going to bed,
@@ -17567,56 +17801,55 @@ after shutting down the computer, after brushing your teeth,
 after setting the table for breakfast, and only after
 finishing up any other chores you might have to take care of,
 you dirty anal slut.
-.pause
-.must 434
-.must 760          ' Anal training 5
+.pause As you wish, Miss
+.set 634           ' buttplug til bedtime assignment
 .range 9837
 
 ' Butt plug 4 hours
 [Action 9826]
+.mustnot 429
 Today, my dear, you'll be wearing your butt plug for solid four hours.
 You're to wear the plug the whole time, and are not to remove it,
 you dirty anal slut.
 If you do, you 'll have to restart this assignment.
-.pause
-.mustnot 429
-.set 629
+.pause As you wish, Miss
+.set 629           ' butt plug 4 hours
 .range 9840 9841
 
 ' Butt plug 4 hours - again
 [Action 9827]
+.must 429
+.must 760          ' Anal training 5
 You certainly remember wearing you butt plug for a solid four hours,
 don't you, slave? Well, today, my dear, you'll be doing it again.
 You're to wear the plug the whole time, and are not to remove it,
 you dirty anal slut.
 If you do, you 'll have to restart this assignment.
-.pause
-.must 429
-.must 760          ' Anal training 5
-.set 629
+.pause As you wish, Miss
+.set 629           ' butt plug 4 hours
 .range 9840 9841
 
 ' Butt plug 8 hours
 [Action 9828]
-Today, my dear, you'll be wearing your butt plug for a solid eight hours.
-You're to wear the plug the whole time, you dirty anal slut.
-.pause
 .must 429
 .mustnot 430
-.set 630
+Today, my dear, you'll be wearing your butt plug for a solid eight hours.
+You're to wear the plug the whole time, you dirty anal slut.
+.pause As you wish, Miss
+.set 630           ' Buttplug 8 hours
 .range 9838
 
 ' Butt plug 8 hours - again
 [Action 9829]
+.must 430
+.must 760          ' Anal training 5
 You certainly remember wearing you butt plug for a solid eight hours,
 don't you, slave?
 Well, today, my dear, you'll be doing it again.
 You're to wear the plug the whole time,
 you dirty anal slut.
-.pause
-.must 430
-.must 760          ' Anal training 5
-.set 630
+.pause As you wish, Miss
+.set 630           ' Buttplug 8 hours
 .range 9838
 
 
@@ -17626,7 +17859,7 @@ you dirty anal slut.
 Furthermore, you are not allowed to remove the dildo until you
 are actually going to bed, be it for relubing or any other reason.
 If you take it out, you'll go off to bedfordshire immediately.
-.pause
+.pause Understood, Miss
 .range 9842 9848
 
 
@@ -17634,14 +17867,12 @@ If you take it out, you'll go off to bedfordshire immediately.
 [Action 9833]
 Well slave, I'm not a cruel mistress, I know being plugged for such a long time
 can be a very challenging assignment, and I also don't want you to harm yourself.
-.pause
 .range 9834
 
 [Action 9834]
 For that reason, you are allowed to remove the dildo from time to time to relief yourself,
-to relube or to replace it with a smaller dildo
-on the condition that you put it back in immediately.
-.pause
+to relube or to replace it with a smaller size n the condition that you put it back in immediately.
+.pause Thank you, Miss
 .range 9840 9841
 
 
@@ -17652,7 +17883,7 @@ on the condition that you put it back in immediately.
 Furthermore, you are not allowed to remove the plug until you are actually going to bed,
 be it for relubing or any other reason.
 If you take it out, you'll go off to bedfordshire immediately.
-.pause
+.pause As you wish, Miss
 .range 9842 9848
 
 
@@ -17660,80 +17891,72 @@ If you take it out, you'll go off to bedfordshire immediately.
 [Action 9838]
 Well slave, I'm not a cruel mistress, I know being plugged for such a long time
 can be a very challenging assignment, and I also don't want you to harm yourself.
-.pause
 .range 9839
 
 [Action 9839]
 For that reason, I allow you to remove the plug from time to time to relief yourself,
 to relube it or to replace it with a smaller one
 on the condition that you put it back in immediately.
-.pause
+.pause Thank you, Miss
 .range 9840 9841
 
 
 ' Go on easy
 [Action 9840]
+.mustnot 622 623 629 630 631 632  ' Go-on-easy assignments 
 And, slave, take it easy.
 If you feel you won't make it until next time,
 I promise to go easy on you, and you can always try again later on.
-.pause
-.mustnot 622 623 629 630 631 632  ' Go-on-easy assignments 
+.pause Thank you very much, Miss
 .range 9842 9848
 
 [Action 9841]
+.mustnot 633 634        ' Bedtime
 And, slave, take it easy.
 If you feel you won't make it, you can always try again later on.
 But don't come back until you've finished your assignment.
-.pause
-.mustnot 633 634        ' Bedtime
+.pause Thank you very much, Miss
 .range 9842 9848
 
 
 ' Hold it in assist
 
 [Action 9842]
-The crotch rope will surely help you not to loose the plug.
-.must 21
-.must 27
+.must 27                ' Something around waist
 .mustnot 41
 .must 623 
+The crotch rope will surely help you not to loose the plug.
 .range 9849
 
 [Action 9843]
-The crotch rope will surely help you not to loose the dildo.
-.must 21
-.must 27
-.must 41
+.must 27                ' Something around waist
+.must 41                ' Dildo
 .must 622 
+The crotch rope will surely help you not to loose the dildo.
 .range 9849
 
 [Action 9844]
-The rope harness will surely help you not to loose the dildo.
-.must 21
-.must 36
-.must 41
+.must 36                ' Harnessed
+.must 41                ' Dildo
 .must 623 
+The rope harness will surely help you not to loose the dildo.
 .range 9849
 
 [Action 9845]
+.must 36                ' Harnessed
+.mustnot 41             ' Dildo
 The rope harness will surely help you to not loose the plug.
-.must 21
-.must 36
-.mustnot 41
 .range 9849
 
 [Action 9846]
+.mustnot 27 36          ' Something around waist, harnessed
 And as usual, if you aren't going to be able to hold it in,
 I give you permission to tie yourself with a nice crotch rope.
-.must 21
-.mustnot 27 36          ' Something around waist, harnessed
 .range 9849
 
-[Action 9847]
-And as usual, If you aren't going to be able to hold it in,
-I give you permission to tie yourself with a nice crotch rope.
-.mustnot 21
-.range 9849
+'[Action 9847]
+'[Action 9848]
+
 
 [Action 9849]
 .range 9950 9955	    ' On to putting the chastity belt back on
@@ -17794,14 +18017,14 @@ Now listen carefully, because I will not repeat myself:
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and
 before putting on your clothes you may take your nipple clamps off.
-.pause
+.pause Yes Miss
 .must 302
 .range 9912
 
 [Action 9912]
 And right before starting to prepare for our next session,
 you will put them on again.
-.pause
+.pause As you wish, Miss
 .must 9911
 .must 302
 .range 9940
@@ -17810,14 +18033,14 @@ you will put them on again.
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and
 before putting on your clothes you may take those nasty clothes pegs off.
-.pause
+.pause Yes Miss
 .must 303
 .range 9914
 
 [Action 9914]
 And right before starting to prepare for our next session, 
 you will snap them back on your nipples again.
-.pause
+.pause As you wish, Miss
 .must 9913
 .must 303
 .range 9940
@@ -17826,14 +18049,14 @@ you will snap them back on your nipples again.
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and
 before putting on your clothes you may take the clothes pegs off.
-.pause
+.pause Yes Miss
 .must 304
 .range 9916
 
 [Action 9916]
 And right before starting to prepare for our next session,
 you will put them back on your ball sack again.
-.pause
+.pause As you wish, Miss
 .must 9915
 .must 304
 .range 9940
@@ -17842,14 +18065,14 @@ you will put them back on your ball sack again.
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and before putting on
 your clothes you may take off your humbler as well and put them away.
-.pause
+.pause Yes Miss
 .must 305
 .range 9918
 
 [Action 9918]
 Before starting to prepare for our next session,
 you will put your humbler on again.
-.pause
+.pause As you wish, Miss
 .must 9917
 .must 305
 .range 9940
@@ -17858,14 +18081,14 @@ you will put your humbler on again.
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and before putting on
 your clothes you may take off your ball harness as well and put it away.
-.pause
+.pause Yes Miss
 .must 306
 .range 9920
 
 [Action 9920]
 Before starting to prepare for our next session,
-you will put your coball harnessn again.
-.pause
+you will put your ball  harness again.
+.pause As you wish, Miss
 .must 9919
 .must 306
 .range 9940
@@ -17874,14 +18097,14 @@ you will put your coball harnessn again.
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and before putting on
 your clothes you may detach the weight from the clamps and take them off.
-.pause
+.pause Yes Miss
 .must 315
 .range 9922
 
 [Action 9922]
 And right before starting to prepare for our next session,
-you will put the clamps as well as the weight on again.
-.pause
+you will put the clamps and the weight on again.
+.pause As you wish, Miss
 .must 9921
 .must 315
 .range 9940
@@ -17895,34 +18118,31 @@ you will put the clamps as well as the weight on again.
 ' TODO Add remaining toys for next session: 307 308 309 313 314 315
 
 [Action 9941]
-Additionally you're going to fill
-your back door with a large buttplug.
-.must 350 756           ' must have butt plug, anal level 2
 .mustnot 308            ' already scheduled?
+.must 350 756           ' must have butt plug, anal level 2
+Additionally you're going to stuff your back door with a large buttplug.
 .set 308
 .range 9949
 
 [Action 9942]
-And you're also going to stuff your slave mouth with that gag of yours.
-.must 340               ' must have gag
 .mustnot 309            ' already scheduled?
-.mustnot 519            ' p.o. for cumming without permission
+.must 340               ' must have gag
+And you're also going to stuff your slave mouth with that gag of yours.
 .set 309
 .range 9949
 
 [Action 9943]
-And you're also going to wear your collar next time.
-.must 325               ' must have collar
 .mustnot 313            ' already scheduled?
+.must 325               ' must have collar
+And you're also going to wear your collar next time.
 .set 313
 .range 9949
 
 [Action 9944]
-And you're also going to be in tight chains next time.
 .must 311 312 334       ' wrist restraints, ankle restraints, chains
-.must 736               ' restraint acceptance 1
 .mustnot 314	        ' already scheduled?
-.mustnot 519            ' p.o. for cumming without permission
+.must 736               ' restraint acceptance 1
+And you're also going to be in tight chains next time.
 .set 314
 .range 9949
 
@@ -18021,7 +18241,7 @@ That way you're not playing with yourself while you're alone.
 [Action 9960]
 But since you're still in training with wearing a chastity device,
 I graciously grand you permission to take your chastity cage off after one hour. 
-.pause
+.pause Thank you, Miss
 .must 686               ' Chastity belt rules apply 1
 .mustnot 687            ' Chastity belt rules apply 2
 .range 9980
@@ -18031,7 +18251,7 @@ I graciously grand you permission to take your chastity cage off after one hour.
 And since by now you should have gotten a bit comfortable with your chastity cage,
 so in addition to wearing it for one hour after the current session,
 from now on you're also going to wear it one hour before the next. 
-.pause
+.pause Thank you, Miss
 .must 686               ' Chastity belt rules apply 1
 .mustnot 687            ' Chastity belt rules apply 2
 .poss 20
@@ -18048,9 +18268,9 @@ I graciously allow you to take off your cage after 1 hour.
 [Action 9963]
 To improve your chastity training,
 you're not only continuing to wear your cage for one hour now,
-but I'm also giving you the assignment to wear it continously
-for 12 solid hours before approaching me for another session. 
-.pause
+but I'm also order you to wear it continously
+for twelve solid hours before approaching me for another session. 
+.pause As you wish, Miss
 .must 687               ' Chastity belt rules apply 2
 .mustnot 688            ' Chastity belt rules apply 3
 .mustnot 424 624        ' not already doing this or already done
@@ -18077,8 +18297,7 @@ You're going to stay locked up for the next hour, slut.
 ' 20% chance to get chastity cage for night & day assignment
 [Action 9966]
 To improve your chastity training, you're going to wear your cage
-the next 12 hours nonstop.
-Only then you may take it off.
+the next 12 hours nonstop before you may take it off.
 .must 688               ' Chastity belt rules apply 3
 .mustnot 689            ' Chastity belt rules apply 4
 .mustnot 425 625        ' not already doing this or already done
@@ -18161,7 +18380,8 @@ Now head off into the bathroom, slut.
 ' Bad outcome, different tone
 [Action 9975]
 Squeeze your filthy cock into the chastity cage and lock it up.
-.pause
+delay 15
+.pause I'm locked up, Miss
 .poss 1                           ' Fallback
 .unset 24 37                      ' Any toys on cock
 .set 23 30 44                     ' Something on penis, can't jerk off, chastified
@@ -18173,14 +18393,16 @@ Squeeze your filthy cock into the chastity cage and lock it up.
 [Action 9976]
 When you've finished,
 squeeze it back in your chastity cage and lock it up.
-.pause
+delay 15
+.pause I'm locked up, Miss
 .set 23 30 44                     ' Something on penis, can't jerk off, chastified
 .range 9978 9979 
 
 [Action 9977]
 After you have finished,
 put that flacid dick back into your chastity cage and lock it up.
-.pause
+delay 15
+.pause I'm locked up, Miss
 .set 23 30 44                     ' Something on penis, can't jerk off, chastified
 .range 9978 9979 
 
@@ -18201,13 +18423,13 @@ That cage will surely keep you from playing with yourself.
 [Action 9980]
 I'd also like to see your swollen hot cock tightly encaged next time,
 so be sure to put the cage back on before or next session.
-.pause
+.pause Yes Miss
 .range 9993 9998             ' on to last words and final exit
 
 [Action 9981]
 This additional hour of wearing time will make you crave for release
 when you approach me next time.
-.pause
+.pause Yes, Miss
 .set 687                     ' up one notch
 .range 9993 9998             ' on to last words and final exit
 
@@ -18215,7 +18437,7 @@ when you approach me next time.
 Off course it goes without saying that you're going to squeeze your peace of meat
 back into that cage one full hour before you approach me again.
 Understood?
-.pause
+.pause Yes, Miss
 .range 9993 9998             ' on to last words and final exit
 
 ' TODO More text
@@ -18223,14 +18445,14 @@ Understood?
 You may take as much time and training as you want,
 but don't come back to me until you've managed to keep your prick locked up 12 hours nonstop.
 Have you understood, slave?
-.pause
+.pause Yes, Miss
 .set 624                     ' chastity cage for a day assignment
 .range 9993 9998             ' on to last words and final exit
 
 [Action 9984]
 Keep your poor shriveled up prick locked up for one hour from now,
-and lock it up again at least 12 hours before our next session, slave.
-.pause
+and lock it up again at least twelve hours before our next session, slave.
+.pause Yes, Miss
 .set 688                     ' advance to level 3
 .range 9993 9998             ' on to last words and final exit
 
@@ -18239,29 +18461,35 @@ And of course you will keep your cock in that cage locked up continously
 for at least 12 hours before approaching me for our next session.
 Understood?
 .yesno 9993 9998 9965 9965   ' on to last words and final exit or repeat instructions
+.yestext Yes, Miss, understood
+.notext No, Miss, can you tell me again, please
 .unset 9965 9985
 
 [Action 9986]
 And as usual you will squeeze your swollen peace of meat
-back into that cage 12 hours before our next session.
+back into that cage twelve hours before our next session.
 And no combining, slut.
 Your poor shriveled up prick will be
 locked away from your dirty hands night and day.
 Are my instructions clear to you?
 .yesno 9993 9998 9966 9966   ' on to last words and final exit or repeat instructions
+.yestext Yes, Miss, twelve hours after and before the session
+.notext I'm sorry Miss, can you tell me again, please
 .set 625                     ' chastity cage for night & day assignment
 .set 53                      ' 24 hours wait
 .settime 54
 .unset 9966 9986
 
 [Action 9987]
-As the last time your cock is going to stay locked up in that cage for 12 hours nonstop.
+As the last time your cock is going to stay locked up in that cage for twelve hours nonstop.
 Only then you may take the cage off.
 And before you're approaching me again for our next session,
-you're going to squeeze your swollen peace of meat back into that cage for another 12 hours,
-resulting in a whopping 24 hour lock-up.
+you're going to squeeze your swollen peace of meat back into that cage for another twelve hours,
+resulting in a whopping twentyfour hour lock-up.
 Understood?
 .yesno 9993 9998 9967 9967
+.yestext Yes, Miss, twelve hours after and before the session
+.notext I'm sorry Miss, can you tell me again, please
 .set 689                     ' advance to level 4
 .set 53                      ' 24 hours wait
 .settime 54
@@ -18269,8 +18497,8 @@ Understood?
 
 [Action 9988]
 And off course, you're going to squeeze your swollen peace of meat back into that cage
-for another 12 hours, before you approach me for another session.
-.pause
+for another twelve hours, before you approach me for another session.
+.pause Yes, Miss, twelve hours before and after the session
 .set 53                      ' 24 hours wait
 .settime 54
 .range 9993 9998             ' on to last words and final exit
@@ -18278,7 +18506,7 @@ for another 12 hours, before you approach me for another session.
 [Action 9989]
 Therefore your cock is going to stay locked up all the time until our next session.
 This way I feel safe that you don't play with yourself without my supervision.
-.pause
+.pause Right Miss, I'm staying locked up
 .set 690                     ' advance to level 5
 .set 53                      ' 24 hours wait
 .settime 54
@@ -18286,7 +18514,7 @@ This way I feel safe that you don't play with yourself without my supervision.
 
 [Action 9990]
 For that reason you'll be wearing your chastity cage all the time until our next session.
-.pause
+.pause Right Miss, I'm staying locked up
 .set 53                      ' 24 hours wait
 .settime 54
 .range 9993 9998             ' on to last words and final exit
@@ -18294,14 +18522,14 @@ For that reason you'll be wearing your chastity cage all the time until our next
 ' TODO Add variance to texts for chastity rules apply 5 9991 9992
 [Action 9991]
 For that reason you'll be wearing your chastity cage all the time until our next session.
-.pause
+.pause Right Miss, I'm staying locked up all the time
 .set 53                      ' 24 hours wait
 .settime 54
 .range 9993 9998             ' on to last words and final exit
 
 [Action 9992]
 For that reason you'll be wearing your chastity cage all the time until our next session.
-.pause
+.pause Right Miss, I'm staying locked up all the time
 .set 53                      ' 24 hours wait
 .settime 54
 .range 9993 9998             ' on to last words and final exit
