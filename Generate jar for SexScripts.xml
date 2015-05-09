@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create jars for Mine">
+<project default="build_sexscripts_test" name="Create jars for Mine">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
-    <target name="create_run_jar">
-        <jar destfile="../../Extras/SexScripts/scripts/Mine.jar">
+
+    <target name="build_sexscripts_release">
+        <property name="release_name" value="Mine Redux for SexScripts"/>
+        <property name="version" value="${release_name} 1.0"/>
+        <property name="destination" value="Releases/${version}"/>
+      <antcall target="build"/>
+    </target>
+    <target name="build_sexscripts_test">
+      <property name="destination" value="../../Extras"/>
+      <antcall target="build"/>
+    </target>
+
+	
+    <target name="build">
+        <property name="rootFolder" value="SexScripts"/>
+        <jar destfile="${destination}/${rootFolder}/scripts/Mine.jar">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="bin"/>
             <fileset dir="../PCMPlayer/bin"/>
         </jar>
-        <jar destfile="../../Extras/SexScripts/scripts/Mine Scripts.zip">
+        <jar destfile="${destination}/${rootFolder}/scripts/Mine Scripts.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="assets" includes="Mine/scripts/**"/>
         </jar>
-        <jar destfile="../../Extras/SexScripts/scripts/Mine Resources.zip">
+        <jar destfile="${destination}/${rootFolder}/scripts/Mine Resources.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="../mine-assets/assets" excludes="Mine/accessories/**,Mine/mistress/**,Mine/scripts/**"/>
         </jar>
-        <jar destfile="../../Extras/SexScripts/scripts/Mine Mistress.zip">
+        <jar destfile="${destination}/${rootFolder}/scripts/Mine Mistress.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="../mine-assets/assets" includes="Mine/mistress/**"/>
         </jar>
-        <copy todir="../../Extras/SexScripts/scripts/Mine/accessories/">
+        <copy todir="${destination}/${rootFolder}/scripts/Mine/accessories/">
             <fileset dir="../mine-assets/assets/Mine/accessories/"/>
         </copy>
-        <copy todir="../../Extras/SexScripts/lib/TeaseLib">
+        <copy todir="${destination}/${rootFolder}/lib/TeaseLib">
             <fileset dir="../TeaseLib/lib/" excludes="**.pdb,**.exp,**.ilk,**.lib"/>
         </copy>
-    	<copy file="src/Mine.groovy" tofile="../../Extras/SexScripts/Scripts/Mine.groovy"/>
+    	<copy file="src/Mine.groovy" tofile="${destination}/${rootFolder}/Scripts/Mine.groovy"/>
     </target>
 </project>
