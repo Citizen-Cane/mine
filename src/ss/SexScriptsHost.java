@@ -78,11 +78,16 @@ public class SexScriptsHost implements Host {
     }
 
     @Override
-    public void playSound(String path, InputStream inputStream) {
+    public void playSound(String path, InputStream inputStream)
+            throws ScriptInterruptedException {
         // SexScripts doesn't accept WAV input streams or sound objects,
         // so we're going to cache them in the Sounds folder
         File file = ensureFile(path, inputStream);
-        ss.playSound(file.getAbsolutePath());
+        try {
+            ss.playSound(file.getAbsolutePath());
+        } catch (InterruptedException e) {
+            throw new ScriptInterruptedException();
+        }
     }
 
     @Override
@@ -113,7 +118,7 @@ public class SexScriptsHost implements Host {
     @Override
     public void stopSounds() {
         try {
-            ((ss.Script) ss).stopSoundThreads();
+            ((ss.desktop.Script) ss).stopSoundThreads();
         } catch (Exception e) {
             TeaseLib.log(this, e);
         }
@@ -123,7 +128,7 @@ public class SexScriptsHost implements Host {
     public void stopSound(Object handle) {
         // Just stop all sounds for now
         try {
-            ((ss.Script) ss).stopSoundThreads();
+            ((ss.desktop.Script) ss).stopSoundThreads();
         } catch (Exception e) {
             TeaseLib.log(this, e);
         }
@@ -146,12 +151,25 @@ public class SexScriptsHost implements Host {
                 // g2d.drawRect(0, 0, expanded.getWidth() - 1,
                 // expanded.getHeight() -1);
                 g2d.drawImage(image, (expanded.getWidth() - width) / 2, 0, null);
-                ss.setImage(expanded, false);
+                setImageInternal(expanded);
             } else {
-                ss.setImage(image, false);
+                setImageInternal(image);
             }
         } else {
-            ss.setImage(null);
+            setImageInternal(null);
+        }
+    }
+
+    private void setImageInternal(Image image)
+            throws ScriptInterruptedException {
+        if (image != null) {
+            ((ss.desktop.Script) ss).setImage(image, false);
+        } else {
+            try {
+                ss.setImage(null);
+            } catch (InterruptedException e) {
+                throw new ScriptInterruptedException();
+            }
         }
     }
 
@@ -184,10 +202,15 @@ public class SexScriptsHost implements Host {
 
     @Override
     public List<Boolean> showCheckboxes(String caption, List<String> texts,
-            List<Boolean> values, boolean allowCancel) {
+            List<Boolean> values, boolean allowCancel)
+            throws ScriptInterruptedException {
         List<Boolean> results;
         do {
-            results = ss.getBooleans(caption, texts, values);
+            try {
+                results = ss.getBooleans(caption, texts, values);
+            } catch (InterruptedException e) {
+                throw new ScriptInterruptedException();
+            }
             ; // Loop until the user pressed OK -> != null
         } while (results == null && !allowCancel);
         return results;
@@ -209,9 +232,10 @@ public class SexScriptsHost implements Host {
         try {
             // Get main frame
             Class<?> scriptClass = ss.getClass().getSuperclass();
-            Field mainField = scriptClass.getDeclaredField("main");
+            Field mainField = scriptClass.getDeclaredField("mainWindow");
             mainField.setAccessible(true);
-            ss.MainFrame mainFrame = (ss.MainFrame) mainField.get(ss);
+            ss.desktop.MainFrame mainFrame = (ss.desktop.MainFrame) mainField
+                    .get(ss);
             // Get buttons
             Class<?> mainFrameClass = mainFrame.getClass();
             List<Delegate> result = new ArrayList<Delegate>(choices.size());
@@ -267,7 +291,11 @@ public class SexScriptsHost implements Host {
     }
 
     @Override
-    public int choose(List<String> choices) {
-        return ss.getSelectedValue(null, choices);
+    public int choose(List<String> choices) throws ScriptInterruptedException {
+        try {
+            return ss.getSelectedValue(null, choices);
+        } catch (InterruptedException e) {
+            throw new ScriptInterruptedException();
+        }
     }
 }
