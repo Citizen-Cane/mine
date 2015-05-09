@@ -1107,7 +1107,7 @@ I'll give you a chance to pussy out of your commitment.
 Well, you're such a disgusting little pig, I'll have to think it over.
 noimage
 You can just kneel there and await My pleasure.
-.delay 165        ' 2:45, with :15 remaining....
+.delay 160        ' 2:40, with :15 remaining plus 5 seconds for text-to-speech delay....
 .settime 1012
 .range 1013
 
@@ -1119,26 +1119,26 @@ Would you like to hear it?
 .pause Of course, Miss
 .range 1014 1015
 
-
+' todo relax the timing if the button is dismissed via speech recognition, since users might lack speech recognition experience
 [Action 1014]
+.timefrom 1012 00:03"00
 It's obvious to Me that you weren't paying very much attention as I was making My decision.
 If this is your attitude towards Me now, I don't see much hope for you.
 Nevertheless I'll give you a second chance at my favor.
 Come back in an hour, wench!
 .pause Thank you, Miss
-.timefrom 1012 00:03"00
 .set 49
 .settime 50
 .range 850
 
 [Action 1015]
+.poss 1                      ' else
 Very good, my pet.
 I accept your petition.
 I am now your Mistress, and you are now my slave.
 I expect and demand your total submission from this point on!
 You may be a lowly and stupid man,
 but at least you have a competent Mistress to thrash you now.
-.poss 1                      ' May trigger despite correct time
 .set 101                     ' Now we've submitted
 .range 1016                  ' init mine-maid save state
 
@@ -1205,7 +1205,7 @@ submit to all My orders and My every whim?
 Very well, cocktoy, I'm going to do you a favor and think about it.
 noimage
 You can kneel there like a patient slave and await My decision.
-.delay 285        ' 4:45, leaving 15 seconds to respond
+.delay 280        ' 4:45, leaving 15 seconds to respond, plus 5 seconds for text-to-speech delay...
 .settime 1022
 .range 1023
 
@@ -1217,24 +1217,24 @@ Would you like to hear it?
 
 
 [Action 1024]
+.timefrom 1022 00:05"00
 Once again you have failed to show the respect due to a woman!
 And not just any woman, but the one you want to be your Mistress!
 delay 2
 I'm not interested in wasting any more of my valuable time with you.
 You can come back tomorrow, if you want to try to change my mind with a little suffering!
 .pause Thank you very much, Miss
-.timefrom 1022 00:05"00
 .set 53
 .settime 54
 .range 852
 
 [Action 1025]
+.poss 1                      ' May trigger despite correct time
 Very well, my little bitch.
 I will accept you as my willing slave.
 Don't waste my time again, or you will regret it!
 As it is, I think I'll mark you down for a little extra punishment, just as a reminder!
-.pause Thank you, Miss
-.poss 1                      ' May trigger despite correct time
+.pause Thank you very much, Miss
 .set 101                     ' Now we've submitted.
 .set 500                     ' Set extra punishment bit for bad introduction
 '.range 1030                 ' on to the naked query
