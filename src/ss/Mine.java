@@ -3,7 +3,6 @@ package ss;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.StringTokenizer;
 
 import pcm.controller.Player;
@@ -35,8 +34,8 @@ import teaselib.TeaseLib;
 public class Mine extends Player {
     final String assetRoot = "Mine/";
 
-    public Mine(TeaseLib teaseLib) throws IOException {
-        super(teaseLib, "en-us");
+    public Mine(TeaseLib teaseLib) {
+        super(teaseLib, "en-us", "Mine");
     }
 
     @Override
@@ -46,7 +45,6 @@ public class Mine extends Player {
         if (debug.exists()) {
             Player.debugOutput = true;
             Player.validateScripts = true;
-            script = null;
             try {
                 BufferedReader debugReader = new BufferedReader(new FileReader(
                         debug));
