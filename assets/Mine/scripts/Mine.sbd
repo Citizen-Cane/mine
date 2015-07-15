@@ -570,6 +570,7 @@
 [action 311]
 It's a good thing you've followed orders and gotten some wrist restraints, slave.
 I'd hate to have to punish you for disobedience.
+ShowChoices
 Would you mind and telling me what kind you've got exactly?
 .unset 670              ' Completed
 .range 851
@@ -577,6 +578,7 @@ Would you mind and telling me what kind you've got exactly?
 ' Ankle restraints
 [action 312]
 Thank you for following orders and getting those ankle restraints, baby.
+ShowChoices
 What kind of ankle restraints did you get?
 .unset 671              ' Completed
 .range 851
@@ -584,6 +586,7 @@ What kind of ankle restraints did you get?
 ' Slave collar
 [action 325]
 I'm glad to see you've got that slave collar, cunt.
+ShowChoices
 Can you tell me what you've got exactly?
 .unset 672              ' Completed
 .range 851
@@ -591,6 +594,7 @@ Can you tell me what you've got exactly?
 ' Gag
 [action 340]
 I'm glad to see you were able to get a gag, slave.
+ShowChoices
 Would you be so kind and tell me what kind you've got?
 .unset 674              ' Completed
 .range 851
@@ -599,6 +603,7 @@ Would you be so kind and tell me what kind you've got?
 [action 350]
 Good work getting that butt plug, honey.
 I'm sure we'll be filling your slave ass up with it before too long.
+ShowChoices
 What kind of plug have you've gotten exactly?
 .unset 675              ' Completed
 .range 851
@@ -606,6 +611,7 @@ What kind of plug have you've gotten exactly?
 ' Spanking implement
 [action 370]
 I see you were able to get a spanking implement.
+ShowChoices
 Would you be so kind and tell me what you've got exactly?
 .unset 676              ' Completed
 .range 851
@@ -613,6 +619,7 @@ Would you be so kind and tell me what you've got exactly?
 ' Chastity device
 [action 380]
 Tell me slave:
+ShowChoices
 What kind of chastity device did you get exactly?
 .unset 677              ' Completed
 .range 851
@@ -620,13 +627,15 @@ What kind of chastity device did you get exactly?
 ' Anal Dildo
 [action 388]
 I'm glad to see you've gotten that anal dildo, sweetheart.
-What did you bring exactly?
+ShowChoices
+What did you bring along exactly?
 .unset 684              ' Completed
 .range 851
 
 ' Vibrator
 [action 389]
 I'm glad to see you've gotten that vibrator, sweetheart.
+ShowChoices
 Would you be so kind and tell me what you've got exactly?
 .unset 685              ' Completed
 .range 851
@@ -3132,6 +3141,7 @@ make you skip your next seven cumming opportunities.
 
 [Action 1500]
 Now, My dear, I want you to examine this list,
+ShowChoices
 and make sure everything you have is checked.
 Quickly, slave.
 .ask 1 19 LEFT CENTER
@@ -10109,7 +10119,7 @@ Do you remember and understand my little class about the
 basic implements of torture and restraint, My slave?
 .mustnot 507                  ' Attention deficit
 .yesno 4829 4829 4828 4828
-.yestext Yes, Miss, I remember 
+.yestext Yes, Miss, I do 
 .notext Not really , Miss
 
 
@@ -10125,7 +10135,7 @@ I'll repeat Myself, but this time pay attention.
 
 [Action 4829]
 Very good, My little bitch.
-I'm curious what you're going to bring next time.
+I'm curious what you're going to bring along next time.
 .resetrange 4800 4829   ' cleanup gosub range, as this is may be called multiple times
 .return
 
