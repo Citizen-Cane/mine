@@ -1426,9 +1426,8 @@ We'll start out fairly harshly, then.
 Now tell your Mistress:
 Right now, are you totally naked?
 .settime 55                     ' impatience in naked question
-.unset 1100
 .yesno 1101 1104 1105 1109
-.yestext Yes I'm naked, Miss
+.yestext Yes Miss, I'm naked
 .notext No Miss, I'm clothed
 
 
@@ -1455,8 +1454,7 @@ Hopefully that will be enough to remind you to answer my questions promptly, for
 .set 103                     ' mistress impatient after waiting so long for this easy question
 .set 201			         ' one demerit
 .set 509
-.settime 55                  ' reset, try again
-'.range 1150 1151
+.unset 1100
 .range 1100
 
 [Action 1103]
@@ -1956,7 +1954,7 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 
 ' Being hard question
 
-' yes, too late
+' yes, but too late
 ' Just add impatience for the "Yes" branch
 ' as there will be punishment already when not hard 
 [Action 1197]
@@ -1986,8 +1984,8 @@ Hopefully that will be enough to remind you to answer my questions promptly, for
 .unset 200 202 203 204
 .set 103                     ' mistress impatient after waiting so long for this easy question
 .set 509                     ' p.o. for wasting mistress time
-.settime 55                  ' reset, try again
-.range 1202
+.unset 1200 1201 1205 120& 1207 1208 1209
+.range 1200
 
 ' yes, in time, or masturbation lecture not heard
 [Action 1199]
@@ -2003,9 +2001,7 @@ Hopefully that will be enough to remind you to answer my questions promptly, for
 ' No chastity cage, ask "Being hard" question
 [Action 1201]
 Now, My dear slut, tell Me the truth...
-.delay 10
 .mustnot 380                ' Have chastity device
-.settime 55                 ' gives at least 50 seconds to answer, could be less
 .range 1205 1209
 
 ' Skip "Being hard" question now and ask after toy check because the slave my be encaged 
@@ -2029,13 +2025,15 @@ Have you been touching yourself since you came into My presence?
 [Action 1206]
 Have you been keeping yourself nice and hard for your Mistress?
 .must 111                    ' masturbation lecture
-.mustnot 380                 ' Have chastity device 
+.mustnot 380                 ' Have chastity device
+.settime 55                  ' This question has to be answered prompty
 .set 256                     ' Hardness question one-time per session     
 .unset 1202
 .yesno 1197 1199 1219 1223
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
 
+' todo more variations 
 '[Action 1207]
 '[Action 1208]
 '[Action 1209]
@@ -13407,7 +13405,6 @@ delay 2
 ' 7500 7502 decide whether to ask if slave is keeping cock hard
 [Action 7500]
 Now, My dear slut, tell Me the truth...
-.settime 55                  ' Impatience trap
 .set 256                     ' ask only once during activities
 .range 7540 7544
 
@@ -13666,12 +13663,14 @@ for your disrespectful behaviour next time, cunt.
 
 [Action 7540]
 Are you keeping yourself nice and hard for your Mistress?
+.settime 55                  ' Impatience trap, this question has to be answered prompty
 .yesno 7528 7533 7503 7503
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I havent't
 
 [Action 7541]
 Are you keeping that little penis hard and stiff for your Mistress?
+.settime 55                  ' Impatience trap, this question has to be answered prompty
 .unset 7541
 .yesno 7545 7548 7509 7513
 .yestext Of course, Miss, all the time
@@ -13680,11 +13679,14 @@ Are you keeping that little penis hard and stiff for your Mistress?
 [Action 7542]
 Are you following my orders to play with that slave-penis
 at all times to keep it hard and erect?
+.settime 55                  ' Impatience trap, this question has to be answered prompty
 .unset 7542
 .yesno 7545 7548 7509 7513
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
 
+'[Action 7543]
+'[Action 7544]
 
 ' Having waited too long before pressing the "yes"-button
 
@@ -13699,7 +13701,7 @@ And you didn't hear My question and then started stroking it hard?
 Well, was your slave penis properly hard and stiff when I asked? 
 .timefrom 55 00:00"15
 .mustnot 103
-.set 103                     ' mistress impatient after waiting so long for this easy question
+.set 103                     ' mistress gets impatient after waiting so long for this easy question
 .yesno 7539 7539 7516 7516
 .yestext Yes, Miss, my slave penis was hard when you asked
 .notext I'm sorry Miss, but it wasn't
@@ -15938,7 +15940,6 @@ for pity's sake.
 .set 103                     ' mistress impatient after waiting so long for this easy question
 .set 201			         ' one demerit
 .set 509
-.settime 55                  ' reset, try again
 .range 9203 9204
 
 [Action 9198]
@@ -15968,22 +15969,22 @@ It's a pleasure to see a slave and his chastity cage.
 Are you wearing it already?
 .settime 55                  ' Impatience trap
 .yesno 9196 9199 9215 9215
-.yestext Yes Miss, my slave penis is locked up
+.yestext Yes Miss, I'm locked up
 .notext I'm sorry Miss, but I don't
 
 [Action 9201]
 What about your chastity cage, sweetie?
-Are you already wearing it?
+Are you wearing it?
 .settime 55
 .yesno 9196 9199 9215 9215
-.yestext Yes Miss, my slave penis is locked up
+.yestext Yes Miss, I'm locked up
 .notext I'm sorry Miss, but I don't
 
 [Action 9202]
 Are you wearing your chastity cage right now?
 .settime 55
 .yesno 9196 9199 9215 9215
-.yestext Yes Miss, my slave penis is locked up
+.yestext Yes Miss, I'm locked up
 .notext I'm sorry Miss, but I don't
 
 
