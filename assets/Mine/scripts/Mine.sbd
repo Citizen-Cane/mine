@@ -1450,7 +1450,7 @@ Remind me to teach you a little lesson on the topic later on.
 .mustnot 103                 ' Impatience
 .mustnot 509                 ' P.O. for wasting mistress time
 .set 509
-.range 1150 1151
+.range 1150 1154
 
 [Action 1102]
 I can't believe that it takes you so long to answer such a simple question.
@@ -1642,7 +1642,7 @@ Are you sure about that?
 You didn't perhaps leave your socks on, or keep your little panties?
 And you didn't hear My question and then strip down?
 Well, were you properly naked when I asked?
-.yesno 1151 1152 1155 1155
+.yesno 1151 1154 1155 1155
 .yestext Yes Miss, I was properly naked
 .notext No Miss, I wasn't
 
@@ -1659,6 +1659,9 @@ Very good, My little bitch.
 .must 701
 .set  702
 .range 1157 1163
+
+'[Action 1153]
+'[Action 1154]
 
 
 ' Lying
@@ -2609,7 +2612,7 @@ Don't make me punish you for failing me!
 You are not allowed to cum at your own whim,
 because you are a grovelling slave.
 Make sure you always remember that.
-.pause
+.pause Yes Miss, I'll do
 .mustnot 519 525	    ' any p.o. for cumming without permission 
 .range 1360             ' Wank for mistress
 
@@ -2619,7 +2622,7 @@ Make sure you always remember that.
 You're a liar and a cheat, you stupid slut!
 You certainly remember spurting your load
 although I explicitely reminded you to the fact that you were not allowed to.
-.pause
+.pause Yes Miss, I remember
 .must 519	            ' slave came although mistress told to stop
 .poss 1                 ' favour double question
 .set 506                ' p.o. for lying to mistress
@@ -2629,7 +2632,7 @@ although I explicitely reminded you to the fact that you were not allowed to.
 [Action 1304]
 You're a liar and a cheat, you stupid slut!
 You certainly remember spurting your load although I revoked my permission to do so.
-.pause
+.pause Yes Miss, I remember
 .must 525	            ' slave came although mistress told to stop
 .poss 1                 ' favour double question
 .set 506                ' p.o. for lying to mistress
@@ -2795,7 +2798,7 @@ and I'm very, very displeased that you have disobeyed Me in this.
 
 ' If the slave doesn't own a chastity cage, he'll be able to wank
 [Action 1362]
-Now wank for me and rub that cock hard for me, my little cock toy.
+Now wank for me and rub that slave penis hard for me, my little cock toy.
 .mustnot 380            ' Can't jerk off
 .range 1363 1365
 
@@ -4026,7 +4029,7 @@ delay 2
 Try it!
 30s.wav
 delay 10
-Wank your encaged cock for me, slave.
+Wank your encaged cock for me!
 awaitSoundCompletion
 .range 1642
 
@@ -4044,6 +4047,7 @@ awaitSoundCompletion
 Now slower again.
 delay 10
 Do you feel your penis squeezing against the walls of the cage, slave?
+' Not waiting for sound completion is intended here
 .pause Yes, Miss
 .range 1644
 
@@ -16350,7 +16354,7 @@ Very good, my little pet.
 
 [action 9270]
 What a poor slut you are.
-.pause
+.pause Yes Miss, I am
 .range 9279
 
 '[action 9271]
