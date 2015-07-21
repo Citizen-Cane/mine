@@ -177,13 +177,13 @@
 .askcheck      49      114     114: Chastity cage safety suggestion 2	 
 .askcheck      50      115     115: Chastity cage safety suggestion 3
 .askcheck      50      116     116: Chastity cage safety suggestion 4
-'.askcheck      51      117     117: Spanking lecture, introduction
+'.askcheck      51      117     117: free
 '.askcheck      52      118     118: no-cum lecture
 .askcheck      50      119     119: Chastity cage suggestions check due
 
 
 ' temp variables for use within the session
-' These might not all be availalbe in the sub-scripts,
+' These might not all be available in the sub-scripts,
 ' depending on the actual .resetrange in that script's header
 
 ' 200     200: 1 demerit      (890 as result of single activity)
@@ -246,6 +246,8 @@
 '              unset during punishment cycle, set when starting activity loop
 ' 271          Maid training punishment once per session
 ' 272          Toy lecture given
+' 273          Spanking lecture, introduction
+
 ' Assignment completions 400-499
 
 
@@ -725,7 +727,7 @@ What would you like to do today?
 .unset 235 236 237 238 239 240 241 242 243 244   ' clear next-session-toys askcheck
 .unset 251 252 253 254 255 256     258 259 260   ' once-per-session-flags
 .unset 261 262 263 264 265 266     268 269 270   ' once-per-session-flags
-.unset 271 272 273 274 275 276 277 278 279 280   ' once-per-session-flags
+.unset 271 272     274 275 276 277 278 279 280   ' once-per-session-flags
 .unset 281 282 283 284 285 286 287 288 289 290   ' once-per-session-flags
 .unset 291 292 293 294 295 296 297 298 299       ' once-per-session-flags
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
@@ -6731,7 +6733,7 @@ You can leave it in there for our entire session, slave.
 
 
 [Action 2585]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2408
 
@@ -6964,7 +6966,7 @@ my pet.
 .range 7100             ' Ensure paddle or replacement
 
 [Action 2635]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 ' No corner time is given after this spanking
 .range 2413
 
@@ -6977,7 +6979,7 @@ my pet.
 .range 7100             ' Ensure paddle or replacement
 
 [Action 2645]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2414
 
@@ -7002,7 +7004,7 @@ my pet.
 
 
 [Action 2655]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2415
 
@@ -7036,7 +7038,7 @@ my pet.
 
 
 [Action 2665]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2416
 
@@ -7065,7 +7067,7 @@ I'll get you next time, you dirty slave!
 
 
 [Action 2675]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2417
 
@@ -7105,7 +7107,7 @@ I'll get you next time, you dirty slave!
 
 
 [Action 2685]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2418
 
@@ -7512,7 +7514,7 @@ Hopefully this will get through to you!
 
 
 [Action 2985]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2448
 
@@ -7559,7 +7561,7 @@ Hopefully this will get through to you!
 
 
 [Action 2995]
-.set 117                ' Spanking lecture
+.set 273                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2449
 
@@ -11638,7 +11640,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5604]
-.must 117               ' Spanking lecture heard
+.must 273               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .must 370               ' paddle
 .must 753               ' asswhipping 3
@@ -11648,7 +11650,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5605]
-.must 117               ' Spanking lecture heard
+.must 273               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .must 370               ' paddle
 .must 754               ' asswhipping 4
@@ -11658,7 +11660,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5606]
-.must 117               ' Spanking lecture heard
+.must 273               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .mustnot 370            ' paddle
 .must 371               ' hair brush
@@ -11669,7 +11671,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5607]
-.must 117               ' Spanking lecture heard
+.must 273               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .mustnot 370            ' paddle
 .must 371               ' hair brush
@@ -11680,7 +11682,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5608]
-.must 117               ' Spanking lecture heard
+.must 273               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
@@ -11691,7 +11693,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5609]
-.must 117               ' Spanking lecture heard
+.must 273               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
@@ -11719,21 +11721,21 @@ We'll paddle that slave bottom some other time.
 ' Spanking good returns
 [Action 5651]
 Mmm, I love a pink slave-bottom.
-.set 117                ' Spanking lecture heard
+.set 273                ' Spanking lecture heard
 .set 751                ' Ass whipping 1
 .set 895                ' 1 merit
 .range 7201
 
 [Action 5652]
 That bum looks a little warmer now.
-.set 117                ' Spanking lecture heard
+.set 273                ' Spanking lecture heard
 .set 752                ' Ass whipping 2
 .set 895                ' 1 merit
 .range 7201
 
 [Action 5653]
 I love a pair of red, glowing slave buns!
-.set 117                ' Spanking lecture heard
+.set 273                ' Spanking lecture heard
 .set 753                ' Ass whipping 3
 .set 896                ' 1 merit
 .range 7201
