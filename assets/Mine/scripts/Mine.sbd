@@ -87,7 +87,7 @@
 
 
 '   These askchecks should not be used for debugging purposes since they are actually
-'   used in the script (at action 1500). Originally more items were planned, but that
+'   used in the script (at action 1500 1501). Originally more items were planned, but that
 '   proved both impractical and unnecessary so that's why the items are spread around
 '   the 300 range.
 
@@ -759,7 +759,7 @@ We'll be forced to stop today.
 
 [Action 852]
 Now get out of My sight!
-.pause Of course, Miss
+.pause As you wish, Miss
 .noimage
 .range 853
 
@@ -1755,7 +1755,7 @@ You gave that up when you became My slave.
 I want you to keep in mind that you're totally nude because of My whim,
 and not through your own choice, as we continue.
 You are My slutty little slaveboy, and you may do only what I allow you to do.
-.pause
+.pause Of course, Miss
 .range 1200
 
 [Action 1169]
@@ -3139,16 +3139,25 @@ make you skip your next seven cumming opportunities.
 ' Chastity training interval end
 [Action 1449]
 .unset 250              ' Reset freebie for next session -> choose new chastity interval  
-.range 1500
+.range 1498 1499
 
 
-[Action 1500]
+[Action 1498]
 Now, My dear, I want you to examine this list,
 ShowChoices
 and make sure everything you have is checked.
 Quickly, slave.
 .ask 1 19 LEFT CENTER
-.mustnot 385 679        ' slave has neither assignments nor toy
+.mustnot 749            ' Hide personal ball harness item until CBT4
+.range 1501 1505
+
+[Action 1499]
+Now, My dear, I want you to examine this list,
+ShowChoices
+and make sure everything you have is checked.
+Quickly, slave.
+.ask 1 20 LEFT CENTER
+.must 749               ' Show personal ball harness item at CBT4
 .range 1501 1505
 
 
@@ -12479,15 +12488,15 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 
 [Action 7101]
 .must 370               ' Have paddle
-.range 7130 7149
+.range 7130
 
 [Action 7102]
 .must 371               ' Have hair brush
-.range 7130 7149
+.range 7130
 
 [Action 7103]
 .must 372               ' Have wooden spoon
-.range 7130 7149
+.range 7130
 
 [Action 7104]
 .mustnot 370 371 372     ' Have neither
@@ -12496,7 +12505,7 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 '[Action 7105]
 '.mustnot 370 371 372
 '.must 676               ' Get a paddle, don't tell lecture again
-'.range 7130 7149
+'.range 7130
 
 
 '[Action 7107]
