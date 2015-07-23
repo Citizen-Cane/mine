@@ -67,12 +67,12 @@
 '
 '   44  -   Chastified (Encaged slave penis)
 '   45  -   Have key for chastity cage
-'   46  -   Milk with TENS (experimental)
+'   46  -   free
 '
-'   47  -   TODO Vibrator attached
+'   47  -   Vibrator or E-EStim device attached
 '   ??  -   TODO Can't lie down? (Vibrator on penis tip, enema kit hanging from collar, etc.)
 
-' 48 Quit without permission check
+'   48  -   Quit without permission check
 
 ' Timers
 '
@@ -3145,21 +3145,21 @@ make you skip your next seven cumming opportunities.
 
 
 [Action 1498]
+.mustnot 749            ' Hide personal ball harness item until CBT4
 Now, My dear, I want you to examine this list,
 ShowChoices
 and make sure everything you have is checked.
 Quickly, slave.
 .ask 1 19 LEFT CENTER
-.mustnot 749            ' Hide personal ball harness item until CBT4
 .range 1501 1505
 
 [Action 1499]
+.must 749               ' Show personal ball harness item at CBT4
 Now, My dear, I want you to examine this list,
 ShowChoices
 and make sure everything you have is checked.
 Quickly, slave.
 .ask 1 20 LEFT CENTER
-.must 749               ' Show personal ball harness item at CBT4
 .range 1501 1505
 
 
@@ -11118,7 +11118,8 @@ Well, 2 merits seem appropriate for a good training session.
 
 ' Maid training failure
 [Action 5101]
-2 demerits seem appropriate for a lazy, failed slave. Plus some punishment.
+2 demerits seem appropriate for a lazy, failed slave.
+Plus some punishment.
 .set 517
 .set 891
 .range 7200

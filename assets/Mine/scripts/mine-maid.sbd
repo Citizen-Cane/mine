@@ -1885,15 +1885,94 @@ and another, until you eventually learn obedience.
 .range 1900 1909
 
 
-' break and vibrator setup - planned
+' break and vibrator setup
 
 [Action 1820]
-.unset 1820
-.break 1700 6999 STOP 7300
+.range 1821 1829
+
+[Action 1821]
+.mustnot 23             ' something on penis
+.mustnot 179            ' punishment
+.must 389               ' A vibrator
+Now lazy little sluts such as yourself often need a little
+extra incentive to keep it up during their training.
+So go fetch your vibrator, E-Stim device or whatever you've got,
+and attach it to your silly slave penis.
+Then set it up to a teasing, tantalizing rythm!
+.pause Vibrator attached and running, Miss 
+.set 47                 ' Vibrator attached
+.range 1895
+
+[Action 1822]
+.mustnot 23             ' something on penis
+.mustnot 179            ' punishment
+.must 389               ' A vibrator
+Now lazy little sluts such as yourself often need a little
+extra incentive to keep it up during their training.
+So go fetch your vibrator, E-Stim device or whatever you've got,
+attach it to your silly slave penis,
+and set it up to a teasing, tantalizing rythm!
+.pause Vibrator attached and running, Miss 
+.set 47                 ' Vibrator attached
+.range 1895
+
+'[Action 1825]
+'[Action 1826]
+
+[Action 1825]
+.must 44                ' chastified
+.mustnot 179            ' punishment
+.must 389               ' A vibrator
+Well, I guess my dear maid in training deserves a little extra excitement today:
+Fetch your vibrator, E-Stim device or whatever you've got,
+attach it to your chastity cage,
+and set it up to a teasing, tantalizing rythm!
+.pause Vibrator attached and running, Miss 
+.set 47                 ' Vibrator attached
+.range 1895
+
+[Action 1826]
+.must 44                ' chastified
+.mustnot 179            ' punishment
+.must 389               ' A vibrator
+Well, I guess my dear maid in training deserves a little extra excitement today:
+Fetch your vibrator, E-Stim device or whatever you've got,
+attach it to your chastity cage,
+and set it up to a teasing, tantalizing rythm!
+.pause Vibrator attached and running, Miss 
+.set 47                 ' Vibrator attached
+.range 1895
+
+'[Action 1827]
+'[Action 1828]
+
+[Action 1829]
+.mustnot 389            ' A vibrator
+.poss 1
 .range 1899
 
+
+[Action 1895]
+Very good, my pet.
+It goes without saying that you are not allowed to
+change the setting of your teasing device, my dear slave.
+And of course you may not cum during your training.
+If you do, you're going to tell me immediately!
+.pause Yes Miss, I may not cum
+.range 1896
+
+[Action 1896]
+That's right, slave.
+.range 1898
+
+[Action 1898]
+.resetrange 1820 1899
+.break 1700 6999 STOP 7300 CUM 9990 9991
+.return
+
 [Action 1899]
-.unset 1899
+.resetrange 1820 1899
+.break 1700 6999 STOP 7300
 .return
 
 
@@ -2156,11 +2235,11 @@ Don't tell me you're getting tired already.
 .range 3990
 
 
-' Fallback: No comment, just wait an let the slave suffer
+' Fallback: No comment, just wait and let the slave suffer
 
 [Action 2198]
 .delay 20
-.unset 2199
+.unset 2198
 .poss 25
 .range 3990
 
@@ -4105,17 +4184,15 @@ You do have all these items, don't you?
 
 [Action 4055] 
 .mustnot 28                  ' something around neck
-Wonderful.
 bd222_01.jpg
-Kneel down, put on your collar, then attach the leash to it.
+Now kneel down, put on your collar, then attach the leash to it.
 .delay 45
 .range 4057
 
 [Action 4056]
 .must 28                     ' something around neck
-Wonderful.
 bd222_01.jpg
-Kneel down and attach the leash to your collar.
+Now kneel down and attach the leash to your collar.
 .delay 30
 .range 4057
 
@@ -7579,13 +7656,26 @@ delay 10
 .unset 7300
 .range 7301 7302
 
-' skip generic comment, just proceed to position specific
 [Action 7301]
+.must 47                ' Vibrator attached
+Well, at least you didn't spurt off, you lazy cunt.
+.unset 47
+.unset 7301
+.range 7308 7309
+
+[Action 7302]
+.mustnot 47             ' Vibrator attached
+.unset 7302
+.range 7308 7309
+
+
+' skip generic comment, just proceed to position specific
+[Action 7308]
 .unset 7301
 .range 7399             ' Jump to position specific comments range
 
 ' Issue generic comment before specific one
-[Action 7302]
+[Action 7309]
 .unset 7302
 .poss 100
 .mustnot 1400 1401      ' Positions to be commented with a position specific comment
@@ -8559,81 +8649,206 @@ That's pathetic, slave, and I'm just fed up with you.
 
 
 [Action 8301]
-Very good, slave.
-.playwav bell1.mp3
-.delay 5
+.mustnot 47             ' Vibrator attached
 .mustnot 113
+.playwav bell1.mp3
+Very good, slave.
+.delay 5
 .range 8399
 
 [Action 8302]
+.mustnot 47             ' Vibrator attached
+.mustnot 110 111
+.playwav bell1.mp3
 Very good, slave.
 That was a difficult position.
-.playwav bell1.mp3
 .delay 5
-.mustnot 110 111
 .range 8399
 
 [Action 8303]
-Excellent, slave.
-.playwav bell1.mp3
-.delay 5
+.mustnot 47             ' Vibrator attached
 .mustnot 110 111
+.playwav bell1.mp3
+Excellent, slave.
+.delay 5
 .range 8399
 
 [Action 8304]
-Excellent performance, slave, in a good solid position. 
-.playwav bell1.mp3
-.delay 5
+.mustnot 47             ' Vibrator attached
 .mustnot 110 111
+.playwav bell1.mp3
+Excellent performance, slave, in a good solid position. 
+.delay 5
 .range 8399
 
 [Action 8305]
-That's very good, My pet.
-.playwav bell1.mp3
-.delay 5
+.mustnot 47             ' Vibrator attached
 .mustnot 110 111
+.playwav bell1.mp3
+That's very good, My pet.
+.delay 5
 .range 8399
 
 [Action 8306]
-That's a very good slut.
-.playwav bell1.mp3
-.delay 5
+.mustnot 47             ' Vibrator attached
 .mustnot 110 111
+.playwav bell1.mp3
+That's a very good slut.
+.delay 5
 .range 8399
 
 [Action 8307]
-Easy as pie.
-.playwav bell1.mp3
-.delay 5
+.mustnot 47             ' Vibrator attached
 .mustnot 112 113
+.playwav bell1.mp3
+Easy as pie.
+.delay 5
 .range 8399
 
 [Action 8308]
+.mustnot 47             ' Vibrator attached
+.mustnot 110
+.playwav bell1.mp3
 Very good, slave.
 I do believe you're starting to catch on.
-.playwav bell1.mp3
 .delay 5
-.mustnot 110
 .range 8399
 
 [Action 8309]
+.mustnot 47             ' Vibrator attached
+.playwav bell1.mp3
 Very good, slave.
 I'm quite pleased with you.
-.playwav bell1.mp3
 .delay 5
 .range 8399
 
 [Action 8310]
-Good job, slave.
+.mustnot 47             ' Vibrator attached
 .playwav bell1.mp3
+Good job, slave.
 .delay 5
 .range 8399
 
 [Action 8311]
+.mustnot 47             ' Vibrator attached
+.playwav bell1.mp3
 Very good.
 I begin to think you're shaping up, slave.
-.playwav bell1.mp3
 .delay 5
+.range 8399
+
+
+' same comments, but also remove vibrator
+
+[Action 8321]
+.must 47                ' Vibrator attached
+.mustnot 113
+.playwav bell1.mp3
+Very good, slave.
+You may turn your vibrator off.
+.delay 5
+.unset 47
+.range 8399
+
+[Action 8322]
+.must 47                ' Vibrator attached
+.mustnot 110 111
+.playwav bell1.mp3
+Very good, slave.
+You may turn your vibrator off.
+That was a difficult position.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8323]
+.must 47                ' Vibrator attached
+.mustnot 110 111
+.playwav bell1.mp3
+Excellent, slave.
+You may turn your vibrator off.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8324]
+.must 47                ' Vibrator attached
+.mustnot 110 111
+.playwav bell1.mp3
+Excellent performance, slave, in a good solid position. 
+You may turn your vibrator off.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8325]
+.must 47                ' Vibrator attached
+.mustnot 110 111
+.playwav bell1.mp3
+That's very good, My pet.
+You may turn your vibrator off.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8326]
+.must 47                ' Vibrator attached
+.mustnot 110 111
+.playwav bell1.mp3
+That's a very good slut.
+You may turn your vibrator off.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8327]
+.must 47                ' Vibrator attached
+.mustnot 112 113
+.playwav bell1.mp3
+Easy as pie.
+You may turn your vibrator off.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8328]
+.must 47                ' Vibrator attached
+.mustnot 110
+.playwav bell1.mp3
+Very good, slave.
+You may turn your vibrator off.
+I do believe you're starting to catch on.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8329]
+.must 47                ' Vibrator attached
+.playwav bell1.mp3
+Very good, slave.
+You may turn your vibrator off.
+I'm quite pleased with you.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8330]
+.must 47                ' Vibrator attached
+.playwav bell1.mp3
+Good job, slave.
+You may turn your vibrator off.
+delay 5
+.unset 47
+.range 8399
+
+[Action 8331]
+.must 47                ' Vibrator attached
+Very good.
+.playwav bell1.mp3
+You may turn your vibrator off.
+I begin to think you're shaping up, slave.
+delay 5
+.unset 47
 .range 8399
 
 
@@ -10749,31 +10964,21 @@ Good job!
 .save 390 699
 .quit
 
-'[Action 9982]
-'.must 122
-'.save 390 699
-'.loadsbd Mine.sbd 2417 2417
 
-'[Action 9983]
-'.must 123
-'.save 390 699
-'.loadsbd Mine.sbd 2416 2416
+'   ---------------------------------------------------------------------------
+'   VERY BAD ENDINGS - Slave came without permission --------------------------
 
-'[Action 9984]
-'.must 124
-'.save 390 699
-'.loadsbd Mine.sbd XXXX XXXX
+[Action 9990]
+Came, did you, you disobedient slut!
+.noimage
+.must 100
+.poss 100
+.quit
 
-'[Action 9985]
-'.must 125
-'.save 390 699
-'.loadsbd Mine.sbd 2418 2418
+[Action 9991]
+.must 101
+.loadsbd Mine.sbd 6140  ' THe same code path as in mine-td
 
-
-'[Action 9986]
-'.must 126
-'.save 390 699
-'.loadsbd Mine.sbd XXXX XXXX
 
 '[Action 9997]
 
