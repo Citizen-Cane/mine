@@ -3,10 +3,14 @@ package ss;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.StringTokenizer;
 
 import pcm.controller.Player;
 import pcm.model.ActionRange;
+import pcm.model.ParseError;
+import pcm.model.ValidationError;
+import teaselib.Actor;
 import teaselib.TeaseLib;
 import teaselib.core.ResourceLoader;
 
@@ -33,13 +37,33 @@ import teaselib.core.ResourceLoader;
 // Debug Mine
 
 public class Mine extends Player {
-    final String assetRoot = "Mine/";
+    private static final String AssetRoot = "Mine";
+    private static final String Namespace = "Mine";
+    private static final Actor MineMistress = new Actor(Actor.Dominant, "en-us");
 
-    public Mine(TeaseLib teaseLib, String basePath) {
-        super(teaseLib, new ResourceLoader(basePath, "Mine"), "en-us", "Mine");
-        resources.addAssets("Mine Scripts.zip", "Mine Resources.zip",
-                "Mine Mistress.zip");
+    static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip",
+            "Mine Mistress.zip" };
 
+    public static void main(String argv[]) {
+        String basePath = "scripts";
+        try {
+            recordVoices(basePath, AssetRoot, MineMistress, Assets, "Mine");
+        } catch (ParseError e) {
+            TeaseLib.log(argv, e);
+        } catch (ValidationError e) {
+            TeaseLib.log(argv, e);
+        } catch (IOException e) {
+            TeaseLib.log(argv, e);
+        } catch (Throwable t) {
+            TeaseLib.log(argv, t);
+        }
+        System.exit(0);
+    }
+
+    public Mine(TeaseLib teaseLib, String basePath, String mistressPath) {
+        super(teaseLib, new ResourceLoader(basePath, AssetRoot), MineMistress,
+                Namespace, mistressPath);
+        resources.addAssets(Assets);
     }
 
     @Override
