@@ -35,17 +35,9 @@ def persistence = Persistence.newInstance(this)
 
 // teaseLib = new teaselib.TeaseLib(
 def TeaseLib = Class.forName('teaselib.TeaseLib', true, loader)
-def teaseLib = TeaseLib.newInstance(
-	host,
-	persistence,
-	"scripts/",
-	"Mine")
-teaseLib.addAssets(
-	"Mine Scripts.zip",
-	"Mine Resources.zip",
-	"Mine Mistress.zip");
+def teaseLib = TeaseLib.newInstance(host,persistence)
 
 //def mine = new Mine();
 def Mine = Class.forName('ss.Mine', true, loader)
-def mine = Mine.newInstance(teaseLib)
+def mine = Mine.newInstance(teaseLib, "scripts/")
 mine.run()

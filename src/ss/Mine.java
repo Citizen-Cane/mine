@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 import pcm.controller.Player;
 import pcm.model.ActionRange;
 import teaselib.TeaseLib;
+import teaselib.core.ResourceLoader;
 
 /**
  * @author someone
@@ -34,14 +35,17 @@ import teaselib.TeaseLib;
 public class Mine extends Player {
     final String assetRoot = "Mine/";
 
-    public Mine(TeaseLib teaseLib) {
-        super(teaseLib, "en-us", "Mine");
+    public Mine(TeaseLib teaseLib, String basePath) {
+        super(teaseLib, new ResourceLoader(basePath, "Mine"), "en-us", "Mine");
+        resources.addAssets("Mine Scripts.zip", "Mine Resources.zip",
+                "Mine Mistress.zip");
+
     }
 
     @Override
     public void run() {
         String script = null;
-        File debug = teaseLib.resources.getAssetPath("debug.txt");
+        File debug = resources.getAssetPath("debug.txt");
         if (debug.exists()) {
             Player.debugOutput = true;
             Player.validateScripts = true;
