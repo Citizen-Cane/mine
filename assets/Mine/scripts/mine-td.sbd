@@ -1,14 +1,19 @@
-.debug 2
+.backcolor 255 200 200
+.textcolor 0 0 0
+.ssdir td
 
-.yestext Yes, Mistress
-.notext No, Mistress
-.resumetext Yes, Mistress
-.stoptext Don't use the default text, Miss
+'.yestext Yes, Mistress
+'.notext No, Mistress
+'.resumetext Yes, Mistress
+
 .onClose 9998
 .onAllSet 9999
-.resetrange 50 299      ' reset all temp variables from main script but keep slave state, toys and achievements  
-.backcolor 255 200 200
-.ssdir td
+
+' clear actions that have been set in another script, critical as these aren't cleared automatically
+.resetrange 800 99999
+
+' reset all temp variables from main script but keep slave state, toys and achievements
+.resetrange 50 299
 
 .range 1000
 

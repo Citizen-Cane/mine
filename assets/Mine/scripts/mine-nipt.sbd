@@ -1,11 +1,18 @@
-.onAllSet 9999
-.onClose 9998
 .backcolor 255 80 80
 .textcolor 0 0 0
 .ssdir nipt
 
-.resetrange 50 199      ' reset all temp variables from main script but keep slave state, toys and achievements  
+.onClose 9998
+.onAllSet 9999
+
+' clear actions that have been set in another script, critical as these aren't cleared automatically
+.resetrange 800 99999
+
+' reset all temp variables from main script but keep slave state, toys and achievements
+.resetrange 50 199
+
 .range 1000
+
 
 '                               Returns
 '   #   Entry       From        Good    Bad     +   -   Desc

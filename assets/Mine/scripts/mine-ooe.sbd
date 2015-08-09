@@ -1,15 +1,21 @@
-.debug 2
+.backcolor 127 127 127
+.textcolor 0 0 0
+.ssdir ooe
 
-'.restore
-.resetrange 60 599      ' reset all but keep toys from main script
 .yestext One, Mistress
 .notext  Two, Mistress
-.range 999 999
-'.range 1002 1002
-.onClose 9998 9998
-.onAllSet 9999 9999
-.backcolor 127 127 127
-.ssdir ooe
+
+.onClose 9998
+.onAllSet 9999
+
+' clear actions that have been set in another script, critical as these aren't cleared automatically
+.resetrange 800 99999
+
+' reset all temp variables from main script but keep slave state, toys and achievements
+.resetrange 60 599
+
+.range 999
+
 
 '   Omnibus games of chance.
 

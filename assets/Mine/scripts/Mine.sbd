@@ -2,20 +2,25 @@
 ' Revisited RELEASE version 1.02 (3 DEZ 2011?)
 ' RELEASE version 1.01 (07 MAR 2006)
 
-' Initialization
+' This restores range 1 to 799
 .restore
+
 .backcolor 240 200 200
 .textcolor 0 0 0
+.ssdir mine
+
 '.yestext Yes, Mistress
 '.notext No, Mistress
 '.resumeText Yes, Mistress
 
-.onAllSet 851 851
-.onClose 859 859
+.onAllSet 851
+.onClose 859
  
+' clear actions that have been set in another script, critical as these aren't cleared automatically
+.resetrange 800 99999
+
 .range 845 846          ' normal start range
 
-.ssdir mine
 
 '   PCM issues that have been fixed in the java player:
 
@@ -3516,7 +3521,7 @@ We will talk of this a little later.
 .range 1551 1555
 
 [Action 1547]
-I see you were able to get a paddle.
+I see you were able to get a decent spanking implement.
 Good boy!
 .must 370               ' Spanking implement
 .must 676
@@ -3524,7 +3529,7 @@ Good boy!
 .range 1551 1555
 
 [Action 1548]
-I told you to get a paddle before this session, cunt.
+I told you to get a crop or a paddle before this session, cunt.
 You will be punished for not doing so.
 .mustnot 370
 .must 676
@@ -3537,7 +3542,7 @@ You will be punished for not doing so.
 .range 1551 1555
 
 [Action 1550]
-Slave, a paddle a very basic necessity for a slave boy, and you don't have one.
+Slave, a crop or a paddle is a very basic necessity for a slave boy, and you have neither.
 Get one before next time!
 We'll talk about this more in a minute.
 .mustnot 370            ' Have paddle
@@ -5162,8 +5167,10 @@ Tell me when you've finished, my pet.
 ' Punishment cycle
 
 [Action 1890]
+.unset 8                ' no being hard-punishment given
 .set 9                  ' i.e., there is a punishment outstanding
 .range 1899 1999
+
 
 [Action 1891]
 Now, My pet, have you been naughty recently?
@@ -5173,7 +5180,8 @@ Do you have any extra punishment coming to you?
 .yestext Yes Miss, I've been naughty
 .notext No Miss, I've been a good boy
 
-' No punishment at all, but try to try slave into voluntary punishment
+
+' No punishment at all, but try to talk slave into voluntary punishment
 [Action 1899]
 ' impatience can also be reflected elsewhere,
 ' so you can move on with it on.
@@ -5325,7 +5333,7 @@ Are you absolutely certain your Mistress hasn't given you any extra punishment r
 '	answered no, and no POs, bluffing.
 .mustnot 9
 .yesno 2004 2006 2011 2011
-.yestext Yes Miss, I'm sure
+.yestext Yes Miss, I am
 .notext No Miss, I'm not
 
 [Action 2004]
@@ -5333,7 +5341,7 @@ I'm very glad to hear that, My pet slut.
 Let's move on, then.
 '	answered no, and no POs, moving on without incident.
 .mustnot 9
-.range 3000 3000
+.range 3000
 
 [Action 2005]
 I'm very sorry to hear that.
@@ -5352,13 +5360,13 @@ I don't get to beat your bare slave butt right now,
 but it's just a matter of time before you land in hot water, I suppose.
 '	answered no, and no POs, moving on without incident.
 .mustnot 9
-.range 3000 3000
+.range 3000
 
 [Action 2007]
 Well, let's just check anyway, my little sissyboy.
 .must 9
 .set 10
-.range 2029 2029
+.range 2029
 
 [Action 2008]
 I'm not happy to hear that, slave.
@@ -5368,7 +5376,7 @@ but apparently we still have some more work to do.
 .must 715		'	must be punishment acceptance 5
 .mustnot 9
 .unset 402 715	'	unset it
-.range 3000 3000
+.range 3000
 
 
 [Action 2011]
@@ -5469,6 +5477,9 @@ Maybe some extra punishment sessions will teach you not to lie to your Mistress!
 Very well, slave.
 Get ready to pay for your offenses against your Mistress!
 .range 2100 2105
+
+'[2026]
+'[2027]
 
 [Action 2028]
 Well, My poor pain slut, it's time for your punishment!
@@ -5696,7 +5707,7 @@ Naughty, ill-mannered slut!
 I've got quite a lesson waiting for you.
 .pause Please forgive me, Miss
 .must 504
-.mustnot 508 516        ' 516 must be punsihed first since is a mandatory punishment
+.mustnot 516            ' 516 must be punsihed first since it is a severe punishment
 .mustnot 520            ' 520 must be executed first in order to remove clamps/pegs
 .range 2540 2544
 
@@ -5743,7 +5754,7 @@ that I give the instructions around here,
 and that Mistresses are to be obeyed without question!
 .pause Please forgive me, Miss
 .must 508
-.mustnot 516            ' Punish the mandatory first
+.mustnot 516            ' 516 must be punsihed first since it is a severe punishment
 .mustnot 520            ' 520 must be executed first in order to remove clamps/pegs
 .range 2580 2584
 
@@ -5765,24 +5776,25 @@ Therefore I've put together a little class to help you remember.
 .range 2600 2604
 
 [Action 2211]
+.mustnot 8              ' Not both 511 and 512 in one session
+.must 511
+.mustnot 512            ' first punish 512
+.mustnot 520            ' 520 must be executed first in order to remove clamps/pegs
 Now then, I find it difficult to believe that a wanton sex slave such as yourself can't even master the task of keeping his meat hard.
 Nevertheless I don't mind giving you a painful reminder!
 .pause Please Miss, it won't happen again
-.must 511
-.mustnot 512            ' Not both 511 and 512 in one session
-.mustnot 520            ' 520 must be executed first in order to remove clamps/pegs
+.set 8                  ' only one hardness punishment per session
 .range 2610 2618
 
 [Action 2212]
+.must 512
+.mustnot 520            ' 520 must be executed first in order to remove clamps/pegs
 Incredibly you still don't seem to be able to keep that little cock of yours standing to attention!
 Very few slaves are so stupid that they don't understand this rule,
 but it appears you're at the bottom of your class.
 Maybe a painful punishment session will give you the incentive you need to fondle yourself like a good slave.
 .pause No Miss, please forgive me!
-.must 512
-.mustnot 511
-.mustnot 520            ' 520 must be executed first in order to remove clamps/pegs
-.unset 511              ' Avoid pumishing the same infraction twice in the same session
+.set 8                  ' only one hardness punishment per session
 .range 2610 2618        ' 511 and 512 share the same range, but 512 punishments are harder
 
 [Action 2213]
@@ -5986,9 +5998,7 @@ However, I think we'll save those sessions until next time.
 '[Action 2263]
 
 ' No more outstanding punishments left
-' TODO There is a slight chance that action 2264 is triggered,
-' because we can't query correctly in PCM script
-' ".poss 100" is used as a hint for the java player 
+' ".poss 100" is used as a "else"-hint for the java player 
 [Action 2264]
 .mustnot 500 501 502 503 504 505 506 507 508 509 
 .mustnot 510 511 512 513 514 515 516 517 518 519
@@ -6579,15 +6589,16 @@ I guess you're off the hook, you lucky slaveboy.
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2543]
+.poss 1
+.mustnot 21             ' Something in ass
+.must 350               ' Buttplug
+.must 756               ' Anal training 1
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
-.mustnot 21             ' Something in ass
-.must 350               ' Buttplug
-.must 756               ' Anal training 1
 .set 21                 ' Something in ass
-.set 758                ' Anal training 3
+.set 757                ' Anal training 2
 .range 2404
 
 
@@ -6712,16 +6723,17 @@ I'll get you next time, you dirty slave!
 .range 2408
 
 [Action 2581]
-Instead of beating you raw, I'm going to have you put in a punishment plug today.
-Fetch your largest butt plug and stuff it up into your naughty slave ass.
-You can leave it in there for our entire session, slave.
-.pause In plugged, Miss
+.poss 1
 .mustnot 21             ' Something in ass
 .mustnot 267 268        ' Enema carrying out or holding
 .must 350               ' Buttplug
 .must 756               ' Anal training 1
+Instead of beating you raw, I'm going to have you put in a punishment plug today.
+Fetch your largest butt plug and stuff it up into your naughty slave ass.
+You can leave it in there for our entire session, slave.
+.pause In plugged, Miss
 .set 21                 ' Something in ass
-.set 758                ' Anal training 3
+.set 757                ' Anal training 2
 .range 2408
 
 ' paddle x160
@@ -6796,19 +6808,20 @@ When you move around, you will have plenty of time to think about your misdoings
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2601]
+.poss 1
+.mustnot 21        ' Something in ass
+.must 350          ' Buttplug
+.mustnot 677       ' chastity cage - expensive tool, so no punishemnt
+.must 756          ' Anal training 1
 In order to increase your attention span regarding my assignments,
 I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 ShowChoices
 delay 30
-You can leave it in there for our entire session, slave!
+You can leave it in there for the entire session, slave!
 .pause I'm plugged, Miss
-.mustnot 21        ' Something in ass
-.must 350          ' Buttplug
-.mustnot 677       ' chastity cage - expensive tool, so no punishemnt
-.must 756          ' Anal training 1
 .set 21            ' Something in ass
-.set 758           ' Anal training 3
+.set 757           ' Anal training 2
 .range 2605
 
 ' Lecture
@@ -6822,6 +6835,9 @@ You can leave it in there for our entire session, slave!
 ' TODO Spanking or corner time
 .mustnot 677       ' chastity cage - expensive tool, so no punishemnt
 .range 2410
+
+'[Action 2607]
+'[Action 2608]
 
 ' No punishment
 [Action 2609]
@@ -9310,7 +9326,7 @@ I'll give you a demerit for your unwillingness to follow my orders.
 Plus some punishment next time.
 .pause Yes, Miss
 .set 200
-.set 504 518             ' General disobedience, training failure 2
+.set 504 518             ' General disobedience training failure 2
 .unset 633 634
 .range 3960
 
@@ -12503,12 +12519,13 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 
 [Action 7104]
 .mustnot 370 371 372     ' Have neither
+.mustnot 676
 .range 7110 7111
 
-'[Action 7105]
-'.mustnot 370 371 372
-'.must 676               ' Get a paddle, don't tell lecture again
-'.range 7130
+[Action 7105]
+.mustnot 370 371 372
+.must 676               ' Get a paddle, don't tell lecture again
+.range 7130
 
 
 '[Action 7107]
@@ -12532,7 +12549,7 @@ Let's see what else we can use to spank your naughty bottom.
 .range 7116
 
 [Action 7116]
-.image equip_wooden_spoon.jpg     ' TODO Better image with naked slave girl
+.image equip_wooden_spoon.jpg
 A wooden spoon can be a wonderful spanking implement, don't you think?
 Its long handle makes it the perfect tool for a good and well deserved spanking.
 delay 5
@@ -12560,7 +12577,6 @@ Don't you ever cook a meal from time to time?
 [Action 7120]
 Well, my dear slave.
 What about a hair brush?
-' TODO better image with naked slave girl
 equip_hairbrush.jpg
 It lies comfortably in the hand, and its convenient weight and size
 makes it a very effective punishment implement for naughty slaves.
@@ -12590,7 +12606,7 @@ What kind of household are you living in?
  
 
 [Action 7125]
-Since a paddle is a very basic necessity for a slave boy,
+Since a crop or a paddle is a very basic necessity for a slave boy,
 you're going to get one before our next visit together!
 In the meantime, you can use your bare hand.
 .pause Yes, Miss

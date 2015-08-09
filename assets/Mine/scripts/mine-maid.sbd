@@ -1,15 +1,22 @@
-.debug 2
+.restore                ' restores 390 699
+
+.backcolor 255 200 200
+.textcolor 0 0 0
+.ssdir maid
 
 .yestext Of course, Miss
 .notext I'm afraid I haven't, Miss
 .stoptext I give up, Miss
 .cumtext I've spurted off, Miss
-.onAllSet 9999
+
 .onClose 9998
-.backcolor 255 200 200
-.restore                ' restores 390 699
-.resetrange 50 199      ' reset all temp variables from main script but keep slave state, toys and achievements  
-.ssdir maid
+.onAllSet 9999
+
+' clear actions that have been set in another script, critical as these aren't cleared automatically
+.resetrange 800 99999
+
+' reset all temp variables from main script but keep slave state, toys and achievements
+.resetrange 50 199
 
 .range 1000
 
@@ -2647,6 +2654,7 @@ Keep your legs together!
 .must 1414
 .mustnot 190 199
 bd066_49.jpg
+
 Hands on your knees, slave!
 .delay 20
 .range 3990

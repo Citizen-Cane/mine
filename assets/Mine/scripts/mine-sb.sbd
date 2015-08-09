@@ -1,17 +1,21 @@
-.debug 2
+.backcolor 0 0 0
+.textcolor 255 255 255
+.ssdir sb
 
 .yestext Yes, Mistress
 .notext No, Mistress
-.onAllSet 9999
-.onClose 9998
-.backcolor 0 0 0
 
-'.restore
-.resetrange 50 199      ' reset all temp variables from main script but keep slave state, toys and achievements  
-.ssdir sb
+.onClose 9998
+.onAllSet 9999
+
+' clear actions that have been set in another script, critical as these aren't cleared automatically
+.resetrange 800 99999
+
+' reset all temp variables from main script but keep slave state, toys and achievements
+.resetrange 50 199
 
 .range 1000 1000
-'.range 1104 1104
+
 
 '	WARNING
 '	self-bondage is inherently dangerous. you should hedge your bets

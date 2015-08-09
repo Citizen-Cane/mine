@@ -1,8 +1,15 @@
-.onAllSet 9999
-.onClose 9998
 .backcolor 255 80 80
+.textcolor 0 0 0
 .ssdir mine             ' using the main image directory here since there are only a few images of mistress shown here
-.resetrange 50 299      ' reset all temp variables from main script but keep slave state, toys and achievements  
+
+.onClose 9998
+.onAllSet 9999
+
+' clear actions that have been set in another script, critical as these aren't cleared automatically
+.resetrange 800 99999
+
+' reset all temp variables from main script but keep slave state, toys and achievements  
+.resetrange 50 299
 
 '   This is a "teaching" tutorial, intended to describe and explain equipment,
 '   and how to make some of it out of household materials.
@@ -653,13 +660,13 @@ Since you don't seem to have a butt plug, I'm assigning you the task of getting 
 Slave, I'm quite sure I told you to get a butt plug for this session.
 But you didn't!
 delay 2
-To start training your butt, slave, we'll need a butt plug.
-So get one before next time!
+I want to start training your butt as soon as possible, slave, so get one before next time!
+Yes Miss, as you wish
 .range 2911
 
 
 [Action 2911]
-A buttplug is a very handy slave training tool for,
+A buttplug is a very handy slave training tool,
 as it humiliates and arouses the slave at the same time.
 delay 3
 .range 2912
@@ -687,7 +694,7 @@ whilst doing chores in the house or running errands,
 constantly reminds the slave that he is the sole possession of his mistress.
 DominantImage
 Don't you think that's true, slave?
-.pause Yes Miss, I'm yours!
+.pause Of course Miss, I'm yours!
 .range 2915
 
 [Action 2915]
@@ -732,25 +739,36 @@ you can think about increasing the size or getting a larger-sized punishment plu
 
 [Action 3000]
 .mustnot 510                      ' Standard lecture
-Since you neither seem to have a crop, whip nor a paddle,
+Since you neither seem to have a crop nor a paddle,
 I'm assigning you the task of getting one by our next session.
-.range 3011
+.range 3010
 
 [Action 3001]
 .must 510                         ' Lecture during punishment
-I told you to get a paddle before this session, cunt.
+I told you to get a crop or a paddle before this session, cunt.
 But you haven't!
 delay 2
-A paddle is a very basic necessity for a slave boy, so get one before next time!
+A crop or a paddle is a very basic necessity for a naughty slave boy such as yourself, so get one before next time!
 .range 3011
 
 
-[Action 3011]
+[Action 3010]
 bd048_14.jpg
-Crops, whips and paddles are an important part of your slave training,
+Crops and paddles are an important part of your slave training,
 as they are a good way to discipline a slave for his misbehaviours.
 delay 5
 .range 3012
+
+[Action 3011]
+bd048_14.jpg
+Crops and paddles are an important part of your slave training,
+as they are a good way to discipline a slave for his misbehaviours.
+delay 2
+DominantImage
+They are especially useful to punish a slave who failed to procure the necessary tools for his training.
+delay 5
+.range 3012
+
 
 [Action 3012]
 bd048_33.jpg

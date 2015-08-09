@@ -1,17 +1,22 @@
-.debug 2 
-
-.onAllSet 9999 9999
-.onClose  9998 9998
-
-.resetrange 50 199      ' reset all temp variables from main script but keep slave state, toys and achievements  
 .backcolor 255 200 200
 .textcolor 0 0 0
+.ssdir dildo
+
 .yestext Yes, Mistress
 .notext No, Mistress
 .resumeText Yes, Mistress
-.ssdir dildo
+
+.onClose  9998
+.onAllSet 9999
+
+' clear actions that have been set in another script, critical as these aren't cleared automatically
+.resetrange 800 99999
+
+' reset all temp variables from main script but keep slave state, toys and achievements
+.resetrange 50 199
 
 .range 1000
+
 
 '   #   Entry       From        Good    Bad     +   -   Description
 '    --- ------- --------------- ------- ------- -   -   -----------
