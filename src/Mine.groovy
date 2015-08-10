@@ -35,7 +35,7 @@ def persistence = Persistence.newInstance(this)
 
 // teaseLib = new teaselib.TeaseLib(
 def TeaseLib = Class.forName('teaselib.TeaseLib', true, loader)
-def teaseLib = TeaseLib.newInstance(host,persistence)
+def teaseLib = TeaseLib.init(host,persistence)
 
 //def mine = new Mine();
 def Mine = Class.forName('ss.Mine', true, loader)
