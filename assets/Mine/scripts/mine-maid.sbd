@@ -1463,9 +1463,11 @@ and another, until you eventually learn obedience.
 [Action 1700]
 ' reset progress indicators
 .resetrange 190 199
-.resetrange 1700 1789
-' set progress indicators to 0, so we can set the real values with .repeatadd
+.resetrange 1700 1790
+' set progress indicators to 0, so that the
+' numbers in .repeatadd match the actual progress count 
 .set 1801 1802 1803 1804 1805 1806 1807 1808 1809 1810
+.unset 1811             ' loop exit
 .range 1750 1789
 
 
@@ -1809,18 +1811,18 @@ and another, until you eventually learn obedience.
 ' up to 1789 for ten durations
 
 
-' Loop init
+' Loop start
 
 [Action 1790]
-.unset 1790
 .range 1800
 
 
-' Loop start and progress advancer
+' Loop iteration and progress advancer
 
 [Action 1800]
 .unset 1800
 .range 1801 1811
+
 
 [Action 1801]
 .mustnot     191 192 193 194 195 196 197 198 199
@@ -1883,8 +1885,8 @@ and another, until you eventually learn obedience.
 
 [Action 1811]
 .must 1810
-.unset 1811
 .range 8300             ' success for this pose -> comment and cleanup
+
 
 ' loop comments and wait duration
 [Action 1819]
@@ -8653,6 +8655,7 @@ That's pathetic, slave, and I'm just fed up with you.
 ' Finished position - generic compliment
 
 [Action 8300]
+.unset 8300
 .range 8301 8398
 
 
@@ -10930,7 +10933,7 @@ Good job!
 [Action 9951]
 .must 121               ' Generic activity, quit afterwards
 .save 390 699
-.quit
+.range 990
 
 [Action 9952]
 .must 122               ' punishment (training failure 1)
