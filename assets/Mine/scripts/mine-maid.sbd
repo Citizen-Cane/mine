@@ -213,6 +213,9 @@
 	' 517 bd028_23.jpg   standing, nipple clamps, hands folded behind back, legs 2x, heels
 	' 518 bd028_33.jpg   standing, nipple clamps, collar, wrist restraints, legs wide, heels, hands behind butt, elbows out
 
+		' 519 bd068_27.jpg   2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips (bd068_29.jpg)
+		' 520 bd068_32.jpg   standing, legs wide, hands on hips, nipple & pussy clips, heels
+
 ' bd238_28.jpg   4pt sit on heels hands behind head knees 1.5x, ankles tied to thighs, rope harness, crotch rope (bd238_29.jpg)
 ' bd177_23.jpg   2pt kneel, hands near belly & tied, rope harness, collar, knees 1.5x
 ' bd161_25.jpg   hands and knees, nipple clamps, heels, wristlets, hands 1x knees 1.5x
@@ -234,9 +237,10 @@
 '      to be used as a preparation for real pussy clamps, or as a punishment in hard level
  
 		' bd068_27.jpg   2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips (bd068_29.jpg)
+		' bd068_32.jpg   standing, legs wide, hands on hips, nipple & pussy clips, heels
+
 		' bd0054_29.jpg  2pt crouch on toes, knees wide, hands behind head, nipple & pussy clips, collar, wristlets, leash
 		' bd0054_33.jpg  2pt kneel, knees 2x shoulder, nipple & pussy clips, hands behind head, collar, wristlets, leash
-		' bd068_32.jpg   standing, legs wide, hands on hips, nipple & pussy clips, heels
 
 
 ' hard (23): + Crotch rope, harness, pussy clamps (pegs on balls)
@@ -485,6 +489,8 @@
 .menu 516 1516 1516 516 standing, nipple clamps, hands behind head, legs 2x, heels
 .menu 517 1517 1517 517 standing, nipple clamps, hands folded behind back, legs 2x, heels
 .menu 518 1518 1518 518 standing, nipple clamps, collar, wrist restraints, legs wide, heels, hands behind butt, elbows out
+.menu 519 1519 1519 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips (bd068_29.jpg)
+.menu 520 1520 1520 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
 
 ' hard
 .menu 575 1575 1575 575 Hands and knees, ankles tied to thighs, rope harness + crotch rope, legs 2x hands 1x
@@ -499,6 +505,8 @@
 .menu 584 1584 1584 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
 .menu 585 1585 1585 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 .menu 586 1586 1586 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels 
+.menu 648 1648 1648 648 punishment only -> 519: 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
+.menu 649 1649 1649 649 punishment only -> 520: standing, legs wide, hands on hips, nipple & pussy clips, heels
 
 ' extreme
 .menu 650 1650 1650 650 Crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide
@@ -546,7 +554,7 @@
 .txt Moderate positions:
 .set 100 111            ' Short duration, moderate difficulty 
 .unset 994
-.PopUp 500 599
+.PopUp 500 574
 
 
 [Action 995]
@@ -1306,6 +1314,24 @@ and another, until you eventually learn obedience.
 .set 181                ' Convenient
 .range 5180 5183
 
+' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
+[Action 1519]
+.mustnot 33             ' Can't kneel
+.mustnot 43             ' Nipple clamps on nipples
+.mustnot 5190 5191      ' just once
+.set 181                ' Convenient
+.range 5190 5191
+
+
+' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
+[Action 1520]
+.mustnot 32             ' Can't stand
+.mustnot 43             ' Nipple clamps on nipples
+.mustnot 5200 5201      ' just once
+.set 181                ' Convenient
+.range 5200 5201
+		
+		
 		
 ' Hard positions 575-649
 
@@ -1419,12 +1445,100 @@ and another, until you eventually learn obedience.
 
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
 [Action 1586]
-.mustnot 20             ' something on nipples 
+.mustnot 42             ' Clothes pegs on nipples
 .mustnot 32             ' Can't stand
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .mustnot 5860 5861      ' just once
 .set 181                ' Convenient
 .range 5860 5861
+
+
+' These actions are copies of the pussy clamps positions, used as a punishment if the slave has dedicated pussy clamps
+' code duplication occurs, this could be better done if I implemented the [^ or action] feature,
+' but by simply copying the actions, that feature can be postponed 
+
+' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+[Action 1642]
+.mustnot 22             ' something in mouth
+.mustnot 24             ' something on balls
+.mustnot 32             ' Can't stand
+.mustnot 42             ' Clothes pegs on nipples
+.must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
+.must 387               ' have pussy clamps
+.mustnot 5790 5791      ' just once
+.set 181                ' Convenient
+.range 5790 5791
+
+' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
+[Action 1643]
+.mustnot 20             ' something on nipples 
+.mustnot 26             ' Wrists tied, as hands are hold on back
+.mustnot 33             ' can't kneel
+.must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
+.must 387               ' have pussy clamps
+.mustnot 5820 5821      ' just once
+.set 180                ' Comfortable
+.range 5820 5821
+
+' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 1644]
+.mustnot 20             ' something on nipples 
+.mustnot 33             ' Can't stand
+.must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
+.must 387               ' have pussy clamps
+.mustnot 5830 5831 5832 5833' just once
+.set 182                ' Demanding
+.range 5830 5833
+
+' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
+[Action 1645]
+.mustnot 20             ' something on nipples 
+.mustnot 26             ' Wrists tied, as hands are hold on back
+.mustnot 33             ' can't kneel
+.must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
+.must 387               ' have pussy clamps
+.mustnot 5840 5841 5842 5843 ' just once
+.set 183                ' Challenging
+.range 5840 5843
+
+' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 1646]
+.mustnot 20             ' something on nipples 
+.mustnot 32             ' Can't stand
+.must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
+.must 387               ' have pussy clamps
+.mustnot 5850 5851 5852 5853' just once
+.set 181                ' Convenient
+.range 5850 5853
+
+' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
+[Action 1647]
+.mustnot 42             ' Clothes pegs on nipples
+.mustnot 32             ' Can't stand
+.must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
+.must 387               ' have pussy clamps
+.mustnot 5860 5861      ' just once
+.set 181                ' Convenient
+.range 5860 5861
+
+
+' These actions are forwarded to the moderate level, since we need some pussy punishments but don't want to reveal pussy clamps to early 
+
+' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
+[Action 1648]
+.mustnot 33             ' Can't kneel
+.mustnot 43             ' Nipple clamps on nipples
+.must 179               ' exclusively as a punishment on this level, to workaround the fact that pussy clamps should be a surprise
+.mustnot 5190 5191      ' just once
+.range 1519
+
+' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
+[Action 1649]
+.mustnot 32             ' Can't stand
+.mustnot 43             ' Nipple clamps on nipples
+.must 179               ' exclusively as a punishment on this level, to workaround the fact that pussy clamps should be a surprise
+.mustnot 5200 5201      ' just once
+.range 1520
 
 
 ' Extreme positions 650-699
@@ -3223,6 +3337,66 @@ delay 6
 Stretch  your elbows out!
 .delay 20
 .range 3990
+
+
+' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
+
+[Action 2557]
+.must 1518
+.mustnot 190 191 198 199
+bd068_27.jpg
+Keep your head up!
+.delay 20
+.range 3990
+
+[Action 2558]
+.must 1518
+bd068_29.jpg
+.mustnot 190 191 192 193 194 199
+Arch your back, slave!
+.delay 20
+.range 3990
+
+[Action 2559]
+.must 1518
+.mustnot 190 199
+bd068_27.jpg
+Keep your hands behind your bottom, slave!
+delay 6
+Stretch  your elbows out!
+.delay 20
+.range 3990
+
+
+' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
+
+[Action 2560]
+.must 1520
+.mustnot 190 191 198 199
+bd068_32.jpg
+Keep your head up!
+.delay 20
+.range 3990
+
+[Action 2561]
+.must 1520
+bd068_32.jpg
+.mustnot 190 191 192 193 194 199
+Arch your back, slave!
+.delay 20
+.range 3990
+
+[Action 2562]
+.must 1520
+.mustnot 190 199
+bd068_32.jpg
+Are you enjoying your clothes pegs, slave?
+delay 6
+I hope they hurt good, my little bitch!
+.delay 20
+.range 3990
+
+
 
 
 ' 112 Difficult positions 2800-2949
@@ -6294,6 +6468,108 @@ Arch your back and keep your head up.
 .range 1700
 
 
+' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
+
+[Action 5190]
+.mustnot 20             ' Something on nipples
+Now we have a fairly basic position which we will spice
+up a little with some light nipple and pussy torture.
+To that end, I want you to go fetch a couple of clothes pegs.
+You do have clothes pegs, don't you, slave?
+.yesno 5194 5194 7748 7748
+
+[Action 5191]
+.must 20                ' Something on nipples
+Now we have a fairly basic position which we will spice
+up a little with some light nipple and pussy torture.
+To that end, I want you to go fetch a couple of clothes pegs.
+You do have clothes pegs, don't you, slave?
+.yesno 5194 5194 7748 7748
+
+
+[Action 5194]
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5195 5196
+
+
+[Action 5195]
+.mustnot 20             ' Something on nipples
+bd068_27.jpg
+Go ahead and pop those clamps on your nipples and your sluty ball sack, slave.
+.delay 30
+.range 5199
+
+[Action 5196]
+.must 20                ' Something on nipples
+bd068_29.jpg
+Go ahead and pop those pegs on your sluty ball sack, slave.
+.delay 15
+.range 5199
+
+
+[Action 5199]
+bd068_27.jpg
+Kneel in the middle of the room, and present yourself with your ankles together and your knees spread wide.
+delay 5
+Place your hands behind your butt!
+delay 10
+[]
+bd068_29.jpg
+Now keep your back arched and your head up!
+delay 10
+.range 1700
+
+
+' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
+
+[Action 5200]
+.mustnot 20             ' Something on nipples
+Now we have a fairly basic position which we will spice
+up a little with some light nipple and pussy torture.
+To that end, I want you to go fetch a couple of clothes pegs.
+You do have clothes pegs, don't you, slave?
+.yesno 5204 5204 7796 7796
+
+[Action 5201]
+.must 20                ' Something on nipples
+Now we have a fairly basic position which we will spice
+up a little with some light nipple and pussy torture.
+To that end, I want you to go fetch a couple of clothes pegs.
+You do have clothes pegs, don't you, slave?
+.yesno 5204 5204 7796 7796
+
+
+[Action 5204]
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5205 5206
+
+
+[Action 5205]
+.mustnot 20             ' Something on nipples
+bd068_32.jpg
+Go ahead and pop those clamps on your nipples and your sluty ball sack, slave.
+.delay 30
+.range 5209
+
+[Action 5206]
+.must 20                ' Something on nipples
+bd068_32.jpg
+Go ahead and pop those pegs on your sluty ball sack, slave.
+.delay 15
+.range 5209
+
+
+[Action 5209]
+bd068_32.jpg
+Now stand in the middle of the room, and present yourself - legs apart, hands on your hips.
+delay 10
+[]
+bd068_32.jpg
+Keep your back arched and your head up!
+delay 15
+.range 1700
+
+
 ' 112 Difficult positions 5750 6449
 
 
@@ -8205,6 +8481,15 @@ Return the tray and glass to their appropriate places, you sloppy cunt.
 .must 1518
 .range 9100 9115        ' Remove nipple clamps, collar and wrist restraints
 
+' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
+[Action 7519]
+.must 1519
+.range 9130 9131        ' Remove clothes pegs from nipples, also remove clothes pegs from pussy
+
+' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
+[Action 7520]
+.must 1520
+.range 9130 9131        ' Remove clothes pegs from nipples, also remove clothes pegs from pussy
 
 
 ' Hard positions 575-649
@@ -8270,7 +8555,7 @@ you'd want to be especially careful not to waste all the effort.
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
 [Action 7586]
 .must 1586
-.range 9128 9129        ' Remove wrist restraints and collar, also gag, nipple and pussy clamps
+.range 9128 9129        '  Remove nipple clamps, also pussy clamps 
 
 
 ' Extreme positions 650-699
@@ -8516,8 +8801,8 @@ I feel like I'm talking to a wall here!
 [Action 7748]
 No clothes pegs!
 I can't believe it.
-You'd better get your act together and
-find some of these supplies if you expect to make any headway with Me!
+You'd better get your act together and find some of these supplies
+if you expect to make any headway with Me!
 .pause  I promise I'll get some, Miss
 .range 9701
 
@@ -9331,6 +9616,17 @@ You may return the tray and glass to their appropriate places.
 .set 518
 .range 9100 9115        ' Remove nipple clamps, collar and wrist restraints
 
+' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
+[Action 8519]
+.must 1519
+.set 519
+.range 9130 9131        ' Remove clothes pegs from nipples, also remove clothes pegs from pussy
+
+' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
+[Action 8520]
+.must 1520
+.set 520
+.range 9130 9131        ' Remove clothes pegs from nipples, also remove clothes pegs from pussy
 
 
 ' Hard positions 575-649
@@ -9408,7 +9704,7 @@ I'd say you really got used to that taste.
 [Action 8586]
 .must 1586
 .set 586
-.range 9128 9129        ' Remove wrist restraints and collar, also gag, nipple and pussy clamps
+.range 9128 9129        '  Remove nipple clamps, also pussy clamps 
 
 
 ' Extreme positions 650-699
@@ -9610,7 +9906,7 @@ Go ahead and remove your slave collar.
 
 [Action 8848]
 Go ahead and remove the clothes pegs.
-.pause They're off, Miss
+.pause Thank you, Miss
 .mustnot 20             ' Something on nipples
 .range 9690
 
@@ -9623,7 +9919,7 @@ Go ahead and remove the clothes pegs.
 
 [Action 8852]
 You may remove them now. 
-.pause Did it, Miss
+.pause Thank you, Miss
 .range 9690
 
 [Action 8853]
@@ -10700,6 +10996,21 @@ Okay slave, you may take the clamps off.
 [Action 9129]
 .must 20                ' Something on nipples
 Okay slave, you may take off the pussy clamps, slave.
+.pause Thank you, Miss
+.range 9690
+
+
+' Remove clothes pegs from nipples, also remove clothes pegs from pussy
+
+[Action 9130]
+.mustnot 20             ' Something on nipples
+Go ahead and remove the clothes pegs, my dear pain slave.
+.pause Thank you, Miss
+.range 9690
+
+[Action 9131]
+.must 20                ' Something on nipples
+Go ahead and remove the clothes pegs from your slutty ball sack, my dear pain slave.
 .pause Thank you, Miss
 .range 9690
 
