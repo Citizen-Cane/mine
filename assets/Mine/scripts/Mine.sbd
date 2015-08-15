@@ -651,8 +651,8 @@ Would you be so kind and tell me what you've got exactly?
 ' The start of the script
 
 [Action 800]
-Welcome to debug my code, But don't try to cheat on me.
-What would you like to do today?
+.txt Welcome to debug my code, But don't try to cheat on me.
+.txt What would you like to do today?
 .unset 800
 .PopUp 40 60
 
@@ -5710,7 +5710,8 @@ I've got quite a lesson waiting for you.
 [Action 2205]
 Slaves must be possessed of patience, My darling slut.
 Their time is the Mistresses time, and She can make them wait as long as She pleases.
-This fact was obviously not in your little slave mind when you rudely tried to make me attend to you when I was not yet prepared to do so.
+This fact was obviously not in your little slave mind
+when you rudely tried to make me attend to you when I was not yet prepared to do so.
 Therefore a lesson in patience seems long overdue.
 .pause I'm so sorry, Miss
 .must 505
@@ -7579,7 +7580,7 @@ Hopefully this will get through to you!
 
 
 [Action 3000]
-.range 3001 3004
+.range 3001 3003
 
 ' Last session ended without quit
 [Action 3001]
@@ -7587,24 +7588,26 @@ Hopefully this will get through to you!
 .range 3020
 
 ' Cumming opportunity can be taken
-[Action 3003]
+[Action 3002]
 I almost forgot that you rudely left without My leave during the last session.
 I think I can cook up a suitable extra punishment for a misbehaving slaveboy like you.
 .must 102
 .mustnot 698        ' Not allowed to cum (cleared after denial)
 .mustnot 699        ' Not allowed to cum in general
-.range 3010
+.range 3004
 
-' Cumming opportunity taken already
-[Action 3004]
+' Cumming opportunity taken already, cook up alternative
+[Action 3003]
 I almost forgot that you rudely left without My leave during the last session.
 I think I can cook up a suitable extra punishment for a misbehaving slaveboy like you.
 .poss 1
 .must 102
-.range 3011
+.set 9                  ' still set after session extra has been applied, otherwise unset
+.gosub 3100 3107        ' add session extra
+.range 3018 3019
 
 
-[Action 3010]
+[Action 3004]
 I'm taking away your next cumming opportunity.
 In other words,
 I'm going to get you as worked up as possible,
@@ -7613,11 +7616,19 @@ Hopefully this will get through to you!
 .set 698                ' Not allowed to cum (cleared after denial)
 .range 3020
 
-[Action 3011]
+
+[Action 3018]
+.poss 1
+.mustnot 9
 Three demerits will work for now, I suppose. 
 .set 894
 .set 202                     ' Three demerits
 .unset 200 201     203 204
+.range 3020
+
+[Action 3019]
+.must 9                      ' session extra applied
+.unset 102
 .range 3020
 
 
@@ -7982,50 +7993,58 @@ that you tell me beforehand by by cancelling the activity.
 
 ' Session extras
 '
-'	About a 1 in 2 base chance of an "extra". Impatience (103)
-'	raises your chances to 2 in 3. Quitting without permission
-'	is 3/4, or 4/5 if combined with irritation. The range 
-'	used here is 3090-3099, so add more (good or bad) to the end
-'	if desired.
+' About a 1 in 2 base chance of an "extra". Impatience (103)
+' raises your chances to 2 in 3. Quitting without permission ' is 3/4,
+' or 4/5 if combined with irritation. The range used here is 3090-3099,
+' so add more (good or bad) to the end if desired.
 
 [Action 3089]
+.unset 3089
 .range 3090 3099
 
 
-' Extras are skipped when carrying out the enema, to avoid accidents because of being tied up
+' Extras are skipped when carrying out the enema,
+' to avoid accidents because of being tied up
 
 [Action 3090]
 .range 3400             ' continue without extras
 
 [Action 3091]
 .mustnot 267 268        ' Enema carrying out or holding
-.range 3100 3109        ' choose session extra
+.set 9                  ' still set after session extra has been applied, otherwise unset
+.unset 3091             ' unset to ensure additional extras can be chosen
+.gosub 3100 3107        ' choose session extra
+.range 3108 3109        ' Another session extra or continue
 
 [Action 3092]
 .must 103               ' mistress impatient
 .mustnot 267 268        ' Enema carrying out or holding
-.range 3100 3109        ' choose session extra
+.set 9                  ' still set after session extra has been applied, otherwise unset
+.gosub 3100 3107        ' choose session extra
+.range 3108 3109        ' Another session extra or continue
 
 [Action 3093]
 .must 102               ' slave quit last session
 .mustnot 267 268        ' Enema carrying out or holding
-.range 3100 3109        ' choose session extra
+.set 9                  ' still set after session extra has been applied, otherwise unset
+.gosub 3100 3107        ' choose session extra
+.range 3108 3109        ' Another session extra or continue
 
 [Action 3094]
-.must 102               ' slave quit last session
 .mustnot 267 268        ' Enema carrying out or holding
-.range 3100 3109        ' choose session extra
+.must 501
+.set 9                  ' still set after session extra has been applied, otherwise unset
+.gosub 3100 3107        ' choose session extra
+.range 3108 3109        ' Another session extra or continue
 
-[Action 3095]
-.mustnot 267 268        ' Enema carrying out or holding
-.range 3100 3109        ' choose session extra
 
-'	session extras, 3100 - 3299
-'   nipple extras removed due to the fact they stay on too damn long
-'   and also because they limit the available activities too much.
+' session extras: 3100 - 3299
 '
-'   I've also taken out the two extras that tether the slave, again
-'   because they just limit activities too much.
+' nipple extras removed due to the fact they stay on too damn long
+' and also because they limit the available activities too much.
+'
+' I've also taken out the two extras that tether the slave,
+' again because they just limit activities too much.
 
 ' Most likely the first of the seesion addons chosen will be one from the
 ' various cbt bondage items, resulting in 24 something on balls set
@@ -8066,10 +8085,22 @@ that you tell me beforehand by by cancelling the activity.
 .must 385               ' Ball harness - I think once the slave own one, we should prefer it over rope cbt  
 .range 3250 3289
 
+' fallback if no session extra can be applied
+[Action 3107]
+.poss 1
+.unset 9
+.return
+
+
+' Session extra applied, another one?
+[Action 3108]
+.must 9
+.range 3300
+
 ' End extras section if there's aren't any more to apply
 [Action 3109]
+.mustnot 9
 I don't think I'll add anything more to today's session.
-.poss 1
 .range 3400
 
 
@@ -8131,7 +8162,7 @@ into your back door, where you will keep it for today's session.
 
 [Action 3116]
 .must 3114
-.range 3300
+.return
 
 [Action 3117]
 To make sure the plug stays inside your anus all through the session,
@@ -8141,7 +8172,7 @@ you are going to tie yourself with a nice and tight crotch rope.
 .must 330               ' Rope
 .must 3114
 .set 27                 ' Something around waist
-.range 3300
+.return
 
 [Action 3118]
 To make sure the plug stays inside your anus all through the session,
@@ -8157,7 +8188,7 @@ and don't remove it until the end of the sesion.
 .pause I'm tied up, Miss
 .must 3118
 .set 36                 ' Harnessed
-.range 3300
+.return
 
 
 [Action 3120]
@@ -8197,11 +8228,12 @@ I know you like it, you bondage slut!
 
 
 [Action 3124]
+.mustnot 28             ' collared
+.mustnot 102            ' Wearing the collar is a honor, so don't give it away as a punishment
+.must 325               ' have collar
 I think you're going to wear your slave collar for today.
 Put it on now, slave.
 .pause I'm collared, Miss
-.must 325               ' have collar
-.mustnot 28             ' collared
 .set 28                 ' collared
 .range 3290
 
@@ -8215,7 +8247,7 @@ Put it on now, slave.
 'about three or four feet of play. Don't take your tether off
 'for any reason until we've finished today's session.
 '.pause
-'.range 3300
+'.return
 '.must 334
 '.mustnot 27 35
 '.set 27 35
@@ -8232,7 +8264,7 @@ Put it on now, slave.
 'feet on the ground at all. Getting the picture? That should
 'be a fun way to spend today's session, slut!
 '.pause
-'.range 3300
+'.return
 '.must 330 501
 '.must 736 737 746 747
 '.mustnot 24 25 32 33 35
@@ -8279,13 +8311,12 @@ Put it on now, slave.
 [Action 3139]
 .poss 1
 .unset 3139
-.range 3100 3109
+.range 3100 3107
 
 
 ' 3140-3159 impatience add-ons
 
-
-'  slave chains tied to balls
+' slave chains tied to balls
 
 [Action 3140]
 .mustnot 24             ' something on balls
@@ -8360,7 +8391,7 @@ go a long way in teaching you not to irritate me!
 .must 3146
 .set 24 31 32           ' something on balls, can't sit on chair, can't kneel
 .set 749                ' CBT 4
-.range 3300
+.return
 
 
 [Action 3150]
@@ -8390,7 +8421,7 @@ Don't leave yourself more than 18 inches or so of rope, you dirty cunt.
 You can stare at that silly penis for the rest of the session.
 .pause Fastened up, Miss
 .must 3151
-.range 3300
+.return
 
 
 [Action 3153]
@@ -8411,7 +8442,7 @@ You can stare at that silly penis for the rest of the session.
 .pause Fastened up, Miss
 .must 3153
 .set 22 24 32 747 783	' something in mouth, somethng on balls, can't stand, cbt2, gag training 3
-.range 3300
+.return
 
 
 [Action 3155]
@@ -8442,7 +8473,7 @@ Now bend over as far as you can and fasten the leash to the ball harness.
 Don't leave yourself more than eighteen inches or so of rope, you dirty cunt.
 You can stare at that silly penis for the rest of the session.
 .pause I'm fastened up, Miss
-.range 3300
+.return
 
 
 [Action 3158]
@@ -8454,14 +8485,14 @@ I want you to keep it there for the entire session.
 .mustnot 22             ' something in mouth
 .must 782               ' gag training 2
 .set 22 783	            ' something in mouth, gag training 3
-.range 3300
+.return
 
 
 ' fallback - select different category
 [Action 3159]
 .poss 1
 .unset 3159
-.range 3100 3109
+.range 3100 3107
 
 
 ' 3160-3179 just cuffs and chains
@@ -8474,7 +8505,7 @@ some rope and tie your ankles together for today's session.
 .must 330
 .set 25                 ' ankles tied
 .set 736                ' restraint acceptance 1
-.range 3300
+.return
 
 [Action 3162]
 I don't want you running off, slave, so snap on
@@ -8484,17 +8515,18 @@ those ankle restraints for today's session.
 .must 312               ' ankle restraints
 .set 25                 ' ankles tied
 .set 736                ' restraint acceptance 1
-.range 3300
+.return
 
 [Action 3164]
-Today I want you to pop those handcuffs on your wrists, My pet, just as a bit of a reminder.
+Today I want you to pop those handcuffs on your wrists, My pet,
+just as a bit of a reminder.
 Leave them on for today's session.
 .pause Done, Miss
 .mustnot 26
 .must 311
 .set 26                 ' wrists tied
 .set 736                ' restraint acceptance 1
-.range 3300
+.return
 
 
 [Action 3166]
@@ -8512,7 +8544,7 @@ Leave your chains on for the whole session, slave.
 .must 3166
 .set 25 26 32
 .set 737	            ' restraint acceptance 2
-.range 3300
+.return
 
 
 [Action 3168]
@@ -8555,22 +8587,23 @@ Leave your chains on for the whole session, slave.
 .must 3172
 .set 25 26
 .set 737	            ' restraint acceptance 2
-.range 3300
+.return
 
 
 ' fallback - select different category
 [Action 3179]
 .poss 1
-.range 3100 3109
+.range 3100 3107
 
 
-' 3180-3199 free c<ategory
+' 3180-3199 free category
 
 ' fallback - select different category
 [Action 3199]
 .poss 1
 .unset 3199
-.range 3100 3109
+.range 3100 3107
+
 
 
 ' 3200-3249 rope cbt
@@ -8736,7 +8769,8 @@ You are not allowed to rest the weight on the ground, My pet, so don't leave too
 [Action 3249]
 .poss 1
 .unset 3249
-.range 3100 3109
+.range 3100 3107
+
 
 
 ' 3250-3299 ball harness
@@ -8774,6 +8808,7 @@ but not enough to stand up straight or reach your neck.
 .must 3253
 .set 31 32              ' can't sit on chair, can't stand
 .set 24 37              ' something on balls, ball harness
+.set 3124               ' Can't put on slave collar anymore 
 .range 3290
 
 
@@ -8849,14 +8884,14 @@ Chain each ankle to your slutty ball sack so that you can just kneel straight.
 [Action 3289]
 .poss 1
 .unset 3299
-.range 3100 3109
+.range 3100 3107
 
 
 ' Generic telling theat the toys has to be worn the whole session
 
 [Action 3290]
 .poss 1
-.unset 3299
+.unset 3290
 .range 3291 3299
 
 ' todo comments don't work for all extras
@@ -8864,61 +8899,64 @@ Chain each ankle to your slutty ball sack so that you can just kneel straight.
 [Action 3291]
 Very good, slave.
 You'll wear that get-up for today's entire session.
-.range 3300
+.return
 
 [Action 3292]
 Wonderful, slave.
 You'll be wearing that get-up for today's entire session!
-.range 3300
+.return
 
 [Action 3293]
 Very good, slave.
 Leave it there for the whole session.
-.range 3300
+.return
 
 [Action 3294]
-Very good, slave.
+Excellent, slave.
 Leave it there for the whole session.
-.range 3300
+.return
 
 [Action 3295]
 Very good.
 You'll stay like this for the whole session, slave.
-.range 3300
+.return
 
 [Action 3296]
 Very good, slave.
-You'll stay this way for the whole session, slave.
-.range 3300
+You'll stay this way for the whole session.
+.return
 
 [Action 3297]
-Very good, slave.
+Excellent, slave.
 Now leave it there for the whole session.
-.range 3300
+.return
 
 [Action 3298]
 Very good.
 Now keep it that way for the whole session.
-.range 3300
+.return
 
 [Action 3299]
-Very good, slave.
+Excellent!
 Leave it that way for the whole session, slave.
-.range 3300
+.return
 
 
-' Another one?
+' Add nother session extra?
 [Action 3300]
+.unset 102              ' because the slave collar is not available until cleared, but we want to apply it as an additonal extra
 .unset 3300
 .range 3301 3310
 
+
 '	1/7 of adding another extra +1/1 for 501, +1/1 for 102, +1/1 for 103
 '   one of 102, 103 or 501 doubles chances for another extra to 2/7
+
 [Action 3301]
 .unset 3100             ' unique items can be combined quite well and don't restict activities
 .unset 3101             ' if the mistress is impatient the slave is in trouble
 .unset 3301
-.range 3100 3299        ' another one
+.range 3091 3099        ' another one, 3090 ommited to avoid 50% skip
 
 [Action 3302]
 .range 3400
@@ -8940,19 +8978,20 @@ Leave it that way for the whole session, slave.
 
 [Action 3308]
 .must 501               ' impatience punishment
-.range 3100 3299        
+.range 3091 3099        
 
 [Action 3309]
 .must 102               ' slave quit
-.range 3100 3299
+.range 3091 3099
 
 [Action 3310]
 .must 103               ' mistress impatient
-.range 3100 3299
+.range 3091 3099
 
 
 ' End of Extras selection
 [Action 3400]
+.unset 102               ' done with punishing leaving withput permission 
 .range 3900 3901
 
 
