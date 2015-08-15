@@ -25,17 +25,6 @@
 '   ... ... ....
 '   179 209 3200
 
-'   190 2980    
-'   191 2981
-'   192 2982    5202 -> 5352    5252    -          1    shower 10m, 50 paddles
-'   193 2983    5203 -> 5353    5253    -          2    shower 15m, 100 paddles, nips
-'   194 2984    2531            2406    -               shower 15m, wet, ankles, nips/balls, 100 paddles
-'   195 2985                                            shower 10m, wrists & ankles
-'   196 2986    2516            2403    -               shower 15m, wet, ankles, 200 paddles, clamps
-'   197 2987    2511            2402    -               shower 10m, wet, wrists, nips
-'   198 2988    5201 -> 5351    5251    -          2    shower 10m, 100 paddles, nips
-'   199 2989    2576            2415    -               shower 15m, 200 paddles, clamps
-
 
 ' Dildo sucking/riding
 .askcheck 50 50 50: 0 repetitions: finished.
@@ -95,9 +84,28 @@
 .menu 46   997  997 Dildo worshiping level 5 skip instructions
 .menu 46   998  998 Dildo worshiping level 5 punishment
 .menu 47   999  999 Dildo worshiping activity, not submitted to anal training
-.menu 47   989  989 Slave state (toys)
-.menu 49  1000 1000 Exit
-
+.menu 48   989  989 Slave state (toys)
+.menu 50 3220 3220 lie down on the floor, riding fully penetrated on the floor 
+.menu 51 3221 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
+.menu 52 3222 3222 On stool, kneeling, riding on stool
+.menu 53 3223 3223 Kneeling upright in front of desk, squatting down to ride, worshiping version
+.menu 54 3224 3224 Mount dildo on wall or cupboard, suck kneeling upright, ride standing, bending forward, supported by chair or opposite wall
+.menu 55 3225 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
+.menu 56 3226 3226 Dildo yoga
+.menu 57 3227 3227 Suck Kneeling on all four, ride sitting on the floor
+.menu 58 3228 3228 Suck standing, ride on all four
+.menu 59 3229 3229 Empty TODO 32?? Mount on floor, Suck sitting on heels, ride sitting
+.menu 60 3230 3230 Empty TODO 32?? Mount on stool, suck on all four, ride sitting on stool 
+.menu 61 3231 3231 Empty
+.menu 62 3232 3232 Empty
+.menu 63 3233 3233 Empty TODO 3233 Mount on mirror or window, suck kneeling on all four
+.menu 64 3234 3234 Empty TODO 3234 Mount on door or cupboard, suck lying, blindfolded
+.menu 65 3235 3235 Mount dildo on floor, kneel down, arms straight on the floor
+.menu 66 3236 3236 Mount dildo on a wall or cupboard, kneel upright, arms behind head
+.menu 67 3237 3237 Mount dildo on a window pane or mirror, sit on heels, nipple clamps
+.menu 68 3238 3238 Kneeling upright in front of desk - punishment version
+.menu 69 3239 3239 Wall mounted, nipple clamps attached to dildo
+.menu 70 1000 1000 Exit
 
 ' 900-909 dildo worshiping
 
@@ -166,7 +174,7 @@ So, what will you be wearing, slave?
 .txt What would you like to do today?
 .set 100
 .unset 990
-.popup 40 48
+.popup 40 70
 
 
 [Action 991]
@@ -399,7 +407,7 @@ and I don't like to see bite marks on the shaft.
 .mustnot 33             ' Can't kneel 
 .range 3240 3244
 
-' 3239 wall mounted, nipple clamps attached to dildo 
+' 3239 Wall mounted, nipple clamps attached to dildo 
 [Action 3239]
 .mustnot 170            ' Worshping activity
 .must 301               ' have nipple clamps
@@ -930,7 +938,7 @@ Pick up your dildo and keep it in your mouth while you fetch your nipple clamps.
 delay 10
 When you have them, go ahead and snap them on your poor little slave titties.
 delay 10
-Report to me when you're back at the desk teasing the dildo.
+Report back to me when the clamps sit tight on your nipples and you're back at the desk teasing the dildo.
 .pause I'm back, Miss
 .mustnot 20             ' Nipple clamps
 .range 3382
@@ -941,14 +949,14 @@ Report to me when you're back at the desk teasing the dildo.
 
 [Action 3382]
 Today, you're going to mount your dildo at a window pane.
-.image Charlies-AMATEUR-Potpourri-2009-Deux-7a.jpg
+.image dildo_worshiping_suck_kneeling_window_pane_intro.jpg
 .delay 15
 .set 15                 ' Wank
 .range 3383
 
 [Action 3383]
 You'll sit down on your heels alongside the window, turning your torso towards it.  
-.image Charlies-AMATEUR-Potpourri-2009-Deux-7a.jpg 
+.image dildo_worshiping_suck_kneeling_window_pane_suck_position.jpg
 .delay 15
 .range 3384
 
@@ -1231,7 +1239,7 @@ your arms behaind your head. You have thirty seconds.
 [Action 3437]
 Now grab the dildo with your mouth and kneel down alongside the window.
 You have thirty seconds.
-.image Charlies-AMATEUR-Potpourri-2009-Deux-7a.jpg 
+.image dildo_worshiping_suck_kneeling_window_pane_suck_position.jpg
 .delay 30
 .must 3237
 .range 3444
