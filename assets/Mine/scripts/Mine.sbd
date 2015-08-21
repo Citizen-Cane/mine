@@ -764,6 +764,7 @@ We'll be forced to stop today.
 .pause Oh dear!
 .range 853
 
+
 [Action 852]
 Now get out of My sight!
 .pause As you wish, Miss
@@ -798,12 +799,14 @@ You will regret this, you stupid cunt.
 .pause I'm so sorry, Miss
 .noimage
 .unset 859
-.range 860
+.save 1 799             ' save here to avoid cheating
+.range 860              ' keep the quit flag set
 
 ' unset everything that would mess up the next session
 [Action 860]
+.set 100                ' Now you've run the script
 .unset 267              ' Enema next-session, carrying out,
-.range 853
+.range 854
 
 
 ' Introductory phase
