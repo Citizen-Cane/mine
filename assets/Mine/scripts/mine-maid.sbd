@@ -1456,7 +1456,8 @@ and another, until you eventually learn obedience.
 
 ' These actions are copies of the pussy clamps positions, used as a punishment if the slave has dedicated pussy clamps
 ' code duplication occurs, this could be better done if I implemented the [^ or action] feature,
-' but by simply copying the actions, that feature can be postponed 
+' but by simply copying the actions, that feature can be postponed.
+' update NumberActionsSet range in 9806 when changing this range
 
 ' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
 [Action 1642]
@@ -11398,15 +11399,16 @@ and let you suffer a little longer instead.
 .mustnot 179            ' Punishment
 .range 9802 9819
 
-
-'   There's about a 10% chance of advancement each time the script is run.
+' After 6 positions have been completed, 
+' There's about a 20% chance of advancement each time the script is run.
 
 [Action 9802]
 I think you're ready for more difficult positions, slave.
 Good boy!
 .must 390                         ' 390 set in 1199
 .mustnot 391 392 393 394 395 396
-.poss 10
+.NumberOfActionsSet 400 499 6
+.poss 20
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .unset 390
 .set 391
@@ -11423,7 +11425,8 @@ Expect more difficult training next time.
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .must 391
 .must 519 520           ' Must endure at least two positions with pussy clips 
-.poss 11
+.NumberOfActionsSet 500 574 6
+.poss 20
 .unset 390 391
 .set 392
 .range 9902             ' results in pussy clamps assignment
@@ -11439,7 +11442,8 @@ Very good boy!
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .must 392
 .must 579 582 586       ' introduction to pussy clamps, kneeling, standing, weights 
-.poss 11
+.NumberOfActionsSet 575 641 6
+.poss 20
 .unset 390 391 392
 .set 393
 .range 9903             ' results in dildo assignment
@@ -11454,7 +11458,8 @@ You're getting better and better trained, slave.
 Next time I'm going to ramp the difficulty up a notch, because you've earned it.
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .must 393
-.poss 12
+.NumberOfActionsSet 650 699 6
+.poss 20
 .unset 390 391 392 393
 .set 394
 .range 9904
@@ -11469,6 +11474,7 @@ You're really getting good at these positions, slave.
 I'm going to have to test your endurance in the future.
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .must 394
+.NumberOfActionsSet 400 499 12
 .poss 12
 .unset 390 391 392 393 394
 .set 395
@@ -11485,6 +11491,7 @@ I'm extremely impressed with your progress and endurance.
 Good job!
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .must 395
+.NumberOfActionsSet 500 574 12
 .poss 12
 .unset 390 391 392 393 394 395
 .set 396
