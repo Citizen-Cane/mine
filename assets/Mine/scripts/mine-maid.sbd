@@ -11399,8 +11399,9 @@ and let you suffer a little longer instead.
 .mustnot 179            ' Punishment
 .range 9802 9819
 
-' After 6 positions have been completed, 
-' There's about a 20% chance of advancement each time the script is run.
+' After 6 positions on a level have been completed, 
+' there's about a 20% chance of advancement each time the script is run.
+' To advance endurance, 12 positions have to be completed on easy or moderate)
 
 [Action 9802]
 I think you're ready for more difficult positions, slave.
@@ -11458,7 +11459,7 @@ You're getting better and better trained, slave.
 Next time I'm going to ramp the difficulty up a notch, because you've earned it.
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .must 393
-.NumberOfActionsSet 650 699 6
+.NumberOfActionsSet 650 699 4
 .poss 20
 .unset 390 391 392 393
 .set 394
