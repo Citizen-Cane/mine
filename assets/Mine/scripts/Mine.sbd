@@ -1507,11 +1507,10 @@ We'll start out fairly harshly, then.
 [Action 1100]
 Now tell your Mistress:
 Right now, are you totally naked?
-.settime 55                     ' impatience in naked question
-.yesno 1101 1104 1105 1109
-.yestext Yes Miss, I'm naked
-.notext No Miss, I'm clothed
-
+.delay 15 15 confirm yes 1150 1154 no 1105 1109 
+.yestext Yes Miss, I'm naked right now
+.notext No Miss, I'm still clothed
+.range 1101 1103
 
 ' yes, too late 1101-1104
 
@@ -1519,25 +1518,23 @@ Right now, are you totally naked?
 You seem to like your mistress waiting, don't you, you sluggish slave.
 Remind me to teach you a little lesson on the topic later on.   
 .pause I'm sorry, Miss
-.timefrom 55 00:00"15
 .mustnot 103                 ' Impatience
 .mustnot 509                 ' P.O. for wasting mistress time
 .set 509
-.range 1150 1154
+.range 1104
+
 
 [Action 1102]
 I can't believe that it takes you so long to answer such a simple question.
 You'll deserve a couple of demerits for your sluggish attitude, slave.
 Hopefully that will be enough to remind you to answer my questions promptly, for pity's sake.
 .pause I'm so sorry, Miss
-.timefrom 55 00:00"15
 .mustnot 501
 .must 509
 .set 103                     ' mistress impatient after waiting so long for this easy question
 .set 201			         ' one demerit
 .set 509
-.unset 1100
-.range 1100
+.range 1104
 
 [Action 1103]
 Little cunt!
@@ -1546,7 +1543,6 @@ and I've had enough of your lazy and sluggish attitude.
 You can come back in an hour or so when you're ready to pay attention to your Mistress!
 And for your own good, you'll better stay bare naked that hour.
 .pause Please forgive me, Miss
-.timefrom 55 00:00"15
 .must 103                    ' Impatient
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 509
@@ -1554,10 +1550,15 @@ And for your own good, you'll better stay bare naked that hour.
 .settime 50
 .range 880
 
-' yes, in time
+' Retry
 [Action 1104]
-.poss 1
-.range 1150 1154
+Well, then tell your Mistress:
+Are you totally naked right now, or are you still clothed?
+.delay 15 15 confirm yes 1150 1154 no 1105 1109 
+.yestext Yes Miss, I'm naked right now
+.notext No Miss, I'm still clothed
+.unset 1104
+.range 1101 1103
 
 
 ' Not naked initial group
