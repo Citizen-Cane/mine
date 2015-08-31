@@ -1189,8 +1189,7 @@ I'll give you a chance to pussy out of your commitment.
 Well, you're such a disgusting little pig, I'll have to think it over.
 noimage
 You can just kneel there and await My pleasure.
-.delay 160        ' 2:40, with :15 remaining plus 5 seconds for text-to-speech delay....
-.settime 1012
+.delay 150        ' 2:30
 .range 1013
 
 ' stop won't do the trick because
@@ -1198,12 +1197,12 @@ You can just kneel there and await My pleasure.
 [Action 1013]
 Very well, I've made My decision.
 Would you like to hear it?
-.pause Of course, Miss
-.range 1014 1015
+.delay 15 15 confirm resume 1015 1015
+.resumetext Yes please, Miss
+.range 1014
 
 ' todo relax the timing if the button is dismissed via speech recognition, since users might lack speech recognition experience
 [Action 1014]
-.timefrom 1012 00:03"00
 It's obvious to Me that you weren't paying very much attention as I was making My decision.
 If this is your attitude towards Me now, I don't see much hope for you.
 Nevertheless I'll give you a second chance at my favor.
@@ -1213,8 +1212,8 @@ Come back in an hour, wench!
 .settime 50
 .range 850
 
+
 [Action 1015]
-.poss 1                      ' else
 Very good, my pet.
 I accept your petition.
 I am now your Mistress, and you are now my slave.
@@ -1224,13 +1223,12 @@ but at least you have a competent Mistress to thrash you now.
 .set 101                     ' Now we've submitted
 .range 1016                  ' init mine-maid save state
 
-
 ' init mine-maid save state in order to clear actions 300-699 on .restore in that script
 ' because without an existing save state, .restore does nothing, leading to a wrong slave progress state 
 [Action 1016]
-' range 1030                      ' on to the naked query
 .save 1 799
 .loadsbd mine-maid.sbd 998 998    ' init mine-maid.sbs
+' continues with .range 1030      ' on to the naked query
 
 
 ' First try
@@ -1287,19 +1285,17 @@ submit to all My orders and My every whim?
 Very well, cocktoy, I'm going to do you a favor and think about it.
 noimage
 You can kneel there like a patient slave and await My decision.
-.delay 280        ' 4:45, leaving 15 seconds to respond, plus 5 seconds for text-to-speech delay...
-.settime 1022
+.delay 270        ' 4:30
 .range 1023
 
 [Action 1023]
 I've made my decision, slut.
 Would you like to hear it?
-.pause Of course, Miss
-.range 1024 1025
-
+.delay 15 15 confirm resume 1025 1025
+.resumetext Yes please, Miss
+.range 1024
 
 [Action 1024]
-.timefrom 1022 00:05"00
 Once again you have failed to show the respect due to a woman!
 And not just any woman, but the one you want to be your Mistress!
 delay 2
@@ -1309,6 +1305,7 @@ You can come back tomorrow, if you want to try to change my mind with a little s
 .set 53
 .settime 54
 .range 870
+
 
 [Action 1025]
 .poss 1                      ' May trigger despite correct time
@@ -1512,52 +1509,51 @@ Right now, are you totally naked?
 .notext No Miss, I'm still clothed
 .range 1101 1103
 
-' yes, too late 1101-1104
+' Naked question, answered too late 1101-1104
 
 [Action 1101]
+.mustnot 509                 ' P.O. for wasting mistress time
 You seem to like your mistress waiting, don't you, you sluggish slave.
 Remind me to teach you a little lesson on the topic later on.   
-.pause I'm sorry, Miss
-.mustnot 103                 ' Impatience
-.mustnot 509                 ' P.O. for wasting mistress time
+.pause Thank you, Miss
 .set 509
 .range 1104
 
 
 [Action 1102]
+.mustnot 103                 ' Mistress impatient
+.must 509
 I can't believe that it takes you so long to answer such a simple question.
 You'll deserve a couple of demerits for your sluggish attitude, slave.
 Hopefully that will be enough to remind you to answer my questions promptly, for pity's sake.
 .pause I'm so sorry, Miss
-.mustnot 501
-.must 509
 .set 103                     ' mistress impatient after waiting so long for this easy question
 .set 201			         ' one demerit
-.set 509
 .range 1104
 
 [Action 1103]
+.must 103                    ' Impatient
+.must 509
 Little cunt!
 It surely doesn't take so long to answer such a simple question
 and I've had enough of your lazy and sluggish attitude.
 You can come back in an hour or so when you're ready to pay attention to your Mistress!
 And for your own good, you'll better stay bare naked that hour.
 .pause Please forgive me, Miss
-.must 103                    ' Impatient
 .set 501                     ' mistress impatient after waiting so long for this easy question
-.set 509
 .set 49                      ' come back in an hour
 .settime 50
 .range 880
 
+
 ' Retry
 [Action 1104]
+.unset 1104
 Well, then tell your Mistress:
 Are you totally naked right now, or are you still clothed?
 .delay 15 15 confirm yes 1150 1154 no 1105 1109 
 .yestext Yes Miss, I'm naked right now
 .notext No Miss, I'm still clothed
-.unset 1104
 .range 1101 1103
 
 
@@ -2044,45 +2040,40 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 .range 870
 
 
-' Being hard question
+' Being hard question, answered too late
 
-' yes, but too late
-' Just add impatience for the "Yes" branch
-' as there will be punishment already when not hard 
+' too late
 [Action 1197]
-Little cunt!
-I can't believe that it takes that much time to answer a simple question,
-and I've had enough of your time-wasting behaviour.
-You can come back in an hour or so
-when you're ready to pay attention to your Mistress!
-And for your own good, you'll better stay hard that hour.
-.pause Please have mercy, Miss
-.timefrom 55 00:00"15
-.must 103
-.set 501                     ' mistress impatient after waiting so long for this easy question
-.set 509                     ' p.o. for wasting mistress time
-.set 49                      ' come back in an hour
-.settime 50
-.range 870
+You seem to like your mistress waiting, don't you, you sluggish slave.
+Remind me to teach you a little lesson on the topic later on.   
+.mustnot 509                 ' P.O. for wasting mistress time
+.set 509
+.pause Thank you, Miss
+.range 1199
 
 [Action 1198]
 How can answering such a simple question take such a long time?
 You'll deserve a couple of demerits for your time-wasting behaviour, slave.
-Hopefully that will be enough to remind you to answer my questions promptly, for pity's sake.
+Hopefully that will be enough to remind you to answer my questions promptly,
+for pity's sake.
 .pause Thank you, Miss
-.timefrom 55 00:00"15
-.mustnot 103 
+.must 509 
 .set 201                     ' two demerits
 .unset 200 202 203 204
 .set 103                     ' mistress impatient after waiting so long for this easy question
-.set 509                     ' p.o. for wasting mistress time
-.unset 1200 1201 1205 1206 1207 1208 1209
-.range 1200
+.unset 1198
+.range 1199
 
-' yes, in time, or masturbation lecture not heard
+
+' Retry
 [Action 1199]
-.poss 1
-.range 1238 1243
+.unset 1199
+And now tell your Mistress:
+Have you been keeping yourself nice and hard since you came into my presense?
+.delay 15 15 confirm yes 1238 1243 no 1219 1223 
+.yestext Yes Miss, of course I have!
+.notext I'm sorry Miss, but I haven't
+.range 1197 1198
 
 
 ' "Being hard" question
@@ -2118,12 +2109,12 @@ Have you been touching yourself since you came into My presence?
 Have you been keeping yourself nice and hard for your Mistress?
 .must 111                    ' masturbation lecture
 .mustnot 380                 ' Have chastity device
-.settime 55                  ' This question has to be answered prompty
 .set 256                     ' Hardness question one-time per session     
 .unset 1202
-.yesno 1197 1199 1219 1223
+.delay 15 15 confirm yes 1238 1243 no 1219 1223 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
+.range 1197 1198
 
 ' todo more variations 
 '[Action 1207]
@@ -13529,7 +13520,7 @@ delay 2
 .mustnot 6063
 .mustnot 256                 ' already asked this at session start
 .poss 33
-.range 7500
+.range 7500 7502
 
 ' 10% if already asked (element of surprise)
 [Action 7496]
@@ -13541,7 +13532,7 @@ delay 2
 .must 111 707 708            ' must have heard all lectures in order to ask "Being hard" question again
 .must 256                    ' already asked this before
 .poss 10
-.range 7500
+.range 7500 7502
 
 '[Action 7497]
 '[Action 7498]
@@ -13570,6 +13561,7 @@ Are you sure you haven't been playing with yourself at all?
 .yestext Yes, Miss, I'm sure
 .notext Well Miss, maybe I have
 
+
 [Action 7504]
 Well, My little slave, that's not acceptable.
 I insist that My slaves keep themselves nice and hard for me at all times,
@@ -13592,7 +13584,8 @@ giving me any type of satisfaction or pleasure?
 
 [Action 7507]
 In the future you are to keep that prick fully erect whenever you are in My presence.
-A nice hard cock can be punished, decorated, played with, or even allowed to give you pleasure.
+A nice hard cock can be punished, decorated, played with,
+or even allowed to give you pleasure.
 .range 7508
 
 [Action 7508]
@@ -13793,99 +13786,101 @@ Mistress while we move on with the session.
 .set 706                ' entitled for light punishment, reset when given
 .range 7549             ' Continue the session
 
-
-[Action 7538]
-Let me ask you again:
-.settime 55
-.range 7540 7544
-
-[Action 7539]
-So, was it, slave?
-But obviously you had the guts to let me wait
-for that answer a far too long time.
-You can expect a little reminder
-for your disrespectful behaviour next time, cunt.
-.pause I'm sorry, Miss, please forgive me
-.set 509                     ' p.o. for wasting mistress time
-.range 7549                  ' Continue the session
+[Action 7534]
+.poss 25
+Are you sure about that?
+You didn't perhaps allow your slave penis to shrivel up from time to time?
+And you didn't hear My question and then started wanking your prick?
+Well, was your slave penis properly hard and stiff when I asked? 
+.yesno 7528 7533 7516 7516
+.yestext Yes, Miss, my slave penis was hard when you asked
+.notext I'm sorry Miss, but it wasn't
 
 
 ' 7540-7544 Questions about hardness
 
 [Action 7540]
-Are you keeping yourself nice and hard for your Mistress?
-.settime 55                  ' Impatience trap, this question has to be answered prompty
-.yesno 7528 7533 7503 7503
-.yestext Of course, Miss, all the time
-.notext I'm sorry Miss, but I havent't
+.mustnot 111                    ' masturbation lecture
+Have you been touching yourself since you came into My presence?
+.delay 15 15 confirm yes 7528 7534 no 7503 7503 
+' 7503 7503
+.yestext Yes, Miss, I have
+.notext  Of course not, Miss
+.range 7545 7547
 
 [Action 7541]
-Are you keeping that little penis hard and stiff for your Mistress?
-.settime 55                  ' Impatience trap, this question has to be answered prompty
-.unset 7541
-.yesno 7545 7548 7509 7513
+.must 111                    ' masturbation lecture
+Are you keeping yourself nice and hard for your Mistress?
+.delay 15 15 confirm yes 7528 7534 no 7509 7513 
 .yestext Of course, Miss, all the time
-.notext I'm sorry  Miss, but I haven't
+.notext I'm sorry Miss, but I havent't
+.range 7545 7547
 
 [Action 7542]
+.must 111                    ' masturbation lecture
+Are you keeping that little penis hard and stiff for your Mistress?
+.delay 15 15 confirm yes 7528 7534 no 7509 7513 
+.yestext Of course, Miss, all the time
+.notext I'm sorry  Miss, but I haven't
+.range 7545 7547
+
+[Action 7543]
+.must 111                    ' masturbation lecture
 Are you following my orders to play with that slave-penis
 at all times to keep it hard and erect?
-.settime 55                  ' Impatience trap, this question has to be answered prompty
 .unset 7542
-.yesno 7545 7548 7509 7513
+.delay 15 15 confirm yes 7528 7534 no 7509 7513 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
+.range 7545 7547
 
 '[Action 7543]
 '[Action 7544]
 
-' Having waited too long before pressing the "yes"-button
 
-' 7545 trick question, 7546 7548 too late punishments
-' Just add impatience for the "Yes" branch
-' as there will be punishment already when not hard 
+' Answering late
 
 [Action 7545]
-Are you sure about that?
-You didn't perhaps allow your slave penis to shrivel up from time to time?
-And you didn't hear My question and then started stroking it hard?
-Well, was your slave penis properly hard and stiff when I asked? 
-.timefrom 55 00:00"15
-.mustnot 103
-.set 103                     ' mistress gets impatient after waiting so long for this easy question
-.yesno 7539 7539 7516 7516
-.yestext Yes, Miss, my slave penis was hard when you asked
-.notext I'm sorry Miss, but it wasn't
+.mustnot 103                 ' Mistress impatient 
+.mustnot 509                 ' P.O. for wasting mistress time
+You seem to like your mistress waiting, don't you, you sluggish slave.
+Remind me to teach you a little lesson on the topic next time.
+.set 509
+.range 7548                  ' Retry
 
 [Action 7546]
-.mustnot 103 
-.mustnot 509
+.mustnot 103                  ' Mistress impatient 
 If there's one thing I can't stand it's a sluggish slave boy
 who doesn't answer his Mistress question promptly.
- You'll deserve a punishment for this next time, slave.
- Hopefully this will be enough to remind you to answer my questions promptly next time, for pity's sake.
+You'll deserve a punishment for this next time, slave.
+Hopefully this will be enough to remind you to answer my questions promptly next time,
+for pity's sake.
 .pause I'm sorry, Miss
-.timefrom 55 00:00"15
 .set 103                     ' mistress impatient after waiting so long for this easy question
-.set 509                     ' p.o. for wasting mistress time
-.range 7538
+.range 7548                  ' Retry
 
 [Action 7547]
 .must 103
+.must 509
 Little cunt!
 I've had enough of your time-wasting behaviour.
 You can expect a lession you'll remember for long next time.
 Hopefully this will help you to answer my questions promptly.
 .pause I'm so sorry, Miss
-.timefrom 55 00:00"15
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 509                     ' p.o. for wasting mistress time
-.range 7549                  ' Continue the session
+.range 7548                  ' Retry
 
-' yes, in time
+
+' Retry
 [Action 7548]
-.poss 1                      ' Fallback
-.range 7528 7533
+.unset 7548
+And now tell your Mistress:
+Have you been keeping yourself nice and hard for your mistress?
+.delay 15 15 confirm yes 7528 7534 no 7509 7513 
+.yestext Of course, Miss, all the time
+.notext I'm sorry Miss, but I haven't
+.range 7545 7547
 
 
 ' Common exit from being hard query
@@ -16069,74 +16064,78 @@ delay 2
 ' Chastity cage in time check
 
 [Action 9196]
+.mustnot 509                 ' P.O. for wasting mistress time
 You seem to like your mistress waiting, don't you, slave?
 Please remind me to teach you a little lesson on the topic
-of answering my questions promptly later on.   
-.pause I'ms sorry, Miss
-.timefrom 55 00:00"15
-.mustnot 103                 ' Impatience
-.mustnot 509                 ' P.O. for wasting mistress time
+of answering my questions promptly later on.
+.pause Thank you, Miss
 .set 509
-.range 9203 9204
+.range 9199
 
 [Action 9197]
+.mustnot 103                 ' Mistress impatient
+.must 509
 I can't believe that it takes you so long to answer such a simple question.
 You'll deserve a couple of demerits for your sluggish attitude, slave.
 Hopefully that will be enough to remind you to answer my questions promptly,
 for pity's sake.
 .pause I'm so sorry, Miss
-.timefrom 55 00:00"15
-.mustnot 501
-.must 509
 .set 103                     ' mistress impatient after waiting so long for this easy question
 .set 201			         ' one demerit
-.set 509
-.range 9203 9204
+.range 9199
 
 [Action 9198]
+.must 103                    ' Impatient
+.must 509
 Little cunt!
 It surely doesn't take so long to answer such a simple question
 and I've had enough of your lazy and sluggish attitude.
 You can come back in an hour or so when you're ready to pay attention to your Mistress!
 And for your own good, you'll better stay bare naked and locked up that hour.
 .pause Sorry, Miss, I'm so sorry
-.timefrom 55 00:00"15
-.must 103                    ' Impatient
 .set 501                     ' mistress impatient after waiting so long for this easy question
-.set 509
-.range 9203 9204
+.set 49                      ' come back in an hour
+.settime 50
+.range 880
 
-' yes, in time
+
+' retry
 [Action 9199]
-.poss 1
-.range 9203 9204
+.unset 9199
+Well, then tell your Mistress:
+Are you wearing your chastity cage?
+.delay 15 15 confirm yes 9203 9204 no 9215 9215 
+.yestext Yes Miss, I'm locked up
+.notext No Miss, I don't
+.range 9196 9198
 
 
 ' Chastity cage check, after toy setup, from 1632, to 1650
 ' Adds quick answer check, then advances to 9203 9304
 
 [Action 9200]
-It's a pleasure to see a slave and his chastity cage.
+It's always a pleasure to see a slave and his chastity cage.
 Are you wearing it already?
-.settime 55                  ' Impatience trap
-.yesno 9196 9199 9215 9215
+.delay 15 15 confirm yes 9203 9204 no 9215 9215 
 .yestext Yes Miss, I'm locked up
-.notext I'm sorry Miss, but I don't
+.notext No Miss, I don't
+.range 9196 9198
 
 [Action 9201]
 What about your chastity cage, sweetie?
 Are you wearing it?
-.settime 55
-.yesno 9196 9199 9215 9215
+.delay 15 15 confirm yes 9203 9204 no 9215 9215 
 .yestext Yes Miss, I'm locked up
-.notext I'm sorry Miss, but I don't
+.notext No Miss, I don't
+.range 9196 9198
 
 [Action 9202]
 Are you wearing your chastity cage right now?
 .settime 55
-.yesno 9196 9199 9215 9215
+.delay 15 15 confirm yes 9203 9204 no 9215 9215 
 .yestext Yes Miss, I'm locked up
-.notext I'm sorry Miss, but I don't
+.notext No Miss, I don't
+.range 9196 9198
 
 
 [Action 9203]
