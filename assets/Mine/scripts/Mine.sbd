@@ -15,7 +15,8 @@
 
 .onAllSet 860
 .onClose 890
- 
+.onRecognitionRejected 999900
+
 ' clear actions that have been set in another script, critical as these aren't cleared automatically
 .resetrange 800 99999
 
@@ -18735,3 +18736,55 @@ but don't disturb Me for at least 24 hours.
 
 '[Action 9997]
 '[Action 9998]
+
+
+[action 999900]
+.unset 999900
+.range 999901 999908
+
+[action 999901]
+What?
+.range 999909
+
+[action 999902]
+.must 999901
+Louder, slave!
+.range 999909
+
+[action 999903]
+.must 999901
+I think I didn't hear you right!
+.range 999909
+
+[action 999904]
+.must 999901 999902 999903
+Come on slave, speak a little louder.
+.range 999909
+
+[action 999905]
+.must 999901 999902 999903 999904
+Slave!
+You have to speak clearly if I should understand you.
+.pause Yes, Miss
+.range 999909
+
+[action 999906]
+.must 999901 999902 999903 999904
+Come on slave, get a decent microphone soon!
+.pause Yes, Miss
+.range 999909
+
+[action 999907]
+.must 999901 999902 999903 999904 999905 999906
+What was that?
+.unset 999901 999902 999903 999904 
+.range 999909
+
+[action 999908]
+.must 999901 999902 999903 999904 999905 999906 999907
+.range 999909
+
+
+[action 999909]
+.unset 999909
+.return
