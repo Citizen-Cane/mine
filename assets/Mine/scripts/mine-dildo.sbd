@@ -1,3 +1,10 @@
+' Redux Release version 1.1 (???)
+' Revisited RELEASE version 1.02 (3 DEZ 2011?)
+' this is a new activity n ot present in the original version 
+
+' This restores range 180 to 199
+.restore
+
 .backcolor 255 200 200
 .textcolor 0 0 0
 .ssdir dildo
@@ -13,7 +20,7 @@
 .resetrange 800 99999
 
 ' reset all temp variables from main script but keep slave state, toys and achievements
-.resetrange 50 199
+.resetrange 50 179
 
 .range 1000
 
@@ -160,6 +167,15 @@
 '[Action 909]
 '.set 179
 '.range 3200 3202
+
+' One-time init from Mine.sbd to create the save state
+[Action 980]
+.resetrange 180 199
+.range 981
+
+[Action 981]
+.save 180 199
+.loadsbd Mine.sbd 1030
 
 
 ' Dildo worshiping

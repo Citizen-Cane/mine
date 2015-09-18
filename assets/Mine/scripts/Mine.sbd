@@ -1228,8 +1228,8 @@ but at least you have a competent Mistress to thrash you now.
 ' because without an existing save state, .restore does nothing, leading to a wrong slave progress state 
 [Action 1016]
 .save 1 799
-.loadsbd mine-maid.sbd 998 998    ' init mine-maid.sbs
-' continues with .range 1030      ' on to the naked query
+.loadsbd mine-maid.sbd 998   ' init mine-maid.sbs
+' continues with .range 1029 ' init mine-dildo.sbs
 
 
 ' First try
@@ -1321,7 +1321,15 @@ As it is, I think I'll mark you down for a little extra punishment, just as a re
 .range 1016                  ' init mine-maid save state
 
 
-' Introduction query 
+' init mine-maid save state in order to clear actions 300-699 on .restore in that script
+' because without an existing save state, .restore does nothing, leading to a wrong slave progress state 
+[Action 1029]
+.save 1 799
+.loadsbd mine-dildo.sbd 980  ' init mine-dildo.sbs
+' continues with .range 1030 ' Introduction query
+
+
+' Introduction query
 
 [Action 1030]
 I'll need to ask you a few questions, slave,
