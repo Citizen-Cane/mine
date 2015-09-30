@@ -2101,7 +2101,7 @@ and set it up to a teasing, tantalizing rythm!
 
 [Action 1829]
 .mustnot 389            ' A vibrator
-.poss 1
+.else
 .range 1899
 
 
@@ -2403,7 +2403,7 @@ Don't tell me you're getting tired already.
 [Action 2199]
 .delay 20
 .unset 2199
-.poss 1
+.else
 .range 2000 2009
 
 
@@ -3941,7 +3941,7 @@ Take them in your mouth and lick them good.
 .txt
 .delay 20
 .unset 3199
-.poss 1
+.else
 .range 3990
 
 
@@ -4044,7 +4044,7 @@ say your Mistress "thank you" for this honour.
 [Action 3299]
 .delay 20
 .unset 3299
-.poss 1
+.else
 .range 3990
 
 
@@ -4054,7 +4054,7 @@ say your Mistress "thank you" for this honour.
 [Action 3399]
 .delay 20
 .unset 3399
-.poss 1
+.else
 .range 3990
 
 
@@ -4064,7 +4064,7 @@ say your Mistress "thank you" for this honour.
 [Action 3499]
 .delay 20
 .unset 3499
-.poss 1
+.else
 .range 3990
 
 
@@ -4074,7 +4074,7 @@ say your Mistress "thank you" for this honour.
 [Action 3599]
 .delay 20
 .unset 3599
-.poss 1
+.else
 .range 3990
 
 
@@ -4084,7 +4084,7 @@ say your Mistress "thank you" for this honour.
 [Action 3699]
 .delay 20
 .unset 3699
-.poss 1
+.else
 .range 3990
 
 
@@ -4094,7 +4094,7 @@ say your Mistress "thank you" for this honour.
 [Action 3799]
 .delay 20
 .unset 3799
-.poss 1
+.else
 .range 3990
 
 
@@ -4104,7 +4104,7 @@ say your Mistress "thank you" for this honour.
 [Action 3899]
 .delay 20
 .unset 3899
-.poss 1
+.else
 .range 3990
 
 
@@ -4114,7 +4114,7 @@ say your Mistress "thank you" for this honour.
 [Action 3989]
 .delay 20
 .unset 3989
-.poss 1
+.else
 .range 3990
 
 
@@ -8333,7 +8333,7 @@ I suppose I'll have to punish you for failing again, slave.
 ' Slave failed to hold position
 
 [Action 7399]
-.poss 1
+.else
 .unset 7399
 .range 7400 7699        ' Position dependent comment
 
@@ -11162,7 +11162,7 @@ That was so good, slave, I think we should do another.
 I've had it, you disobedient cunt.
 You are obviously not capable to perform the simplest tasks,
 and I'm not going to waste any more time on you.
-.poss 1                 ' First decrease difficulty or increase duration
+.else                 ' First decrease difficulty or increase duration
 .must 110               ' Decrease to easy level first, then increase duration up to three chances
 .must 113               ' Increase duration
 .must 179               ' Punishment flag
@@ -11275,7 +11275,7 @@ necessary items for your punishment and let you suffer a little longer instead.
 I've had it, you disobedient cunt.
 You are obviously not in the mood to accept a well deserved punishment,
 and I'm not going to waste any more time on you, bitch. 
-.poss 1
+.else
 .must 110               ' Decrease to easy level first, then increase duration up to three chances
 .must 113               ' Increase duration
 .must 179
@@ -11610,13 +11610,12 @@ Good job!
 [Action 9990]
 Came, did you, you disobedient slut!
 .noimage
-.must 100
-.poss 100
+.must 100               ' debug
 .quit
 
 [Action 9991]
-.must 101
-.loadsbd Mine.sbd 6140  ' THe same code path as in mine-td
+.mustnot 100            ' debug
+.loadsbd Mine.sbd 6140  ' The same code path as in mine-td
 
 
 '[Action 9997]
