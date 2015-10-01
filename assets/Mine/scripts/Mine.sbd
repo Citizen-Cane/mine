@@ -465,9 +465,9 @@
 '.askcheck      72      773     773: * Maid training 3
 '.askcheck      73      774     774: * Maid training 4
 '.askcheck      74      775     775: * Maid training 5
-.askcheck      75      776     776: * Dildo worshiping 1
-.askcheck      76      777     777: * Dildo worshiping 2
-.askcheck      77      778     778: * Dildo worshiping 3
+.askcheck      75      776     776: * Dildo worshiping 1 - slave sucked the dildo
+.askcheck      76      777     777: * Dildo worshiping 2 - slave rode the dildo
+.askcheck      77      778     778: * Dildo worshiping 3 - slave rode the dildo fully penetrated
 .askcheck      78      779     779: * Dildo worshiping 4
 .askcheck      79      780     780: * Dildo worshiping 5
 
@@ -478,7 +478,7 @@
 '.askcheck      84      785     785: * 
 '.askcheck      85      786     786: * Enema quantity 1.00l (If all unset 0.5l)
 '.askcheck      86      787     787: * Enema quantity 1.25l
-'.askcheck      87      788     788: * Enema quantity 1.50l
+'.askcheck      87      788     788: * Enema quantity 1.50l 
 '.askcheck      88      789     789: * Enema quantity 1.75l
 '.askcheck      89      790     790: * Enema quantity 2.00l
 
@@ -1041,7 +1041,7 @@ Sorry, little slave.
 I said I didn't want to see you for an hour, and I meant it.
 I'll make sure to punish you for disturbing me when you return at the proper time.
 .pause Please forgive me, Miss
-.poss 1                 ' May trigger despite correct time
+.else
 .mustnot 505
 .must 49
 .mustnot 51 53
@@ -1054,7 +1054,7 @@ Slave, I thought I told you not to come back for twelve hours.
 Now get out of here.
 You can look forward to some extra punishment when you return at the correct time.
 .pause Please Miss, forgive me
-.poss 1                 ' May trigger despite correct time
+.else
 .mustnot 505
 .must 51
 .mustnot 53
@@ -1066,7 +1066,7 @@ I told you not to return for an entire day, slave, and I wasn't kidding.
 Get the hell out of here and don't come back until you're due.
 Also, remind me to give you some extra punishment to help you remember your place.
 .pause Please forgive me, Miss
-.poss 1                 ' May trigger despite correct time
+.else
 .mustnot 505
 .must 53
 .set 505
@@ -1080,7 +1080,7 @@ You cunt!
 I've already told you not to bother me!
 Don't come back for another hour, you little whore!
 .pause Please Miss, forgive me
-.poss 1                 ' May trigger despite correct time
+.else
 .must 505
 .must 49
 .mustnot 51 53
@@ -1093,7 +1093,7 @@ If there's one thing I hate, it's a stupid ignorant slaveboy who doesn't listen 
 I told you at least twice not to bother me - now you can wait another twelve hours for My presence.
 Get out of here and stop pestering me, slave!
 .pause Please forgive me, Miss
-.poss 1                 ' May trigger despite correct time
+.else
 .must 505
 .must 51
 .mustnot 53
@@ -1106,7 +1106,7 @@ Well, you stupid slutty cunt slave, I've had it.
 I don't want to see you for another 24 hours.
 Get the hell out of here!
 .pause Please Miss, forgive me
-.poss 1                 ' May trigger despite correct time
+.else
 .must 505
 .must 53
 .set 501 504            ' additional general punishment, imp.
@@ -1309,7 +1309,6 @@ You can come back tomorrow, if you want to try to change my mind with a little s
 
 
 [Action 1025]
-.poss 1                      ' May trigger despite correct time
 Very well, my little bitch.
 I will accept you as my willing slave.
 Don't waste my time again, or you will regret it!
@@ -2704,7 +2703,7 @@ You certainly remember spurting your load
 although I explicitely reminded you to the fact that you were not allowed to.
 .pause Yes Miss, I remember
 .must 519	            ' slave came although mistress told to stop
-.poss 1                 ' favour double question
+.else                   ' favour double question
 .set 506                ' p.o. for lying to mistress
 .range 1324 1325        ' cumming wihout permission
 
@@ -2714,7 +2713,7 @@ You're a liar and a cheat, you stupid slut!
 You certainly remember spurting your load although I revoked my permission to do so.
 .pause Yes Miss, I remember
 .must 525	            ' slave came although mistress told to stop
-.poss 1                 ' favour double question
+.else                   ' favour double question
 .set 506                ' p.o. for lying to mistress
 .range 1326 1327        ' cumming after permission to cum has been revoked
 
@@ -3184,7 +3183,7 @@ make you skip your next seven cumming opportunities.
 .range 1444 1447
 
 [Action 1443]
-.poss 1                 ' used as else (but sadly doesn't work as else)
+.else
 .range 1449
 
 
@@ -4002,7 +4001,7 @@ We'll talk about this in a minute.
 .range 1599
 
 [Action 1599]
-.poss 1
+.else
 .range 1630
 
 
@@ -4095,7 +4094,7 @@ I'm going to make you skip your next cumming opportunity.
 ' If already scheduled to  miss cumming opportunity, just continue with current state
 [Action 1639]
 It was about time you've gotten serious about your chastity training, slave.
-.poss 1
+.else
 .must 761                              ' Chastity training 1
 .set 686                               ' chastity belt rules apply from now on
 .range 1640
@@ -4660,7 +4659,7 @@ adjust the height of the bag in order to achive a sufficient flow.
 [Action 1742]
 Well, my dear, you're now totally at my mercy while your ass is being filled with a decent amount of liquid.
 And you are not allowed to go to the toilet until I give you explicit permission to do so.
-.poss 1
+.else
 .range 1743
 
 
@@ -4750,12 +4749,9 @@ Slave, would you mind telling me what items you are wearing right now?
 .unset 1803
 .range 1804 1819
 
-' bailout action, poss 1 leaves a small chance of making the wrong decision.
-' It's a PCM design problem, as the PCM script language doesn't provide an "else" construct 
-' todo add explicit "else" statement and replace .poss 1
-
+' bailout action
 [Action 1804]
-.poss 1	           ' check all toy mismatches first, count number of mismatch actions
+.else	           ' check all toy mismatches first, count number of mismatch actions
 .unset 1804
 .range 1825 1829
 
@@ -4959,7 +4955,7 @@ I almost died waiting for you to dress up.
 You certain don't mind wearing your equipment a while, do you?
 .must 213               ' slave forgot to put on a toy other than clamps or pegs
 .mustnot 212            ' didn't forget pain toy
-.poss 1                 ' prefer pain-toy punishment over humiliation 
+.else                   ' prefer pain-toy punishment over humiliation 
 .range 1839
 
 
@@ -6062,7 +6058,7 @@ and that Mistresses are to be obeyed without question!
 [Action 2261]
 You've been quite a naughty slaveboy, and you've still got some punishment coming to you.
 However, I think we'll save those sessions until next time.
-.poss 1
+.else
 .range 2280        ' On to increasing Patient Waiting level
 
 '[Action 2262]
@@ -6424,7 +6420,7 @@ What a poor excuse of a slave you are!
 
 ' corner time + marker
 [Action 2500]
-.mustnot 258            ' Corner time already given
+.mustnot 258                 ' Corner time already given
 .set 258
 .save 1 799
 .loadsbd mine-paddle.sbd 2500 2500
@@ -6434,7 +6430,7 @@ What a poor excuse of a slave you are!
 Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
 Lucky slave!
 I guess you've gotten away with one this time.
-.poss 1                 ' Fallback
+.else                        ' Fallback
 .range 2400
 
 
@@ -6455,12 +6451,12 @@ which will hopefully go a long way in teaching you not to irritate me!
 Sadly I don't have a punishment ready for your inability to
 keep me from becoming angry at your laziness and stupidity.
 I guess I'll have to turn the other cheek this time.
-.poss 1                      ' Fallback
+.else                        ' Fallback
 .range 2401
 
 ' slavesinlove 186 pictures
 [Action 2511]
-.mustnot 20 22 33 34    ' something on nipples, something in mouth, can't kneel, can't type
+.mustnot 20 22 33 34         ' something on nipples, something in mouth, can't kneel, can't type
 .must 301 310 340
 .must 712 717 746 
 .save 1 799
@@ -6481,7 +6477,7 @@ I'm feeling a little bitchy today, slave, and I think I'll take it out on those 
 For this ordeal you have to take off your chastity cage, slave.
 Do it now!
 .pause I've taken it off, Miss
-.poss 1
+.else
 .must 44                     ' chastified
 .must 45                     ' have key for chastity cage
 .mustnot 267 268             ' Enema carrying out or holding
@@ -6561,7 +6557,7 @@ each about a foot long.
 [Action 2520]
 For some reason I can't think of a suitable punishment for your failure to remain wantonly unclothed.
 You may have escaped me this time, but don't make a habit of it!
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2402
 
 ' shower 10m, wet, wrists, nips
@@ -6599,7 +6595,7 @@ You may have escaped me this time, but don't make a habit of it!
 [Action 2530]
 I can't seem to come up with a way to punish your flagrant disregard for my rules on constant slave nudity.
 I guess we'll have to skip it today.
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2403
 
 ' shower 15m, wet, ankles, 200 paddles, clamps
@@ -6637,7 +6633,7 @@ I guess we'll have to skip it today.
 [Action 2540]
 But your general misbehavior has no penalty associated with it!
 I guess you're off the hook, you lucky slaveboy.
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2404
 
 ' Shake those titties punishment
@@ -6660,7 +6656,7 @@ I guess you're off the hook, you lucky slaveboy.
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2543]
-.poss 1
+.else
 .mustnot 21             ' Something in ass
 .must 350               ' Buttplug
 .must 756               ' Anal training 1
@@ -6688,7 +6684,7 @@ You can leave it in there for our entire session, slave.
 [Action 2560]
 Sadly there appears to be no punishment
 suitable for a lying degenerate cunt slave.
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2406
 
 ' shower 15m, wet, ankles, nips/balls, 100 paddles, gag
@@ -6743,7 +6739,7 @@ You can leave it in there for our entire session, slave.
 
 [Action 2570]
 Unfortunately your attention deficit disorder must go unavenged today.
-.poss 1                      ' Fallback
+.else                        ' Fallback
 .range 2407
 
 ' dildo punishment
@@ -6762,7 +6758,7 @@ Keep the connection short.
 Maybe this keeps you focussed on the job, slave.
 You stay like this the whole session.
 .pause Done, Miss
-.poss 1
+.else
 .mustnot 26
 .mustnot 267 268             ' Enema carrying out or holding
 .mustnot 311                 ' wrist restraints
@@ -6773,7 +6769,7 @@ You stay like this the whole session.
 Get your wrist restraints and snap them on.
 Maybe wearing them during the session helps you to focus on the job.
 .pause Done, Miss
-.poss 1
+.else
 .mustnot 26
 .mustnot 267 268             ' Enema carrying out or holding
 .must 311                    ' wrist restraints
@@ -6790,11 +6786,11 @@ Maybe wearing them during the session helps you to focus on the job.
 [Action 2580]
 Unfortunately your brazen misbehavior has no punishment assigned to it as yet.
 I'll get you next time, you dirty slave!
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2408
 
 [Action 2581]
-.poss 1
+.else
 .mustnot 21             ' Something in ass
 .mustnot 267 268        ' Enema carrying out or holding
 .must 350               ' Buttplug
@@ -6825,7 +6821,7 @@ You can leave it in there for our entire session, slave.
 
 [Action 2590]
 Unfortunately there is no punishment yet for time-wasting slaveboys.
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2409
 
 [Action 2591]
@@ -6873,13 +6869,13 @@ When you move around, you will have plenty of time to think about your misdoings
 ' 510 ignorance - haven't got/made toy
 
 [Action 2600]
-.poss 1            ' Fallback
+.else              ' Fallback
 .range 2605        ' Lecture
 
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2601]
-.poss 1
+.else
 .mustnot 21        ' Something in ass
 .must 350          ' Buttplug
 .mustnot 677       ' chastity cage - expensive tool, so no punishemnt
@@ -6898,7 +6894,7 @@ You can leave it in there for the entire session, slave!
 ' Lecture
 [Action 2605]
 .gosub 4800        ' Toy lecture
-.poss 1            ' Fallback
+.else              ' Fallback
 .range 2606 2609
 
 ' Punishment
@@ -6923,7 +6919,7 @@ You can leave it in there for the entire session, slave!
 I'll just give you a couple of demerits, slave.
 Hopefully that will be enough to remind you to play with yourself, for pity's sake.
 .must 511
-.poss 1                      ' Fallback
+.else                        ' Fallback
 .mustnot 200 201 202 203 204
 .set 201                     ' 2 demerits
 .range 2411
@@ -6931,7 +6927,7 @@ Hopefully that will be enough to remind you to play with yourself, for pity's sa
 [Action 2611]
 I'll punish you for not jerking off later, I suppose.
 .must 512
-.poss 1                      ' Fallback
+.else                        ' Fallback
 .range 2412
 
 [Action 2612]
@@ -6984,7 +6980,7 @@ just feeling the flush of humiliation will suit you good enough this time.
 On the other hand,
 just feeling the flush of humiliation will suit you good enough this time.
 .mustnot 44                  ' Chastified
-.poss 1                      ' Fallback
+.else                        ' Fallback
 .range 2960 2964             ' Jingle balls
 
 ' corner time (5-10 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
@@ -7135,7 +7131,7 @@ my pet.
 [Action 2670]
 Unfortunately your brazen misbehavior has no punishment assigned to it as yet.
 I'll get you next time, you dirty slave!
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2418
 
 ' paddle x240
@@ -7165,7 +7161,7 @@ I'll get you next time, you dirty slave!
 [Action 2680]
 Unfortunately your brazen misbehavior has no punishment assigned to it as yet.
 I'll get you next time, you dirty slave!
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2418
 
 [Action 2681]
@@ -7229,7 +7225,7 @@ I'll get you next time, you dirty slave!
 .must 44                ' Chastified
 .must 45                ' have key for chastity cage
 .must 258               ' Corner time already given
-.poss 1                 ' Fallback in case slave wears chastity device
+.else                   ' Fallback in case slave wears chastity device
 .unset 23 30 44         ' Something on penis, can't jerk off, chastified
 .save 1 799
 .loadsbd mine-td.sbd 1104 1104
@@ -7240,7 +7236,7 @@ I'll get you next time, you dirty slave!
 '.must 44                ' Chastified
 '.mustnot 45             ' have key for chastity cage
 '.must 258               ' Corner time already given
-'.poss 1                 ' Fallback in case slave wears chastity device
+'.else                   ' Fallback in case slave wears chastity device
 '.save 1 799
 '.loadsbd mine-td.sbd 1104 1104
 
@@ -7286,7 +7282,7 @@ I guess you've gotten away with one this time.
 Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
 Lucky slave!
 I guess you've gotten away with one this time.
-.poss 1
+.else
 .must 258               ' Corner time already given
 .range 2420
 
@@ -7304,7 +7300,7 @@ I guess you've gotten away with one this time.
 Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
 Lucky slave!
 I guess you've gotten away with one this time.
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2421
 
 
@@ -7330,7 +7326,7 @@ I guess you've gotten away with one this time.
 
 [Action 2750]
 Unfortunately your lack of control must go unavenged today.
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2425
 
 [Action 2751]
@@ -7566,7 +7562,7 @@ or I will punish you with a more humiliating and painful reminder.
 [Action 2980]
 Unfortunately your brazen misbehavior has no punishment assigned to it as yet.
 I'll get you next time, you dirty slave!
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2448
 
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
@@ -7611,7 +7607,7 @@ Hopefully this will get through to you!
 [Action 2990]
 Unfortunately your brazen misbehavior has no punishment assigned to it as yet.
 I'll get you next time, you dirty slave!
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 2449
 
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
@@ -7674,7 +7670,7 @@ I think I can cook up a suitable extra punishment for a misbehaving slaveboy lik
 [Action 3003]
 I almost forgot that you rudely left without My leave during the last session.
 I think I can cook up a suitable extra punishment for a misbehaving slaveboy like you.
-.poss 1
+.else
 .must 102
 .set 9                  ' still set after session extra has been applied, otherwise unset
 .gosub 3100 3107        ' add session extra
@@ -7692,7 +7688,7 @@ Hopefully this will get through to you!
 
 
 [Action 3018]
-.poss 1
+.else
 .mustnot 9
 Three demerits will work for now, I suppose. 
 .set 894
@@ -8161,7 +8157,7 @@ that you tell me beforehand by by cancelling the activity.
 
 ' fallback if no session extra can be applied
 [Action 3107]
-.poss 1
+.else
 .unset 9
 .return
 
@@ -8383,7 +8379,7 @@ Put it on now, slave.
 
 ' fallback - select different category
 [Action 3139]
-.poss 1
+.else
 .unset 3139
 .range 3100 3107
 
@@ -8564,7 +8560,7 @@ I want you to keep it there for the entire session.
 
 ' fallback - select different category
 [Action 3159]
-.poss 1
+.else
 .unset 3159
 .range 3100 3107
 
@@ -8666,7 +8662,7 @@ Leave your chains on for the whole session, slave.
 
 ' fallback - select different category
 [Action 3179]
-.poss 1
+.else
 .range 3100 3107
 
 
@@ -8674,7 +8670,7 @@ Leave your chains on for the whole session, slave.
 
 ' fallback - select different category
 [Action 3199]
-.poss 1
+.else
 .unset 3199
 .range 3100 3107
 
@@ -8841,7 +8837,7 @@ You are not allowed to rest the weight on the ground, My pet, so don't leave too
 
 ' fallback - select different category
 [Action 3249]
-.poss 1
+.else
 .unset 3249
 .range 3100 3107
 
@@ -8956,15 +8952,15 @@ Chain each ankle to your slutty ball sack so that you can just kneel straight.
 
 ' fallback - select different category
 [Action 3289]
-.poss 1
+.else
 .unset 3299
 .range 3100 3107
 
 
-' Generic telling theat the toys has to be worn the whole session
+' Generic telling that the toys has to be worn the whole session
 
 [Action 3290]
-.poss 1
+.else
 .unset 3290
 .range 3291 3299
 
@@ -9908,7 +9904,7 @@ You better catch up If you want me to let you cum again.
 .range 4085 4086
 
 [Action 4082]
-.poss 1
+.else
 .range 4085 4086
 
 '[Action 4083]
@@ -10573,7 +10569,7 @@ Lube up that plug and insert it into your bottom now.
 
 
 [Action 4930]
-.poss 1
+.else
 .unset 4930
 .range 4949                  ' continue with toy selection
 
@@ -10663,7 +10659,7 @@ my dear slave, so let's put on your ball harness.
 .range 4985
 
 [Action 4956]
-.mustnot 221 254        ' not already doing this, not having alreay done it
+.mustnot 221 254        ' not already doing this, not having already done it
 .mustnot 22             ' nothing in mouth
 .must 340               ' have a gag
 I want you to be quiet for our next activity.
@@ -10702,7 +10698,7 @@ Go fetch me a long piece of rope, slave.
 
 ' No suitable toy found
 [Action 4969]
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 4985
 
 
@@ -11150,7 +11146,7 @@ Let's continue your slave training.
 ' Fallback
 [Action 5088]
 I can't think of anything I want you to do, My dear.
-.poss 1                 ' Fallback
+.else                        ' Fallback
 .range 5089 5099
 
 
@@ -11361,49 +11357,51 @@ Make sure you have one until next time, baby.
 ' Dildo worshiping, introduction and beginner scenario
 [Action 5140]
 .mustnot 20 22 29                 ' Something on nipples, something in mouth, blindfolded
-.mustnot 31                       ' can't jerk off, Can't sit on chair
+.mustnot 31                       ' can't sit on chair
 .mustnot 34                       ' Can't type/use mouse
-.mustnot 254                      ' Mouth activity already done              
 .mustnot 776                      ' Beginner scenario
 .range 5149
 
 ' Dildo worshiping, more scenarios available at level 1 -> less restrictions
 [Action 5141]
 .mustnot 22 29 34                 ' something in mouth, blindfolded, can't type/use mouse
-.mustnot 254                      ' Mouth activity already done              
-.must 776                         ' full penetraiton possible
+.must 776                         ' full penetration possible
 .range 5149
 
-' Dildo worshiping, if dildo has been worshiped during punishment cycle,
+' Dildo worshiping introduction, if dildo has been worshiped during punishment cycle,
 ' and if slave is wearing gag, and is submitted to anal training, then
 ' skip blow job stage and advance to riding directly
 [Action 5142]
 .must 22                          ' something in mouth
 .mustnot 29                       ' blindfolded
-.mustnot 33                       ' Can't kneel
+.mustnot 33                       ' Can't kneel, for introduction
+.mustnot 221                      ' Gag temporary
 .must 260                         ' Done dildo worshiping punishment before
 .must 756                         ' Anal training 1
-.mustnot 776                      ' Beginner
+.must 776                         ' Must have sucked before
 .range 5149
 
-[Action 5143]
+' gag has been is put in temporary, but we can still ride 
+' -> doesn't work, because the mouth is always needed to move the dildo
+' And if we have to take it out, then we can also suck, so no special case here
+
+' take out gag and suck, put gag back in at the end of the activity 
+[Action 5144]
 .must 22                          ' something in mouth
 .mustnot 29                       ' blindfolded
-.must 260                         ' Done dildo worshiping punishment before
-.must 756                         ' Anal training 1
-.must 776                         ' Full penetration possible
+.mustnot 221                      ' Gag temporary
 .range 5149
 
 ' Dildo worshiping, when already done as punishment
 [Action 5147]
-No, I don't feel like stuffing those slave holes yet.
-.poss 1
+No, I don't feel like filling those slave holes yet.
+.else
 .range 5040
 
 ' Dildo worshiping, when already done as punishment
 [Action 5148]
 No, your slave holes have been used good enough.
-.must 254
+.must 260
 .range 5040
 
 
@@ -11420,60 +11418,31 @@ No, your slave holes have been used good enough.
 [Action 5150]
 Well, one merit seem appropriate for a good worshiping session.
 .set 895                ' 1 merit
+.set 776                ' Dildo worshiping 1
 .range 7201
 
-' Dildo riding achievements (can't be set in mine-dildo.sbd)
-
-' Dildo worshiping 1
+' Dildo worshiping, partial penetration, 1 merit
 [Action 5151]
-Well, two merits seem appropriate for such a good worshiping session.
-.set 896                ' 2 merits
-.set 756                ' Anal training 1
-.set 776                ' Dildo worshiping 1
-.range 5160 5164
-
-' Dildo worshiping 2
-[Action 5152]
-Well, two merits seem appropriate for such a good worshiping session.
-.set 896                ' 2 merits
+Well, one merit seem appropriate for a good worshiping session.
+.set 895                ' 1 merit
 .set 756                ' Anal training 1
 .set 777                ' Dildo worshiping 2
-.range 5160 5164
+.range 7201
 
-' Dildo worshiping 3
-[Action 5153]
+' slave rode the dildo fully penetrated
+[Action 5152]
 Well, two merits seem appropriate for such a good worshiping session.
 .set 896                ' 2 merits
 .set 756 757            ' Anal training 2
 .set 778                ' Dildo worshiping 3
 .range 5160 5164
 
-' Dildo worshiping 4
-[Action 5154]
-Well, two merits seem appropriate for such a good worshiping session.
-.set 896                ' 2 merits
-.set 756 757            ' Anal training 2
-.set 779                ' Dildo worshiping 4
-.range 5160 5164
 
-' Dildo worshiping 5
-[Action 5155]
-Well, two merits seem appropriate for such a good worshiping session.
-.set 896                ' 2 merits
-.set 756 757 758        ' Anal training 3
-.set 780                ' Dildo worshiping 5
-.range 5160 5164
-
-' Dildo worshiping, partial penetration, 1 merit
-[Action 5158]
-Well, one merit seem appropriate for a good worshiping session.
-.set 895                ' 1 merit
-.set 756                ' Anal training 1
-.range 7201
+' Dildo worshiping bad returns
 
 ' Dildo worshiping training failure
 [Action 5159]
-One demerit seems appropriate for a lazy, failed slave.
+Two demerits seem appropriate for a lazy, failed slave.
 Plus some punishment.
 .set 517                ' Training failure 1
 .set 891                ' 2 demerits
@@ -11546,7 +11515,7 @@ You seem to get used to getting used very well.
 [Action 5249]
 No, I've changed My mind.
 I want you dirty.
-.poss 1                           ' Fallback
+.else                   ' Fallback
 .range 5040
 
 
@@ -11647,7 +11616,7 @@ I like a clean slave.
 
 [Action 5449]
 Never mind, slave. I've decided against self-bondage today.
-.poss 1                           ' Fallback
+.else                   ' Fallback
 .range 5040
 
 
@@ -11687,31 +11656,31 @@ Good boy, slave.
 ' self bondage bad returns
 [Action 5501]
 You can look forward to some extra punishment for this, My dear.
-.set 891 517            ' 2 demerits, training failure punishment
-.unset 742 743 744 745  ' strict self bondage 2-5
+.set 891 517              ' 2 demerits, training failure punishment
+.unset 742 743 744 745    ' strict self bondage 2-5
 .range 7200
 
 [Action 5502]
 Shall we continue?
-.set 891                ' 2 demerits
-.unset 742 743 744 745  ' strict self bondage 2-5
+.set 891                  ' 2 demerits
+.unset 742 743 744 745    ' strict self bondage 2-5
 .range 7200
 
 [Action 5503]
 Another disappointing experience with this slave.
 Such a pity.
 I suppose I'll have to punish you later.
-.set 891 517            ' 2 demerits, training failure punishment
-.set 36                 ' Rope harness
-.unset 742 743 744 745  ' strict self bondage 2-5
+.set 891 517              ' 2 demerits, training failure punishment
+.set 36                   ' Rope harness
+.unset 742 743 744 745    ' strict self bondage 2-5
 .range 7200
 
 [Action 5504]
 That's really disappointing, slave.
 You'll be punished later for failing your training.
-.set 891 517            ' 2 demerits, training failure punishment
-.set 36                 ' Rope harnes
-.unset 742 743 744 745  ' strict self bondage 2-5
+.set 891 517              ' 2 demerits, training failure punishment
+.set 36                   ' Rope harnes
+.unset 742 743 744 745    ' strict self bondage 2-5
 .range 7200
 
 
@@ -11832,14 +11801,14 @@ You'll be punished later for failing your training.
 [Action 5648]
 I've changed my mind, slave.
 Your slave bottom has been paddled good enough.
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .must 264               ' Done spanking activity already
 .range 5040
 
 [Action 5649]
 I've changed my mind, slave.
 We'll paddle that slave bottom some other time.
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .mustnot 264            ' Done spanking activity already
 .range 5040
 
@@ -12080,7 +12049,7 @@ I will have to punish you later for failing your training.
 
 [Action 5849]
 On second thought, I think I changed My mind.
-.poss 1                      ' Fallback
+.else                      ' Fallback
 .range 5040
 
 
@@ -12340,15 +12309,15 @@ Meanhile, three demerits will do about right.
 
 [Action 6048]
 No, your slutty slave penis has been teased good enough.
-.poss 1                      ' Fallback
-.must 263                    ' Done wanking activity already
+.else                   ' Fallback
+.must 263               ' Done wanking activity already
 .range 5040
 
 [Action 6049]
 No, I don't think you've earned a nice tease yet.
 Maybe later.
-.poss 1                      ' Fallback
-.mustnot 263                 ' Done wanking activity already
+.else                   ' Fallback
+.mustnot 263            ' Done wanking activity already
 .range 5040
 
 
@@ -13548,7 +13517,7 @@ delay 2
 
 ' else
 [Action 7499]
-.poss 1                      ' Fallback
+.else                        ' Fallback
 .unset 7495
 .range 7549                  ' Continue the session
 
@@ -15504,7 +15473,7 @@ hand while you keep yourself on the edge with the other, slut.
 
 [Action 8149]
 Keep yourself fully aroused, slave, and wait for my command...
-.poss 1
+.else
 .mustnot 30                       ' Can't jerk off
 .range 8090
 
@@ -15984,7 +15953,7 @@ your nipple clamps and attach a good weight to them.
 
 ' skip next-session-toy selection if no toy available
 [Action 9018]
-.poss 1                 ' Fallback
+.else                   ' Fallback
 .range 9050 9053
 
 
@@ -18310,7 +18279,7 @@ And you're also going to be in tight chains next time.
 .range 9949
 
 [Action 9948]
-.poss 1
+.else
 .range 9949
 
 [Action 9949]
@@ -18327,7 +18296,7 @@ arranged way in front of me for inspection before you approach me.
 ' 9951 lock up
 ' 9954 stay locked up
 [Action 9950]
-.poss 1                 ' small chance of not putting chastity device on at the end of the session
+.else
 .range 9993 9998        ' on to last words and final exit
 
 ' Yes, put on
@@ -18535,7 +18504,7 @@ I want you to adjust the water as cold as possible,
 And I want you come back with a cold shrivelled prick!
 Now head off into the bathroom, slut. 
 .delay 60
-.poss 1                           ' Fallback
+.else                             ' Fallback
 .mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
 .unset 23 24 30 37                ' Any toys on cock
 .range 9976 9977
@@ -18545,7 +18514,7 @@ Now head off into the bathroom, slut.
 Squeeze your filthy cock into the chastity cage and lock it up.
 delay 15
 .pause I'm locked up, Miss
-.poss 1                           ' Fallback
+.else                             ' Fallback
 .unset 24 37                      ' Any toys on cock
 .set 23 30 44                     ' Something on penis, can't jerk off, chastified
 .range 9978 9979                  ' No cleaning for failed slaves
