@@ -11354,43 +11354,27 @@ Make sure you have one until next time, baby.
 .loadsbd mine-maid.sbd 1000 1000
 
 
-' Dildo worshiping, introduction and beginner scenario
+' Dildo worshiping:
+' the gag is takenout and restored at the end of the activity
+' Therefore we avoid this activity while wearing the gag temporarily,
+' because this would just mean putting it in and immediately out again 
+
+' tighter restrictions for introduction and beginner scenario
 [Action 5140]
-.mustnot 20 22 29                 ' Something on nipples, something in mouth, blindfolded
-.mustnot 31                       ' can't sit on chair
-.mustnot 34                       ' Can't type/use mouse
-.mustnot 776                      ' Beginner scenario
+.mustnot 20 29               ' Something on nipples, blindfolded
+.mustnot 31                  ' can't sit on chair
+.mustnot 34                  ' Can't type/use mouse
+.mustnot 221                 ' Gag temporary
+.mustnot 776                 ' Dildo worshiping 1
 .range 5149
 
-' Dildo worshiping, more scenarios available at level 1 -> less restrictions
+' less restrictions because more scenarios available at level 1
 [Action 5141]
-.mustnot 22 29 34                 ' something in mouth, blindfolded, can't type/use mouse
-.must 776                         ' full penetration possible
+.mustnot 29 34               ' blindfolded, can't type/use mouse
+.mustnot 221                 ' Gag temporary
+.must 776                    ' Dildo worshiping 1
 .range 5149
 
-' Dildo worshiping introduction, if dildo has been worshiped during punishment cycle,
-' and if slave is wearing gag, and is submitted to anal training, then
-' skip blow job stage and advance to riding directly
-[Action 5142]
-.must 22                          ' something in mouth
-.mustnot 29                       ' blindfolded
-.mustnot 33                       ' Can't kneel, for introduction
-.mustnot 221                      ' Gag temporary
-.must 260                         ' Done dildo worshiping punishment before
-.must 756                         ' Anal training 1
-.must 776                         ' Must have sucked before
-.range 5149
-
-' gag has been is put in temporary, but we can still ride 
-' -> doesn't work, because the mouth is always needed to move the dildo
-' And if we have to take it out, then we can also suck, so no special case here
-
-' take out gag and suck, put gag back in at the end of the activity 
-[Action 5144]
-.must 22                          ' something in mouth
-.mustnot 29                       ' blindfolded
-.mustnot 221                      ' Gag temporary
-.range 5149
 
 ' Dildo worshiping, when already done as punishment
 [Action 5147]
