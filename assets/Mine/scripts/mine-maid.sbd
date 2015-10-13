@@ -352,7 +352,7 @@
 '.unset 133              ' Multiple positions, set when the wait loop contains position changes 
  
 ' 390-399 is used for position achivements
-' 400-699 are used as achivement bits, but these are never queried afterwards
+' 400-699 are used as achivement bits, set after a position has been completed once
 
 ' 390 series indicates that the slave has achieved this level
 .askcheck 25 390    390: achieved positions level 1 - naked, collar, leash
@@ -590,15 +590,10 @@
 
 ' Regular training session
 [Action 1000]
-We will now practice your slave positions.
-Follow all of my instructions and hold each position until I tell you to move.
-If you fail to maintain the position, you're going to tell me and of course you will be punished.
-If you do not have the correct equipment for a position, you must also admit your failure.
-.pause I understand, Miss
 .set 120                ' Regular training session
-.unset 179
 .unset 170 171 172 173 174 175 176
-.range 1190 1199
+.unset 179
+.range 1010 1019
 
 '[Action 1001]
 
@@ -607,7 +602,7 @@ If you do not have the correct equipment for a position, you must also admit you
 Your punishment will be to hold a slave position for such time as I see fit.
 If you fail to hold the position properly, we will simply have to try another,
 and another, until you eventually learn obedience.
-.pause I understand, Miss.
+.pause I understand, Miss
 .set 122       ' punishment (training failure 1)
 .set 179       ' punishment flag, repeat on fail
 .range 1160    ' Light punishment (according to punishment acceptance)
@@ -639,6 +634,57 @@ and another, until you eventually learn obedience.
 '.set 126
 '.set 21
 '.range 1102
+
+
+' activity variations
+
+' First time
+[Action 1010]
+.else
+We will now practice your slave positions.
+Follow all of my instructions and hold each position until I tell you to move.
+If you fail to maintain the position, you're going to tell me and of course you will be punished.
+If you do not have the correct equipment for a position, you must also admit your failure.
+.pause Yes Miss, I understand
+.range 1190 1199
+
+[Action 1011]
+.NumberOfActionsSet 400 699 1
+We will now continue to practice your slave positions.
+Follow all of my instructions and hold each position until I tell you to move.
+If you fail to maintain the position, you're going to tell me and of course you will be punished.
+If you do not have the correct equipment for a position, you must also admit your failure.
+.pause I understand, Miss
+.range 1190 1199
+
+[Action 1012]
+.NumberOfActionsSet 400 699 3
+Let's continue practising your slave positions.
+.range 1190 1199
+
+' maid training level 2
+[Action 1013]
+.must 771
+Let's continue practising your slave positions.
+As usual, follow my instructions and hold each position until I tell you to move.
+If you fail to maintain the position, you're going to tell me.
+If you do not have the correct equipment for a position, you must also admit your failure.
+.pause Yes, Miss
+.range 1190 1199
+
+' maid training level 3
+[Action 1014]
+.must 772
+Let's continue your slave training.
+.range 1190 1199
+
+'[Action 1014]
+'[Action 1015]
+'[Action 1016]
+'[Action 1017]
+'[Action 1018]
+'[Action 1019]
+
 
 
 ' determine current level 170-176 of this session from punishment acceptance 711 715
@@ -2139,9 +2185,10 @@ and set it up to a teasing, tantalizing rythm!
 .must 47                ' Vibrator attached
 .mustnot 179            ' punishment
 Well, I think you can ramp up the intensity of your teasing toy a couple of notches
-and choose a more tantalizing rythm, slave.
-.yestext Intensity increaesed, Miss 
-.notext I've chosen a more tantalizing rythm, Miss
+and choose a more tantalizing rythm.
+What do you choose, slave?
+.yestext Increased intensity , Miss 
+.notext A more tantalizing rythm, Miss
 .yesno 1880 1880 1880 1880
 
 
@@ -2163,8 +2210,8 @@ and choose a more tantalizing rythm, slave.
 .unset 1881
 Very good, my pet.
 It goes without saying that you aren't allowed to
-change the settings of your teasing toy.
-And of course you also are also not to cum.
+change the settings of your teasing toy while you are holding your position.
+And of course you are also not to cum.
 .pause Yes Miss, I may not cum
 .range 1896 1897
 
@@ -2174,7 +2221,7 @@ And of course you also are also not to cum.
 .unset 1882
 Very good, my pet.
 It goes without saying that you aren't allowed to
-change the settings of your little teasing toy.
+change the settings of your little teasing toy during your training.
 And of course you are also not to cum.
 .pause Yes Miss, I may not cum
 .range 1896 1897
@@ -4709,7 +4756,7 @@ Just stand straight, legs together.
 .range 4093
 
 [Action 4093]
-Don't hide your sex from me, slave.
+Don't hide your sex from me, slave!
 position_standing_hands_behind_head.jpg
 Put your hands behind your head to expose your genitals. 
 .delay 30
@@ -9665,10 +9712,11 @@ delay 5
 .range 8399
 
 
-' Success - complete and advance posture
+' Success - complete and advance position, remove toys
 
 [Action 8399]
 .unset 8399
+.resetrange 8800 9699   ' clear toy removal
 .range 8400 8699
 
 
@@ -11326,6 +11374,7 @@ Go ahead and remove the clothes pegs from your slutty ball sack, my dear pain sl
 ' However, don't save anything with the bailout returns
 
 [Action 9700]
+.unset 9700
 .range 9701 9702
 
 
