@@ -316,8 +316,9 @@
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
 
-' 98 - decision to do another position - cleared or set in 1811-1812, used to keep wearing add-ons between poses
-' 99 - doing another position
+' 97 - position successful
+' 98 - decision to do another position - cleared or set in 1811-1812, to keep wearing add-ons between poses
+
 
 .askcheck 11 100    100: position short duration
 .askcheck 12 101    101: position medium duration
@@ -341,7 +342,7 @@
 ' 126: free
 
 ' Comment flags 130-139: Pre-set but can be changed to adjust comments to position
-' 130:	holding	position	default: set	
+' 130:	holding position	default: set	
 ' 131:	dildo sucking   	default: unset	
 ' 132:  Show licking    	default: unset
 
@@ -429,7 +430,7 @@
 
 ' Debug
 
-'.menu  1  1001 1001 Generic entry point
+.menu  1  1000 1000 Regular training session
 .menu  2  1002 1002 From punishment (training failure 1), punishment acceptance level not set
 .menu  3  1003 1003 From punishment (excessive disobedience), Punishment acceptance 3
 .menu  4  1005 1005 From punishment (training failure 2), punishment acceptance 4
@@ -437,14 +438,14 @@
 '.menu  6  1006 1006 From punishment (training failure 2), punishment acceptance 2
 '.menu  7  1007 1007 From punishment (training failure 2), punishment acceptance 4
 '.menu  8  1008 1008 Enema training session
-.menu  9  1000 1000 Regular training session
 .menu 10   991  991 Status dump
 .menu 11   992  992 Set slave state
 .menu 12   993  993 Select easy positon
 .menu 13   994  994 Select moderate positon
 .menu 14   995  995 Select hard positon
 .menu 15   996  996 Select extreme positon
-.menu 16  1000 1000 Exit
+.menu 16   997  997 Regular training session, "Do another"
+.menu 17  1000 1000 Exit
 
 
 ' .menu and .popup accept values from 1-99 only (otherwise PCM crashes)
@@ -570,6 +571,12 @@
 .unset 996
 .PopUp 650 699
 
+' test repeat position
+[Action 997]
+.unset 997
+.set 1811               ' disable single position 
+.range 1000
+
 
 ' One-time init from Mine.sbd to create save state file
 [Action 998]
@@ -589,7 +596,7 @@ If you fail to maintain the position, you're going to tell me and of course you 
 If you do not have the correct equipment for a position, you must also admit your failure.
 .pause I understand, Miss
 .set 120                ' Regular training session
-.unset 179 99
+.unset 179
 .unset 170 171 172 173 174 175 176
 .range 1190 1199
 
@@ -903,7 +910,7 @@ and another, until you eventually learn obedience.
 [Action 1219]
 .resetrange 1200 1219   ' in case another position is needed, if doing another on after a seucessful position, very long duration is disabled in 9711
 .resetrange 1400 1699   ' reset position selector - means that the same position an be selected twice but otherwise the wrong toy removal would be selected 
-.set 130                ' comment holding position
+.set 130                ' comment holding position - default
 .unset 131 132          ' Don't comment dildo sucking, shoe licking 
 .unset 133              ' Multiple positions
 .range 1220 1223
@@ -1612,8 +1619,8 @@ and another, until you eventually learn obedience.
 ' set progress indicators to 0, so that the
 ' numbers in .repeatadd match the actual progress count 
 [Action 1701]
+.unset 97               ' position sucessful
 .set 1801 1802 1803 1804 1805 1806 1807 1808 1809 1810
-.unset 1811 1812        ' loop exit
 .range 1750 1789
 
 
@@ -2032,19 +2039,21 @@ and another, until you eventually learn obedience.
 ' finished posture
 [Action 1811]
 .must 1810
+.set 97                 ' position successful
 .unset 98               ' Don't do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
 ' finished posture, do another
 [Action 1812]
+.must 1810
 .mustnot 20             ' avoid wesaring something on nipples for too long
 .mustnot 99             ' already done another
 .mustnot 103            ' avoid very long duration
 .mustnot 179            ' not for a punishment
 .poss 25
-.must 1810
-.set 98                 ' mistress decided to do another position
-.set 1811               ' to detect loop exit
+.set 97                 ' position successful
+.set 98                 ' do another position
+.unset 1811             ' support debugging
 .range 8300             ' success for this pose -> comment and cleanup
 
 
@@ -2057,10 +2066,15 @@ and another, until you eventually learn obedience.
 ' break and vibrator setup
 
 [Action 1820]
-.range 1821 1829
+.unset 1820
+.range 1821 1839
+
+
+' first position - put on vibrator
 
 [Action 1821]
-.mustnot 23             ' something on penis
+.mustnot 44             ' chastified
+.mustnot 47             ' Vibrator attached
 .mustnot 179            ' punishment
 .must 389               ' A vibrator
 Now lazy little sluts such as yourself often need a little
@@ -2070,10 +2084,11 @@ and attach it to your silly slave penis.
 Then set it up to a teasing, tantalizing rythm!
 .pause Vibrator attached and running, Miss 
 .set 47                 ' Vibrator attached
-.range 1895
+.range 1880
 
 [Action 1822]
-.mustnot 23             ' something on penis
+.mustnot 44             ' chastified
+.mustnot 47             ' Vibrator attached
 .mustnot 179            ' punishment
 .must 389               ' A vibrator
 Now lazy little sluts such as yourself often need a little
@@ -2083,13 +2098,14 @@ attach it to your silly slave penis,
 and set it up to a teasing, tantalizing rythm!
 .pause Vibrator attached and running, Miss 
 .set 47                 ' Vibrator attached
-.range 1895
+.range 1880
 
-'[Action 1825]
-'[Action 1826]
+'[Action 1823]
+'[Action 1824]
 
 [Action 1825]
 .must 44                ' chastified
+.mustnot 47             ' Vibrator attached
 .mustnot 179            ' punishment
 .must 389               ' A vibrator
 Well, I guess my dear maid in training deserves a little extra excitement today:
@@ -2098,10 +2114,11 @@ attach it to your chastity cage,
 and set it up to a teasing, tantalizing rythm!
 .pause Vibrator attached and running, Miss 
 .set 47                 ' Vibrator attached
-.range 1895
+.range 1880
 
 [Action 1826]
 .must 44                ' chastified
+.mustnot 47             ' Vibrator attached
 .mustnot 179            ' punishment
 .must 389               ' A vibrator
 Well, I guess my dear maid in training deserves a little extra excitement today:
@@ -2110,37 +2127,108 @@ attach it to your chastity cage,
 and set it up to a teasing, tantalizing rythm!
 .pause Vibrator attached and running, Miss 
 .set 47                 ' Vibrator attached
-.range 1895
+.range 1880
 
 '[Action 1827]
 '[Action 1828]
+'[Action 1829]
 
-[Action 1829]
+' do another position - increase intensity of teasing device when wearing vibrator already
+
+[Action 1831]
+.must 47                ' Vibrator attached
+.mustnot 179            ' punishment
+Well, I think you can ramp up the intensity of your teasing toy a couple of notches
+and choose a more tantalizing rythm, slave.
+.yestext Intensity increaesed, Miss 
+.notext I've chosen a more tantalizing rythm, Miss
+.yesno 1880 1880 1880 1880
+
+
+[Action 1839]
 .mustnot 389            ' A vibrator
+.unset 1839
 .else
 .range 1899
 
 
-[Action 1895]
-Very good, my pet.
-It goes without saying that you are not allowed to
-change the setting of your teasing device, my dear slave.
-And of course you may not cum during your training.
-If you do, you're going to tell me immediately!
-.pause Yes Miss, I may not cum
-.range 1896
+[Action 1880]
+.unset 1880
+.range 1881 1889
 
-[Action 1896]
-That's right, slave.
+
+[Action 1881]
+.mustnot 98             ' Do another position
+.must 130               ' holding position
+.unset 1881
+Very good, my pet.
+It goes without saying that you aren't allowed to
+change the settings of your teasing toy.
+And of course you also are also not to cum.
+.pause Yes Miss, I may not cum
+.range 1896 1897
+
+[Action 1882]
+.mustnot 98             ' Do another position
+.mustnot 130            ' holding position
+.unset 1882
+Very good, my pet.
+It goes without saying that you aren't allowed to
+change the settings of your little teasing toy.
+And of course you are also not to cum.
+.pause Yes Miss, I may not cum
+.range 1896 1897
+
+[Action 1883]
+.must 98                ' Do another position
+.must 130               ' holding position
+.unset 1883
+Very good, my pet.
+Now keep it up and don't touch the controls
+while you are holding your position.
+And of course don't spurt off!
+If you do, you're going to tell me immediately!
+.pause As you wish, Miss, promised
 .range 1898
 
+[Action 1884]
+.must 98                ' Do another position
+.mustnot 130            ' holding position
+.unset 1894
+Very good, my pet.
+Now keep it up and keep your naughty hands off your little get-up.
+And of course won't spurt off during your training.
+.pause As you wish, Miss, promised
+.range 1898
+
+'[Action 1885]
+'[Action 1885]
+'[Action 1887]
+'[Action 1888]
+'[Action 1889]
+
+
+[Action 1896]
+.unset 1896
+That's right, slave.
+If you do, you're going to tell me immediately!
+.range 1898
+
+[Action 1897]
+.unset 1897
+That's right, slave.
+If you do, you're going to tell me immediately!
+.range 1898
+
+
 [Action 1898]
-.resetrange 1820 1899
+.unset 1898
 .break 1700 6999 STOP 7300 CUM 9990 9991
 .return
 
+
 [Action 1899]
-.resetrange 1820 1899
+.unset 1899
 .break 1700 6999 STOP 7300
 .return
 
@@ -9337,51 +9425,171 @@ I begin to think you're shaping up, slave.
 .range 8399
 
 
-' same comments, but also remove vibrator
+' same comments, but also turn off vibrator for the moment
 
 [Action 8321]
 .must 47                ' Vibrator attached
+.must 98                ' do another position
 .mustnot 113
 .playwav bell1.mp3
 Very good, slave.
-You may turn your vibrator off.
+You may turn your vibrator off for the moment.
 .delay 5
 .unset 47
 .range 8399
 
 [Action 8322]
 .must 47                ' Vibrator attached
+.must 98                ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 Very good, slave.
-You may turn your vibrator off.
+You may turn your vibrator off for the moment.
+That was a difficult position.
+delay 5
+.range 8399
+
+[Action 8323]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+.mustnot 110 111
+.playwav bell1.mp3
+Excellent, slave.
+You may turn your vibrator off for the moment.
+delay 5
+.range 8399
+
+[Action 8324]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+.mustnot 110 111
+.playwav bell1.mp3
+Excellent performance, slave, in a good solid position. 
+You may turn your vibrator off for the moment.
+delay 5
+.range 8399
+
+[Action 8325]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+.mustnot 110 111
+.playwav bell1.mp3
+That's very good, My pet.
+You may turn your vibrator off for the moment.
+delay 5
+.range 8399
+
+[Action 8326]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+.mustnot 110 111
+.playwav bell1.mp3
+That's a very good slut.
+You may turn your vibrator off for the moment.
+delay 5
+.range 8399
+
+[Action 8327]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+.mustnot 112 113
+.playwav bell1.mp3
+Easy as pie.
+You may turn your vibrator off for the moment.
+delay 5
+.range 8399
+
+[Action 8328]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+.mustnot 110
+.playwav bell1.mp3
+Very good, slave.
+You may turn your vibrator off for the moment.
+I do believe you're starting to catch on.
+delay 5
+.range 8399
+
+[Action 8329]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+.playwav bell1.mp3
+Very good, slave.
+You may turn your vibrator off for the moment.
+I'm quite pleased with you.
+delay 5
+.range 8399
+
+[Action 8330]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+.playwav bell1.mp3
+Good job, slave.
+You may turn your vibrator off for the moment.
+delay 5
+.range 8399
+
+[Action 8331]
+.must 47                ' Vibrator attached
+.must 98                ' do another position
+Very good.
+.playwav bell1.mp3
+You may turn your vibrator off for the moment.
+I begin to think you're shaping up, slave.
+delay 5
+.range 8399
+
+
+' same comments, but also remove vibrator
+
+[Action 8341]
+.must 47                ' Vibrator attached
+.mustnot 98             ' do another position
+.mustnot 113
+.playwav bell1.mp3
+Very good, slave.
+You may take your vibrator off.
+.delay 5
+.unset 47
+.range 8399
+
+[Action 8342]
+.must 47                ' Vibrator attached
+.mustnot 98             ' do another position
+.mustnot 110 111
+.playwav bell1.mp3
+Very good, slave.
+You may take your vibrator off.
 That was a difficult position.
 delay 5
 .unset 47
 .range 8399
 
-[Action 8323]
+[Action 8343]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 Excellent, slave.
-You may turn your vibrator off.
+You may take your vibrator off.
 delay 5
 .unset 47
 .range 8399
 
-[Action 8324]
+[Action 8344]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 Excellent performance, slave, in a good solid position. 
-You may turn your vibrator off.
+You may take your vibrator off.
 delay 5
 .unset 47
 .range 8399
 
-[Action 8325]
+[Action 8345]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 That's very good, My pet.
@@ -9390,61 +9598,67 @@ delay 5
 .unset 47
 .range 8399
 
-[Action 8326]
+[Action 8346]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 That's a very good slut.
-You may turn your vibrator off.
+You may take your vibrator off.
 delay 5
 .unset 47
 .range 8399
 
-[Action 8327]
+[Action 8347]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 .mustnot 112 113
 .playwav bell1.mp3
 Easy as pie.
-You may turn your vibrator off.
+You may take your vibrator off.
 delay 5
 .unset 47
 .range 8399
 
-[Action 8328]
+[Action 8348]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 .mustnot 110
 .playwav bell1.mp3
 Very good, slave.
-You may turn your vibrator off.
+You may take your vibrator off.
 I do believe you're starting to catch on.
 delay 5
 .unset 47
 .range 8399
 
-[Action 8329]
+[Action 8349]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 .playwav bell1.mp3
 Very good, slave.
-You may turn your vibrator off.
+You may take your vibrator off.
 I'm quite pleased with you.
 delay 5
 .unset 47
 .range 8399
 
-[Action 8330]
+[Action 8350]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 .playwav bell1.mp3
 Good job, slave.
-You may turn your vibrator off.
+You may take your vibrator off.
 delay 5
 .unset 47
 .range 8399
 
-[Action 8331]
+[Action 8351]
 .must 47                ' Vibrator attached
+.mustnot 98             ' do another position
 Very good.
 .playwav bell1.mp3
-You may turn your vibrator off.
+You may take your vibrator off.
 I begin to think you're shaping up, slave.
 delay 5
 .unset 47
@@ -11117,13 +11331,13 @@ Go ahead and remove the clothes pegs from your slutty ball sack, my dear pain sl
 
 ' Success
 [Action 9701]
-.must 1811              ' Finished position
+.must 97                ' Finished position
 .unset 9701
 .range 9710 9729
 
 ' failed position
 [Action 9702]
-.mustnot 1811           ' Finished position
+.mustnot 97             ' Finished position
 .unset 9702
 .range 9750 9759
 
@@ -11142,7 +11356,6 @@ That's enough for now.
 That was so good, slave,
 I think we should do another.
 .must 98                ' decision to do another position
-.set 99                 ' never more than two
 .set 1211 1214          ' disable very long durations
 .set 1216 1217
 .range 1200
@@ -11177,7 +11390,7 @@ and I'm not going to waste any more time on you.
 .range 9769             ' Exit to main script 2499, but can't display message and .loadbsd in the same action
 
 ' Easy level contains poses that can be done entirely without toys,
-' just household items may be needed (such things like a shoe)
+' just household items may be needed (such as a shoe)
 ' and easy-poses that need toys are not available during punishments
 ' As a result, easy level punishments are always possible - no excuses
 ' Easy non-naked positions are not used for punishments
