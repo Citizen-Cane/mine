@@ -18,6 +18,10 @@
 ' reset all temp variables from main script but keep slave state, toys and achievements
 .resetrange 50 199
 
+' clear sub script temporary range 
+.resetrange -799 1
+
+
 .range 1000
 
 'All maids will sooner or later spend some time in the punishment corner.
@@ -295,9 +299,6 @@
 '	instructions are all over the place, so don't bother with checking that
 '	unless it's an integral part of the activity.
 '
-'	The flags are only set in some cases, if we have specific entry points,
-'	for instnace when training with enema applied
-'
 '	20	-	something on nipples
 '	21	-	something in butt
 '	22	-	something in mouth
@@ -312,12 +313,36 @@
 '	31	-	can't sit on chair
 '	32	-	can't stand
 '	33	-	can't kneel
-'	34	-	can't type/use mouse
+'	34	-	can't type/use mouse  (this is also the case when blindfolded)
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
+'   37  -	ball harness (includes 24)
+'   38  -   
+'   39  -   Pussy clamps - additional to 24 something on balls 
+'   40  -   Dildo in mouth, along with 22 something in mouth
+'   41  -   Dildo in ass, along with 21 something in ass
+'   42  -   Clothes pegs on nipples, along with 20 something on nipples
+'   43  -   Nipple clamps on nipples, along with 20 something on nipples
+'
+'   44  -   Chastified (Encaged slave penis)
+'   45  -   Have key for chastity cage
+'   46  -   free
+'
+'   47  -   Vibrator or E-EStim device attached
 
 ' 97 - position successful
 ' 98 - decision to do another position - cleared or set in 1811-1812, to keep wearing add-ons between poses
+
+' local slave state
+' -20 something on nipples, with 42 clothes pegs
+' -20 something on nipples, with 43 nipple clamps
+' -22 something in mouth
+' -24 something on balls, without 39 pussy clamps
+' -24 something on balls, with 39 clothes pegs
+' -25 ankles tied
+' -26 wrists tied
+' -28 collared
+
 
 
 .askcheck 11 100    100: position short duration
@@ -2092,8 +2117,8 @@ Let's continue your slave training.
 ' finished posture, do another
 [Action 1812]
 .must 1810
-.mustnot 20             ' avoid wesaring something on nipples for too long
 .mustnot 99             ' already done another
+.mustnot 102            ' avoid long duration
 .mustnot 103            ' avoid very long duration
 .mustnot 179            ' not for a punishment
 .poss 25

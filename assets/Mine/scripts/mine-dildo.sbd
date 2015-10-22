@@ -1,6 +1,6 @@
 ' Redux Release version 1.1 (???)
 ' Revisited RELEASE version 1.02 (3 DEZ 2011?)
-' this is a new activity n ot present in the original version 
+' this is a new activity not present in the original version 
 
 ' This restores range 180 to 199
 .restore
@@ -22,6 +22,10 @@
 
 ' reset all temp variables from main script but keep slave state, toys and achievements
 .resetrange 50 179
+
+' clear sub script temporary range 
+.resetrange -799 1
+ 
 
 .range 1000
 
@@ -94,6 +98,10 @@
 ' 17 - wrists to collar
 ' 18 - -
 ' 19 - -
+
+' local slave state
+' -20 something on nipples
+' -22 is set if the gag(22) must be put back in, so it's reverse
 
 ' 180-199 persistent slave advancement
 
@@ -202,8 +210,6 @@
 '.range 3000 3004
 
 
-' TODO this will not work, because only one item may be set after calling the scenario selection 
-
 ' 3220 lie down on the floor, riding fully penetrated on the floor
 [action 920]
 .set 3220
@@ -249,7 +255,7 @@
 .set 3228
 .range 940
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [action 929]
 .set 22                 ' something in mouth
 .set 3229
@@ -762,6 +768,8 @@ delay 10
 .must 22
 You'll need your lips and tongue for this task, so go ahead and remove your gag.
 But keep it handy, because you're going to put it back in after your worshiping service.
+.set -22                ' something in mouth
+.unset 22               ' something in mouth
 .pause Thank you, Miss
 .range 3119
 
@@ -807,6 +815,8 @@ Well, we won't need your hands right now, just your lips and tongue.
 So after taking your gag out, I want you to pick up your wrist restraints
 and tie your hands on your back.
 delay 10
+.set -22                ' something in mouth
+.unset 22               ' something in mouth
 .pause I'm tied up, Miss
 .set 10                 ' wrists tied to back
 .set 30 34              ' Can't jerk off, can't type/use mouse 
@@ -828,13 +838,16 @@ delay 10
 [action 3124]
 .must 22                ' something in mouth
 Well, we won't need your hands right now, just your lips and tongue,
-so after taking out your gag, go get your wrist and ankle restraints,
-and tie each wrist to the corresponding ankle.
+so go get your wrist and ankle restraints, and
+- after taking your gag out -
+tie each wrist to the corresponding ankle.
 delay 10
 Lock your right hand to your right ankle,
 and your left hand to your left ankle.
 delay 10
 Keep the connecting chains short, my pet.
+.set -22                ' something in mouth
+.unset 22               ' something in mouth
 .pause I'm tied up as ordered, Miss
 .set 11                 ' Wrist and ankle on each side tied together
 .set 30 31 32 34        ' Can't jerk off, Can't sit on chair, can't stand, can't type/use mouse 
@@ -861,7 +874,11 @@ Keep the connecting chains short, my pet.
 .must 22                ' something in mouth
 .mustnot 44             ' chastified
 Well, we won't need your hands right now, just your lips and tongue,
-so after taking your gag out, get your wrist restraints and tie your wrists to your slutty ball sack.
+so get your wrist restraints and
+- after taking out your gag -
+tie your wrists to your slutty ball sack.
+.set -22                ' something in mouth
+.unset 22               ' something in mouth
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -879,7 +896,11 @@ so let's get your wrist restraints and tie your wrists to your slutty ball sack.
 .must 22                ' something in mouth
 .must 44                ' chastified
 Well, we won't need your hands right now, just your lips and tongue,
-so after taking your gag out, get your wrist restraints and tie your wrists to your chastity cage.
+so get your wrist restraints and
+- after taking your gag out -
+tie your wrists to your chastity cage.
+.set -22                ' something in mouth
+.unset 22               ' something in mouth
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -899,7 +920,11 @@ so let's get your wrist restraints and tie your wrists to your chastity cage.
 [action 3132]
 .must 22                ' something in mouth
 Well, we won't need your hands right now, just your lips and tongue,
-so after taking your gag out, get your wrist restraints and lock your hands to your collar.
+so get your wrist restraints and 
+- after taking your gag out -
+lock your hands to your collar.
+.set -22                ' something in mouth
+.unset 22               ' something in mouth
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .set 30 34              ' Can't jerk off, can't type/use mouse 
@@ -1199,7 +1224,7 @@ so get your wrist restraints and lock your hands to your collar.
 .set 3228
 .return
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four 
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs 
 [Action 3209]
 .mustnot 32 33          ' Can't stand, can't kneel
 .mustnot 43             ' nipple clamps on nipples
@@ -1272,7 +1297,7 @@ so get your wrist restraints and lock your hands to your collar.
 .must 74                ' advancement 5, full penetration
 .return
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four 
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs 
 [Action 3229]
 .mustnot 32             ' can't stand
 .mustnot 43             ' nipple clamps on nipples
@@ -1384,7 +1409,7 @@ so get your wrist restraints and lock your hands to your collar.
 .must 3228
 .range 3320
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [Action 3259]
 .must 3229
 .range 3325 3326
@@ -1419,7 +1444,7 @@ so get your wrist restraints and lock your hands to your collar.
 ' 3239 wall mounted, nipple clamps attached to dildo 
 [Action 3269]
 .must 3239 
-.range 3390
+.range 3390 3391
 
 
 ' Positions instructions
@@ -1470,9 +1495,12 @@ Lift your head so that you can easily tease the tip.
 
 ' 3222 On stool, kneeling, riding on stool
 [Action 3290]
-For today's worshiping session, you need to fetch a stool or chair with a smooth surface.
+For today's worshiping session,
+you will need to fetch a stool or chair with a smooth surface.
 Make sure the seat's surface is smooth enough to attach the suction cup on it.
-Head off - with your dildo in your mouth of course - to fetch the stool and place it in front of your desk!
+Head off
+- with your dildo in your mouth of course -
+to fetch the stool and place it in front of your desk!
 .pause Stool ready, Miss
 .must 3222
 .set 15                 ' Wank
@@ -1666,14 +1694,17 @@ Have you figured out a place, slave?
 .range 3399
 
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 
 [Action 3325]
 .mustnot 20             ' Something on nipples
 It's so much more fun to watch a slave worshiping his precious dildo
 with clothes pegs on his nipples!
-So go fetch some and snap them on your nipples, one per.
+So go fetch some
+- with the dildo in your mouth of course -
+and snap them on your nipples, one per.
 .pause Done, Miss
+.set -20 20 42          ' something on nipples, clothes pegs 
 .range 3327
 
 [Action 3326]
@@ -1798,16 +1829,14 @@ Are you ready, slave?
 ' 3235 Mount dildo on floor, kneel down, arms straight on the floor
 
 [Action 3370]
-You have been a real bitch recently, and you will learn a lesson to remember.
+You have been a real bitch recently, and today, you will learn a lesson to remember.
 .delay 10
-.mustnot 20             ' Nipple clamps
 .range 3371
 
 [Action 3371]
 .image Charlies-AMATEUR-Potpourri-2009-Deux-2a.jpg 
 Today, you're going to place your dildo on the floor,
 and squat in front of it.
-
 .range 3372
 
 [Action 3372]
@@ -1853,13 +1882,15 @@ and are to keep them behind your head at all times, slut.
 ' 3237 Mount dildo on a mirror or window pane, sit on heels, nipple clamps
 
 [Action 3380]
+.mustnot 20             ' something on nipples
 Pick up your dildo and keep it in your mouth while you fetch your nipple clamps.
 delay 10
 When you have them, go ahead and snap them on your poor little slave titties.
 delay 10
-Report back to me when the clamps sit tight on your nipples and you're back at the desk teasing the dildo.
+Report back to me when the clamps sit tight on your nipples
+and you're back at the desk teasing the dildo.
 .pause I'm back, Miss
-.mustnot 20             ' Nipple clamps
+.set -20 20 43          ' something on nipples, nipple clamps
 .range 3382
 
 [Action 3381]
@@ -1927,25 +1958,35 @@ to prevent you from doing anything naughty, my pet.
 ' 3239 wall mounted, nipple clamps attached to dildo 
 
 [Action 3390]
+.mustnot 20
 Go fetch your nipple clamps
 - with the dildo in your mouth of course -
 and loop the connecting chain around the dildo's shaft.
 Then snap the clamps on your poor little slave titties.
-I want you to carry out a persistent pull on your nipples, so keep the connecting chain short enough.
-Report back to me once you've returned to the desk and are teasing the dildo.
-.pause All done as ordered, Miss
+I want you to carry out a persistent pull on your nipples,
+so keep the chain short!
+Report back to me once you're back at the desk and are teasing the dildo.
+.pause I'm ready, Miss
+.set -20 20 43          ' something on nipples, nipple clamps
 .range 3391
 
 [Action 3391]
+.must 20
+I want you to take the the connecting chain of your nipple clamps,
+and loop them around the dildo's shaft.
+I want you to carry out a persistent pull on your nipples,
+so keep the chain short!
+Report back to me once you've sorted it out and are back at the desk teasing the dildo.
+.pause I'm ready, Miss
+.range 3391
+
+[Action 3392]
 Very good, slave!
 I hope these clamps sting.
 delay 1
-When I give the OK, you'll head of and mount your dildo at a wall or a door frame.
+When I give the OK, you'll head off and mount your dildo at a wall or a door frame.
 Make sure it's mounted high enough to make you stand straight and the clamps pull at your nipples.
 .set 13                 ' rub against wall
-.range 3392
-
-[Action 3392]
 .range 3399
 
 
@@ -2753,7 +2794,7 @@ Carry on teasing, my dirty slut.
 .must 3228
 .range 3560
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [Action 3549]
 .must 3229
 .range 3560
@@ -2893,7 +2934,7 @@ Let's see how you will ride your dildo today.
 ' - results in 185 achievement 1 when the dildo can be fully inserted
 
 [Action 3621]
-As a good anal slut such as yourself, you need to be able to insert your
+As a good anal slut such as yourself, you must be able to insert your
 dildo at its full length and sit down on it comfortably.
 .range 3622
 
@@ -2979,8 +3020,7 @@ dildo_worshiping_suck_lying_ride_sitting_intro.jpg
 
 
 [Action 3632]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
@@ -2988,8 +3028,9 @@ Once you are gagged again, you can lube up the dildo as well.
 ShowChoices
 delay 10
 Use plenty, because in a minute, you're going to have a tough ride.
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 .pause Alright Miss, I'm gagged again and the dildo is lubed up
-.unset 8                ' reused to in
 .range 3636
 
 [Action 3633]
@@ -3151,7 +3192,7 @@ For tonight we're going to choose an appropriate scenario that avoids full penet
 .must 3228
 .range 3720
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four 
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs 
 [Action 3659]
 .must 3229
 .range 3725
@@ -3195,17 +3236,17 @@ delay 20
 .range 3683 3684
 
 [Action 3683]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied 
 Very good, my anal pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
 delay 10 
-.unset 8                ' reused to in
 dildo_worshiping_suck_lying_ride_sitting_ride.jpg
 When you're gagged and settled on the dildo,
 lean back, support your torso with your arms, and spread your legs.
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 .pause I'm gagged and fully penetrated, Miss
 .range 3769
 
@@ -3254,14 +3295,14 @@ delay 15
 .range 3688 3689
 
 [Action 3688]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied 
 Very good, my anal pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
 delay 10 
-.unset 8                ' reused to in
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 Are you ready to ride your dildo, slave?
 .pause Yes Miss, I'm gagged and ready
 .range 3769
@@ -3290,8 +3331,7 @@ delay 10
 
 
 [Action 3691]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied 
 dildo_worshiping_suck_stool_ride_stool_ride.jpg
 Then slowly sit down on the dildo to pleasantly fill your ass.
@@ -3300,7 +3340,8 @@ delay 15
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
 delay 15 
-.unset 8                ' reused to in
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 .range 3694
 
 [Action 3692]
@@ -3330,12 +3371,13 @@ delay 10
 
 
 [Action 3696]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
 delay 15
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 When you are properly gagged,
 place yourself over the dildo and aim the tip towards your backdoor,
 then stretch out your arms to grab the edge of the desk.
@@ -3345,7 +3387,6 @@ delay 10
 Then lower down further until your bum cheeks almost touch the floor,
 and the dildo is deep inside you.
 .pause I'm gagged and fully penetrated, Miss
-.unset 8                ' reused to in
 .range 3699
 
 [Action 3697]
@@ -3383,13 +3424,13 @@ Return to me at the desk when you have it all ready, slave.
 
 
 [Action 3701]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 .pause Alright Miss, I'm gagged again
-.unset 8                ' reused to in
 .range 3703
 
 [Action 3702]
@@ -3426,14 +3467,14 @@ Report back to me when the dildo is ready to ride!
 .range 3706 3707
 
 [Action 3706]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so let's put the gag back in.
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 .pause Alright Miss, I'm gagged again
-.unset 8                ' reused to in
 .range 3703
 
 [Action 3707]
@@ -3456,17 +3497,17 @@ You have thirty seconds.
 ' TODO correct?
 
 [Action 3710]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so hurry up and put the gag back in.
-.unset 8                ' reused to in
 delay 15
 When you're properly gagged again, you may lube up the dildo as well. 
 delay 15
 Tell me when you're ready to continue your workout, my pet.
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 I'm gagged and ready, Miss
 .range 3712
 
@@ -3518,13 +3559,13 @@ Now mount your dildo on the floor, and lube it up good.
 
 
 [Action 3718]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so hurry up and put the gag back in.
-.unset 8                ' reused to in
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 delay 15
 dildo_worshiping_suck_lying_ride_sitting_ride.jpg
 Then sit down on the dildo.
@@ -3563,13 +3604,13 @@ Make it all good and slippery and report back to me.
 
 
 [Action 3721]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so hurry up and put the gag back in.
-.unset 8                ' reused to in
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 delay 15
 .range 3723
 
@@ -3592,7 +3633,7 @@ delay 5
 .range 3769
 
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 
 [Action 3725]
 dildo_worshiping_sucking_on_all_four_riding_on_all_four_ride_mount.jpg
@@ -3609,13 +3650,13 @@ delay 15
 
 
 [Action 3728]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so hurry up and put the gag back in.
-.unset 8                ' reused to in
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 delay 15
 dildo_worshiping_sucking_on_all_four_riding_on_all_four_ride.jpg
 Then crawl backwards towards the wall and mount your dildo.
@@ -3764,7 +3805,7 @@ dildo_worshiping_suck_standing_ride_on_all_four_ride_position.jpg
 Now slave, get ready!
 .range 3929
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [Action 3829]
 .must 3229
 dildo_worshiping_sucking_on_all_four_riding_on_all_four_ride_mount.jpg
@@ -4389,7 +4430,7 @@ I guess we'll finish your workout now.
 .must 3228
 .range 4130             ' Return to desk and sit down on chair
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [Action 4109]
 .must 3229
 .range 4130             ' Return to desk and sit down on chair
@@ -4683,7 +4724,7 @@ Crawl off and put the dildo away, cunt.
 ' Unable to fully insert dildo, remove
 [Action 4420]
 You did a good job, my dear.
-But you need either a little more training or a shorter dildo.
+But you'll need either a little more training or a shorter dildo.
 Sort it out til next time.
 .pause Yes, Miss, of course.
 .range 4425
@@ -4843,48 +4884,52 @@ Yes, that's much better, slave!
 .gosub 9300           ' put the gag back in
 .range 4461 4489
 
+
 ' 3239 wall mounted, nipple clamps attached to dildo
 [Action 4461]
+.must 3239
+.must -20               ' something on nipples
 And it's time to take off your nipple clamps as well.
 .pause Thank you, Miss
-.must 3239
-.mustnot 20             ' nipple clamps
+.unset -20 20           ' something on nipples 
 .range 4490
 
 ' 3239 wall mounted, nipple clamps attached to dildo, nipple clamps already on
 [Action 4462]
 .must 3239
-.must 20
+.mustnot -20
 .range 4490
 
 
 ' 3237 Mount dildo on a mirror or window pane, sit on heels, nipple clamps
 [Action 4463]
+.must 3237
+.must -20               ' something on nipples
 And it's time to take off your nipple clamps as well.
 .pause Thank you, Miss
-.must 3237
-.mustnot 20             ' nipple clamps
+.unset -20 20 43        ' something on nipples 
 .range 4490
 
 ' 3237 Mount dildo on a mirror or window pane, sit on heels, nipple clamps already on
 [Action 4464]
 .must 3237
-.must 20
+.mustnot -20
 .range 4490
 
 
-' 3229 Mount dildo on a mirror or window pane, sit on heels, nipple clamps
+' 3229  Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [Action 4465]
+.must 3229
+.must -20               ' something on nipples
 And it's time to take off your nipple clamps as well.
 .pause Thank you, Miss
-.must 3229
-.mustnot 20             ' nipple clamps
+.unset -20 20 43        ' something on nipples, clothes pegs 
 .range 4490
 
-' 3229 Mount dildo on a mirror or window pane, sit on heels, nipple clamps already on
+' 3229  Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs already on
 [Action 4466]
 .must 3229
-.must 20
+.mustnot -20
 .range 4490
 
 
@@ -5383,13 +5428,13 @@ Wasn't that a nice workout?
 
 
 [Action 9305]
-.must 8
-.must 22
+.must -22
 .mustnot 10 11 16 17    ' hands tied 
-Well, I don't think you need your lips and tongue anytime soon,
+Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
+.unset -22              ' something in mouth
+.set 22                 ' something in mouth
 .pause I'm gagged again, Miss
-.unset 8                ' reused to in
 .return
 
 [Action 9309]
@@ -5457,7 +5502,7 @@ my dear anal pet, so let's put the gag back in.
 .must 3228
 .return
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [Action 9359]
 .must 3229
 .set 184           ' achievement 5
@@ -5557,7 +5602,7 @@ my dear anal pet, so let's put the gag back in.
 .must 3228
 .return
 
-' 3229 Suck on wall/door frame kneeling on all four, ride on all four
+' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [Action 9389]
 .must 3229
 .set 189           ' achievement 5
