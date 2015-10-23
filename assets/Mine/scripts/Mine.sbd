@@ -55,7 +55,7 @@
 '	26	-	wrists tied
 '	27	-	something around waist
 '	28	-	collared
-'	29	-	blindfold on
+'	29	-	blindfolded
 '	30	-	can't jerk off
 '	31	-	can't sit on chair
 '	32	-	can't stand
@@ -7114,7 +7114,10 @@ my pet.
 
 ' Maid training
 [Action 2661]
-.mustnot 271            ' Maid training punishment once per session
+.mustnot 271                      ' Maid training punishment once per session
+.mustnot       27    29           ' something around waist, blindfolded
+.mustnot    31                    ' can't sit on chair
+.mustnot 34 35          39        ' can't type/use mouse, tethered, pussy clamps
 .set 271
 .save 1 799
 .loadsbd mine-maid.sbd 1003 1003  ' Medium punishment (according to punishment acceptance)
@@ -7142,8 +7145,11 @@ I'll get you next time, you dirty slave!
 .range 7100             ' Ensure paddle or replacement
 
 [Action 2672]
-.poss 100               ' Prefer this since his punishment is about failing training
-.mustnot 271            ' Maid training punishment once per session
+.poss 100                         ' Prefer this since his punishment is about failing training
+.mustnot 271                      ' Maid training punishment once per session
+.mustnot       27    29           ' something around waist, blindfolded
+.mustnot    31                    ' can't sit on chair
+.mustnot 34 35          39        ' can't type/use mouse, tethered, pussy clamps
 .set 271
 .save 1 799
 .loadsbd mine-maid.sbd 1002 1002  ' Light punishment (according to punishment acceptance)
@@ -7165,8 +7171,11 @@ I'll get you next time, you dirty slave!
 .range 2418
 
 [Action 2681]
-.poss 100               ' Prefer this since his punishment is about failing training
-.mustnot 271            ' Maid training punishment one-time per session
+.poss 100                         ' Prefer this since his punishment is about failing training
+.mustnot 271                      ' Maid training punishment one-time per session
+.mustnot       27    29           ' something around waist, blindfolded
+.mustnot    31                    ' can't sit on chair
+.mustnot 34 35          39        ' can't type/use mouse, tethered, pussy clamps
 .set 271
 .save 1 799
 .loadsbd mine-maid.sbd 1005 1005  ' Severe punishment (according to punishment acceptance)
@@ -11127,18 +11136,18 @@ I think your nipples and nuts could use a working-over.
 
 ' Maid training: some toys are handled flexbibly so we don't have to check those
 ' 23 something on penis, 30 can't jerk off and 37 ball harness can be ignored
-' 21 butt plug and 32 can't stand are handled in each scenario.sbd
+' 21 butt plug and 32 can't stand are handled in each position
 ' 20 something on nipples,
-' 22 something in mouth are handled in each scenario
-' 28 collared handled in each scenario
+' 22 something in mouth are handled in each position
+' 28 collared handled in each position
 ' 24 something on balls is ignored
 ' since pegs on are an explicit part of some of the scenarios in level 2 
 [Action 5070]
 Let's continue your slave training.
 .mustnot 262                      ' Done maid training activity already
 .mustnot       27    29           ' something around waist, blindfolded
-.mustnot    31    33              ' can't sit on chair, can't kneel
-.mustnot 34 35                    ' can't type/use mouse, tethered
+.mustnot    31                    ' can't sit on chair
+.mustnot 34 35          39        ' can't type/use mouse, tethered, pussy clamps
 .set 262                          ' Done maid training
 .range 5129
 
