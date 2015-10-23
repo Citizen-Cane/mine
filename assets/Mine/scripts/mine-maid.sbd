@@ -2154,7 +2154,7 @@ So go fetch your vibrator, E-Stim device or whatever you've got,
 and attach it to your silly slave penis.
 Then set it up to a teasing, tantalizing rythm!
 .pause Vibrator attached and running, Miss 
-.set 47                 ' Vibrator attached
+.set -47 47             ' Vibrator attached
 .range 1880
 
 [Action 1822]
@@ -2168,7 +2168,7 @@ So go fetch your vibrator, E-Stim device or whatever you've got,
 attach it to your silly slave penis,
 and set it up to a teasing, tantalizing rythm!
 .pause Vibrator attached and running, Miss 
-.set 47                 ' Vibrator attached
+.set -47 47             ' Vibrator attached
 .range 1880
 
 '[Action 1823]
@@ -2184,7 +2184,7 @@ Fetch your vibrator, E-Stim device or whatever you've got,
 attach it to your chastity cage,
 and set it up to a teasing, tantalizing rythm!
 .pause Vibrator attached and running, Miss 
-.set 47                 ' Vibrator attached
+.set -47 47             ' Vibrator attached
 .range 1880
 
 [Action 1826]
@@ -2197,7 +2197,7 @@ Fetch your vibrator, E-Stim device or whatever you've got,
 attach it to your chastity cage,
 and set it up to a teasing, tantalizing rythm!
 .pause Vibrator attached and running, Miss 
-.set 47                 ' Vibrator attached
+.set -47 47             ' Vibrator attached
 .range 1880
 
 '[Action 1827]
@@ -3097,7 +3097,7 @@ Keep your nose on the floor, slave!
 [Action 2255]
 .must 1418
 .mustnot 190 191 192 198 199
-.must 2254
+.mustnot -2254
 bd037_16.jpg
 Keep your arms crossed in front, slave!
 .delay 20
@@ -3841,7 +3841,7 @@ Ankles together!
 
 [Action 2826]
 .must 1583
-.must 2824
+.mustnot -2824
 .mustnot 190 191 192 193 199
 bd021_39.jpg
 Back straight, slave!
@@ -3873,7 +3873,7 @@ Ankles together!
 
 [Action 2829]
 .must 1584
-.must 2827
+.mustnot -2827
 .mustnot 190 191 192 193 199
 bd021_41.jpg
 Back straight, slave!
@@ -3906,7 +3906,7 @@ Stretch those elbows out, you lazy slut!
 
 [Action 2832]
 .must 1585
-.must 2830
+.mustnot -2830
 .mustnot 190 191 192 193 194 199
 bd021_38.jpg
 Back straight, slave!
@@ -4323,7 +4323,7 @@ You may put a blanket or towel on the floor, if you wish.
 Then put on your wrist restraints.
 You do have wrist restraints, don't you, slave?
 .mustnot 26                  ' Wrists tied
-.must 28                     ' collared
+.mustnot -28                     ' collared
 .yesno 4004 4004 7700 7707
 
 [Action 4002]
@@ -4331,19 +4331,23 @@ This is a fairly easy position, slave.
 You may put a blanket or towel on the floor, if you wish.
 Then put on your collar.
 You do have a collar, don't you, slave?
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .mustnot 28                  ' collared
 .yesno 4004 4004 7700 7707
 
 [Action 4003]
 This is a fairly easy position, slave.
 You may put a blanket or towel on the floor, if you wish.
-.must 26                     ' Wrists tied
-.must 28                     ' collared
+.mustnot -26                     ' Wrists tied
+.mustnot -28                     ' collared
 .range 4004
 
 
 [Action 4004]
+.ifunset 26 .set -26
+.set 26                      ' wrists tied
+.ifunset 28 .set -28
+.set 28                      ' collared
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4005
 
@@ -4386,12 +4390,12 @@ and this position is one way to offer a good target.
 .range 4013
 
 [Action 4012]
+.must 401
 This is a very easy position, slave, but extremely important.
 naked_spanking_punishment_with_a_paddle_waiting_picture_3.jpg
 Your Mistress must be able to easily thrash your bottom when you've been naughty,
 and this position is one way to offer a good target.
 .delay 20
-.must 401
 .range 4014
 
 
@@ -4435,17 +4439,20 @@ delay 10
 ' 402 4pt kneel, hands on thighs palms up, collar
 
 [Action 4020]
+.mustnot 28
 Here's another simple, basic position, slave.
 You should put on your slave collar before we begin.
 You do have your collar, slave?
-.mustnot 28
 .yesno 4024 4024 7744 7747
 
 [Action 4021]
+.mustnot -28
 Here's another simple, basic position, slave.
 .range 4024
 
 [Action 4024]
+.ifunset 28 .set -28
+.set 28                      ' collared
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4025
 
@@ -4480,21 +4487,21 @@ This is a very simple submissive position.
 You will need your collar.
 You do have a collar handy, don't you, slave?
 .mustnot 26                  ' Wrists tied
-.must 28                     ' collared
+.mustnot -28                     ' collared
 .yesno 4035 4035 7700 7707
 
 [Action 4032]
 This is a very simple submissive position.
 You will need your wrist restraints.
 You do have wrist restraints handy, don't you, slave?
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .mustnot 28                  ' collared
 .yesno 4036 4036 7700 7707
 
 [Action 4033]
 This is a very simple submissive position.
-.must 26                     ' Wrists tied
-.must 28                     ' collared
+.mustnot -26                     ' Wrists tied
+.mustnot -28                     ' collared
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4037
 
@@ -4503,18 +4510,22 @@ This is a very simple submissive position.
 Then go ahead and put them on.
 .pause I'm cuffed and collared, Miss
 .image bd066_24.jpg
+.set -26 26                  ' wrists tied
+.set -28 28                  ' collared
 .range 4038
 
 [Action 4035]
 Go ahead and put it on.
 .pause I'm collared, Miss
 .image bd066_24.jpg
+.set -28 28                  ' collared
 .range 4038
 
 [Action 4036]
 Go ahead and put them on.
 .pause My wrists are cuffed, Miss
 .image bd066_24.jpg
+.set -26 26                  ' wrists tied
 .range 4038
 
 [Action 4037]
@@ -4538,7 +4549,7 @@ That's all there is to it.
 delay 20
 .range 1700
 
-' TODO bd066_44.jpg and bd066_44.jpg are showing a 2pt kneel -> must be 4pt
+' TODO bd066_44.jpg and bd066_45.jpg are showing a 2pt kneel -> must be 4pt
 
 
 ' 404 belly on chair, ass presented, heels, holding legs of chair, head up
@@ -4587,7 +4598,7 @@ You do have all these items, don't you?
 .yesno 4054 4054 8280 8298
 
 [Action 4051]
-.must 28                     ' something around neck
+.mustnot -28                     ' something around neck
 A good maid must be able to stand straight back, and to keep this posture
 for a long time while paying attention to her mistress.
 For that purpose, you'll need to get a leash and a hard cover book.
@@ -4601,22 +4612,23 @@ You do have all these items, don't you?
 
 
 [Action 4055] 
-.mustnot 28                  ' something around neck
+.mustnot 28                  ' collared
 bd222_01.jpg
 Now kneel down, put on your collar, then attach the leash to it.
-.delay 45
+.delay 30
+.set -28 28                  ' collared
 .range 4057
 
 [Action 4056]
-.must 28                     ' something around neck
+.mustnot -28                     ' collared
 bd222_01.jpg
 Now kneel down and attach the leash to your collar.
-.delay 30
+.delay 15
 .range 4057
 
 
 [Action 4057]
-Now stand straight back, legs together,
+Stand straight back, legs together,
 put the book on your head and your hands behind your butt.
 .image bd222_02.jpg
 .delay 30
@@ -4633,7 +4645,7 @@ You do have these items, slave, don't you?
 .yesno 4064 4064 7752 7755
 
 [Action 4061]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This will be a fairly easy position, slave.
 You'll just need a leash.
 You do have one?
@@ -4651,10 +4663,11 @@ Excellent.
 bd069_11.jpg
 Let's put on your collar and attach the leash to it. 
 .delay 40
+.set -28 28                  ' collared
 .range 4067
 
 [Action 4066]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 Excellent.
 bd069_11.jpg
 Let's attach the leash to your collar. 
@@ -4681,7 +4694,7 @@ You do have all these items, don't you?
 .yesno 4074 4074 7756 7759
 
 [Action 4071]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 A good maid must be able to kneel gracefully, and to keep this posture
 for a long time while paying attention to her mistress.
 For that purpose, you'll need get a hard cover book.
@@ -4701,7 +4714,9 @@ You do have a belt and hard cover book, slave, don't you?
 .poss 100                    ' Use a belt as replacement for collar 
 
 
-[Action 4074] 
+[Action 4074]
+.ifunset 28 .set -28
+.set 28                      ' collared
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4075
 
@@ -4730,7 +4745,7 @@ Place your hands on your thighs.
 
 [Action 4080]
 This is a fairly easy position, slave.
-All you need is your blindfold.
+All you need is a blindfold.
 You do have a blindfold, don't you, slave?
 .yesno 4084 4084 7780 7783
 
@@ -4753,6 +4768,7 @@ Stand straight, legs together!
 petr lewis - slave - 0004 - stu poradne.jpg 
 Put on your blindfold and hold your hands behind your head.
 .delay 30
+.set 29                      ' blindfolded
 .range 4086
 
 [Action 4086]
@@ -4958,7 +4974,7 @@ This is going to be a very simple submissive position.
 You will need your collar.
 You do have a collar handy, don't you, slave?
 .mustnot 26                  ' Wrists tied
-.must 28                     ' collared
+.mustnot -28                     ' collared
 .yesno 4145 4145 7700 7707
 
 [Action 4142]
@@ -4966,15 +4982,15 @@ This is going to be a very simple submissive position.
 bd066_20.jpg
 You will need your wrist restraints.
 You do have wrist restraints handy, don't you, slave?
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .mustnot 28                  ' collared
 .yesno 4146 4146 7700 7707
 
 [Action 4143]
 bd066_23.jpg
 This is going to be a very simple submissive position.
-.must 26                     ' Wrists tied
-.must 28                     ' collared
+.mustnot -26                     ' Wrists tied
+.mustnot -28                     ' collared
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4147
 
@@ -4986,6 +5002,8 @@ delay 15
 bd066_23.jpg
 Tell me when you're ready.
 .pause I'm cuffed and collared, Miss
+.set -26 26                  ' wrists tied
+.set -28 28                  ' collared
 .range 4148
 
 [Action 4145]
@@ -4994,6 +5012,7 @@ delay 15
 bd066_23.jpg
 Tell me when you're ready.
 .pause I'm collared, Miss
+.set -28 28                  ' collared
 .range 4148
 
 [Action 4146]
@@ -5003,6 +5022,7 @@ delay 10
 bd066_23.jpg
 Tell me when you're ready.
 .pause My wrists are cuffed, Miss
+.set -26 26                  ' wrists tied
 .range 4148
 
 [Action 4147]
@@ -5038,7 +5058,7 @@ You do have a collar, don't you, slave?
 [Action 4151]
 This is going to be a very simple submissive position.
 delay 2
-.must 28                     ' collared
+.mustnot -28                     ' collared
 .range 4155
 
 
@@ -5046,6 +5066,7 @@ delay 2
 bd066_47.jpg
 Then go ahead and put it on.
 .pause I'm collared, Miss
+.set -28 28                  ' collared
 .range 4155
 
 
@@ -5077,11 +5098,12 @@ That's all there is to it.
 .delay 30
 .range 1700
 
+
 ' 416 2pt kneel, heels, wristlets, knees 1x, presenting the crop in hands palms up
 
 [Action 4160]
 This is a fairly easy position, slave.
-You'll just have to put on your wrist restraints and fetch your crop.
+You'll just need to put on your wrist restraints and fetch your crop.
 You do have these items, don't you, slave?
 .mustnot 26                  ' Wrists tied
 .yesno 4164 4164 7784 7787
@@ -5090,12 +5112,14 @@ You do have these items, don't you, slave?
 This is a fairly easy position, slave.
 You'll just need your crop.
 You do have a crop, don't you, slave?
-.must 26                     ' Wrists tied
-.mustnot 28                  ' collared
+.mustnot -26                     ' Wrists tied
 .yesno 4165 4165 7784 7787
 
 
 [Action 4164]
+If you haven't yet, slave, go ahead and put on the restraints.
+delay 15
+.set -26 26                  ' wrists tied
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4167
 
@@ -5104,10 +5128,11 @@ You do have a crop, don't you, slave?
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4166
 
+
 [Action 4166]
 Very good, slave.
 Now hurry up and fetch your crop.
-.pause Hery you are, Miss
+.pause Here you are, Miss
 .range 4167
 
 
@@ -5143,7 +5168,7 @@ You do have these items, slave, don't you?
 .yesno 4174 4174 7708 7715
 
 [Action 4171]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This will be a fairly easy position, slave.
 For this submissive slave position,
 You'll need your ankle and wrist retraints.
@@ -5162,14 +5187,17 @@ Excellent.
 bd037_13.jpg
 Let's put on your collar, then continue with your restraints. 
 .delay 40
+.set -25 25 -26 26           ' ankle and wrist restraints
+.set -28 28                  ' collared
 .range 4177
 
 [Action 4176]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 Excellent.
 bd037_13.jpg
 Let's put on your restraints now. 
 .delay 30
+.set -25 25 -26 26           ' ankle and wrist restraints
 .range 4177
 
 
@@ -5202,24 +5230,24 @@ This is a very submissive position, slave,
 for which you'll just need to put on your wrist restraints.
 You do have wrist restraints, don't you, slave?
 .mustnot 26                  ' Wrists tied
-.must 28                     ' collared
-.yesno 4186 4186 7700 7707
+.mustnot -28                     ' collared
+.yesno 4185 4185 7700 7707
 .yestext Yes, Miss, and my wrists are cuffed
 
 [Action 4182]
 This is a very submissive position, slave,
 for which you'll just need to put on your collar.
 You do have a collar, don't you, slave?
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .mustnot 28                  ' collared
 .yesno 4186 4186 7700 7707
 .yestext Yes, Miss, and I'm collared
 
 [Action 4183]
 This is a very submissive position, slave.
-.must 26                     ' Wrists tied
-.must 28                     ' collared
-.range 4186
+.mustnot -26                     ' Wrists tied
+.mustnot -28                     ' collared
+.range 4187
 
 
 [Action 4184]
@@ -5227,29 +5255,50 @@ Very good, slave.
 bd037_13.jpg
 Go ahead and put them on.
 ShowChoices
-delay 20
+delay 15
 bd037_14.jpg
 Tell me when you're finished, my pet!
 .pause I'm cuffed and collared, Miss
-.range 4186
+.set -26 26                  ' wrists tied
+.set -28 28                  ' collared
+.range 4187
 
+[Action 4185]
+Very good, slave.
+bd037_13.jpg
+Go ahead and put them on.
+ShowChoices
+delay 10
+bd037_14.jpg
+Tell me when you're finished, my pet!
+.pause I'm cuffed, Miss
+.set -26 26                  ' wrists tied
+.range 4187
 
 [Action 4186]
-.gosub 1820                  ' setup break buttons and vibrator
+Very good, slave.
+bd037_13.jpg
+Go ahead and put it on.
+ShowChoices
+delay 10
+bd037_14.jpg
+Tell me when you're finished, my pet!
+.pause I'm collared, Miss
+.set -28 28                  ' collared
 .range 4187
 
 [Action 4187]
-bd037_18.jpg
-Kneel on the ground.
-Sit on your heels, point your toes behind you.
-.delay 15
+.gosub 1820                  ' setup break buttons and vibrator
 .range 4188
 
 [Action 4188]
+bd037_18.jpg
+Kneel on the ground.
+Sit on your heels, point your toes behind you.
+delay 15
 bd037_17.jpg
 Bow and cross your arms on the floor in front, then slide forward until your torso rests on your thighs.
 delay 15
-.delay 15
 .range 4189
 
 [Action 4189]
@@ -5258,7 +5307,7 @@ bd037_16.jpg
 Keep your face down.
 delay 5
 Your nose should touch the ground.
-.delay 15
+delay 10
 .range 1700
 
 
@@ -5272,7 +5321,7 @@ You do have these items, slave, don't you?
 .yesno 4192 4192 7708 7715
 
 [Action 4191]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This is going to be another simple and submissive slave position.
 You'll need your wrist and ankle restraints.
 You do have them, do you?
@@ -5286,33 +5335,24 @@ bd023_02.jpg
 You're going to be tied up in about a minute,
 therefore you'll have to put on the collar first. 
 .pause Done, Miss
+.set -28 28                  ' collared
 .range 4194
 
 [Action 4194] 
+Excellent, slave.
 .gosub 1820                  ' setup break buttons and vibrator
-.range 4195 4196
+.range 4196
 
-
-[Action 4195]
-.mustnot 28                  ' collared
-Very good.
-bd023_25.jpg
-Now I want you to take on your ankle and wrist restraints,
-and chain each wrist to the corresponding ankle.
-delay 10
-I don't want you to have too much wiggle room, so keep the chains between them short.
-.delay 45
-.range 4197
 
 [Action 4196]
-.must 28                     ' collared
 Very good.
 bd023_25.jpg
-I want you to take on your ankle and wrist restraints,
+Now I want you to take your ankle and wrist restraints,
 and chain each wrist to the corresponding ankle.
 delay 10
 I don't want you to have too much wiggle room, so keep the chains between them short.
 .delay 45
+.set -25 25 -26 26           ' ankle and wrist restraints
 .range 4197
 
 [Action 4197]
@@ -5340,7 +5380,7 @@ You do have these items, don't you, slave?
 .yesno 5004 5004 7720 7729
 
 [Action 5001]
-.must 25                     ' Ankles tied
+.mustnot -25                     ' Ankles tied
 .mustnot 26                  ' Wrists tied
 This is an excellent, much used maid position:
 bd259_01.jpg
@@ -5353,7 +5393,7 @@ You do have these items, don't you, slave?
 
 [Action 5002]
 .mustnot 25                  ' Ankles tied
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 This is an excellent, much used maid position:
 .image bd259_01.jpg
 Presenting a tray of food or drink.
@@ -5364,8 +5404,8 @@ You do have these items, don't you, slave?
 .yesno 5006 5006 7720 7729
 
 [Action 5003]
-.must 25                     ' Ankles tied
-.must 26                     ' Wrists tied
+.mustnot -25                     ' Ankles tied
+.mustnot -26                     ' Wrists tied
 This is an excellent, much used maid position:
 .image bd259_01.jpg
 Presenting a tray of food or drink.
@@ -5385,6 +5425,8 @@ Also fetch a glass, and fill it with water.
 bd259_01.jpg
 Place the glass on the tray and return to Me.
 .pause I'm back with the tray, Miss
+.set -25 25                  ' ankles tied
+.set -26 26                  ' wrists tied
 .range 5008
 
 [Action 5005]
@@ -5397,6 +5439,7 @@ Also fetch a glass, and fill it with water.
 bd259_01.jpg
 Place the glass on the tray and return to Me.
 .pause I'm back with the tray, Miss
+.set -26 26                  ' wrists tied
 .range 5008
 
 [Action 5006]
@@ -5410,6 +5453,7 @@ bd259_01.jpg
 Place the glass on the tray and return to Me.
 .image bd259_01.jpg
 .pause I'm back with the tray, Miss
+.set -25 25                  ' ankles tied
 .range 5008
 
 [Action 5007]
@@ -5419,8 +5463,6 @@ Also fetch a glass, and fill it with water.
 bd259_01.jpg
 Place the glass on the tray and return to Me.
 .pause I'm back with the tray, Miss
-.mustnot 25                  ' Ankles tied
-.mustnot 26                  ' Wrists tied
 .range 5008
 
 
@@ -5439,8 +5481,6 @@ You may bring your arms closer to your body to rest them periodically,
 but if you put down the tray you have failed.
 delay 10
 .range 1700
-
-' TODO Extend position with additional images: hands tied on back, licking shoe
 
 
 ' 501 Hands and knees, on forearms, face down licking shoe, knees 2x, ass up, heels
@@ -5478,6 +5518,7 @@ Put your face on the shoe, then kiss and lick it.
 .range 1700
 
 
+
 ' 502 4pt kneel, nipple clips, collar, hands behind butt, knees 1x
 
 [Action 5020]
@@ -5494,7 +5535,7 @@ Now we have a fairly basic position which you will enjoy while
 enduring some light nipple torture.
 To that end, I want you to go fetch your collar.
 You do have a collar, don't you, slave?
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 .mustnot 28             ' Somethhing around neck
 .yesno 5024 5024 8280 8298
 
@@ -5504,47 +5545,50 @@ with some light nipple torture.
 To that end, I want you to go fetch some clothes pegs.
 You do have clothes pegs, don't you, slave?
 .mustnot 20             ' Something on nipples
-.must 28                ' Somethhing around neck
+.mustnot -28                ' Somethhing around neck
 .yesno 5024 5024 7748 7748
 
 [Action 5023]
 Now we have a fairly basic position which you
 will enjoy while enduring light nipple torture.
-.must 20                ' Something on nipples
-.must 28                ' Somethhing around neck
-.range 5024 5024
+.mustnot -20                ' Something on nipples
+.mustnot -28                ' Somethhing around neck
+.range 5024 5027
 
 
 [Action 5024]
-.gosub 1820                  ' setup break buttons and vibrator
-.range 5025 5028
-
-
-[Action 5025]
 .must 5020
 Go ahead, put on your collar and pop those clothes pegs on your nipples, slave.
 .image bd228_04.jpg
 .delay 30
-.range 5029
+.set -20 20 42               ' something on nipples, clothes pegs
+.set -28 28                  ' collared
+.range 5028
 
-[Action 5026]
+[Action 5025]
 .must 5021
 Go ahead and put on your collar, slave.
 .image bd228_10.jpg
 .delay 20
-.range 5029
+.set -28 28                  ' collared
+.range 5028
 
-[Action 5027]
+[Action 5026]
 .must 5022
 Go ahead and pop those clothes pegs on your nipples, slave.
 .image bd228_04.jpg
 .delay 20
-.range 5029
+.set -20 20 42               ' something on nipples, clothes pegs
+.range 5028
+
+[Action 5027]
+.must 5023
+.range 5028
+
 
 [Action 5028]
-.must 5023
+.gosub 1820                  ' setup break buttons and vibrator
 .range 5029
-
 
 [Action 5029]
 bd228_08.jpg
@@ -5579,6 +5623,7 @@ delay 1
 Make sure that they're nice and tight,
 and that they're right on the end of the nipple.
 .delay 20
+.set -20 20 42               ' something on nipples, clothes pegs
 .range 5032
 
 [Action 5032]
@@ -5619,33 +5664,33 @@ behind your bottom, and keep your head up.
 ' 504 2pt kneel, sit on heels, legs together, knees 1x, collar, gag, hands boxed behind back
 
 [Action 5040]
+.mustnot 22
+.mustnot 28
 Now we have a another fairly basic position.
 You'll just need your collar and your gag.
 I trust you have them?
 .yesno 5044 5044 8280 8298
-.mustnot 22
-.mustnot 28
 
 [Action 5041]
+.mustnot -22           ' Something in mouth
+.mustnot 28
 Now we have a another fairly basic position.
 You 'll just need your collar. I trust you have it?
-.yesno 5046 5046 8280 8298
-.must 22           ' Something in mouth
-.mustnot 28
+.yesno 5044 5044 8280 8298
 
 [Action 5042]
+.mustnot 22
+.mustnot -28
 Now we have a another fairly basic position.
 You'll just need your gag.
 I trust you have it?
-.yesno 5047 5047 8280 8298
-.mustnot 22
-.must 28
+.yesno 5044 5044 8280 8298
 
 [Action 5043]
+.mustnot -22
+.mustnot -28
 Now we have a another fairly basic position, which you are already suited for.
-.must 22
-.must 28
-.range 5049
+.range 5044
 
 [Action 5044]
 .gosub 1820                  ' setup break buttons and vibrator
@@ -5666,6 +5711,8 @@ delay 15
 bd166_24.jpg
 Secure it safely as well.
 delay 10
+.set -22 22                  ' something in mouth
+.set -28 28                  ' collared
 .range 5049
 
 [Action 5046]
@@ -5673,7 +5720,8 @@ delay 10
 Wonderful.
 Put it around your neck and secure it safely.
 .image bd166_39.jpg
-.delay 30
+.delay 15
+.set -28 28                  ' collared
 .range 5049
 
 [Action 5047]
@@ -5685,6 +5733,7 @@ delay 15
 bd166_24.jpg
 Secure it safely.
 delay 10
+.set -22 22                  ' something in mouth
 .range 5049
 
 [action 5048]
@@ -5721,7 +5770,7 @@ You do have all these items, don't you slave?
 
 [Action 5051]
 .mustnot 20
-.must 22
+.mustnot -22
 Now we have a fairly basic position which we will spice up a little with some light nipple torture.
 To that end, I want you to go fetch your collar, nipple clamps, and your heels.
 You do have all these items, don't you slave?
@@ -5729,7 +5778,7 @@ You do have all these items, don't you slave?
 .mustnot 20
 
 [Action 5052]
-.must 20
+.mustnot -20
 .mustnot 22
 Now we have a fairly basic position which we will spice up a little with some light nipple torture.
 To that end, I want you to go fetch your gag and your heels.
@@ -5738,7 +5787,7 @@ You do have these items, don't you slave?
 .mustnot 20
 
 [Action 5053]
-.must 20 22
+.mustnot -20 22
 Now we have a fairly basic position which we will spice up a little with some light nipple torture.
 To that end, I want you to go fetch your collar and your heels.
 You do have these items, don't you slave?
@@ -5751,21 +5800,22 @@ You do have these items, don't you slave?
 
 
 [Action 5055]
+.mustnot 28                  ' collared
 Very good, slave.
 Let's start with your collar:
 bd180_15.jpg
 Put it on!
 .delay 30
-.mustnot 28             ' collared
+.set -28 28                  ' collared
 .range 5057 5058
 
 [Action 5056]
-.must 28                ' collared
+.mustnot -28                     ' collared
 .range 5057 5058
 
 
 [Action 5057]
-.must 20                ' Something on nipples
+.mustnot -20                     ' Something on nipples
 bd180_21.jpg
 Make sure those clamps sit tight.
 delay 10
@@ -5774,7 +5824,7 @@ delay 10
 .range 5059 5060
 
 [Action 5058]
-.mustnot 20             ' Something on nipples
+.mustnot 20                  ' Something on nipples
 bd180_21.jpg
 Now put on your nipple clamps, one by one.
 delay 15
@@ -5782,15 +5832,16 @@ delay 15
 bd180_23.jpg
 Make sure they sit tight.
 delay 15
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5059 5060
 
 
 [Action 5059]
-.must 22                ' Something in mouth
+.mustnot -22                     ' Something in mouth
 .range 5061
 
 [Action 5060]
-.mustnot 22             ' Something in mouth
+.mustnot 22                  ' Something in mouth
 bd180_28.jpg
 Now sit down for a moment and look for your gag.
 delay 5
@@ -5803,6 +5854,7 @@ delay 5
 bd180_30.jpg
 And secure the strap behind your head.
 delay 20
+.set -22 22                  ' something in mouth
 .range 5061
 
 
@@ -5882,7 +5934,7 @@ You do have these items, don't you, slave?
 .yesno 5074 5075 8280 8298   ' No - Generic commentsabout a lot of items
 
 [Action 5071]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This is an excellent, much used maid position
 - serving as a table for your mistress.
 You will need your wrist and ankle restraints,
@@ -5898,14 +5950,17 @@ Let's start with your collar and nipple clamps.
 bd178_10.jpg
 Put the collar around your neck and snap the clamps on your poor little titties.
 .pause I'm collared and clamped, Miss
+.set -28 28                  ' collared
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5076
 
 [Action 5075]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 Let's start with the clamps.
 bd178_10.jpg
 Snap them on your poor little titties.
 .pause My tits are clamped, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5076
 
 
@@ -5913,10 +5968,14 @@ Snap them on your poor little titties.
 Very good, my pet.
 Complete your maid dress by putting on the restraints.
 .pause I'm d dressed up, Miss
+.set -25 25 -26 26           ' ankle and wrist restraints
 .range 5077
 
 [Action 5077]
-Wonderful.
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5078
+
+[Action 5078]
 bd178_08.jpg
 Now go into the kitchen and fetch a tray of some kind
 - a cookie sheet or anything similar will serve.
@@ -5925,11 +5984,6 @@ bd178_02.jpg
 Place the glass on the tray and return to Me.
 delay 20
 .pause Here's your water, Miss
-.range 5078
-
-' TODO Put on vib or other item before fetching the tray, setup break buttons afterwards 
-[Action 5078]
-.gosub 1820                  ' setup break buttons and vibrator
 .range 5079
 
 [Action 5079]
@@ -5952,39 +6006,39 @@ delay 20
 ' 508 2pt sit on knees, hands on knees, knees wide, nipple clamps, collar, leash
 
 [Action 5080]
+.mustnot 20             ' Something on nipples
+.mustnot 28             ' Somethhing around neck
 Now we have another fairly basic position which we will spice
 up a little with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps, your collar and your leash.
 You do have these items, don't you, slave?
-.mustnot 20             ' Something on nipples
-.mustnot 28             ' Somethhing around neck
 .yesno 5084 5084 8280 8298
 
 [Action 5081]
+.mustnot -20                ' Something on nipples
+.mustnot 28             ' Somethhing around neck
 Now we have another fairly basic position which you will enjoy while
 enduring some light nipple torture.
 To that end, I want you to go fetch your collar and your leash.
 You do have a collar and a leash, don't you, slave?
-.must 20                ' Something on nipples
-.mustnot 28             ' Somethhing around neck
 .yesno 5084 5084 7752 7755
 
 [Action 5082]
+.mustnot 20             ' Something on nipples
+.mustnot -28                ' Somethhing around neck
 Now we have another fairly basic position which we will spice up a little
 with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps and your leash.
 You do have nipple clamps and a leash, don't you, slave?
-.mustnot 20             ' Something on nipples
-.must 28                ' Somethhing around neck
 .yesno 5084 5084 8280 8298
 
 [Action 5083]
+.mustnot -20                ' Something on nipples
+.mustnot -28                ' Somethhing around neck
 Now we have another fairly basic position which you
 will enjoy while enduring light nipple torture.
 To that end, I want you to go fetch your leash.
 You do have a leash, don't you, slave?
-.must 20                ' Something on nipples
-.must 28                ' Somethhing around neck
 .yesno 5084 5084 7752 7755
 
 
@@ -5998,6 +6052,8 @@ You do have a leash, don't you, slave?
 bd069_15.jpg
 Go ahead, put on your collar, atttach the leash and pop those nipple clamps on your nipples, slave.
 .delay 40
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -28 28                  ' collared
 .range 5089
 
 [Action 5086]
@@ -6005,6 +6061,7 @@ Go ahead, put on your collar, atttach the leash and pop those nipple clamps on y
 bd069_15.jpg
 Go ahead and put on your collar and attach the leash, slave.
 .delay 30
+.set -28 28                  ' collared
 .range 5089
 
 [Action 5087]
@@ -6012,6 +6069,7 @@ Go ahead and put on your collar and attach the leash, slave.
 bd069_15.jpg
 Go ahead, pop those nipple clamps on your nipples and attach the leash to your collar, slave.
 .delay 30
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5089
 
 [Action 5088]
@@ -6055,9 +6113,9 @@ Now we have a another basic position which you will enjoy while
 enduring some light nipple torture.
 To that end, I want you to go fetch your collar and your leash.
 You do have a collar and a leash, don't you, slave?
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 .mustnot 28             ' Somethhing around neck
-.yesno 5094 5094 7752 7755
+.yesno 5095 5095 7752 7755
 
 [Action 5092]
 Now we have a basic position which we will spice up a little
@@ -6065,52 +6123,55 @@ with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps and your leash.
 You do have nipple clamps and a leash, don't you, slave?
 .mustnot 20             ' Something on nipples
-.must 28                ' Somethhing around neck
-.yesno 5094 5094 8280 8298
+.mustnot -28                ' Somethhing around neck
+.yesno 5096 5096 8280 8298
 
 [Action 5093]
 Now we have another basic position which you
 will enjoy while enduring light nipple torture.
 To that end, I want you to go fetch your leash.
 You do have a leash, don't you, slave?
-.must 20                ' Something on nipples
-.must 28                ' Somethhing around neck
-.yesno 5094 5094 7752 7755
+.mustnot -20                ' Something on nipples
+.mustnot -28                ' Somethhing around neck
+.yesno 5097 5097 7752 7755
 
 
 [Action 5094]
-.gosub 1820                  ' setup break buttons and vibrator
-.range 5095 5098
-
-
-[Action 5095]
 .must 5090
 bd069_15.jpg
 Go ahead, put on your collar, atttach the leash and pop those nipple clamps on your nipples, slave.
 .delay 40
-.range 5099
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -28 28                  ' collared
+.range 5098
 
-[Action 5096]
+[Action 5095]
 .must 5091
 bd069_15.jpg
 Go ahead and put on your collar and attach the leash, slave.
 .delay 30
-.range 5099
+.set -28 28                  ' collared
+.range 5098
 
-[Action 5097]
+[Action 5096]
 .must 5092
 bd069_15.jpg
 Go ahead, pop those nipple clamps on your nipples and attach the leash to your collar, slave.
 .delay 30
-.range 5099
+.set -20 20 43               ' something on nipples, nipple clamps
+.range 5098
 
-[Action 5098]
+[Action 5097]
 .must 5093
 bd069_15.jpg
 Go ahead and attach the leash to your collar, slave.
 .delay 20
-.range 5099
+.range 5098
 
+
+[Action 5098]
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5099
 
 [Action 5099]
 bd069_21.jpg
@@ -6141,9 +6202,9 @@ Now we have another fairly basic position which you will enjoy while
 enduring some light nipple torture.
 To that end, I want you to go fetch your collar and your leash.
 You do have a collar and a leash, don't you, slave?
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 .mustnot 28             ' Somethhing around neck
-.yesno 5104 5104 7752 7755
+.yesno 5105 5105 7752 7755
 
 [Action 5102]
 Now we have another fairly basic position which we will spice up a little
@@ -6151,52 +6212,55 @@ with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps and your leash.
 You do have nipple clamps and a leash, don't you, slave?
 .mustnot 20             ' Something on nipples
-.must 28                ' Somethhing around neck
-.yesno 5104 5104 8280 8298
+.mustnot -28                ' Somethhing around neck
+.yesno 5106 5106 8280 8298
 
 [Action 5103]
 Now we have another fairly basic position which you
 will enjoy while enduring light nipple torture.
 To that end, I want you to go fetch your leash.
 You do have a leash, don't you, slave?
-.must 20                ' Something on nipples
-.must 28                ' Somethhing around neck
-.yesno 5104 5104 7752 7755
+.mustnot -20                ' Something on nipples
+.mustnot -28                ' Somethhing around neck
+.yesno 5107 5107 7752 7755
 
 
 [Action 5104]
-.gosub 1820                  ' setup break buttons and vibrator
-.range 5105 5108
-
-
-[Action 5105]
 .must 5100
 bd069_15.jpg
 Go ahead, put on your collar, atttach the leash and pop those nipple clamps on your nipples, slave.
 .delay 40
-.range 5109
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -28 28                  ' collared
+.range 5108
 
-[Action 5106]
+[Action 5105]
 .must 5101
 bd069_15.jpg
 Go ahead and put on your collar and attach the leash, slave.
 .delay 30
-.range 5109
+.set -28 28                  ' collared
+.range 5108
 
-[Action 5107]
+[Action 5106]
 .must 5102
 bd069_15.jpg
 Go ahead, pop those nipple clamps on your nipples and attach the leash to your collar, slave.
 .delay 30
-.range 5109
+.set -20 20 43               ' something on nipples, nipple clamps
+.range 5108
 
-[Action 5108]
+[Action 5107]
 .must 5103
 bd069_15.jpg
 Go ahead and attach the leash to your collar, slave.
 .delay 20
-.range 5109
+.range 5108
 
+
+[Action 5108]
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5109
 
 [Action 5109]
 bd069_17.jpg
@@ -6244,7 +6308,7 @@ You do have these items, slave, don't you?
 .yesno 5124 5124 7708 7715
 
 [Action 5121]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 For this submissive slave position, slave,
 you'll need your ankle and wrist retraints.
 You do have these items, slave, don't you?
@@ -6252,7 +6316,6 @@ You do have these items, slave, don't you?
 
 ' TODO Put on vibrator first , then restraints with pause, then setup break button
 [Action 5124] 
-.gosub 1820                  ' setup break buttons and vibrator
 .range 5125 5126
 
 
@@ -6262,18 +6325,26 @@ Excellent.
 bd037_13.jpg
 Let's put on your collar, then continue with your restraints. 
 .delay 40
+.set -25 25 -26 26           ' ankle and wrist restraints
+.set -28 28                  ' collared
 .range 5127
 
 [Action 5126]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 Excellent.
 bd037_13.jpg
 Let's put on your restraints. 
 .delay 60
+.set -25 25 -26 26           ' ankle and wrist restraints
 .range 5127
 
 
-[Action 5127]
+[Action 5127] 
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5125 5126
+
+
+[Action 5128]
 bd037_46.jpg
 Lay down on your back, with your legs spread, and your arms beside your torso.
 delay 20
@@ -6296,7 +6367,7 @@ You do have these items, slave, don't you?
 .yesno 5134 5134 7708 7715
 
 [Action 5131]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 For this submissive slave position, slave,
 you'll need your ankle and wrist retraints.
 You do have these items, slave, don't you?
@@ -6304,7 +6375,6 @@ You do have these items, slave, don't you?
 
 
 [Action 5134] 
-.gosub 1820                  ' setup break buttons and vibrator
 .range 5135 5136
 
 
@@ -6314,18 +6384,25 @@ Excellent.
 bd037_13.jpg
 Let's put on your collar, then continue with your restraints. 
 .delay 40
+.set -25 25 -26 26           ' ankle and wrist restraints
+.set -28 28                  ' collared
 .range 5137
 
 [Action 5136]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 Excellent.
 bd037_13.jpg
 Let's put on your restraints now. 
 .delay 40
+.set -25 25 -26 26           ' ankle and wrist restraints
 .range 5137
 
 
-[Action 5137]
+[Action 5137] 
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5138
+
+[Action 5138]
 bd037_34.jpg
 Kneel down straight, and cross your arms above your head.
 delay 10
@@ -6346,32 +6423,35 @@ You do have these items, slave, don't you?
 .yesno 5144 5144 7708 7715
 
 [Action 5141]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This is going to be another very submissive slave position, slave.
 You'll need your ankle and wrist retraints.
 You do have these items, slave, don't you?
 .yesno 5144 5144 7708 7715
 
 
-[Action 5144] 
+[Action 5144]
+Excellent, my pet. 
 .gosub 1820                  ' setup break buttons and vibrator
 .range 5145 5146
 
 
 [Action 5145]
 .mustnot 28                  ' collared
-Excellent.
 bd037_13.jpg
 Let's put on your collar, then continue with your restraints. 
 .delay 40
+.set -25 25 -26 26           ' ankle and wrist restraints
+.set -28 28                  ' collared
 .range 5147
 
 [Action 5146]
-.must 28                     ' collared
-Excellent.
+.mustnot -28                     ' collared
 bd037_13.jpg
-Let's put on your restraints now. 
+Let's put on your restraints. 
 .delay 40
+.set -25 25 -26 26           ' ankle and wrist restraints
+.set -28 28                  ' collared
 .range 5147
 
 
@@ -6404,7 +6484,7 @@ Now we have another fairly basic position which you will enjoy while
 enduring some light nipple torture.
 To that end, I want you to go fetch your wrist restraints.
 You do have wrist restraints, don't you, slave?
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 .mustnot 26             ' Wrists tied
 .yesno 5154 5154 7788 7791
 
@@ -6414,12 +6494,12 @@ with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps.
 You do have nipple clamps, don't you, slave?
 .mustnot 20             ' Something on nipples
-.must 26                ' Wrists tied
+.mustnot -26                ' Wrists tied
 .yesno 5154 5154 7788 7791
 
 [Action 5153]
-.must 20                ' Something on nipples
-.must 26                ' Wrists tied
+.mustnot -20                ' Something on nipples
+.mustnot -26                ' Wrists tied
 .range 5154
 
 
@@ -6433,6 +6513,8 @@ You do have nipple clamps, don't you, slave?
 bd022_46.jpg
 Go ahead, put on the restraints, and pop those clamps on your nipples, slave.
 .delay 40
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -26 26                  ' wrists tied
 .range 5159
 
 [Action 5156]
@@ -6440,6 +6522,7 @@ Go ahead, put on the restraints, and pop those clamps on your nipples, slave.
 bd022_46.jpg
 Go ahead and put on your restraints, slave.
 .delay 30
+.set -26 26                  ' wrists tied
 .range 5159
 
 [Action 5157]
@@ -6447,6 +6530,7 @@ Go ahead and put on your restraints, slave.
 bd022_46.jpg
 Go ahead, pop those nipple clamps on your nipples, slave.
 .delay 20
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5159
 
 [Action 5158]
@@ -6480,12 +6564,11 @@ You do have these items, don't you, slave?
 [Action 5161]
 Now we have a fairly basic position which you will enjoy while
 enduring some light nipple torture.
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 .range 5164
 
 
 [Action 5164]
-.gosub 1820                  ' setup break buttons and vibrator
 .range 5165 5166
 
 
@@ -6494,12 +6577,17 @@ enduring some light nipple torture.
 Go ahead and pop those nipple clamps on your nipples, slave.
 .image bd028_18.jpg
 .delay 20
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5169
 
 [Action 5166]
 .must 5161
 .range 5169
 
+
+[Action 5168]
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5169
 
 [Action 5169]
 bd028_21.jpg
@@ -6527,7 +6615,7 @@ You do have these items, don't you, slave?
 [Action 5171]
 Now we have a fairly basic position which you will enjoy while
 enduring some light nipple torture.
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 .range 5174
 
 [Action 5174]
@@ -6540,6 +6628,7 @@ enduring some light nipple torture.
 Go ahead and pop those clamps on your nipples, slave.
 .image bd028_18.jpg
 .delay 30
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5179
 
 [Action 5176]
@@ -6577,7 +6666,7 @@ Now we have a fairly basic position which you will enjoy while
 enduring some light nipple torture.
 To that end, I want you to go fetch your collar and your wrist restraints.
 You do have a collar, don't you, slave?
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 .mustnot 28             ' Somethhing around neck
 .yesno 5185 5185 7700 7707
 
@@ -6587,7 +6676,7 @@ with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps, and your wrist restraints.
 You do have nipple clamps, don't you, slave?
 .mustnot 20             ' Something on nipples
-.must 28                ' Somethhing around neck
+.mustnot -28                ' Somethhing around neck
 .yesno 5186 5186 7788 7791
 
 [Action 5183]
@@ -6595,8 +6684,8 @@ Now we have a fairly basic position which you
 will enjoy while enduring light nipple torture.
 To that end, I want you to go fetch your wrist restraints.
 You do have wrist restraints, don't you, slave?
-.must 20                ' Something on nipples
-.must 28                ' Somethhing around neck
+.mustnot -20                ' Something on nipples
+.mustnot -28                ' Somethhing around neck
 .yesno 5187 5187 7788 7791
 
 
@@ -6605,6 +6694,8 @@ You do have wrist restraints, don't you, slave?
 bd028_31.jpg
 Go ahead, pop those clamps on your nipples and put on your collar, slave.
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -28 28                  ' collared
 .range 5187
 
 [Action 5185]
@@ -6612,6 +6703,7 @@ Go ahead, pop those clamps on your nipples and put on your collar, slave.
 bd028_31.jpg
 Go ahead and put on your collar, slave.
 .pause I'm collared, Miss
+.set -28 28                  ' collared
 .range 5187
 
 [Action 5186]
@@ -6619,6 +6711,7 @@ Go ahead and put on your collar, slave.
 bd028_39.jpg
 Go ahead and pop those clamps on your nipples, slave.
 .pause Done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5187
 
 
@@ -6636,6 +6729,7 @@ delay 20
 bd028_35.jpg
 Tell me when your finished, my pet.
 .pause I'm cuffed, Miss 
+.set -26 26                  ' wrists tied
 .range 5189
 
 [Action 5189]
@@ -6669,7 +6763,7 @@ You do have clothes pegs, don't you, slave?
 .yesno 5194 5194 7748 7748
 
 [Action 5191]
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 bd068_16.jpg
 Now we have a fairly basic position which we will spice
 up a little with some light nipple and pussy torture.
@@ -6683,7 +6777,6 @@ You do have clothes pegs, don't you, slave?
 
 [Action 5194]
 Excellent, my pet!
-.gosub 1820                  ' setup break buttons and vibrator
 .range 5195 5196
 
 
@@ -6698,22 +6791,31 @@ delay 10
 bd068_26.jpg
 Snap the remaining pegs on your poor ball sack.
 delay 10
-.range 5199
+.set -20 20 42               ' something on nipples, clothes pegs
+.set -24 24                  ' something on balls, pussy clips
+.range 5196
 
 [Action 5196]
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 bd068_18.jpg
 First add two more pegs to your nipples, my dear pain slut.
 delay 8
 bd068_26.jpg
 Then snap the remaining pegs on your poor ball sack.
 .delay 30
+.set -24 24                  ' something on balls, pussy clips
+.range 5196
+
+
+[Action 5196]
+.gosub 1820                  ' setup break buttons and vibrator
 .range 5199
 
 
 [Action 5199]
 bd068_29.jpg
-Kneel in the middle of the room, and present yourself with your ankles together and your knees spread wide.
+Now kneel in the middle of the room,
+and present yourself with your ankles together and your knees spread wide.
 delay 10
 []
 bd068_27.jpg
@@ -6739,7 +6841,7 @@ You do have clothes pegs, don't you, slave?
 .yesno 5204 5204 7796 7796
 
 [Action 5201]
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 bd068_16.jpg
 Now we have a fairly basic position which we will spice
 up a little with some light nipple and pussy torture.
@@ -6768,22 +6870,26 @@ delay 10
 bd068_26.jpg
 Snap the remaining pegs on your poor ball sack.
 delay 10
+.set -20 20 42               ' something on nipples, clothes pegs
+.set -24 24                  ' something on balls, pussy clips
 .range 5209
 
 [Action 5206]
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 bd068_18.jpg
 First add two more pegs to your nipples, my dear pain slut.
 delay 8
 bd068_26.jpg
 Then snap the remaining pegs on your poor ball sack.
 .delay 30
+.set -24 24                  ' something on balls, pussy clips
 .range 5209
 
 
 [Action 5209]
 bd068_32.jpg
-Now stand in the middle of the room, and present yourself - legs apart, hands on your hips.
+Now stand in the middle of the room,
+and present yourself - legs apart, hands on your hips.
 delay 10
 []
 bd068_32.jpg
@@ -6883,7 +6989,7 @@ You do have these toys, don't you, slave?
 [Action 5762]
 Go fetch your collar and some rope.
 You do have these toys, don't you, slave?
-.must 20
+.mustnot -20
 .mustnot 28                  ' collared
 .yesno 5765 5766 8280 8298
 
@@ -6891,19 +6997,19 @@ You do have these toys, don't you, slave?
 Go fetch your nipple clamps, and some rope.
 You do have these toys, don't you, slave?
 .mustnot 20                  ' Something on nipples
-.must 28                     ' collared
+.mustnot -28                     ' collared
 .yesno 5765 5766 8280 8298
 
 [Action 5764]
 Go and fetch some rope.
 You do have rope, don't you, slave?
-.must 20                     ' Something on nipples
-.must 28                     ' collared
+.mustnot -20                     ' Something on nipples
+.mustnot -28                     ' collared
 .yesno 5765 5766 8280 8298
 
 
 [Action 5765]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 Very good, slave.
 bd227_18.jpg
 Now make a crotch rope for yourself.
@@ -6922,7 +7028,8 @@ Then make a crotch rope for yourself.
 delay 10
 bd227_18.jpg
 As usual, place a nice solid knot right on your anus for a little extra stimulation.
-.pause My crotch is firmly bound, Miss
+.pause My crotch is firmly bound and I'm collared, Miss
+.set -28 28                  ' collared
 .range 5767
 
 
@@ -6944,10 +7051,11 @@ Spread your legs as wide as you can.
 Put your hands together behind your bottom.
 Give Me a nice big smile, just like the model.
 delay 15
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 1700
 
 [Action 5769]
-.must 20
+.mustnot -20
 bd227_19a.jpg
 Excellent.
 Now, climb onto your chair or a table.
@@ -6965,65 +7073,68 @@ delay 15
 ' 577 2pt kneel, knees together, nipple clips, arms straight down behind back, gag, collar, leash, cuffs
 
 [Action 5770]
+.mustnot 22                  ' Something in mouth
+.mustnot 28                  ' collared
 This one is a little involved, slave.
 You will need four clothes pegs, your gag, your collar, a leash or a length of chain,
 and either a pair of handcuffs or some other way you can restrain your wrists behind you.
 Have you got all that?
-.mustnot 22                  ' Something in mouth
-.mustnot 28                  ' collared
 .yesno 5774 5775 8280 8298
 
 [Action 5771]
+.mustnot -22                     ' Something in mouth
+.mustnot 28                  ' collared
 This one is a little involved, slave.
 You will need four clothes pegs, your collar, a leash or a length of chain,
 and either a pair of handcuffs or some other way you can restrain your wrists behind you.
 Have you got all that?
-.must 22                     ' Something in mouth
-.mustnot 28                  ' collared
 .yesno 5774 5775 8280 8298
 
 [Action 5772]
+.mustnot 22                  ' Something in mouth
+.mustnot -28                     ' collared
 This one is a little involved, slave.
 You will need four clothes pegs, your gag, a leash or a length of chain,
 and either a pair of handcuffs or some other way you can restrain your wrists behind you.
 Have you got all that?
-.mustnot 22                  ' Something in mouth
-.must 28                     ' collared
 .yesno 5774 5775 8280 8298
 
 [Action 5773]
+.mustnot -22                     ' Something in mouth
+.mustnot -28                     ' collared
 This one is a little involved, slave.
 You will need four clothes pegs, a leash or a length of chain,
 and either a pair of handcuffs or some other way you can restrain your wrists behind you.
 Have you got all that?
-.must 22                     ' Something in mouth
-.must 28                     ' collared
 .yesno 5774 5775 8280 8298
 
 
 [Action 5774]
-.gosub 1820                  ' setup break buttons and vibrator
-.range 5775 5776
-
-
-[Action 5775]
+.mustnot 28                  ' collared
 First, put the collar around your neck and attach the leash to it.
 You may put the other end of the leash anywhere convenient.
 Tie it to the desk if you're so minded.
 Then pop the clothes pegs on your nipples, two per.
 .delay 30
 .image bd016_47.jpg
-.mustnot 28                  ' collared
-.range 5777 5778
+.set -20 20 42               ' something on nipples, clothes pegs
+.set -28 28                  ' collared
+.range 5776
 
-[Action 5776]
+[Action 5775]
+.mustnot -28                     ' collared
 First, attach the leash to your collar.
 You may put the other end of the leash anywhere convenient.
 Tie it to the desk if you're so minded.
 Then pop the clothes pegs on your nipples, two per.
 .delay 30
 .image bd016_47.jpg
-.must 28                     ' collared
+.set -20 20 42               ' something on nipples, clothes pegs
+.range 5776
+
+
+[Action 5776]
+.gosub 1820                  ' setup break buttons and vibrator
 .range 5777 5778
 
 
@@ -7039,10 +7150,12 @@ delay 10
 Keep your hands behind your butt and your arms straight.
 .image bd016_46.jpg
 .delay 80
+.set -22 22                  ' something in mouth
+.set -26 26                  ' wrists tied
 .range 5779
 
 [Action 5778]
-.must 22                     ' Something in mouth
+.mustnot -22                     ' Something in mouth
 Handcuff or tie your wrists behind you.
 delay 10
 The model in the illustration actually has her elbows cuffed,
@@ -7053,6 +7166,7 @@ delay 10
 Keep your hands behind your butt and your arms straight.
 .image bd016_46.jpg
 .delay 60
+.set -26 26                  ' wrists tied
 .range 5779
 
 
@@ -7068,43 +7182,43 @@ Head up, arms straight, eyes down.
 ' 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
 
 [Action 5780]
+.mustnot 20             ' Something on nipples
+.mustnot 26             ' Wrists tied
 It's time for a harder position, slave.
 I will need you to collect your nipple clamps,
 a good weight to hang from the clamps,
 your handcuffs or some other way to bind your wrists,
 and a rug or a towel to kneel on.
 You do have all this stuff?
-.mustnot 20             ' Something on nipples
-.mustnot 26             ' Wrists tied
 .yesno 5784 5785 8280 8298
 
 [Action 5781]
+.mustnot -20                ' Something on nipples
+.mustnot 26             ' Wrists tied
 It's time for a harder position, slave.
 I will need you to collect a good weight to hang from your nipple clamps,
 your handcuffs or some other way to bind your wrists,
 and a rug or a towel to kneel on.
 You do have all this stuff?
-.must 20                ' Something on nipples
-.mustnot 26             ' Wrists tied
 .yesno 5784 5785 8280 8298
 
 [Action 5782]
+.mustnot 20             ' Something on nipples
+.mustnot -26                ' Wrists tied
 It's time for a harder position, slave.
 I will need you to collect your nipple clamps,
 a good weight to hang from the clamps,
 and a rug or a towel to kneel on.
 You do have all this stuff, my pet?
-.mustnot 20             ' Something on nipples
-.must 26                ' Wrists tied
 .yesno 5784 5785 8280 8298
 
 [Action 5783]
+.mustnot -20                ' Something on nipples
+.mustnot -26                ' Wrists tied
 It's time for a harder position, slave.
 I will need you to collect a good weight to hang from your nipple clamps,
 and a rug or a towel to kneel on.
 You do have all this stuff?
-.must 20                ' Something on nipples
-.must 26                ' Wrists tied
 .yesno 5784 5785 8280 8298
 
 
@@ -7113,23 +7227,24 @@ You do have all this stuff?
 Excellent.
 bd159_20.jpg
 Put your nipple clamps on first, and hang the weight from them.
-Then place the rug or towel on the ground. 
+Then place the rug or towel on the ground.
 .delay 40
+.set -20 20 43          ' something on nipples, nipple clamps
 .range 5786
 
 [Action 5785]
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 Excellent.
 bd159_20.jpg
 Make sure your clamps are squeezing your nipples tightly,
 and hang the weight from them.
 Then place the rug or towel on the ground. 
-.delay 40
+.delay 30
 .range 5786
 
 
 [Action 5786]
-.gosub 1820                  ' setup break buttons and vibrator
+.gosub 1820             ' setup break buttons and vibrator
 .range 5787 5788
 
 
@@ -7143,18 +7258,18 @@ Your knees should be spread as wide as possible and
 your toes should be curled under your feet.
 Your feet should be touching each other. 
 .delay 30
-.range 5788 5789
-
+.set -26 26             ' wrists tied
+.range 5789
 
 [Action 5788]
+.mustnot -26                ' Wrists tied
 bd159_25.jpg
 Kneel on the rug as shown.
 Your knees should be spread as wide as possible and
 your toes should be curled under your feet.
 Your feet should be touching each other. 
 .delay 30
-.must 26                ' Wrists tied
-.range 1700
+.range 5789
 
 
 [Action 5789]
@@ -7169,6 +7284,7 @@ A nice supplicative expression is appreciated.
 ' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
 
 [Action 5790]
+.mustnot 20                  ' something on nipples
 Now we have a fairly basic position which we will spice up a little with some
 light nipple and pussy torture.
 To that end, I want you to go fetch your nipple and pussy clamps, and your heels.
@@ -7177,36 +7293,43 @@ You do have these items, don't you slave?
 .mustnot 20
 
 [Action 5791]
+.mustnot -20                     ' something on nipples
 Now we have a fairly basic position which we will spice up a little with
 some light nipple and pussy torture.
 To that end, I want you to go fetch your pussy clamps and your heels.
 You do have these items, don't you slave?
 .yesno 5794 5794 8280 8298
-.must 20
+.mustnot -20
 
 
 [Action 5794]
-.gosub 1820                  ' setup break buttons and vibrator
-.range 5795
-
-[Action 5795]
 Now since you don't have a real pussy to snap the pussy clamps on,
 you're going to snap them on your little ball sack instead.
-.range 5796 5797
+.range 5795 5796
 
-[Action 5796]
+
+[Action 5795]
 .mustnot 20
 bd041_25.jpg
 Slip into your heels, put on your nipple clamps 
 and snap the other pair of clamps on your "pussy".
-.delay 30
-.range 5798
+.pause I have all clamps on, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -24 24 39               ' something on balls, pussy clamps
+.range 5797
 
-[Action 5797]
-.must 20
+[Action 5796]
+.mustnot -20
 bd041_25.jpg
 Slip into your heels, and snap on your "pussy" clamps.
-.delay 30
+.pause I have the pussy clamps on, Miss
+.set -24 24 39               ' something on balls, pussy clamps
+.range 5797
+
+
+[Action 5797]
+Very good, my little pain slut.
+.gosub 1820                  ' setup break buttons and vibrator
 .range 5798
 
 [Action 5798]
@@ -7279,7 +7402,7 @@ You do have these toys, don't you, slave?
 .yesno 5815 5815 7792 7795
 
 [Action 5812]
-.must 20
+.mustnot -20
 .mustnot 28                  ' collared
 Go fetch your collar.
 Well, you do have a collar, don't you, slave?
@@ -7287,15 +7410,19 @@ Well, you do have a collar, don't you, slave?
 
 [Action 5813]
 .mustnot 20                  ' Something on nipples
-.must 28                     ' collared
+.mustnot -28                     ' collared
 Go fetch your nipple clamps, slave!
 You do have some, don't you?
 .yesno 5817 5817 7792 7795
 
 [Action 5814]
-.must 20                     ' Something on nipples
-.must 28                     ' collared
-.gosub 1820                  ' setup break buttons and vibrator
+.mustnot -20                     ' Something on nipples
+.mustnot -28                     ' collared
+That reminds me, slave:
+Do your nipple clamps have a connecting chain, as per my orders? 
+.yesno 5818 5818 7798 7798
+.yestext Of course, Miss
+.notext I'm sorry, Miss, but the chain is missing
 .range 5818
 
 
@@ -7315,7 +7442,7 @@ Very good, slave.
 bd250_36.jpg
 Go ahead and put it on.
 delay 15
-Juist to be sure, slave:
+Just to be sure, slave:
 Do your nipple clamps have a connecting chain, as per my orders? 
 .yesno 5818 5818 7798 7798
 .yestext Of course, Miss
@@ -7334,11 +7461,15 @@ Do your nipple clamps have a connecting chain, as per my orders?
 
 
 [Action 5818]
+Wonderful, my little pain slut.
+.ifunset 20 .set -20
+.set 20 43                   ' something on nipples, nipple clamps
+.ifunset 28 .set -28
+.set 28                      ' collared
 .gosub 1820                  ' setup break buttons and vibrator
 .range 5819
 
 [Action 5819]
-Excellent.
 bd250_36.jpg
 Stand straight, with your legs together.
 delay 15
@@ -7370,10 +7501,10 @@ You do have these items, don't you slave?
 .yesno 5822 5822 8280 8298
 
 [Action 5821]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 Now we have a fairly basic position which we will spice up a little with
 some light nipple and pussy torture.
-To that end, I want you to go fetch your pussy clamps.
+To that end, I want you to go fetch your nipple and pussy clamps.
 You do have these items, don't you slave?
 .yesno 5822 5822 8280 8298
 
@@ -7383,6 +7514,7 @@ Well my dear, since you don't have a real pussy to snap the pussy clamps on,
 we're going to use your little ball sack instead.
 delay 2
 .range 5824
+
 
 [Action 5824]
 .range 5826 5827
@@ -7395,16 +7527,21 @@ Go ahead, put on your nipple clamps and snap the other pair of clamps on your "p
 delay 15
 And don't forget about your slave collar!
 .pause All clamps attached and I'm collared, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -24 24 39               ' something on balls, pussy clamps
+.set -28 28                  ' collared
 .range 5828
 
 [Action 5827]
-.must 28                     ' collared
+.mustnot -28                     ' collared
 bd069_29.jpg
 Go ahead, put on your nipple clamps and snap the other pair of clamps on your "pussy".
 delay 15
 bd069_29.jpg
 Tell me, slave, when you have all clamps on!
-.pause All clamps attached, Miss
+.pause Ready, Miss I have all clamps on
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -24 24 39               ' something on balls, pussy clamps
 .range 5828
 
 
@@ -7431,31 +7568,35 @@ Keep your back straight, with your head up, and your eyes down.
 .mustnot 26                  ' Wrists tied
 .mustnot 28                  ' collared
 This one is a little involved, slave.
-You will need your nipple and pussy clamps, your gag, your collar, and your wrist restraints.
+You will need your nipple and pussy clamps,
+your gag, your collar, and your wrist restraints.
 Have you got all that?
 .yesno 5834 5837 8280 8298
 
 [Action 5831]
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .mustnot 28                  ' collared
 This one is a little involved, slave.
-You will need your nipple and pussy clamps, your gag, and your collar.
+You will need your nipple and pussy clamps,
+your gag, and your collar.
 Have you got all that?
 .yesno 5834 5837 8280 8298
 
 [Action 5832]
 .mustnot 26                  ' Wrists tied
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This one is a little involved, slave.
-You will need your nipple and pussy clamps, your gag, and your wrist restraints.
+You will need your nipple and pussy clamps, your gag,
+and your wrist restraints.
 Have you got all that?
 .yesno 5834 5837 8280 8298
 
 [Action 5833]
-.must 26                     ' Wrists tied
-.must 28                     ' collared
+.mustnot -26                     ' Wrists tied
+.mustnot -28                     ' collared
 This one is a little involved, slave.
-You will need your nipple and pussy clamps, and your gag.
+You will need your nipple and pussy clamps,
+as well as your gag.
 Have you got all that?
 .yesno 5834 5837 8280 8298
 
@@ -7469,10 +7610,15 @@ delay 30
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
+.set -26 26                  ' wrists tied
+.set -28 28                  ' collared
 .range 5838
 
 [Action 5835]
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .mustnot 28                  ' collared
 bd021_36.jpg
 First, put the collar around your neck and insert your gag.
@@ -7480,28 +7626,39 @@ delay 10
 Then pop the clamps on your nipples and your "pussy".
 delay 20
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
+.set -28 28                  ' collared
 .range 5838
 
 [Action 5836]
 .mustnot 26                  ' Wrists tied
-.must 28                     ' collared
+.mustnot -28                     ' collared
 bd021_36.jpg
 First, cuff your wrists and insert your gag.
 delay 20
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
+.set -26 26                  ' wrists tied
 .range 5838
 
 [Action 5837]
-.must 26                     ' Wrists tied
-.must 28                     ' collared
+.mustnot -26                     ' Wrists tied
+.mustnot -28                     ' collared
 bd021_36.jpg
 First, insert your gag.
 delay 15
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
 .range 5838
 
 
@@ -7532,7 +7689,7 @@ Have you got all that?
 .yesno 5844 5847 8280 8298
 
 [Action 5841]
-.must 22                     ' Something in mouth
+.mustnot -22                     ' Something in mouth
 .mustnot 28                  ' collared
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, your collar, and your wrist restraints.
@@ -7541,15 +7698,15 @@ Have you got all that?
 
 [Action 5842]
 .mustnot 22                  ' Something in mouth
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, your gag, your collar, and your wrist restraints.
 Have you got all that?
 .yesno 5844 5847 8280 8298
 
 [Action 5843]
-.must 22                     ' Something in mouth
-.must 28                     ' collared
+.mustnot -22                     ' Something in mouth
+.mustnot -28                     ' collared
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, and your wrist restraints.
 Have you got all that?
@@ -7564,35 +7721,47 @@ First, put the collar around your neck and put your gag in.
 delay 20
 Then pop the clamps on your nipples and your "pussy".
 delay 20
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
+.set -28 28                  ' collared
 .range 5848
 
 [Action 5845]
-.must 22                     ' Something in mouth
+.mustnot -22                     ' Something in mouth
 .mustnot 28                  ' collared
 bd021_36.jpg
 First, put the collar around your neck.
 delay 10
 Then pop the clamps on your nipples and your "pussy".
 delay 20
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -24 24 39               ' something on balls, pussy clamps
+.set -28 28                  ' collared
 .range 5848
 
 
 [Action 5846]
 .mustnot 22                  ' Something in mouth
-.must 28                     ' collared
+.mustnot -28                     ' collared
 bd021_36.jpg
-First, put the collar around your neck and put your gag in.
+First, put your gag in.
 delay 10
 Then pop the clamps on your nipples and your "pussy".
 delay 20
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
 .range 5848
 
 [Action 5847]
-.must 22                     ' Something in mouth
-.must 28                     ' collared
+.mustnot -22                     ' Something in mouth
+.mustnot -28                     ' collared
 bd021_36.jpg
 Pop the clamps on your nipples and your "pussy".
 delay 20
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -28 28                  ' collared
 .range 5848
 
 
@@ -7615,6 +7784,7 @@ Fold your arms in the small of your back.
 delay 5
 Keep your head up, and your eyes down!
 delay 10
+.set -26 26                  ' wrists tied
 .range 1700
 
 
@@ -7629,7 +7799,7 @@ Have you got all that?
 .yesno 5854 5857 8280 8298
 
 [Action 5851]
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .mustnot 28                  ' collared
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, your gag, and your collar.
@@ -7638,15 +7808,15 @@ Have you got all that?
 
 [Action 5852]
 .mustnot 26                  ' Wrists tied
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, your gag, and your wrist restraints.
 Have you got all that?
 .yesno 5854 5857 8280 8298
 
 [Action 5853]
-.must 26                     ' Wrists tied
-.must 28                     ' collared
+.mustnot -26                     ' Wrists tied
+.mustnot -28                     ' collared
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, and your gag.
 Have you got all that?
@@ -7662,10 +7832,15 @@ delay 30
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
+.set -26 26                  ' wrists tied
+.set -28 28                  ' collared
 .range 5858
 
 [Action 5855]
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .mustnot 28                  ' collared
 bd021_36.jpg
 First, put the collar around your neck and insert your gag.
@@ -7673,28 +7848,39 @@ delay 10
 Then pop the clamps on your nipples and your "pussy".
 delay 20
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
+.set -28 28                  ' collared
 .range 5858
 
 [Action 5856]
 .mustnot 26                  ' Wrists tied
-.must 28                     ' collared
+.mustnot -28                     ' collared
 bd021_36.jpg
 First, cuff your wrists and insert your gag.
 delay 20
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
+.set -26 26                  ' wrists tied
 .range 5858
 
 [Action 5857]
-.must 26                     ' Wrists tied
-.must 28                     ' collared
+.mustnot -26                     ' Wrists tied
+.mustnot -28                     ' collared
 bd021_36.jpg
 First, insert your gag.
 delay 15
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -22 22                  ' something in mouth
+.set -24 24 39               ' something on balls, pussy clamps
 .range 5858
 
 
@@ -7754,7 +7940,7 @@ Doesn't it feel good to enjoy yourself in front of your mistress?
 .range 5862 5863
 
 [Action 5861]
-.must 21                          ' Nipple clamps
+.mustnot -21                          ' Nipple clamps
 Today we're taking special care about your nipples and nuts.
 bd381_16.jpg
 Pull the chain of your nipple clamps to make sure they sit tight and won't fall off!  
@@ -7790,7 +7976,7 @@ You do have nipple and pussy clamps and some weights, slave, do you?
 .yesno 5864 5864 7800 7803
 
 [Action 5863]
-.must 21                          ' Nipple clamps
+.mustnot -21                          ' Nipple clamps
 Wonderful, my dear pet.
 Then slip into your heels, and fetch your pussy clamps, with a connecting chain of course,
 plus a good weight for both the clamps!
@@ -7808,11 +7994,12 @@ Perfect!
 .poss 100
 .mustnot 21                       ' Nipple clamps
 bd381_12.jpg
-Now squeeze and fondle your nipples one last time, then put on the clamps.
+Now squeeze and fondle your little slave titties one last time, then put on the nipple clamps.
 delay 5
 bd381_16.jpg
 When you have them on, pull the chain to make sure they sit tight and won't fall off!  
 .delay 10
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 5866
 
 [Action 5866]
@@ -7822,6 +8009,7 @@ delay 10
 bd381_18.jpg
 Again make sure they sit tight and won't fall off.
 delay 15
+.set -24 24 39               ' something on balls, pussy clamps
 .range 5867
 
 
@@ -7841,7 +8029,7 @@ bd381_21.jpg
 Go get them and attach one of them to each pair of clamps!
 delay 15
 bd381_22.jpg
-When you have both weights attached, return to your training position:
+When you have both weights hanging, return to your training position:
 Legs apart, hands behind your back.
 delay 5
 .range 5869
@@ -7903,7 +8091,7 @@ You do have these items, I hope?
 .yesno 6504 6504 7760 7779
 
 [Action 6502]
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 .must 350                    ' Butt plug
 .poss 100                    ' favour plug since the image set shows a plug
 Oh, goody.
@@ -7916,7 +8104,7 @@ You do have these items, I hope?
 .range 6504
 
 [Action 6503]
-.must 26                     ' Wrists tied
+.mustnot -26                     ' Wrists tied
 Oh, goody.
 This will be a particularly uncomfortable position for you to endure.
 delay 2
@@ -7928,12 +8116,13 @@ You do have these items, I hope?
 
 
 [Action 6504]
+Wonderful, my pet.
 .gosub 1820                  ' setup break buttons and vibrator
 .range 6505 6506
 
+
 [Action 6505]
 .mustnot 6501 6503           ' Dildo selected 
-Very good, slave.
 Now lube up your tight little asshole.
 Get it good and slippery.
 Get some on that butt plug, too.
@@ -7977,23 +8166,24 @@ delay 40
 
 
 [Action 6508]
+.mustnot 26                  ' Wrists tied
 Now tie or handcuff your hands together in front of you.
 Place your palms together as if you are praying for mercy to your Mistress.
 Keep your head up; the back of it should be against the wall.
 Your knees should be spread as far as they will go.
 .image EMSTsmpl01.jpg
-.delay 30 
-.mustnot 26                  ' Wrists tied
+.delay 30
+.set -26 26                  ' wrists tied
 .range 1700
 
 [Action 6509]
+.mustnot -26                     ' Wrists tied
 Now place your palms together as if you are praying for mercy to your Mistress.
 Keep your head up:
 The back of it should be against the wall.
 Your knees should be spread as far as they will go.
 .image EMSTsmpl01.jpg
 .delay 30 
-.must 26                     ' Wrists tied
 .range 1700
 
 
@@ -8009,7 +8199,7 @@ Got all that?
 .yesno 6514 6514 8280 8298
 
 [Action 6511]
-.must 22                ' Something in mouth
+.mustnot -22                ' Something in mouth
 .mustnot 28             ' collared
 This is a tough one.
 You'll need a collar, some beads, six clothes pegs,
@@ -8019,7 +8209,7 @@ Got all that?
 
 [Action 6512]
 .mustnot 22             ' Something in mouth
-.must 28                ' collared
+.mustnot -28                ' collared
 This is a tough one.
 You'll need a gag, some beads, six clothes pegs,
 a weight for the clamps, and of course your nipple clamps.
@@ -8027,8 +8217,8 @@ Got all that?
 .yesno 6514 6514 8280 8298
 
 [Action 6513]
-.must 22                ' Something in mouth
-.must 28                ' collared
+.mustnot -22                ' Something in mouth
+.mustnot -28                ' collared
 This is a tough one.
 You'll need some beads, six clothes pegs,
 a weight for the clamps, and of course your nipple clamps.
@@ -8051,10 +8241,13 @@ delay 40
 bd186_36.jpg
 Now add the clothes pegs and nipple clamps, three pegs per slave tit.
 delay 45
+.set -20 20 42 43            ' something on nipples, clothes pegs, nipple clamps
+.set -22 22                  ' something in mouth
+.set -28 28                  ' collared
 .range 6519
 
 [Action 6516]
-.must 22                ' Something in mouth
+.mustnot -22                ' Something in mouth
 .mustnot 28             ' collared
 bd186_21.jpg
 Start with the collar.
@@ -8063,11 +8256,13 @@ delay 20
 bd186_36.jpg
 Now add the clothes pegs and nipple clamps, three pegs per slave tit.
 delay 45
+.set -20 20 42 43            ' something on nipples, clothes pegs, nipple clamps
+.set -28 28                  ' collared
 .range 6519
 
 [Action 6517]
 .mustnot 22             ' Something in mouth
-.must 28                ' collared
+.mustnot -28                ' collared
 bd186_15.jpg
 Start with the gag.
 delay 20 
@@ -8075,14 +8270,17 @@ delay 20
 bd186_36.jpg
 Now add the clothes pegs and nipple clamps, three pegs per slave tit.
 delay 45
+.set -20 20 42 43            ' something on nipples, clothes pegs, nipple clamps
+.set -22 22                  ' something in mouth
 .range 6519
 
 [Action 6518]
-.must 22                ' Something in mouth
-.must 28                ' collared
+.mustnot -22                ' Something in mouth
+.mustnot -28                ' collared
 Start with the clamps and pegs, three pegs per slave tit.
 .image bd186_36.jpg
 .delay 45
+.set -20 20 42 43            ' something on nipples, clothes pegs, nipple clamps
 .range 6519
 
 [Action 6519]
@@ -8119,7 +8317,7 @@ You do have these items, don't you, slave?
 
 [Action 6521]
 .mustnot 20                  ' something on nipples
-.must 28                     ' collared
+.mustnot -28                     ' collared
 This is an excellent, much used maid position
 - serving as a table for your mistress.
 You will need your wrist and ankle restraints,
@@ -8129,19 +8327,20 @@ You do have these items, don't you, slave?
 .yesno 6524 6525 8280 8298
 
 [Action 6522]
-.must 20                     ' something on nipples
+.mustnot -20                     ' something on nipples
 .mustnot 28                  ' collared
 This is an excellent, much used maid position
 - serving as a table for your mistress.
-For that purpose I want you to put on your collar, as well as your wrist and ankle restraints.
+For that purpose I want you to put on your collar,
+as well as your wrist and ankle restraints.
 You will also need a tray and a glass of water.
 A nice apron is appreciated, too.
 You do have these items, don't you, slave?
 .yesno 6527 6527 8280 8298
 
 [Action 6523]
-.must 20                     ' something on nipples
-.must 28                     ' collared
+.mustnot -20                     ' something on nipples
+.mustnot -28                     ' collared
 This is an excellent, much used maid position
 - serving as a table for your mistress.
 For that purpose, I want you to fetch your wrist and ankle restraints.
@@ -8157,14 +8356,17 @@ Let's start with your collar and nipple clamps.
 bd178_10.jpg
 Put the collar around your neck and snap the clamps on your poor little titties.
 .pause I'm collared and clamped, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -28 28                  ' collared
 .range 6526
 
 [Action 6525]
-.must 28                     ' collared
-Let's start with the clamps.
+.mustnot -28                     ' collared
+Let's start with the clamps:
 bd178_10.jpg
 Snap them on your poor little titties.
 .pause My tits are clamped, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 6526
 
 
@@ -8172,6 +8374,10 @@ Snap them on your poor little titties.
 Very good, my pet.
 Complete your maid dress by putting on the restraints.
 .pause I'm d dressed up, Miss
+.ifunset 25 .set -25
+.set 25                      ' ankles tied
+.ifunset 26 .set -26
+.set 26                      ' wrists tied
 .range 6527
 
 [Action 6527]
@@ -8228,7 +8434,7 @@ You do have these items, I hope?
 .yesno 6534 6535 8280 8298
 
 [Action 6531]
-.must 20                ' something on nipples
+.mustnot -20                ' something on nipples
 .mustnot 28             ' something around neck
 Oh, goody.
 This will be a particularly challenging position for you to endure.
@@ -8241,7 +8447,7 @@ You do have these items, I hope?
 
 [Action 6532]
 .mustnot 20             ' something on nipples
-.must 28                ' something around neck
+.mustnot -28                ' something around neck
 Oh, goody.
 This will be a particularly challenging position for you to endure.
 Go fetch a dildo or a small buttplug.
@@ -8253,8 +8459,8 @@ You do have these items, I hope?
 .yesno 6534 6535 8280 8298
 
 [Action 6533]
-.must 20                ' something on nipples
-.must 28                ' something around neck
+.mustnot -20                ' something on nipples
+.mustnot -28                ' something around neck
 Oh, goody.
 This will be a particularly challenging position for you to endure.
 Go fetch a dildo or a small buttplug.
@@ -8273,10 +8479,12 @@ Let's start with those nipple clamps.
 bd645_005.jpg
 Snap them on your poor little slave titties and make sure they sit tight.
 .pause My tits are clamped, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
 .range 6535
 
 
 [Action 6535]
+.else
 If you haven't yet, put on our ankle cuffs.
 .delay 30
 bd645_012.jpg
@@ -8292,7 +8500,10 @@ delay 20
 bd645_044.jpg
 If you don't have snap hooks or padlocks handy,
 you may just entwine the connecting chains.
-.pause All done, Miss
+Report back to be when you have all items on, slave!
+.pause I'm ready, Miss
+.set -25 25                  ' ankles tied
+.set -24 24 39               ' something on balls, pussy clamps
 .range 6536 6537
 
 
@@ -8305,21 +8516,22 @@ delay 5
 bd645_042.jpg
 Don't forget to attach the leash.
 delay 15
+.set -28 28                  ' collared
 .range 6538
 
 [Action 6537]
-.must 28                ' collared 
+.mustnot -28                ' collared 
 Not quite yet, my little pet.
 bd645_042.jpg
 You'll also need to attach the leash to your collar.
 delay 15
 .range 6538
 
+
 ' Last chance to put on the vibrator
 [Action 6538]
 .gosub 1820                  ' setup break buttons and vibrator
 .range 6539
-
 
 [Action 6539]
 bd645_040.jpg
@@ -8353,6 +8565,7 @@ delay 5
 bd645_051.jpg
 If the dildo slips out of your mouth or any of the clamps slip off, you've failed this position.
 delay 10
+.set -26 26                  ' wrists tied
 .range 1700
 
 
@@ -9615,7 +9828,7 @@ delay 5
 ' same comments, but also remove vibrator
 
 [Action 8341]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .mustnot 113
 .playwav bell1.mp3
@@ -9626,7 +9839,7 @@ You may take your vibrator off.
 .range 8399
 
 [Action 8342]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -9638,7 +9851,7 @@ delay 5
 .range 8399
 
 [Action 8343]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -9649,7 +9862,7 @@ delay 5
 .range 8399
 
 [Action 8344]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -9660,7 +9873,7 @@ delay 5
 .range 8399
 
 [Action 8345]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -9671,7 +9884,7 @@ delay 5
 .range 8399
 
 [Action 8346]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -9682,7 +9895,7 @@ delay 5
 .range 8399
 
 [Action 8347]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .mustnot 112 113
 .playwav bell1.mp3
@@ -9693,7 +9906,7 @@ delay 5
 .range 8399
 
 [Action 8348]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .mustnot 110
 .playwav bell1.mp3
@@ -9705,7 +9918,7 @@ delay 5
 .range 8399
 
 [Action 8349]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .playwav bell1.mp3
 Very good, slave.
@@ -9716,7 +9929,7 @@ delay 5
 .range 8399
 
 [Action 8350]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 .playwav bell1.mp3
 Good job, slave.
@@ -9726,7 +9939,7 @@ delay 5
 .range 8399
 
 [Action 8351]
-.must 47                ' Vibrator attached
+.must -47               ' Vibrator attached
 .mustnot 98             ' do another position
 Very good.
 .playwav bell1.mp3
@@ -10123,104 +10336,106 @@ I hope your mouth is feeling well-used.
 ' 8800 9699 put away sets of toys
 
 
+' TODO convert to local toys
+
 ' Remove wrist restraints and collar
 
 [Action 8800]
+.must -26               ' Wrists tied
+.must -28               ' collared
 You may remove your wrist restraints and your collar.
 .pause All removed, Miss
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8801]
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 You may remove your your collar.
 .pause Collar removed, Miss
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8802]
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 You may remove your wrist restraints.
 .pause Done, Miss
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8803]
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 You may remove your collar and the restraints.
 .pause All done, Miss
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8804]
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 You may remove the restraints.
 .pause Restraints removed, Miss
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8819]
-.must 26                ' Wrists tied
-.must 28                ' collared
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 .range 9700
 
 
 ' Remove wrist and ankle restraints
 
 [Action 8820]
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
 Also remove your wrist and ankle restraints.
 .pause All removed, Miss
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 8821]
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
 Also remove your ankle restraints.
 .pause Done, Miss
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
 .range 9700
 
 [Action 8822]
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
 Also remove your wrist restraints.
 .pause They're removed, Miss
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 8823]
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
 .range 9700
 
 
 [Action 8824]
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
 You may remove your wrist and ankle restraints.
 .pause All removed, Miss
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 8825]
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
 You may remove your ankle restraints.
 .pause Done, Miss
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
 .range 9700
 
 [Action 8826]
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
 You may remove your wrist restraints.
 .pause Done, Miss
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 8827]
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
 .range 9700
 
 
@@ -10228,26 +10443,26 @@ You may remove your wrist restraints.
 ' Remove wrist restraints
 
 [Action 8836]
+.must -26               ' Wrists tied
 You may remove your wrist restraints.
 .pause Done, Miss
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 8837]
-.must 26                ' Wrists tied
+.mustnot -26            ' Wrists tied
 .range 9700
 
 
 ' Remove both wrist and ankle restraints, collar; restraints always, collar optional
 
 [Action 8838]
-.mustnot 28             ' collared
+.must -28               ' collared
 You may remove your wrist and ankle restraints, as well as your collar.
 .pause All removed, Miss
 .range 9700
 
 [Action 8839]
-.must 28                ' collared
+.mustnot -28            ' collared
 You may remove your wrist and ankle restraints, slave.
 .pause Done, Miss
 .range 9700
@@ -10257,97 +10472,98 @@ You may remove your wrist and ankle restraints, slave.
 ' Remove ropes (generic)
 
 [Action 8840]
+'.must -27               ' Something around waist TODO Crotch rope not a toy yet
 Return to your seat after removing all the ropes.
 .pause All ropes undone, Miss
-'.mustnot 27             ' Something around waist TODO Crotch rope not a toy yet
 .range 9700
 
 
 ' Remove collar
 
 [Action 8844]
+.must -28               ' Something on neck
 Go ahead and remove your slave collar.
 .pause Ready, Miss
-.mustnot 28             ' Something on neck
 .range 9700
 
 [Action 8845]
-.must 28                ' Something on neck
+.mustnot -28            ' Something on neck
 .range 9700
 
 
 ' Remove clothes pegs
 
 [Action 8848]
+.must -20             ' Something on nipples
 Go ahead and remove the clothes pegs.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
 .range 9700
 
 [Action 8849]
-.must 20                ' Something on nipples
+.mustnot -20            ' Something on nipples
 .range 9700
 
 
 ' Remove clothes pegs
 
 [Action 8852]
+.must -20             ' Something on nipples
 You may remove them now. 
 .pause Thank you, Miss
 .range 9700
 
 [Action 8853]
-.must 20                ' Something on nipples
+.mustnot -20            ' Something on nipples
 .range 9700
 
 
 ' Remove collar, leash and return book
 
 [Action 8856]
+.must -28               ' Something on neck
 Go ahead, return the book and remove your slave collar.
 .pause All done, Miss
-.mustnot 28             ' Something on neck
 .range 9700
 
 [Action 8857]
+.mustnot -28            ' Something on neck
 Go ahead, return the book and detach the leash.
 .pause All done, Miss
-.must 28                ' Something on neck
 .range 9700
 
 
 ' Remove wrist restraints and dildo or buttplug, dildo preferred
 
 [Action 8860]
+.must -26               ' Wrists tied
+.mustnot 388
 Go ahead and remove the butt plug and your wrist restraints,
 clean up, and sit back down for the rest of the session.
 .pause All removed and cleaned up, Miss
-.mustnot 26             ' Wrists tied
-.mustnot 388
 .range 9700
 
 [Action 8861]
+.must -26               ' Wrists tied
+.must 388               ' Dildo
 Go ahead and remove the dildo and your wrist restraints,
 clean up, and sit back down for the rest of the session.
 .pause All removed and cleaned up, Miss
-.mustnot 26             ' Wrists tied
-.must 388               ' Dildo
 .range 9700
 
 [Action 8862]
+.mustnot -26            ' Wrists tied
+.mustnot 388
 Go ahead and remove the butt plug, clean up,
 and sit back down for the rest of the session.
 .pause All done, Miss
-.must 26                ' Wrists tied
-.mustnot 388
 .range 9700
 
 [Action 8863]
+.mustnot -26            ' Wrists tied
+.must 388               ' Dildo
 Go ahead and remove the dildo, clean up,
 and sit back down for the rest of the session.
 .pause All done, Miss
-.must 26                ' Wrists tied
-.must 388               ' Dildo
 .range 9700
 
 '[action 8879]
@@ -10356,646 +10572,646 @@ and sit back down for the rest of the session.
 ' Remove crotch rope, nipple clamps and collar
 
 [Action 8880]
+.must -20               ' Something on nipples
+.must -28               ' collared
 Remove your crotch rope first, then your collar and nipple clamps.
 .pause All removed, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8881]
+.mustnot -20            ' Something on nipples
+.must -28               ' collared
 Remove your crotch rope first, then your collar.
 .pause All done, Miss
-.must 20                ' Something on nipples
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8882]
+.must -20               ' Something on nipples
+.mustnot -28            ' collared
 Remove your crotch rope first, then your nipple clamps.
 .pause Ready, Miss
-.mustnot 20             ' Something on nipples
-.must 28                ' collared
 .range 9700
 
 [Action 8883]
+.mustnot -20            ' Something on nipples
+.mustnot -28            ' collared
 You may remove the crotch rope, slave.
 .pause Finished, Miss
-.must 20                ' Something on nipples
-.must 28                ' collared
 .range 9700
 
 
 ' Remove clothes pegs and collar
 
 [Action 8900]
+.must -20               ' Something on nipples
+.must -28               ' collared
 You may remove your collar and the clothes pegs now.
 .pause All removed, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8901]
+.mustnot -20            ' Something on nipples
+.must -28               ' collared
 You may remove your your collar now.
 .pause Ready, Miss
-.must 20                ' Something on nipples
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8902]
+.must -20               ' Something on nipples
+.mustnot -28            ' collared
 You may remove the clothes pegs now.
 .pause They're off, Miss
-.mustnot 20             ' Something on nipples
-.must 28                ' collared
 .range 9700
 
+.mustnot -20            ' Something on nipples
+.mustnot -28            ' collared
 [Action 8903]
-.must 20                ' Something on nipples
-.must 28                ' collared
 .range 9700
 
 
 ' Remove clothes pegs, gag, collar, leash, cuffs
 
 [Action 8920]
+.must -22               ' Something in mouth
+.must -28               ' collared
 You may remove the handcuffs, collar, gag, and nipple clips, in that order.
 .pause All removed, Miss
-.mustnot 22             ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8921]
+.mustnot -22            ' Something in mouth
+.must -28               ' collared
 You may remove the handcuffs, collar, and nipple clips, in that order.
 .pause All removed, Miss
-.must 22                ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8922]
+.must -22               ' Something in mouth
+.mustnot -28            ' collared
 You may remove the handcuffs, leash, gag, and nipple clips, in that order.
 .pause Finished, Miss
-.mustnot 22             ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 [Action 8923]
+.mustnot -22            ' Something in mouth
+.mustnot -28            ' collared
 You may remove the handcuffs, leash, and nipple clips, in that order.
 .pause Finished, Miss
-.must 22                ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 
 ' Remove nipple clamps, weight, cuffs, towel or rug
 
 [Action 8940]
+.must -20               ' Something on nipples
+.must -26               ' Wrists tied
 Untie yourself, and put the rug or towel away.
 When you're finished, you may remove your nipple clamps.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 8941]
+.must -20               ' Something on nipples
+.mustnot -26            ' Wrists tied
 Put the rug or towel away.
 When you're finished, you may remove your nipple clamps.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.must 26                ' Wrists tied
 .range 9700
 
 [Action 8942]
+.mustnot -20            ' Something on nipples
+.must -26               ' Wrists tied
 Untie yourself, and put the rug or towel away.
 When you're finished, you may remove the weight from your nipple clamps.
 .pause All done, Miss
-.must 20                ' Something on nipples
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 8943]
+.mustnot -20            ' Something on nipples
+.mustnot -26            ' Wrists tied
 Put the rug or towel away.
 When you're finished, you may remove the weight from your nipple clamps.
 .pause All done, Miss
-.must 20                ' Something on nipples
-.must 26                ' Wrists tied
 .range 9700
 
 
 ' Remove nipple clamps, weight, gag, collar
 
 [Action 8960]
+.must -20               ' Something on nipples
+.must -22               ' Something in mouth
+.must -28               ' collared
 You can put your gag and collar away now, and remove your nipple clamps.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 22             ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8961]
+.must -20               ' Something on nipples
+.must -22               ' Something in mouth
+.mustnot -28            ' collared
 You can remove your gag and your nipple clamps.
 .pause All removed, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 22             ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 [Action 8962]
+.mustnot -20            ' Something on nipples
+.must -22               ' Something in mouth
+.must -28               ' collared
 You can put your gag and collar away now, and remove the weight from your clamps.
 But let's keep wearing the clamps and let me enjoy you suffering a little more.
 .pause As you wish, Miss
-.must 20                ' Something on nipples
-.mustnot 22             ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8963]
+.mustnot -20            ' Something on nipples
+.must -22               ' Something in mouth
+.mustnot -28            ' collared
 You can put your gag away now and remove thee weight,
 but you keep wearing your nipple clamps and your collar.
 .pause As you wish, Miss
-.must 20                ' Something on nipples
-.mustnot 22             ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 [Action 8964]
+.must -20               ' Something on nipples
+.mustnot -22            ' Something in mouth
+.must -28               ' collared
 You can put your collar away now, and remove your nipple clamps.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.must 22                ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8965]
+.must -20               ' Something on nipples
+.mustnot -22            ' Something in mouth
+.mustnot -28            ' collared
 You can remove your nipple clamps now.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.must 22                ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 [Action 8966]
+.mustnot -20            ' Something on nipples
+.mustnot -22            ' Something in mouth
+.must -28             ' collared
 You can put your collar away now, and remove the weight.
 But let's keep wearing the clamps an the gag, I'd like to see you suffer a little more.
 .pause As you wish, Miss
-.must 20                ' Something on nipples
-.must 22                ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8967]
+.mustnot -20            ' Something on nipples
+.must -22               ' Something in mouth
+.mustnot -28            ' collared
 You can put your gag away now, as well as the weight from your clamps.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
-.mustnot 22             ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 
 ' Also remove collar, wrist and ankle restraints, nipple clamps
 
 [Action 8980]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Also remove your collar, wrist and ankle restraints,
 as well as your nipple clamps, in that order.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8981]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Also remove your collar, wrist and ankle restraints.
 .pause All done, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8982]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Also remove your collar, your wrist restraints,
 as well as your nipple clamps, in that order.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8983]
+.mustnot -20               ' Something on nipples
+.mustnot -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Also remove your collar and your wrist restraints.
 .pause All done, Miss
-.must 20               ' Something on nipples
-.must 25               ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8984]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 Also remove your collar, your ankle restraints,
 as well as your nipple clamps, in that order.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8985]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 Also remove your collar and your ankle restraints.
 .pause All done, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8986]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28             ' collared
 Also remove your collar, and your nipple clamps, in that order.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8987]
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28             ' collared
 Also remove your collar.
 .pause Done, Miss
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 8988]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Also remove your wrist and ankle restraints,
 as well as your nipple clamps, in that order.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8989]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Also remove your wrist and ankle restraints.
 .pause Finished, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8990]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Also remove your wrist restraints, and your nipple clamps, in that order.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8991]
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Also remove your wrist restraints.
 .pause Done, Miss
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8992]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 Also remove your ankle restraints, and your nipple clamps, in that order.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8993]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 Also remove your ankle restraints.
 .pause Done, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8994]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 Also remove your nipple clamps.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 8995]
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 .range 9700
 
 
 ' Remove gag and collar
 
 [Action 9000]
+.must -22               ' Something in mouth
+.must -28               ' collared
 You may remove your gag and your collar.
 .pause Done, Miss
-.mustnot 22             ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9001]
+.mustnot -22            ' Something in mouth
+.must -28               ' collared
 You may remove your your collar.
 .pause Thank you, Miss
-.must 22                ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9002]
+.must -22               ' Something in mouth
+.mustnot -28            ' collared
 You may remove the gag.
 .pause Thank you, Miss
-.mustnot 22             ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 [Action 9003]
-.must 22                ' Something in mouth
-.must 28                ' collared
+.mustnot -22            ' Something in mouth
+.mustnot -28            ' collared
 .range 9700
 
 
 ' Remove nipple clamps, gag, collar
 
 [Action 9020]
+.must -20               ' Something on nipples
+.must -22               ' Something in mouth
+.must -28               ' collared
 You can put your gag and collar away now, and remove your nipple clamps.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 22             ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9021]
+.must -20               ' Something on nipples
+.must -22               ' Something in mouth
+.mustnot -28            ' collared
 You can remove your gag and your nipple clamps.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 22             ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 [Action 9022]
+.mustnot -20            ' Something on nipples
+.must -22               ' Something in mouth
+.must -28               ' collared
 You can put your gag and collar away now.
 But let's keep wearing the nipple clamps and let me enjoy you suffering a little more.
 .pause As you wish, Miss
-.must 20                ' Something on nipples
-.mustnot 22             ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9023]
+.mustnot -20            ' Something on nipples
+.must -22               ' Something in mouth
+.mustnot -28            ' collared
 You can put your gag away now, but you keep
 wearing your nipple clamps and your collar.
 .pause As you wish, Miss
-.must 20                ' Something on nipples
-.mustnot 22             ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 [Action 9024]
+.must -20               ' Something on nipples
+.mustnot -22            ' Something in mouth
+.must -28               ' collared
 You can put your collar away now, and remove your nipple clamps.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.must 22                ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9025]
+.must -20               ' Something on nipples
+.mustnot -22            ' Something in mouth
+.mustnot -28            ' collared
 You can remove your nipple clamps now.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.must 22                ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 [Action 9026]
+.mustnot -20            ' Something on nipples
+.mustnot -22            ' Something in mouth
+.must -28               ' collared
 You can put your collar away now.
 But let's keep wearing the clamps an the gag, I'd like to see you suffer a little more.
 .pause As you wish, Miss
-.must 20                ' Something on nipples
-.must 22                ' Something in mouth
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9027]
+.mustnot -20            ' Something on nipples
+.must -22               ' Something in mouth
+.mustnot -28            ' collared
 You can put your gag away now.
-.must 20                ' Something on nipples
-.mustnot 22             ' Something in mouth
-.must 28                ' collared
 .range 9700
 
 
 ' Go ahead and remove wrist & ankle restraints, collar, leash, nipple and pussy clamps
 
 [Action 9040]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Go ahead and remove your collar, wrist and ankle restraints,
 as well as your nipple and pussy clamps, in that order.
 .pause Thank you very much, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9041]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Go ahead and remove your collar, wrist and ankle
 cuffs, as well as your pussy clamps, in that order.
 .pause Thank you very much, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9042]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Go ahead and remove your collar, your wrist restraints,
 as well as your nipple and pussy clamps, in that order.
 .pause Thank you very much, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9043]
+.mustnot -20               ' Something on nipples
+.mustnot -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Go ahead and remove your collar and wrist cuffs,
 as well as your pussy clamps, in that order.
 .pause All done, Miss
-.must 20               ' Something on nipples
-.must 25               ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9044]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 Go ahead and remove your collar, your ankle restraints,
 as well as your nipple and pussy clamps, in that order.
 .pause Thank you very much, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9045]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 Go ahead and remove your collar and your ankle cuffs,
 as well as your pussy clamps, in that order.
 .pause Thank you very much, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9046]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 Go ahead and remove your collar,
 and your nipple and pussy clamps, in that order.
 .pause Thank you very much, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9047]
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 Go ahead and remove your collar and your pussy clamps.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9048]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Go ahead and remove your wrist and ankle restraints,
 as well as your nipple and pussy clamps, in that order.
 .pause Thank you very much, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 9049]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Go ahead and remove your wrist and ankle cuffs,
 as well as your pussy clamps, in that order.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 9050]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Go ahead and remove your wrist restraints,
 as well as your nipple and pussy clamps, in that order.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 9051]
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Go ahead and remove your wrist restraints and your pussy clamps.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 9052]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 Go ahead and remove your ankle restraints,
 and your nipple and pussy clamps, in that order.
 .pause Thank you very much, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 9053]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 Go ahead and remove your ankle cuffs and your pussy clamps.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 9054]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 Go ahead and remove your nipple and pussy clamps.
 .pause Thank you very much, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 [Action 9055]
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 Go ahead and remove your pussy clamps.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
 .range 9700
 
 
 ' Remove pussy and nipple clamps, heels
 
 [Action 9060]
+.must -20               ' Something on nipples
 You may take off your heels and remove all the clamps.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
 .range 9700
 
 [Action 9061]
+.mustnot -20            ' Something on nipples
 You may take off your heels and remove the pussy clamps.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
 .range 9700
 
 
 ' Remove collar and leash 
 
 [Action 9068]
+.must -28               ' Something on neck
 Go ahead, detach the leash and remove your slave collar.
 .pause Done, Miss
-.mustnot 28             ' Something on neck
 .range 9700
 
 [Action 9069]
+.mustnot -28            ' Something on neck
 Go ahead and detach the leash.
 .pause Done, Miss
-.must 28                ' Something on neck
 .range 9700
 
 
 ' Remove collar and return book
 
 [Action 9072]
+.must -28               ' Something on neck
 Go ahead, return the book and remove your slave collar.
 .pause All done, Miss
-.mustnot 28             ' Something on neck
 .range 9700
 
 [Action 9073]
+.mustnot -28            ' Something on neck
 Go ahead and return the book.
 .pause I've put it back in the shelf, Miss
-.must 28                ' Something on neck
 .range 9700
 
 
@@ -11015,295 +11231,298 @@ Go ahead and remove the blindfold.
 ' Remove nipple clamps and collar, leash
 
 [Action 9080]
+.must -20               ' Something on nipples
+.must -28               ' collared
 Remove your collar and take off the nipple clamps.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9081]
+.mustnot -20            ' Something on nipples
+.must -28               ' collared
 You may remove your collar, slave.
 .pause Done, Miss
-.must 20                ' Something on nipples
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9082]
+.must -20               ' Something on nipples
+.mustnot -28            ' collared
 You may detach the leash and remove your nipple clamps.
 .pause Done, Miss
-.mustnot 20             ' Something on nipples
-.must 28                ' collared
 .range 9700
 
 [Action 9083]
+.mustnot -20            ' Something on nipples
+.mustnot -28            ' collared
 You may detach the leash, slave.
 .pause Done, Miss
-.must 20                ' Something on nipples
-.must 28                ' collared
 .range 9700
 
 
 ' Remove clamps and wrist restraints, consider ankle restraints
 
 [Action 9084]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
 Remove your the restraints and the clamps.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 9085]
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
 You may remove the restraints, slave.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 9086]
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
 You may remove the clamps, slave.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
 .range 9700
 
 [Action 9087]
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+Remove your wrist restraints, slave.
+.pause Thank you, Miss
 .range 9700
 
 [Action 9088]
-Remove your the wrist restraints and take off the clamps.
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+Remove your wrist restraints and take off the clamps.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 9089]
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
 You may remove the restraints, slave.
 .pause Thank you, Miss
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
 .range 9700
 
 [Action 9090]
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
 You may remove the clamps.
 .pause Thank you, Miss
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
 .range 9700
 
 [Action 9091]
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
 .range 9700
 
 
 ' Remove nipple clamps and collar
 
 [Action 9092]
+.must -20               ' Something on nipples
+.must -28               ' collared
 Remove your collar and take off the nipple clamps.
 .pause All done, Miss
-.mustnot 20             ' Something on nipples
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9093]
+.mustnot -20            ' Something on nipples
+.must -28               ' collared
 You may remove your collar, slave.
 .pause Done, Miss
-.must 20                ' Something on nipples
-.mustnot 28             ' collared
 .range 9700
 
 [Action 9094]
+.must -20               ' Something on nipples
+.mustnot -28            ' collared
 You may remove your nipple clamps.
 .pause Done, Miss
-.mustnot 20             ' Something on nipples
-.must 28                ' collared
 .range 9700
 
 [Action 9095]
-.must 20                ' Something on nipples
-.must 28                ' collared
+.mustnot -20            ' Something on nipples
+.mustnot -28            ' collared
 .range 9700
 
 
 ' Remove nipple clamps, collar and wrist restraints, consider ankle restraints
 
 [Action 9100]
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Remove the collar, the restraints and the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9101]
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 You may remove the restraints and the collar, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9102]
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 You may remove the clamps and the collar, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9103]
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 You may remove the collar, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9104]
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Remove your the restraints and take off the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9105]
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 You may remove the restraints, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9106]
-.mustnot 20             ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
+.must -20               ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 You may remove the clamps, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9107]
-.must 20                ' Something on nipples
-.mustnot 25             ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
+.mustnot -20            ' Something on nipples
+.must -25               ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
+You may remove the wrist restraints, slave.
 .range 9700
 
 [Action 9108]
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 Remove the collar, the wrist restraints and the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9109]
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 You may remove the wrist restraints and the collar, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9110]
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 You may remove the clamps and the collar, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9111]
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 You may remove the collar, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9112]
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 Remove your the wrist restraints and take off the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9113]
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 You may remove the wrist restraints, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9114]
-.mustnot 20             ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
+.must -20               ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 You may remove the clamps, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9115]
-.must 20                ' Something on nipples
-.must 25                ' Ankles tied
-.must 26                ' Wrists tied
-.must 28                ' collared
+.mustnot -20            ' Something on nipples
+.mustnot -25            ' Ankles tied
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 .range 9700
 
 
-' Remove nipple clamps and collar, pussy clamps 
+' Remove nipple clamps and collar, also pussy clamps 
 
 [Action 9116]
-.mustnot 20             ' Something on nipples
-.mustnot 28             ' collared
+.must -20               ' Something on nipples
+.must -28               ' collared
 Okay slave, you may take off all the clamps and remove your collar.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9117]
-.must 20                ' Something on nipples
-.mustnot 28             ' collared
+.mustnot -20            ' Something on nipples
+.must -28               ' collared
 Okay slave, you may take off the pussy clamps and remove your collar, slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9118]
-.mustnot 20             ' Something on nipples
-.must 28                ' collared
+.must -20               ' Something on nipples
+.mustnot -28            ' collared
 Okay slave, you may take off all the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9119]
-.must 20                ' Something on nipples
-.must 28                ' collared
+.mustnot -20            ' Something on nipples
+.mustnot -28            ' collared
 Okay slave, you may take off the pussy clamps.
 .pause Thank you, Miss
 .range 9700
@@ -11312,45 +11531,45 @@ Okay slave, you may take off the pussy clamps.
 ' Remove wrist restraints and collar, also gag, nipple and pussy clamps
 
 [Action 9120]
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
+.must -26               ' Wrists tied
+.must -28               ' collared
 You may remove your wrist restraints and your collar, your gag and the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9121]
-.must 26                ' Wrists tied
-.mustnot 28             ' collared
+.mustnot -26            ' Wrists tied
+.must -28               ' collared
 You may remove your your collar, the gag, and the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9122]
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 You may remove your wrist restraints, the gag, and the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9123]
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.mustnot 28             ' collared
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.must -28               ' collared
 You may remove your collar, the restraints, the gag, and the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9124]
-.mustnot 25             ' Ankles tied
-.mustnot 26             ' Wrists tied
-.must 28                ' collared
+.must -25               ' Ankles tied
+.must -26               ' Wrists tied
+.mustnot -28            ' collared
 You may remove the restraints, the gag, and the clamps.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9125]
-.must 26                ' Wrists tied
-.must 28                ' collared
+.mustnot -26            ' Wrists tied
+.mustnot -28            ' collared
 You may remove the the gag and the clamps.
 .pause Thank you, Miss
 .range 9700
@@ -11362,13 +11581,13 @@ You may remove the the gag and the clamps.
 ' Remove nipple clamps, also pussy clamps 
 
 [Action 9128]
-.mustnot 20             ' Something on nipples
+.must -20             ' Something on nipples
 Okay slave, you may take the clamps off.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9129]
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 Okay slave, you may take off the pussy clamps, slave.
 .pause Thank you, Miss
 .range 9700
@@ -11377,13 +11596,13 @@ Okay slave, you may take off the pussy clamps, slave.
 ' Remove clothes pegs from nipples, also remove clothes pegs from pussy
 
 [Action 9130]
-.mustnot 20             ' Something on nipples
-Go ahead and remove the clothes pegs, my dear pain slave.
+.must -20             ' Something on nipples
+Go ahead and remove all the clothes pegs, my dear pain slave.
 .pause Thank you, Miss
 .range 9700
 
 [Action 9131]
-.must 20                ' Something on nipples
+.mustnot -20                ' Something on nipples
 Go ahead and remove the clothes pegs from your slutty ball sack, my dear pain slave.
 .pause Thank you, Miss
 .range 9700
