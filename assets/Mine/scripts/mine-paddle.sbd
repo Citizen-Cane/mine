@@ -667,6 +667,7 @@ Give that red butt a good rubdown now.
 ' Gag requested, doesn't have one
 [Action 1587]
 .must 157               ' Gagged in shower
+.mustnot 22             ' something in mouth
 .mustnot 340            ' Have gag
 .unset 157              ' No gag
 .range 1590
@@ -886,10 +887,11 @@ You'll wear those in the shower, too.
 .range 1638 1640
 
 [Action 1637]
+.must 157               ' Gagged in shower
 You will wear your gag in the shower.
 I don't want to hear any more complaints from your filthy mouth, so put it in now.
 .pause I'm gagged, Miss
-.must 157               ' Gagged in shower
+.set -22 22                  ' something in mouth
 .range 1638 1640
 
 
@@ -1153,8 +1155,12 @@ Put your hands on your head and cross your ankles while you're over there.
 Okay, slave, that's enough.
 You can take off any punishment items you have on.
 Did you learn your lesson?
-I hope so, slut.
 .pause Yes Miss, I've learned my lesson
+.ifset -22 .unset -22 22
+.range 1677
+
+[Action 1677]
+I hope so, slut!
 .range 1699
 
 
