@@ -333,15 +333,17 @@
 '
 '   47  -   Vibrator or E-EStim device attached
 
-' 97 - position successful
-
-' multiple positions
-' 98 - decision to do another position - cleared or set in 1811-1812, to keep wearing add-ons between poses
+' multiple position management
 ' continueable but just one of each kind (for more variety): book, shoe, tray/glass
 ' 91 - book
 ' 92 - shoe
 ' 93 - tray/glass
 ' not continueable because not tracked across multiple positions: leash, rope
+' 96 - position is not continueable (leash, rope)
+
+' 97 - position successful
+' 98 - decision to do another position - cleared or set in 1811-1812, to keep wearing add-ons between positions,
+'      valid throughout the second position, unset after finishing second position
 
 ' local slave state
 ' -20 something on nipples, with 42 clothes pegs
@@ -479,8 +481,8 @@
 .menu 14   995  995 Select hard positon
 .menu 15   996  996 Select extreme positon
 .menu 16   997  997 Regular training session, "Do another"
-.menu 16  9399 9399 Generic toy removal
-.menu 17  1000 1000 Exit
+.menu 17  9399 9399 Generic toy removal
+.menu 18   989  989 Exit
 
 
 ' .menu and .popup accept values from 1-99 only (otherwise PCM crashes)
@@ -553,10 +555,14 @@
 .menu 653 1653 1653 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
 
 
+[Action 989]
+.noimage
+.quit
+
 [Action 990]
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
-.unset 990
+.resetrange 990 997
 .set 121                ' Debug, quit afterwards
 .set 130                ' comment holding position
 .unset 131 132          ' Don't comment dildo sucking, shoe licking 
@@ -604,9 +610,9 @@
 
 ' test repeat position
 [Action 997]
-.unset 997
 .set 1811               ' disable single position 
-.range 1000
+.set 100 112            ' Short, hard
+.range 1219             ' select position
 
 
 ' One-time init from Mine.sbd to create save state file
@@ -1095,9 +1101,9 @@ Let's continue your slave training.
 .mustnot 22             ' something in mouth
 .mustnot 32             ' can't stand
 .mustnot 91             ' position with book already done
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 179            ' Not for punishments, to avoid not having items
 .mustnot 4050 4051      ' just once
+.set 96                 ' position is not continueable
 .set 182                ' Demanding
 .range 4050 4051
 
@@ -1107,10 +1113,10 @@ Let's continue your slave training.
 .mustnot 22             ' something in mouth
 .mustnot 24             ' something on balls
 .mustnot 32             ' Can't stand
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 179            ' Not for punishments, to avoid not having items
 .must 410               ' Lecture mentions "another", so another positionn has to be completed before
 .mustnot 4060 4061      ' just once
+.set 96                 ' position is not continueable
 .set 180                ' Comfortable
 .range 4060 4061
 
@@ -1128,8 +1134,8 @@ Let's continue your slave training.
 [Action 1408]
 .mustnot 20             ' something on nipples
 .mustnot 22             ' something in mouth
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 4080 4081 4082 ' just once
+.set 96                 ' position is not continueable
 .set 181                ' Convenient
 .range 4080 4082
 
@@ -1226,8 +1232,8 @@ Let's continue your slave training.
 .mustnot 20             ' something on nipples
 .mustnot 22             ' something in mouth
 .mustnot 33             ' Can't kneel
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 4190           ' just once
+.set 96                 ' position is not continueable
 .set 181                ' convenient
 .range 4190
 
@@ -1319,8 +1325,8 @@ Let's continue your slave training.
 [Action 1508]
 .mustnot 33             ' Can't kneel
 .mustnot 43             ' Nipple clamps on nipples
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 5080 5081 5082 5083 ' just once
+.set 96                 ' position is not continueable
 .set 181                ' Convenient
 .range 5080 5083
 
@@ -1328,8 +1334,8 @@ Let's continue your slave training.
 [Action 1509]
 .mustnot 33             ' Can't kneel
 .mustnot 43             ' Nipple clamps on nipples
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 5090 5091 5092 5093 ' just once
+.set 96                 ' position is not continueable
 .set 182                ' Demanding
 .range 5090 5093
 
@@ -1337,8 +1343,8 @@ Let's continue your slave training.
 [Action 1510]
 .mustnot 33             ' Can't kneel
 .mustnot 43             ' Nipple clamps on nipples
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 5100 5101 5102 5103 ' just once
+.set 96                 ' position is not continueable
 .set 181                ' Convenient
 .range 5100 5103
 
@@ -1440,6 +1446,7 @@ Let's continue your slave training.
 .mustnot 32             ' can't stand
 .mustnot 36             ' harnessed
 .mustnot 5750           ' just once
+.set 96                 ' position is not continueable
 .set 180                ' Comfortable
 .range 5750
 
@@ -1451,6 +1458,7 @@ Let's continue your slave training.
 .mustnot 36             ' harnessed
 .must 575               ' Crotch rope referenced  "as usual" -> do 575 first
 .mustnot 5760           ' just once
+.set 96                 ' position is not continueable
 .set 181                ' Convenient
 .range 5760
 
@@ -1459,8 +1467,8 @@ Let's continue your slave training.
 .mustnot 20             ' 2 pegs per nipple are used in this position
 .mustnot 26             ' Wrists tied, as hands are hold on back
 .mustnot 32             ' can't stand
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 5770           ' just once
+.set 96                 ' position is not continueable
 .set 180                ' Comfortable
 .range 5770
 
@@ -1689,11 +1697,11 @@ Let's continue your slave training.
 .mustnot 24             ' something on balls
 .mustnot 25 26          ' Ankles tied, wrists tied
 .mustnot 42             ' Clothes pegs on nipples
-.mustnot 98             ' another position, requires generic toy removal
 .mustnot 6530 6531 6532 6533 ' just once
-.set 183                ' Challenging
+.set 96                 ' position is not continueable
 .unset 130              ' Comment holding position
 .set 131                ' Comment dildo sucking
+.set 183                ' Challenging
 .range 6530 6533
 
 
@@ -2066,6 +2074,18 @@ Let's continue your slave training.
 ' Loop start
 
 [Action 1790]
+.range 1791 1792
+
+' release
+[Action 1791]
+.else
+.range 1800
+
+' test multiple positions 
+[Action 1792]
+.must 997
+.set 190 191 192 193 194 195 196 197 198 199
+.set 1801 1802 1803 1804 1805 1806 1807 1808 1809
 .range 1800
 
 
@@ -2077,7 +2097,7 @@ Let's continue your slave training.
 
 
 [Action 1801]
-.mustnot     191 192 193 194 195 196 197 198 199
+.mustnot 190 191 192 193 194 195 196 197 198 199
 .set 190
 .range 1819 
 
@@ -2145,6 +2165,7 @@ Let's continue your slave training.
 ' finished posture, do another
 [Action 1812]
 .must 1810
+.mustnot 96             ' position is not continueable
 .mustnot 99             ' already done another
 .mustnot 102            ' avoid long duration
 .mustnot 103            ' avoid very long duration
@@ -11960,7 +11981,9 @@ Go ahead and remove the clothes pegs from your slutty ball sack, my dear pain sl
 .set 100
 .range 9400
 
-
+' TODO change all continueable positions to not take off toys
+'      goto 9700 instead, 9400 generic removal i called from there and cleans everything up
+'      9400 is a noop if there are no temporary toys 
 [Action 9400]
 .range 9401 9408
 
@@ -11998,7 +12021,7 @@ Go ahead and remove the clothes pegs from your slutty ball sack, my dear pain sl
 
 ' all done, complete session
 [Action 9409]
-.range 9700
+.return
 
 
 ' no clamps
@@ -12330,6 +12353,7 @@ Remove your gag, slave.
 That's enough for now.
 .mustnot 98             ' decision to do another position
 .mustnot 179            ' punishment flag
+.gosub 9400             ' generic toy removal - none if toys have been removed already
 .range 9800 9801        ' advancement attempt
 
 ' Another one?
