@@ -610,8 +610,10 @@
 
 ' test repeat position
 [Action 997]
-'.set 1811               ' disable single position 
-.set 100 112            ' Short, hard
+'.set 100 110            ' Short, easy
+.set 100 111            ' Short, moderate
+'.set 100 112            ' Short, hard
+'.set 100 113            ' Short, extreme
 .range 1219             ' select position
 
 
@@ -6692,7 +6694,7 @@ Keep your head up!
 Now we have a fairly basic position which we will spice
 up a little with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps.
-You do have these items, don't you, slave?
+You do have nipple clamps, don't you, slave?
 .mustnot 20             ' Something on nipples
 .yesno 5164 5164 7796 7796
 
@@ -6709,7 +6711,7 @@ enduring some light nipple torture.
 
 [Action 5165]
 .must 5160
-Go ahead and pop those nipple clamps on your nipples, slave.
+Go ahead and pop the clamps on your nipples, slave.
 .image bd028_18.jpg
 .delay 20
 .set -20 20 43               ' something on nipples, nipple clamps
@@ -10328,14 +10330,14 @@ You may return the tray and glass to their appropriate places.
 
 ' 516 standing, nipple clamps, hands behind head, legs 2x, heels
 [Action 8516]
-.must 1518
-.set 518
+.must 1516
+.set 516
 .range 9700             ' do another position or generic toy removal
 
 ' 517 standing, nipple clamps, hands folded behind back, legs 2x, heels
 [Action 8517]
-.must 1518
-.set 518
+.must 1517
+.set 517
 .range 9700             ' do another position or generic toy removal
 
 ' 518 standing, nipple clamps, collar, wrist restraints, legs wide, heels, hands behind butt, elbows out
@@ -12857,7 +12859,7 @@ You may remove both the clamps and the pegs now.
 [Action 9565]
 .must -20 43            ' something on nipples, nipple clamps
 .mustnot -24            ' something on balls/pussy, pussy clamps 
-You may remove  your nipple clamps now.
+You may remove your nipple clamps now.
 .pause Thank you, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
 .return
