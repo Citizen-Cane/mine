@@ -49,13 +49,13 @@ public class Mine extends Player {
         try {
             recordVoices(basePath, AssetRoot, MineMistress, Assets, "Mine");
         } catch (ParseError e) {
-            TeaseLib.log(argv, e);
+            TeaseLib.instance().log.error(argv, e);
         } catch (ValidationError e) {
-            TeaseLib.log(argv, e);
+            TeaseLib.instance().log.error(argv, e);
         } catch (IOException e) {
-            TeaseLib.log(argv, e);
+            TeaseLib.instance().log.error(argv, e);
         } catch (Throwable t) {
-            TeaseLib.log(argv, t);
+            TeaseLib.instance().log.error(argv, t);
         }
         System.exit(0);
     }
@@ -92,7 +92,7 @@ public class Mine extends Player {
                         }
                     }
                 } catch (Throwable t) {
-                    TeaseLib.log(this, t);
+                    teaseLib.log.error(this, t);
                 } finally {
                     debugReader.close();
                 }
