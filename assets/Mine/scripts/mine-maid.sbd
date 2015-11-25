@@ -1460,7 +1460,6 @@ Let's continue your slave training.
 ' 508 2pt sit on knees, hands on knees, knees wide, nipple clamps, collar, leash
 [Action 1508]
 .shouldnot 22           ' something in mouth
-.mustnot 22             ' something in mouth
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' wrists tied
 .mustnot 33             ' Can't kneel
@@ -1605,6 +1604,7 @@ Let's continue your slave training.
 .mustnot 42             ' Clothes pegs on nipples
 .shouldnot 518          ' prefer a position that hasn't been done before
 .mustnot 5180 5181 5182 5183 ' just once
+.set 96                 ' position is not continueable, as hands are tied on back
 .set 181                ' Convenient
 .range 5180 5183
 
@@ -1619,7 +1619,7 @@ Let's continue your slave training.
 .mustnot 43             ' Nipple clamps on nipples
 .shouldnot 519          ' prefer a position that hasn't been done before
 .mustnot 5190 5191      ' just once
-.set 96                 ' position is not continueable, because mor than two pegs are added on tits/ballsack/pussy
+.set 96                 ' position is not continueable, because more than two pegs are added on tits/ballsack/pussy
 .set 181                ' Convenient
 .range 5190 5191
 
@@ -7124,7 +7124,6 @@ You do have wrist restraints, don't you, slave?
 
 
 [Action 5184]
-.must 5180
 bd028_31.jpg
 Go ahead, pop those clamps on your nipples and put on your collar, slave.
 .pause All done, Miss
@@ -7133,7 +7132,6 @@ Go ahead, pop those clamps on your nipples and put on your collar, slave.
 .range 5187
 
 [Action 5185]
-.must 5181
 bd028_31.jpg
 Go ahead and put on your collar, slave.
 .pause I'm collared, Miss
@@ -7141,7 +7139,6 @@ Go ahead and put on your collar, slave.
 .range 5187
 
 [Action 5186]
-.must 5182
 bd028_39.jpg
 Go ahead and pop those clamps on your nipples, slave.
 .pause Done, Miss
@@ -7150,7 +7147,7 @@ Go ahead and pop those clamps on your nipples, slave.
 
 
 [Action 5187]
-.must 5183
+.gosub 1820
 .range 5188
 
 
