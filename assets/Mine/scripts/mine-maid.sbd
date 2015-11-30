@@ -160,7 +160,6 @@
 
 ' List of poses used in the script
 
-' TODO Find more naked poses on the net or in bd*
 ' easy (36): Naked, wrist and ankle restraints, collar, blindfold
 '
 ' 400 1400 jessienude3.jpg 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
@@ -176,10 +175,10 @@
 ' 410 1410 position_sitting_on_heels_legs_spread_hands_on_thighs_palms_up.jpg   Sitting on heels 2pt, legs spread, hands on thighs, palms up
 ' 411 bd064_12.jpg   standing, legs together, hands behind butt, tiptoes (bd064_13.jpg, bd064_09.jpg)
 ' 412 bd064_16.jpg   hands and knees, legs together, hands palms down 1x, head up, ass up & back arched
-' 413 bd031_20.jpg   2pt kneel, knees together, hands behind head ' TODO Better images
+' 413 bd031_20.jpg   2pt kneel, knees together, hands behind head
 ' 414 bd066_49.jpg   crouch on toes, knees wide, hands on knees, heels, wristlets, collar (bd066_50.jpg, bd066_51.jpg)
 ' 415 bd066_41.jpg   4pt kneel, 2x knees, ankles together, arms folded behind back, heels collar (bd066_42.jpg)
-	' 416 bd048_52.jpg   2pt kneel, heels, wristlets, knees 1x, presenting the crop in hands palms up ' TODO Better images
+	' 416 bd048_52.jpg   2pt kneel, heels, wristlets, knees 1x, presenting the crop in hands palms up
 	' 417 bd037_23.jpg   2pt sitting on heels, knuckles on ground in front, ank/wrst/collar/heels, knees wide
 	' 418 bd037_16.jpg   kneeling prostrate, wristlets, collar, heels, hands forward and crossed, head down
 	' 419 bd023_24.jpg   5pt kneel-over, ass up, face to side, heels, ankles tied to wrists, collar
@@ -248,8 +247,6 @@
 
 ' pms-s2364.jpg  kneel on chair, hands on floor, bent over, head up, ass presented, heels
 
-
-' TODO selected hard position with cloths pegs on pussy or ball sack,
 '      to be used as a preparation for real pussy clamps, or as a punishment in hard level
  
 		' bd068_27.jpg   2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips (bd068_29.jpg)
@@ -360,12 +357,11 @@
 ' Solution: Set such state globally, so the main script can handle it
 ' But for now, avoid such combinations
 
-' TODO inconsistent toy handling
-' - some position allow toys not mentioned in the positions
-' - others disallow toys that are not visible in the corresponding instructional images
-' -> easy and moderate levels have to be as flexible as possible to avoid AllActionsSet
-' -> implement should and shouldn't
-
+' when adding a new position:
+' - sort out non-matching toy setups by using ".shouldnot x" on any toy not displayed in the instructional images
+'   -> such toys are avoided, but still used if there wouldn't be a position available otherwise
+' - avoid toys that are handled statically in the position setup by using ".mustnot x"
+' 
 ' local slave state
 ' -20 something on nipples, with 42 clothes pegs
 ' -20 something on nipples, with 43 nipple clamps
@@ -583,7 +579,8 @@
 [Action 990]
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
-.resetrange 990 997
+.resetrange 990 997     ' debug entries
+.resetrange 1811 1818   ' complete position
 .set 121                ' Debug, quit afterwards
 .set 130                ' comment holding position
 .unset 131 132          ' Don't comment dildo sucking, shoe licking 
@@ -632,8 +629,8 @@
 ' test repeat position
 [Action 997]
 '.set 100 110            ' Short, easy
-.set 100 111            ' Short, moderate
-'.set 100 112            ' Short, hard
+'.set 100 111            ' Short, moderate
+.set 100 112            ' Short, hard
 '.set 100 113            ' Short, extreme
 .range 1219             ' select position
 
@@ -1620,21 +1617,23 @@ Let's continue your slave training.
 ' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
 [Action 1519]
 .shouldnot 22           ' something in mouth
-.mustnot 25             ' ankles tied
+.mustnot 24             ' something on balls
+.shouldnot 25           ' ankles tied
 .mustnot 26             ' wrists tied
-.shouldnot 28           ' collared
 .mustnot 33             ' Can't kneel
+.shouldnot 28           ' collared
 .mustnot 39             ' pussy clamps
 .mustnot 43             ' Nipple clamps on nipples
 .shouldnot 519          ' prefer a position that hasn't been done before
 .mustnot 5190 5191      ' just once
-.set 96                 ' position is not continueable, because more than two pegs are added on tits/ballsack/pussy
+.set 96                 ' position is not continueable, because more than two pegs are added on tits/ball sack/pussy
 .set 181                ' Convenient
 .range 5190 5191
 
 ' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
 [Action 1520]
 .shouldnot 22           ' something in mouth
+.mustnot 24             ' something on balls
 .mustnot 25             ' ankles tied
 .mustnot 26             ' wrists tied
 .shouldnot 28           ' collared
@@ -1643,7 +1642,7 @@ Let's continue your slave training.
 .mustnot 43             ' Nipple clamps on nipples
 .shouldnot 520          ' prefer a position that hasn't been done before
 .mustnot 5200 5201      ' just once
-.set 96                 ' position is not continueable, because mor than two pegs are added on tits/ballsack/pussy
+.set 96                 ' position is not continueable, because mor than two pegs are added on tits/ball sack/pussy
 .set 181                ' Convenient
 .range 5200 5201
 
@@ -1716,13 +1715,12 @@ Let's continue your slave training.
 .shouldnot 26           ' wrists tied
 .shouldnot 28           ' collared
 .mustnot 32             ' Can't stand
-.mustnot 39             ' pussy clamps
 .mustnot 42             ' Clothes pegs on nipples
 .mustnot 179            ' not suitable as punishment, since we decided to threat pussy clamps as a surprise
 .shouldnot 579          ' prefer a position that hasn't been done before
-.mustnot 5790 5791      ' just once
+.mustnot 5790 5791 5792 5793     ' just once
 .set 181                ' Convenient
-.range 5790 5791
+.range 5790 5793
 
 ' 580 hands on back, sitting on heels, face down licking shoe, knees 1x, heels
 [Action 1580]
@@ -1757,7 +1755,6 @@ Let's continue your slave training.
 
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
 [Action 1582]
-.mustnot 20             ' something on nipples 
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' Wrists tied, as hands are hold on back
@@ -1766,9 +1763,9 @@ Let's continue your slave training.
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .shouldnot 582          ' prefer a position that hasn't been done before
-.mustnot 5820 5821      ' just once
+.mustnot 5820 5821 5822 5823 ' just once
 .set 180                ' Comfortable
-.range 5820 5821
+.range 5820 5823
 
 ' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 1583]
@@ -1795,6 +1792,7 @@ Let's continue your slave training.
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .shouldnot 584          ' prefer a position that hasn't been done before
 .mustnot 5840 5841 5842 5843 ' just once
+.set 96                 ' position is not continueable, because wrists are tied on back
 .set 183                ' Challenging
 .range 5840 5843
 
@@ -1830,9 +1828,80 @@ Let's continue your slave training.
 .range 5860 5861
 
 
-' TODO add some action entries that work fully equiped
-' so that when the user has put on a lot of generic toys,
-' there are a still positions available
+' position entries for fully eqipped slaves, otherwise we might run out of positions 
+
+' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
+[Action 1638]
+.must 20 43             ' something on nipples, nipple clamps 
+.shouldnot 22           ' something in mouth
+.must 24 39             ' something on balls, pussy clamps
+.shouldnot 25           ' ankles tied
+.mustnot 26             ' Wrists tied, as hands are hold on back
+.must 28                ' collared
+.mustnot 33             ' can't kneel
+.mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
+.must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
+.shouldnot 582          ' prefer a position that hasn't been done before
+.mustnot 5820 5821 5822 5823 ' just once
+.set 1582               ' to complete the original position
+.set 180                ' Comfortable
+.set 5820 5821 5822 5823' just once
+.range 5828
+
+' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 1639]
+.must 20 43             ' something on nipples, nipple clamps 
+.must 22                ' something in mouth
+.must 24 39             ' something on balls, pussy clamps
+.shouldnot 25           ' ankles tied
+.must 26                ' wrists tied
+.must 28                ' collared
+.mustnot 33             ' Can't stand
+.mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
+.must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
+.shouldnot 583          ' prefer a position that hasn't been done before
+.mustnot 5830 5831 5832 5833' just once
+.set 182                ' Demanding
+.set 1583               ' to complete the original position
+.set 5830 5831 5832 5833' just once
+.range 5838
+
+' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
+[Action 1640]
+.must 20 43             ' something on nipples, nipple clamps 
+.must 22                ' something in mouth
+.must 24 39             ' something on balls, pussy clamps
+.shouldnot 25           ' ankles tied
+.mustnot 26             ' Wrists tied, as hands are folded on back
+.must 28                ' collared
+.mustnot 33             ' can't kneel
+.mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
+.must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
+.shouldnot 584          ' prefer a position that hasn't been done before
+.mustnot 5840 5841 5842 5843' just once
+.set 96                 ' position is not continueable, because wrists are tied on back
+.set 183                ' Challenging
+.set 1584               ' to complete the original position
+.set 5840 5841 5842 5843' just once
+.range 5848
+
+' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 1641]
+.must 20 43             ' something on nipples, nipple clamps 
+.must 22                ' something in mouth
+.must 24 39             ' something on balls, pussy clamps
+.mustnot 25             ' ankles tied
+.must 26                ' wrists tied
+.must 28                ' collared
+.mustnot 32             ' Can't stand
+.mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
+.shouldnot 585          ' prefer a position that hasn't been done before
+.must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
+.mustnot 5850 5851 5852 5853' just once
+.set 181                ' Convenient
+.set 1585               ' to complete the original position
+.set 5850 5851 5852 5853' just once
+.range 5858
 
 
 ' These actions are copies of the pussy clamps positions, used as a punishment if the slave has dedicated pussy clamps
@@ -1854,6 +1923,7 @@ Let's continue your slave training.
 .shouldnot 579          ' prefer a position that hasn't been done before
 .mustnot 5790 5791      ' just once
 .set 181                ' Convenient
+.set 1579               ' to complete the original position
 .range 5790 5791
 
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
@@ -1870,6 +1940,7 @@ Let's continue your slave training.
 .shouldnot 582          ' prefer a position that hasn't been done before
 .mustnot 5820 5821      ' just once
 .set 180                ' Comfortable
+.set 1582               ' to complete the original position
 .range 5820 5821
 
 ' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
@@ -1885,6 +1956,7 @@ Let's continue your slave training.
 .shouldnot 583          ' prefer a position that hasn't been done before
 .mustnot 5830 5831 5832 5833' just once
 .set 182                ' Demanding
+.set 1583               ' to complete the original position
 .range 5830 5833
 
 ' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
@@ -1900,6 +1972,7 @@ Let's continue your slave training.
 .shouldnot 584          ' prefer a position that hasn't been done before
 .mustnot 5840 5841 5842 5843 ' just once
 .set 183                ' Challenging
+.set 1584               ' to complete the original position
 .range 5840 5843
 
 ' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
@@ -1916,6 +1989,7 @@ Let's continue your slave training.
 .shouldnot 585          ' prefer a position that hasn't been done before
 .mustnot 5850 5851 5852 5853' just once
 .set 181                ' Convenient
+.set 1585               ' to complete the original position
 .range 5850 5853
 
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
@@ -1933,6 +2007,7 @@ Let's continue your slave training.
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .mustnot 5860 5861      ' just once
 .set 181                ' Convenient
+.set 1586               ' to complete the original position
 .range 5860 5861
 
 
@@ -1941,12 +2016,12 @@ Let's continue your slave training.
 ' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
 [Action 1648]
 .shouldnot 22           ' something in mouth
+.mustnot 24             ' something on balls
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' wrists tied
 .shouldnot 28           ' collared
 .shouldnot 39           ' pussy clamps
 .mustnot 33             ' Can't kneel
-.mustnot 24             ' something on balls
 .mustnot 39             ' pussy clamps
 .mustnot 43             ' Nipple clamps on nipples
 .shouldnot 519          ' prefer a position that hasn't been done before
@@ -1957,10 +2032,10 @@ Let's continue your slave training.
 ' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
 [Action 1649]
 .shouldnot 22           ' something in mouth
-.shouldnot 25           ' ankles tied
-.shouldnot 26           ' wrists tied
-.shouldnot 28           ' collared
 .mustnot 24             ' something on balls
+.mustnot 25             ' ankles tied
+.mustnot 26             ' wrists tied
+.shouldnot 28           ' collared
 .mustnot 32             ' Can't stand
 .mustnot 39             ' pussy clamps
 .mustnot 43             ' Nipple clamps on nipples
@@ -1978,7 +2053,6 @@ Let's continue your slave training.
 .mustnot 21             ' something in butt
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
-' TODO I remember the model to be collared
 .should 28              ' collared
 .shouldnot 39           ' pussy clamps
 .mustnot 98             ' another position, requires generic toy removal
@@ -2489,7 +2563,6 @@ Let's continue your slave training.
 
 ' finished posture, do another, easy difficulty
 [Action 1812]
-.NumActionsAvailable 1400 1499 1       ' at least one position to perform
 .poss 33
 .mustnot 96             ' position is not continueable
 .mustnot 99             ' already done another
@@ -2498,13 +2571,13 @@ Let's continue your slave training.
 .must 110               ' easy difficulty
 .mustnot 179            ' not for a punishment
 .must 1810
+.NumActionsAvailable 1400 1499 1       ' at least one position to perform
 .set 97                 ' position successful
 .set 98                 ' do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
 ' finished posture, do another, medium difficulty
 [Action 1813]
-.NumActionsAvailable 1500 1574 1       ' at least one position to perform
 .poss 33
 .mustnot 96             ' position is not continueable
 .mustnot 99             ' already done another
@@ -2513,13 +2586,13 @@ Let's continue your slave training.
 .must 111               ' medium difficulty
 .mustnot 179            ' not for a punishment
 .must 1810
+.NumActionsAvailable 1500 1574 1       ' at least one position to perform
 .set 97                 ' position successful
 .set 98                 ' do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
 ' finished posture, do another, hard difficulty
 [Action 1814]
-.NumActionsAvailable 1575 1649 1       ' at least one position to perform
 .poss 33
 .mustnot 96             ' position is not continueable
 .mustnot 99             ' already done another
@@ -2528,13 +2601,13 @@ Let's continue your slave training.
 .must 112               ' hard difficulty
 .mustnot 179            ' not for a punishment
 .must 1810
+.NumActionsAvailable 1575 1649 1       ' at least one position to perform
 .set 97                 ' position successful
 .set 98                 ' do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
 ' finished posture, do another, extreme difficulty
 [Action 1815]
-.NumActionsAvailable 1600 1649 1       ' at least one position to perform
 .poss 33
 .mustnot 96             ' position is not continueable
 .mustnot 99             ' already done another
@@ -2543,17 +2616,11 @@ Let's continue your slave training.
 .must 113               ' extreme difficulty
 .mustnot 179            ' not for a punishment
 .must 1810
+.NumActionsAvailable 1600 1649 1       ' at least one position to perform
 .set 97                 ' position successful
 .set 98                 ' do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
-' TODO check position selection for available positions, if none available do a naked one
-' NumberOfActionsAvailable 1400 1499 1      ' at least one position to perform
-
-
-' TODO check position selection for available positions
-' NumberOfActionsAvailable 1400 1499 1      ' at least one position to perform
-' do so for 110 111 112 113
 
 ' finished posture, do another, debug probability
 [Action 1816]
@@ -2793,50 +2860,43 @@ If you do, you're going to tell me immediately!
 .range 1999
 
 
-' hold your position
+' hold your position intro
 
 [Action 1910]
 Hold this position, slave.
 .delay 20
-.mustnot 1550
 .range 3990
 
 [Action 1911]
 Hold this position until I tell you to move.
 .delay 20
-.mustnot 1550
 .range 3990
 
 [Action 1912]
 Hold this position until I tell you time is up.
 .delay 20
 .mustnot 133            ' Multiple positions
-.mustnot 1550
 .range 3990
 
 [Action 1913]
 Hold this position until I tell you otherwise.
 .delay 20
-.mustnot 1550
 .range 3990
 
 [Action 1914]
 Hold this position until I ring for you.
 .delay 20
 .mustnot 133            ' Multiple positions
-.mustnot 1550
 .range 3990
 
 [Action 1915]
 Hold this position until you're told differently, slave.
 .delay 20
-.mustnot 1550
 .range 3990
 
 [Action 1916]
 Hold this position. 
 .delay 20
-.mustnot 1550
 .range 3990
 
 [Action 1917]
@@ -2922,92 +2982,116 @@ Keep it up until I'm satisfied.
 .range 2199 3099
 
 
-' 2100-3099 holding position 130
+' 2100-3099 holding position 130 - default
 
 [Action 2100]
-Just hold your position, slave. 
-.delay 20
-.must 130               ' comment holding position
 .mustnot 190 192 198 199
+.delay 20
+Just hold your position, slave. 
 .range 3990
 
 [Action 2101]
-Stay stock-still. 
-.delay 20
-.must 130               ' comment holding position
 .mustnot 190 192 198 199
+.delay 20
+Stay stock-still. 
 .range 3990
 
+[Action 2102]
+.mustnot 190 192 198 199
+.delay 20
+Hold your position, slave. 
+.range 3990
 
-' more generic hold your position comments
+[Action 2103]
+.mustnot 190 192 198 199
+.delay 20
+Don't move!
+.range 3990
 
 [Action 2120]
-Just stay! 
 .delay 20
+Just stay! 
 .range 3990
 
 [Action 2121]
 .mustnot 190 191 192 193
-Keep it up, slave!
 .delay 20
+Keep it up, slave!
 .range 3990
 
 [Action 2122]
-Don't move.
 .delay 20
+.mustnot 190 191 192
+Don't move.
 .range 3990
 
 [Action 2123]
-You're doing good, slave.
 .mustnot 195 196 197 198 199
 .mustnot 2193 2194 
 .delay 20
+You're doing good, slave.
 .range 3990
 
 [Action 2124]
-Remember slave:
-You can just give up anytime you want to.
 .mustnot 180 181             ' demanding, challenging or exhausting position 
 .mustnot 190 191 192 193 194
 .mustnot 2123
 .delay 20
+Remember slave:
+You can just give up anytime you want to.
 .range 3990
 
 [Action 2125]
-Do you think you're going to make it?
-Or are you pussying out?
 .delay 20
 .mustnot 180 181             ' demanding, challenging or exhausting position 
 .mustnot 190 191 192 193 194 
 .mustnot 2123 
+Do you think you're going to make it?
+Or are you pussying out?
 .range 3990
 
 [Action 2126]
+.mustnot 180 181             ' demanding, challenging or exhausting position 
+.mustnot 190 191 192 193 194 
+.delay 20
 Yes, slave,
 I know it's demanding.
 delay 2
 But I just enjoy to see you suffer!
-.delay 20
-.mustnot 180 181             ' demanding, challenging or exhausting position 
-.mustnot 190 191 192 193 194 
 .range 3990
 
 [Action 2127]
-Just hold your position!
 .delay 20
-.mustnot 190 191 193
+.mustnot 190 191
+Hold your position!
 .range 3990
 
 [Action 2128]
-Just hold your position, slave.
+.mustnot 190 191 193
 .delay 20
+Just hold your position, slave.
 .range 3990
 
 [Action 2129]
-Don't tell me you're getting tired already. 
-.delay 20
 .mustnot 180 181             ' demanding, challenging or exhausting position 
 .mustnot 190 191 192 193 194 
+.delay 20
+Don't tell me you're getting tired already. 
+.range 3990
+
+[Action 2130]
+.mustnot 180 181             ' demanding, challenging or exhausting position 
+.mustnot 190 191 192 193 194 195 196 197 
+.delay 20
+Keep it up, slave
+- we're almost done. 
+.range 3990
+
+[Action 2131]
+.mustnot 180 181             ' demanding, challenging or exhausting position 
+.mustnot 190 191 192 193 194 195 196 197
+.delay 20
+Come on, you'll make it! 
 .range 3990
 
 
@@ -6399,7 +6483,7 @@ You do have these items, don't you, slave?
 Let's start with your collar and nipple clamps.
 bd178_10.jpg
 Put the collar around your neck and snap the clamps on your poor little titties.
-.pause I'm collared and clamped, Miss
+.pause I'm prepared to serve, Miss
 .set -28 28                  ' collared
 .set -20 20 43               ' something on nipples, nipple clamps
 .range 5076
@@ -6409,7 +6493,7 @@ Put the collar around your neck and snap the clamps on your poor little titties.
 Let's start with the clamps.
 bd178_10.jpg
 Snap them on your poor little titties.
-.pause My tits are clamped, Miss
+.pause I'm prepared to serve, Miss
 .set -20 20 43               ' something on nipples, nipple clamps
 .range 5076
 
@@ -7214,8 +7298,6 @@ DominantImage
 You do have enough clothes pegs, don't you, slave?
 .yesno 5194 5194 7748 7748
 
-' TODO Deal with pussy pegs
-
 
 [Action 5194]
 Excellent, my pet!
@@ -7294,8 +7376,6 @@ delay 2
 DominantImage
 You do have enough clothes pegs, don't you, slave?
 .yesno 5204 5204 7796 7796
-
-' TODO Deal with pussy pegs
 
 
 [Action 5204]
@@ -7733,6 +7813,7 @@ A nice supplicative expression is appreciated.
 
 [Action 5790]
 .mustnot 20                  ' something on nipples
+.mustnot 39                  ' pussy clamps
 Now we have a fairly basic position which we will spice up a little with some
 light nipple and pussy torture.
 To that end, I want you to go fetch your nipple and pussy clamps, and your heels.
@@ -7742,53 +7823,74 @@ You do have these items, don't you slave?
 
 [Action 5791]
 .must 20                     ' something on nipples
+.mustnot 39                  ' pussy clamps
 Now we have a fairly basic position which we will spice up a little with
 some light nipple and pussy torture.
 To that end, I want you to go fetch your pussy clamps and your heels.
 You do have these items, don't you slave?
-.yesno 5794 5794 8280 8298
+.yesno 5795 5795 8280 8298
+
+[Action 5792]
+.mustnot 20                  ' something on nipples
+.must 39                     ' pussy clamps
+Now we have a fairly basic position which we will spice up a little with some
+light nipple torture.
+To that end, I want you to get your nipple clamps.
+You do have nipple clamps, don't you slave?
+.yesno 5796 5796 8280 8298
+.mustnot 20
+
+[Action 5793]
+.must 20                     ' something on nipples
+.must 39                     ' pussy clamps
+.range 5797
 
 
 [Action 5794]
 Now since you don't have a real pussy to snap the pussy clamps on,
-you're going to snap them on your little ball sack instead.
-.range 5795 5796
-
-
-[Action 5795]
-.mustnot 20
+you're going to snap them on your slutty ball sack instead.
 bd041_25.jpg
 Slip into your heels, put on your nipple clamps 
 and snap the other pair of clamps on your "pussy".
 .pause I have all clamps on, Miss
 .set -20 20 43               ' something on nipples, nipple clamps
 .set -24 24 39               ' something on balls, pussy clamps
-.range 5797
+.range 5798
 
-[Action 5796]
-.must 20
+[Action 5795]
+Now since you don't have a real pussy to snap the pussy clamps on,
+you're going to snap them on your slutty ball sack instead.
 bd041_25.jpg
 Slip into your heels, and snap on your "pussy" clamps.
 .pause I have the pussy clamps on, Miss
 .set -24 24 39               ' something on balls, pussy clamps
-.range 5797
-
-
-[Action 5797]
-Very good, my little pain slut.
-.gosub 1820                  ' setup break buttons and vibrator
 .range 5798
 
+[Action 5796]
+Very well, slave.
+bd041_25.jpg
+Go ahead and snap them on your poor slave titties.
+.pause I have them on, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.range 5798
+
+[Action 5797]
+.gosub 1820                  ' setup break buttons and vibrator
+.range 5799
+
+
 [Action 5798]
-bd041_18.jpg
-Hold your hands behind your head.
-.delay 15
+Very good, my little pain slut.
+.gosub 1820                  ' setup break buttons and vibrator
 .range 5799
 
 [Action 5799]
+.delay 30
+bd041_18.jpg
+Hold your hands behind your head.
+delay 10
 bd041_32.jpg
 Stand straight, legs apart.
-.delay 15
 .range 1700
 
 
@@ -7936,36 +8038,46 @@ delay 6
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
 
 [action 5820]
+.mustnot 20                  ' something on nipples
 .mustnot 28                  ' collared
 Now we have a fairly basic position which we will spice up a little with some
 light nipple and pussy torture.
 To that end, I want you to go fetch your nipple and pussy clamps, and your collar.
 You do have these items, don't you slave?
-.yesno 5822 5822 8280 8298
+.yesno 5824 5824 8280 8298
 
 [Action 5821]
+.mustnot 20                  ' something on nipples
 .must 28                     ' collared
 Now we have a fairly basic position which we will spice up a little with
 some light nipple and pussy torture.
 To that end, I want you to go fetch your nipple and pussy clamps.
 You do have these items, don't you slave?
-.yesno 5822 5822 8280 8298
+.yesno 5825 5825 8280 8298
 
+[action 5822]
+.must 20                     ' something on nipples
+.mustnot 28                  ' collared
+Now we have a fairly basic position which we will spice up a little
+with some light pussy torture.
+To that end, I want you to go fetch your pussy clamps, and your collar.
+You do have these items, don't you slave?
+.yesno 5826 5826 8280 8298
 
-[Action 5822]
-Well my dear, since you don't have a real pussy to snap the pussy clamps on,
-we're going to use your little ball sack instead.
-delay 2
-.range 5824
+[Action 5823]
+.must 20                     ' something on nipples
+.must 28                     ' collared
+No pain, no gain, isn't that true?
+Crawl over and fetch your pussy clamps, slave!
+You do have them, I trust?
+.yesno 5827 5827 8280 8298
 
 
 [Action 5824]
-.range 5826 5827
-
-
-[Action 5826]
-.mustnot 28                  ' collared
 bd069_29.jpg
+Well my dear, since you don't have a real pussy to snap the clamps on,
+we're going to use your little ball sack instead.
+delay 2
 Go ahead, put on your nipple clamps and snap the other pair of clamps on your "pussy".
 delay 15
 And don't forget about your slave collar!
@@ -7975,14 +8087,43 @@ And don't forget about your slave collar!
 .set -28 28                  ' collared
 .range 5828
 
-[Action 5827]
-.must 28                     ' collared
+[Action 5825]
+Well my dear, since you don't have a real pussy to snap the clamps on,
+we're going to use your little ball sack instead.
+delay 2
 bd069_29.jpg
 Go ahead, put on your nipple clamps and snap the other pair of clamps on your "pussy".
 delay 15
 bd069_29.jpg
 Tell me, slave, when you have all clamps on!
 .pause Ready, Miss I have all clamps on
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -24 24 39               ' something on balls, pussy clamps
+.range 5828
+
+[Action 5826]
+bd069_29.jpg
+Well my dear, since you don't have a real pussy to snap the clamps on,
+we're going to use your little ball sack instead.
+DominantImage
+And don't forget about your slave collar!
+bd069_29.jpg
+Tell me, slave, when you have them on!
+.pause I'm collared an have my pussy clamps on, Miss
+.set -20 20 43               ' something on nipples, nipple clamps
+.set -24 24 39               ' something on balls, pussy clamps
+.set -28 28                  ' collared
+.range 5828
+
+[Action 5827]
+Very good, slave!
+bd069_29.jpg
+Snap them on your poor little ball sack.
+delay 10
+Make sure they sit tight!
+delay 10
+Tell me when you have them on!
+.pause Ready, Miss
 .set -20 20 43               ' something on nipples, nipple clamps
 .set -24 24 39               ' something on balls, pussy clamps
 .range 5828
@@ -8047,10 +8188,11 @@ Have you got all that?
 [Action 5834]
 .mustnot 26                  ' Wrists tied
 .mustnot 28                  ' collared
-bd021_36.jpg
-First, put the collar around your neck, cuff your wrists and insert your gag.
+bd021_18.jpg
+First, put the collar around your neck, and cuff your wrists.
 delay 30
-Then pop the clamps on your nipples and your "pussy".
+bd021_36.jpg
+Then insert your gag, and snap the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
 .set -20 20 43               ' something on nipples, nipple clamps
@@ -8063,9 +8205,10 @@ delay 10
 [Action 5835]
 .must 26                     ' Wrists tied
 .mustnot 28                  ' collared
-bd021_36.jpg
+bd021_35.jpg
 First, put the collar around your neck and insert your gag.
-delay 10
+delay 20
+bd021_36.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 20
 .pause All done, Miss
@@ -8078,10 +8221,11 @@ delay 20
 [Action 5836]
 .mustnot 26                  ' Wrists tied
 .must 28                     ' collared
-bd021_36.jpg
-First, cuff your wrists and insert your gag.
+bd021_18.jpg
+Start with cuffing your wrists.
 delay 20
-Then pop the clamps on your nipples and your "pussy".
+bd021_36.jpg
+Then insert your gag, and snap the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
 .set -20 20 43               ' something on nipples, nipple clamps
@@ -8093,9 +8237,10 @@ delay 10
 [Action 5837]
 .must 26                     ' Wrists tied
 .must 28                     ' collared
-bd021_36.jpg
+bd021_35.jpg
 First, insert your gag.
 delay 15
+bd021_36.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
@@ -8159,9 +8304,10 @@ Have you got all that?
 [Action 5844]
 .mustnot 22                  ' Something in mouth
 .mustnot 28                  ' collared
-bd021_36.jpg
-First, put the collar around your neck and put your gag in.
+bd021_35.jpg
+First, put the collar around your neck and the gag into your mouth.
 delay 20
+bd021_33.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 20
 .set -20 20 43               ' something on nipples, nipple clamps
@@ -8173,9 +8319,10 @@ delay 20
 [Action 5845]
 .must 22                     ' Something in mouth
 .mustnot 28                  ' collared
-bd021_36.jpg
+bd021_35.jpg
 First, put the collar around your neck.
 delay 10
+bd021_33.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 20
 .set -20 20 43               ' something on nipples, nipple clamps
@@ -8187,9 +8334,10 @@ delay 20
 [Action 5846]
 .mustnot 22                  ' Something in mouth
 .must 28                     ' collared
-bd021_36.jpg
+bd021_35.jpg
 First, put your gag in.
 delay 10
+bd021_33.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 20
 .set -20 20 43               ' something on nipples, nipple clamps
@@ -8200,7 +8348,8 @@ delay 20
 [Action 5847]
 .must 22                     ' Something in mouth
 .must 28                     ' collared
-bd021_36.jpg
+Excellent!
+bd021_33.jpg
 Pop the clamps on your nipples and your "pussy".
 delay 20
 .set -20 20 43               ' something on nipples, nipple clamps
@@ -8217,7 +8366,7 @@ delay 20
 Okay slave, you're now going to cuff your hands behind your back.
 I give you a minute to sort it out.
 delay 20
-bd021_34.jpg
+bd021_33.jpg
 When you're ready, leave the key on the desk and wait for my instructions.
 delay 50
 bd021_40.jpg
@@ -8417,7 +8566,7 @@ Wonderful, my dear pet.
 Then slip into your heels, and fetch your nipple and pussy clamps, both with connecting chains of course,
 plus a good weight for each!
 You do have nipple and pussy clamps and some weights, slave, do you?  
-.yesno 5864 5865 7800 7803
+.yesno 5864 5864 7800 7803
 
 [Action 5863]
 .must 20                     ' Nipple clamps
@@ -8425,21 +8574,21 @@ Wonderful, my dear pet.
 Then slip into your heels, and fetch your pussy clamps, with a connecting chain of course,
 plus some good weights for both your nipples and your pussy!
 You do have pussy clamps and some weights, slave, do you?  
-.yesno 5864 5865 7800 7803
+.yesno 5865 5865 7800 7803
 
 
 [Action 5864]
 .poss 100
-.mustnot 20                       ' Nipple clamps
 Perfect!
 bd381_12.jpg
 Squeeze and fondle your little slave titties one last time, then put on the nipple clamps.
 delay 5
 bd381_16.jpg
 When you have them on, pull the chain to make sure they sit tight and won't fall off!  
-.delay 10
+.delay 15
+.pause My clamps sit tight, Miss
 .set -20 20 43               ' something on nipples, nipple clamps
-.range 5866
+.range 5865
 
 [Action 5865]
 .else
@@ -8800,7 +8949,7 @@ You do have these items, don't you, slave?
 Let's start with your collar and nipple clamps.
 bd178_10.jpg
 Put the collar around your neck and snap the clamps on your poor little titties.
-.pause I'm collared and clamped, Miss
+.pause I'm prepared to serve, Miss
 .set -20 20 43               ' something on nipples, nipple clamps
 .set -28 28                  ' collared
 .range 6526
@@ -8810,7 +8959,7 @@ Put the collar around your neck and snap the clamps on your poor little titties.
 Let's start with the clamps:
 bd178_10.jpg
 Snap them on your poor little titties.
-.pause My tits are clamped, Miss
+.pause I'm prepared to serve, Miss
 .set -20 20 43               ' something on nipples, nipple clamps
 .range 6526
 
@@ -12104,17 +12253,19 @@ You may remove the clothes pegs now.
 
 ' Finish this activity
 [Action 9710]
-That's enough for now.
 .mustnot 98             ' decision to do another position
 .mustnot 179            ' punishment flag
+That's enough for now.
 .gosub 9400             ' generic toy removal - none if toys have been removed already
+.unset 9710
 .range 9800 9801        ' advancement attempt
 
 ' Another one?
 [Action 9711]
+.must 98                ' decision to do another position
 That was so good, slave,
 I think we should do another.
-.must 98                ' decision to do another position
+.unset 9711
 .range 1219
 
 [Action 9719]
@@ -12408,7 +12559,7 @@ I think you're ready for the next level, slave.
 Expect more difficult training next time.
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .must 391
-.must 519 520           ' Must endure at least two positions with pussy clips 
+.must 519 520           ' Must having endured at least two positions with pussy clips 
 .NumberOfActionsSet 500 574 6
 .poss 20
 .unset 390 391
