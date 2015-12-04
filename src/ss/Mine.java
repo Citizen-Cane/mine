@@ -12,6 +12,7 @@ import pcm.model.ParseError;
 import pcm.model.ValidationError;
 import teaselib.Actor;
 import teaselib.TeaseLib;
+import teaselib.Toys;
 import teaselib.core.ResourceLoader;
 
 /**
@@ -64,6 +65,30 @@ public class Mine extends Player {
         super(teaseLib, new ResourceLoader(basePath, AssetRoot), MineMistress,
                 Namespace, mistressPath);
         resources.addAssets(Assets);
+        // Test code for mappings, should end up in script
+        // Toy categories - multiple items on host
+        state.addMapping(311, toys(Toys.Wrist_Restraints));
+        state.addMapping(312, toys(Toys.Ankle_Restraints));
+        state.addMapping(325, toys(Toys.Collars));
+        state.addMapping(340, toys(Toys.Gags));
+        state.addMapping(350, toys(Toys.Buttplugs));
+        state.addMapping(370, toys(Toys.Spanking_Implements));
+        state.addMapping(380, toys(Toys.Chastity_Devices));
+        state.addMapping(389, toys(Toys.Vibrators, Toys.EStim_Devices));
+
+        // Toy simple mappings
+        state.addMapping(301, toy(Toys.Nipple_clamps));
+        state.addMapping(310, toy(Toys.Clothespins));
+        state.addMapping(330, toy(Toys.Rope));
+        state.addMapping(334, toy(Toys.Chains));
+        state.addMapping(382, toy(Toys.Blindfold));
+        state.addMapping(384, toy(Toys.Humbler));
+        state.addMapping(388, toy(Toys.Anal_Dildo));
+
+        state.addMapping(383, toy(Toys.Enema_Kit));
+        // TODO mappedState.addMapping(383, get(Toys.Enema_Bulb));
+        state.addMapping(387, toy(Toys.Pussy_Clamps));
+        state.addMapping(385, toy(Toys.Ball_Stretcher));
     }
 
     @Override
