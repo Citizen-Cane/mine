@@ -65,8 +65,7 @@ public class Mine extends Player {
         super(teaseLib, new ResourceLoader(basePath, AssetRoot), MineMistress,
                 Namespace, mistressPath);
         resources.addAssets(Assets);
-        // Test code for mappings, should end up in script
-        // Toy categories - multiple items on host
+        // Toy categories - multiple items
         state.addMapping(311, toys(Toys.Wrist_Restraints));
         state.addMapping(312, toys(Toys.Ankle_Restraints));
         state.addMapping(325, toys(Toys.Collars));
@@ -84,9 +83,9 @@ public class Mine extends Player {
         state.addMapping(382, toy(Toys.Blindfold));
         state.addMapping(384, toy(Toys.Humbler));
         state.addMapping(388, toy(Toys.Anal_Dildo));
-
         state.addMapping(383, toy(Toys.Enema_Kit));
-        // TODO mappedState.addMapping(383, get(Toys.Enema_Bulb));
+        // TODO map enema bulb to flag but don't display in toy list
+        // mappedState.addMapping(383, get(Toys.Enema_Bulb));
         state.addMapping(387, toy(Toys.Pussy_Clamps));
         state.addMapping(385, toy(Toys.Ball_Stretcher));
     }
