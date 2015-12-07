@@ -2048,18 +2048,21 @@ Let's continue your slave training.
 ' Extreme positions 650-699
 
 ' 650 Crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide
+' - require collar and restraints to simplify conditions
 [Action 1650]
 .shouldnot 20           ' something on nipples
 .mustnot 21             ' something in butt
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
-.must 28                ' collared
 .shouldnot 39           ' pussy clamps
+.must 311               ' wrist restraints 
+.must 325               ' collar
 .mustnot 98             ' another position, requires generic toy removal
 .shouldnot 650          ' prefer a position that hasn't been done before
-.mustnot 6500 6501 6502 6503 ' just once
+.mustnot 6500           ' just once
 .set 181                ' Convenient
-.range 6500 6503
+.range 6500
+
 
 ' 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
 [Action 1651]
@@ -2493,7 +2496,7 @@ Let's continue your slave training.
 
 
 [Action 1801]
-.mustnot 190 191 192 193 194 195 196 197 198 199
+.mustnot     191 192 193 194 195 196 197 198 199
 .set 190
 .range 1819 
 
@@ -3027,7 +3030,7 @@ Don't move.
 
 [Action 2123]
 .mustnot 195 196 197 198 199
-.mustnot 2193 2194 
+.mustnot 2124 2125 
 .delay 20
 You're doing good, slave.
 .range 3990
@@ -3094,6 +3097,12 @@ Keep it up, slave
 Come on, you'll make it! 
 .range 3990
 
+[Action 2132]
+.mustnot 190 191 192 193 194
+.delay 20
+I just like watching you, sweatheart.
+.range 3990
+
 
 ' Fallback: No comment, just wait and let the slave suffer
 
@@ -3104,19 +3113,17 @@ Come on, you'll make it!
 .range 3990
 
 
-' Fallback for position specific comment: Choose one of the generic comment types
-
-[Action 2199]
-.delay 20
-.unset 2199
-.else
-.range 2000 2009
-
-
 ' 2200-3099 Position specific comments, sorted by pose
 ' 3 slots per position: 2200 + (pos - 400) * 3
 ' refer to 1400-1699 to test for active pose
 ' refer to 190-199 for progress
+
+' Fallback : Choose one of the generic comments
+
+[Action 2199]
+.else
+.unset 2199
+.range 2000 2009
 
 
 ' Easy positions 2200-2499
@@ -4585,7 +4592,6 @@ These clamps must have been settled in well by now!
 
 ' 3100-3989 generic comments, sorted by type, sorted by progress
 
-
 ' 3100 sucking dildo 131
 
 [Action 3100]
@@ -4644,10 +4650,10 @@ Take them in your mouth and lick them good.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3199]
-.txt
-.delay 20
-.unset 3199
 .else
+.delay 20
+.txt
+.unset 3199
 .range 3990
 
 
@@ -4748,9 +4754,10 @@ say your Mistress "thank you" for this honour.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3299]
-.delay 20
-.unset 3299
 .else
+.delay 20
+.txt
+.unset 3299
 .range 3990
 
 
@@ -4758,9 +4765,10 @@ say your Mistress "thank you" for this honour.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3399]
-.delay 20
-.unset 3399
 .else
+.delay 20
+.txt
+.unset 3399
 .range 3990
 
 
@@ -4768,9 +4776,10 @@ say your Mistress "thank you" for this honour.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3499]
-.delay 20
-.unset 3499
 .else
+.delay 20
+.txt
+.unset 3499
 .range 3990
 
 
@@ -4778,9 +4787,10 @@ say your Mistress "thank you" for this honour.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3599]
-.delay 20
-.unset 3599
 .else
+.delay 20
+.txt
+.unset 3599
 .range 3990
 
 
@@ -4788,9 +4798,10 @@ say your Mistress "thank you" for this honour.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3699]
-.delay 20
-.unset 3699
 .else
+.delay 20
+.txt
+.unset 3699
 .range 3990
 
 
@@ -4798,9 +4809,10 @@ say your Mistress "thank you" for this honour.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3799]
-.delay 20
-.unset 3799
 .else
+.delay 20
+.txt
+.unset 3799
 .range 3990
 
 
@@ -4808,9 +4820,10 @@ say your Mistress "thank you" for this honour.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3899]
-.delay 20
-.unset 3899
 .else
+.delay 20
+.txt
+.unset 3899
 .range 3990
 
 
@@ -4818,9 +4831,10 @@ say your Mistress "thank you" for this honour.
 
 ' Fallback: No comment, just wait an let the slave suffer
 [Action 3989]
-.delay 20
-.unset 3989
 .else
+.delay 20
+.txt
+.unset 3989
 .range 3990
 
 
@@ -5498,36 +5512,35 @@ delay 15
 ' 414 crouch on toes, knees wide, hands on knees, heels, wristlets, collar
 
 [Action 4140]
+.mustnot 26                  ' Wrists tied
+.mustnot 28                  ' collared
 This is a very simple submissive position.
 You will need your wrist restraints and your collar.
 You do have these items handy, don't you, slave?
-.mustnot 26                  ' Wrists tied
-.mustnot 28                  ' collared
 .yesno 4144 4144 7700 7707
 
 [Action 4141]
+.mustnot 26                  ' Wrists tied
+.must 28                     ' collared
 This is going to be a very simple submissive position.
 You will need your collar.
 You do have a collar handy, don't you, slave?
-.mustnot 26                  ' Wrists tied
-.must 28                     ' collared
 .yesno 4145 4145 7700 7707
 
 [Action 4142]
+.must 26                     ' Wrists tied
+.mustnot 28                  ' collared
 This is going to be a very simple submissive position.
 bd066_20.jpg
 You will need your wrist restraints.
 You do have wrist restraints handy, don't you, slave?
-.must 26                     ' Wrists tied
-.mustnot 28                  ' collared
 .yesno 4146 4146 7700 7707
 
 [Action 4143]
-bd066_23.jpg
-This is going to be a very simple submissive position.
 .must 26                     ' Wrists tied
 .must 28                     ' collared
-.gosub 1820                  ' setup break buttons and vibrator
+bd066_23.jpg
+This is going to be a very simple submissive position.
 .range 4147
 
 
@@ -8650,134 +8663,76 @@ delay 5
 ' 650 Crouch on toes, dildo on floor in ass, palms tied & together in front, back against wall, knees wide
 
 [Action 6500]
-.mustnot 26                  ' Wrists tied
-.must 350                    ' Butt plug
-.poss 100                    ' favour plug since the image set shows a plug
 Oh, goody.
 This will be a particularly uncomfortable position for you to endure.
-delay 2
-[]
-First fetch a buttplug for your ass.
-Also get your wrist restraints.
-Handcuffs will work too.
-And a snap hook or something similar to attach the cuffs to your collar.
-Better also get a towel!
-You do have these items, I hope?
-.yesno 6504 6504 7760 7779
+.range 6501 6502
 
 [Action 6501]
-.mustnot 26                  ' Wrists tied
-Oh, goody.
-This will be a particularly uncomfortable position for you to endure.
-delay 2
-[]
-First fetch a dildo for your ass.
-Also get your wrist restraints.
-Handcuffs will work too.
-And a snap hook or something similar to attach the cuffs to your collar.
-Better also get a towel!
-You do have these items, I hope?
-.yesno 6504 6504 7760 7779
-
-[Action 6502]
-.must 26                     ' Wrists tied
+'.else
 .must 350                    ' Butt plug
 .poss 100                    ' favour plug since the image set shows a plug
-Oh, goody.
-This will be a particularly uncomfortable position for you to endure.
-delay 2
-[]
 First fetch a buttplug for your ass.
 Better get a towel, too!
-And a snap hook or something similar to attach the cuffs to your collar.
+And we also need a snap hook.
 You do have these items, I hope?
-.range 6504
+.yesno 6504 6507 7760 7761
 
-[Action 6503]
-.must 26                     ' Wrists tied
-Oh, goody.
-This will be a particularly uncomfortable position for you to endure.
-delay 2
-[]
+[Action 6502]
+.else
+'.must 388                    ' dildo
 First fetch a dildo for your ass.
 Better get a towel, too!
-And a snap hook or something similar to attach the cuffs to your collar.
+And we also need a snap hook.
 You do have these items, I hope?
-.yesno 6504 6504 7760 7779
+.yesno 6504 6507 7760 7761
 
 
 [Action 6504]
-.gosub 1820                  ' setup break buttons and vibrator
-.range 6505 6506
-
+.mustnot 26                  ' Wrists tied
+.mustnot 28                  ' collared
+Excellent.
+Put on your slave collar, and attach the snap hook to it.
+Then fetch your wrist restraints, and put them on as well.
+Make sure you can chain your wrists to your collar later on,
+and report back to me.
+.pause I'm dressed up and ready, Miss 
+.range 6508
 
 [Action 6505]
-.mustnot 6501 6503           ' Dildo selected 
-Very good, slave.
-Now lube up your tight little asshole.
-Get it good and slippery.
-Get some on that butt plug, too.
-I'll give you one minute exactly.
-delay 60
-[]
-EMSTsmpl00a.jpg
-Slide the upper half of the plug up to the thickest part into your ass and hold it there.
-I'll give you a minute to work it in there and to get used to it.
-delay 60
-[]
-EMSTsmpl02a.jpg
-Find a wall and put the towel on the floor next to it.
-Then squat on the towel against the wall, as shown, keeping the plug in your ass.
-Rest the plug on the towel to ensure that it doesn't slip out.
-If the plug slides in or slips out, slave, then you've failed this position.
-delay 40
-.range 6508 6509
+.mustnot 26                  ' Wrists tied
+.must 28                     ' collared
+Excellent.
+Fetch your wrist restraints, and put them on.
+Attach the snap hook to your collar,
+and make sure you can chain your wrists to your collar later on.
+Report back to me, when you're ready.
+.pause I'm dressed up and ready, Miss 
+.range 6508
 
 [Action 6506]
-.mustnot 6500 6502           ' Buttplug selected 
-Very good, slave.
-Now lube up your tight little asshole.
-Get it good and slippery.
-Get some on that dildo, too.
-I'll give you one minute exactly.
-delay 60
-[]
-EMSTsmpl00a.jpg
-Slide that dildo half way into your ass and hold it there.
-I'll give you a minute to work it in there and to get used to it.
-delay 60
-[]
-EMSTsmpl02a.jpg
-Find a wall and put the towel on the floor next to it.
-Then squat on the towel against the wall, as shown, keeping the dildo in your ass.
-Rest the dildo on the towel to ensure that it doesn't slip out.
-If the dildo slips out, slave, then you've failed this position.
-delay 40
-.range 6508 6509
+.must 26                     ' Wrists tied
+.mustnot 28                  ' collared
+Excellent.
+Put on your slave collar, and attach the snap hook to it.
+Make sure you can attach your wrists to your collar later on,
+and report back to me.
+.pause I'm dressed up and ready, Miss 
+.range 6508
+
+[Action 6507]
+.must 26                     ' Wrists tied
+.must 28                     ' collared
+Excellent.
+Go ahead and attach the snap hook to your collar,
+and make sure you can attach your wrists to your collar later on.
+Report back to me, when you're ready.
+.pause I'm dressed up and ready, Miss 
+.range 6508
 
 
 [Action 6508]
-.mustnot 26                  ' Wrists tied
-Now tie or handcuff your hands together in front of you.
-Use the snap hook to attach the cuffs to your collar,
-and place your palms together as if you are praying for mercy to your Mistress.
-Keep your head up; the back of it should be against the wall.
-Your knees should be spread as far as they will go.
-.image EMSTsmpl01.jpg
-.delay 30
-.set -26 26                  ' wrists tied
-.range 1700
-
-[Action 6509]
-.must 26                     ' Wrists tied
-Now use the snap hook to attach your cuffs to your collar,
-and place your palms together as if you are praying for mercy to your Mistress.
-Keep your head up:
-The back of it should be against the wall.
-Your knees should be spread as far as they will go.
-.image EMSTsmpl01.jpg
-.delay 30 
-.range 1700
+.gosub 1820                  ' setup break buttons and vibrator
+.range 7001 7002
 
 
 ' 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
@@ -9157,6 +9112,76 @@ bd645_051.jpg
 If the dildo slips out of your mouth or any of the clamps slip off, you've failed this position.
 delay 10
 .set -26 26                  ' wrists tied
+.range 1700
+
+
+
+' TODO dildo or plug as default: dildo would be better - look at the images
+
+
+[Action 7000]
+.range 7001 7002
+
+[Action 7001]
+.must 6501                   ' Buttplug selected 
+Now lube up your tight little asshole.
+Get it good and slippery.
+Get some on that butt plug, too.
+I'll give you one minute exactly.
+delay 60
+[]
+EMSTsmpl00a.jpg
+Slide the upper half of the plug up to the thickest part into your ass and hold it there.
+I'll give you a minute to work it in there and to get used to it.
+delay 60
+[]
+EMSTsmpl02a.jpg
+Find a wall and put the towel on the floor next to it.
+Then squat on the towel against the wall, as shown, keeping the plug in your ass.
+Rest the plug on the towel to ensure that it doesn't slip out.
+delay 40
+.range 7005
+
+[Action 7002]
+.must 6502                   ' Dildo selected 
+Now lube up your tight little asshole.
+Get it good and slippery.
+Get some on that dildo, too.
+I'll give you one minute exactly.
+delay 60
+[]
+EMSTsmpl00a.jpg
+Slide that dildo half way into your ass and hold it there.
+I'll give you a minute to work it in there and to get used to it.
+delay 60
+[]
+EMSTsmpl02a.jpg
+Find a wall and put the towel on the floor next to it.
+Then squat on the towel against the wall, as shown, keeping the dildo in your ass.
+Rest the dildo on the towel to ensure that it doesn't slip out.
+delay 40
+.range 7005
+
+
+[Action 7005]
+EMSTsmpl01.jpg
+Now use the snap hook to attach your cuffs to your collar,
+and place your palms together as if you are praying for mercy to your Mistress.
+Keep your head up:
+The back of it should be against the wall.
+Your knees should be spread as far as they will go.
+.delay 30 
+.range 7007 7008
+
+
+[Action 7007]
+.must 7001                   ' Buttplug selected 
+If the butt plug slips out, slave, or you'll let it slide in completely, you've failed this position!
+.range 1700
+
+[Action 7008]
+.must 7002                   ' Dildo selected 
+If the dildo slips out, slave, then you've failed this position!
 .range 1700
 
 
@@ -9903,64 +9928,24 @@ Are you kidding me?
 '[Action 7759]
 
 
-' Wrist restraints and butt plug/dildo
+' Butt plug/dildo
 
 [Action 7760]
-No butt plug?
-No handcuffs?
-At this point, slave, these failures are hard to understand,
-and I for one don't mean to accept them.
-.pause Please don't punish me, Miss
-.mustnot 311            ' Wrist restraints
 .mustnot 350            ' Butt plug 
-.range 9730
-
-[Action 7761]
-No dildo?
-No handcuffs?
-At this point, slave, these failures are hard to understand,
-and I for one don't mean to accept them.
-.pause Please don't punish me, Miss
-.mustnot 311            ' Wrist restraints
 .mustnot 388            ' Dildo 
-.range 9730
-
-[Action 7762]
 No butt plug?
+No dildo?
 At this point, slave, these failures are hard to understand,
 and I for one don't mean to accept them.
 .pause Please don't punish me, Mid
-.must 311               ' Wrist restraints
-.mustnot 350            ' Butt plug 
 .range 9730
 
-[Action 7763]
-No dildo?
-At this point, slave, these failures are hard to understand,
+[Action 7761]
+.else
+You're kidding me, slave!
+At this point, these failures are hard to understand,
 and I for one don't mean to accept them.
 .pause Please don't punish me, Miss
-.must 311               ' Wrist restraints
-.mustnot 388            ' Dildo 
-.range 9730
-
-' Slave lying or confused, but we need to handle this
-[Action 7764]
-No towel?
-At this point, slave, these failures are hard to understand,
-and I for one don't mean to accept them.
-.pause Please don't punish me, Miss
-.must 311               ' Wrist restraints
-.must 350               ' Butt plug 
-.range 9730
-
-' Slave lying or confused, but we need to handle this
-[Action 7765]
-No towel?
-At this point, slave, these failures are hard to understand,
-and I for one don't mean to accept them.
-.pause Please don't punish me, Miss
-.must 311               ' Wrist restraints
-.must 388               ' Dildo 
 .range 9730
 
 
