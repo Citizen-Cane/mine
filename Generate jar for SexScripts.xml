@@ -7,15 +7,42 @@
         <property name="release_name" value="Mine Redux for SexScripts"/>
         <property name="version" value="${release_name} 1.0"/>
         <property name="destination" value="Releases/${version}"/>
-      <antcall target="build"/>
+        <antcall target="build"/>
     </target>
-    <target name="build_sexscripts_test">
+
+	<target name="build_sexscripts_test">
       <property name="destination" value="../../Extras"/>
       <antcall target="build"/>
     </target>
 
-	
-    <target name="build">
+    <target name="syncImages">
+    	<echo message = "Project root: ${basedir}"/>
+    	<java classname="teaselib.core.crypto.CryptoSync">
+    		<arg value="${basedir}/../mine-assets/assets/Mine/images/"/>
+    		<arg value="${basedir}/../mine-assets/assets/Mine/images/encrypted/"/>
+    		<arg value="png"/>
+    		<arg value="jpg"/>
+			<classpath>
+				<pathelement location="${basedir}/../teaselib//lib/TeaseLib.jar"/>
+				<pathelement path="$(java.class.path}"/>
+			</classpath>
+    	</java>
+	</target>
+
+    <target name="syncMistress">
+    	<java classname="teaselib.core.crypto.CryptoSync">
+    		<arg value="${basedir}/../mine-assets/assets/Mine/mistress/vana/"/>
+    		<arg value="${basedir}/../mine-assets/assets/Mine/mistress/vana/encrypted/"/>
+    		<arg value="png"/>
+    		<arg value="jpg"/>
+    			<classpath>
+    				<pathelement location="${basedir}/../teaselib//lib/TeaseLib.jar"/>
+    				<pathelement path="$(java.class.path}"/>
+    			</classpath>
+    	</java>
+	</target>
+
+    <target name="build" depends="syncImages,syncMistress">
         <property name="rootFolder" value="SexScripts"/>
         <jar destfile="${destination}/${rootFolder}/scripts/Mine.jar">
             <manifest>
