@@ -19,7 +19,8 @@
     	<echo message = "Project root: ${basedir}"/>
     	<java classname="teaselib.core.crypto.CryptoSync">
     		<arg value="${basedir}/../mine-assets/assets/Mine/images/"/>
-    		<arg value="${basedir}/../mine-assets/assets/Mine/images/encrypted/"/>
+    		<arg value="${basedir}/../mine-assets/assets/Mine/encrypted images/"/>
+    		<arg value="--flat"/>
     		<arg value="png"/>
     		<arg value="jpg"/>
 			<classpath>
@@ -31,8 +32,9 @@
 
     <target name="syncMistress">
     	<java classname="teaselib.core.crypto.CryptoSync">
-    		<arg value="${basedir}/../mine-assets/assets/Mine/mistress/vana/"/>
-    		<arg value="${basedir}/../mine-assets/assets/Mine/mistress/vana/encrypted/"/>
+    		<arg value="${basedir}/../mine-assets/assets/Mine/mistress/"/>
+    		<arg value="${basedir}/../mine-assets/assets/Mine/encrypted mistress/"/>
+    		<arg value="--recursive"/>
     		<arg value="png"/>
     		<arg value="jpg"/>
     			<classpath>
