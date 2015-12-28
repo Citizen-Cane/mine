@@ -66,20 +66,20 @@ public class Mine extends Player {
                 Namespace, mistressPath);
         resources.addAssets(Assets);
         // Toy categories - multiple items
-        state.addMapping(311, toys(Toys.Wrist_Restraints));
-        state.addMapping(312, toys(Toys.Ankle_Restraints));
-        state.addMapping(325, toys(Toys.Collars));
-        state.addMapping(340, toys(Toys.Gags));
-        state.addMapping(350, toys(Toys.Buttplugs));
+        state.addMapping(363, toys(Toys.Wrist_Restraints));
+        state.addMapping(364, toys(Toys.Ankle_Restraints));
+        state.addMapping(365, toys(Toys.Collars));
+        state.addMapping(367, toys(Toys.Gags));
+        state.addMapping(368, toys(Toys.Buttplugs));
         state.addMapping(370, toys(Toys.Spanking_Implements));
         state.addMapping(380, toys(Toys.Chastity_Devices));
         state.addMapping(389, toys(Toys.Vibrators, Toys.EStim_Devices));
 
         // Toy simple mappings
-        state.addMapping(301, toy(Toys.Nipple_clamps));
-        state.addMapping(310, toy(Toys.Clothespins));
-        state.addMapping(330, toy(Toys.Rope));
-        state.addMapping(334, toy(Toys.Chains));
+        state.addMapping(361, toy(Toys.Nipple_clamps));
+        state.addMapping(362, toy(Toys.Clothespins));
+        state.addMapping(366, toy(Toys.Rope));
+        state.addMapping(360, toy(Toys.Chains));
         state.addMapping(382, toy(Toys.Blindfold));
         state.addMapping(384, toy(Toys.Humbler));
         state.addMapping(388, toy(Toys.Anal_Dildo));

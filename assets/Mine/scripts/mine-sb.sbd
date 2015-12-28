@@ -31,7 +31,7 @@
 '	thing. can you think of a dumber way to go?
 
 '	As usual 100 - 299 indicates the spawn type, 100 being stand-alone.
-'	301 - 399 is the scenario type. Various self-bondage techniques are
+'	361 - 399 is the scenario type. Various self-bondage techniques are
 '	listed, although not all of them will be implemented. The list of
 '	equipment codes are marked next to the description. From 8000 to 8900,
 '	each block of hundred is the delay loop. Also listed are the necessary
@@ -66,7 +66,7 @@
 '	is especially important in 'indefinite' scenes, where a true sb
 '	release mechanism has been set up.
 
-'	301	simple rope hogtie		330 
+'	361	simple rope hogtie		366 
 '	302	creative indefinate
 '
 '                                 Returns
@@ -395,13 +395,13 @@ Your handcuffs.
 ' Ring gag - disabled
 
 [Action 2106]
-.must 340               ' gag
+.must 367               ' gag
 I also see that you own a gag, is it by any chance a ring gag, my dear?
 You know, the kind you can stick your tongue through?
 .yesno 2110 2110 2109 2109
 
 [Action 2107]
-.mustnot 340            ' gag
+.mustnot 367            ' gag
 .unset 212              ' ring gag not available
 .range 2110
 

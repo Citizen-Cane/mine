@@ -516,7 +516,7 @@ Give that red butt a good rubdown now.
 ' Upgrade to nipple clamps
 [Action 1561]
 .must 150               ' Pegs in shower 
-.must 301               ' Nipple clamps
+.must 361               ' Nipple clamps
 .unset 150
 .set 151                ' Clamps in shower
 .range 1565
@@ -524,15 +524,15 @@ Give that red butt a good rubdown now.
 ' Clothes pegs, no upgrade to clamps
 [Action 1562]
 .must 150               ' Pegs in shower
-.mustnot 301            ' Nipple clamps
-.must 310               ' Nipple clamps, clothes pegs
+.mustnot 361            ' Nipple clamps
+.must 362               ' Nipple clamps, clothes pegs
 .unset 150 151
 .range 1565
  
 ' No clamps, no pegs
 [Action 1563]
 .must 150               ' Pegs in shower
-.mustnot 301 310        ' Nipple clamps, clothes pegs
+.mustnot 361 362        ' Nipple clamps, clothes pegs
 .unset 150 151
 .range 1565
 
@@ -636,12 +636,12 @@ Give that red butt a good rubdown now.
 
 [Action 1581]
 .must 152               ' Balls pegged in shower 
-.must 310               ' clothes pegs
+.must 362               ' clothes pegs
 .range 1585
 
 [Action 1582]
 .must 152               ' Balls pegged in shower
-.mustnot 310            ' clothes pegs
+.mustnot 362            ' clothes pegs
 .unset 152              ' No clothes pegs
 .set 158                ' Balls tied up in shower  
 .range 1585
@@ -661,14 +661,14 @@ Give that red butt a good rubdown now.
 ' Gag requested
 [Action 1586]
 .must 157               ' Gagged in shower 
-.must 340               ' Have gag
+.must 367               ' Have gag
 .range 1590
 
 ' Gag requested, doesn't have one
 [Action 1587]
 .must 157               ' Gagged in shower
 .mustnot 22             ' something in mouth
-.mustnot 340            ' Have gag
+.mustnot 367            ' Have gag
 .unset 157              ' No gag
 .range 1590
 
@@ -765,8 +765,8 @@ You may want to put some towels here on the floor now to drip on.
 [Action 1623]
 .must 148
 .mustnot 149
-.mustnot 311            ' Wrist restraints
-.must 330               ' Some rope
+.mustnot 363            ' Wrist restraints
+.must 366               ' Some rope
 You must shower with your wrists tied together with rope.
 Tie them together now.
 .pause Wrists tied, Miss
@@ -775,8 +775,8 @@ Tie them together now.
 [Action 1624]
 .must 148
 .mustnot 149
-.must 311               ' Wrist restraints
-.must 330               ' Some rope
+.must 363               ' Wrist restraints
+.must 366               ' Some rope
 You must shower with your wrists tied together.
 Use rope, not something that will rust (like your handcuffs, stupid bitch).
 Tie them together now.
@@ -786,7 +786,7 @@ Tie them together now.
 [Action 1625]
 .must 149
 .mustnot 148
-.must 330               ' Some rope
+.must 366               ' Some rope
 You must shower with your ankles tied together with rope.
 Don't use metal or it will corrode.
 Also, be very careful getting into and out of the shower, slave.
@@ -797,7 +797,7 @@ Tie your ankles up now.
 
 [Action 1626]
 .must 148 149
-.must 330               ' Some rope
+.must 366               ' Some rope
 You will bind your hands and ankles together with rope for this shower.
 Be especially careful you don't fall
 - you may kneel in the shower if you don't feel safe.
@@ -809,8 +809,8 @@ Tie your wrists and ankles now.
 [Action 1627]
 .must 148
 .mustnot 149
-.mustnot 311            ' Wrist restraints
-.mustnot 330            ' Some rope
+.mustnot 363            ' Wrist restraints
+.mustnot 366            ' Some rope
 You must shower with your wrists tied together.
 Get some rope or shoelace and tie them together now.
 .pause Wrists tied, Miss
@@ -819,8 +819,8 @@ Get some rope or shoelace and tie them together now.
 [Action 1628]
 .must 148
 .mustnot 149
-.must 311               ' Wrist restraints
-.mustnot 330            ' Some rope
+.must 363               ' Wrist restraints
+.mustnot 366            ' Some rope
 You must shower with your wrists tied together.
 Use rope or shoelace, not something that will rust (like your handcuffs, stupid bitch).
 Tie them together now.
@@ -830,7 +830,7 @@ Tie them together now.
 [Action 1629]
 .must 149
 .mustnot 148
-.mustnot 330            ' Some rope
+.mustnot 366            ' Some rope
 You must shower with your ankles tied together with rope or shoe lace.
 Don't use metal or it will corrode.
 Also, be very careful getting into and out of the shower, slave.
@@ -841,7 +841,7 @@ Tie your ankles up now.
 
 [Action 1630]
 .must 148 149
-.mustnot 330            ' Some rope
+.mustnot 366            ' Some rope
 You will bind your hands and ankles together with rope or shoe lace for this shower.
 Be especially careful you don't fall
 - you may kneel in the shower if you don't feel safe.
@@ -1460,29 +1460,29 @@ I hope so, slut!
 .must 125               ' Cuffs requested 50%
 .range 1760 1764
 
-' 50% chance of handcuffs = yes (have wrist restraints 311)
+' 50% chance of handcuffs = yes (have wrist restraints 363)
 [Action 1757]
 .must 125               ' Cuffs requested 50%
 .mustnot 267 268        ' Enema carried out, completed voiding the enema
-.must 311               ' Wrist restraints
+.must 363               ' Wrist restraints
 .must 721               ' Patient Waiting level 1
 .set 123                ' Corner time is handcuffed
 .range 1760 1764
 
-' 100% chance of handcuffs (haven't wrist restraints 311)
+' 100% chance of handcuffs (haven't wrist restraints 363)
 [Action 1758]
 .must 126               ' Cuffs requested 100%
 .mustnot 267 268        ' Enema carried out, completed voiding the enema
-.mustnot 311            ' Wrist restraints
+.mustnot 363            ' Wrist restraints
 .unset 123              ' Corner time is handcuffed
 .range 1760 1764
 
-' 100% chance of handcuffs (have wrist restraints 311)
+' 100% chance of handcuffs (have wrist restraints 363)
 [Action 1759]
 .mustnot 26             ' Wrists tied
 .must 126               ' Cuffs requested 100%
 .mustnot 267 268        ' Enema carried out, completed voiding the enema
-.must 311               ' Wrist restraints
+.must 363               ' Wrist restraints
 .set 123                ' Corner time is handcuffed
 .range 1760 1764
 
@@ -1497,27 +1497,27 @@ I hope so, slut!
 .must 128               ' Clamps requested 50%
 .range 1765 1770
 
-' 50% chance of clamps = yes (have nipple clamps 301)
+' 50% chance of clamps = yes (have nipple clamps 361)
 [Action 1762]
 .mustnot 20             ' Something on nipples
 .must 128               ' Clamps requested 50%
-.must 301               ' Nipple clamps
+.must 361               ' Nipple clamps
 .must 721               ' Patient Waiting level 1
 .set 130                ' Clamps
 .range 1765 1770
 
-' 100% chance of clamps (haven't nipple clampa 301)
+' 100% chance of clamps (haven't nipple clampa 361)
 [Action 1763]
 .must 129               ' Clamps requested 100%
-.mustnot 301            ' Nipple clamps
+.mustnot 361            ' Nipple clamps
 .set 130                ' Clamps
 .range 1765 1770
 
-' 100% chance of clamps (have nipple clamps 301)
+' 100% chance of clamps (have nipple clamps 361)
 [Action 1764]
 .mustnot 20             ' Something on nipples
 .must 129               ' Clamps requested 100%
-.must 301               ' Nipple clamps
+.must 361               ' Nipple clamps
 .set 130                ' Clamps
 .range 1765 1770
 
@@ -2830,8 +2830,8 @@ A disobedient slut that's going to be punished.
 ' 35m kneeling, marker, clamps
 [Action 2597]
 .poss 99
-.must 301                    ' Nipple clamps
-.mustnot 311                 ' Wrist restraints
+.must 361                    ' Nipple clamps
+.mustnot 363                 ' Wrist restraints
 .set 121                     ' Kneeling
 .set 124 129                 ' No cuffs, clamps
 .unset 122 125 126 127 128
@@ -2842,8 +2842,8 @@ A disobedient slut that's going to be punished.
 [Action 2598]
 .poss 99
 .mustnot 22 26               ' Something in mouth, wrists tied
-.mustnot 301                 ' Nipple clamps
-.must 311                    ' Wrist restraints
+.mustnot 361                 ' Nipple clamps
+.must 363                    ' Wrist restraints
 .set 121                     ' Kneeling
 .set 126 127                 ' No clamps, cuffs
 .unset 122 124 125 128 129
@@ -2854,7 +2854,7 @@ A disobedient slut that's going to be punished.
 [Action 2599]
 .poss 99
 .mustnot 20 22 26            ' Something on nipples, something in mouth, wrists tied
-.must 301 311                ' Nipple clamps, wrist restraints
+.must 361 363                ' Nipple clamps, wrist restraints
 .set 121                     ' Kneeling
 .set 126 129                 ' Clamps, cuffs
 .unset 122 124 125 127 128

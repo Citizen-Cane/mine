@@ -28,8 +28,8 @@
 
 '   PCM issues that have been fixed in the java player:
 
-'   330 didn't set when it was assigned to askcheck #99. I think 99 is broken, 
-'   since 330 seems to work now.
+'   366 didn't set when it was assigned to askcheck #99. I think 99 is broken, 
+'   since 366 seems to work now.
 
 '   The startup sequence doesn't work because the time-from stuff is broken or misunderstood.
 '   Actually I think I just turned it off. The OLD time-from stuff didn't work, but the new
@@ -101,15 +101,15 @@
 '   the 300 range.
 
 .asktitle       1 I Have:
-.askcheck       2      334     Some chains
-.askcheck       3      301     Nipple clamps with a connecting chain
-.askcheck       4      310     Clothes pegs
-.askcheck       5      311     Wrist restraints (e.g. handcuffs)
-.askcheck       6      312     Ankle restraints (e.g. leg irons)
-.askcheck       7      325     A slave collar
-.askcheck       8      330     Some rope (about 60 feet)
-.askcheck       9      340     A gag
-.askcheck      10      350     A butt plug
+.askcheck       2      360     Some chains
+.askcheck       3      361     Nipple clamps with a connecting chain
+.askcheck       4      362     Clothes pegs
+.askcheck       5      363     Wrist restraints (e.g. handcuffs)
+.askcheck       6      364     Ankle restraints (e.g. leg irons)
+.askcheck       7      365     A slave collar
+.askcheck       8      366     Some rope (about 60 feet)
+.askcheck       9      367     A gag
+.askcheck      10      368     A butt plug
 .askcheck      11      370     A paddle, crop, strap, etc.
 .askcheck      12      380     A chastity cage
 .askcheck      13      382     A blindfold
@@ -122,10 +122,11 @@
 .askcheck2     20      385 749 My personal ball harness
 
 
-' ingame toys (not on list)
+' in-game toys (not selectable in toys-menu)
 
 ' 371 hair brush
 ' 372 wooden spoon
+' TODO 373 ruler
 
 
  ' edit 1500 after expanding toy list
@@ -138,7 +139,9 @@
 ' .askcheck    24
 
 
-' ask range 25-49 is for what toys the slave has on right now
+' actions 222-235 are used to query what toys the slave is wearing at session start
+' Free room up to 249, so there's some more room here for additional setup 
+
 .asktitle 25 I'm wearing right now: 
 .askcheck 26 222 Nipple clamps on my slave titties
 .askcheck 27 235 Nipple clamps and a good weight
@@ -155,10 +158,12 @@
  
  ' TODO Shift debug switches
 
-' using range 302-309 and 313-324 as checks for what items to wear at session start
+' actions 302-309 and 313-324 define what items to wear at session start
+
 '.askcheck 37 302 302 : clamps on nipples for next session
 '.askcheck 38 303 303 : pegs on nipples for next session
 '.askcheck 39 304 304 : 4 pins on ball sack for next session
+
 '.askcheck 40 305 305 : humbler on balls for next session
 '.askcheck 41 306 306 : ball harness on slave balls for next session
 '.askcheck 42 307 307 : unused for next session
@@ -352,15 +357,15 @@
 .askcheck      60      635     635: AO dildo all day; 435
 .askcheck      61      636     636: AO sleep with dildo; 436   
 
-.askcheck      66      667     667: Get some chains (334)
-.askcheck      67      668     668: Get or make nipple clamps (301)
-.askcheck      68      669     669: Get some clothes pegs (310)
-.askcheck      69      670     670: Get or make wrist restraints (311)
-.askcheck      70      671     671: Get or make ankle restraints (312)
-.askcheck      71      672     672: Get or make a collar (325)
-.askcheck      72      673     673: Get rope (330)
-.askcheck      73      674     674: Get a gag (340)
-.askcheck      74      675     675: Get a butt plug (350)
+.askcheck      66      667     667: Get some chains (360)
+.askcheck      67      668     668: Get or make nipple clamps (361)
+.askcheck      68      669     669: Get some clothes pegs (362)
+.askcheck      69      670     670: Get or make wrist restraints (363)
+.askcheck      70      671     671: Get or make ankle restraints (364)
+.askcheck      71      672     672: Get or make a collar (365)
+.askcheck      72      673     673: Get rope (366)
+.askcheck      73      674     674: Get a gag (367)
+.askcheck      74      675     675: Get a butt plug (368)
 '.askcheck      75      676     676: Get or make a paddle (370)
 '.askcheck      76      677     677: Get or make a chastity device (380)
 '.askcheck      77      678     678: Get or make a humbler (384)
@@ -578,7 +583,7 @@
 ' + The assignment is set to completed here, so the message in the toy selection is not issued
 
 ' Wrist restraints
-[action 311]
+[action 363]
 It's a good thing you've followed orders and gotten some wrist restraints, slave.
 I'd hate to have to punish you for disobedience.
 ShowChoices
@@ -587,7 +592,7 @@ Would you mind and telling me what kind you've got exactly?
 .range 860
 
 ' Ankle restraints
-[action 312]
+[action 364]
 Thank you for following orders and getting those ankle restraints, baby.
 ShowChoices
 What kind of ankle restraints did you get?
@@ -595,7 +600,7 @@ What kind of ankle restraints did you get?
 .range 860
 
 ' Slave collar
-[action 325]
+[action 365]
 I'm glad to see you've got that slave collar, cunt.
 ShowChoices
 Can you tell me what you've got exactly?
@@ -603,7 +608,7 @@ Can you tell me what you've got exactly?
 .range 860
 
 ' Gag
-[action 340]
+[action 367]
 I'm glad to see you were able to get a gag, slave.
 ShowChoices
 Would you be so kind and tell me what kind you've got?
@@ -611,7 +616,7 @@ Would you be so kind and tell me what kind you've got?
 .range 860
 
 ' Butt plug
-[action 350]
+[action 368]
 Good work getting that butt plug, honey.
 I'm sure we'll be filling your slave ass up with it before too long.
 ShowChoices
@@ -2406,7 +2411,7 @@ Now keep fondling that silly cock for your Mistress while we move on with the se
 
 [Action 1254]
 Well, My dear slave, would you like to be tied up tonight?
-.must 330 736
+.must 366 736
 .mustnot 626 426        ' non-repeatable
 .poss 20
 .yesno 1270 1270 1260 1262
@@ -2415,7 +2420,7 @@ Well, My dear slave, would you like to be tied up tonight?
 
 [Action 1255]
 Well, My dear slave, would you like to be tied up today?
-.must 330 737           ' Some rope, restraint acceptance 2
+.must 366 737           ' Some rope, restraint acceptance 2
 .must 426               ' must have done nighttime first
 .mustnot 626 627 427
 .poss 20
@@ -3245,14 +3250,14 @@ Quickly, slave.
 
 ' Chains
 [Action 1501]
-.must 334
+.must 360
 .mustnot 667
 .range 1506 1510
 
 [Action 1502]
 I'm delighted you managed to procure some slave chains, as per My orders.
 We'll have a lot of fun with those.
-.must 334
+.must 360
 .must 667
 .unset 667
 .range 1506 1510
@@ -3261,13 +3266,13 @@ We'll have a lot of fun with those.
 I distinctly remember telling you to get some chains before our next session,
 which you haven't done.
 You will be punished for this oversight.
-.mustnot 334
+.mustnot 360
 .must 667
 .set 510
 .range 1506 1510
 
 [Action 1504]
-.mustnot 334
+.mustnot 360
 .mustnot 667
 .range 1506 1510
 
@@ -3275,8 +3280,8 @@ You will be punished for this oversight.
 I notice you're lacking chains.
 Before our next session, I expect you to have some.
 We will talk of this a little later.
-.mustnot 334
-.must 311 312	        ' must already have ankle and wrist restraints
+.mustnot 360
+.must 363 364	        ' must already have ankle and wrist restraints
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 667
@@ -3286,14 +3291,14 @@ We will talk of this a little later.
 
 ' Nipple clamps
 [Action 1506]
-.must 301
+.must 361
 .mustnot 668
 .range 1511 1515
 
 [Action 1507]
 It's wonderful that you've finally gotten some nipple  clamps, slave.
 I can't think of anything I enjoy more.
-.must 301
+.must 361
 .must 668
 .unset 668
 .range 1511 1515
@@ -3301,13 +3306,13 @@ I can't think of anything I enjoy more.
 [Action 1508]
 I'm quite sure that you were told to have nipple clamps ready for this session, slave.
 The fact that you don't means you will be punished.
-.mustnot 301
+.mustnot 361
 .must 668
 .set 510
 .range 1511 1515
 
 [Action 1509]
-.mustnot 301
+.mustnot 361
 .mustnot 668
 .range 1511 1515
 
@@ -3316,7 +3321,7 @@ Without nipple clamps, I'm afraid you just aren't much of a slave.
 Therefore I order you to make or buy some before our
 next session.
 We'll talk about this a little later.
-.mustnot 301
+.mustnot 361
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 668
@@ -3326,13 +3331,13 @@ We'll talk about this a little later.
 
 ' Clothes pegs
 [Action 1511]
-.must 310
+.must 362
 .mustnot 669
 .range 1516 1520
 
 [Action 1512]
 I'm glad to see that you've finally gotten yourself some clothes pegs.
-.must 310
+.must 362
 .must 669
 .unset 669
 .range 1516 1520
@@ -3340,13 +3345,13 @@ I'm glad to see that you've finally gotten yourself some clothes pegs.
 [Action 1513]
 Slave, you know you're supposed to have clothes pegs by now.
 There's nothing for it but to give you some punishment.
-.mustnot 310
+.mustnot 362
 .must 669
 .set 510
 .range 1516 1520
 
 [Action 1514]
-.mustnot 310
+.mustnot 362
 .mustnot 669
 .range 1516 1520
 
@@ -3354,7 +3359,7 @@ There's nothing for it but to give you some punishment.
 Slave, clothes pegs are an intregal part of My training program.
 Make sure you have some before we meet next time.
 We shall talk of this more in a moment.
-.mustnot 310
+.mustnot 362
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 669
@@ -3364,14 +3369,14 @@ We shall talk of this more in a moment.
 
 ' Wrist restraints
 [Action 1516]
-.must 311
+.must 363
 .mustnot 670
 .range 1521 1525
 
 [Action 1517]
 It's a good thing you've followed orders and gotten some wrist restraints, slave.
 I'd hate to have to punish you for disobedience.
-.must 311
+.must 363
 .must 670
 .unset 670
 .range 1521 1525
@@ -3379,20 +3384,20 @@ I'd hate to have to punish you for disobedience.
 [Action 1518]
 Slave, I'm quite sure I told you to make or buy some wrist restraints.
 You'll have to be punished for disregarding My instructions.
-.mustnot 311
+.mustnot 363
 .must 670
 .set 510
 .range 1521 1525
 
 [Action 1519]
-.mustnot 311
+.mustnot 363
 .mustnot 670
 .range 1521 1525
 
 [Action 1520]
 I am going to need you to have some simple wrist restraints before our next session, slave.
 We shall talk of this more in a moment.
-.mustnot 311
+.mustnot 363
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 670
@@ -3402,13 +3407,13 @@ We shall talk of this more in a moment.
 
 ' Ankle restraints
 [Action 1521]
-.must 312
+.must 364
 .mustnot 671
 .range 1526 1530
 
 [Action 1522]
 Thank you for following orders and getting those ankle restraints, baby.
-.must 312
+.must 364
 .must 671
 .unset 671
 .range 1526 1530
@@ -3416,20 +3421,20 @@ Thank you for following orders and getting those ankle restraints, baby.
 [Action 1523]
 Pardon me, slave, but didn't I tell you not to come back without ankle restraints?
 You will be punished for not following orders.
-.mustnot 312
+.mustnot 364
 .must 671
 .set 510
 .range 1526 1530
 
 [Action 1524]
-.mustnot 312
+.mustnot 364
 .mustnot 671
 .range 1526 1530
 
 [Action 1525]
 Slave, you're to procure a set of ankle restraints before our next session.
 We shall talk of this more in a moment.
-.mustnot 312
+.mustnot 364
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 671
@@ -3439,13 +3444,13 @@ We shall talk of this more in a moment.
 
 ' Slave collar
 [Action 1526]
-.must 325
+.must 365
 .mustnot 672
 .range 1531 1535
 
 [Action 1527]
 I'm glad to see you've got that slave collar, cunt.
-.must 325
+.must 365
 .must 672
 .unset 672
 .range 1531 1535
@@ -3453,20 +3458,20 @@ I'm glad to see you've got that slave collar, cunt.
 [Action 1528]
 I told you distinctly to have a slave collar ready for this session, slut.
 This means punishment.
-.mustnot 325
+.mustnot 365
 .must 672
 .set 510
 .range 1531 1535
 
 [Action 1529]
-.mustnot 325
+.mustnot 365
 .mustnot 672
 .range 1531 1535
 
 [Action 1530]
 Okay, slave, I want you to get yourself an appropriate slave collar before our next visit together.
 We shall talk more about this in a moment.
-.mustnot 325
+.mustnot 365
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 672
@@ -3476,13 +3481,13 @@ We shall talk more about this in a moment.
 
 ' Rope
 [Action 1531]
-.must 330
+.must 366
 .mustnot 673
 .range 1536 1540
 
 [Action 1532]
 Good job getting that rope, slave.
-.must 330
+.must 366
 .must 673
 .unset 673
 .range 1536 1540
@@ -3490,13 +3495,13 @@ Good job getting that rope, slave.
 [Action 1533]
 Slave, you were told to get rope before this session. 
 You will be punished for not getting it.
-.mustnot 330
+.mustnot 366
 .must 673
 .set 510
 .range 1536 1540
 
 [Action 1534]
-.mustnot 330
+.mustnot 366
 .mustnot 673
 .range 1536 1540
 
@@ -3504,7 +3509,7 @@ You will be punished for not getting it.
 Slave, without rope, we're severely limited in what we can do.
 Make sure you have some before next time.
 We will talk of this a little later. 
-.mustnot 330
+.mustnot 366
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .poss 10
@@ -3514,33 +3519,33 @@ We will talk of this a little later.
 
 ' Gag
 [Action 1536]
-.must 340
+.must 367
 .mustnot 674
 .range 1541 1545
 
 [Action 1537]
 I'm glad to see you were able to get a gag, slave.
-.must 340
+.must 367
 .must 674
 .unset 674
 .range 1541 1545
 
 [Action 1538]
 The gag you were supposed to get, but didn't, will cost you some punishment, slave.
-.mustnot 340
+.mustnot 367
 .must 674
 .set 510
 .range 1541 1545
 
 [Action 1539]
-.mustnot 340
+.mustnot 367
 .mustnot 674
 .range 1541 1545
 
 [Action 1540]
 Okay, slave, you'll need to get or make a gag before you come back next time.
 We'll talk about this more in a minute.
-.mustnot 340
+.mustnot 367
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .poss 10
@@ -3550,14 +3555,14 @@ We'll talk about this more in a minute.
 
 ' Butt plug
 [Action 1541]
-.must 350
+.must 368
 .mustnot 675
 .range 1546 1550
 
 [Action 1542]
 Good work getting that butt plug, honey.
 I'm sure we'll be filling your slave ass up with it before too long.
-.must 350
+.must 368
 .must 675
 .unset 675
 .range 1546 1550
@@ -3565,13 +3570,13 @@ I'm sure we'll be filling your slave ass up with it before too long.
 [Action 1543]
 No butt plug, eh, slave?
 Since you were told to get one, that means you need to be punished for failing to.
-.mustnot 350
+.mustnot 368
 .must 675
 .set 510
 .range 1546 1550
 
 [Action 1544]
-.mustnot 350
+.mustnot 368
 .mustnot 675
 .range 1546 1550
 
@@ -3580,7 +3585,7 @@ To start training your butt, slave, we'll need a butt plug.
 Make sure you have one before our next session.
 We will talk of this a little later.
 .must 756               ' Anal training 1
-.mustnot 350            ' A butt plug
+.mustnot 368            ' A butt plug
 .mustnot 388            ' A realistic dildo, one anal toy is enough
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
@@ -6460,7 +6465,7 @@ I guess I'll have to turn the other cheek this time.
 ' slavesinlove 186 pictures
 [Action 2511]
 .mustnot 20 22 33 34         ' something on nipples, something in mouth, can't kneel, can't type
-.must 301 310 340
+.must 361 362 367
 .must 712 717 746 
 .save 1 799
 .loadsbd mine-td.sbd 1116 1116
@@ -6587,7 +6592,7 @@ You may have escaped me this time, but don't make a habit of it!
 .loadsbd mine-paddle.sbd 2987 2987
 
 [Action 2526]
-.mustnot 301 310        ' clothes pegs or nipple clamps
+.mustnot 361 362        ' clothes pegs or nipple clamps
 .poss 100
 .save 1 799
 .loadsbd mine-paddle.sbd 2987 2987
@@ -6625,7 +6630,7 @@ I guess we'll have to skip it today.
 .loadsbd mine-paddle.sbd 2986 2986
 
 [Action 2536]
-.mustnot 301 310        ' clothes pegs
+.mustnot 361 362        ' clothes pegs
 .poss 100
 .save 1 799
 .loadsbd mine-paddle.sbd 2986 2986
@@ -6641,7 +6646,7 @@ I guess you're off the hook, you lucky slaveboy.
 
 ' Shake those titties punishment
 [Action 2541]
-.must 301 310           ' clamps, pins
+.must 361 362           ' clamps, pins
 .must 717               ' nipple tolerance 2, gives 3.
 .mustnot 20 29 34       ' something on nipples, blindfolded, can't type/use mouse 
 .save 1 799
@@ -6661,7 +6666,7 @@ I guess you're off the hook, you lucky slaveboy.
 [Action 2543]
 .else
 .mustnot 21             ' Something in ass
-.must 350               ' Buttplug
+.must 368               ' Buttplug
 .must 756               ' Anal training 1
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
@@ -6705,7 +6710,7 @@ I'd much rather hear nothing at all than a bunch of lies from a filthy and ill-m
 Go get your gag and stuff it in your mouth
 - you can leave it in there for the rest of our session, cunt.
 .pause I'm gagged, Miss
-.must 340
+.must 367
 .mustnot 22
 .set 22
 .range 2406
@@ -6718,7 +6723,7 @@ Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
 .mustnot 21             ' Something in ass
-.must 350               ' Buttplug
+.must 368               ' Buttplug
 .must 756               ' Anal training 1
 .set 21                 ' Something in ass
 .set 758                ' Anal training 3
@@ -6726,13 +6731,13 @@ You can leave it in there for our entire session, slave.
 
 
 [Action 2565]
-.must 310               ' clothes pegs
+.must 362               ' clothes pegs
 .set 716 746            ' nipple tolerance 1, CBT 1
 .save 1 799
 .loadsbd mine-paddle.sbd 2984 2984
 
 [Action 2566]
-.mustnot 310           ' clothes pegs
+.mustnot 362           ' clothes pegs
 .poss 100
 .save 1 799
 .loadsbd mine-paddle.sbd 2984 2984
@@ -6764,7 +6769,7 @@ You stay like this the whole session.
 .else
 .mustnot 26
 .mustnot 267 268             ' Enema carrying out or holding
-.mustnot 311                 ' wrist restraints
+.mustnot 363                 ' wrist restraints
 .set 26                      ' wrists tied
 .range 2407
 
@@ -6775,7 +6780,7 @@ Maybe wearing them during the session helps you to focus on the job.
 .else
 .mustnot 26
 .mustnot 267 268             ' Enema carrying out or holding
-.must 311                    ' wrist restraints
+.must 363                    ' wrist restraints
 .set 26                      ' wrists tied
 .range 2407
 
@@ -6796,7 +6801,7 @@ I'll get you next time, you dirty slave!
 .else
 .mustnot 21             ' Something in ass
 .mustnot 267 268        ' Enema carrying out or holding
-.must 350               ' Buttplug
+.must 368               ' Buttplug
 .must 756               ' Anal training 1
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
@@ -6880,7 +6885,7 @@ When you move around, you will have plenty of time to think about your misdoings
 [Action 2601]
 .else
 .mustnot 21        ' Something in ass
-.must 350          ' Buttplug
+.must 368          ' Buttplug
 .mustnot 677       ' chastity cage - expensive tool, so no punishemnt
 .must 756          ' Anal training 1
 In order to increase your attention span regarding my assignments,
@@ -7101,7 +7106,7 @@ my pet.
 .loadSbd mine-paddle.sbd 2989 2989
 
 [Action 2657]
-.mustnot 301 310        ' nipple clamps, clothes pegs
+.mustnot 361 362        ' nipple clamps, clothes pegs
 .poss 100
 .save 1 799
 .loadSbd mine-paddle.sbd 2989 2989
@@ -7213,7 +7218,7 @@ I'll get you next time, you dirty slave!
 .loadSbd mine-paddle.sbd 2981 2981
 
 [Action 2687]
-.mustnot 301 310        ' nipple clamps, clothes pegs
+.mustnot 361 362        ' nipple clamps, clothes pegs
 .poss 100
 .save 1 799
 .loadSbd mine-paddle.sbd 2981 2981
@@ -7483,7 +7488,7 @@ Fetch a chain, loop it tightly around the base of your flacid penis and lock it 
 But be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
 .pause Finished, Miss
-.must 334               ' some chains
+.must 360               ' some chains
 .range 2965
 
 [Action 2961]
@@ -7491,7 +7496,7 @@ Let's get some rope, and tie it around the base of your flacid penis.
 Be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
 .pause Finished, Miss
-.mustnot 334            ' some chains
+.mustnot 360            ' some chains
 .range 2965
 
 [Action 2962]
@@ -7585,7 +7590,7 @@ Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
 .mustnot 21             ' Something in ass
-.must 350               ' Buttplug
+.must 368               ' Buttplug
 .must 757               ' Anal training 2
 .set 21                 ' Something in ass
 .set 758                ' Anal training 3
@@ -7630,7 +7635,7 @@ Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
 .mustnot 21             ' Something in ass
-.must 350               ' Buttplug
+.must 368               ' Buttplug
 .must 757               ' Anal training 2
 .set 21                 ' Something in ass
 .set 758                ' Anal training 3
@@ -7757,7 +7762,7 @@ Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing f
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
 .mustnot 24             ' Something on balls
-.must 310               ' Clothes pegs
+.must 362               ' Clothes pegs
 .set 24
 .range 3030 3031        ' Comment pegs
 
@@ -7766,7 +7771,7 @@ Maybe some clothes pegs on your slave nipples help the enema flowing faster.
 Snap one on each nipple.
 .pause Done as ordered, Miss
 .mustnot 20             ' Something on nipples
-.must 310               ' Clothes pegs
+.must 362               ' Clothes pegs
 .set 20
 .range 3030 3031        ' Comment pegs
 
@@ -7775,7 +7780,7 @@ Maybe your nipple clamps help the enema flowing faster.
 Snap them on your slave titties and make sure they sit tight.
 .pause Done as ordered, Miss
 .mustnot 20             ' Something on nipples
-.must 301               'completely empty.
+.must 361               'completely empty.
 .delay 60
 .must 21                ' Nozzle
 .range 3032 3033
@@ -7971,7 +7976,7 @@ Get some rope and a belt and make yourself a crotch rope.
 Then take the towel you were supposed to bring for this season,
 place it in your ass crack, and pull the crotch rope tight.
 .pause My diaper is ready, Miss
-.mustnot 330            ' Some rope
+.mustnot 366            ' Some rope
 .set 27                 ' Something around waist
 .range 3080
 
@@ -7980,7 +7985,7 @@ Take the towel you were supposed to have bring for this session,
 place it in your ass crack,
 and fix it up with a good and tight crotch rope.
 .pause My diaper is ready, Miss
-.must 330               ' Some rope
+.must 366               ' Some rope
 .set 27                 ' Something around waist
 .range 3080
 
@@ -8193,7 +8198,7 @@ I don't think I'll add anything more to today's session.
 I feel like filling that slutty little butthole
 of yours up today, My dear little ass slave.
 .mustnot 21 27          ' something in butt, something around waist
-.must 330 388           ' Rope, dildo
+.must 366 388           ' Rope, dildo
 .must 757               ' anal training 2
 .must 776               ' Dildo worshiping 1
 .range 3111
@@ -8229,7 +8234,7 @@ Let me know when you've finished, my pet.
 [Action 3114]
 I feel like filling that slutty little butthole
 of yours up today, My dear little ass slave.
-.must 350
+.must 368
 .must 757               ' anal training 2
 .mustnot 21
 .range 3115
@@ -8252,7 +8257,7 @@ To make sure the plug stays inside your anus all through the session,
 you are going to tie yourself with a nice and tight crotch rope.
 .image bd227_18.jpg     ' crotch rope close-up
 .pause I'm tied up, Miss
-.must 330               ' Rope
+.must 366               ' Rope
 .must 3114
 .set 27                 ' Something around waist
 .return
@@ -8260,7 +8265,7 @@ you are going to tie yourself with a nice and tight crotch rope.
 [Action 3118]
 To make sure the plug stays inside your anus all through the session,
 I suggest you'll tie yourself with a nice rope harness as you have done before.
-.must 330               ' Rope
+.must 366               ' Rope
 .must 3114
 .range 3119
 
@@ -8279,7 +8284,7 @@ I don't doubt that you remember sleeping in your bondage harness.
 I hope you enjoyed it because you're doing it again tonight.
 .mustnot 21             ' Something in butt
 .mustnot 25 26 29 31 32 33 34 35 626 627
-.must 330 426 737
+.must 366 426 737
 .range 3121
 
 [Action 3121]
@@ -8297,7 +8302,7 @@ I don't doubt that you remember wearing your bondage harness.
 I hope you enjoyed it because you're doing it again.
 .must 21                ' Something in butt
 .mustnot 25 26 29 31 32 33 34 35 626 627
-.must 330 426 737
+.must 366 426 737
 .range 3123
 
 [Action 3123]
@@ -8313,7 +8318,7 @@ I know you like it, you bondage slut!
 [Action 3124]
 .mustnot 28             ' collared
 .mustnot 102            ' Wearing the collar is a honor, so don't give it away as a punishment
-.must 325               ' have collar
+.must 365               ' have collar
 I think you're going to wear your slave collar for today.
 Put it on now, slave.
 .pause I'm collared, Miss
@@ -8331,7 +8336,7 @@ Put it on now, slave.
 'for any reason until we've finished today's session.
 '.pause
 '.return
-'.must 334
+'.must 360
 '.mustnot 27 35
 '.set 27 35
 '.set 736
@@ -8348,7 +8353,7 @@ Put it on now, slave.
 'be a fun way to spend today's session, slut!
 '.pause
 '.return
-'.must 330 501
+'.must 366 501
 '.must 736 737 746 747
 '.mustnot 24 25 32 33 35
 '.set 24 25 32 33 35
@@ -8361,7 +8366,7 @@ Put it on now, slave.
 'leave those on for the whole session.
 '.pause
 '.range 3300
-'.must 310
+'.must 362
 '.must 718
 '.mustnot 20
 '.set 20
@@ -8372,7 +8377,7 @@ Put it on now, slave.
 'take them off until I'm done with you.
 '.pause
 '.range 3300
-'.must 310
+'.must 362
 '.must 717
 '.mustnot 20
 '.set 20
@@ -8384,7 +8389,7 @@ Put it on now, slave.
 'Leave them that way for the whole session.
 '.pause
 '.range 3300
-'.must 330
+'.must 366
 '.mustnot 25 33 35
 '.set 25 33 35
 '.set 736
@@ -8403,7 +8408,7 @@ Put it on now, slave.
 
 [Action 3140]
 .mustnot 24             ' something on balls
-.must 311 312 334       ' wrist & ankle restraints, chains
+.must 363 364 360       ' wrist & ankle restraints, chains
 .must 736 746
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
@@ -8482,8 +8487,8 @@ Now, slave, go get Me some rope and your gag.
 I want you to put the gag in, to begin with - you'll be wearing it throughout the session.
 Then, tie a rope to your gag, leaving some left over.
 .pause I'm gagged, Miss
-'.must 330                   ' some rope, but don't insist on having it in the list
-.must 340 385                ' gag, ball harness
+'.must 366                   ' some rope, but don't insist on having it in the list
+.must 367 385                ' gag, ball harness
 .must 736 737 746 782        ' restraint acceptance 1 & 2, cbt 1, gag training 1  
 .mustnot 23 24 37            ' already wearing ball harness
 .mustnot 22                  ' something in mouth
@@ -8511,7 +8516,7 @@ You can stare at that silly penis for the rest of the session.
 Now, slave, go get Me some rope and your gag.
 I want you to put the gag in, to begin with - you'll be wearing it throughout the session.
 .pause I'm gagged, Miss
-.must 330 340           ' rope, gag
+.must 366 367           ' rope, gag
 .must 736 737 746 782   ' restraint acceptance 1,2, cbt 1, gag training 2
 .mustnot 22 24 32       ' something in mouth, something on balls
 .mustnot 23             ' something on penis
@@ -8533,7 +8538,7 @@ Now, slave, go put on your ball harness.
 Pull the straps extra tight, just to make sure the harness won't slip off.
 .pause I've put it on, Miss
 .mustnot 28             ' collared
-.must 325 385           ' collar, ball harness
+.must 365 385           ' collar, ball harness
 .must 736 737 746       ' restraint acceptance 1 & 2, cbt 1
 .mustnot 23 24 37       ' already wearing ball harness
 .set 24 37              ' ball harness
@@ -8564,7 +8569,7 @@ Now, slave, I'm not in the mood for a lot of bitching and
 moaning today, so get your gag and put it in right now.
 I want you to keep it there for the entire session.
 .pause I'm gagged, Miss
-.must 340               ' have gag
+.must 367               ' have gag
 .mustnot 22             ' something in mouth
 .must 782               ' gag training 2
 .set 22 783	            ' something in mouth, gag training 3
@@ -8585,7 +8590,7 @@ Just so you remember your place, slave, I want you to get
 some rope and tie your ankles together for today's session.
 .pause Tied up, Miss
 .mustnot 25
-.must 330
+.must 366
 .set 25                 ' ankles tied
 .set 736                ' restraint acceptance 1
 .return
@@ -8595,7 +8600,7 @@ I don't want you running off, slave, so snap on
 those ankle restraints for today's session.
 .pause Tied up, Miss
 .mustnot 25             ' ankles tied
-.must 312               ' ankle restraints
+.must 364               ' ankle restraints
 .set 25                 ' ankles tied
 .set 736                ' restraint acceptance 1
 .return
@@ -8606,7 +8611,7 @@ just as a bit of a reminder.
 Leave them on for today's session.
 .pause Done, Miss
 .mustnot 26
-.must 311
+.must 363
 .set 26                 ' wrists tied
 .set 736                ' restraint acceptance 1
 .return
@@ -8614,7 +8619,7 @@ Leave them on for today's session.
 
 [Action 3166]
 One thing I like is a slutty little slaveboy wearing his slave chains.
-.must 311 312 334
+.must 363 364 360
 .must 736
 .mustnot 25 26
 .range 3167
@@ -8632,7 +8637,7 @@ Leave your chains on for the whole session, slave.
 
 [Action 3168]
 One thing I like is a slutty little slaveboy wearing his collar and chains.
-.must 311 312 325 334   ' Wrist restraints, Ankle restraints, collar, chains
+.must 363 364 365 360   ' Wrist restraints, Ankle restraints, collar, chains
 .must 737
 .mustnot 25 26 28
 .range 3169
@@ -8657,7 +8662,7 @@ You should just be able to wank, but no more.
 
 [Action 3172]
 One thing I like is a slutty little slaveboy wearing his slave chains.
-.must 311 312 334
+.must 363 364 360
 .must 736
 .mustnot 25 26
 .range 3173
@@ -8694,7 +8699,7 @@ Leave your chains on for the whole session, slave.
 [Action 3200]
 .mustnot 23           ' something on penis
 .mustnot 24 25 32
-' .must 330           ' some rope, but for this shoelace or a short string is enough
+' .must 366           ' some rope, but for this shoelace or a short string is enough
 .must 736
 Today, slave, I want you to grab some rope or shoe lace.
 Start by tying your ankles together, nice and snug.
@@ -8715,7 +8720,7 @@ You should have enough play to kneel, but not enough to stand, at least not comf
 [Action 3202]
 .mustnot 23           ' something on penis
 .mustnot 24 25 31 32
-' .must 330           ' some rope, but for this shoelace or a short string is enough
+' .must 366           ' some rope, but for this shoelace or a short string is enough
 .must 736             ' restraint acceptance 1
 For today's session, My dear, I want you to take some rope or shoelace,
 to tie your ankles together, and then tie them to your slave balls.
@@ -8730,7 +8735,7 @@ pulled down when you kneel straight, and no more!
 [Action 3206]
 For today's session, My dear, I want you to fetch some rope or shoe lace.
 .pause I have it, Miss
-' .must 330           ' some rope, but could also use shoelace instead
+' .must 366           ' some rope, but could also use shoelace instead
 .must 736 746         ' restraints acceptance 1, cbt 1
 .mustnot 24 25 31 32
 .mustnot 23           ' something on penis
@@ -8752,7 +8757,7 @@ For today's session, My dear, I want you to tie up your balls,
 so that they are separated from your silly penis.
 Go get some rope or shoe lace, and tie those balls up, until they're firmly bound.
 .pause Tied up, Miss
-' .must 330           ' some rope, but could also use shoelace instead
+' .must 366           ' some rope, but could also use shoelace instead
 .mustnot 23 24        ' something on penis, something on balls
 .set 24               ' something on balls
 .set 746              ' cbt 1
@@ -8871,7 +8876,7 @@ Put it on now, slave.
 You know one thing I like is a slutty little slaveboy wearing his slave chains.
 .mustnot 22 25 26 32    ' something in mouth, wrist and ankle retraints, can't stand
 .mustnot 23 24          ' something on penis, something on balls, ball
-.must 311 312 334       ' wrist, ankle restraints, chains
+.must 363 364 360       ' wrist, ankle restraints, chains
 .range 3253
 
 [Action 3253]
@@ -8957,7 +8962,7 @@ Get your ankle restraints, your slave chains, and your ball harness.
 Chain each ankle to your slutty ball sack so that you can just kneel straight.
 .pause Ankles tied to balls, Miss
 .must 747                    ' cbt 2
-.must 312 334 385            ' ankle restraints, chains, ball harness
+.must 364 360 385            ' ankle restraints, chains, ball harness
 .mustnot 23 24 25 32 37      ' something on penis, balls, ankles tied, can't stand, ball harness
 .set 24 25 32 37             ' Something on balls, ankles tied, wrists tied, can't stand, ball harness
 .range 3290
@@ -9391,7 +9396,7 @@ Put the butt plug in now,
 and don't take it off until bedtime.
 .pause I'm plugged, Miss
 .mustnot 21             ' Something in butt
-.must 350               ' Have butt plug
+.must 368               ' Have butt plug
 .must 634               ' Butt plug until bedtime
 .set 21                 ' Something in butt
 .poss 100
@@ -9418,7 +9423,7 @@ Keep wearing the plug until bedtime, and don't take it off before.
 .pause Yes Miss, I'm wearing it until bedtime
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo
-.must 350               ' Have butt plug
+.must 368               ' Have butt plug
 .must 634               ' Butt plug until bedtime
 .set 21                 ' Something in butt
 .poss 100
@@ -9455,7 +9460,7 @@ Put the butt plug in now,
 and don't take it off until morning.
 .pause Of course Miss, I'll keep it in until morning
 .mustnot 21             ' Something in butt
-.must 350               ' Have butt plug
+.must 368               ' Have butt plug
 .must 623               ' Butt plug until morning
 .set 21                 ' Something in butt
 .poss 100
@@ -9482,7 +9487,7 @@ and don't take it off before.
 .pause Yes Miss, I'll wear it until morning
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo
-.must 350               ' Have butt plug
+.must 368               ' Have butt plug
 .must 623               ' Butt plug until morning
 .set 21                 ' Something in butt
 .poss 100
@@ -9515,7 +9520,7 @@ Put your butt plug in now,
 and don't take it off until bedtime.
 .pause I'm plugged again, Miss
 .mustnot 21             ' Something in butt
-.must 350               ' Have butt plug
+.must 368               ' Have butt plug
 .set 21                 ' Something in butt
 .poss 100
 .set 634                ' Butt plug until bedtime
@@ -9530,7 +9535,7 @@ and don't take it off before.
 .pause Yes Miss, as you wish
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo
-.must 350               ' Have butt plug
+.must 368               ' Have butt plug
 .set 21                 ' Something in butt
 .poss 100
 .set 634                ' Butt plug until bedtime
@@ -9551,7 +9556,7 @@ and don't take it off before.
 
 ' Skip if butt plug toy unset
 [action 3954]
-.mustnot 350            ' Have butt plug
+.mustnot 368            ' Have butt plug
 .range 3960
 
 
@@ -9597,7 +9602,7 @@ and don't take it off before.
 .pause Yes Miss, as you wish
 .must 21                ' Something in butt
 .mustnot 41             ' Dildo
-.must 350               ' Have butt plug
+.must 368               ' Have butt plug
 .set 21                 ' Something in butt
 .poss 100
 .set 634                ' Butt plug until bedtime
@@ -10467,7 +10472,7 @@ What would you like to do today?
 [Action 4911]
 .mustnot 220 251
 .mustnot 21                  ' Something in butt
-.must 350
+.must 368
 .mustnot 756                 ' Anal training level 1
 .poss 20
 I can't help but notice that you've gotten yourself a butt plug,
@@ -10482,7 +10487,7 @@ Would you like me to fill your enslaved ass?
 [Action 4912]
 .mustnot 220 251             ' not already doing this
 .mustnot 21                  ' nothing in butt
-.must 350                    ' have a plug
+.must 368                    ' have a plug
 .must 756                    ' anal training 1
 You may lube up your slave anus and insert your buttplug now, slave.
 I want your ass pleasantly filled for our next activity.
@@ -10493,7 +10498,7 @@ I want your ass pleasantly filled for our next activity.
 [Action 4913]
 .mustnot 220 251             ' not already doing this
 .mustnot 21                  ' nothing in butt
-.must 350                    ' have a plug
+.must 368                    ' have a plug
 .must 756                    ' anal training 2
 .poss 10
 You may lube up your enslaved anus and insert your buttplug now, slave.
@@ -10506,7 +10511,7 @@ I want your ass pleasantly filled for our next activity.
 [Action 4914]
 .mustnot 220 251             ' not already doing this
 .mustnot 21                  ' nothing in butt
-.must 350                    ' have a plug
+.must 368                    ' have a plug
 .must 757                    ' additional chance at lev. 2
 .poss 10
 You may lube up your slave ass and insert your buttplug now, slave.
@@ -10545,7 +10550,7 @@ Lube up that plug and insert it into your bottom now.
 
 [Action 4921]
 .mustnot 21                  ' Something in butt
-.must 350                    ' Butt plug
+.must 368                    ' Butt plug
 .mustnot 756                 ' Anal training level 1
 I can't help but notice that you've gotten yourself a butt plug,
 even though you supposedly aren't interested in anal training.
@@ -10557,7 +10562,7 @@ Would you like me to fill your enslaved ass?
 
 [Action 4922]
 .mustnot 21                  ' Something in butt
-.must 350                    ' have a plug
+.must 368                    ' have a plug
 .must 757                    ' Anal training level 2
 You may lube up your slave ass and insert your buttplug now, slave.
 I want your ass pleasantly filled.
@@ -10590,7 +10595,7 @@ Lube up that plug and insert it into your bottom now.
 .must 21                ' Plug inserted, ready for crotch rope or harness
 .mustnot 25 26          ' Ankles tied, wrists tied
 .mustnot 32 33 34 35    ' Can't stand, can't kneel, can't type/use mouse, tethered
-.must 330               ' Some rope
+.must 366               ' Some rope
 I want to make sure that butt plug sits extra tight in your anus. 
 For that reason you may tie yourself a tight crotch rope now, slave.
 .range 4935
@@ -10599,7 +10604,7 @@ For that reason you may tie yourself a tight crotch rope now, slave.
 .must 21                ' Plug inserted, ready for crotch rope or harness
 .mustnot 25 26          ' Ankles tied, wrists tied
 .mustnot 32 33 34 35    ' Can't stand, can't kneel, can't type/use mouse, tethered
-.must 330               ' Some rope
+.must 366               ' Some rope
 .must 426               ' Sleep in harness assignment completed 
 I want to make sure that butt plug sits extra tight in your anus.
 For that reason you may tie yourself a nice rope harness now, slave.
@@ -10674,7 +10679,7 @@ my dear slave, so let's put on your ball harness.
 [Action 4956]
 .mustnot 221 254        ' not already doing this, not having already done it
 .mustnot 22             ' nothing in mouth
-.must 340               ' have a gag
+.must 367               ' have a gag
 I want you to be quiet for our next activity.
 Open your mouth and insert your gag now, slave.
 .pause I'm gagged, Miss
@@ -11484,7 +11489,7 @@ You seem to get used to getting used very well.
 .mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
-.must 301               ' Nipple clamps
+.must 361               ' Nipple clamps
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .set 210                ' shower one-time only
 .range 5351
@@ -11503,7 +11508,7 @@ You seem to get used to getting used very well.
 .mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
-.must 310               ' clothes pegs
+.must 362               ' clothes pegs
 .set 210                ' shower one-time only
 .set 716 736 751        ' Nipple tolerance 1, restraint acceptance 1, ass whipping 1
 .range 5353
@@ -11572,7 +11577,7 @@ I like a clean slave.
 '.mustnot 26 31 32       ' wrists tied, can't sit on chair, can't stand 
 .mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
 .mustnot 267 268        ' Enema carrying out or holding
-.must 330               ' Rope
+.must 366               ' Rope
 .must 741               ' strict self bondage 1
 .set 265                ' Done self bondage activity
 .range 5551
@@ -11594,7 +11599,7 @@ I like a clean slave.
 .mustnot 26 28 33 34    ' wrists tied, collared, can't kneel, can't type 
 '.mustnot 26 33 34       ' wrists tied, can't kneel, can't type 
 .mustnot 267 268        ' Enema carrying out or holding
-.must 301 310 311 330   ' nipple clamps, clothes pegs, wrist restraints, rope
+.must 361 362 363 366   ' nipple clamps, clothes pegs, wrist restraints, rope
 .must 717 743    	    ' nipple tolerance 2, strict self bondage 3
 .set 265                ' Done self bondage activity
 .range 5553
@@ -11605,7 +11610,7 @@ I like a clean slave.
 .mustnot 26 28 33 34    ' wrists tied, collared, can't kneel, can't type 
 '.mustnot 26 33 34       ' wrists tied, can't kneel, can't type 
 .mustnot 267 268        ' Enema carrying out or holding
-.must 301 311 330       ' Nipple clamps, wrist restraints, rope
+.must 361 363 366       ' Nipple clamps, wrist restraints, rope
 .must 717 742           ' nipple tolerance 2, strict self bondage 2
 .set 265                ' Done self bondage activity
 .range 5554
@@ -11909,7 +11914,7 @@ I will have to punish you later for failing your training.
 ' nipple-torture game
 [Action 5801]
 .mustnot 252                 ' Done nipple training activity already
-.must 301                    ' Nipple clamps
+.must 361                    ' Nipple clamps
 .must 717                    ' Nipple tolerance 2
 .mustnot 20 29 34            ' something on nipples, blindfolded, can't type
 .set 252                     ' Done nipple training activity
@@ -11940,7 +11945,7 @@ I will have to punish you later for failing your training.
 
 ' light cardio nips
 [Action 5805]
-.must 310                    ' Clothes pegs
+.must 362                    ' Clothes pegs
 .mustnot 252                 ' Done nipple training activity already
 .mustnot 20 24 25 26 29      ' something on nipples, something on ball sack, ankles tied, wrists tied, blindfolded 
 .mustnot 31 32 34 35         ' can't sit on chair, can't stand, can't type/use mouse, tethered 
@@ -11951,7 +11956,7 @@ I will have to punish you later for failing your training.
 ' quick pins
 [Action 5814]
 .mustnot 252                 ' Done nipple training activity already
-.must 301 310                ' nipple clamps, clothes pegs
+.must 361 362                ' nipple clamps, clothes pegs
 .must 717                    ' Nipple tolerance 2
 .mustnot 25 29 34            ' ankles tied, blindfolded, can't type/use mouse
 .set 252                     ' Done nipple training activity
@@ -11960,7 +11965,7 @@ I will have to punish you later for failing your training.
 ' quick pins 16
 [Action 5815]
 .mustnot 252                 ' Done nipple training activity already
-.must 310                    ' clothes pegs
+.must 362                    ' clothes pegs
 .must 717 746                ' Nipple tolerance 2, cbt 1
 .mustnot 20 24 29 34         ' something on nipples, something on balls, blindfolded, can't type/use mouse
 .set 252                     ' Done nipple training activity
@@ -11969,7 +11974,7 @@ I will have to punish you later for failing your training.
 ' nipple clamp weight lifting
 [Action 5818]
 .mustnot 252                 ' Done nipple training activity already
-.must 301 330                ' Nipple clamps, rope
+.must 361 366                ' Nipple clamps, rope
 .must 718                    ' Nipple tolerance 3
 .mustnot 25 29 32            ' ankles tied, blindfolded, can't stand
 .mustnot 34 35               ' can't type/use mouse, tethered
@@ -11980,7 +11985,7 @@ I will have to punish you later for failing your training.
 ' shake those titties
 [Action 5819]
 .mustnot 252                 ' Done nipple training activity already
-.must 301 310                ' Nipple clamps, clothes pegs
+.must 361 362                ' Nipple clamps, clothes pegs
 .must 718                    ' Nipple tolerance 3
 .mustnot 20 29 34            ' something on nipples, blindfolded, can't type/use mouse 
 .set 252                     ' Done nipple training activity
@@ -12196,7 +12201,7 @@ Meanhile, three demerits will do about right.
 .mustnot 20 22 25 26         ' something on nipples, something in mouth, ankles tied, wrists tied
 .mustnot 29 30 34 35         ' blindfolded, can't jerk off, can't type/use mouse, tethered
 .mustnot 44                  ' Chastified
-.must 301 311 312 340        ' nipple clamps, wrist restraints, ankle restraints, gag
+.must 361 363 364 367        ' nipple clamps, wrist restraints, ankle restraints, gag
 .must 717 736                ' Nipple tolerance 2, Restraint Acceptance 1
 .set 266                     ' Done story time activity
 .range 6152
@@ -12209,7 +12214,7 @@ Meanhile, three demerits will do about right.
 .mustnot 266                 ' Done story time activity already 
 .mustnot 20 24 29 32         ' Something on nipples, something on balls, blindfolded, can't stand
 .mustnot 34 35               ' can't type/use mouse, tethered 
-.must 301 310 330            ' nipple clamps, clothes pegs, rope
+.must 361 362 366            ' nipple clamps, clothes pegs, rope
 .must 719 746                ' Nipple tolerance 4, cbt 1
 .set 266                     ' Done story time activity
 .range 6153
@@ -12298,7 +12303,7 @@ Meanhile, three demerits will do about right.
 .mustnot 266            ' Done story time activity already 
 .mustnot 20 22 26 33    ' something on nipples, something in mouth, wrists tied, can't kneel
 .mustnot 34             ' can't type
-.must 301 310 340       ' Nipple clamps, clothes pegs, gag
+.must 361 362 367       ' Nipple clamps, clothes pegs, gag
 .must 712 717 746       ' punishment acceptance 2, nipple tolerance 2, cbt1
 .set 266                ' Done story time activity
 .range 6164
@@ -13374,12 +13379,12 @@ It seems that you've voided the enema completely.
 
 ' Have neither butt plug nor dildo -> no assignments, finished
 [Action 7451]
-.mustnot 350 388        ' Butt plug, dildo
+.mustnot 368 388        ' Butt plug, dildo
 .range 7479
 
 ' Postpone to add when putting on an activity toy
 [Action 7452]
-.must 350               ' have butt plug
+.must 368               ' have butt plug
 .set 269                ' Completed voiding the enema, ready for plug
 .range 7460
 
@@ -13401,7 +13406,7 @@ It seems that you've voided the enema completely.
 ' Jingle balls: Wear bells til the end of the session
 
 [Action 7480]
-.must 334               ' some chains
+.must 360               ' some chains
 Plus a little reminder right now.
 delay 2
 Get a chain, loop it a around the base of your flacid penis, and lock it up.
@@ -13411,7 +13416,7 @@ I still want you to work hard to stay hard, slave.
 .Range 7482
 
 [Action 7481]
-.mustnot 334            ' some chains
+.mustnot 360            ' some chains
 Plus a little reminder right now.
 delay 2
 Get some rope or shoelace, and tie it around the base of your flacid penis.
@@ -15336,7 +15341,7 @@ as close to the edge as you can and wait for My say-so...
 .delay 30
 .mustnot 20                       ' Something on nipples
 .mustnot 30                       ' Can't jerk off
-.must 310
+.must 362
 .set 20
 .set 42                           ' Clothes pegs on nipples
 .range 8090
@@ -15347,7 +15352,7 @@ before we go on, slave. Now, wait for My command...
 .delay 30
 .mustnot 24                       ' Something on balls
 .mustnot 30                       ' Can't jerk off
-.must 310
+.must 362
 .set 24
 .range 8090
 
@@ -15359,7 +15364,7 @@ and wait for my command...
 .delay 30
 .mustnot 20 24                    ' Something on nipples, something on balls
 .mustnot 30                       ' Can't jerk off
-.must 310
+.must 362
 .set 20 24                        ' Something on nipples, something on balls
 .set 42                           ' Clothes pegs on nipples
 .range 8090
@@ -15370,7 +15375,7 @@ Now wait for My command as you stay on the edge...
 .delay 30
 .mustnot 20                       ' Something on nipples
 .mustnot 30                       ' Can't jerk off
-.must 301                         ' Nipple clamps
+.must 361                         ' Nipple clamps
 .set 20                           ' Something on nipples 
 .unset 42                         ' Clothes pegs on nipples
 .range 8090
@@ -15885,7 +15890,7 @@ Sort it out until next time, slave.
 Slave, before we end the session,
 I want you to put on your nipple clamps.
 .pause Ready, Miss
-.must 301               ' nipple clamps
+.must 361               ' nipple clamps
 .mustnot 20             ' something on nipples
 .set 20 302	            ' clamps on nipples, remember for next session
 .set 43                 ' Nipple clamps on nipples
@@ -15895,7 +15900,7 @@ I want you to put on your nipple clamps.
 Slave, before we end the session,
 I want you to snap a clothes peg on your nipples.
 .pause Ready, Miss
-.must 310               ' clothes pegs
+.must 362               ' clothes pegs
 .mustnot 20             ' something on nipples
 .set 20 303             ' pins on nipples, remember for next session
 .set 42                 ' Clothes pegs on nipples
@@ -15906,7 +15911,7 @@ Slave, before we end the session,
 I want you to put four clothes pegs on your ball sack.
 .pause Ready, Miss
 .mustnot 686            ' Chastity belt rules apply
-.must 310               ' clothes pegs
+.must 362               ' clothes pegs
 .mustnot 23 24          ' something on penis, something on ball sack
 .mustnot 624 625        ' any chastity device assignment open
 .set 24 304	            ' pins on ball sack, remember for next session
@@ -15936,7 +15941,7 @@ Slave, before we end the session, I want you to put on your ball harness.
 Slave, before we end the session, I want you to put on
 your nipple clamps and attach a good weight to them.
 .pause Ready, Miss
-.must 301 717           ' nipple clamps, nipple tolerance 2
+.must 361 717           ' nipple clamps, nipple tolerance 2
 .mustnot 20             ' something on nipples
 .set 20 315	            ' clamps on nipples, remember clamps with weight for next session
 .set 43                 ' Nipple clamps on nipples
@@ -18242,27 +18247,27 @@ you will put the clamps and the weight on again.
 
 [Action 9941]
 .mustnot 308            ' already scheduled?
-.must 350 756           ' must have butt plug, anal level 2
+.must 368 756           ' must have butt plug, anal level 2
 Additionally you're going to stuff your back door with a large buttplug.
 .set 308
 .range 9949
 
 [Action 9942]
 .mustnot 309            ' already scheduled?
-.must 340               ' must have gag
+.must 367               ' must have gag
 And you're also going to stuff your slave mouth with that gag of yours.
 .set 309
 .range 9949
 
 [Action 9943]
 .mustnot 313            ' already scheduled?
-.must 325               ' must have collar
+.must 365               ' must have collar
 And you're also going to wear your collar next time.
 .set 313
 .range 9949
 
 [Action 9944]
-.must 311 312 334       ' wrist restraints, ankle restraints, chains
+.must 363 364 360       ' wrist restraints, ankle restraints, chains
 .mustnot 314	        ' already scheduled?
 .must 736               ' restraint acceptance 1
 And you're also going to be in tight chains next time.
