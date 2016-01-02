@@ -63,7 +63,7 @@
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="../mine-assets/assets" excludes="Mine/accessories/**,Mine/mistress/**,Mine/scripts/**"/>
+            <fileset dir="../mine-assets/assets" includes="Mine/images/**,Mine/sounds/**"/>
         </jar>
         <jar destfile="${destination}/${rootFolder}/scripts/Mine Mistress.zip">
             <manifest>
