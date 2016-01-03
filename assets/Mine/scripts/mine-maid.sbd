@@ -2113,12 +2113,10 @@ Let's continue your slave training.
 ' Jump to 1700 from the position lecture to start the wait loop and give comments
 ' Comments are defined in 2000 3999 
 
-' init progress indicators 190-199, set loop counters to zero
+' init loop
 [Action 1700]
-' reset progress indicators
-.resetrange 190 199
-.resetrange 1700 1790
-.resetrange 2200 3099   ' reset position image counters
+.resetrange 190 199     ' reset progress indicators
+.resetrange 1700 1792   ' set loop counters to zero, reset loop start actions
 .range 1701
 
 ' set progress indicators to 0, so that the
@@ -2481,8 +2479,7 @@ Let's continue your slave training.
 
 ' test multiple positions 
 [Action 1792]
-.must 997
-.unset 1792
+.must 997               ' debug entry for multiple position test
 .set 190 191 192 193 194 195 196 197 198 199
 .set 1801 1802 1803 1804 1805 1806 1807 1808 1809
 .range 1800
