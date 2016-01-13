@@ -11,7 +11,7 @@
     </target>
 
 	<target name="build_sexscripts_test">
-      <property name="destination" value="../../Extras"/>
+      <property name="destination" value="${basedir}/../"/>
       <antcall target="build"/>
     </target>
 
@@ -24,7 +24,7 @@
     		<arg value="png"/>
     		<arg value="jpg"/>
 			<classpath>
-				<pathelement location="${basedir}/../teaselib//lib/TeaseLib.jar"/>
+				<pathelement location="${basedir}/../teaselib/lib/TeaseLib.jar"/>
 				<pathelement path="$(java.class.path}"/>
 			</classpath>
     	</java>
@@ -51,7 +51,7 @@
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="bin"/>
-            <fileset dir="../PCMPlayer/bin"/>
+            <fileset dir="${basedir}/../PCMPlayer/bin"/>
         </jar>
         <jar destfile="${destination}/${rootFolder}/scripts/Mine Scripts.zip">
             <manifest>
@@ -63,19 +63,19 @@
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="../mine-assets/assets" includes="Mine/images/**,Mine/sounds/**"/>
+            <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/images/**,Mine/sounds/**"/>
         </jar>
         <jar destfile="${destination}/${rootFolder}/scripts/Mine Mistress.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="../mine-assets/assets" includes="Mine/mistress/**"/>
+            <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/mistress/**"/>
         </jar>
         <copy todir="${destination}/${rootFolder}/scripts/Mine/accessories/">
-            <fileset dir="../mine-assets/assets/Mine/accessories/"/>
+            <fileset dir="${basedir}/../mine-assets/assets/Mine/accessories/"/>
         </copy>
         <copy todir="${destination}/${rootFolder}/lib/TeaseLib">
-            <fileset dir="../TeaseLib/lib/" excludes="**.pdb,**.exp,**.ilk,**.lib"/>
+            <fileset dir="${basedir}/../TeaseLib/lib/" excludes="**.pdb,**.exp,**.ilk,**.lib"/>
         </copy>
     	<copy file="src/Mine.groovy" tofile="${destination}/${rootFolder}/Scripts/Mine.groovy"/>
     </target>
