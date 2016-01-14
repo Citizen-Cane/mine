@@ -366,8 +366,8 @@
 ' -20 something on nipples, with 42 clothes pegs
 ' -20 something on nipples, with 43 nipple clamps
 ' -22 something in mouth
-' -24 something on balls, without 39 pussy clamps
-' -24 something on balls, with 39 clothes pegs
+' -24 something on balls, with 38 clothes pegs
+' -24 something on balls, with 39 pussy clamps
 ' -25 ankles tied
 ' -26 wrists tied
 ' -28 collared
@@ -7322,7 +7322,7 @@ bd068_26.jpg
 Snap the remaining pegs on your poor ball sack.
 delay 10
 .set -20 20 42               ' something on nipples, clothes pegs
-.set -24 24                  ' something on balls, pussy clips
+.set -24 24 38               ' something on balls, pussy clips
 .unset 39                    ' something on balls, pussy clips
 .range 5197
 
@@ -7334,7 +7334,7 @@ delay 8
 bd068_26.jpg
 Then snap the remaining pegs on your poor ball sack.
 .delay 30
-.set -24 24                  ' something on balls, pussy clips
+.set -24 24 38               ' something on balls, pussy clips
 .unset 39                    ' something on balls, pussy clips
 .range 5197
 
@@ -7403,7 +7403,7 @@ bd068_26.jpg
 Snap the remaining pegs on your poor ball sack.
 delay 10
 .set -20 20 42               ' something on nipples, clothes pegs
-.set -24 24                  ' something on balls, pussy clips
+.set -24 24 38               ' something on balls, pussy clips
 .unset 39                    ' something on balls, pussy clips
 .range 5209
 
@@ -7415,7 +7415,7 @@ delay 8
 bd068_26.jpg
 Then snap the remaining pegs on your poor ball sack.
 .delay 30
-.set -24 24                  ' something on balls, pussy clips
+.set -24 24 38               ' something on balls, pussy clips
 .unset 39                    ' something on balls, pussy clips
 .range 5209
 
@@ -11347,11 +11347,11 @@ You may detach the leash, slave.
 
 ' supported toys:
 '
-'	-20 42	-	something on nipples
-'	-20 43	-	something on nipples
+'	-20 42	-	something on nipples, clothes pegs
+'	-20 43	-	something on nipples, pussy clamps
 '	-22 -	-	something in mouth
-'	-24 -	-	something on balls
-'	-24 39	-	something on balls, Pussy clamps
+'	-24 38	-	something on balls, clothes pegs
+'	-24 39	-	something on balls, pussy clamps
 '	-25 -	-	ankles tied
 '	-26 -	-	wrists tied
 '	-28 -	-	collared
@@ -11359,14 +11359,14 @@ You may detach the leash, slave.
 ' one-step removal of single toy plus all combinations of clamps or pegs
 ' two-step removal: toys, clamps and pegs
 ' -25 -26 -22 -28
-' -20 42, -20 43, -24, -24 39
+' -20 42, -20 43, -24 38, -24 39
 
 ' test debug
 [action 9399]
 '.set -20 20 42               ' something on nipples, clothes pegs
 .set -20 20 43               ' something on nipples, nipple clamps
 '.set -22 22                  ' something in mouth
-'.set -24 24                  ' something on balls, pussy clips
+'.set -24 24 38               ' something on balls, pussy clips
 .set -24 24 39               ' something on balls, pussy clamps
 '.set -25 25                  ' ankles tied
 '.set -26 26                  ' wrists tied
@@ -11401,7 +11401,7 @@ You may detach the leash, slave.
 ' neither clips nor clamps, toys optional
 [Action 9403]
 .mustnot -20 42 43
-.mustnot -24 39
+.mustnot -24 38 39
 .gosub 9480                  ' Remove toys
 .range 9409
 
@@ -11411,8 +11411,7 @@ You may detach the leash, slave.
 .range 9405 9408
 
 
-
-' no toys, just clamps or pegs
+' no (as supported by maid training) toys, just clamps or pegs
 [Action 9405]
 .mustnot -22                 ' something in mouth
 .mustnot -25                 ' ankles tied
@@ -11461,21 +11460,20 @@ Go ahead, take out your gag, and remove all the clamps, in that order.
 ' np pp 
 [Action 9422]
 .must -20 42                 ' something on nipples, clothes pegs
-.must -24                    ' something on balls, clothes pegs
-.mustnot 39                  ' pussy clamps 
+.must -24 38                 ' something on balls, clothes pegs
 .must -22                    ' something in mouth
 .mustnot -25 -26 -28
 Go ahead, take out your gag, and remove all the pegs, in that order.
 .pause Thank you, Miss
 .unset -20 20 42             ' something on nipples, clothes pegs
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -22 22                ' something in mouth
 .return
 
 ' nc 
 [Action 9423]
 .must -20 43                 ' something on nipples, nipple clamps
-.mustnot -24 
+.mustnot -24 38 39
 .must -22                    ' something in mouth
 .mustnot -25 -26 -28
 Go ahead, take out your gag, and remove your nipple clamps, in that order.
@@ -11487,7 +11485,7 @@ Go ahead, take out your gag, and remove your nipple clamps, in that order.
 ' np 
 [Action 9424]
 .must -20 42                 ' something on nipples, clothes pegs
-.mustnot -24                 ' something on balls
+.mustnot -24 38 39           ' something on balls
 .must -22                    ' something in mouth
 .mustnot -25 -26 -28
 Go ahead, take out your gag, and remove the pegs from your nipples, in that order.
@@ -11511,13 +11509,12 @@ Go ahead, take out your gag, and remove the pussy clamps, in that order.
 '     pp 
 [Action 9426]
 .mustnot -20                 ' something on nipples
-.must -24                    ' something on balls, clothes pegs
-.mustnot 39                  ' pussy clamps 
+.must -24 38                 ' something on balls, clothes pegs
 .must -22                    ' something in mouth
 .mustnot -25 -26 -28
 Go ahead, take out your gag, and remove the pegs from your slutty ball sack, in that order.
 .pause Thank you, Miss
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -22 22                ' something in mouth
 .return
 
@@ -11540,21 +11537,20 @@ Go ahead, untie your ankles, and remove all the clamps, in that order.
 ' np pp 
 [Action 9428]
 .must -20 42                 ' something on nipples, clothes pegs
-.must -24                    ' something on balls, clothes pegs
-.mustnot 39                  ' pussy clamps 
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot -22 -26 -28
 .must -25                    ' ankle restraints
 Go ahead, untie your ankles, and remove all the pegs, in that order.
 .pause Thank you, Miss
 .unset -20 20 42             ' something on nipples, clothes pegs
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -25 25                ' ankles tied
 .return
 
 ' nc 
 [Action 9429]
 .must -20 43                 ' something on nipples, nipple clamps
-.mustnot -24 
+.mustnot -24 38 39
 .mustnot -22 -26 -28
 .must -25                    ' ankle restraints
 Go ahead, untie your ankles, and remove your nipple clamps, in that order.
@@ -11566,7 +11562,7 @@ Go ahead, untie your ankles, and remove your nipple clamps, in that order.
 ' np 
 [Action 9430]
 .must -20 42                 ' something on nipples, clothes pegs
-.mustnot -24                 ' something on balls
+.mustnot -24 38 39           ' something on balls
 .mustnot -22 -26 -28
 .must -25                    ' ankle restraints
 Go ahead, untie your ankles, and remove the pegs from your nipples, in that order.
@@ -11590,13 +11586,12 @@ Go ahead, untie your ankles, and remove the pussy clamps, in that order.
 '     pp 
 [Action 9432]
 .mustnot -20                 ' something on nipples
-.must -24                    ' something on balls, clothes pegs
-.mustnot 39                  ' pussy clamps 
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot -22 -26 -28
 .must -25                    ' ankle restraints
 Go ahead, untie your ankles, and remove the pegs from your slutty ball sack, in that order.
 .pause Thank you, Miss
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -22 22                ' something in mouth
 .unset -25 25                ' ankles tied
 .return
@@ -11620,14 +11615,14 @@ Go ahead, untie your wrists, and remove all the clamps, in that order.
 ' np pp 
 [Action 9434]
 .must -20 42                 ' something on nipples, clothes pegs
-.must -24                    ' something on balls, clothes pegs
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot 39                  ' pussy clamps 
 .mustnot -22 -25 -28
 .must -26                    ' wrist restraints
 Go ahead, untie your wrists, and remove all the pegs, in that order.
 .pause Thank you, Miss
 .unset -20 20 42             ' something on nipples, clothes pegs
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -26 26                ' wrists tied
 .return
 
@@ -11670,13 +11665,12 @@ Go ahead, untie your wrists, and remove the pussy clamps, in that order.
 '     pp 
 [Action 9438]
 .mustnot -20                 ' something on nipples
-.must -24                    ' something on balls, clothes pegs
-.mustnot 39                  ' pussy clamps 
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot -22 -25 -28
 .must -26                    ' wrist restraints
 Go ahead, untie your wrists, and remove the pegs from your slutty ball sack, in that order.
 .pause Thank you, Miss
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -26 26                ' wrists tied
 .return
 
@@ -11699,21 +11693,20 @@ Go ahead and remove your collar, and all the clamps, in that order.
 ' np pp 
 [Action 9440]
 .must -20 42                 ' something on nipples, clothes pegs
-.must -24                    ' something on balls, clothes pegs
-.mustnot 39                  ' pussy clamps 
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot -22 -25 -26
 .must -28                    ' collared
 Go ahead and remove your collar and all the pegs, in that order.
 .pause Thank you, Miss
 .unset -20 20 42             ' something on nipples, clothes pegs
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -28 28                ' collared
 .return
 
 ' nc 
 [Action 9441]
 .must -20 43                 ' something on nipples, nipple clamps
-.mustnot -24 
+.mustnot -24 38 39
 .mustnot -22 -25 -26
 .must -28                    ' collared
 Go ahead and remove your collar and your nipple clamps, in that order.
@@ -11725,7 +11718,7 @@ Go ahead and remove your collar and your nipple clamps, in that order.
 ' np 
 [Action 9442]
 .must -20 42                 ' something on nipples, clothes pegs
-.mustnot -24                 ' something on balls
+.mustnot -24 38 39           ' something on balls
 .mustnot -22 -25 -26
 .must -28                    ' collared
 Go ahead and remove your collar and the pegs from your nipples, in that order.
@@ -11749,13 +11742,12 @@ Go ahead and remove your collar and the pussy clamps, in that order.
 '     pp 
 [Action 9444]
 .mustnot -20                 ' something on nipples
-.must -24                    ' something on balls, clothes pegs
-.mustnot 39                  ' pussy clamps 
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot -22 -25 -26
 .must -28                    ' collared
 Go ahead and remove your collar and the pegs from your slutty ball sack, in that order.
 .pause Thank you, Miss
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -28 28                ' collared
 .return
 
@@ -11779,14 +11771,14 @@ Go ahead, remove the restraints, and take off all the clamps, in that order.
 ' np pp 
 [Action 9446]
 .must -20 42                 ' something on nipples, clothes pegs
-.must -24                    ' something on balls, clothes pegs
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot 39                  ' pussy clamps 
 .mustnot -22 -28
 .must -25 -26                ' ankle & wrist restraints
 Go ahead, remove the restraints, and take off all the pegs, in that order.
 .pause Thank you, Miss
 .unset -20 20 42             ' something on nipples, clothes pegs
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -25 25                ' ankles tied
 .unset -26 26                ' wrists tied
 .return
@@ -11794,7 +11786,7 @@ Go ahead, remove the restraints, and take off all the pegs, in that order.
 ' nc 
 [Action 9447]
 .must -20 43                 ' something on nipples, nipple clamps
-.mustnot -24 
+.mustnot -24 38 39
 .mustnot -22 -28
 .must -25 -26                ' ankle & wrist restraints
 Go ahead, remove the restraints, and take off your nipple clamps, in that order.
@@ -11807,7 +11799,7 @@ Go ahead, remove the restraints, and take off your nipple clamps, in that order.
 ' np 
 [Action 9448]
 .must -20 42                 ' something on nipples, clothes pegs
-.mustnot -24                 ' something on balls
+.mustnot -24 38 39           ' something on balls
 .mustnot -22 -28
 .must -25 -26                ' ankle & wrist restraints
 Go ahead, remove the restraints, and take off the pegs from your nipples, in that order.
@@ -11833,13 +11825,12 @@ Go ahead, remove the restraints, and take off the pussy clamps, in that order.
 '     pp 
 [Action 9450]
 .mustnot -20                 ' something on nipples
-.must -24                    ' something on balls, clothes pegs
-.mustnot 39                  ' pussy clamps 
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot -22 -28
 .must -25 -26                ' ankle & wrist restraints
 Go ahead, remove the restraints, and take off the pegs from your slutty ball sack, in that order.
 .pause Thank you, Miss
-.unset -24 24                ' something on balls, clothes pegs
+.unset -24 24 38             ' something on balls, clothes pegs
 .unset -25 25                ' ankles tied
 .unset -26 26                ' wrists tied
 .return
@@ -11864,7 +11855,7 @@ but I guess I'll allow you to take them off in a minute.
 ' np pp 
 [Action 9471]
 .must -20 42                 ' something on nipples, clothes pegs
-.must -24                    ' something on balls, clothes pegs
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot 39                  ' pussy clamps 
 I'm tempted to have you keep wearing your pegs,
 but I guess I'll allow you to take them off in a minute.
@@ -11874,7 +11865,7 @@ but I guess I'll allow you to take them off in a minute.
 ' nc 
 [Action 9472]
 .must -20 43                 ' something on nipples, nipple clamps
-.mustnot -24 
+.mustnot -24 38 39 
 I'm tempted to have you keep wearing your nipple clamps,
 but I guess I'll allow you to take them off in a minute.
 .gosub 9480                  ' Remove toys
@@ -11883,7 +11874,7 @@ but I guess I'll allow you to take them off in a minute.
 ' np 
 [Action 9473]
 .must -20 42                 ' something on nipples, clothes pegs
-.mustnot -24                 ' something on balls
+.mustnot -24 38 39           ' something on balls
 I bet those pegs on your nipples hurt good by now!
 But you'll be allowed to take them off in a minute.
 .gosub 9480                  ' Remove toys
@@ -11901,7 +11892,7 @@ but I guess I'll allow you to take them off in a minute.
 '     pp 
 [Action 9475]
 .mustnot -20                 ' something on nipples
-.must -24                    ' something on balls, clothes pegs
+.must -24 38                 ' something on balls, clothes pegs
 .mustnot 39                  ' pussy clamps 
 I'm tempted to have you keep wearing your pegs on your ball sack,
 but I guess I'll allow you to take them off in a minute.
@@ -12133,15 +12124,15 @@ You may remove all the clamps now.
 .unset -24 24 39        ' something on balls, pussy clamps
 .return
 
-' np bp
+' np pp
 [Action 9562]
 .must -20 42            ' something on nipples. clothes pegs
-.must -24               ' something on balls/pussy
+.must -24 38            ' something on balls/pussy
 .mustnot 39             ' pussy clips
 You may remove all the pegs now.
 .pause Thank you, Miss
 .unset -20 20 42        ' something on nipples, clothes pegs
-.unset -24 24           ' something on balls, pussy clips
+.unset -24 24 338        ' something on balls, pussy clips
 .return
 
 ' np pc
@@ -12157,18 +12148,18 @@ You may remove both the clamps and the pegs now.
 ' nc pp
 [Action 9564]
 .must -20 43            ' something on nipples, nipple clamps
-.must -24               ' something on balls/pussy
+.must -24 38            ' something on balls/pussy
 .mustnot 39             ' pussy clamps
 You may remove both the clamps and the pegs now.
 .pause Thank you, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
-.unset -24 24           ' something on balls, pussy clips
+.unset -24 24 38        ' something on balls, pussy clips
 .return
 
 ' nc
 [Action 9565]
 .must -20 43            ' something on nipples, nipple clamps
-.mustnot -24            ' something on balls/pussy, pussy clamps 
+.mustnot -24 38 39      ' something on balls/pussy, pussy clamps 
 You may remove your nipple clamps now.
 .pause Thank you, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
@@ -12186,17 +12177,17 @@ You may remove your pussy clamps now.
 '    pp
 [Action 9567]
 .mustnot -20            ' something on nipples
-.must -24               ' something on balls
+.must -24 38            ' something on balls
 .mustnot 39             ' pussy clips 
 You may remove the pegs from your "pussy" now.
 .pause Thank you, Miss
-.unset -24 24 39        ' something on balls, pussy clamps
+.unset -24 24 38        ' something on balls, clothes pegs
 .return
 
 ' np
 [Action 9568]
 .must -20 42            ' something on nipples, clothes pegs
-.mustnot -24            ' something on balls/pussy 
+.mustnot -24 38 39      ' something on balls/pussy 
 You may remove the clothes pegs now.
 .pause Thank you, Miss
 .unset -20 20 42        ' something on nipples, clothes pegs

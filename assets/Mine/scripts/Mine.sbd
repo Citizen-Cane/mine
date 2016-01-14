@@ -67,7 +67,7 @@
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
 '   37  -	ball harness (includes 24)
-'   38  -   pussy pegs - additional to 24 something on balls TODO implement in all scripts
+'   38  -   pussy pegs - additional to 24 something on balls
 '   39  -   Pussy clamps - additional to 24 something on balls 
 '   40  -   Dildo in mouth, along with 22 something in mouth
 '   41  -   Dildo in ass, along with 21 something in ass
@@ -6793,7 +6793,7 @@ I'll get you next time, you dirty slave!
 
 ' 1hr punishment wanking
 [Action 2692]
-.mustnot 20 -24 39      ' something on nipples, something on balls, might be pegs
+.mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
 .mustnot 30 44          ' Can't jerk off
 .save 1 799
 .loadsbd mine-td.sbd 1104 1104
@@ -18698,7 +18698,7 @@ your slutty ball sack for quite some time.
 
 [action 11328]
 .must 228
-.set -24 24             ' setting -24 is mandatory to remember pegs on all sack
+.set -24 24 38
 .unset 228
 .gosub 11365            ' set duration according to cbt
 .range  11324
@@ -19280,7 +19280,7 @@ arranged way in front of me for inspection before you approach me.
 ' pussy pegs
 '[action 11913]
 '.mustnot 20 39
-'.must -24
+'.must -24 38
 '.unset 11913
 '.range 11930 11935
 
@@ -19294,7 +19294,7 @@ arranged way in front of me for inspection before you approach me.
 ' nipple and pussy pegs
 '[action 11915]
 '.must 20 42
-'.must -24
+'.must -24 38
 '.unset 11915
 '.range 11950 11955
 
