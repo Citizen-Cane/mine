@@ -19365,51 +19365,59 @@ I guess I just like to see you suffer in your self-imposed restraints.
 
 [action 999900]
 .unset 999900
-.range 999901 999908
+.range 999901 999918
 
 [action 999901]
 What?
-.range 999909
+.range 999919
 
 [action 999902]
 .must 999901
 Louder, slave!
-.range 999909
+.range 999919
 
 [action 999903]
 .must 999901
 I think I didn't hear you right!
-.range 999909
+.range 999919
 
 [action 999904]
 .must 999901 999902 999903
 Come on slave, speak a little louder.
-.range 999909
+.range 999919
 
 [action 999905]
-.must 999901 999902 999903 999904
-Slave!
-You have to speak clearly if I should understand you.
-.pause Yes, Miss
-.range 999909
+.must 999901 999902 999903
+Say it again!
+.range 999919
 
 [action 999906]
 .must 999901 999902 999903 999904
-Come on slave, get a decent microphone soon!
-.pause Yes, Miss
-.range 999909
+Slave!
+You have to speak clearly if I should understand you.
+.pause Yes, Miss, I will
+.range 999919
 
 [action 999907]
-.must 999901 999902 999903 999904 999905 999906
-What was that?
-.unset 999901 999902 999903 999904 
-.range 999909
+.must 999901 999902 999903 999904
+Come on slave, get a decent microphone soon!
+.pause Of course, Miss, I'll have it next time
+.range 999919
 
 [action 999908]
-.must 999901 999902 999903 999904 999905 999906 999907
-.range 999909
-
+.must 999901 999902 999903 999904 999905 999906
+What was that?
+.unset 999901 999902 999903 999904 99905 
+.range 999919
 
 [action 999909]
+.must 999901 999902 999903 999904 999905 999906 999907
+Speak clearly, cunt!
+.unset 999901 999902 999903 999904 99905 999908
 .unset 999909
+.range 999919
+
+
+[action 999919]
+.unset 999919
 .return
