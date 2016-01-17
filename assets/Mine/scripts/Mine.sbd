@@ -1525,7 +1525,7 @@ We'll start out fairly harshly, then.
 ' Naked query
 ' todo Variations
 [Action 1090]
-.range 1091 1092
+.range 1091 1099
 
 
 [Action 1091]
@@ -1538,8 +1538,12 @@ Right now, are you totally naked?
 .range 1101 1103
 
 [Action 1092]
+.must 211                    ' toys-at-startup
 .gosub 11000                 ' toys at startup - implies being naked and wearing toys
 .range 1200                  ' on to being-hard question
+
+'[Action 1099]
+
 
 
 ' Naked question, answered too late 1101-1104
@@ -18052,16 +18056,8 @@ but don't disturb Me for at least 24 hours.
 ' start
 
 [action 11000]
-.range 11001 11009
-
-
-[action 11001]
-.mustnot 211            ' toys-at-startup
-.return
-
-[action 11002]
-.must 211               ' toys-at-startup
 .range 11011
+
 
 ' introduction
 [action 11011]
@@ -18070,6 +18066,7 @@ and put on the proper getup for tonight?
 .yestext Of course, Miss
 .notext Excuse me, Miss?
 .yesno 11031 11031 11021 11021 
+
 
 ' ... like harness
 [action 11021]
