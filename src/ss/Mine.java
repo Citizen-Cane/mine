@@ -14,6 +14,7 @@ import teaselib.Actor;
 import teaselib.TeaseLib;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
+import teaselib.core.texttospeech.Voice;
 
 /**
  * @author someone
@@ -40,7 +41,8 @@ import teaselib.core.ResourceLoader;
 public class Mine extends Player {
     private static final String AssetRoot = "Mine";
     private static final String Namespace = "Mine";
-    private static final Actor MineMistress = new Actor(Actor.Dominant, "en-us");
+    private static final Actor MineMistress = new Actor(Actor.Dominant,
+            Voice.Gender.Female, "en-us");
 
     static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip",
             "Mine Mistress.zip" };
@@ -98,8 +100,8 @@ public class Mine extends Player {
             Player.debugOutput = true;
             Player.validateScripts = true;
             try {
-                BufferedReader debugReader = new BufferedReader(new FileReader(
-                        debug));
+                BufferedReader debugReader = new BufferedReader(
+                        new FileReader(debug));
                 try {
                     String line;
                     while ((line = debugReader.readLine()) != null) {
