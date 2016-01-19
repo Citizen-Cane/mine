@@ -1538,7 +1538,7 @@ Right now, are you totally naked?
 .range 1101 1103
 
 [Action 1092]
-.must 211                    ' toys-at-startup
+.must 211                    ' toys-at-startup assignment
 .gosub 11000                 ' toys at startup - implies being naked and wearing toys
 .range 1200                  ' on to being-hard question
 
@@ -15371,19 +15371,18 @@ Sort it out until next time, slave.
 .range 9001 9002
 
 
-' Initializers
+' Prepare to carry out enema for the first time 
 
-' None
 [Action 9001]
-.range 9003 9009
-
-' Prepare to carry out enema the first time 
-[Action 9002]
+.mustnot 267 268 269    ' Neither enema preparation or enema aftermath
 .must 383               ' Have enema kit
 .mustnot 786            ' Enema quantity 1.0L (means that this is the first time)
-.poss 100
 .set 267                ' Carry out enema next session, triggers continuation in 9900
 .range 9050 9053        ' Continue to good behaviour query
+
+[Action 9002]
+.else
+.range 9003 9009
 
 
 ' alternative endings 9001 9005, 10% probability
@@ -15395,29 +15394,37 @@ Sort it out until next time, slave.
 
 ' select toys for session end and to wear next time (if not already wearing that one) 
 [Action 9004]
-.mustnot 267 268 269    ' Neither Enema preparation or enema aftermath
+.mustnot 267 268 269    ' Neither enema preparation or enema aftermath
 ' No outstanding punishments
 .mustnot 500 501 502 503 504 505 506 507 508 509
 .mustnot 510 511 512 513 514 515 516 517 518 519
 .mustnot 520 521 522 523 524 525 526 527 528 529
 .mustnot 530 531 532 533 534 535 536 537 538 539
 .mustnot 540 541 542 543 544 545 546 547 548 549
-.gosub 11700           ' next-session-toys start
+' all instructions given can be performed
+' according to toys and slave experience
+.numActionsAvailable 11710 11727 1
+.numActionsAvailable 11841 11857 1
+.gosub 11700            ' next-session-toys start
 .range 9050 9053
 
 ' Prepare to carry out enema next time 
 [Action 9005]
+.mustnot 267 268 269    ' not assigned already
 .must 383               ' Have enema kit
-' Punishments are good for the enema session so we don't have to check for these
+' Punishments are good for the enema session so we don't have to check
 .set 267                ' Carry out enema next session, triggers continuation in 9900
 .range 9050 9053        ' Continue to good behaviour query
-
 
 '[Action 9005]
 '[Action 9006]
 '[Action 9007]
 '[Action 9008]
-'[Action 9009]
+
+' fallback if none of the assignments can be performed
+[Action 9009]
+.else
+.range 9050 9053        ' Continue to good behaviour query
 
 
 ' 9050-9053 questions about honesty within the session, different wording based on the alternative ending 
@@ -18881,37 +18888,37 @@ your slutty ball sack for quite some time.
 [action 11366]
 .mustnot 746
 .set 746
-.settime 55 +00:8"00
+.settime 55 +00:10"00
 .return
 
 [action 11367]
 .must 746
 .mustnot 747
 .set 747
-.settime 55 +00:12"00
+.settime 55 +00:14"00
 .return
 
 [action 11368]
 .must 747
 .mustnot 748
-.settime 55 +00:16"00
+.settime 55 +00:18"00
 .return
 
 [action 11369]
 .must 748
 .mustnot 749
-.settime 55 +00:19"00
+.settime 55 +00:21"00
 .return
 
 [action 11370]
 .must 749
 .mustnot 750
-.settime 55 +00:22"00
+.settime 55 +00:23"00
 .return
 
 [action 11371]
 .must 750
-.settime 55 +00:24"00
+.settime 55 +00:25"00
 .return
 
 ' fallback, already set
@@ -18919,12 +18926,6 @@ your slutty ball sack for quite some time.
 .else
 .unset 11372
 .return
-
-
-
-
-
-
 
 
 ' order to take clamps or pegs off, or
@@ -18942,30 +18943,31 @@ your slutty ball sack for quite some time.
 ' next-session-toy assignment introduction
 
 [Action 11700]
-.range 11710 11718
+.range 11710 11728
 
+' range 11710-11727 is evaluated in 9004 to check whether the assignemnt can be performed
 
 [Action 11710]
 .mustnot 20             ' something on nipples
 .must 362               ' clothes pegs
 Slave, before we end the session,
-I want you to snap a clothes peg on your nipples.
+I want you to pop a clothes peg on each of your nipples.
 .pause Ready, Miss
 .set 20                 ' pins on nipples
 .set 42                 ' Clothes pegs on nipples
 .set 325                ' remember for next session
-.range 11719
+.range 11729
 
 [Action 11711]
 .mustnot 20             ' something on nipples
 .must 361               ' nipple clamps
 Slave, before we end the session,
-I want you to put on your nipple clamps.
+I want you to snap on your nipple clamps.
 .pause Ready, Miss
 .set 20                 ' clamps on nipples
 .set 43                 ' Nipple clamps on nipples
 .set 326                ' remember for next session
-.range 11719
+.range 11729
 
 [Action 11712]
 .must 362               ' clothes pegs
@@ -18973,11 +18975,11 @@ I want you to put on your nipple clamps.
 '.mustnot 624 625        ' any chastity device assignment open
 '.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session,
-I want you to put four clothes pegs on your ball sack.
+I want you to pop four clothes pegs on your ball sack.
 .pause Ready, Miss
 .set 24                  ' pins on ball sack
 .set 328                 ' remember for next session
-.range 11719
+.range 11729
 
 [Action 11713]
 .must 387               ' pussy clamps
@@ -18985,11 +18987,11 @@ I want you to put four clothes pegs on your ball sack.
 '.mustnot 624 625        ' any chastity device assignment open
 '.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session,
-I want you to snap your pussy clamps on your ball sack.
+I want you to snap your pussy clamps on your slutty ball sack.
 .pause Ready, Miss
 .set 24 39               ' pussy clamps on ball sack
 .set 329                 ' remember for next session
-.range 11719
+.range 11729
 
 [Action 11714]
 .mustnot 686            ' Chastity belt rules apply
@@ -19000,7 +19002,7 @@ Slave, before we end the session, I want you to put on your ball harness.
 .pause Ready, Miss
 .set 24 37              ' ball harness
 .set 332                ' remember for next session
-.range 11719
+.range 11729
 
 [Action 11715]
 .mustnot 686            ' Chastity belt rules apply
@@ -19011,7 +19013,7 @@ Slave, before we end the session, I want you to put on your humbler.
 .pause Ready, Miss
 .set 24                 ' humbler
 .set 331                ' remember for next session
-.range 11719
+.range 11729
 
 
 ' todo pegs on both nipples and nuts
@@ -19020,13 +19022,13 @@ Slave, before we end the session, I want you to put on your humbler.
 
 
 ' skip next-session-toy selection if no toy available
-[Action 11718]
+[Action 11728]
 .else                   ' Fallback
 .return
 
 
 ' end of toy selection, activate next-session-toy
-[Action 11719]
+[Action 11729]
 .set 211                ' next-session-toy ending, continue next session
 .return
 
@@ -19156,7 +19158,9 @@ and hang the weight from them.
 
 ' Additional toys to put on before next session (secondary toy)
 [Action 11840]
-.range 11841 11848
+.range 11841 11858
+
+' range 11841-11857 is evaluated in 9004 to check whether the assignemnt can be performed
 
 ' TODO Add remaining toys for next session
 
@@ -19195,13 +19199,16 @@ And I also want you to put on your wrists and ankle restraints for next time.
 [Action 11845]
 .must 363 364 360       ' wrist restraints, ankle restraints, chains
 .must 737               ' restraint acceptance 1
-And I also want you to bound and shackled next time.
+And I also want you to be bound and shackled next time.
 .pause Of course, Miss
 .set 333 334
 .range 11859
 
 
-[Action 11848]
+'[Action 11857]
+
+
+[Action 11858]
 .else
 .range 11859
 
