@@ -302,7 +302,7 @@
 '.askcheck      43      517     517: P.O. for training failure 1
 '.askcheck      44      518     518: P.O. for training failure 2
 '.askcheck      45      519     519: P.O. for cumming illegally
-'.askcheck      46      520     520: P.O. for forgetting to wear items on startup
+'.askcheck      46      520     520: P.O. for forgetting to wear the proper getup at sessio start
 '.askcheck      47      521     521: P.O. for forgetting to perform assignment (TODO)
 '.askcheck      48      522     522: free
 '.askcheck      49      523     523: free
@@ -1550,7 +1550,7 @@ Right now, are you totally naked?
 
 [Action 1101]
 .mustnot 509                 ' P.O. for wasting mistress time
-You seem to like keeping your mistress waiting, don't you, you sluggish slave.
+You seem to like keeping your mistress waiting, don't you, slave?
 Remind me to teach you a little lesson on the topic later on.   
 .pause Thank you, Miss
 .set 509
@@ -5488,10 +5488,12 @@ as you know very well.
 
 [Action 2220]
 .must 520
-I seem to remember a certain submissive wretch who failed to wear the proper items when he approached his mistress.
-A little reminder is needed to keep the slave's thoughts and focus in line and restore respect to his mistress's assignments.
+I seem to remember a certain submissive wretch
+who failed to wear the proper getup when he approached his mistress.
+A little reminder is needed to keep the slave's thoughts and focus in line
+and restore respect to his mistress and her precise instructions.
 .pause Please Miss, I'll make good next time
-.range 2700 2704
+.range 2700 2708
 
 ' TODO Punishemnts for assignments while away from his mistress other than corner time?
 [Action 2221]
@@ -5555,8 +5557,8 @@ and that Mistresses are to be obeyed without question!
 ' have to take care of at least a couple, p.o. related to this session (voluntary, classes)
 ' and all actions that are 'severe' and thus must be taken care of
 [Action 2250]
-.mustnot 506 516 519 520 525               ' Severe punishments
-.mustnot 510 513 514 515                   ' punishments related to this session
+.mustnot 506 516 519 520 525                ' Severe punishments
+.mustnot 510 513 514 515                    ' punishments related to this session
 .mustnot 2150                               ' Perform at least one punishment
 .range 2260
 
@@ -5883,8 +5885,7 @@ I have other ways to make this lesson very clear to you, slave.
 I sincerely hope that you've changed your attitude about My
 assignments, for your sake.
 .unset 520
-'.range 2151
-.range 2900             ' End this punishment with cleaning up primary toys
+.range 2151
 
 [Action 2421]
 I sincerely hope that you've changed your attitude about My assignments, for your sake.
@@ -6777,7 +6778,7 @@ I'll get you next time, you dirty slave!
 ' 1hr punishment wanking fallback only when wearing chasttiy device and having key
 [Action 2690]
 .else                   ' Fallback in case slave wears chastity device
-.mustnot 20 -24 39      ' something on nipples, something on balls, might be pegs
+.mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
 .must 44                ' Chastified
 .must 45                ' have key for chastity cage
 .must 258               ' Corner time already given
@@ -6788,7 +6789,7 @@ I'll get you next time, you dirty slave!
 '' 1hr punishment wanking fallback only when wearing chasttiy device and not having key
 '[Action 2691]
 '.else                   ' Fallback in case slave wears chastity device
-'.mustnot 24             ' Something on balls, might be pegs
+'.mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
 '.must 44                ' Chastified
 '.mustnot 45             ' have key for chastity cage
 '.must 258               ' Corner time already given
@@ -6809,13 +6810,14 @@ I'll get you next time, you dirty slave!
 .save 1 799
 .loadsbd mine-paddle.sbd 2596 2599
 
+' todo cold shower fallback, would work with pegs and chastity cage
 
 
-' 520 Punishment outstanding for not wearing the right toys at the beginning of the session when told so
+' 520 Punishment outstanding for not wearing the requested getup at the beginning of the session
 
 ' Corner time + marker
 ' 519 Cumming without permission doesn't have a fallback, and only corner time doesn't have any toy requirements
-' 519 is also a severe punishment taht can't be skipped. As aa result, in order to avoid crashing in 519 punishment selection,
+' 519 is also a severe punishment taht can't be skipped. As a result, in order to avoid crashing in 519 punishment selection,
 ' corner time must be skipped here if 519 is outstanding. It may be sub-optimal though, but PCM-Script doesn't allow for more.
 [Action 2700]
 .mustnot 258            ' Corner time already given
@@ -6825,21 +6827,92 @@ I'll get you next time, you dirty slave!
 .loadsbd mine-paddle.sbd 2600 2600
 
 ' Corner time already given in 519, so the toys have been worn for some time, just continue to complete 520
+' todo re-word since there are punishments in olace, we just can't perform them right now
 [Action 2701]
-Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
-Lucky slave!
-I guess you've gotten away with one this time.
 .mustnot 258            ' Corner time already given
 .must 519               ' Corner time is the only punishment in 519 without requirements, so we must skip corner time here in order to avoid a crash there
-.range 2420
-
-[Action 2702]
 Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
 Lucky slave!
 I guess you've gotten away with one this time.
+.unset 520
+.range 2151
+
+' todo reword since there are punishments in place, we just can't perform them right now
+[Action 2702]
 .else
-.must 258               ' Corner time already given
-.range 2420
+.must 258            ' Corner time already given
+Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
+Lucky slave!
+I guess you've gotten away with one this time.
+.unset 520
+.range 2151
+
+' complete the clamps / complete the pegs
+' if the slave wears one pain toy, complete punishment getup with the other
+
+[Action 2703]
+.must 20 42             ' something on nipples, clothes pegs
+.mustnot 24
+'.mustnot 38 39
+Some clothes pegs on your slutty ball sack seem about right.
+Four seems about right!
+Do it now, slave.
+.pause Done, Miss
+.set 24 38              ' something on balls, clothes pegs
+.range 2709
+
+[Action 2704]
+.must 20 43             ' something on nipples, nipple clamps
+.mustnot 24
+'.mustnot 38 39
+Go fetch your pussy clamps and snap them on your slutty ball sack!
+.pause Done, Miss
+.set 24 39              ' something on balls, pussy clamps
+.range 2709
+
+[Action 2705]
+.must 24 38             ' something on ball sack, clothes pegs
+.mustnot 20
+Some clothes pegs on your slave nipples will do this time.
+Put them on now, slave!
+.pause Done, Miss
+.set 20 42              ' something on nipples, clothess pegs
+.range 2709
+
+[Action 2706]
+.must 24 39             ' something on nipples, pussy clamps
+.mustnot 20
+Go fetch your nipple clamps and snap them on your poor slave nipples!
+.pause Done, Miss
+.set 20 43              ' something on nipples, nipple clamps
+.range 2709
+
+[Action 2707]
+.must 20 38             ' something on nipples, something on balls, clothes pegs
+I sincerely hope that the pain in your nipples and nuts
+helps you remember my orders in the future.
+.pause Thank you, Miss
+.unset 520
+.set -520               ' complete punishment later
+.range 2151
+
+[Action 2708]
+.must 20 39             ' something on nipples, something on balls, clothes pegs
+I sincerely hope that the pain in your nipples and nuts
+helps you remember my orders in the future.
+.pause Thank you, Miss
+.unset 520
+.set -520               ' complete punishment later
+.range 2151
+
+
+' comment nipple & pussy pain punishment
+[Action 2709]
+I sincerely hope that the pain in your nipples and nuts
+will make you change your attitude about My orders, for your sake.
+.unset 520
+.set -520               ' complete punishment later
+.range 2151
 
 
 ' 521 Punishment outstanding for not performing out-of-session assignment
@@ -6867,7 +6940,7 @@ I guess you've gotten away with one this time.
 
 
 
-' 524 
+' 524 free
 
 ' Corner time + marker
 [Action 2740]
@@ -6897,123 +6970,6 @@ and then leave you hanging.
 Hopefully this will get through to you!
 .set 698                ' Not allowed to cum (cleared after denial)
 .range 2425
-
-
-' 2900 2944 Finish next-session-toy punishment, remove pain toys
-
-[Action 2900]
-.range 2901 2909
-
-
-' Keep wearing secondary toys (butt plug, gag, collar, chains)
-
-[Action 2901]
-As an additional reminder you will keep wearing your butt plug for the rest of the session.
-.pause Yes, Miss
-.must 228                    ' butt plug
-.set 21                      ' Something in butt
-.unset 228 308
-.range 2901 2909
-
-[Action 2902]
-As an additional reminder you will leave your gag in for the rest of the session.
-.pause Yes, Miss
-.must 229                    ' gag
-.set 22                      ' Something in mouth
-.unset 229 309
-.range 2901 2909
-
-[Action 2903]
-As an additional reminder you will wear your collar for the rest of the session.
-.pause Yes, Miss
-.must 233                    ' collar
-.set 28                      ' collared
-.unset 233 313
-.range 2901 2909
-
-[Action 2904]
-As an additional reminder you will stay in chains for the rest of the session.
-.pause Yes, Miss
-.must 234                    ' chains
-.set 25 26 32                ' Ankles tied, wrists tied, can't stand
-.unset 234 314
-.range 2901 2909
-
-'[Action 2905]
-'[Action 2906]
-'[Action 2907]
-'[Action 2908]
-
-[Action 2909]
-.mustnot 228 229 233 234     ' All processed
-.mustnot 308 309 313 314     ' All processed
-.range 2910
-
-
-' Primary items, unset assignments and flags
-
-[Action 2910]
-.range 2911 2919
-
-[Action 2911]
-But you better remove those clamps before your nipples fall off.
-.pause Thank you, Miss
-.must 222                    ' clamps on nipples
-.unset 20                    ' Something on nipples
-.unset 43                    ' Nipple clamps on nipples
-.unset 222 302
-.range 2911 2919
-
-[Action 2912]
-But you better remove those pegs before your nipples fall off.
-.pause Thank you, Miss
-.must 223                    ' pegs on nipples
-.unset 20                    ' Something on nipples
-.unset 42                    ' Clothes pegs on nipples
-.unset 223 303
-.range 2911 2919
-
-[Action 2913]
-But you better remove those pegs before your balls fall off.
-.pause Thank you, Miss
-.must 224                    ' 4 pins on ball sack
-.unset 24                    ' Something on balls
-.unset 224 304
-.range 2911 2919
-
-[Action 2914]
-However you're doing well kneeling down there, so let's keep the humbler on.
-.pause As you wish, Miss
-.must 225                    ' humbler on balls
-.set 23 24 32                ' Something on penis, something on balls, can't stand
-.unset 225 305
-.range 2911 2919
-
-[Action 2915]
-Those balls however look pretty good in your ball harness, so let's leave it on.
-.pause Yes, Miss
-.must 226                    ' ball harness on
-.set 24 37                   ' something on balls, ball harness
-.unset 226 306
-.range 2911 2919
-
-[Action 2916]
-But you better remove those clamps before your nipples fall off.
-.pause Thanks, Miss
-.must 235                    ' clamps on nipples with attached weight
-.unset 20                    ' Something on nipples
-.unset 43                    ' Nipple clamps on nipples
-.unset 235 315
-.range 2911 2919
-
-[Action 2919]
-.mustnot 222 223 224 225 226 235  ' All processed
-.mustnot 302 303 304 305 306 315  ' All processed
-.range 2920
-
-
-[Action 2920]
-.range 2151             ' Back to punishment cycle
 
 
 ' 511 lack of hardness, level 1
