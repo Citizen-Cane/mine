@@ -18053,24 +18053,18 @@ Would you mind telling me what you are wearing right now?
 .range 11034 11049
 
 
-' ask again, more rude
+' ask again, more rude, try to bluff, we haven't checked additional toys
 ' todo variations
-' todo comment if all right
 [Action 11033]
 It was about time, slut!
 ShowChoices
+delay 2
 And don't forget to put on all the other stuff I've told you to wear,
 because I don't want to waste any more of my valuable time on you tonight.
 .ask 224 249 LEFT CENTER
 .unset 11033
-.range 11034 11059
+.range 11035 11059
 
-
-' bailout action
-[Action 11034]
-.else	           ' check all toy mismatches first, count number of mismatch actions
-.unset 11034
-.range 11071 11079
 
 ' .askcheck 226 226 I have nipple clamps on my nipples
 [Action 11035]
@@ -18084,7 +18078,7 @@ Snap those clamps on now, you disobedient cunt!
 .set 212           ' slave forgot to put on clamps or pegs
 .set 226
 .unset 11035
-.range 11070
+.range 11033
 
 ' .askcheck 227 227 there is a weight hanging from the nipple clamps
 [Action 11036]
@@ -18100,7 +18094,7 @@ And that weight better be heavy, you disobedient cunt.
 .set 212           ' slave forgot to put on clamps or pegs
 .set 227
 .unset 11036
-.range 11070
+.range 11033
 
 ' .askcheck 226 226 I have nipple clamps on my nipples
 ' .askcheck 227 227 there is a weight hanging from the nipple clamps
@@ -18116,7 +18110,7 @@ And that weight stretching your nipples better be heavy, you disobedient cunt!
 .set 212           ' slave forgot to put on clamps or pegs
 .set 226 227
 .unset 11036
-.range 11070
+.range 11033
 
 ' .askcheck 225 225 I have clothes pegs on my nipples
 [Action 11038]
@@ -18129,7 +18123,7 @@ Put them on now, you disobedient cunt!
 .set 212           ' slave forgot to put on clamps or pegs
 .set 225
 .unset 11038
-.range 11070
+.range 11033
 
 ' .askcheck 228 228 I have clothes pegs on my ball sack
 [Action 11039]
@@ -18144,7 +18138,7 @@ you disobedient cunt!
 .set 212           ' slave forgot to put on clamps or pegs
 .set 228
 .unset 11039
-.range 11070
+.range 11033
 
 ' .askcheck 229 229 I have pussy clamps on my ball sack
 [Action 11040]
@@ -18159,7 +18153,7 @@ Snap those clamps on now, you disobedient cunt!
 .set 212           ' slave forgot to put on clamps or pegs
 .set 229
 .unset 11040
-.range 11070
+.range 11033
 
 ' .askcheck 230 230 there is a weight hanging from the pussy clamps
 [Action 11041]
@@ -18174,7 +18168,7 @@ And that weight stretching your nipples better be heavy, you disobedient cunt.
 .set 212           ' slave forgot to put on clamps or pegs
 .set 230
 .unset 11041
-.range 11070
+.range 11033
 
 ' .askcheck 229 229 I have pussy clamps on my ball sack
 ' .askcheck 230 230 there is a weight hanging from the pussy clamps
@@ -18190,7 +18184,7 @@ And that weight stretching your nipples better be heavy, you disobedient cunt!
 .set 212           ' slave forgot to put on clamps or pegs
 .set 229 230
 .unset 11042
-.range 11070
+.range 11033
 
 ' .askcheck 231 231 I'm wearing my humbler
 [Action 11043]
@@ -18202,7 +18196,7 @@ Put on your humbler now, you disobedient cunt!
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 231
 .unset 11043
-.range 11070
+.range 11033
 
 ' .askcheck2 232 232 385 I'm wearing my ball harness
 [Action 11044]
@@ -18214,7 +18208,7 @@ Make up for it, and strap them extra tight, you disobedient cunt!
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 232
 .unset 11044
-.range 11070
+.range 11033
 
 ' .askcheck 233 233 my wrist and ankles are tied up
 [Action 11045]
@@ -18228,7 +18222,7 @@ Put them on now, you sloppy slut.
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 233
 .unset 11045
-.range 11070
+.range 11033
 
 ' .askcheck 234 234 they're chained together
 [Action 11046]
@@ -18245,7 +18239,7 @@ And keep the chains short, I want to see you on your knees tonight.
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 234
 .unset 11046
-.range 11070
+.range 11033
 
 ' .askcheck 233 233 my wrist and ankles are tied up
 ' .askcheck 234 234 they're chained together
@@ -18261,7 +18255,7 @@ And keep the chains short, I want to see you on your knees tonight.
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 234
 .unset 11047
-.range 11070
+.range 11033
 
 ' .askcheck 235 235 my ball sack is tied to my ankles
 [Action 11048]
@@ -18275,7 +18269,7 @@ And keep the chains short, I want to see you on your knees tonight.
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 235
 .unset 11048
-.range 11070
+.range 11033
 
 ' .askcheck2 236 236 380 I'm wearing my chastity cage
 [Action 11049]
@@ -18287,7 +18281,7 @@ Slave, I see that you didn't lock up yourself up properly.
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 236
 .unset 11049
-.range 11070
+.range 11033
 
 ' .askcheck 240 240 I'm wearing my slave collar
 [Action 11050]
@@ -18300,7 +18294,7 @@ Put it on now, slut.
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 240
 .unset 11050
-.range 11070
+.range 11033
 
 ' .askcheck 241 241 I've plugged my ass with a large buttplug
 [Action 11051]
@@ -18314,7 +18308,7 @@ Go slide that plug into your slave ass now, you disobedient cunt.
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 241
 .unset 11051
-.range 11070
+.range 11033
 
 ' .askcheck2 242 242 426 I've tied up myself in a rope harness
 [Action 11052]
@@ -18328,34 +18322,57 @@ I'm waiting!
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 242
 .unset 11052
-.range 11070
+.range 11033
 
 ' .askcheck 243 243 I'm gagged
 [Action 11053]
 .mustnot 243
 .must 343
-Slave, you were supposed to shut up your dirty mouth with a gag.
+Slave, you were supposed to stuff your dirty mouth with a gag.
 But you didn't!
-Welll, get your gag and do it now, you disobedient cunt!
-.pause I'm gagged, Miss
+Well, get your gag and put it in now, you disobedient cunt!
+.pause I'm gagged now, Miss
+.set 22            ' something in mouth, necessary to support gagged replies
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 243
 .unset 11053
-.range 11070
-
-
-' Slave has forgotten at least one toy, try to bluff, we haven't checked additional toys
-[Action 11070]
-.set 520               ' P.O. for not wearing expected items
-.unset 11070
 .range 11033
+
+'[Action 11058]
+
+' remembered all toys
+[Action 11059]
+.else	           ' check all toy mismatches first, count number of mismatch actions
+.range 11060 11062
+
+
+[Action 11060]
+.mustnot 212 213
+What a good slaveboy.
+You are indeed very obedient, my pet.
+.gosub 11200       ' comment overall number of toys
+.range 11071 11079 ' comment forgotten toys
+
+' Comment forgotten other toy
+[Action 11061]
+.mustnot 212            ' didn't forget pain toy
+.must 213               ' slave forgot to put on a toy other than clamps or pegs
+Ready at last, my little cock-toy.
+I almost died waiting while you were dressing up for me.
+.gosub 11200            ' comment overall number of toys
+.range 11099
+
+' comment pain toy
+[Action 11062]
+.else
+.must 212               ' forget pain toy
+.gosub 11200            ' comment overall number of toys
+.range 11071 11079      ' comment forgotten toys
 
 
 ' Remembered everything
 [Action 11071]
 .mustnot 212 213
-What a good slaveboy.
-You are indeed very obedient, my pet.
 .range 11100
 
 ' Forgot nipple clamps
@@ -18394,14 +18411,7 @@ Now slave, do you enjoy wearing your clothes pegs for my pleasure?
 .yestext Yes Miss, if it pleases you
 .notext No Miss, I don'tl
 
-' Comment forgotten other toy
-[Action 11078]
-.else                   ' prefer pain-toy punishment over humiliation 
-.must 213               ' slave forgot to put on a toy other than clamps or pegs
-.mustnot 212            ' didn't forget pain toy
-Ready at last, my little cock-toy.
-I almost died waiting for you to dress up for me.
-.range 11100
+'[action 11079]
 
 
 ' Painful waiting with nipple clamps, like
@@ -18466,29 +18476,33 @@ were supposed to already wear them.
 ' todo combinations
 
 
+' forgot to wear a toy end
+
 [Action 11099]
-.range 11200            ' Map assignments to toys
+.set 520                ' P.O. for not wearing expected items
+.range 11300            ' Map assignments to toys
 
 
-' comment wearing clamps or pegs
+' comment wearing clamps or pegs when everything is okay
 
 [Action 11100]
+.gosub 11200            ' comment overall number of toys
 .range 11101 11119
 
 ' comment nipple clamps
 [Action 11101]
-Now slave, do you enjoy wearing your nipple clamps for my pleasure?
 .must 212               ' slave forgot to put on clamps or pegs
 .must 226
+Now slave, do you enjoy wearing your nipple clamps for my pleasure?
 .yesno 11120 11120 11121 11121
 .yestext Yes Miss, if it pleases you
 .notext No Miss, I don't
 
 ' comment nipple pegs
 [Action 11102]
-Now slave, do you enjoy wearing clothes pegs on your nipples for my pleasure?
 .must 212               ' slave forgot to put on clamps or pegs
 .must 225 
+Now slave, do you enjoy wearing clothes pegs on your nipples for my pleasure?
 .yesno 11122 11122 11123 11123
 .yestext Yes Miss, if it pleases you
 .notext No Miss, I don't
@@ -18572,7 +18586,7 @@ your slutty ball sack for quite some time.
 ' todo combinations
 
 [Action 11199]
-.range 11200            ' Map assignments to toys
+.range 11300            ' Map assignments to toys
 
 
 ' assignment to appear in punishment getup
@@ -18582,38 +18596,159 @@ your slutty ball sack for quite some time.
 ' todo decide what offenses to forgive
 
 
-' comment getup according to the number of toys applied
-'[action 11100]
-'.range 11101 11102
-
-'[action 11101]
-'.numactionsset 320 339 8
-'Well, You must feel very bad about your punishment account,
-'if you appear like this.
-'.range 11120
-
-'[action 11102]
-'.else
-'.range 11103 11104
-
-
-' comment getup according to the number of punishments
-'[action 11120]
-'.range 11121 11122
-
-'[action 11121]
-'.numactionsset 500 549 12
-'Well, You must feel very bad about the number of punishments you've piled up, if you appear like this.
-'.range 11200
-
-'[action 11122]
-'.else 11123 11124
-
-
-' comment toys or sets
-
+' comment toys or sets - called from 11034 after requested getup is complete
+' comment number of toys, comment special combinations
 [action 11200]
-.range 11300
+.range 11202 11213
+
+' todo different comments about the number of startup toys
+' refer to begging for mercy or relief from punishment ...
+
+[action 11202]
+.numactionsset 225 249 10
+Well, You must feel very bad about the number of punishments you've piled up,
+if you appear like this.
+.range 11220
+
+[action 11203]
+.range 11204 11205
+
+
+[action 11204]
+.numactionsset 225 249 9
+Well, you must feel very bad about your punishment account,
+if you appear like this.
+.range 11220
+
+[action 11205]
+.range 11206 11207
+
+
+[action 11206]
+.numactionsset 225 249 8
+I begin to think that you are taking my orders seriously.
+.range 11220
+
+[action 11207]
+.range 11208 11209
+
+
+[action 11208]
+.numactionsset 225 249 7
+I begin to think that you are taking my orders seriously.
+.range 11220
+
+[action 11209]
+.range 11210 11211
+
+
+[action 11210]
+.numactionsset 225 249 6
+I begin to think that you are taking my orders seriously.
+.range 11220
+
+[action 11211]
+.range 11212 11213
+
+
+[action 11212]
+.numactionsset 225 249 5
+I begin to think that you are taking my orders seriously.
+.range 11220
+
+[action 11213]
+.range 11214 11215
+
+
+[action 11214]
+.numactionsset 225 249 4
+I begin to think that you are taking my orders seriously.
+.range 11220
+
+[action 11215]
+.range 11216 11217
+
+
+[action 11216]
+.numactionsset 225 249 4
+I begin to think that you are taking my orders seriously.
+.range 11220
+
+[action 11217]
+.range 11218 11219
+
+
+[action 11218]
+.numactionsset 225 249 3
+I really like a well-prepared slave-boy!
+.range 11220
+
+[action 11219]
+.else
+I like a well-prepared slave.
+.range 11220
+
+
+' comment combinations of toys in 11260-, or forward to 1124 to comment single toys
+' pain toys are handled afterwards, so these don't have to be handled here
+
+[11220]
+.range 11260
+
+
+[11224]
+.range 11227 11259
+
+'.askcheck 225 225 I have clothes pegs on my nipples
+'.askcheck 226 226 I have nipple clamps on my nipples
+.askcheck 227 227 there is a weight hanging from the nipple clamps
+'.askcheck 228 228 I have clothes pegs on my ball sack
+'.askcheck 229 229 I have pussy clamps on my ball sack
+.askcheck 230 230 there is a weight hanging from the pussy clamps
+.askcheck 231 231 I'm wearing my humbler
+.askcheck2 232 232 385 I'm wearing my ball harness
+
+' secondary toys - restraints and humiliation
+.askcheck 233 233 my wrist and ankles are tied up
+.askcheck 234 234 they're chained together
+.askcheck 235 235 my ball sack is tied to my ankles
+                   ' to avoid a later query
+.askcheck2 236 236 380 I'm wearing my chastity cage
+'.askcheck 237 237 
+'.askcheck 238 238 
+'.askcheck 239 239 
+' tertiary items - decorative
+.askcheck 240 240 I'm wearing my slave collar
+.askcheck 241 241 I've plugged my ass with a large buttplug
+                   ' if completed "sleep in harness" assignment
+.askcheck2 242 242 426 I've tied up myself in a rope harness
+.askcheck 243 243 I'm gagged
+'.askcheck 244 244 
+
+' tertiary toys, never assigned, for additional voluntary disciplining equipment
+'.askcheck 245 245 my wrists are tied to my ball sack
+'.askcheck 246 246 my wrists are tied to my collar
+'.askcheck 247 247 my slutty cock is tortured by my e-stim device
+'.askcheck 248 248 I'm wearing my punishment dress
+'.askcheck 249 249
+
+[11259]
+.else
+.range 11240
+
+
+' comment combination and return, or forward to 11224
+
+[11260]
+.range 11261 11269
+
+
+[11269]
+.range 11224
+
+
+[11299]
+.return
 
 
 ' map assignments to toys
@@ -19290,14 +19425,14 @@ Would you like to take of them off?
 .timefrom 55 00:30"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
-delay 10
+delay 5
 That hurts good, doesn't it?
 .set 252           ' Done nipple training activity
-.return 
+.range 11990 
 
 [action 11926]
 .else
-Well, I don't see why I should let you remove them right now.
+Well, I don't see why I should let you take them off right now.
 .return 
 
 '[action 11927]
@@ -19305,20 +19440,36 @@ Well, I don't see why I should let you remove them right now.
 '[action 11929]
 
 
+' leadout, comment completed nipple & ball sack punishments
+
+[action 11990]
+.range 11991 11999
+
+
+[action 11991]
+.must -520              ' failed to wear the proper getup at startup
+I hope for your own sake, that you're going to
+respect your mistress' precise instructions next time. 
+.must -520
+.return
+
+[action 11999]
+.else
+.return
+
 
 ' assignments for next session
-
 ' one or more primary toys, one or more secondaries
 
-about 30 actions, one for each combination
-
+'about 30 actions, one for each combination
 
 ' check for outstanding punishments count
 ' todo how to justify letting off a punishment
-I see that you want to please me with your punishment attire.
-Well your lucky tonight!
-I accept your total submission to me.
-I guess I just like to see you suffer in your self-imposed restraints.
+'I see that you want to please me with your punishment attire.
+'Well your lucky tonight!
+'I accept your total submission to me.
+'I guess I just like to see you suffer in your self-imposed restraints.
+
 
 
 
