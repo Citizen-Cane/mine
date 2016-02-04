@@ -6229,9 +6229,9 @@ You can leave it in there for our entire session, slave.
 ' 506 lying
 
 [Action 2560]
+.else                   ' Fallback
 Sadly there appears to be no punishment
 suitable for a lying degenerate cunt slave.
-.else                   ' Fallback
 .range 2406
 
 ' shower 15m, wet, ankles, nips/balls, 100 paddles, gag
@@ -6245,28 +6245,38 @@ suitable for a lying degenerate cunt slave.
 .range 2565 2566
 
 [Action 2562]
+.mustnot 22
+.must 367
 I'd much rather hear nothing at all than a bunch of lies from a filthy and ill-mannered slave.
 Go get your gag and stuff it in your mouth
 - you can leave it in there for the rest of our session, cunt.
 .pause I'm gagged, Miss
-.must 367
-.mustnot 22
 .set 22
 .range 2406
 
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2563]
+.mustnot 21             ' Something in ass
+.must 368               ' Buttplug
+.must 756               ' Anal training 1
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
-.mustnot 21             ' Something in ass
-.must 368               ' Buttplug
-.must 756               ' Anal training 1
 .set 21                 ' Something in ass
 .set 758                ' Anal training 3
 .range 2406
+
+[Action 2564]
+.mustnot 20
+.must 361               ' have nipple clamps
+Instead of beating you raw, I'm going to have you wear your nipple clamps today.
+Snap them on your poor slave nipple now, slut!
+I'll tell you when you may take them off.
+.pause I have them on, Miss
+.set 20 43              '
+.range 2569
 
 
 [Action 2565]
@@ -6282,11 +6292,19 @@ You can leave it in there for our entire session, slave.
 .loadsbd mine-paddle.sbd 2984 2984
 
 
+[Action 2569]
+Hopefully that'll cast out any desire you have to tell Me falsehoods, 
+but if I catch you again there will be plenty more pain for you.
+.unset 506              ' Don't repeat
+.set -506               ' complete the punishment when taking the clamps off
+.range 2151
+
+
 ' 507 attention deficit
 
 [Action 2570]
-Unfortunately your attention deficit disorder must go unavenged today.
 .else                        ' Fallback
+Unfortunately your attention deficit disorder must go unavenged today.
 .range 2407
 
 ' dildo punishment
@@ -6300,32 +6318,47 @@ Unfortunately your attention deficit disorder must go unavenged today.
 .loadsbd mine-dildo.sbd 903 903
 
 [Action 2572]
+.else
+.mustnot 26
+.mustnot 267 268             ' Enema carrying out or holding
+.mustnot 363                 ' wrist restraints
 Get some rope or shoelace and tie your wrists together.
 Keep the connection short.
 Maybe this keeps you focussed on the job, slave.
 You stay like this the whole session.
 .pause Done, Miss
-.else
-.mustnot 26
-.mustnot 267 268             ' Enema carrying out or holding
-.mustnot 363                 ' wrist restraints
 .set 26                      ' wrists tied
 .range 2407
 
 [Action 2573]
-Get your wrist restraints and snap them on.
-Maybe wearing them during the session helps you to focus on the job.
-.pause Done, Miss
 .else
 .mustnot 26
 .mustnot 267 268             ' Enema carrying out or holding
 .must 363                    ' wrist restraints
+Get your wrist restraints and snap them on.
+Maybe wearing them during the session helps you to focus on the job.
+.pause Done, Miss
 .set 26                      ' wrists tied
 .range 2407
 
-'[Action 2574]
+[Action 2574]
+.mustnot 20
+.must 361               ' have nipple clamps
+Maybe wearing your nipple clamps helps you to focus on the job.
+Snap them on your poor slave nipple now, slut!
+I'll tell you when you may take them off.
+.pause I have them on, Miss
+.set 20 43              '
+.range 2579
 
 ' 2575-2579 for extra completion comments
+
+[Action 2579]
+I trust that you'll be paying much better attention now.
+After all, what else is there for a slave to do than to concentrate on his Mistress?
+.unset 507              ' Don't repeat
+.set -507               ' complete the punishment when taking the clamps off
+.range 2151
 
 
 ' 508 inattentiveness
@@ -6823,6 +6856,7 @@ I'll get you next time, you dirty slave!
 [Action 2700]
 .mustnot 258            ' Corner time already given
 .mustnot 519            ' 520 is executed before, but 519 has no fallback
+.unset -20 -24          ' don't remove clamps or pegs in activity
 .set 258
 .save 1 799
 .loadsbd mine-paddle.sbd 2600 2600
@@ -6835,16 +6869,18 @@ I'll get you next time, you dirty slave!
 Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
 Lucky slave!
 I guess you've gotten away with one this time.
+.unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520
 .range 2151
 
 ' todo reword since there are punishments in place, we just can't perform them right now
 [Action 2702]
 .else
-.must 258            ' Corner time already given
+.must 258               ' Corner time already given
 Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
 Lucky slave!
 I guess you've gotten away with one this time.
+.unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520
 .range 2151
 
@@ -6893,16 +6929,18 @@ Go fetch your nipple clamps and snap them on your poor slave nipples!
 I sincerely hope that the pain in your nipples and nuts
 helps you remember my orders in the future.
 .pause Thank you, Miss
+.unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520
 .set -520               ' complete punishment later
 .range 2151
 
 [Action 2708]
-.must 20 39             ' something on nipples, something on balls, clothes pegs
+.must 20 39             ' something on nipples, something on balls, clamps
 I sincerely hope that the pain in your nipples and nuts
 helps you remember my orders in the future.
 .pause Thank you, Miss
-.unset 520
+.unset -20 -24          ' don't remove clamps or pegs in activity
+.unset 520              ' Don't repeat
 .set -520               ' complete punishment later
 .range 2151
 
@@ -6911,6 +6949,7 @@ helps you remember my orders in the future.
 [Action 2709]
 I sincerely hope that the pain in your nipples and nuts
 will make you change your attitude about My orders, for your sake.
+.unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520
 .set -520               ' complete punishment later
 .range 2151
@@ -19197,18 +19236,6 @@ Especically if he's chained and shackled so well.
 .return
 
 
-' order to take clamps or pegs off, or
-' command to keep wearing them
-
-' at least one punishment to perform
-'[action 11220]
-'.numactionsset 500 549 1
-'You'll be wearing them until further notice.
-
-
-' order to keep wearing the rest
-
-
 ' next-session-toy assignment introduction
 
 [Action 11700]
@@ -19566,6 +19593,8 @@ arranged way in front of me for inspection before you approach me.
 .unset 11914
 .range 11950 11955
 
+' todo combinations
+
 ' nipple and pussy pegs
 '[action 11916]
 '.must 20 42
@@ -19594,18 +19623,23 @@ Or would you like to take of them off now?
 .pause Yes please, Miss
 .range 11925 11929
 
-'[action 11921]
+[action 11921]
+.timeto 55 -00:00"00
+Are you enjoying your clothes pegs, my pet?
+.range 11925 11929
+
 '[action 11922]
 '[action 11923]
 '[action 11924]
 
 
 [action 11925]
-.timefrom 55 00:30"00
+.timefrom 55 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
+.pause Yes, Miss
 .unset -20 20 42        ' something on nipples, clothes pegs
 .set 252                ' Done nipple training activity
 .range 11990 
@@ -19613,7 +19647,7 @@ That hurts good, doesn't it?
 [action 11926]
 .else
 Well, I don't see why I should let you take them off right now.
-.return 
+.range 11980            ' comment punishment in progress
 
 '[action 11927]
 '[action 11928]
@@ -19626,18 +19660,23 @@ Or would you like to take of them off now?
 .pause Yes please, Miss
 .range 11935 11939
 
-'[action 11931]
+[action 11931]
+.timeto 55 -00:00"00
+Are you enjoying your nipple clamps, my pet?
+.range 11925 11929
+
 '[action 11932]
 '[action 11933]
 '[action 11934]
 
 
 [action 11935]
-.timefrom 55 00:30"00
+.timefrom 55 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
+.pause Yes, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
 .set 252                ' Done nipple training activity
 .range 11990 
@@ -19645,7 +19684,7 @@ That hurts good, doesn't it?
 [action 11936]
 .else
 Well, I don't see why I should let you take them off right now.
-.return 
+.range 11980            ' comment punishment in progress
 
 '[action 11937]
 '[action 11938]
@@ -19658,18 +19697,23 @@ Or would you like to take of them off now?
 .pause Yes please, Miss
 .range 11945 11949
 
-'[action 11941]
+[action 11941]
+.timeto 55 -00:00"00
+Are you enjoying your clothes pegs, my pet?
+.range 11925 11929
+
 '[action 11942]
 '[action 11943]
 '[action 11944]
 
 
 [action 11945]
-.timefrom 55 00:30"00
+.timefrom 55 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
+.pause Yes, Miss
 .unset -24 24 38        ' something on ball sack, clothes pegs
 .set 259                ' Done ball sack pegs or pussy clamps
 .range 11990 
@@ -19677,7 +19721,7 @@ That hurts good, doesn't it?
 [action 11946]
 .else
 Well, I don't see why I should let you take them off right now.
-.return 
+.range 11980            ' comment punishment in progress
 
 '[action 11947]
 '[action 11948]
@@ -19690,18 +19734,23 @@ Or would you like to take of them off now?
 .pause Yes please, Miss
 .range 11955 11959
 
-'[action 11951]
+[action 11951]
+.timeto 55 -00:00"00
+Are you enjoying your pussy clamps, my pet?
+.range 11925 11929
+
 '[action 11952]
 '[action 11953]
 '[action 11954]
 
 
 [action 11955]
-.timefrom 55 00:30"00
+.timefrom 55 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
+.pause Yes, Miss
 .unset -24 24 39        ' something on nipples, pussy clamps
 .set 259                ' Done ball sack pegs or pussy clamps
 .range 11990 
@@ -19709,12 +19758,14 @@ That hurts good, doesn't it?
 [action 11956]
 .else
 Well, I don't see why I should let you take them off right now.
-.return 
+.range 11980            ' comment punishment in progress
 
 '[action 11957]
 '[action 11958]
 '[action 11959]
 
+
+' todo combinations
 
 
 ' leadout, comment in-progress nipple & ball sack punishments
@@ -19726,7 +19777,17 @@ Well, I don't see why I should let you take them off right now.
 [action 11981]
 .must -520              ' failed to wear the proper getup at startup
 That's just the right punishment for a slave
-that ignores his  mistress' precise instructions. 
+that ignores his mistress' precise instructions. 
+.return
+
+[action 11981]
+.must -506              ' lying
+That's just the right punishment for a lying slave.
+.return
+
+[action 11982]
+.must -507              ' attention deficit
+In fact I hope that the pain teaches you paying proper attention to my precise instructions. 
 .return
 
 [action 11989]
@@ -19744,8 +19805,23 @@ that ignores his  mistress' precise instructions.
 
 [action 11991]
 .must -520              ' failed to wear the proper getup at startup
-I hope for your own sake, that you're going to
-respect your mistress' precise instructions next time. 
+I sincerely hope that you've changed your attitude about My
+assignments, for your sake.
+.unset -520 
+.return
+
+[action 11992]
+.must -506              ' lying
+Hopefully the pain in your nipples wiped out any desire you had to tell Me falsehoods, 
+but if I catch you again there will be plenty more pain for you.
+.unset -506 
+.return
+
+[action 11993]
+.must -507              ' attention deficit
+I trust that you'll be paying much better attention in the future, My dear little slaveboy.
+After all, what else is there for a slave to do than to concentrate on his Mistress?
+.unset -507 
 .return
 
 [action 11999]
