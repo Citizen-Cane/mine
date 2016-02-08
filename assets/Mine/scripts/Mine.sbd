@@ -37,7 +37,7 @@
 
 
 '   Variables
-'	The program saves everything between 1 and 799. Actions less than 49
+'	The program saves everything between 1 and 799. Actions less than 90
 '	are generally transient in nature. Some of those variables correspond to actions.
 '   These are cleared out at the beginning of the run -- it's unfortunate but I didn't
 '   plan out this opening range quite well enough and I don't want to change things
@@ -79,18 +79,21 @@
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
 
-'   48  -   Quit without permission check
 
-' Timers
+' Session timers: 1, 12, 24 hours, with two empty slots for 48h and one week
 '
-' 49: Wait 1 hour
-' 50: Wait 1 hour timer
-' 51: Wait 12 hours
-' 52: Wait 12 hours timer
-' 53: Wait 24 hours
-' 54: Wait 24 hours timer
-' 55: clamps/pegs timer
-' 56: Enema duration timer, used for exit punishment cycle, and to void enema
+' 90: Wait 1 hour
+' 91: Wait 1 hour timer
+' 92: Wait 12 hours
+' 93: Wait 12 hours timer
+' 94: Wait 24 hours
+' 95: Wait 24 hours timer
+
+' 96: Wait ?? hours
+' 97: Wait ?? hours timer
+
+' 98: Wait ?? hours
+' 99: Wait ?? hours timer
 
 
 ' Toy menu and toy definitions 360-389
@@ -176,23 +179,30 @@
 ' mapped to menu+100
 
  
+' Mistress state
+ 
 .askcheck      37      250     250: freebie during chastity training
                
 .askcheck      41      100     100: Mistress has seen slave before, set when saving upon session end 
 .askcheck      42      101     101: Mistress has accepted slave's submission
 .askcheck      43      102     102: Slave has quit without permission
 .askcheck      44      103     103: Mistress is impatient
+
 .askcheck      45      110     110: Nudity lecture heard
 .askcheck      46      111     111: Masturbation lecture heard
 ' add-ons
 .askcheck      47      112     112: Chastity device lecture heard
 .askcheck      48      113     113: Chastity cage safety suggestion 1
-.askcheck      49      114     114: Chastity cage safety suggestion 2	 
-.askcheck      50      115     115: Chastity cage safety suggestion 3
-.askcheck      50      116     116: Chastity cage safety suggestion 4
-'.askcheck      51      117     117: free
-'.askcheck      52      118     118: no-cum lecture
-.askcheck      50      119     119: Chastity cage suggestions check due
+.askcheck      90      114     114: Chastity cage safety suggestion 2	 
+.askcheck      91      115     115: Chastity cage safety suggestion 3
+.askcheck      91      116     116: Chastity cage safety suggestion 4
+.askcheck      92      117     117: Spanking lecture heard
+
+.askcheck      93      118     118: no-cum lecture heard
+.askcheck      94      119     119: Chastity cage suggestions check due
+
+
+' 120-199 free
 
 
 ' temp variables for use within the session
@@ -223,7 +233,7 @@
 ' 220     220: Butt plug in temporarily; only for a single activity 
 ' 221     221: Gag in temporarily; only for a single activity
 
-' 222-244    : ask check temp memory for range 302-309 and 313-324
+' 222-249    : ask check temp memory for range 302-309 and 313-324
 '              for checking what items to wear at session start
 
 ' 250          This is a "fair opportunity" session, when talking
@@ -260,7 +270,14 @@
 '              unset during punishment cycle, set when starting activity loop
 ' 271          Maid training punishment once per session
 ' 272          Toy lecture given
-' 273          Spanking lecture, introduction
+' 273
+' 274          Quit without permission check
+' 275          clamps/pegs timer
+' 276:         Enema duration timer, used for exit punishment cycle, and to void enema, used with 267 268 269
+' .
+' .
+' .
+' 299
 
 ' Assignment completions 400-499
 
@@ -274,7 +291,7 @@
 '
 ' TODO 2900-2920 is currently used for next-session-toy, this has to be moved elsewhere
 
-' Room for 50 punishments, 10 actions each for choices and extra handling
+' Room for 91 punishments, 10 actions each for choices and extra handling
 ' 500 -> 2500-2409
 ' ...
 ' 525 -> 2750-2759
@@ -304,22 +321,22 @@
 '.askcheck      46      520     520: P.O. for forgetting to wear the proper getup at sessio start
 '.askcheck      47      521     521: P.O. for forgetting to perform assignment (TODO)
 '.askcheck      48      522     522: free
-'.askcheck      49      523     523: free
-'.askcheck      49      524     524: Free
-'.askcheck      50      525     525: P.O. for cumming after denial
+'.askcheck      90      523     523: free
+'.askcheck      90      524     524: Free
+'.askcheck      91      525     525: P.O. for cumming after denial
 '                               ...
-'.askcheck      51      548     548: P.O. for escaping punishemnt (cancel)
-'.askcheck      52      549     549: P.O. for escaping punishemnt (quit)
+'.askcheck      92      548     548: P.O. for escaping punishemnt (cancel)
+'.askcheck      93      549     549: P.O. for escaping punishemnt (quit)
 
 ' up to 549, the last possible punishment 
 
 
-'.askcheck      50      400     400: done w/ 600: naked day assignment
+'.askcheck      91      400     400: done w/ 600: naked day assignment
 ' ...                           401-406 can be used for completing other assignments
-'.askcheck      50      408     408: done w/ 608: naked week assignment
+'.askcheck      91      408     408: done w/ 608: naked week assignment
 
-'.askcheck      50      426     426: done w/ 626: sleep in harness
-'.askcheck      51      427     427: done w/ 627: harness under clothes for day
+'.askcheck      91      426     426: done w/ 626: sleep in harness
+'.askcheck      92      427     427: done w/ 627: harness under clothes for day
 
 ' 590-599 local variables used to trigger or skip something later in the script
 ' 596 butt plug night/day assignment punishment skipper
@@ -327,11 +344,11 @@
 ' 598 harness order temp (day and night) (punishment is given before tracked)
 ' 599 start naked day assignment tracking (punishment is given before tracked)
  
-'.askcheck      50      600     600: AO "naked day"; 400 when finished
-'.askcheck      51      601     601: AO "week assignment counter, day 1"
-'.askcheck      52      602     602: AO                               2
-'.askcheck      53      603     603: AO                               3
-'.askcheck      54      604     604: AO                               4
+'.askcheck      91      600     600: AO "naked day"; 400 when finished
+'.askcheck      92      601     601: AO "week assignment counter, day 1"
+'.askcheck      93      602     602: AO                               2
+'.askcheck      94      603     603: AO                               3
+'.askcheck      95      604     604: AO                               4
 '.askcheck      55      605     605: AO                               5
 '.askcheck      56      606     606: AO                               6
 '.askcheck      57      607     607: AO                               7
@@ -392,12 +409,12 @@
 .askcheck	   97      698     698: AO Not allowed to cum (clear after denial).
 .askcheck	   98      699     699: AO Not allowed to cum (general, cleared in 4050-4070).
 
-' 25-36 (reserved to 49) used for "I'm wearing right now ask"
-'.askcheck      50      701     701: * Naked acceptance 1 (1151, 2402) 
-'.askcheck      51      702     702: * Naked acceptance 2 (1151, 2403)
-'.askcheck      52      703     703: * Naked acceptance 3 (4012) Naked day
-'.askcheck      53      704     704: * Naked acceptance 4 planned for naked week finish
-'.askcheck      54      705     705: * Naked acceptance 5 (1163)
+' 25-36 (reserved to 90) used for "I'm wearing right now ask"
+'.askcheck      91      701     701: * Naked acceptance 1 (1151, 2402) 
+'.askcheck      92      702     702: * Naked acceptance 2 (1151, 2403)
+'.askcheck      93      703     703: * Naked acceptance 3 (4012) Naked day
+'.askcheck      94      704     704: * Naked acceptance 4 planned for naked week finish
+'.askcheck      95      705     705: * Naked acceptance 5 (1163)
 '.askcheck      55      707     707: * Always hard 2 (1224, 7524)
 '.askcheck      56      708     708: * Always hard 3 (1227, 7527)
 '.askcheck      57      709     709: * Always hard 4 (1231, 7531)
@@ -418,7 +435,7 @@
 ' desired -5m with cuffs, another -5m with clamps
 '.askcheck      69      721     721: * Patient waiting 1 < 10-15m -> 722 (1015, 2512)
 '.askcheck      70      722     722: * Patient waiting 2  (2405, 2419, 2500, 2501, 2517)
-' inconsistent < 15-20m+50%cuffs+marker, 20-30m, 15-30m+50%cuffs, 15-35m+cuffs+50%clamps, 15-30m+cuffs+clamps -> 723 
+' inconsistent < 15-20m+91%cuffs+marker, 20-30m, 15-30m+91%cuffs, 15-35m+cuffs+91%clamps, 15-30m+cuffs+clamps -> 723 
 '.askcheck      71      723     723: * Patient waiting 3 (2419) 
 '.askcheck      72      724     724: * Patient waiting 4
 '.askcheck      73      725     725: * Patient waiting 5
@@ -448,11 +465,11 @@
 '.askcheck      97      749     749: * CBT 4 (3147, 3223) 
 '.askcheck      98      750     750: * CBT 5
 
-'.askcheck      50      751     751: * Asswhipping 1 (1046, 1048, 1050, 5651)
-'.askcheck      51      752     752: * Asswhipping 2 (1048, 1050, 5252, 5652)
-'.askcheck      52      753     753: * Asswhipping 3 (1050, 2516, 2531, 2581, 5653)
-'.askcheck      53      754     754: * Asswhipping 4 marathon 30m (5654)
-'.askcheck      54      755     755: * Asswhipping 5 marathon 60m (5655)
+'.askcheck      91      751     751: * Asswhipping 1 (1046, 1048, 1050, 5651)
+'.askcheck      92      752     752: * Asswhipping 2 (1048, 1050, 5252, 5652)
+'.askcheck      93      753     753: * Asswhipping 3 (1050, 2516, 2531, 2581, 5653)
+'.askcheck      94      754     754: * Asswhipping 4 marathon 30m (5654)
+'.askcheck      95      755     755: * Asswhipping 5 marathon 60m (5655)
 '.askcheck      55      756     756: * Anal training 1 (1032)
 '.askcheck      56      757     757: * Anal training 2
 '.askcheck      57      758     758: * Anal training 3 (3101)
@@ -497,8 +514,6 @@
 '
 ' 200-204 demerits sum for all activites
 ' 205-209 merits sum for all activities
-
-'   and don't use ".askcheck 99" since it doesn't work.
 
 
 ' Activity menu
@@ -546,12 +561,12 @@
 .menu 46  9002 9002 Next-Session-Toy-Check Assignment
 .menu 47  1802 1802 Next-Session-Toy-Check (give assignment before)
 .menu 48  1660 1660 Apply enema
-.menu 49  1890 1890 Extra punishment question
-.menu 50  3000 3000 Extras decision
-.menu 51  4000 4000 Assignment checking
-.menu 52  4900 4900 Main decision point
-.menu 53  4902 4902 Activity Selection menu
-.menu 54  5050 5099 Mistress choice -- 5050-5099
+.menu 90  1890 1890 Extra punishment question
+.menu 91  3000 3000 Extras decision
+.menu 92  4000 4000 Assignment checking
+.menu 93  4900 4900 Main decision point
+.menu 94  4902 4902 Activity Selection menu
+.menu 95  5050 5099 Mistress choice -- 5050-5099
 .menu 55  7600 7600 Judgement cycle
 .menu 56  9700 9719 Positive outcome
 .menu 57  9540 9545 Cum-Slut training
@@ -680,15 +695,15 @@ Would you be so kind and tell me what you've got exactly?
 
 [Action 802]
 .noimage
-.txt Status dump, page 2 (#26 - 50).
-.ask 25 49
+.txt Status dump, page 2 (#26 - 91).
+.ask 25 90
 .unset 802
 .range 803
 
 [Action 803]
 .noimage
-.txt Status dump, page 3 (#51 - 75).
-.ask 50 74
+.txt Status dump, page 3 (#92 - 75).
+.ask 91 74
 .unset 803
 .range 804
 
@@ -703,7 +718,7 @@ Would you be so kind and tell me what you've got exactly?
 ' Clean start
 [Action 843]
 .resetrange 500 549
-.unset 49 51 53
+.unset 90 92 94
 .unset 102 103
 .unset 211 212 213 257 267 268 269
 .unset 222 235 223 224 225 228 229 226 233 234 227
@@ -720,14 +735,14 @@ Would you be so kind and tell me what you've got exactly?
 
 ' start normally, init quit check
 [Action 845]
-.mustnot 48
-.set 48
+.mustnot 274
+.set 274
 .set 849                ' release code path, no debug
 .range 847
 
 ' start if slave quit without permission last time
 [Action 846]
-.must 48
+.must 274
 .set 102                ' slave quit without permission last time
 .set 849                ' release code path, no debug
 .range 847
@@ -746,7 +761,7 @@ Would you be so kind and tell me what you've got exactly?
 .unset 235 236 237 238 239 240 241 242 243 244   ' clear next-session-toys askcheck
 .unset 251 252 253 254 255 256     258 259 260   ' once-per-session-flags
 .unset 261 262 263 264 265 266     268 269 270   ' once-per-session-flags
-.unset 271 272     274 275 276 277 278 279 280   ' once-per-session-flags
+.unset 271 272                 277 278 279 280   ' once-per-session-flags
 .unset 281 282 283 284 285 286 287 288 289 290   ' once-per-session-flags
 .unset 291 292 293 294 295 296 297 298 299       ' once-per-session-flags
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
@@ -843,7 +858,7 @@ Goodbye, you stupid slut.
 ' onClose
 
 [Action 890]
-.set 48 102             ' quit check, left without permission
+.set 102 274            ' left without permission, quit check
 .gosub 896              ' Don't reset quit check
 .unset 890
 .range 891 894
@@ -862,7 +877,7 @@ You will regret this, you stupid cunt.
 
 ' save the session - regular end
 [Action 895]
-.unset 48 102           ' reset quit check
+.unset 102 274          ' reset quit check
 .unset 895
 .range 896
 
@@ -1011,7 +1026,7 @@ You'd better stay sharp if you don't want extra punishment!
 
 ' slave has waited long enough 
 [Action 948]
-.unset 49 51 53         ' Unset all timers since, otherwise these would not be reset from debug menu  
+.unset 90 92 94         ' Unset all timers since, otherwise these would not be reset from debug menu  
 .range 900 920
 
 
@@ -1020,30 +1035,30 @@ You'd better stay sharp if you don't want extra punishment!
 ' slave attends at the correct time
 
 [Action 949]
-.mustnot 49 51 53
+.mustnot 90 92 94
 .range 948
 
 ' (back after waiting 1 hour)
 [Action 950]
-.must 49
-.mustnot 51 53
-.timefrom 50 00:59"00
-.unset 49
+.must 90
+.mustnot 92 94
+.timefrom 91 00:59"00
+.unset 90
 .range 948
 
 ' (back after waiting 12 hours)
 [Action 952]
-.must 51
-.mustnot 53
-.timefrom 52 11:59"00
-.unset 51 49
+.must 92
+.mustnot 94
+.timefrom 93 11:59"00
+.unset 92 90
 .range 948
 
 '(back after waiting 24 hours)
 [Action 954]
-.must 53
-.timefrom 54 23:59"00
-.unset 53 51 49
+.must 94
+.timefrom 95 23:59"00
+.unset 94 92 90
 .range 948
 
 
@@ -1056,8 +1071,8 @@ I'll make sure to punish you for disturbing me when you return at the proper tim
 .pause Please forgive me, Miss
 .else
 .mustnot 505
-.must 49
-.mustnot 51 53
+.must 90
+.mustnot 92 94
 .set 505                ' premature retry punishment.
 '.pause
 .range 870
@@ -1069,8 +1084,8 @@ You can look forward to some extra punishment when you return at the correct tim
 .pause Please Miss, forgive me
 .else
 .mustnot 505
-.must 51
-.mustnot 53
+.must 92
+.mustnot 94
 .set 505
 .range 870
 
@@ -1081,7 +1096,7 @@ Also, remind me to give you some extra punishment to help you remember your plac
 .pause Please forgive me, Miss
 .else
 .mustnot 505
-.must 53
+.must 94
 .set 505
 .range 870
 
@@ -1095,10 +1110,10 @@ Don't come back for another hour, you little whore!
 .pause Please Miss, forgive me
 .else
 .must 505
-.must 49
-.mustnot 51 53
+.must 90
+.mustnot 92 94
 .set 501 504            ' additional general punishment, imp.
-.settime 50
+.settime 91
 .range 870
 
 [Action 997]
@@ -1108,10 +1123,10 @@ Get out of here and stop pestering me, slave!
 .pause Please forgive me, Miss
 .else
 .must 505
-.must 51
-.mustnot 53
+.must 92
+.mustnot 94
 .set 501 504            ' additional general punishment, imp.
-.settime 52
+.settime 93
 .range 870
 
 [Action 998]
@@ -1121,9 +1136,9 @@ Get the hell out of here!
 .pause Please Miss, forgive me
 .else
 .must 505
-.must 53
+.must 94
 .set 501 504            ' additional general punishment, imp.
-.settime 54
+.settime 95
 .range 870
 
 
@@ -1221,8 +1236,8 @@ If this is your attitude towards Me now, I don't see much hope for you.
 Nevertheless I'll give you a second chance at my favor.
 Come back in an hour, wench!
 .pause Thank you, Miss
-.set 49
-.settime 50
+.set 90
+.settime 91
 .range 850
 
 
@@ -1257,8 +1272,8 @@ Come back if you change your mind, cocktoy!
 You've disappointed Me, you filthy little disobedient whore.
 Come back in an hour if you have a change of heart, and perhaps I'll relent.
 .must 100
-.set 49                 ' 1 hour
-.settime 50
+.set 90                 ' 1 hour
+.settime 91
 .range 850              ' Save and exit
 
 
@@ -1269,8 +1284,8 @@ Pathetic worthless cunt!
 You can come back in 12 hours if you're done wasting time.
 Maybe I'll reconsider!
 .mustnot 103
-.set 51                 ' 12 hours
-.settime 52
+.set 92                 ' 12 hours
+.settime 93
 .set 103                ' Mistress impatient
 .range 870              ' Save and exit
 
@@ -1279,8 +1294,8 @@ Then leave, you little trollop!
 You can come back in 24 hours,
 if you want to convince Me to take you back!
 .must 103
-.set 53
-.settime 54
+.set 94
+.settime 95
 .range 870
 
 
@@ -1317,8 +1332,8 @@ delay 2
 I'm not interested in wasting any more of my valuable time with you.
 You can come back tomorrow, if you want to try to change my mind with a little suffering!
 .pause Thank you very much, Miss
-.set 53
-.settime 54
+.set 94
+.settime 95
 .range 870
 
 
@@ -1577,8 +1592,8 @@ You can come back in an hour or so when you're ready to pay attention to your Mi
 And for your own good, you'll better stay bare naked that hour.
 .pause Please forgive me, Miss
 .set 501                     ' mistress impatient after waiting so long for this easy question
-.set 49                      ' come back in an hour
-.settime 50
+.set 90                      ' come back in an hour
+.settime 91
 .range 880
 
 
@@ -1706,8 +1721,8 @@ so that you learn the importance of being bare-ass naked!
 .unset 400 701                    ' void naked training 1 and being-naked assignment
 .set 502                          ' Naked punishment 1
 .set 504                          ' general disobedience
-.set 49
-.settime 50
+.set 90
+.settime 91
 .range 870
 
 [Action 1122]
@@ -1721,8 +1736,8 @@ You can come back in 12 hours if you want to beg me for forgiveness and accept y
 .unset 400 408 702 703 704 705    ' void naked training 2-5 and being-naked assignments
 .set 503                          ' Naked punishment 2
 .set 508                          ' inattentiveness
-.set 51
-.settime 52
+.set 92
+.settime 93
 .range 870
 
 
@@ -2033,8 +2048,8 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 .must 103
 .must 507                    ' Attention deficit
 .set 508                     ' Inattentiveness
-.set 49
-.settime 50
+.set 90
+.settime 91
 .range 870
 
 '[Action 1193]
@@ -2074,8 +2089,8 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 .must 103
 .must 507                    ' Attention deficit
 .set 508                     ' Inattentiveness
-.set 49
-.settime 50
+.set 90
+.settime 91
 .range 870
 
 
@@ -2243,8 +2258,8 @@ you worthless cunt.
 .must 103                         ' impatience
 .set 501                          ' impatience punishment
 .set 511 512                      ' both not hard punishments               
-.set 49
-.settime 50                       ' wait one hour
+.set 90
+.settime 91                       ' wait one hour
 .unset 111 707 708 709 710        ' reset all lectures and level
 .range 870
 
@@ -3085,7 +3100,7 @@ make you skip your next three cumming opportunities.
 .range 1449
 
 
-' Chastity level 2 50% 50%
+' Chastity level 2 91% 91%
 [Action 1416]
 .mustnot 250 691 692 693 694 695 696 697
 .poss 40
@@ -3400,7 +3415,7 @@ We shall talk of this more in a moment.
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 669
-.poss 50
+.poss 91
 .range 1516 1520
 
 
@@ -4652,7 +4667,7 @@ chest on the floor, as demonstrated in this picture.
 Finally open the tubing!
 .delay 30 
 .set 32                 ' Can't stand - not allowed to
-.settime 56             ' Start the enema timer
+.settime 276            ' Start the enema timer
 .range 1737
 
 [Action 1737]
@@ -5051,10 +5066,10 @@ You can come back tomorrow, and be prepared for a rough session!
 .mustnot 501
 .must 504 508 516
 .unset 10
-.set 53
+.set 94
 .set 501
 .set 9
-.settime 54
+.settime 95
 .range 870
 
 [Action 2019]
@@ -5254,7 +5269,7 @@ Let's see if I can recall any other punishments you've earned.
 '   For some punishments there is no "bad" reentry so there's 
 '   no reason not to use the extra 2 slots in the 2500 range.
 '   If you need a lot more you can always call out to an external range
-'	2300-2399 and 2450-2499 should be free because there are only 50 punishment slots.
+'	2300-2399 and 2450-2499 should be free because there are only 91 punishment slots.
 
 ' Severe action that must be taken care of
 ' 506 lying to mistress
@@ -5572,7 +5587,7 @@ and that Mistresses are to be obeyed without question!
 .must 267                                   ' Enema applied
 .mustnot 506 513 514 515 516 519 520 525
 .mustnot     787 788 789 790                ' 1L
-.timefrom 56 08:00"00                       ' Enema timer, filling up
+.timefrom 276 08:00"00                      ' Enema timer, filling up
 .poss 100                                   ' doesn't work like "else", but almost
 .range 2260
 
@@ -5582,7 +5597,7 @@ and that Mistresses are to be obeyed without question!
 .mustnot 506 513 514 515 516 519 520 525
 .must 786 787                               ' 1.25L
 .mustnot     789 790                        ' 1.75L-2.0L
-.timefrom 56 10:00"00                       ' Enema timer, filling up
+.timefrom 276 10:00"00                      ' Enema timer, filling up
 .poss 100                                   ' doesn't work like "else", but almost
 .range 2260
 
@@ -5591,7 +5606,7 @@ and that Mistresses are to be obeyed without question!
 .must 267                                   ' Enema applied
 .mustnot 506 513 514 515 516 519 520 525
 .must 786 787 788 789                       ' 1.75L-2.0L
-.timefrom 56 12:00"00                       ' Enema timer, filling up
+.timefrom 276 12:00"00                      ' Enema timer, filling up
 .poss 100                                   ' doesn't work like "else", but almost
 .range 2260
 
@@ -6423,7 +6438,7 @@ You can leave it in there for our entire session, slave.
 
 
 [Action 2585]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2408
 
@@ -6700,7 +6715,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .range 7100             ' Ensure paddle or replacement
 
 [Action 2635]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 ' No corner time is given after this spanking
 .range 2413
 
@@ -6712,7 +6727,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .range 7100             ' Ensure paddle or replacement
 
 [Action 2645]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2414
 
@@ -6735,7 +6750,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 
 [Action 2655]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2415
 
@@ -6770,7 +6785,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 
 [Action 2665]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2416
 
@@ -6800,7 +6815,7 @@ I'll get you next time, you dirty slave!
 
 
 [Action 2675]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2417
 
@@ -6825,7 +6840,7 @@ I'll get you next time, you dirty slave!
 .save 1 799
 .loadsbd mine-maid.sbd 1005 1005  ' Severe punishment (according to punishment acceptance)
 
-' shower 10m, 50 paddles, clamps, kneeling
+' shower 10m, 91 paddles, clamps, kneeling
 [Action 2682]
 .mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
@@ -6841,7 +6856,7 @@ I'll get you next time, you dirty slave!
 
 
 [Action 2685]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2418
 
@@ -7211,7 +7226,7 @@ Hopefully this will get through to you!
 
 
 [Action 2985]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2448
 
@@ -7258,7 +7273,7 @@ Hopefully this will get through to you!
 
 
 [Action 2995]
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 258                ' Corner time after spanking
 .range 2449
 
@@ -7606,7 +7621,7 @@ You're a naughty anal slut!
 
 [Action 3075]
 'We will now continue the session while you enjoy your enema.
-.settime 56        ' Restart the enema timer to make good for the time the slave wasted while taking the enema
+.settime 276       ' Restart the enema timer to make good for the time the slave wasted while taking the enema
 .range 3076
 ' 
 ' TODO Make such comments at the start of each activity
@@ -7633,7 +7648,7 @@ that you tell me by cancelling the activity.
 
 [Action 3080]
 'We will now continue the session while you enjoy your enema.
-.settime 56        ' Restart the enema timer to make good for the time the slave wasted while taking the enema
+.settime 276       ' Restart the enema timer to make good for the time the slave wasted while taking the enema
 .range 3076
 ' 
 ' TODO Make such comments at the start of each activity
@@ -7656,7 +7671,7 @@ With the help of the inflated cuff, your backdoor should be well sealed up,
 regardless how intense the cramping might get.
 Just in case, push the pump once more to inflate the cuff some more.
 .pause Done, Miss
-.settime 56        ' Restart the enema timer to make good for the time the slave wasted while taking the enema
+.settime 276       ' Restart the enema timer to make good for the time the slave wasted while taking the enema
 .range 3088
 
 
@@ -7746,7 +7761,7 @@ that you tell me beforehand by by cancelling the activity.
 ' impatience add-ons
 [Action 3101]
 .must 103	
-.poss 50 
+.poss 91 
 .range 3140 3159
 
 ' just tying wrist and ankles, chains
@@ -8641,7 +8656,7 @@ Leave it that way for the whole session, slave.
 .unset 3100             ' unique items can be combined quite well and don't restict activities
 .unset 3101             ' if the mistress is impatient the slave is in trouble
 .unset 3301
-.range 3091 3099        ' another one, 3090 ommited to avoid 50% skip
+.range 3091 3099        ' another one, 3090 ommited to avoid 91% skip
 
 [Action 3302]
 .range 3400
@@ -10647,32 +10662,32 @@ I'm going to get through to you somehow!
 [Action 5036]
 You can come back in an hour if you want to get back into my good graces.
 .mustnot 270            ' Activity cycle
-.set 49                 ' Wait 1 hour
-.settime 50
+.set 90                 ' Wait 1 hour
+.settime 91
 .range 870
 
 [Action 5037]
 You can come back in an hour or so
 when you're ready to accept a well-earned punishment!
 .mustnot 270            ' Activity cycle
-.set 49                 ' Wait 1 hour
-.settime 50
+.set 90                 ' Wait 1 hour
+.settime 91
 .range 870
 
 [Action 5038]
 I'll let you think about your misdeeds for an hour or so,
 and then you can come back here to get what's coming to you.
 .mustnot 270            ' Activity cycle
-.set 49                 ' Wait 1 hour
-.settime 50
+.set 90                 ' Wait 1 hour
+.settime 91
 .range 870
 
 [Action 5039]
 You can come back in an hour,
 if you want to try to change my mind with a little suffering!
 .mustnot 270            ' Activity cycle
-.set 49                 ' Wait 1 hour
-.settime 50
+.set 90                 ' Wait 1 hour
+.settime 91
 .range 870
 
 
@@ -11091,7 +11106,7 @@ You seem to get used to getting used very well.
 .set 210                ' shower one-time only
 .range 5351
 
-' shower 10m 50 paddles
+' shower 10m 91 paddles
 [Action 5202]
 .mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
@@ -11334,7 +11349,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5604]
-.must 273               ' Spanking lecture heard
+.must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .must 370               ' paddle
 .must 753               ' asswhipping 3
@@ -11344,7 +11359,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5605]
-.must 273               ' Spanking lecture heard
+.must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .must 370               ' paddle
 .must 754               ' asswhipping 4
@@ -11354,7 +11369,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5606]
-.must 273               ' Spanking lecture heard
+.must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .mustnot 370            ' paddle
 .must 371               ' hair brush
@@ -11365,7 +11380,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5607]
-.must 273               ' Spanking lecture heard
+.must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .mustnot 370            ' paddle
 .must 371               ' hair brush
@@ -11376,7 +11391,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5608]
-.must 273               ' Spanking lecture heard
+.must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
@@ -11387,7 +11402,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5609]
-.must 273               ' Spanking lecture heard
+.must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking activity already
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
@@ -11415,21 +11430,21 @@ We'll paddle that slave bottom some other time.
 ' Spanking good returns
 [Action 5651]
 Mmm, I love a pink slave-bottom.
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 751                ' Ass whipping 1
 .set 895                ' 1 merit
 .range 7201
 
 [Action 5652]
 That bum looks a little warmer now.
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 752                ' Ass whipping 2
 .set 895                ' 1 merit
 .range 7201
 
 [Action 5653]
 I love a pair of red, glowing slave buns!
-.set 273                ' Spanking lecture heard
+.set 117                ' Spanking lecture heard
 .set 753                ' Ass whipping 3
 .set 896                ' 1 merit
 .range 7201
@@ -12471,21 +12486,21 @@ Now take your "paddle" and carefully listen to my instructions.
 
 [Action 7310]
 .mustnot 786 787 788 789     ' 1L
-.timefrom 56 15:00"00        ' Enema timer, filling up
+.timefrom 276 15:00"00       ' Enema timer, filling up
 .poss 100                    ' doesn't work like "else", but almost
 .range 7355 7359
 
 [Action 7311]
 .must 786                    ' 1.25L
 .mustnot  788 789            ' 1.75L-2.0L
-.timefrom 56 20:00"00        ' Enema timer, filling up
+.timefrom 276 20:00"00       ' Enema timer, filling up
 .poss 100                    ' doesn't work like "else", but almost
 .range 7355 7359
 
 [Action 7312]
 .mustnot 519 525             ' Require only cumming without permission handled
 .must 786 787 788            ' 1.75L-2.0L
-.timefrom 56 25:00"00        ' Enema timer, filling up
+.timefrom 276 25:00"00       ' Enema timer, filling up
 .poss 100                    ' doesn't work like "else", but almost
 .range 7355 7359
 
@@ -12500,21 +12515,21 @@ Now take your "paddle" and carefully listen to my instructions.
 
 [Action 7315]
 .mustnot 786 787 788 789     ' 1L
-.timefrom 56 20:00"00        ' Enema timer, holding
+.timefrom 276 20:00"00       ' Enema timer, holding
 .poss 100                    ' doesn't work like "else", but almost
 .range 7355 7359
 
 [Action 7316]
 .must 786                    ' 1.25L
 .mustnot  788 789            ' 1.75L-2.0L
-.timefrom 56 25:00"00        ' Enema timer, holding
+.timefrom 276 25:00"00       ' Enema timer, holding
 .poss 100                    ' doesn't work like "else", but almost
 .range 7355 7359
 
 [Action 7317]
 .mustnot 519 525             ' Require only cumming without permission handled
 .must 786 787 788            ' 1.75L-2.0L
-.timefrom 56 30:00"00        ' Enema timer, holding
+.timefrom 276 30:00"00       ' Enema timer, holding
 .poss 100                    ' doesn't work like "else", but almost
 .range 7355 7359
 
@@ -12701,7 +12716,7 @@ Good boy!
 [Action 7366]
 Good boy!
 .mustnot 786
-.poss 50
+.poss 91
 .set 786                ' Enema quantity 1.0l
 .range 7373 7379
 
@@ -14082,26 +14097,26 @@ Now I'll judge your performance...
 'M0  D5    0%   0% 100%
 'M1  D0   20%  80%   0%
 'M1  D1   17%  67%  17%
-'M1  D2   17%  50%  33%
-'M1  D3   17%  33%  50%
+'M1  D2   17%  91%  33%
+'M1  D3   17%  33%  91%
 'M1  D4   17%  17%  67%
 'M1  D5   17%   0%  83%
 'M2  D0   40%  60%   0%
-'M2  D1   33%  50%  17%
+'M2  D1   33%  91%  17%
 'M2  D2   29%  43%  29%
 'M2  D3   29%  29%  43%
 'M2  D4   29%  14%  57%
 'M2  D5   29%   0%  71%
 'M3  D0   60%  40%   0%
-'M3  D1   50%  33%  17%
+'M3  D1   91%  33%  17%
 'M3  D2   43%  29%  29%
 'M3  D3   38%  25%  38%
-'M3  D4   38%  13%  50%
+'M3  D4   38%  13%  91%
 'M3  D5   38%   0%  63%
 'M4  D0   80%  20%   0%
 'M4  D1   67%  17%  17%
 'M4  D2   57%  14%  29%
-'M4  D3   50%  13%  38%
+'M4  D3   91%  13%  38%
 'M4  D4   44%  11%  44%
 'M4  D5   44%   0%  56%
 'M5  D0  100%   0%   0%
@@ -14109,7 +14124,7 @@ Now I'll judge your performance...
 'M5  D2   71%   0%  29%
 'M5  D3   63%   0%  38%
 'M5  D4   56%   0%  44%
-'M5  D5   50%   0%  50%
+'M5  D5   91%   0%  91%
 
 ' Merits and demerit flags are not accumulated, only the flag that represents
 ' the number of (de)merits is set, all others are explicitly unset.
@@ -15609,8 +15624,8 @@ You can come back in an hour or so when you're ready to pay attention to your Mi
 And for your own good, you'll better stay bare naked and locked up that hour.
 .pause Sorry, Miss, I'm so sorry
 .set 501                     ' mistress impatient after waiting so long for this easy question
-.set 49                      ' come back in an hour
-.settime 50
+.set 90                      ' come back in an hour
+.settime 91
 .range 880
 
 
@@ -15795,8 +15810,8 @@ delay 10
 And I hope for your own sake that you will still be wearing it when you come back to me.
 .pause Of course, Miss
 .must 103               ' mistress impatient
-.set 49                 ' come back in an hour
-.settime 50
+.set 90                 ' come back in an hour
+.settime 91
 .set 508                ' inattentiveness punishment
 .range 870
 
@@ -15811,8 +15826,8 @@ And I hope for your own sake that you will still be wearing it when you crawl ba
 .must 103
 .set 508                ' inattentiveness punishment
 .set 516                ' excessive disobedience punishment
-.set 49                 ' come back in an hour
-.settime 50
+.set 90                 ' come back in an hour
+.settime 91
 .range 870
 
 ' confessed to remember orders
@@ -17995,8 +18010,8 @@ Your poor shriveled up prick will be
 locked away from your dirty hands night and day.
 Are my instructions clear to you?
 .set 625                     ' chastity cage for night & day assignment
-.set 53                      ' 24 hours wait
-.settime 54
+.set 94                      ' 24 hours wait
+.settime 95
 .unset 9966 9986
 .yestext Yes, Miss, twelve hours after and before the session
 .notext I'm sorry Miss, can you tell me again, please
@@ -18010,8 +18025,8 @@ you're going to squeeze your swollen peace of meat back into that cage for anoth
 resulting in a whopping twentyfour hour lock-up.
 Understood?
 .set 689                     ' advance to level 4
-.set 53                      ' 24 hours wait
-.settime 54
+.set 94                      ' 24 hours wait
+.settime 95
 .unset 9967 9987
 .yestext Yes, Miss, twelve hours after and before the session
 .notext I'm sorry Miss, can you tell me again, please
@@ -18021,8 +18036,8 @@ Understood?
 And off course, you're going to squeeze your swollen peace of meat back into that cage
 for another twelve hours, before you approach me for another session.
 .pause Yes, Miss, twelve hours before and after the session
-.set 53                      ' 24 hours wait
-.settime 54
+.set 94                      ' 24 hours wait
+.settime 95
 .range 9993 9998             ' on to last words and final exit
 
 [Action 9989]
@@ -18030,8 +18045,8 @@ Therefore your cock is going to stay locked up all the time until our next sessi
 This way I feel safe that you don't play with yourself without my supervision.
 .pause Right Miss, I'm staying locked up
 .set 690                     ' advance to level 5
-.set 53                      ' 24 hours wait
-.settime 54
+.set 94                      ' 24 hours wait
+.settime 95
 .range 9993 9998             ' on to last words and final exit
 
 ' TODO Add variance to chastity rules apply 5 9991 9992,
@@ -18040,22 +18055,22 @@ This way I feel safe that you don't play with yourself without my supervision.
 [Action 9990]
 For that reason you'll be wearing your chastity cage all the time until our next session.
 .pause Right Miss, I'm staying locked up
-.set 53                      ' 24 hours wait
-.settime 54
+.set 94                      ' 24 hours wait
+.settime 95
 .range 9993 9998             ' on to last words and final exit
 
 [Action 9991]
 For that reason you'll be wearing your chastity cage all the time until our next session.
 .pause Right Miss, I'm staying locked up all the time
-.set 53                      ' 24 hours wait
-.settime 54
+.set 94                      ' 24 hours wait
+.settime 95
 .range 9993 9998             ' on to last words and final exit
 
 [Action 9992]
 For that reason you'll be wearing your chastity cage all the time until our next session.
 .pause Right Miss, I'm staying locked up all the time
-.set 53                      ' 24 hours wait
-.settime 54
+.set 94                      ' 24 hours wait
+.settime 95
 .range 9993 9998             ' on to last words and final exit
 
 
@@ -18067,9 +18082,9 @@ For that reason you'll be wearing your chastity cage all the time until our next
 I think that's enough for today's session, My slave.
 Do as told, and don't disturb Me for at least twelve hours.
 .must 211               ' next-session toy
-.mustnot 53             ' Only if 24 hours wait hasn't been enabled elsewhere
-.set 51                 ' 12 hours
-.settime 52
+.mustnot 94             ' Only if 24 hours wait hasn't been enabled elsewhere
+.set 92                 ' 12 hours
+.settime 93
 .range 850
 
 ' next-session-toy exit
@@ -18077,8 +18092,8 @@ Do as told, and don't disturb Me for at least twelve hours.
 I think that's enough for today's session, My slave.
 Do as told, and don't disturb Me for at least 24 hours.
 .must 211               ' next-session toy
-.must 53                ' 24 hours set before
-.settime 54
+.must 94                ' 24 hours set before
+.settime 95
 .range 850
 
 
@@ -18088,9 +18103,9 @@ I think that's enough for today's session, My slave.
 You can take off any toys that you still have on and go about your business,
 but don't disturb Me for at least twelve hours.
 .mustnot 211            ' next-session toy
-.mustnot 53             ' Only if 24 hours wait hasn't been enabled elsewhere
-.set 51                 ' 12 hours
-.settime 52             ' update time
+.mustnot 94             ' Only if 24 hours wait hasn't been enabled elsewhere
+.set 92                 ' 12 hours
+.settime 93             ' update time
 .range 850
 
 ' original exit from 9000
@@ -18099,8 +18114,8 @@ I think that's enough for today's session, My slave.
 You can take off any toys that you still have on and go about your business,
 but don't disturb Me for at least 24 hours.
 .mustnot 211            ' next-session toy
-.must 53                ' 24 hours set before
-.settime 54             ' update time 
+.must 94                ' 24 hours set before
+.settime 95             ' update time 
 .range 850
 
 '[Action 9997]
@@ -19208,38 +19223,38 @@ Especically if he's chained and shackled so well.
 [action 11356]
 .mustnot 716
 .set 716
-.settime 55 +00:15"00
+.settime 275 +00:15"00
 .return
 
 [action 11357]
 .must 716
 .mustnot 717
 .set 717
-.settime 55 +00:20"00
+.settime 275 +00:20"00
 .return
 
 [action 11358]
 .must 717
 .mustnot 718
 .set 718
-.settime 55 +00:25"00
+.settime 275 +00:25"00
 .return
 
 [action 11359]
 .must 718
 .mustnot 719
-.settime 55 +00:30"00
+.settime 275 +00:30"00
 .return
 
 [action 11360]
 .must 719
 .mustnot 720
-.settime 55 +00:35"00
+.settime 275 +00:35"00
 .return
 
 [action 11361]
 .must 720
-.settime 55 +00:35"00
+.settime 275 +00:35"00
 .return
 
 ' fallback, already set
@@ -19259,37 +19274,37 @@ Especically if he's chained and shackled so well.
 [action 11366]
 .mustnot 746
 .set 746
-.settime 55 +00:10"00
+.settime 275 +00:10"00
 .return
 
 [action 11367]
 .must 746
 .mustnot 747
 .set 747
-.settime 55 +00:14"00
+.settime 275 +00:14"00
 .return
 
 [action 11368]
 .must 747
 .mustnot 748
-.settime 55 +00:18"00
+.settime 275 +00:18"00
 .return
 
 [action 11369]
 .must 748
 .mustnot 749
-.settime 55 +00:21"00
+.settime 275 +00:21"00
 .return
 
 [action 11370]
 .must 749
 .mustnot 750
-.settime 55 +00:23"00
+.settime 275 +00:23"00
 .return
 
 [action 11371]
 .must 750
-.settime 55 +00:25"00
+.settime 275 +00:25"00
 .return
 
 ' fallback, already set
@@ -19602,19 +19617,19 @@ arranged way in front of me for inspection before you approach me.
 
 ' remove clamps
 [action 11901]
-.timefrom 55 -00:00"00
+.timefrom 275 -00:00"00
 .range 11911
 
 ' comment when less than 10 minutes left 
 [action 11902]
-.timefrom 55 -00:10"00
-.timeto 55 -00:00"00
+.timefrom 275 -00:10"00
+.timeto 275 -00:00"00
 .range 11911
 
 ' comment when less than 20 minutes left 
 [action 11903]
-.timefrom 55 -00:20"00
-.timeto 55 -00:10"00
+.timefrom 275 -00:20"00
+.timeto 275 -00:10"00
 .range 11911
 
 [action 11904]
@@ -19687,7 +19702,7 @@ Or would you like to take of them off now?
 .range 11925 11929
 
 [action 11921]
-.timeto 55 -00:00"00
+.timeto 275 -00:00"00
 Are you enjoying your clothes pegs, my pet?
 .range 11925 11929
 
@@ -19697,7 +19712,7 @@ Are you enjoying your clothes pegs, my pet?
 
 
 [action 11925]
-.timefrom 55 00:00"00
+.timefrom 275 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -19724,7 +19739,7 @@ Or would you like to take of them off now?
 .range 11935 11939
 
 [action 11931]
-.timeto 55 -00:00"00
+.timeto 275 -00:00"00
 Are you enjoying your nipple clamps, my pet?
 .range 11925 11929
 
@@ -19734,7 +19749,7 @@ Are you enjoying your nipple clamps, my pet?
 
 
 [action 11935]
-.timefrom 55 00:00"00
+.timefrom 275 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -19761,7 +19776,7 @@ Or would you like to take of them off now?
 .range 11945 11949
 
 [action 11941]
-.timeto 55 -00:00"00
+.timeto 275 -00:00"00
 Are you enjoying your clothes pegs, my pet?
 .range 11925 11929
 
@@ -19771,7 +19786,7 @@ Are you enjoying your clothes pegs, my pet?
 
 
 [action 11945]
-.timefrom 55 00:00"00
+.timefrom 275 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -19798,7 +19813,7 @@ Or would you like to take of them off now?
 .range 11955 11959
 
 [action 11951]
-.timeto 55 -00:00"00
+.timeto 275 -00:00"00
 Are you enjoying your pussy clamps, my pet?
 .range 11925 11929
 
@@ -19808,7 +19823,7 @@ Are you enjoying your pussy clamps, my pet?
 
 
 [action 11955]
-.timefrom 55 00:00"00
+.timefrom 275 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
