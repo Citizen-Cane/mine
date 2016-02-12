@@ -540,7 +540,7 @@
 
 ' Activity menu
 
-.menu 8  5050 5088 Mistress choice - 5050-5099
+.menu 8  5050 5088 Mistress choice - 5050-5088
 .menu 9  7600 7600 Skip to judgement section - 7600
 .menu 10 5401 5401 (simple hogtie) - 5401
 .menu 11 5402 5402 (indefinate hogtie) - 5402
@@ -588,7 +588,7 @@
 .menu 92  4000 4000 Assignment checking
 .menu 93  4900 4900 Main decision point
 .menu 94  4902 4902 Activity Selection menu
-.menu 95  5050 5099 Mistress choice -- 5050-5099
+.menu 95  5050 5088 Mistress choice -- 5050-5088
 .menu 55  7600 7600 Judgement cycle
 .menu 56  9700 9719 Positive outcome
 .menu 57  9540 9545 Cum-Slut training
@@ -787,6 +787,7 @@ Would you be so kind and tell me what you've got exactly?
 .unset 281 282 283 284 285 286 287 288 289 290   ' once-per-session-flags
 .unset 291 292 293 294 295 296 297 298 299       ' once-per-session-flags
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
+.settime 275 +INF                                ' set clamp timer to infinite to ignore clamps duration 
 .save 50 799
 .range 848 849
 
@@ -6338,7 +6339,8 @@ You can leave it in there for our entire session, slave.
 [Action 2564]
 .mustnot 20
 .must 361               ' have nipple clamps
-Instead of beating you raw, I'm going to have you wear your nipple clamps today.
+Instead of beating you raw,
+I'm going to have you wear your nipple clamps today.
 Snap them on your poor slave nipple now, slut!
 I'll tell you when you may take them off.
 .pause I have them on, Miss
@@ -6364,6 +6366,7 @@ Hopefully that'll cast out any desire you have to tell Me falsehoods,
 but if I catch you again there will be plenty more pain for you.
 .unset 506              ' Don't repeat
 .set -506               ' complete the punishment when taking the clamps off
+.gosub 11355            ' set wearing time for nipple clamps
 .range 2151
 
 
@@ -6427,6 +6430,7 @@ I trust that you'll be paying much better attention now.
 After all, what else is there for a slave to do than to concentrate on his Mistress?
 .unset 507              ' Don't repeat
 .set -507               ' complete the punishment when taking the clamps off
+.gosub 11355            ' set wearing time for nipple clamps
 .range 2151
 
 
@@ -7050,6 +7054,8 @@ will make you change your attitude about My assignments, for your sake.
 .unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520
 .set -520               ' complete punishment later
+' clamps time already set when applying tghe other clamps/pegs,
+' so we should reset the time here or the wearing time will be longer than expected
 .range 2151
 
 
@@ -10497,8 +10503,8 @@ Too sad you're going to stay locked up tonight.
 
 [Action 4996]
 You'd surely like to yonk your hard wet cock, won't you slave?
-I'm very sorry for you - well, not really - but you know that
-you're going to stay locked up tonight.
+I'm very sorry for you - well, not really
+- but you know that you're going to stay locked up tonight.
 .mustnot 4951           ' Toy selection
 .must 44                ' chastified
 .mustnot 45             ' have key for chastity cage
@@ -11007,7 +11013,7 @@ Make sure you have one until next time, baby.
 
 
 ' Dildo worshiping:
-' the gag is takenout and restored at the end of the activity
+' the gag is taken out and restored at the end of the activity
 ' Therefore we avoid this activity while wearing the gag temporarily,
 ' because this would just mean putting it in and immediately out again 
 
@@ -11030,14 +11036,14 @@ Make sure you have one until next time, baby.
 
 ' Dildo worshiping, when already done as punishment
 [Action 5147]
-No, I don't feel like filling those slave holes yet.
 .else
+No, I don't feel like filling those slave holes yet.
 .range 5040
 
 ' Dildo worshiping, when already done as punishment
 [Action 5148]
-No, your slave holes have been used good enough.
 .must 260
+No, your slave holes have been used good enough.
 .range 5040
 
 
@@ -11117,6 +11123,9 @@ You seem to get used to getting used very well.
 [Action 5200]
 .range 5201 5249
 
+
+' TODO shower possible with clothes pegs 42 38
+' .timefrom 275 -00:15"00
 
 ' shower 10m 100 paddles nips
 [Action 5201]
@@ -11545,6 +11554,8 @@ I will have to punish you later for failing your training.
 .range 5801 5849
 
 
+' TODO some scenarios work with punishment clamps/pegs
+
 ' nipple-torture game
 [Action 5801]
 .mustnot 252                 ' Done nipple training activity already
@@ -11554,79 +11565,88 @@ I will have to punish you later for failing your training.
 .set 252                     ' Done nipple training activity
 .range 5951
 
-' light weight drop from balls
+' light weight drop from balls (5-10)
 [Action 5802]
 .mustnot 255                 ' Done ball sack pulling activity already
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
+.timefrom 275 -00:10"00
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
-' medium weight drop from balls
+' medium weight drop from balls (10-15)
 [Action 5803]
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1 
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
+.timefrom 275 -00:15"00
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
-' heavy weight drop from balls
+' heavy weight drop from balls (15-20)
 [Action 5804]
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
+.timefrom 275 -00:20"00
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
+' TODO very heavy weight drop from balls (20-25)
+'.timefrom 275 -00:25"00
+
+
 ' light cardio nips
 [Action 5805]
-.must 362                    ' Clothes pegs
-.mustnot 252                 ' Done nipple training activity already
 .mustnot 20 24 25 26 29      ' something on nipples, something on ball sack, ankles tied, wrists tied, blindfolded 
 .mustnot 31 32 34 35         ' can't sit on chair, can't stand, can't type/use mouse, tethered 
+.mustnot 252                 ' Done nipple training activity already
+.must 362                    ' Clothes pegs
 .must 716
 .set 252                     ' Done nipple training activity
 .range 5955
 
 ' quick pins
 [Action 5814]
+.mustnot 20 25 29 34         ' something on nipples, ankles tied, blindfolded, can't type/use mouse
 .mustnot 252                 ' Done nipple training activity already
 .must 361 362                ' nipple clamps, clothes pegs
 .must 717                    ' Nipple tolerance 2
-.mustnot 25 29 34            ' ankles tied, blindfolded, can't type/use mouse
 .set 252                     ' Done nipple training activity
 .range 5964
 
 ' quick pins 16
 [Action 5815]
+.mustnot 20 24 29 34         ' something on nipples, something on balls, blindfolded, can't type/use mouse
 .mustnot 252                 ' Done nipple training activity already
 .must 362                    ' clothes pegs
 .must 717 746                ' Nipple tolerance 2, cbt 1
-.mustnot 20 24 29 34         ' something on nipples, something on balls, blindfolded, can't type/use mouse
 .set 252                     ' Done nipple training activity
 .range 5965
 
 ' nipple clamp weight lifting
 [Action 5818]
 .mustnot 252                 ' Done nipple training activity already
+.mustnot 20 38 39            ' something on nipples, pegs pussy clamps on ball sack
+.mustnot 25 29 32            ' ankles tied, blindfolded, can't stand
+.mustnot 30                  ' can't jerk off: Wanking is required to ease the pain on the nipples
+.mustnot 34 35               ' can't type/use mouse, tethered
 .must 361 366                ' Nipple clamps, rope
 .must 718                    ' Nipple tolerance 3
-.mustnot 25 29 32            ' ankles tied, blindfolded, can't stand
-.mustnot 34 35               ' can't type/use mouse, tethered
-.mustnot 30                  ' can't jerk off: Wanking is required to ease the pain on the nipples
 .set 252                     ' Done nipple training activity
 .range 5966
 
 ' shake those titties
 [Action 5819]
 .mustnot 252                 ' Done nipple training activity already
+.mustnot 20 29 34            ' something on nipples, blindfolded, can't type/use mouse 
 .must 361 362                ' Nipple clamps, clothes pegs
 .must 718                    ' Nipple tolerance 3
-.mustnot 20 29 34            ' something on nipples, blindfolded, can't type/use mouse 
 .set 252                     ' Done nipple training activity
 .range 5967
 
 
-' Repititions from 5802, 5804, to allow to call those while wearing ball harness
+' Repititions from 5802, 5804, while wearing ball harness
+
 ' light weight drop from balls
 [Action 5822]
 .mustnot 255                 ' Done ball sack pulling activity already
@@ -11658,34 +11678,40 @@ I will have to punish you later for failing your training.
 
 ' light weight drop from balls
 [Action 5825]
-.mustnot 255                 ' Done ball sack pulling activity already
-.must 214                    ' cock bondage
 .mustnot 25 32               ' ankles tied, can't stand
+.must 214                    ' cock bondage
+.mustnot 255                 ' Done ball sack pulling activity already
+.timefrom 275 -00:10"00
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
 ' medium weight drop from balls
 [Action 5826]
+.mustnot 25 32               ' ankles tied, can't stand
+.must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
-.must 214                    ' cock bondage
-.mustnot 25 32               ' ankles tied, can't stand
+.timefrom 275 -00:50"00
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
 ' heavy weight drop from balls
 [Action 5827]
+.mustnot 25 32               ' ankles tied, can't stand
+.must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.must 214                    ' cock bondage
-.mustnot 25 32               ' ankles tied, can't stand
+.timefrom 275 -00:20"00
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
+' TODO very heavy weight drop from balls (20-25)
+'.timefrom 275 -00:25"00
+
 
 [Action 5849]
-On second thought, I think I changed My mind.
 .else                      ' Fallback
+On second thought, I think I changed My mind.
 .range 5040
 
 
@@ -11826,6 +11852,7 @@ Meanhile, three demerits will do about right.
 .mustnot 44                  ' Chastified
 .mustnot 267 268             ' Enema carrying out or holding
 .must 726 736 747            ' Denial and self-control 1, Restraint acceptance 1, cbt 2
+.timefrom 275 -00:30"00
 .set 263                     ' Done wanking activity
 .range 6151
 
@@ -11856,6 +11883,7 @@ Meanhile, three demerits will do about right.
 'Light wanking 2x5m, gives 726
 [Action 6004]
 .mustnot 263                 ' Done wanking activity already
+.timefrom 275 -00:11"00      ' 10 + 1
 .set 263                     ' Done wanking activity
 .range 6154
 
@@ -11865,6 +11893,7 @@ Meanhile, three demerits will do about right.
 .mustnot 115                 ' Not with spiked ring or urethra tube
 .mustnot 263                 ' Done wanking activity already
 .must 726                    ' Denial and self-control 1 
+.timefrom 275 -00:19"00      ' 15 + 4
 .set 263                     ' Done wanking activity
 .range 6155
 
@@ -11873,6 +11902,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44               ' can't jerk off, chastified
 .mustnot 263                 ' Done wanking activity already
 .must 726                    ' Denial and self-control 1
+.timefrom 275 -00:20"00      ' 20 + 2
 .set 263                     ' Done wanking activity
 .range 6156
 
@@ -11881,6 +11911,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44               ' can't jerk off, chastified
 .mustnot 263                 ' Done wanking activity already
 .must 726                    ' Denial and self-control 1
+.timefrom 275 -00:23"00      ' 20 + 3
 .set 263                     ' Done wanking activity
 .range 6157
 
@@ -11889,6 +11920,7 @@ Meanhile, three demerits will do about right.
 .mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
 .mustnot 263                 ' Done wanking activity already
 .must 726                    ' Denial and self-control 1
+.timefrom 275 -00:27"00      ' 21 + 6
 .set 263                     ' Done wanking activity
 .range 6158
 
@@ -11897,6 +11929,7 @@ Meanhile, three demerits will do about right.
 .mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
 .mustnot 263                 ' Done wanking activity already
 .must 727                    ' Denial and self-control 2
+.timefrom 275 -00:32"00      ' 30 + 2
 .set 263                     ' Done wanking activity
 .range 6159
 
@@ -11905,6 +11938,7 @@ Meanhile, three demerits will do about right.
 .mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
 .mustnot 263                 ' Done wanking activity already
 .must 727                    ' Denial and self-control 2
+.timefrom 275 -00:29"00      ' 25 + 4
 .set 263                     ' Done wanking activity
 .range 6160
 
@@ -11913,6 +11947,7 @@ Meanhile, three demerits will do about right.
 .mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
 .mustnot 263                 ' Done wanking activity already
 .must 727                    ' Denial and self-control 2
+.timefrom 275 -00:35"00      ' 27 + 8
 .set 263                     ' Done wanking activity
 .range 6161
 
@@ -11921,6 +11956,7 @@ Meanhile, three demerits will do about right.
 .mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
 .mustnot 263                 ' Done wanking activity already
 .must 728                    ' Denial and self-control 3
+.timefrom 275 -00:43"00      ' 40 + 3
 .set 263                     ' Done wanking activity
 .range 6162
 
@@ -11929,6 +11965,7 @@ Meanhile, three demerits will do about right.
 .mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
 .mustnot 263                 ' Done wanking activity already
 .must 728                    ' Denial and self-control 3
+.timefrom 275 -00:53"00      ' 45 + 8
 .set 263                     ' Done wanking activity
 .range 6163
 
@@ -14972,6 +15009,7 @@ as close to the edge as you can and wait for My say-so...
 .must 362
 .set 20
 .set 42                           ' Clothes pegs on nipples
+.settime 275 00:10"00             ' fixed duration for finale
 .range 8090
 
 [Action 8134]
@@ -14981,7 +15019,9 @@ before we go on, slave. Now, wait for My command...
 .mustnot 24                       ' Something on balls
 .mustnot 30                       ' Can't jerk off
 .must 362
-.set 24
+.set 24                           ' Something on balls
+.set 38                           ' Clothes pegs on ball sack
+.settime 275 00:10"00             ' fixed duration for finale
 .range 8090
 
 [Action 8135]
@@ -14992,9 +15032,11 @@ and wait for my command...
 .delay 30
 .mustnot 20 24                    ' Something on nipples, something on balls
 .mustnot 30                       ' Can't jerk off
-.must 362
+.must 362                         ' Clothes pegs
 .set 20 24                        ' Something on nipples, something on balls
+.set 38                           ' Clothes pegs on ball sack
 .set 42                           ' Clothes pegs on nipples
+.settime 275 00:10"00             ' fixed duration for finale
 .range 8090
 
 [Action 8136]
@@ -15004,9 +15046,11 @@ Now wait for My command as you stay on the edge...
 .mustnot 20                       ' Something on nipples
 .mustnot 30                       ' Can't jerk off
 .must 361                         ' Nipple clamps
-.set 20                           ' Something on nipples 
-.unset 42                         ' Clothes pegs on nipples
+.set 20 43                        ' Something on nipples, nipple clamps
+.settime 275 00:10"00             ' fixed duration for finale
 .range 8090
+
+' TODO combine nipple and pussy clamps
 
 [Action 8137]
 Take your paddle and spank yourself to the beat with one
@@ -19178,7 +19222,7 @@ Especically if he's chained and shackled so well.
 
 [action 11341]
 .must 241
-.set 20                 ' something in butt 
+.set 21                 ' something in butt 
 .unset 241
 .range  11324
 
@@ -19352,6 +19396,7 @@ I want you to pop a clothes peg on each of your nipples.
 .set 20                 ' pins on nipples
 .set 42                 ' Clothes pegs on nipples
 .set 325                ' remember for next session
+.settime 275 00:10"00   ' fixed duration for finale
 .range 11729
 
 [Action 11711]
@@ -19363,6 +19408,7 @@ I want you to snap on your nipple clamps.
 .set 20                 ' clamps on nipples
 .set 43                 ' Nipple clamps on nipples
 .set 326                ' remember for next session
+.settime 275 00:10"00   ' fixed duration for finale
 .range 11729
 
 [Action 11712]
@@ -19375,6 +19421,7 @@ I want you to pop four clothes pegs on your ball sack.
 .pause Ready, Miss
 .set 24                  ' pins on ball sack
 .set 328                 ' remember for next session
+.settime 275 00:10"00   ' fixed duration for finale
 .range 11729
 
 [Action 11713]
@@ -19387,7 +19434,10 @@ I want you to snap your pussy clamps on your slutty ball sack.
 .pause Ready, Miss
 .set 24 39               ' pussy clamps on ball sack
 .set 329                 ' remember for next session
+.settime 275 00:10"00   ' fixed duration for finale
 .range 11729
+
+' TODO combinations
 
 [Action 11714]
 .mustnot 686            ' Chastity belt rules apply
