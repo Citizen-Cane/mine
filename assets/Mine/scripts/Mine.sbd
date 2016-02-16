@@ -7398,50 +7398,57 @@ Well, slave, I expected you to have it all in by now.
 .range 3026 3029
 
 [Action 3026]
+.mustnot 24             ' Something on balls
+.must 362               ' Clothes pegs
+.set 24 38              ' something on ball sack, clothes pegs
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
-.mustnot 24             ' Something on balls
-.must 362               ' Clothes pegs
-.set 24
+.settime 275 -00:10"00
 .range 3030 3031        ' Comment pegs
 
 [Action 3027]
+.mustnot 20             ' Something on nipples
+.must 362               ' Clothes pegs
 Maybe some clothes pegs on your slave nipples help the enema flowing faster.
 Snap one on each nipple.
 .pause Done as ordered, Miss
-.mustnot 20             ' Something on nipples
-.must 362               ' Clothes pegs
-.set 20
-.range 3030 3031        ' Comment pegs
+.set 20 42              ' something on nipples, clothes pegs
+.settime 275 -00:15"00
+.range 3032 3033        ' Comment pegs
 
 [Action 3028]
+.mustnot 20             ' Something on nipples
+.must 361               'completely empty.
 Maybe your nipple clamps help the enema flowing faster.
 Snap them on your slave titties and make sure they sit tight.
 .pause Done as ordered, Miss
-.mustnot 20             ' Something on nipples
-.must 361               'completely empty.
-.delay 60
-.must 21                ' Nozzle
-.range 3032 3033
+.set 20 43              ' something on nipples, nipple clamps
+.settime 275 -00:15"00
+.range 3034 3035
+
+[Action 3029]
+.else
+.range 3038
 
 
 [Action 3030]
+.range 3038
+
+
+[Action 3032]
 Fine.
 You may now enjoy your pegs until the bag is completely empty.
 .delay 30
 .range 3038
 
 
-[Action 3032]
+[Action 3034]
 Very good.
 You may now enjoy your clamps until the bag is completely empty.
 .delay 30
 .range 3038
 
-
-[Action 3034]
-.range 3038
 
 
 [Action 3038]
@@ -7519,7 +7526,8 @@ Then come back here.
 Let's remove the pegs from your slutty ball sack.
 .pause Thank you, Miss
 .must 3031              ' Pegs on ball sack
-.unset 24               ' Something on balls
+.unset 24 38            ' Something on balls, clothes pegs
+.settime 275 +INF
 .unset 35               ' Tethered
 .range 3058 3059
 
@@ -7527,7 +7535,8 @@ Let's remove the pegs from your slutty ball sack.
 Let's remove the clothes pegs from your nipples.
 .pause Thank you, Miss
 .must 3032              ' Pegs on nipples
-.unset 20               ' Something on nipples
+.unset 20 42            ' Something on nipples, clothes pegs
+.settime 275 +INF
 .unset 35               ' Tethered
 .range 3058 3059
 
@@ -7535,7 +7544,8 @@ Let's remove the clothes pegs from your nipples.
 Let's take off your nipple clamps.
 .pause Thank you, Miss
 .must 3033              ' Clamps on nipples
-.unset 20               ' Something on nipples
+.unset 20 43            ' Something on nipples, nipple clamps
+.settime 275 +INF
 .unset 35               ' Tethered
 .range 3058 3059
 
@@ -11026,7 +11036,7 @@ Make sure you have one until next time, baby.
 .mustnot 776                 ' Dildo worshiping 1
 .range 5149
 
-' less restrictions because more scenarios available at level 1
+' less restrictions after introduction as more scenarios are available
 [Action 5141]
 .mustnot 29 34               ' blindfolded, can't type/use mouse
 .mustnot 221                 ' Gag temporary
@@ -11386,7 +11396,7 @@ You'll be punished later for failing your training.
 .mustnot 264            ' Done spanking activity already
 .must 370               ' paddle
 .must 753               ' asswhipping 3
-.mustnot 20 33          ' something on nipples, can't kneel
+.mustnot 33             ' can't kneel
 .timefrom 275 -00:35"00
 .set 264                ' Done spanking already
 .range 5754
@@ -11397,7 +11407,7 @@ You'll be punished later for failing your training.
 .mustnot 264            ' Done spanking activity already
 .must 370               ' paddle
 .must 754               ' asswhipping 4
-.mustnot 20 33          ' something on nipples, can't kneel
+.mustnot 33             ' can't kneel
 .timefrom 275 -00:65"00
 .set 264                ' Done spanking already
 .range 5755
@@ -11409,7 +11419,7 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 371               ' hair brush
 .must 753               ' asswhipping 3
-.mustnot 20 33          ' something on nipples, can't kneel
+.mustnot 33             ' can't kneel
 .timefrom 275 -00:35"00
 .set 264                ' Done spanking already
 .range 5754
@@ -11421,7 +11431,7 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 371               ' hair brush
 .must 754               ' asswhipping 4
-.mustnot 20 33          ' something on nipples, can't kneel
+.mustnot 33             ' can't kneel
 .timefrom 275 -00:65"00
 .set 264                ' Done spanking already
 .range 5755
@@ -11433,7 +11443,7 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
 .must 753               ' asswhipping 3
-.mustnot 20 33          ' something on nipples, can't kneel
+.mustnot 33             ' can't kneel
 .timefrom 275 -00:35"00
 .set 264                ' Done spanking already
 .range 5754
@@ -11445,7 +11455,7 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
 .must 754               ' asswhipping 4
-.mustnot 20 33          ' something on nipples, can't kneel
+.mustnot 33             ' can't kneel
 .timefrom 275 -00:65"00
 .set 264                ' Done spanking already
 .range 5755
@@ -15016,8 +15026,7 @@ as close to the edge as you can and wait for My say-so...
 .mustnot 20                       ' Something on nipples
 .mustnot 30                       ' Can't jerk off
 .must 362
-.set 20
-.set 42                           ' Clothes pegs on nipples
+.set 20 42                        ' Something on nipples, Clothes pegs
 .settime 275 00:10"00             ' fixed duration for finale
 .range 8090
 
@@ -15028,8 +15037,7 @@ before we go on, slave. Now, wait for My command...
 .mustnot 24                       ' Something on balls
 .mustnot 30                       ' Can't jerk off
 .must 362
-.set 24                           ' Something on balls
-.set 38                           ' Clothes pegs on ball sack
+.set 24 38                        ' Something on balls, Clothes pegs
 .settime 275 00:10"00             ' fixed duration for finale
 .range 8090
 
@@ -19402,8 +19410,7 @@ Especically if he's chained and shackled so well.
 Slave, before we end the session,
 I want you to pop a clothes peg on each of your nipples.
 .pause Ready, Miss
-.set 20                 ' pins on nipples
-.set 42                 ' Clothes pegs on nipples
+.set 20 42              ' Someting on nipples, clothes pegs
 .set 325                ' remember for next session
 .settime 275 00:10"00   ' fixed duration for finale
 .range 11729
@@ -19414,8 +19421,7 @@ I want you to pop a clothes peg on each of your nipples.
 Slave, before we end the session,
 I want you to snap on your nipple clamps.
 .pause Ready, Miss
-.set 20                 ' clamps on nipples
-.set 43                 ' Nipple clamps on nipples
+.set 20 43              ' Something on nipples, nipple clamps
 .set 326                ' remember for next session
 .settime 275 00:10"00   ' fixed duration for finale
 .range 11729
@@ -19801,6 +19807,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 42        ' something on nipples, clothes pegs
 .set 252                ' Done nipple training activity
+.settime 275 +INF
 .range 11990 
 
 [action 11926]
@@ -19838,6 +19845,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
 .set 252                ' Done nipple training activity
+.settime 275 +INF
 .range 11990 
 
 [action 11936]
@@ -19875,6 +19883,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -24 24 38        ' something on ball sack, clothes pegs
 .set 259                ' Done ball sack pegs or pussy clamps
+.settime 275 +INF
 .range 11990 
 
 [action 11946]
@@ -19912,6 +19921,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -24 24 39        ' something on nipples, pussy clamps
 .set 259                ' Done ball sack pegs or pussy clamps
+.settime 275 +INF
 .range 11990 
 
 [action 11956]
