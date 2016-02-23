@@ -8053,10 +8053,10 @@ Put it on now, slave.
 [Action 3140]
 .mustnot 24             ' something on balls
 .must 363 364 360       ' wrist & ankle restraints, chains
-.must 736 746
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
-.range 3141 3144
+.range 3141 3146
+
 
 [Action 3141]
 .must 25                ' ankles tied
@@ -8065,7 +8065,7 @@ and I want you suffer for me.
 First snap on your wrist restraints, bitch.
 .pause I'm wearing my restraints, Miss
 .set 26                 ' wrists tied
-.range 3144
+.range 3144 3146
 
 [Action 3142]
 .mustnot 25             ' ankles tied
@@ -8075,36 +8075,68 @@ First snap on your ankle restraints, bitch.
 .pause I'm wearing my restraints, Miss
 .set 25                 ' ankles tied
 .set 3140
-.range 3144
+.range 3144 3146
 
 [Action 3143]
-.mustnot 25 26       ' ankles tied, wrists tied
+.mustnot 25 26          ' ankles tied, wrists tied
 .must 3140
-First snap on your ankle and wrist restraints.
+First put on your ankle and wrist restraints.
 .pause I'm wearing my restraints, Miss
 .set 25 26
 .set 3140
-.range 3144
+.range 3144 3146
 
+
+' no ball harness
 [Action 3144]
-.must 25 26          ' ankles tied, wrists tied
+.must 25 26             ' ankles tied, wrists tied
+.mustnot 385            ' ball harness
 .must 3140
-.range 3145
-
-
-[Action 3145]
 Go fetch your slave chains and chain your wrists and ankles together.
-Then chain the connecting chain to your slutty ball sack.
+Then chain the connecting chain also to your slutty ball sack.
 You should have just enough play so that you can kneel straight.
 and rub your little slave titties, but no more.
 .pause I'm chained up, Miss
-.must 3144
 .set 24 31 32
-.set 737 747            ' Restraint acceptance 2, CBT 2
+.set 736 737 746 747    ' Restraint acceptance 2, CBT 2
 .range 3290
 
-' todo chain to ball harness and chastity cage
-' check 37 or 44, but we're of of actions
+' put on ball harness
+[Action 3145]
+.must 25 26             ' ankles tied, wrists tied
+.mustnot 37             ' wearing ball harness
+.must 385               ' have ball harness
+.must 3140
+We're not done yet, slave!
+I also want you to wear your ball harness for todays session.
+Go ahead and put it on.
+delay 2
+Hurry up, slave!
+.pause Ready, Miss
+.set 24 37              ' wearing all harness 
+.range 3147
+
+' wearing ball harness on already
+' todo we're one action short to support wearing the ball harness already
+[Action 3146]
+.must 25 26             ' ankles tied, wrists tied
+.must 37                ' wearing ball harness
+.must 3140
+.range 3147
+
+
+' chain to ball harness
+[Action 3147]
+.must 3140
+We're almost done: 
+Fetch your slave chains and chain your wrists and ankles together.
+Then attach the connecting chain also to your ball harness.
+You should have just enough play so that you can kneel straight.
+and rub your little slave titties, but no more.
+.pause I'm chained up, Miss
+.set 31 32              ' Can't sit on chair, can't stand
+.set 737 747            ' Restraint acceptance 2, CBT 2
+.range 3290
 
 
 [Action 3148]
