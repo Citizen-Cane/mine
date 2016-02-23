@@ -310,11 +310,9 @@
 ' Entries:   	2200-2249
 ' Choices:  	2500-2999,	Each entry jumps to first 5 slots of action range
 ' Completions:	2400-2449
-'
-' TODO 2900-2920 is currently used for next-session-toy, this has to be moved elsewhere
 
-' Room for 91 punishments, 10 actions each for choices and extra handling
-' 500 -> 2500-2409
+' Room for 50 punishments, 10 actions each for choices and extra handling
+' 500 -> 2500-2509
 ' ...
 ' 525 -> 2750-2759
 ' ...
@@ -330,7 +328,7 @@
 '.askcheck      33      507     507: P.O. for attention deficit - not listening carefully - repeating instructions: escalates -> 507 -> 103 -> 508 + optional 1 hour penalty   
 '.askcheck      34      508     508: P.O. for inattentiveness - part of obeyance punishment sequence  504 508 516 501
 '.askcheck      35      509     509: P.O. for wasting Mistress's time, too much time to answer simple questions, ruining the session
-'.askcheck      36      510     510: P.O. for ignorance. (not getting/making toys) still TODO
+'.askcheck      36      510     510: P.O. for ignorance. (not getting/making toys)
 '.askcheck      37      511     511: P.O. for lack of hardness, level 1
 '.askcheck      38      512     512: P.O. for lack of hardness, level 2
 '.askcheck      39      513     513: P.O., slave's request, level 1
@@ -340,8 +338,8 @@
 '.askcheck      43      517     517: P.O. for training failure 1
 '.askcheck      44      518     518: P.O. for training failure 2
 '.askcheck      45      519     519: P.O. for cumming illegally
-'.askcheck      46      520     520: P.O. for forgetting to wear the proper getup at sessio start
-'.askcheck      47      521     521: P.O. for forgetting to perform assignment (TODO)
+'.askcheck      46      520     520: P.O. for forgetting to wear the proper getup at session start
+'.askcheck      47      521     521: P.O. for forgetting to perform assignment
 '.askcheck      48      522     522: free
 '.askcheck      90      523     523: free
 '.askcheck      90      524     524: Free
@@ -2465,14 +2463,12 @@ Now keep fondling that silly cock for your Mistress while we move on with the se
 .range 1253 1259
 
 
-' todo should be able to be repeated, as there are variations later on
+' todo putting on the harness here should be able to be repeatable, as there are variations later on already
 
-' todo toys at startup - skip if tied up
- 
 [Action 1253]
 .poss 20
 .mustnot 20 24 32       ' something on nipples, something on balls, can't stand
-.mustnot 25	26 35 36    ' ankles tied, wrists tied, harnessed, tethered
+.mustnot 26 35 36       ' wrists tied, harnessed, tethered
 .must 366 736           ' Some rope, restraint acceptance 1
 .mustnot 426            ' non-repeatable
 .mustnot 626 627        ' harness assignments
@@ -2484,7 +2480,7 @@ Well, My dear slave, would you like to be tied up tonight?
 [Action 1254]
 .poss 20
 .mustnot 20 24 32       ' something on nipples, something on balls, can't stand
-.mustnot 25	26 35 36    ' ankles tied, wrists tied, harnessed, tethered
+.mustnot 26 35 36       ' ankles tied, wrists tied, harnessed, tethered
 .must 366 737           ' Some rope, restraint acceptance 2
 .must 426               ' must have done nighttime first
 .mustnot 427            ' non-repeatable
@@ -4817,7 +4813,7 @@ in order to ensure the necessary descent for the liquid to flow.
 [Action 1890]
 .unset 8                ' no being hard-punishment given
 .set 9                  ' i.e., there is a punishment outstanding
-.gosub 11900            ' pegs/clamps tracking, comment and removal
+.gosub 11800            ' pegs/clamps tracking, comment and removal
 .range 1899 1999
 
 
@@ -5330,7 +5326,7 @@ You'll pay for that lapse!
 
 [Action 2202]
 .must 502
-.mustnot 519            ' 519 cumming without permission must be executed first because it uses corner time as a  fallback
+.mustnot 519            ' 519 cumming without permission must be executed first because it uses corner time as a fallback
 .mustnot 520            ' must be executed first in order to complete clamps/pegs punishment and to start clamps/pegs removal timer
 Of course My cunt remembers when he stupidly wore clothes while addressing his Mistress.
 You should remember this lesson the next time you balk at exposing your naked boy-body to me.
@@ -5532,7 +5528,6 @@ and restore respect to his mistress and her precise instructions.
 .pause Please Miss, I'll make good next time
 .range 2700 2708
 
-' TODO Punishemnts for assignments while away from his mistress other than corner time?
 [Action 2221]
 .must 521
 .mustnot 258            ' Corner time already given
@@ -5640,7 +5635,7 @@ and that Mistresses are to be obeyed without question!
 ' Enema exit from punishment cycle 2300-2304
 
 [Action 2260]
-.gosub 11900            ' pegs/clamps tracking, comment and removal
+.gosub 11800            ' pegs/clamps tracking, comment and removal
 .range 2261 2264
 
 [Action 2261]
@@ -5943,7 +5938,7 @@ I sincerely hope that you've changed your attitude about My assignments, for you
 
 [Action 2425]
 Well, I hope you've learned your lesson and
-hold your jizm inside when ou're supposed to.
+hold your jizm inside when you're supposed to.
 .unset 525
 .range 2151
 
@@ -6902,16 +6897,10 @@ I'll get you next time, you dirty slave!
 ' 519 cumming illegally
 
 ' Keep carrying the cage if possible for maximum humiliation,
-' but remove if necessary (corner time has been given before)
+' but remove if necessary (if corner time has been given before)
 
-' Clamps or pegs on nipples or balls, this can happen if the slave was
-' to put on clamps or pegs before the session, or as a punishment
-' but the punishments are too long to wear clamps,
-' so lets save this punishment for the next session
-' TODO This may block the punishment cycle from completing since 519 is a mandatory punishment
-' Shortcut wanking or corner time to 30 minutes if wearing clamps 
-
-' 1hr punishment wanking fallback only when wearing chasttiy device and having key
+' 1hr punishment wanking fallback only when wearing chastity device and having key
+' TODO disable taking the cage off, since if the slave came without permission, he should be kept locked up 
 [Action 2690]
 .else                   ' Fallback in case slave wears chastity device
 .mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
@@ -6922,7 +6911,8 @@ I'll get you next time, you dirty slave!
 .save 50 799
 .loadsbd mine-td.sbd 1104 1104
 
-'' 1hr punishment wanking fallback only when wearing chasttiy device and not having key
+'' 1hr punishment wanking fallback only when wearing chastity device and not having key
+' TODO re-enable this and add more comments while wanking
 '[Action 2691]
 '.else                   ' Fallback in case slave wears chastity device
 '.mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
@@ -6934,14 +6924,25 @@ I'll get you next time, you dirty slave!
 
 ' 1hr punishment wanking
 [Action 2692]
+' TODO implement taking the clamps off during wanking, and relax timing conditions in activities
 .mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
 .mustnot 30 44          ' Can't jerk off
 .save 50 799
 .loadsbd mine-td.sbd 1104 1104
 
 ' 35-45m kneeling, clamps and cuffs are preferred, but this works without any toys as well
+' shorter corner time is used when wearing clamps, so this can safely be called
 [Action 2693]
 .mustnot 258            ' Corner time already given
+.set 258
+.save 50 799
+.loadsbd mine-paddle.sbd 2596 2599
+
+' 35-45m kneeling, clamps and cuffs are preferred, but this works without any toys as well
+' fallback if none of the other punishments can be used, to avoid AllActionsSet
+' shorter corner time is used when wearing clamps, so this can safely be called
+[Action 2694]
+.else
 .set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2596 2599
@@ -6951,11 +6952,21 @@ I'll get you next time, you dirty slave!
 
 ' 520 Punishment outstanding for not wearing the requested getup at the beginning of the session
 
+[Action 2700]
+.else
+Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
+Lucky slave!
+I guess you've gotten away with one this time.
+.unset -20 -24          ' don't remove clamps or pegs in activity
+.unset 520
+.range 2151
+
 ' Corner time + marker
 ' 519 Cumming without permission doesn't have a fallback, and only corner time doesn't have any toy requirements
-' 519 is also a severe punishment taht can't be skipped. As a result, in order to avoid crashing in 519 punishment selection,
-' corner time must be skipped here if 519 is outstanding. It may be sub-optimal though, but PCM-Script doesn't allow for more.
-[Action 2700]
+' 519 is also a severe punishment that can't be skipped.
+' So to avoid crashing in 519 punishment selection,
+' corner time must be skipped here if punishment 519 is outstanding.
+[Action 2701]
 .mustnot 258            ' Corner time already given
 .mustnot 519            ' 520 is executed before, but 519 has no fallback
 .unset -20 -24          ' don't remove clamps or pegs in activity
@@ -6963,55 +6974,35 @@ I'll get you next time, you dirty slave!
 .save 50 799
 .loadsbd mine-paddle.sbd 2600 2600
 
-' Corner time already given in 519, so the toys have been worn for some time, just continue to complete 520
-' todo re-word since there are punishments in olace, we just can't perform them right now
-[Action 2701]
-.mustnot 258            ' Corner time already given
-.must 519               ' Corner time is the only punishment in 519 without requirements, so we must skip corner time here in order to avoid a crash there
-Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
-Lucky slave!
-I guess you've gotten away with one this time.
-.unset -20 -24          ' don't remove clamps or pegs in activity
-.unset 520
-.range 2151
-
-' todo reword since there are punishments in place, we just can't perform them right now
-[Action 2702]
-.else
-.must 258               ' Corner time already given
-Unfortunately there doesn't appear to be a punishment session in place yet for your lack of respect.
-Lucky slave!
-I guess you've gotten away with one this time.
-.unset -20 -24          ' don't remove clamps or pegs in activity
-.unset 520
-.range 2151
-
 ' complete the clamps / complete the pegs
 ' if the slave wears one pain toy, complete punishment getup with the other
 
 [Action 2703]
-.must 20 42             ' something on nipples, clothes pegs
+.must 20                ' something on nipples
 .mustnot 24
 '.mustnot 38 39
-Some clothes pegs on your slutty ball sack seem about right.
-Four seems about right!
+.should 42              ' prefer clothes pegs
+A couple of clothes pegs seem about right.
+Go fetch four of them and snap'em on your slutty ball sack!
 Do it now, slave.
 .pause Done, Miss
 .set 24 38              ' something on balls, clothes pegs
 .range 2709
 
 [Action 2704]
-.must 20 43             ' something on nipples, nipple clamps
+.must 20                ' something on nipples
 .mustnot 24
 '.mustnot 38 39
+.should 43              ' prefer nipple clamps
 Go fetch your pussy clamps and snap them on your slutty ball sack!
 .pause Done, Miss
 .set 24 39              ' something on balls, pussy clamps
 .range 2709
 
 [Action 2705]
-.must 24 38             ' something on ball sack, clothes pegs
 .mustnot 20
+.must 24 38             ' something on ball sack
+.should 38              ' prefer clothes pegs
 Some clothes pegs on your slave nipples will do this time.
 Put them on now, slave!
 .pause Done, Miss
@@ -7019,8 +7010,9 @@ Put them on now, slave!
 .range 2709
 
 [Action 2706]
-.must 24 39             ' something on nipples, pussy clamps
 .mustnot 20
+.must 24                ' something on nipples
+.should 39              ' prefer pussy clamps
 Go fetch your nipple clamps and snap them on your poor slave nipples!
 .pause Done, Miss
 .set 20 43              ' something on nipples, nipple clamps
@@ -7029,7 +7021,7 @@ Go fetch your nipple clamps and snap them on your poor slave nipples!
 [Action 2707]
 .must 20 38             ' something on nipples, something on balls, clothes pegs
 I sincerely hope that the pain in your nipples and nuts
-helps you remember my orders in the future.
+will help you remember my orders in the future.
 .pause Thank you, Miss
 .unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520
@@ -7039,7 +7031,7 @@ helps you remember my orders in the future.
 [Action 2708]
 .must 20 39             ' something on nipples, something on balls, clamps
 I sincerely hope that the pain in your nipples and nuts
-helps you remember my orders in the future.
+will help you remember my orders in the future.
 .pause Thank you, Miss
 .unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520              ' Don't repeat
@@ -7075,6 +7067,8 @@ I guess you've gotten away with one this time.
 .set 258                ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2605 2605
+
+' TODO Punishemnts for not performing assignments while away from his mistress other than corner time?
 
 
 ' 522
@@ -7661,7 +7655,7 @@ You're a naughty anal slut!
 'We will now continue the session while you enjoy your enema.
 .settime 276       ' Restart the enema timer to make good for the time the slave wasted while taking the enema
 .range 3076
-' 
+ 
 ' TODO Make such comments at the start of each activity
 [Action 3076]
 You might feel the urge to relief yourself soon enough,
@@ -10049,7 +10043,7 @@ you've earned for ignoring your Mistress orders.
 
 
 [Action 4899]
-.gosub 11900            ' pegs/clamps tracking, comment and removal
+.gosub 11800            ' pegs/clamps tracking, comment and removal
 .range 4900
 
 
@@ -11871,7 +11865,7 @@ Meanhile, three demerits will do about right.
 .mustnot 44                  ' Chastified
 .mustnot 267 268             ' Enema carrying out or holding
 .must 726 736 747            ' Denial and self-control 1, Restraint acceptance 1, cbt 2
-.timeto 275 -00:30"00
+.timeto 275 -00:35"00        ' 30 minutes plus preparation
 .set 263                     ' Done wanking activity
 .range 6151
 
@@ -12755,7 +12749,7 @@ you lazy anal slut.
 .must 257               ' Enema intensified training
 .range 7364
 
-' todo enable only if this isn't called twice, in order to not hold the enema too long
+' todo enable only if this isn't called twice, in order to not hold the enema for too long
 '[Action 7362]
 'Slave!
 'This enema is intended as a preparation to deepen your anal traning.
@@ -13067,7 +13061,7 @@ It seems that you've voided the enema completely.
 
 
 ' todo check the time of the day, so we don't have to assume this is played in the evening or at night
-' this is because the assignments assume this is played at night time, and all durations are based on this assumption
+' this is because the dildo/plug assignments assume this is played at night time, and all durations are based on this assumption
 
 ' Have neither butt plug nor dildo -> no assignments, finished
 [Action 7451]
@@ -13618,7 +13612,7 @@ Just in case, your ball harness stays on, sweetheart.
 
 [Action 7560]
 .unset 7560
-.gosub 11900            ' pegs/clamps tracking, comment and removal
+.gosub 11800            ' pegs/clamps tracking, comment and removal
 .range 7570 7574
 
 '[Action 7561]
@@ -15501,16 +15495,19 @@ Be sure to have that little accessory applied next time.
 .range 9000
 
 ' urethra tube
-' todo find out correct wording
 [action 8998]
 .must 113 114 115
 .mustnot 116
 Well, as it looks, my naughty little cock tease needs a lot more discipline than I thought
 to keep his hands from his encaged slave penis.
+[]
 To continue thrusting your chastity attempts,
-I see no other way for you but to install an intregated urethra tube in your cage.
-That will keep your nasty wanking habits in line and certainly prevent unautherized arousal.
-Sort it out until next time, slave.
+you leave me with no other choice than to have you install an integrated urethra tube into your cage.
+delay 3
+I know it's a harsh measure, slave,
+but it will certainly keep your nasty wanking habits in line
+and certainly prevent any unautherized arousals.
+Sort it out until next time!
 .pause Yes Miss, I'll sort it out
 .set 119
 .range 9000
@@ -15561,9 +15558,9 @@ Sort it out until next time, slave.
 .mustnot 540 541 542 543 544 545 546 547 548 549
 ' all instructions given can be performed
 ' according to toys and slave experience
-.numActionsAvailable 11710 11727 1
-.numActionsAvailable 11841 11857 1
-.gosub 11700            ' next-session-toys start
+.numActionsAvailable 11610 11627 1
+.numActionsAvailable 11741 11757 1
+.gosub 11600            ' next-session-toys start
 .range 9050 9053
 
 ' Prepare to carry out enema next time 
@@ -18214,9 +18211,9 @@ but don't disturb Me for at least 24 hours.
 ' 11000 toys-at-startup handling
 
 ' 211 next-session-toy assignment
-' 11700 introduction
-' 11800 continuation
-
+' 11600 introduction
+' 11700 continuation
+' 11800 remove clamps & pegs
 
 ' start
 
@@ -18823,11 +18820,6 @@ your slutty ball sack for quite some time.
 [action 11200]
 .range 11202 11203
 
-' todo different comments about the number of startup toys
-' refer to begging for mercy or relief from punishment ...
-
-' comment special toys or combinations (up to four toys)
-' comment getups with more toy in general, without mentioning special items
 
 [action 11202]
 .NumberOfActionsSet 225 249 10
@@ -19309,33 +19301,33 @@ Especically if he's chained and shackled so well.
 [action 11356]
 .mustnot 716
 .set 716
-.settime 275 +00:15"00
+.settime 275 +00:10"00
 .return
 
 [action 11357]
 .must 716
 .mustnot 717
 .set 717
-.settime 275 +00:20"00
+.settime 275 +00:15"00
 .return
 
 [action 11358]
 .must 717
 .mustnot 718
 .set 718
-.settime 275 +00:25"00
+.settime 275 +00:20"00
 .return
 
 [action 11359]
 .must 718
 .mustnot 719
-.settime 275 +00:30"00
+.settime 275 +00:25"00
 .return
 
 [action 11360]
 .must 719
 .mustnot 720
-.settime 275 +00:35"00
+.settime 275 +00:30"00
 .return
 
 [action 11361]
@@ -19355,7 +19347,6 @@ Especically if he's chained and shackled so well.
 [action 11365]
 .range 11366 11372
 
-' todo same for cbt
 
 [action 11366]
 .mustnot 746
@@ -19367,30 +19358,30 @@ Especically if he's chained and shackled so well.
 .must 746
 .mustnot 747
 .set 747
-.settime 275 +00:14"00
+.settime 275 +00:13"00
 .return
 
 [action 11368]
 .must 747
 .mustnot 748
-.settime 275 +00:18"00
+.settime 275 +00:16"00
 .return
 
 [action 11369]
 .must 748
 .mustnot 749
-.settime 275 +00:21"00
+.settime 275 +00:19"00
 .return
 
 [action 11370]
 .must 749
 .mustnot 750
-.settime 275 +00:23"00
+.settime 275 +00:21"00
 .return
 
 [action 11371]
 .must 750
-.settime 275 +00:25"00
+.settime 275 +00:22"00
 .return
 
 ' fallback, already set
@@ -19402,12 +19393,12 @@ Especically if he's chained and shackled so well.
 
 ' next-session-toy assignment introduction
 
-[Action 11700]
-.range 11710 11728
+[Action 11600]
+.range 11610 11628
 
-' range 11710-11727 is evaluated in 9004 to check whether the assignemnt can be performed
+' range 11610-11627 is evaluated in 9004 to check whether the assignemnt can be performed
 
-[Action 11710]
+[Action 11610]
 .mustnot 20             ' something on nipples
 .must 362               ' clothes pegs
 Slave, before we end the session,
@@ -19416,9 +19407,9 @@ I want you to pop a clothes peg on each of your nipples.
 .set 20 42              ' Someting on nipples, clothes pegs
 .set 325                ' remember for next session
 .settime 275 00:10"00   ' fixed duration for finale
-.range 11729
+.range 11629
 
-[Action 11711]
+[Action 11611]
 .mustnot 20             ' something on nipples
 .must 361               ' nipple clamps
 Slave, before we end the session,
@@ -19427,9 +19418,9 @@ I want you to snap on your nipple clamps.
 .set 20 43              ' Something on nipples, nipple clamps
 .set 326                ' remember for next session
 .settime 275 00:10"00   ' fixed duration for finale
-.range 11729
+.range 11629
 
-[Action 11712]
+[Action 11612]
 .must 362               ' clothes pegs
 .mustnot 24             ' something on penis, something on ball sack
 '.mustnot 624 625        ' any chastity device assignment open
@@ -19440,9 +19431,9 @@ I want you to pop four clothes pegs on your ball sack.
 .set 24                  ' pins on ball sack
 .set 328                 ' remember for next session
 .settime 275 00:10"00   ' fixed duration for finale
-.range 11729
+.range 11629
 
-[Action 11713]
+[Action 11613]
 .must 387               ' pussy clamps
 .mustnot 24             ' something on penis, something on ball sack
 '.mustnot 624 625        ' any chastity device assignment open
@@ -19453,11 +19444,9 @@ I want you to snap your pussy clamps on your slutty ball sack.
 .set 24 39               ' pussy clamps on ball sack
 .set 329                 ' remember for next session
 .settime 275 00:10"00   ' fixed duration for finale
-.range 11729
+.range 11629
 
-' TODO combinations
-
-[Action 11714]
+[Action 11614]
 .mustnot 686            ' Chastity belt rules apply
 .must 385               ' ball harness
 .mustnot 23 24 37       ' something on penis, balls, ball harness
@@ -19466,9 +19455,9 @@ Slave, before we end the session, I want you to put on your ball harness.
 .pause Ready, Miss
 .set 24 37              ' ball harness
 .set 332                ' remember for next session
-.range 11729
+.range 11629
 
-[Action 11715]
+[Action 11615]
 .mustnot 686            ' Chastity belt rules apply
 .must 384               ' humbler
 .mustnot 23 24          ' someting on penis, something on balls
@@ -19477,210 +19466,206 @@ Slave, before we end the session, I want you to put on your humbler.
 .pause Ready, Miss
 .set 24                 ' humbler
 .set 331                ' remember for next session
-.range 11729
+.range 11629
 
 
 ' todo pegs on both nipples and nuts
-' todo clamps on both nippless and nuts
+' todo clamps on both nipples and nuts
 ' todo weights for each of the clamps
 
-' todo the starup code allows for combinations of any number of toys -> add multiple toys
+' todo the startup code allows for combinations of any number of toys -> add multiple toys
 ' plug and harness, etc.
 
 
 ' skip next-session-toy selection if no toy available
-[Action 11728]
+[Action 11628]
 .else                   ' Fallback
 .return
 
 
 ' end of toy selection, activate next-session-toy
-[Action 11729]
+[Action 11629]
 .set 211                ' next-session-toy ending, continue next session
 .return
 
 
 ' next-session-toy assignment continuation, instructions for next session start
 
-[Action 11800]
+[Action 11700]
 Now listen carefully, because I will not repeat myself:
-.range 11811 11839
+.range 11711 11739
 
 
-[Action 11811]
+[Action 11711]
 .must 326
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and
 before putting on your clothes you may take your nipple clamps off.
 .pause Yes, Miss
-.range 11812
+.range 11712
 
-[Action 11812]
-.must 11811
+[Action 11712]
+.must 11711
 And right before starting to prepare for our next session,
 you will put them on.
 .pause As you wish, Miss
-.range 11840
+.range 11740
 
 
-[Action 11813]
+[Action 11713]
 .must 325
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and
 before putting on your clothes you may take those nasty clothes pegs off.
 .pause Yes Miss
-.range 11814
+.range 11714
 
-[Action 11814]
-.must 11813
+[Action 11714]
+.must 11713
 And right before starting to prepare for our next session, 
 you will put them back on your nipples.
 .pause As you wish, Miss
-.range 11840
+.range 11740
 
 
-[Action 11815]
+[Action 11715]
 .must 328
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and
 before putting on your clothes you may take the clothes pegs off.
 .pause Yes Miss
-.range 11816
+.range 11716
 
-[Action 11816]
-.must 11815
+[Action 11716]
+.must 11715
 And right before starting to prepare for our next session,
 you will put them back on your ball sack.
 .pause As you wish, Miss
-.range 11840
+.range 11740
 
 
-[Action 11817]
+[Action 11717]
 .must 331
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and before putting on
 your clothes you may take off your humbler as well and put them away.
 .pause Yes Miss
-.range 11818
+.range 11718
 
-[Action 11818]
-.must 11817
+[Action 11718]
+.must 11717
 Before starting to prepare for our next session,
 you will put your humbler back on.
 .pause As you wish, Miss
-.range 11840
+.range 11740
 
 
-[Action 11819]
+[Action 11719]
 .must 332
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and before putting on
 your clothes you may take off your ball harness as well and put it away.
 .pause Yes Miss
-.range 11820
+.range 11720
 
-[Action 11820]
-.must 11819
+[Action 11720]
+.must 11719
 Before starting to prepare for our next session,
 you will put your ball harness back on.
 .pause As you wish, Miss
-.range 11840
+.range 11740
 
 
-[Action 11821]
+[Action 11721]
 .must 327
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and before putting on
 your clothes you may detach the weight from the clamps and take them off.
 .pause Yes Miss
-.range 11822
+.range 11722
 
-[Action 11822]
-.must 11821
+[Action 11722]
+.must 11721
 And right before starting to prepare for our next session,
 you will put the clamps and the weight on again.
 .pause As you wish, Miss
-.range 11840
+.range 11740
 
 
-[Action 11823]
+[Action 11723]
 .must 330
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and before putting on
 your clothes you may detach the weight from the clamps and take them off.
 .pause Yes Miss
-.range 11822
+.range 11722
 
-[Action 11824]
-.must 11821
+[Action 11724]
+.must 11721
 And right before starting to prepare for our next session,
 you will snap the clamps back on your slutty ball sack
 and hang the weight from them.
 .pause As you wish, Miss
-.range 11840
-
-
-' todo combinations
+.range 11740
 
 
 ' Additional toys to put on before next session (secondary toy)
-[Action 11840]
-.range 11841 11858
+[Action 11740]
+.range 11741 11758
 
-' range 11841-11857 is evaluated in 9004 to check whether the assignemnt can be performed
 
-' TODO Add remaining toys for next session
+' range 11741-11757 is evaluated in 9004 to check whether the assignemnt can be performed
 
-[Action 11841]
+[Action 11741]
 .must 368 756           ' must have butt plug, anal level 2
 Also I want you to insert a large buttplug for next time.
 An hour before seems about right to have it settle in a bit,
 don't you think, slave?
 .pause Of course, Miss
 .set 341
-.range 11859
+.range 11759
 
-[Action 11842]
+[Action 11742]
 .must 367               ' must have gag
 Also you're also going to stuff your dirty slave mouth with a nice gag.
 .pause Of course, Miss
 .set 343
-.range 11859
+.range 11759
 
-[Action 11843]
+[Action 11743]
 .must 365               ' must have collar
 I know how much you love your slave collar.
 Put it on for next time as well.
 .pause Of course, Miss
 .set 333 334
-.range 11859
+.range 11759
 
-[Action 11844]
+[Action 11744]
 .must 363 364           ' wrist restraints, ankle restraints
 .must 736               ' restraint acceptance 1
 And I also want you to put on your wrist and ankle restraints for next time.
 .pause Of course, Miss
 .set 333
-.range 11859
+.range 11759
 
-[Action 11845]
+[Action 11745]
 .must 363 364 360       ' wrist restraints, ankle restraints, chains
 .must 737               ' restraint acceptance 1
 And I also want you to be bound and shackled next time.
 .pause Of course, Miss
 .set 333 334
-.range 11859
+.range 11759
 
 
-'[Action 11857]
+'[Action 11757]
 
 
-[Action 11858]
+[Action 11758]
 .else
-.range 11859
+.range 11759
 
 
-[Action 11859]
+[Action 11759]
 And of course you will layout all your toys in a nice and well
 arranged way in front of me for inspection before you approach me.
 .return
@@ -19689,120 +19674,123 @@ arranged way in front of me for inspection before you approach me.
 ' harness, balls bound to ankles, etc.
 
 
-' have slave beg to take clamps off:
-' after each punishment
-' after extras
-' at the end of each activity
-' when there's no activity to chose from
-
+' todo take clamps off when there's no activity to choose from
 '[action ...]
-'.gosub 11900
 '.numactionsavailable 5401 5448 1
+'.gosub 11800
 
 
 ' remove pegs & clamps when time is up
+' called from various places to ensure clamps/pegs aren't put on too long
 
-[action 11900]
-.unset 11900
-.range 11901 11905
+[action 11800]
+.unset 11800
+.range 11801 11805
 
 ' remove clamps
-[action 11901]
+[action 11801]
 .timefrom 275 00:00"00
-.range 11911
+.range 11810
 
 ' comment when less than 10 minutes left 
-[action 11902]
+[action 11802]
 .timefrom 275 -00:10"00
 .timeto 275 -00:00"00
-.range 11911
+.range 11810
 
 ' comment when less than 20 minutes left 
-[action 11903]
+[action 11803]
 .timefrom 275 -00:20"00
 .timeto 275 -00:10"00
-.range 11911
+.range 11810
 
-[action 11904]
+[action 11804]
 .else
-.unset 11904
+.unset 11804
 .return
 
 
-[action 11911]
-.unset 11910
-.range 11912 11919
+[action 11810]
+.unset 11810
+.range 11811 11819
+
+[action 11811]
+.else
+.unset 11811
+.return
+
+' nipple pegs
+[action 11812]
+.must 20 42
+.mustnot -24 39
+.unset 11811
+.range 11820 11825
+
+' nipple clamps
+[action 11813]
+.must 20 43
+.mustnot -24 39
+.unset 11812
+.range 11830 11835
+
+' pussy pegs
+[action 11814]
+.mustnot 20 39
+.must -24 38
+.unset 11813
+.range 11840 11845
+
+' pussy clamps
+[action 11815]
+.mustnot 20
+.must 24 39
+.unset 11814
+.range 11850 11855
+
+' nipple and pussy pegs
+[action 11816]
+.must 20 24 42 38
+.unset 11816
+.range 11860 11865
+
+' nipple and pussy clamps
+[action 11817]
+.must 20 24 43 39
+.unset 11817
+.range 11870 11875
+
+' nipple clamps, pussy pegs
+[action 11818]
+.must 20 24 43 38
+.unset 11818
+.range 11880 11885
+
+' nipple pegs, pussy clamps
+[action 11819]
+.must 20 24 42 39
+.unset 11819
+.range 11890 11895
 
 
 ' nipple pegs
-[action 11912]
-.must 20 42
-.mustnot -24 39
-.unset 11911
-.range 11920 11925
 
-' nipple clamps
-[action 11913]
-.must 20 43
-.mustnot -24 39
-.unset 11912
-.range 11930 11935
-
-' pussy pegs
-[action 11914]
-.mustnot 20 39
-.must -24 38
-.unset 11913
-.range 11940 11945
-
-' pussy clamps
-[action 11915]
-.mustnot 20
-.must 24 39
-.unset 11914
-.range 11950 11955
-
-' todo combinations
-
-' nipple and pussy pegs
-'[action 11916]
-'.must 20 42
-'.must -24 38
-'.unset 11915
-'.range 11960 11965
-
-' nipple and pussy clamps
-'[action 11917]
-'.must 20 24 43 39
-'.unset 11916
-'.range 11970 11975
-
-
-[action 11919]
-.else
-.unset 11919
-.return
-
-
-' todo don't save 1-47, write test to ensure all sub scripts can change slave body state
-
-[action 11920]
+[action 11820]
 Are you enjoying the clothes pegs on your nipples, my pet?
 Or would you like to take of them off now?
 .pause Yes please, Miss
-.range 11925 11929
+.range 11825 11829
 
-[action 11921]
+[action 11821]
 .timeto 275 -00:00"00
 Are you enjoying your clothes pegs, my pet?
-.range 11925 11929
+.range 11825 11829
 
-'[action 11922]
-'[action 11923]
-'[action 11924]
+'[action 11822]
+'[action 11823]
+'[action 11824]
 
 
-[action 11925]
+[action 11825]
 .timefrom 275 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
@@ -19812,35 +19800,37 @@ That hurts good, doesn't it?
 .unset -20 20 42        ' something on nipples, clothes pegs
 .set 252                ' Done nipple training activity
 .settime 275 +INF
-.range 11990 
+.range 11910 
 
-[action 11926]
+[action 11826]
 .else
 Well, I don't see why I should let you take them off right now.
-.range 11980            ' comment punishment in progress
+.range 11900            ' comment punishment in progress
 
-'[action 11927]
-'[action 11928]
-'[action 11929]
+'[action 11827]
+'[action 11828]
+'[action 11829]
 
 
-[action 11930]
+' nipple clamps
+
+[action 11830]
 Are you enjoying your nipple clamps, my pet?
 Or would you like to take of them off now?
 .pause Yes please, Miss
-.range 11935 11939
+.range 11835 11839
 
-[action 11931]
+[action 11831]
 .timeto 275 -00:00"00
 Are you enjoying your nipple clamps, my pet?
-.range 11925 11929
+.range 11835 11839
 
-'[action 11932]
-'[action 11933]
-'[action 11934]
+'[action 11832]
+'[action 11833]
+'[action 11834]
 
 
-[action 11935]
+[action 11835]
 .timefrom 275 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
@@ -19850,35 +19840,37 @@ That hurts good, doesn't it?
 .unset -20 20 43        ' something on nipples, nipple clamps
 .set 252                ' Done nipple training activity
 .settime 275 +INF
-.range 11990 
+.range 11910 
 
-[action 11936]
+[action 11836]
 .else
 Well, I don't see why I should let you take them off right now.
-.range 11980            ' comment punishment in progress
+.range 11900            ' comment punishment in progress
 
-'[action 11937]
-'[action 11938]
-'[action 11939]
+'[action 11837]
+'[action 11838]
+'[action 11839]
 
 
-[action 11940]
+' pussy pegs
+
+[action 11840]
 Are you enjoying the clothes pegs on your ball sack, my pet?
 Or would you like to take of them off now?
 .pause Yes please, Miss
-.range 11945 11949
+.range 11845 11849
 
-[action 11941]
+[action 11841]
 .timeto 275 -00:00"00
 Are you enjoying your clothes pegs, my pet?
-.range 11925 11929
+.range 11845 11849
 
-'[action 11942]
-'[action 11943]
-'[action 11944]
+'[action 11842]
+'[action 11843]
+'[action 11844]
 
 
-[action 11945]
+[action 11845]
 .timefrom 275 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
@@ -19888,35 +19880,37 @@ That hurts good, doesn't it?
 .unset -24 24 38        ' something on ball sack, clothes pegs
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 275 +INF
-.range 11990 
+.range 11910 
 
-[action 11946]
+[action 11846]
 .else
 Well, I don't see why I should let you take them off right now.
-.range 11980            ' comment punishment in progress
+.range 11900            ' comment punishment in progress
 
-'[action 11947]
-'[action 11948]
-'[action 11949]
+'[action 11847]
+'[action 11848]
+'[action 11849]
 
 
-[action 11950]
+' pussy clamps
+
+[action 11850]
 Are you enjoying your pussy clamps, my pet?
 Or would you like to take of them off now?
 .pause Yes please, Miss
-.range 11955 11959
+.range 11855 11859
 
-[action 11951]
+[action 11851]
 .timeto 275 -00:00"00
 Are you enjoying your pussy clamps, my pet?
-.range 11925 11929
+.range 11855 11859
 
-'[action 11952]
-'[action 11953]
-'[action 11954]
+'[action 11852]
+'[action 11853]
+'[action 11854]
 
 
-[action 11955]
+[action 11855]
 .timefrom 275 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
@@ -19926,97 +19920,246 @@ That hurts good, doesn't it?
 .unset -24 24 39        ' something on nipples, pussy clamps
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 275 +INF
-.range 11990 
+.range 11910 
 
-[action 11956]
+[action 11856]
 .else
 Well, I don't see why I should let you take them off right now.
-.range 11980            ' comment punishment in progress
+.range 11900            ' comment punishment in progress
 
-'[action 11957]
-'[action 11958]
-'[action 11959]
+'[action 11857]
+'[action 11858]
+'[action 11859]
 
 
-' todo combinations
+' nipple and pussy pegs
+
+[action 11860]
+Are you enjoying the clothes pegs on your nipples and nuts, my pet?
+Or would you like to take them off now?
+.pause Yes please, Miss
+.range 11865 11869
+
+[action 11861]
+.timeto 275 -00:00"00
+Are you enjoying your clothes pegs, my pet?
+.range 11865 11869
+
+'[action 11862]
+'[action 11863]
+'[action 11864]
+
+
+[action 11865]
+.timefrom 275 00:00"00
+Well, I think you've suffered long enough.
+Go ahead and take them off, my little pain slut.
+delay 5
+That hurts good, doesn't it?
+.pause Yes, Miss
+.unset -20 20 42        ' something on nipples, clothes pegs
+.unset -24 24 38        ' something on ball sack, clothes pegs
+.set 252                ' Done nipple training activity
+.set 259                ' Done ball sack pegs or pussy clamps
+.settime 275 +INF
+.range 11910 
+
+[action 11866]
+.else
+Well, I don't see why I should let you take them off right now.
+.range 11900            ' comment punishment in progress
+
+'[action 11867]
+'[action 11868]
+'[action 11869]
+
+
+' nipple and pussy clamps
+
+[action 11870]
+Are you enjoying your nipple and pussy clamps, my pet?
+Or would you like to take them off now?
+.pause Yes please, Miss
+.range 11875 11879
+
+[action 11871]
+.timeto 275 -00:00"00
+Are you enjoying the clamps your nipples and your ball sack, my pet?
+.range 11875 11879
+
+'[action 11872]
+'[action 11873]
+'[action 11874]
+
+
+[action 11875]
+.timefrom 275 00:00"00
+Well, I think you've suffered long enough.
+Go ahead and take them off, my little pain slut.
+delay 5
+That hurts good, doesn't it?
+.pause Yes, Miss
+.unset -20 20 43        ' something on nipples, nipple clamps
+.unset -24 24 39        ' something on ball sack, pussy clamps
+.set 252                ' Done nipple training activity
+.set 259                ' Done ball sack pegs or pussy clamps
+.settime 275 +INF
+.range 11910 
+
+[action 11876]
+.else
+Well, I don't see why I should let you take them off right now.
+.range 11900            ' comment punishment in progress
+
+'[action 11877]
+'[action 11878]
+'[action 11879]
+
+
+' nipple clamps, pussy pegs
+
+[action 11880]
+Are you enjoying the pain in your nipples and nuts, my pet?
+Or would you like to take the clamps and pegs off?
+.pause Yes please, Miss
+.range 11885 11889
+
+[action 11881]
+.timeto 275 -00:00"00
+Are you enjoying the clamps and the clothes pegs, my pet?
+.range 11885 11889
+
+'[action 11882]
+'[action 11883]
+'[action 11884]
+
+
+[action 11885]
+.timefrom 275 00:00"00
+Well, I think you've suffered long enough.
+Go ahead and take them off, my little pain slut.
+delay 5
+That hurts good, doesn't it?
+.pause Yes, Miss
+.unset -20 20 43        ' something on nipples, nipple clamps
+.unset -24 24 38        ' something on ball sack, clothes pegs
+.set 252                ' Done nipple training activity
+.set 259                ' Done ball sack pegs or pussy clamps
+.settime 275 +INF
+.range 11910 
+
+[action 11886]
+.else
+Well, I don't see why I should let you take them off right now.
+.range 11900            ' comment punishment in progress
+
+'[action 11887]
+'[action 11888]
+'[action 11889]
+
+
+' nipple pegs, pussy clamps
+
+[action 11890]
+Are you enjoying the pain in your nipples and nuts, my pet?
+Or would you like to take the pegs and clamps off?
+.pause Yes please, Miss
+.range 11895 11899
+
+[action 11891]
+.timeto 275 -00:00"00
+Are you enjoying the clothes pegs and your pussy clamps, my pet?
+.range 11895 11899
+
+'[action 11892]
+'[action 11893]
+'[action 11894]
+
+
+[action 11895]
+.timefrom 275 00:00"00
+Well, I think you've suffered long enough.
+Go ahead and take them off, my little pain slut.
+delay 5
+That hurts good, doesn't it?
+.pause Yes, Miss
+.unset -20 20 43        ' something on nipples, nipple clamps
+.unset -24 24 38        ' something on ball sack, clothes pegs
+.set 252                ' Done nipple training activity
+.set 259                ' Done ball sack pegs or pussy clamps
+.settime 275 +INF
+.range 11910 
+
+[action 11896]
+.else
+Well, I don't see why I should let you take them off right now.
+.range 11900            ' comment punishment in progress
+
+'[action 11897]
+'[action 11898]
+'[action 11899]
 
 
 ' leadout, comment in-progress nipple & ball sack punishments
 
-[action 11980]
-.unset 11980
-.range 11981 11989
+[action 11900]
+.unset 11900
+.range 11901 11909
 
-[action 11981]
+[action 11901]
 .must -520              ' failed to wear the proper getup at startup
 That's just the right punishment for a slave
 that ignores his mistress' precise instructions. 
 .return
 
-[action 11982]
+[action 11902]
 .must -506              ' lying
 That's just the right punishment for a lying slave.
 .return
 
-[action 11983]
+[action 11903]
 .must -507              ' attention deficit
 In fact I hope that the pain teaches you paying proper attention to my precise instructions. 
 .return
 
-[action 11989]
+[action 11909]
 .else
-.unset 11989
+.unset 11909
 .return
 
 
 ' leadout, comment completed nipple & ball sack punishments
 
-[action 11990]
-.unset 11990
-.range 11991 11999
+[action 11910]
+.unset 11910
+.range 11911 11919
 
 
-[action 11991]
+[action 11911]
 .must -520              ' failed to wear the proper getup at startup
 I sincerely hope that you've changed your attitude about My
 assignments, for your sake.
 .unset -520 
 .return
 
-[action 11992]
+[action 11912]
 .must -506              ' lying
 Hopefully the pain in your nipples wiped out any desire you had to tell Me falsehoods, 
 but if I catch you again there will be plenty more pain for you.
 .unset -506 
 .return
 
-[action 11993]
+[action 11913]
 .must -507              ' attention deficit
 I trust that you'll be paying much better attention in the future, My dear little slaveboy.
 After all, what else is there for a slave to do than to concentrate on his Mistress?
 .unset -507 
 .return
 
-[action 11999]
+[action 11919]
 .else
-.unset 11999
+.unset 11919
 .return
-
-
-' assignments for next session
-' one or more primary toys, one or more secondaries
-
-'about 30 actions, one for each combination
-
-' check for outstanding punishments count
-' todo how to justify letting off a punishment
-'I see that you want to please me with your punishment attire.
-'Well your lucky tonight!
-'I accept your total submission to me.
-'I guess I just like to see you suffer in your self-imposed restraints.
-
-
-
 
 
 [action 999900]
