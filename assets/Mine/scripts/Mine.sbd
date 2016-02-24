@@ -8048,133 +8048,154 @@ Put it on now, slave.
 
 ' 3140-3159 impatience add-ons
 
+
+' todo reset impatience after applying impatience extra - just fair
+' I feel much better now.
+' Excellent.
+' You'll be wearing that getup for the whole session.
+
+
 ' slave chains tied to balls
 
 [Action 3140]
 .mustnot 24             ' something on balls
-.must 363 364 360       ' wrist & ankle restraints, chains
+.must 360 363 364       ' chains, wrist & ankle restraints
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
-.range 3141 3146
-
+.range 3142 3147
 
 [Action 3141]
+.must 24 37             ' something on balls, ball harness
+.must 360 363 364       ' chains, wrist & ankle restraints
+I'm in a very bad mood today, My dear,
+and I want you suffer for me.
+.set 3140
+.range 3142 3147
+
+
+' complete restraints
+
+[Action 3142]
 .must 25                ' ankles tied
 .mustnot 26             ' wrists tied
 .must 3140
-First snap on your wrist restraints, bitch.
-.pause I'm wearing my restraints, Miss
+Snap on your wrist restraints, bitch.
+ShowChoices
+delay 12
+Hurry up, slave!
+.pause Ready, Miss
 .set 26                 ' wrists tied
-.range 3144 3146
+.range 3145 3147
 
-[Action 3142]
+[Action 3143]
 .mustnot 25             ' ankles tied
 .must 26                ' wrists tied
 .must 3140
-First snap on your ankle restraints, bitch.
-.pause I'm wearing my restraints, Miss
+Snap on your ankle restraints, bitch.
+ShowChoices
+delay 12
+Hurry up, slave!
+.pause Ready, Miss
 .set 25                 ' ankles tied
 .set 3140
-.range 3144 3146
+.range 3145 3147
 
-[Action 3143]
+[Action 3144]
 .mustnot 25 26          ' ankles tied, wrists tied
 .must 3140
-First put on your ankle and wrist restraints.
-.pause I'm wearing my restraints, Miss
+Put on your ankle and wrist restraints.
+ShowChoices
+delay 12
+Hurry up, slave!
+.pause Ready, Miss
 .set 25 26
 .set 3140
-.range 3144 3146
+.range 3145 3147
 
 
 ' no ball harness
-[Action 3144]
+[Action 3145]
 .must 25 26             ' ankles tied, wrists tied
 .mustnot 385            ' ball harness
 .must 3140
 Go fetch your slave chains and chain your wrists and ankles together.
-Then chain the connecting chain also to your slutty ball sack.
-You should have just enough play so that you can kneel straight.
-and rub your little slave titties, but no more.
+Then chain the connecting chain to your slutty ball sack.
+You should have just enough play so that you can kneel straight
+and rub your little slave titties,
+but no more.
 .pause I'm chained up, Miss
 .set 24 31 32
 .set 736 737 746 747    ' Restraint acceptance 2, CBT 2
 .range 3290
 
 ' put on ball harness
-[Action 3145]
+[Action 3146]
 .must 25 26             ' ankles tied, wrists tied
 .mustnot 37             ' wearing ball harness
 .must 385               ' have ball harness
 .must 3140
-We're not done yet, slave!
 I also want you to wear your ball harness for todays session.
 Go ahead and put it on.
-delay 2
-Hurry up, slave!
-.pause Ready, Miss
+.pause I'm wearing it, Miss
 .set 24 37              ' wearing all harness 
-.range 3147
+.range 3148
 
 ' wearing ball harness on already
-' todo we're one action short to support wearing the ball harness already
-[Action 3146]
+[Action 3147]
 .must 25 26             ' ankles tied, wrists tied
 .must 37                ' wearing ball harness
 .must 3140
-.range 3147
+.range 3148
 
 
 ' chain to ball harness
-[Action 3147]
+[Action 3148]
 .must 3140
-We're almost done: 
 Fetch your slave chains and chain your wrists and ankles together.
-Then attach the connecting chain also to your ball harness.
-You should have just enough play so that you can kneel straight.
-and rub your little slave titties, but no more.
+Then attach the connecting chain to your ball harness.
+You should have just enough play so that you can kneel straight
+and rub your little slave titties,
+but no more.
 .pause I'm chained up, Miss
-.set 31 32              ' Can't sit on chair, can't stand
+.set 32                 ' Can't stand
 .set 737 747            ' Restraint acceptance 2, CBT 2
 .range 3290
 
 
-[Action 3148]
-I'm feeling a little bitchy today, slave,
-and I think I'll take it out on those poor nuts of yours.
+' humbler
+[Action 3149]
 .mustnot 23 24          ' something on penis, something on balls
 .must 384               ' humbler
 .must 748               ' CBT 3
-.range 3149
-
-[Action 3149]
+I'm feeling a little bitchy today, slave,
+and I think I'll take it out on those poor nuts of yours.
+[]
 I want you to get on your knees, fetch your humbler, and put it on.
 You'll be wearing it for the whole session, which will hopefully
 go a long way in teaching you not to irritate me!
 .pause I'm wearing it, Miss
-.must 3146
 .set 24 31 32           ' something on balls, can't sit on chair, can't kneel
 .set 749                ' CBT 4
 .return
 
 
 [Action 3150]
-Now, slave, go get Me some rope and your gag.
-I want you to put the gag in, to begin with - you'll be wearing it throughout the session.
-Then, tie a rope to your gag, leaving some left over.
-.pause I'm gagged, Miss
 '.must 366                   ' some rope, but don't insist on having it in the list
 .must 367 385                ' gag, ball harness
 .must 736 737 746 782        ' restraint acceptance 1 & 2, cbt 1, gag training 1  
 .mustnot 23 24 37            ' already wearing ball harness
 .mustnot 22                  ' something in mouth
+Now, slave, go get Me some rope and your gag.
+I want you to put the gag in, to begin with - you'll be wearing it throughout the session.
+Then, tie a rope to your gag, leaving some left over.
+.pause I'm gagged, Miss
 .set 22 783                  ' something in mouth, gag training level 3
 .range 3151
 
 [Action 3151]
 Now that you're unable to complain, you may put on your ball harness.
 And you better pull the straps tight, slave.
-.pause Ready, Miss
+.pause Finished, Miss
 .must 3150
 .set 24 37              ' something on balls, ball harness
 .range 3152
@@ -8183,7 +8204,7 @@ And you better pull the straps tight, slave.
 Bend over as far as you can and fasten your gag to your ball harness.
 Don't leave yourself more than 18 inches or so of rope, you dirty cunt.
 You can stare at that silly penis for the rest of the session.
-.pause Fastened up, Miss
+.pause I'm fastened up, Miss
 .must 3151
 .return
 
@@ -8203,7 +8224,7 @@ Now, tie a rope around your balls, leaving some left over.
 Bend over as far as you can and fasten your gag to the rope on your balls.
 Don't leave yourself more than eigthteen inches or so of rope, you dirty slut.
 You can stare at that silly penis for the rest of the session.
-.pause Fastened up, Miss
+.pause I'm fastened up, Miss
 .must 3153
 .set 22 24 32 747 783	' something in mouth, somethng on balls, can't stand, cbt2, gag training 3
 .return
