@@ -90,6 +90,12 @@ public class Mine extends Player {
         // mappedState.addMapping(383, get(Toys.Enema_Bulb));
         state.addMapping(387, toy(Toys.Pussy_Clamps));
         state.addMapping(385, toy(Toys.Ball_Stretcher));
+
+        // Toy simple mappings - ingame toys (not selectable in toy list)
+        state.addMapping(383, toy(Toys.Enema_Bulb));
+        state.addMapping(371, toy(Toys.Hairbrush));
+        state.addMapping(372, toy(Toys.Wooden_Spoon));
+        state.addMapping(373, toy(Toys.Ruler));
     }
 
     @Override
