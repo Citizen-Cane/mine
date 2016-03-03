@@ -149,6 +149,8 @@
 ' 372 wooden spoon
 ' TODO 373 ruler
 
+' 374 enema bulb (mapped toy)
+
 
  ' edit 1500 after expanding toy list
 
@@ -223,8 +225,9 @@
 .askcheck      93      118     118: no-cum lecture heard
 .askcheck      94      119     119: Chastity cage suggestions check due
 
-
-' 120-199 free
+' 120 enema bulb lecture
+     
+' 121-199 free
 
 
 ' temp variables for use within the session
@@ -1975,10 +1978,13 @@ Understood?
 You may wait as long as you like before completing this assignment,
 but you're not to return to me until you have.
 And believe me, little slut, I'll remember!
-If you've stupidly forgotten any of My important instructions, hit "no" now.
-Otherwise, we'll continue with today's session.
+[]
+Well my pet,
+have you stupidly forgotten any of My important instructions?
+Otherwise,
+we'll continue with today's session.
 .yesno 1200 1200 1190 1193
-.yestext I've understood my assignment, Miss
+.yestext I've understood, Miss
 .notext Please tell me again, Miss
 .set 599           ' start naked day assignment tracking
 
@@ -2030,7 +2036,7 @@ that's just too bad for you, because I'll make you start over, and punish you to
 [Action 1184]
 Do you remember and understand all your orders for your naked week, My slave?
 .yesno 1172 1172 1194 1196
-.yestext Yes Miss, I've understood my assignment
+.yestext Yes Miss, I understand
 .notext No Miss, I'm sorry
 .set 597                     ' start naked week assignment tracking
 
@@ -2738,10 +2744,10 @@ On the Mistress.
 ' cum question 1299-1301
 
 [Action 1299]
+.mustnot 118
 One more thing, slave.
 You are of course not allowed to cum at any time,
 whether you are with Me or not, unless I specifically order you to.
-.mustnot 118
 .range 1295
 
 [Action 1300]
@@ -4340,24 +4346,31 @@ Don't dare to come back until you have prepared your enema!
 
 
 [Action 1680]
-Very well, my pet.
 .range 1681 1682
 
 ' Don't check at first time
 [Action 1681]
 .mustnot 786            ' First time, half a litre
-.range 1730
+Very good, my pet.
+You'll be taking your enema right here.
+Go fetch your equipment,
+and report back to me when you have it all ready.
+.pause I'm ready for my enema, Miss
+.range 1729 1731
 
 ' Must have ordered one litre or more
 [Action 1682]
-Now slave, tell me:
 .must 786               ' At least 1l
-.range 1683
+.range 1683 1684
+
 
 ' Menu placed in the script main section
 [Action 1683]
+Tell me, slave:
 How much liquid did you fill your enema bag with?
 .PopUp 83 90
+
+'[Action 1684]
 
 
 ' Either correct -> good
@@ -4413,7 +4426,7 @@ I told you to fill your bag with 2 litres, no less.
 Very good, my little anal slut.
 .must 786
 .mustnot 787
-.range 1730
+.range 1729 1731
 
 ' 1.25l expected
 [Action 1691]
@@ -4454,14 +4467,14 @@ I told you to fill your bag with 2 litres, no less.
 Well done, my little anal slut.
 .must 786
 .mustnot 787
-.range 1730
+.range 1729 1731
 
 ' 1.25l expected
 [Action 1696]
 Very well, my little anal slut.
 .must 787
 .mustnot 788
-.range 1730
+.range 1729 1731
 
 ' 1.5l expected
 [Action 1697]
@@ -4494,14 +4507,14 @@ I told you to fill your bag with 2 litres, no less.
 Well done, you dirty anal slut.
 .must 786
 .mustnot 787
-.range 1730
+.range 1729 1731
 
 ' 1.25l expected
 [Action 1706]
 Well done, my little anal slut.
 .must 787
 .mustnot 788
-.range 1730
+.range 1729 1731
 
 ' 1.5l expected
 [Action 1707]
@@ -4509,7 +4522,7 @@ Very good, my little anal slut.
 .pause 
 .must 788
 .mustnot 789
-.range 1730
+.range 1729 1731
 
 ' 1.75l expected
 [Action 1708]
@@ -4534,14 +4547,14 @@ I told you to fill your bag with 2 litres, no less.
 Well done, you dirty anal slut.
 .must 786
 .mustnot 787
-.range 1730
+.range 1729 1731
 
 ' 1.25l expected
 [Action 1711]
 Well done, you dirty anal slut.
 .must 787
 .mustnot 788
-.range 1730
+.range 1729 1731
 
 ' 1.5l expected
 [Action 1712]
@@ -4549,7 +4562,7 @@ Well done, my little anal slut.
 .pause 
 .must 788
 .mustnot 789
-.range 1730
+.range 1729 1731
 
 ' 1.75l expected
 [Action 1713]
@@ -4557,7 +4570,7 @@ Very well, my little anal slut.
 .pause 
 .must 789
 .mustnot 790
-.range 1730
+.range 1729 1731
 
 ' 2l expected
 [Action 1714]
@@ -4574,14 +4587,14 @@ I told you to fill your bag with 2 litres, no less.
 Well done, you dirty anal slut.
 .must 786
 .mustnot 787
-.range 1730
+.range 1729 1731
 
 ' 1.25l expected
 [Action 1721]
 Well done, you dirty anal slut.
 .must 787
 .mustnot 788
-.range 1730
+.range 1729 1731
 
 ' 1.5l expected
 [Action 1722]
@@ -4589,7 +4602,7 @@ Well done, you dirty anal slut.
 .pause
 .must 788
 .mustnot 789
-.range 1730
+.range 1729 1731
 
 ' 1.75l expected
 [Action 1723]
@@ -4597,20 +4610,20 @@ Well done, my little anal slut.
 .pause 
 .must 789
 .mustnot 790
-.range 1730
+.range 1729 1731
 
 ' 2l expected
 [Action 1724]
 Very well, my little anal slut.
 .pause 
 .must 790
-.range 1730
+.range 1729 1731
 
 
 ' 2.5 litres, more 
 [Action 1725]
 Very well, you dirty anal slut.
-.range 1730
+.range 1729 1731
 
 
 [Action 1726]
@@ -4620,147 +4633,181 @@ up to the required amount with cold water.
 .range 1727
 
 [Action 1727]
-You might experience a good amount of cramping because of
-the lower temparature, but that's just the right punishment
-for a slave that doesn't listen to his mistress orders.
-.range 1730
+You might experience a good amount of cramping
+because of the lower temparature,
+but that's just the right punishment for a slave
+that doesn't listen to his mistress orders.
+.range 1729 1731
 
 
 ' Carry out the enema
 
 ' todo map nozzle to host toy
-[Action 1730]
-Are you using a nozzle with an inflatable cuff to prevent leakage, slave?
+[Action 1729]
 .image enema-nozzle-inflatable.jpg
-.mustnot 788 789 790
-.yesno 1731 1731 1734 1734
+.mustnot 120            ' enema bulb lecture heard
+.mustnot 374            ' enema bulb
+Are you using a nozzle with an inflatable cuff to prevent leakage, slave?
+.yesno 1732 1732 1733 1733
 .yestext Yes Miss, I do
 .notext No Miss, I don't
 
-
-[Action 1731]
-Very well, my slave.
-I see you're taking this serious.
-.range 1732
-
-[Action 1732]
-Lube up the nozzle good, open the tubing clamp slightly to remove
-any air inside the tube, then carefully insert the nozzle into your back door.
-.image enema-tube-insert.jpg
-.pause Nozzle inserted, Miss
-.set 21                 ' Something in butt, inflatable enema nozzle
-.set 35                 ' Tethered - can't leave computer area
-.range 1733
-
-[Action 1733]
-Good.
-Now inflate the cuff until the nozzle sits tight inside your anus.
-'.image enema-tube-insert.jpg
-.pause Tightly inflated, Miss
-.range 1736
-
-
-[Action 1734]
-Well.
-You should consider getting one, since with it
-you could better focus on the session and you wouldn't
-have to care about the nozzle accidently slipping out. 
-.range 1735
-
-[Action 1735]
-Anyway, lube up the nozzle, open the tubing clamp slightly
-to remove any air inside the tube, insert the nozzle into
-your back door and hang the bag at about head-height.
-.image enema-tube-insert.jpg
-.pause All done, Miss
+[Action 1730]
+.must 120               ' enema bulb lecture heard
+.mustnot 374            ' enema bulb
+Lube up the nozzle good,
+then open the tubing clamp slightly
+to remove any air inside the tube.
+delay 10
+enema-tube-insert.jpg
+Then hang the enema bag at about head-height
+and carefully insert the nozzle into your back door.
+delay 10
+Finally kneel down and open the tubing!
+.pause All done and tubing opened, Miss
 .unset 21               ' Something in butt
 .set 35                 ' Tethered - can't leave computer area
 .range 1736
 
+[Action 1731]
+.must 374               ' enema bulb
+Lube up the nozzle good,
+then open the tubing clamp slightly to remove any air inside the tube.
+delay 10
+enema-tube-insert.jpg
+Then hang the enema bag at about head-height
+and carefully insert the nozzle into your back door.
+delay 10
+Inflate the cuff until the nozzle sits tight inside your anus.
+Finally kneel down and open the tubing!
+.pause All done and tubing opened, Miss
+.set 21                 ' Something in butt, inflatable enema nozzle
+.set 35                 ' Tethered - can't leave computer area
+.range 1736
+
+
+[Action 1732]
+Very well, my pet.
+I see you're taking this serious.
+.set 374                ' enema bulb
+.range 1731
+
+
+[Action 1733]
+Well,
+You should consider getting one,
+since with it you could better focus on the session,
+and you wouldn't have to care about the nozzle accidently slipping out.
+[]
+Anyway,
+lube up the nozzle good,
+then open the tubing clamp slightly
+to remove any air inside the tube.
+delay 10
+enema-tube-insert.jpg
+Then hang the enema bag at about head-height
+and carefully insert the nozzle into your back door.
+delay 10
+Finally kneel down and open the tubing!
+.pause All done and tubing opened, Miss
+.unset 21               ' Something in butt
+.set 35                 ' Tethered - can't leave computer area
+.set 120                ' enema bulb lecture heard
+.range 1736
+
+
+'[Action 1734]
+'[Action 1735]
+
 
 [Action 1736]
-.image enema-dominant-position.jpg
 'TODO .image slavegirl kneeling chest on floor (getting enema)
-Now kneel down, rest your tummy on your thighs, with your
-chest on the floor, as demonstrated in this picture.
-Finally open the tubing!
-.delay 30 
+enema-dominant-position.jpg
+Now rest your tummy on your thighs,
+with your chest on the floor.
+delay 15 
 .set 32                 ' Can't stand - not allowed to
 .settime 276            ' Start the enema timer
-.range 1737
-
-[Action 1737]
-Let's enjoy this situation a bit, don't you think?
-.image enema-ass-play.jpg
+[]
 'TODO .image slavegirl kneeling chest on floor (getting enema)
-.delay 30 
+enema-ass-play.jpg
+Let's enjoy this situation a bit, don't you think?
+delay 15 
 .range 1738 1742
 
 
 ' Comment enema situation, less comments with more experience
 
 [Action 1738]
-Do you feel the water flowing into your colon, slave?
-.image milk-enema.jpg
-'TODO .image slavegirl kneeling chest on floor (getting enema)
-.delay 15 
 .mustnot 788
-.yesno 1744 1745 1739 1741
+'TODO .image slavegirl kneeling chest on floor (getting enema)
+.image milk-enema.jpg
+Do you feel the water flowing into your colon, slave?
+.yestext Yes, Miss, I do
+.notext No Miss, I don't
+.delay 15 25 confirm yes 1744 1745 no 1739 1741
+.range 1744 1745
+' .yesno 1744 1745 1739 1741
+' todo mention "totaly at my mercy" on yes branch"
 
 [Action 1739]
+.must 1738 
+'TODO .image slavegirl kneeling chest on floor (getting enema)
+.image enema-bag-milk.jpg
 Well, if you don't, you have to hang the bag higher,
 or it will take ages for the water to flow into your bowels.
-.image enema-bag-milk.jpg
-'TODO .image slavegirl kneeling chest on floor (getting enema)
 .delay 25
-.must 1738 
 .range 1740 1742
 
 [Action 1740]
+.shouldnot 787
+.delay 25
+'TODO .image slavegirl kneeling chest on floor (getting enema)
+.image enema-bag-milk.jpg
 An arm-length of descent is necessary,
 so if you just have hung the bag by your chair,
 you'd better hang it by the top of the cupboard. 
-.image enema-bag-milk.jpg
-'TODO .image slavegirl kneeling chest on floor (getting enema)
-.delay 25
-.mustnot 787
-.must 1739
 .range 1742
 
 [Action 1741]
+.shouldnot 788
+.image enema-bag-milk.jpg
 The enema needs a certain descent to trawel into your bowels.
 To provide the sufficient height and pressure, you might want to
 adjust the height of the bag in order to achive a sufficient flow.
-.image enema-bag-milk.jpg
 .delay 25
-.mustnot 788
 .range 1742
 
 [Action 1742]
-Well, my dear, you're now totally at my mercy while your ass is being filled with a decent amount of liquid.
-And you are not allowed to go to the toilet until I give you explicit permission to do so.
 .else
+Well, my dear, you're now totally at my mercy while your ass is being filled with a decent amount of liquid.
+And you are not allowed to go to the toilet until I give you explicit permission.
 .range 1743
 
 
 [Action 1743]
 But nonetheless I don't want you to have an accident either.
-If you feel the urge to evacuate, getting up is the way to have an accident.
-Instead, stay down and hold your buttocks together with both hands until the pressure will pass.
+If you feel the urge to evacuate,
+getting up is the way to have an accident.
+Instead, stay down and hold your buttocks together with both hands
+until the pressure will pass.
 .range 1744 1745
 
 
 [Action 1744]
+.must 786
 You won't mind continuing our session while
 the enema sinks in a bit, slave, will you?
-.range 1747 1759
+.range 1747 1749
 
 [Action 1745]
 You certainly won't mind continuing our session
 while the enema sinks in a bit, will you, slave?
-.yesno 1746 1746 1751 1753
+'.yesno 1746 1746 1751 1753
 .yestext Please Miss!
 .notext No Miss, I don't
+.delay 15 25 confirm yes 1746 1746 no 1751 1753
+.range 1751 1753
 
 
 [Action 1746]
@@ -4768,6 +4815,7 @@ Frankly, slave, I actually don't care whether you do mind or not.
 .range 1747 1749
 
 
+' continue after "sink-in" comment
 [Action 1747]
 While we go on, you're to stay down on the floor in order
 to ensure the necessary descent for the liquid to flow.
@@ -4780,6 +4828,8 @@ in order to ensure the necessary descent for the liquid to flow.
 
 '[Action 1749]
 
+
+' continue after "sink-in" comment plus answer "of course not"
 
 [Action 1751]
 Very good.
@@ -4794,7 +4844,6 @@ in order to ensure the necessary descent for the liquid to flow.
 .range 1759
 
 '[Action 1753]
-
 
 
 [Action 1759]
@@ -5227,7 +5276,7 @@ Today I believe a series of sessions is in order, don't you?
 Aren't you a lucky slaveboy!
 It appears that you haven't done anything wrong after all.
 I'm a little disappointed, but I suppose we should move on.
-.range 3000 3000
+.range 3000
 
 [Action 2101]
 .must 9
@@ -5572,7 +5621,7 @@ Nothing makes me madder than a slave who cums without permission, as you know ve
 .must 548
 .mustnot 520            ' must be executed first in order to complete clamps/pegs punishment and to start clamps/pegs removal timer
 I see that you've been not only totally disobedient to me,
-but you also had the guts to try to escape your well-deserved punishment for your misdoings.
+but you also had the guts to try to escape the well-deserved punishment for your misdoings.
 Maybe a hard, torturous session will wake you up to the fact that I give the instructions around here,
 and that Mistresses are to be obeyed without question!
 .pause Please have mercy, Miss
@@ -6336,7 +6385,7 @@ You can leave it in there for our entire session, slave.
 .must 361               ' have nipple clamps
 Instead of beating you raw,
 I'm going to have you wear your nipple clamps today.
-Snap them on your poor slave nipple now, slut!
+Snap them on your poor slave nipples now, slut!
 I'll tell you when you may take them off.
 .pause I have them on, Miss
 .set 20 43              '
@@ -6411,7 +6460,7 @@ Maybe wearing them during the session helps you to focus on the job.
 .mustnot 20
 .must 361               ' have nipple clamps
 Maybe wearing your nipple clamps helps you to focus on the job.
-Snap them on your poor slave nipple now, slut!
+Snap them on your poor slave nipples now, slut!
 I'll tell you when you may take them off.
 .pause I have them on, Miss
 .set 20 43              '
@@ -6453,14 +6502,14 @@ You can leave it in there for our entire session, slave.
 ' paddle x160
 [Action 2582]
 .mustnot 29 33 35       ' Blindfolded, can't kneel, tethered
+.shouldnot 264          ' spanking already done
 '.save 50 799
 '.loadsbd mine-paddle.sbd 3013 3013
 .range 7100             ' Ensure paddle or replacement
 
 
 [Action 2585]
-.set 117                ' Spanking lecture heard
-.set 258                ' Corner time after spanking
+.set 258                ' Corner time given after spanking in mine-paddle
 .range 2408
 
 
@@ -6733,10 +6782,10 @@ Now keep that cock tall and proud or we'll have to go again.
 ' 513 Voluntary punishment upon slave's request, level 1
 
 [Action 2630]
+.shouldnot 264          ' spanking already done
 .range 7100             ' Ensure paddle or replacement
 
 [Action 2635]
-.set 117                ' Spanking lecture heard
 ' No corner time is given after this spanking
 .range 2413
 
@@ -6745,11 +6794,11 @@ Now keep that cock tall and proud or we'll have to go again.
 
 ' paddle fast x160
 [Action 2640]
+.shouldnot 264          ' spanking already done
 .range 7100             ' Ensure paddle or replacement
 
 [Action 2645]
-.set 117                ' Spanking lecture heard
-.set 258                ' Corner time after spanking
+.set 258                ' Corner time given after spanking in mine-paddle
 .range 2414
 
 
@@ -6757,6 +6806,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 ' paddle x400
 [Action 2650]
+.shouldnot 264          ' spanking already done
 .range 7100             ' Ensure paddle or replacement
 
 ' shower 15m, 200 paddles, clamps
@@ -6771,8 +6821,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 
 [Action 2655]
-.set 117                ' Spanking lecture heard
-.set 258                ' Corner time after spanking
+.set 258                ' Corner time given after spanking in mine-paddle
 .range 2415
 
 
@@ -6792,6 +6841,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 ' paddle x400
 [Action 2660]
+.shouldnot 264          ' spanking already done
 .range 7100             ' Ensure paddle or replacement
 
 ' Maid training
@@ -6806,8 +6856,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 
 [Action 2665]
-.set 117                ' Spanking lecture heard
-.set 258                ' Corner time after spanking
+.set 258                ' Corner time given after spanking in mine-paddle
 .range 2416
 
 
@@ -6822,6 +6871,7 @@ I'll get you next time, you dirty slave!
 
 ' paddle x240
 [Action 2671]
+.shouldnot 264          ' spanking already done
 .range 7100             ' Ensure paddle or replacement
 
 [Action 2672]
@@ -6836,8 +6886,7 @@ I'll get you next time, you dirty slave!
 
 
 [Action 2675]
-.set 117                ' Spanking lecture heard
-.set 258                ' Corner time after spanking
+.set 258                ' Corner time given after spanking in mine-paddle
 .range 2417
 
 
@@ -6873,12 +6922,12 @@ I'll get you next time, you dirty slave!
 
 ' paddle x400
 [Action 2683]
+.shouldnot 264          ' spanking already done
 .range 7100             ' Ensure paddle or replacement
 
 
 [Action 2685]
-.set 117                ' Spanking lecture heard
-.set 258                ' Corner time after spanking
+.set 258                ' Corner time given after spanking in mine-paddle
 .range 2418
 
 
@@ -7248,8 +7297,7 @@ Hopefully this will get through to you!
 
 
 [Action 2985]
-.set 117                ' Spanking lecture heard
-.set 258                ' Corner time after spanking
+.set 258                ' Corner time given after spanking in mine-paddle
 .range 2448
 
 
@@ -7295,8 +7343,7 @@ Hopefully this will get through to you!
 
 
 [Action 2995]
-.set 117                ' Spanking lecture heard
-.set 258                ' Corner time after spanking
+.set 258                ' Corner time given after spanking in mine-paddle
 .range 2449
 
 
@@ -7398,8 +7445,9 @@ Well, slave, I expected you to have it all in by now.
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
+.set -24 24 38
 .settime 275 -00:10"00
-.range 3030 3031        ' Comment pegs
+.range 3030 3031        ' Comment pegs on ball sack
 
 [Action 3027]
 .mustnot 20             ' Something on nipples
@@ -7407,7 +7455,7 @@ Snap four of them on your balls, slave.
 Maybe some clothes pegs on your slave nipples help the enema flowing faster.
 Snap one on each nipple.
 .pause Done as ordered, Miss
-.set 20 42              ' something on nipples, clothes pegs
+.set -20 20 42          ' something on nipples, clothes pegs
 .settime 275 -00:15"00
 .range 3032 3033        ' Comment pegs
 
@@ -7417,9 +7465,11 @@ Snap one on each nipple.
 Maybe your nipple clamps help the enema flowing faster.
 Snap them on your slave titties and make sure they sit tight.
 .pause Done as ordered, Miss
-.set 20 43              ' something on nipples, nipple clamps
+.set -20 20 43          ' something on nipples, nipple clamps
 .settime 275 -00:15"00
 .range 3034 3035
+
+' todo pussy clamps (requires action shifting up to 3049)
 
 [Action 3029]
 .else
@@ -7429,20 +7479,34 @@ Snap them on your slave titties and make sure they sit tight.
 [Action 3030]
 .range 3038
 
+'[Action 3031]
+
 
 [Action 3032]
+.delay 30
 Fine.
 You may now enjoy your pegs until the bag is completely empty.
-.delay 30
 .range 3038
+
+'[Action 3033]
 
 
 [Action 3034]
+.delay 30
 Very good.
 You may now enjoy your clamps until the bag is completely empty.
-.delay 30
 .range 3038
 
+'[Action 3035]
+
+
+[Action 3036]
+.delay 30
+Very good.
+You may now enjoy your clamps until the bag is completely empty.
+.range 3038
+
+'[Action 3037]
 
 
 [Action 3038]
@@ -7480,11 +7544,11 @@ Maybe you should hang the tube a little higher.
 
 [Action 3043]
 Very good, my little pet.
-.range 3045 3055
+.range 3045 3049
 
 [Action 3044]
 Well done, my little pet.
-.range 3045 3046
+.range 3045 3049
 
 
 ' Remove nozzle and clamps/pegs
@@ -7501,7 +7565,7 @@ You may now go to the bath room,
 detach the tubing from the nozzle,
 clean it up and come back here.
 .pause All finished, Miss
-.range 3047 3050
+.range 3050
 
 ' Plain nozzle
 [Action 3046]
@@ -7511,41 +7575,17 @@ remove the tubing and the nozzle,
 clean it up and  put it all away.
 Then come back here.
 .pause All finished, Miss
-.range 3047 3050
+.range 3050
+
+'[Action 3047]
+'[Action 3048]
+'[Action 3049]
 
 
-' Remove clamps or pegs
-
-[Action 3047]
-Let's remove the pegs from your slutty ball sack.
-.pause Thank you, Miss
-.must 3031              ' Pegs on ball sack
-.unset 24 38            ' Something on balls, clothes pegs
-.settime 275 +INF
-.unset 35               ' Tethered
-.range 3058 3059
-
-[Action 3048]
-Let's remove the clothes pegs from your nipples.
-.pause Thank you, Miss
-.must 3032              ' Pegs on nipples
-.unset 20 42            ' Something on nipples, clothes pegs
-.settime 275 +INF
-.unset 35               ' Tethered
-.range 3058 3059
-
-[Action 3049]
-Let's take off your nipple clamps.
-.pause Thank you, Miss
-.must 3033              ' Clamps on nipples
-.unset 20 43            ' Something on nipples, nipple clamps
-.settime 275 +INF
-.unset 35               ' Tethered
-.range 3058 3059
+' enema tubing detached
+' clamps and pegs are removed a little later
 
 [Action 3050]
-.mustnot 3031 3032 3033
-.unset 35               ' Tethered
 .range 3058 3059
 
 
@@ -7567,6 +7607,7 @@ Then come back here.
 .mustnot 21             ' Something in butt, enema nozzle
 .range 3058 3059
 
+
 [Action 3057]
 Well, let's pump up the cuff once more, slave!
 Just to be sure.
@@ -7587,21 +7628,22 @@ You certainly won't mind holding your enema for a while, slave, will you?
 
 ' Help needed?
 
-' no
+' no, using inflated cuff
 [Action 3060]
 .must 21                     ' Something in butt, inflatable enema nozzle, no help needed
-.range 3085
+.range 3085 3086
 
-'[Action 3061]
-
-[Action 3062]
+[Action 3061]
 Well.
 I don't want you to have an accident right here.
 Do you need a litte help to hold your enema in, slave?
-.mustnot 21                  ' Something in butt, infaltable enema nozzle
+.mustnot 21                  ' Something in butt, inflatable enema nozzle
 .yesno 3063 3064 3070 3072
 .yestext Yes Miss, please!
 .notext No Miss, thanks
+
+[Action 3062]
+
 
 
 ' Yes
@@ -7616,22 +7658,23 @@ Very well my little pet.
 
 
 [Action 3065]
-Get some rope and a belt and make yourself a crotch rope.
-Then take the towel you were supposed to bring for this season,
-place it in your ass crack, and pull the crotch rope tight.
+Get some rope and a belt and make yourself a nice crotch rope.
+Then take the towel you were supposed to bring along for this session,
+place it in your ass crack,
+and pull the crotch rope tight.
 .pause My diaper is ready, Miss
 .mustnot 366            ' Some rope
 .set 27                 ' Something around waist
-.range 3080
+.range 3080 3082
 
 [Action 3066]
-Take the towel you were supposed to have bring for this session,
+Take the towel you were supposed to bring along for this session,
 place it in your ass crack,
 and fix it up with a good and tight crotch rope.
 .pause My diaper is ready, Miss
 .must 366               ' Some rope
 .set 27                 ' Something around waist
-.range 3080
+.range 3080 3082
 
 
 ' No help needed
@@ -7650,10 +7693,10 @@ You're a naughty anal slut!
 
 
 ' Slave turned down help
+' TODO shorter comments on higher levels
 
 [Action 3075]
-'We will now continue the session while you enjoy your enema.
-.settime 276       ' Restart the enema timer to make good for the time the slave wasted while taking the enema
+We will now continue the session while you enjoy your enema.
 .range 3076
  
 ' TODO Make such comments at the start of each activity
@@ -7661,58 +7704,78 @@ You're a naughty anal slut!
 You might feel the urge to relief yourself soon enough,
 but I don't like my slaves running out of the room
 all of a sudden without my consent.
-.range 3077
+.range 3077 3078
+
 
 [Action 3077]
 On the other hand, I don't want you to have an accident either.
 .range 3078
 
-' TODO Only allow stopable activities 
 [Action 3078]
+.shouldnot 786
 So should you feel the urge to relief becomes inevitable,
-I'll graciously allow you to quit the session on the condition
-that you tell me by cancelling the activity.
-.pause Yes, Miss
-.range 3089
+you may of course bail out from our activities anytime and
+humbly ask for My gracious permission to visit the toilet.
+.pause Thank you, Miss
+.range 3088
 
 
 ' Got help
 
+' diaper
+
 [Action 3080]
-'We will now continue the session while you enjoy your enema.
-.settime 276       ' Restart the enema timer to make good for the time the slave wasted while taking the enema
-.range 3076
-' 
+Well slave, I don't like my slaves running out of the room all of a sudden,
+regardless how urgent the issue might be.
+Especially when they're wearing such a nice diaper.
+.range 3087
+ 
 ' TODO Make such comments at the start of each activity
 [Action 3081]
-Well slave, I don't like my slaves running out of the room all of a sudden,
-regadless how urgent the issue might be.
-.range 3083 3884
+.must 786
+We will now continue the session while you enjoy your enema.
+With the help of your diaper, your backdoor should be well sealed up,
+regardless how intense the cramping might become.
+.range 3087
+
+[Action 3082]
+.must 787
+That will surely help to avoid the worst.
+.range 3087
 
 
-[Action 3083]
-I bet the towel will help to avoid the worst.
-.mustnot 21        ' Something in butt, enema doesn't count
-.range 3088
-
-'[Action 3084]
-
+' inflated cuff
 
 [Action 3085]
 With the help of the inflated cuff, your backdoor should be well sealed up,
 regardless how intense the cramping might get.
 Just in case, push the pump once more to inflate the cuff some more.
 .pause Done, Miss
-.settime 276       ' Restart the enema timer to make good for the time the slave wasted while taking the enema
-.range 3088
+.range 3087
+
+[Action 3086]
+.must 786
+Just in case, push the pump once more to inflate the cuff some more.
+.pause Done, Miss
+.range 3087
 
 
 ' TODO Only allow stopable activities 
-[Action 3088]
+' TODO with help on higher levels slave may not go to the toilet at all - don't mention anymore
+
+[Action 3087]
 Should you nevertheless feel the urge to relief becomes inevitable,
-I'll graciously allow you to quit the session on the condition
-that you tell me beforehand by by cancelling the activity.
-.pause Yes Miss
+you may of course bail out from our activities anytime and
+humbly ask for My gracious permission to visit the toilet.
+.pause Thank you, Miss
+.range 3088
+
+
+' enema tube detach complete
+
+[Action 3088]
+.unset 35               ' Tethered
+.settime 276            ' Restart the enema timer to make good for the time the slave wasted while taking the enema
 .range 3089
 
 
@@ -10801,6 +10864,8 @@ I think that ass could use a good tanning.
 '.range 5600
 .range 7100
 
+' TODO does't work since in range 5601- 264 is checked again
+' TODO two times is enough
 [Action 5053]
 I think that ass could use another good tanning.
 .must 264               ' Done spanking activity already
@@ -11320,7 +11385,8 @@ I like a clean slave.
 
 
 [Action 5449]
-Never mind, slave. I've decided against self-bondage today.
+Never mind, slave.
+I've decided against self-bondage today.
 .else                   ' Fallback
 .range 5040
 
@@ -11414,16 +11480,16 @@ You'll be punished later for failing your training.
 .range 5601 5649
 
 
+' only light spanking activities can be repeated
+
 ' paddle x40
 [Action 5601]
-.mustnot 264            ' Done spanking activity already
 .mustnot 33             ' can't kneel
 .set 264                ' Done spanking already
 .range 5751
 
 ' paddle x60
 [Action 5602]
-.mustnot 264            ' Done spanking activity already
 .must 751               ' asswhipping 1
 .mustnot 29 33 35       ' can't kneel
 .timeto 275 -00:06"00
@@ -11432,13 +11498,15 @@ You'll be punished later for failing your training.
 
 ' paddle x100
 [Action 5603]
-.mustnot 264            ' Done spanking activity already
 .must 751 752           ' asswhipping 2
 .mustnot 33             ' can't kneel
 .timeto 275 -00:09"00
 .set 264                ' Done spanking already
 .range 5753
 
+
+' spanking marathons require the lecture to be heard in advance,
+' so they're never the firs spanking ever - that would be too much
 
 ' marathon 30m
 [Action 5604]
@@ -11529,21 +11597,18 @@ We'll paddle that slave bottom some other time.
 ' Spanking good returns
 [Action 5651]
 Mmm, I love a pink slave-bottom.
-.set 117                ' Spanking lecture heard
 .set 751                ' Ass whipping 1
 .set 895                ' 1 merit
 .range 7201
 
 [Action 5652]
 That bum looks a little warmer now.
-.set 117                ' Spanking lecture heard
 .set 752                ' Ass whipping 2
 .set 895                ' 1 merit
 .range 7201
 
 [Action 5653]
 I love a pair of red, glowing slave buns!
-.set 117                ' Spanking lecture heard
 .set 753                ' Ass whipping 3
 .set 896                ' 1 merit
 .range 7201
@@ -12449,6 +12514,8 @@ Now take your "paddle" and carefully listen to my instructions.
 ' Add forwards to spnking routine entry in 7130-7149
 
 [Action 7130]
+.set 117                ' Spanking lecture heard
+.set 264                ' spanking done - simpler to set it here
 .range 7131 7149
 
 ' Spanking activity (from 5052-5053)
@@ -14588,7 +14655,7 @@ Cum, My dear slave, cum for your Mistress!
 Cum now, My slave. Quickly!
 .delay 35 45 STOP 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext Finished, Miss
+.stoptext I came, Miss
 .must 8092                        ' cum in time
 .mustnot 691 692 693 694 695 696 697 698 699 726
 .mustnot 726
@@ -14599,7 +14666,7 @@ Cum now, My slave.
 Quickly!
 .delay 30 40 STOP 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext Finished, Miss
+.stoptext I came, Miss
 .must 8092                        ' cum in time
 .must 726                         ' denial and self control 1
 .mustnot 691 692 693 694 695 696 697 698 699 727
@@ -14610,7 +14677,7 @@ Cum now, My slave.
 Quickly!
 .delay 25 35 STOP 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext Finished, Miss
+.stoptext I came, Miss
 .must 8092                        ' cum in time
 .must 727                         ' denial and self control 2
 .mustnot 691 692 693 694 695 696 697 698 699 728
@@ -14621,7 +14688,7 @@ Cum now, My slave.
 Quickly!
 .delay 20 30 STOP 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext Finished, Miss
+.stoptext I came, Miss
 .must 8092                        ' cum in time
 .must 728                         ' denial and self control 3
 .mustnot 691 692 693 694 695 696 697 698 699 729
@@ -14632,7 +14699,7 @@ Cum now, My slave.
 Quickly!
 .delay 15 25 STOP 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext Finished, Miss
+.stoptext I came, Miss
 .must 8092                        ' cum in time
 .must 729                         ' denial and self control 4
 .mustnot 691 692 693 694 695 696 697 698 699 730
@@ -14643,7 +14710,7 @@ Cum now, My slave.
 Quickly!
 .delay 15 20 STOP 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext Finished, Miss
+.stoptext I came, Miss
 .must 8092                        ' cum quick
 .must 730                         ' denial and self control 5
 .mustnot 691 692 693 694 695 696 697 698 699
@@ -14814,7 +14881,7 @@ you have to spurt your load before I tell you to stop.
 [Action 8099]
 When I tell you to stop,
 you're going take your hands off your hot cock immediately
-and are to press the "STOP" button at once,
+and acknowledge to me at once,
 whether you came or not.
 Understood, slave?
 .pause Understood, Miss
@@ -15285,7 +15352,6 @@ Tell me when you've finished, My pet.
 '[Action 8207]
 
 
-' Cum in time end
 
 ' Putting hands behind head can also be done with wrist restraints, but not with chains
 [Action 8208]
@@ -15294,9 +15360,10 @@ Tell me when you've finished, My pet.
 Stop it, slave!
 Hands off your hot cock!
 'and press the "STOP" button at once.
-.delay 15 20 STOP 8213                     ' Ask whether slave came although to late
-.stoptext Ready, Miss
-.range 8210 8212
+.delay 15 20 STOP 8213 CUM 8215
+.stoptext I've stopped, Miss
+.cumtext I spurted off, Miss
+.range 8210 8212                                 ' Ask whether slave came when to late
 '.txt Press the "STOP" button at once.
 
 [Action 8209]
@@ -15304,9 +15371,10 @@ Hands off your hot cock!
 .mustnot 691 692 693 694 695 696 697 698 699
 Stop it, slave!
 Hands behind your head!
-.delay 15 20 STOP 8213                     ' Ask whether slave came although to late
-.stoptext Ready, Miss
-.range 8210 8212
+.delay 15 20 STOP 8213 CUM 8215
+.stoptext I've stopped, Miss
+.cumtext I spurted off, Miss
+.range 8210 8212                                 ' Ask whether slave came when to late
 '.txt Press the "STOP" button at once.
 
 
@@ -15321,7 +15389,7 @@ You'll be punished for this act of imprudence.
 
 [Action 8211]
 Too late, cunt.
-You can expect some punishment for your negligence next time.
+You can expect punishment for your negligence next time.
 .must 504
 .set 508                ' p.o. for Inattentiveness
 .range 8214
@@ -15366,13 +15434,13 @@ Oh! I'm so sorry for you.
 .range 8218
 
 [Action 8218]
-But if you didn't make it, you didn't deserve it anyway.
-You're going to stay horny until our next session.
+But if you didn't make it until now, you didn't deserve it anyway.
+You're going to stay horny tonight.
 .range 8219
 
 [Action 8219]
 But if you continue to show such good behaviour in the future,
-I might let you cum some time again.
+I might let you cum next time.
 .range 9000
 
 
@@ -17151,7 +17219,7 @@ Well, My dear slave, you certainly won't mind to
 start your enema training next time, won't you?
 .yesno 9745 9748 9757 9759
 .yestext Please Miss, do we really have to?
-.notext No Miss, I'm an anal slut
+.notext Of course not, Miss
 
 ' Intensified training 
 [Action 9742]
@@ -17161,7 +17229,7 @@ Well, My dear slave, you certainly won't mind to
 continue your enema training next time, won't you?
 .yesno 9745 9748 9757 9759
 .yestext Please Miss, do we really have to?
-.notext No Miss, I'm an anal slut
+.notext Of course not, Miss
 
 ' Intensified training 
 [Action 9743]
@@ -17170,7 +17238,7 @@ Well, My dear slave, you certainly won't mind to
 deepen your enema training next time, won't you?
 .yesno 9745 9748 9757 9759
 .yestext Please Miss, do we really have to?
-.notext No Miss, I'm an anal slut
+.notext Of course not, Miss
 
 '[Action 9744]
 
@@ -17194,8 +17262,8 @@ Come again, slave?
 I don't think I heard you properly.
 I said, would you like to take an enema next time, cunt?
 .yesno 9750 9750 9749 9749
-.notext Yes Miss, I'm an anal slut
-.yestext No please, I don't like it, Miss
+.yestext Of course Miss, I'm your anal slut after all
+.notext No please, I don't like it, Miss
 .mustnot 103
 .mustnot 257                 ' enema intensified training
 .mustnot 504                 ' P.O. for general disobedience
@@ -17205,8 +17273,8 @@ Come again, slave?
 I don't think I heard you properly.
 I said, would you like to take another enema next time, cunt?
 .yesno 9750 9750 9749 9749
-.notext Yes Miss, I'm an anal slut
-.yestext No please, I don't like it, Miss
+.yestext Of course Miss, I'm your anal slut after all
+.notext No please, I don't like it, Miss
 .mustnot 103
 .must 257                    ' enema intensified training
 .mustnot 504                 ' P.O. for general disobedience
@@ -17340,7 +17408,8 @@ two full litres, and no less, cunt.
 
 
 [Action 9777]
-Now Setting up the enema tubing, heating up the water,
+.mustnot 786 787
+Now setting up the enema tubing, heating up the water,
 filling the enema bag and so on may take its time,
 and I don't like sitting around waiting.
 So I expect you to have it already prepared when you approach me next time.
@@ -17348,17 +17417,17 @@ So I expect you to have it already prepared when you approach me next time.
 .range 9780 9784
 
 [Action 9778]
+.must 786
 As usual you are going to take the enema right at the beginning of our next session,
 so make sure the liquid in your enema bag is just a little more than luke-warm when you approach me.   
 .pause Of course, Miss
-.must 786
 .range 9780 9784
 
 [Action 9779]
+.must 787
 And make sure you'll have it all ready
 when you'll approach me next time.
 .pause Of course, Miss
-.must 787
 .range 9780 9784
 
 
@@ -17366,40 +17435,47 @@ when you'll approach me next time.
 ' Camomile and olive oil appear safe too, so let's use them in the advanced levels
 
 [Action 9780]
+.must 9760
 To ensure all the salt has dissolved when taking the enema,
 I recommend to add it when you start heating up the water.
-.must 9760
-.range 9785
+.range 9785 9787
 
 [Action 9781]
-Camomile needs to draw some time in boiled water,
-so it's a good idea to boil the water, add the comomile,
-and then let the infusion cool down until it's luke-warm.
 .must 9761
-.range 9785
+Camomile needs to draw some time in boiled water,
+so it's a good idea to boil the water, add the camomile,
+and then let the infusion cool down until it's luke-warm.
+.range 9785 9787
 
 [Action 9782]
+.must 9762
 Water and olive oil don't mix well, but you can stir them
 up and shake the enema bag to mingle them sufficiently.
-.must 9762
-.range 9785
+.range 9785 9787
 
 '[Action 9783]
 '[Action 9784]
 
 
 [Action 9785]
+.mustnot 787
 Well, that's all about it.
 I'm sure we'll be having a good time.
-.range 9786 9787
+.range 9788 9789
 
-[Action 9786]
+'[Action 9786]
+'[Action 9787]
+
+
+[Action 9788]
+.mustnot 786
 Ah!
 Don't forget to bring a towel and some rope.
 .pause Yes, Miss
 .range 9799
 
-[Action 9787]
+[Action 9789]
+.else
 .range 9799
 
 
@@ -18118,7 +18194,7 @@ Understood?
 [Action 9983]
 You may take as much time and training as you want,
 but don't come back to me until you've managed to keep your prick locked up 12 hours nonstop.
-Have you understood, slave?
+	, slave?
 .pause Yes, Miss
 .set 624                     ' chastity cage for a day assignment
 .range 9993 9998             ' on to last words and final exit
