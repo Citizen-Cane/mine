@@ -24,7 +24,9 @@
 ' 1- 5 demerits
 ' 6-10 merits
 
+' local variables - cleared whenever the script is restored
 .resetrange 0 19
+.resetrange 800 839
 
 
 .backcolor 240 200 200
@@ -40,7 +42,7 @@
 .onRecognitionRejected 999900
 
 ' clear actions that have been set in another script, critical as these aren't cleared automatically
-.resetrange 800 99999
+.resetrange 840 99999
 
 ' The action number to indicate that the slave is wearing a gag
 .gag 22
@@ -234,16 +236,16 @@
 ' These might not all be available in the sub-scripts,
 ' depending on the actual .resetrange in that script's header
 
-' 200     200: 1 demerit      (890 as result of single activity)
-' 201     201: 2 demerits     (891 as result of single activity)
-' 202     202: 3 demerits     (892 as result of single activity)
-' 203     203: 4 demerits     (893 as result of single activity)
-' 204     204: 5 demerits     (894 as result of single activity)
-' 205     205: 1 merit        (895 as result of single activity)
-' 206     206: 2 merits       (896 as result of single activity)
-' 207     207: 3 merits       (897 as result of single activity)
-' 208     208: 4 merits       (898 as result of single activity)
-' 209     209: 5 merits       (899 as result of single activity)
+' 200     200: 1 demerit      (800 as result of single activity)
+' 201     201: 2 demerits     (801 as result of single activity)
+' 202     202: 3 demerits     (802 as result of single activity)
+' 203     203: 4 demerits     (803 as result of single activity)
+' 204     204: 5 demerits     (804 as result of single activity)
+' 205     205: 1 merit        (805 as result of single activity)
+' 206     206: 2 merits       (806 as result of single activity)
+' 207     207: 3 merits       (807 as result of single activity)
+' 208     208: 4 merits       (808 as result of single activity)
+' 209     209: 5 merits       (809 as result of single activity)
 
 ' 210     210: shower temporary. Clear at beginning of session.
 ' 211     211: persistent for next-session-toys ending, don't clear
@@ -532,8 +534,8 @@
 
 
 
-' 890-894 demerits for single activity
-' 895-899 merits for single activity
+' 800-804 demerits for single activity
+' 805-809 merits for single activity
 '
 ' 200-204 demerits sum for all activites
 ' 205-209 merits sum for all activities
@@ -578,7 +580,6 @@
 .menu 40   845  846 A normal start
 .menu 41   843  843 A clean start
 .menu 42   948  948 Skip start check
-.menu 43   801  801 Show status dump
 .menu 44  1090 1090 Naked question
 .menu 45  1200 1200 Masturbation question
 .menu 46  9002 9002 Next-Session-Toy-Check Assignment
@@ -702,40 +703,11 @@ Would you be so kind and tell me what you've got exactly?
 
 ' The start of the script
 
-[Action 800]
+[Action 840]
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
-.unset 800
+.unset 840
 .PopUp 40 60
-
-
-[Action 801]
-.noimage
-.txt Status dump, page 1 (#1 - 25).
-.ask 1 24
-.unset 801
-.range 802
-
-[Action 802]
-.noimage
-.txt Status dump, page 2 (#26 - 91).
-.ask 25 90
-.unset 802
-.range 803
-
-[Action 803]
-.noimage
-.txt Status dump, page 3 (#92 - 75).
-.ask 91 74
-.unset 803
-.range 804
-
-[Action 804]
-.noimage
-.txt Status dump, page 4 (#76 - 98).
-.ask 75 98
-.unset 804
-.range 800
 
 
 ' Clean start
@@ -802,7 +774,7 @@ Would you be so kind and tell me what you've got exactly?
 [Action 849]
 .unset 847
 .unset 848
-.range 800	            ' debug menu
+.range 840	            ' debug menu
 
 
 ' quit range:
@@ -7389,7 +7361,7 @@ Hopefully this will get through to you!
 .else
 .mustnot 9
 Three demerits will work for now, I suppose. 
-.set 894
+.set 804
 .set 202                     ' Three demerits
 .unset 200 201     203 204
 .range 3010
@@ -10709,7 +10681,7 @@ Trying to trick Mistress, are you?
 You should know better than that!
 .must 273                    ' In activities
 .set 102 517                 ' left without permission, training failure
-.set 893                     ' four demerits
+.set 803                     ' four demerits
 .unset 205 206 207 208 209   ' erasing all merits
 .range 5030 5034
 
@@ -10993,7 +10965,7 @@ I can't think of anything I want you to do, My dear.
 ' successful regular maid training, 2 merits
 [Action 5100]
 Well, 2 merits seem appropriate for a good training session.
-.set 896
+.set 806
 .range 7201
 
 ' Maid training failure
@@ -11001,7 +10973,7 @@ Well, 2 merits seem appropriate for a good training session.
 2 demerits seem appropriate for a lazy, failed slave.
 Plus some punishment.
 .set 517
-.set 891
+.set 801
 .range 7200
 
 
@@ -11010,42 +10982,42 @@ Plus some punishment.
 ' Achivement 601
 [Action 5111]
 Well, 2 merits seem appropriate for such a good training session.
-.set 896
+.set 806
 .set 771                ' Maid Training 1
 .range 5120 5121
 
 ' Achivement 602
 [Action 5112]
 Well, 2 merits seem appropriate for such a good training session.
-.set 896
+.set 806
 .set 772                ' Maid Training 2
 .range 5122 5123
 
 ' Achivement 603
 [Action 5113]
 Well, 2 merits seem appropriate for such a good training session.
-.set 896
+.set 806
 .set 773                ' Maid Training 3
 .range 5124 5125
 
 ' Achivement 604
 [Action 5114]
 Well, 2 merits seem appropriate for such a good training session.
-.set 896
+.set 806
 .set 774                ' Maid Training 4
 .range 7201
 
 ' Achivement 605
 [Action 5115]
 Well, 2 merits seem appropriate for such a good training session.
-.set 896
+.set 806
 .set 775                ' Maid Training 5
 .range 7201
 
 ' Achivement 606
 [Action 5116]
 Well, 2 merits seem appropriate for such a good training session.
-.set 896
+.set 806
 .range 7201
 
 
@@ -11165,14 +11137,14 @@ No, your slave holes have been used good enough.
 ' Dildo worshiping blowjob, no penetration, 1 merit
 [Action 5150]
 Well, one merit seem appropriate for a good worshiping session.
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .set 776                ' Dildo worshiping 1
 .range 7201
 
 ' Dildo worshiping, partial penetration, 1 merit
 [Action 5151]
 Well, one merit seem appropriate for a good worshiping session.
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .set 756                ' Anal training 1
 .set 777                ' Dildo worshiping 2
 .range 7201
@@ -11180,7 +11152,7 @@ Well, one merit seem appropriate for a good worshiping session.
 ' slave rode the dildo fully penetrated
 [Action 5152]
 Well, two merits seem appropriate for such a good worshiping session.
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .set 756 757            ' Anal training 2
 .set 778                ' Dildo worshiping 3
 .range 5160 5164
@@ -11193,7 +11165,7 @@ Well, two merits seem appropriate for such a good worshiping session.
 Two demerits seem appropriate for a lazy, failed slave.
 Plus some punishment.
 .set 517                ' Training failure 1
-.set 891                ' 2 demerits
+.set 801                ' 2 demerits
 .range 7200
 
 
@@ -11283,7 +11255,7 @@ Clean and pretty, just like a girl.
 Is your ass pink, too?
 '.restore
 .set 716                ' nipple tolerance 1
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 5252]
@@ -11291,7 +11263,7 @@ Nice and clean, aren't you, slut?
 Well, on the outside, anyway.
 '.restore
 .set 752                ' ass whipping 2
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 5253]
@@ -11299,7 +11271,7 @@ Very good.
 I like a clean slave.
 '.restore
 .set 716                ' nipple tolerance 1
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 
@@ -11398,25 +11370,25 @@ you'll have to freeze the key to your handcuffs in ice,
 along with a thin rope or hook so that
 you can attach the ice cube to other objects and the key can fall off.
 .range 7201
-.set 896 742              ' 2 merits, self bondage 2
+.set 806 742              ' 2 merits, self bondage 2
 
 ' indefinite
 [Action 5452]
 What a good bondage slut you turned out to be!
-.set 897                  ' 3 merits
+.set 807                  ' 3 merits
 .range 7201
 
 ' diana complete
 [Action 5453]
 Good slave!
-.set 896 717 744 746 782  ' 2 merits, nipple tolerance 2, self bondage 4, cbt 1, gag training 2
+.set 806 717 744 746 782  ' 2 merits, nipple tolerance 2, self bondage 4, cbt 1, gag training 2
 .set 36                   ' Rope harness
 .range 7201
 
 ' diana simple
 [Action 5454]
 Good boy, slave. 
-.set 895 717 743          ' 1 merit, nipple tolerance 2, self bondage 3
+.set 805 717 743          ' 1 merit, nipple tolerance 2, self bondage 3
 .set 36                   ' Rope harness
 .range 7201
 
@@ -11424,13 +11396,13 @@ Good boy, slave.
 ' self bondage bad returns
 [Action 5501]
 You can look forward to some extra punishment for this, My dear.
-.set 891 517              ' 2 demerits, training failure punishment
+.set 801 517              ' 2 demerits, training failure punishment
 .unset 742 743 744 745    ' strict self bondage 2-5
 .range 7200
 
 [Action 5502]
 Shall we continue?
-.set 891                  ' 2 demerits
+.set 801                  ' 2 demerits
 .unset 742 743 744 745    ' strict self bondage 2-5
 .range 7200
 
@@ -11438,7 +11410,7 @@ Shall we continue?
 Another disappointing experience with this slave.
 Such a pity.
 I suppose I'll have to punish you later.
-.set 891 517              ' 2 demerits, training failure punishment
+.set 801 517              ' 2 demerits, training failure punishment
 .set 36                   ' Rope harness
 .unset 742 743 744 745    ' strict self bondage 2-5
 .range 7200
@@ -11446,7 +11418,7 @@ I suppose I'll have to punish you later.
 [Action 5504]
 That's really disappointing, slave.
 You'll be punished later for failing your training.
-.set 891 517              ' 2 demerits, training failure punishment
+.set 801 517              ' 2 demerits, training failure punishment
 .set 36                   ' Rope harnes
 .unset 742 743 744 745    ' strict self bondage 2-5
 .range 7200
@@ -11603,33 +11575,33 @@ We'll paddle that slave bottom some other time.
 [Action 5651]
 Mmm, I love a pink slave-bottom.
 .set 751                ' Ass whipping 1
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 5652]
 That bum looks a little warmer now.
 .set 752                ' Ass whipping 2
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 5653]
 I love a pair of red, glowing slave buns!
 .set 753                ' Ass whipping 3
-.set 896                ' 1 merit
+.set 806                ' 1 merit
 .range 7201
 
 [Action 5654]
 Good boy, sweetie.
 Those naughty buns must be hot!
 .set 754                ' Ass whipping 4
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .range 7201
 
 [Action 5655]
 Good boy, sweetie.
 That was a long marathon!
 .set 755                ' Ass whipping 5
-.set 897                ' 3 merits
+.set 807                ' 3 merits
 .range 7201
 
 
@@ -11638,7 +11610,7 @@ That was a long marathon!
 I'm sorry you weren't able to make it, slave.
 I guess you need 
 more training, and some punishment next session as well.
-.set 891                ' 2 demerits
+.set 801                ' 2 demerits
 .set 517                ' training failure 1
 .range 7200
 
@@ -11646,7 +11618,7 @@ more training, and some punishment next session as well.
 I'm quite disappointed, slave.
 I thought you were up to the challenge.
 I will have to punish you later for failing your training.
-.set 892                ' 3 demerits
+.set 802                ' 3 demerits
 .set 517 518            ' training failure 1 & 2
 .range 7200
 
@@ -11879,54 +11851,54 @@ On second thought, I think I changed My mind.
 [Action 5851]
 I'll give you a couple of merits for winning, bitch.
 You may remove the clamps and weights.
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .range 7201
 
 [Action 5852]
 .set 746                ' cbt 1
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 5853]
 .set 747                ' cbt 2
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 5854]
 .set 748                ' cbt 3
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 ' light cardio nips
 [Action 5855]
 That was a nice little workout, slave.
 .set 717                ' nipple tolerance 2
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 '  quick pins
 [Action 5864]
 That was good work, slave.
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .range 7201
 
 ' quick pins 16
 [Action 5865]
 Good boy, pet.
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .range 7201
 
 ' nipple clamp weight-lifting
 [Action 5866]
 Good job, My dear slave.
 .set 719                ' nipple tolerance 4
-.set 897                ' 3 merits
+.set 807                ' 3 merits
 .range 7201
 
 ' shake those titties
 [Action 5867]
 .set 718                ' nipple tolerance 3
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .range 7201
 
 
@@ -11941,20 +11913,20 @@ I'll punish you later for losing.
 [Action 5914]
 Well, that's disappointing.
 I'll mark you down for a good three demerits.
-.set 892                ' 3 demerits
+.set 802                ' 3 demerits
 .range 7200
 
 ' quick pins 16
 [Action 5915]
 Do three demerits sound about right, pussy?
-.set 892                ' 3 demerits
+.set 802                ' 3 demerits
 .range 7200
 
 ' nipple clamp weight-lifting
 [Action 5916]
 I'll punish you for your laziness later, you little pussy slave.
 Meanhile, three demerits will do about right.
-.set 892                ' 3 demerits
+.set 802                ' 3 demerits
 .range 7200
 
 
@@ -12168,60 +12140,60 @@ Maybe later.
 ' teasing good entries
 
 [Action 6051]
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .range 7201
 
 [Action 6052]
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .range 7201
 
 [Action 6053]
-.set 897                ' 3 merits
+.set 807                ' 3 merits
 .range 7201
 
 [Action 6054]
-.set 895 726            ' 1 merit, Denial and self-control 1
+.set 805 726            ' 1 merit, Denial and self-control 1
 .range 7201
 
 [Action 6055]
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 6056]
-.set 895                ' 1 merit, no advance to level 2 since there are already two opportunities 
+.set 805                ' 1 merit, no advance to level 2 since there are already two opportunities 
 .range 7201
 
 [Action 6057]
-.set 895 727            ' 1 merit, Denial and self-control 2
+.set 805 727            ' 1 merit, Denial and self-control 2
 .range 7201
 
 [Action 6058]
-.set 895 727            ' 1 merit, Denial and self-control 2
+.set 805 727            ' 1 merit, Denial and self-control 2
 .range 7201
 
 [Action 6059]
-.set 896 728            ' 2 merits, Denial and self-control 3
+.set 806 728            ' 2 merits, Denial and self-control 3
 .range 7201
 
 [Action 6060]
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 6061]
-.set 895                ' 1 merit
+.set 805                ' 1 merit
 .range 7201
 
 [Action 6062]
-.set 896                ' 2 merits
+.set 806                ' 2 merits
 .range 7201
 
 [Action 6063]
-.set 896 729            ' 2 merits, Denial and self-control 4
+.set 806 729            ' 2 merits, Denial and self-control 4
 .range 7201
 
 ' slavesinlove 186 pictures from mine-td.sbd
 [Action 6064]
-.set 896 747            ' 2 merits, cbt 2
+.set 806 747            ' 2 merits, cbt 2
 .range 7201
 
 
@@ -12229,64 +12201,64 @@ Maybe later.
 ' teasing bad endings
 
 [Action 6101]
-.set 891                ' 2 demerits
+.set 801                ' 2 demerits
 .range 6130
 
 [Action 6102]
 I'll give you a demerit since you didn't want to listen to the whole story, you ungrateful slave.
-.set 890                ' 1 demerit
+.set 800                ' 1 demerit
 .range 7200
 
 [Action 6103]
 Well, I think three demerits are about right.
 What a bad slave!
-.set 892                ' 3 demerits
+.set 802                ' 3 demerits
 .range 7200
 
 '[Action 6104]
 
 [Action 6105]
-.set 890                ' 1 demerit
+.set 800                ' 1 demerit
 .range 6130
 
 [Action 6106]
-.set 891                ' 2 demerits
+.set 801                ' 2 demerits
 .range 6130
 
 [Action 6107]
-.set 891                ' 2 demerits
+.set 801                ' 2 demerits
 .range 6130
 
 [Action 6108]
-.set 891                ' 2 demerits
+.set 801                ' 2 demerits
 .range 6130
 
 [Action 6109]
-.set 891                ' 2 demerits
+.set 801                ' 2 demerits
 .range 6130
 
 [Action 6110]
-.set 892                ' 3 demerits
+.set 802                ' 3 demerits
 .range 6130
 
 [Action 6111]
-.set 892                ' 3 demerits
+.set 802                ' 3 demerits
 .range 6130
 
 [Action 6112]
-.set 892                ' 3 demerits
+.set 802                ' 3 demerits
 .range 6130
 
 [Action 6113]
-.set 893                ' 4 demerits
+.set 803                ' 4 demerits
 .range 6130
 
 [Action 6114]
-.set 893                ' 4 demerits
+.set 803                ' 4 demerits
 .range 6130
 
 [Action 6115]
-.set 893                ' 4 demerits
+.set 803                ' 4 demerits
 .range 7200
 
 
@@ -12353,7 +12325,7 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 
 ' Slave came without permission forward (checked from 7716)
 [Action 6149]
-.set 519 699 894        ' came w/o perm, no cum 5 demerits
+.set 519 699 804        ' came w/o perm, no cum 5 demerits
 .unset 525              ' P.O. for cumming after denial
 .range 7604 7609        ' Skip toy removal for extended humiliation
 
@@ -13957,19 +13929,19 @@ Let's find out which kind you are, My pussy!
 ' add demerits
 
 [Action 7610]
-.mustnot 890 891 892 893 894
+.mustnot 800 801 802 803 804
 .range 7649
 
 [Action 7611]
 You've got one demerit, naughty boy.
-.must 890
-.mustnot 200 201 202 203 204
+.must 800
+800stnot 200 201 202 203 204
 .set 200
 .range 7649
 
 [Action 7612]
 That's two demerits now, you naughty slave.
-.must 890
+.must 800
 .must 200
 .unset 200
 .set 201
@@ -13977,7 +13949,7 @@ That's two demerits now, you naughty slave.
 
 [Action 7613]
 That's three demerits, slave.
-.must 890
+.must 800
 .must 201
 .unset 201
 .set 202
@@ -13986,7 +13958,7 @@ That's three demerits, slave.
 [Action 7614]
 You've got four demerits, slave.
 This has been a bad session!
-.must 890
+.must 800
 .must 202
 .unset 202
 .set 203
@@ -13995,7 +13967,7 @@ This has been a bad session!
 [Action 7615]
 You've got five demerits now, cunt!
 Mistress is very displeased!
-.must 890
+.must 800
 .must 203
 .unset 203
 .set 204
@@ -14003,14 +13975,14 @@ Mistress is very displeased!
 
 [Action 7616]
 That's two demerits, you wicked slave.
-.must 891
+.must 801
 .mustnot 200 201 202 203 204
 .set 201
 .range 7649
 
 [Action 7617]
 Three demerits for you, naughty slave.
-.must 891
+.must 801
 .must 200
 .unset 200
 .set 202
@@ -14018,7 +13990,7 @@ Three demerits for you, naughty slave.
 
 [Action 7618]
 That's four demerits, you foul slave.
-.must 891
+.must 801
 .must 201
 .unset 201
 .set 203
@@ -14026,7 +13998,7 @@ That's four demerits, you foul slave.
 
 [Action 7619]
 You've got five demerits all told, you pathetic worm.
-.must 891
+.must 801
 .must 202
 .unset 202
 .set 204
@@ -14034,14 +14006,14 @@ You've got five demerits all told, you pathetic worm.
 
 [Action 7620]
 That's your first three demerits.
-.must 892
+.must 802
 .mustnot 200 201 202 203 204
 .set 202
 .range 7649
 
 [Action 7621]
 Now you've got four demerits.
-.must 892
+.must 802
 .must 200
 .unset 200
 .set 203
@@ -14049,7 +14021,7 @@ Now you've got four demerits.
 
 [Action 7622]
 That's five demerits, you dirty cunt.
-.must 892
+.must 802
 .must 201
 .unset 201
 .set 204
@@ -14058,14 +14030,14 @@ That's five demerits, you dirty cunt.
 [Action 7623]
 Four demerits all at once, slave!
 Terrible!
-.must 893
+.must 803
 .mustnot 200 201 202 203 204
 .set 203
 .range 7649
 
 [Action 7624]
 That brings you up to five demerits, you wicked cunt.
-.must 893
+.must 803
 .must 200
 .unset 200
 .set 204
@@ -14073,21 +14045,21 @@ That brings you up to five demerits, you wicked cunt.
 
 [Action 7625]
 That's five demerits all in one go, you nasty, dirty, slaveboy.
-.must 894
+.must 804
 .mustnot 200 201 202 203 204
 .set 204
 .range 7649
 
 [Action 7626]
 You've maxed out at five demerits, you pussy.
-.must 890
+.must 800
 .mustnot 888 200 201 202 203
 .set 204
 .range 7649
 
 [Action 7627]
 That's five demerits all told for you, cunt.
-.must 891
+.must 801
 .mustnot 888 200 201 202
 .unset 203
 .set 204
@@ -14095,7 +14067,7 @@ That's five demerits all told for you, cunt.
 
 [Action 7628]
 That's your fifth demerit, you nasty slave.
-.must 892
+.must 802
 .mustnot 888 200 201
 .unset 202 203
 .set 204
@@ -14104,7 +14076,7 @@ That's your fifth demerit, you nasty slave.
 [Action 7629]
 What a bad boy!
 Five demerits!
-.must 893
+.must 803
 .mustnot 888 200
 .unset 201 202 203
 .set 204
@@ -14113,7 +14085,7 @@ Five demerits!
 [Action 7630]
 You're one of the worst slave boys I've ever seen.
 Five demerits!
-.must 894
+.must 804
 .mustnot 888
 .unset 200 201 202 203
 .set 204
@@ -14155,24 +14127,24 @@ Five demerits!
 
 
 [Action 7649]
-.unset 890 891 892 893 894
+.unset 800 801 802 803 804
 .range 7640 7645
 
 
 [Action 7650]
-.mustnot 895 896 897 898 899
+.mustnot 805 806 807 808 809
 .range 7679
 
 [Action 7651]
 Good boy! That's one merit for you.
-.must 895
+.must 805
 .mustnot 205 206 207 208 209
 .set 205
 .range 7679
 
 [Action 7652]
 Two merits for My good slaveboy.
-.must 895
+.must 805
 .must 205
 .unset 205
 .set 206
@@ -14180,7 +14152,7 @@ Two merits for My good slaveboy.
 
 [Action 7653]
 That's three hard-earned merits for My good boy.
-.must 895
+.must 805
 .must 206
 .unset 206
 .set 207
@@ -14188,7 +14160,7 @@ That's three hard-earned merits for My good boy.
 
 [Action 7654]
 You're a very good slave, with four merits.
-.must 895
+.must 805
 .must 207
 .unset 207
 .set 208
@@ -14196,7 +14168,7 @@ You're a very good slave, with four merits.
 
 [Action 7655]
 That's your fifth merit, My dear slave.
-.must 895
+.must 805
 .must 208
 .unset 208
 .set 209
@@ -14204,14 +14176,14 @@ That's your fifth merit, My dear slave.
 
 [Action 7656]
 That's two merits, slave.
-.must 896
+.must 806
 .mustnot 205 206 207 208 209
 .set 206
 .range 7679
 
 [Action 7657]
 That's your third merit, My boy.
-.must 896
+.must 806
 .must 205
 .unset 205
 .set 207
@@ -14219,7 +14191,7 @@ That's your third merit, My boy.
 
 [Action 7658]
 You've doubled your merits to four, slave.
-.must 896
+.must 806
 .must 206
 .unset 206
 .set 208
@@ -14227,7 +14199,7 @@ You've doubled your merits to four, slave.
 
 [Action 7659]
 That's five merits all told, My dear.
-.must 896
+.must 806
 .must 207
 .unset 207
 .set 209
@@ -14235,7 +14207,7 @@ That's five merits all told, My dear.
 
 [Action 7660]
 That's three merits at once, pet.
-.must 897
+.must 807
 .mustnot 205 206 207 208 209
 .set 207
 .range 7679
@@ -14243,7 +14215,7 @@ That's three merits at once, pet.
 [Action 7661]
 Very good, slave.
 Four merits total!
-.must 897
+.must 807
 .must 205
 .unset 205
 .set 208
@@ -14252,7 +14224,7 @@ Four merits total!
 [Action 7662]
 Excellent, slave!
 That's your fifth merit.
-.must 897
+.must 807
 .must 206
 .unset 206
 .set 209
@@ -14261,7 +14233,7 @@ That's your fifth merit.
 [Action 7663]
 Four merits all in one go, slave!
 That's a good boy!
-.must 898
+.must 808
 .mustnot 205
 .set 208
 .range 7679
@@ -14269,7 +14241,7 @@ That's a good boy!
 [Action 7664]
 That's five merits, My pet.
 Very good boy!
-.must 898
+.must 808
 .must 205
 .unset 205
 .set 209
@@ -14277,7 +14249,7 @@ Very good boy!
 
 [Action 7665]
 You've gotten five merits all at once, My pretty pet!
-.must 899
+.must 809
 .mustnot 205 206 207 208 209
 .set 209
 .range 7679
@@ -14285,14 +14257,14 @@ You've gotten five merits all at once, My pretty pet!
 [Action 7666]
 Good slave!
 That's five merits.
-.must 895
+.must 805
 .mustnot 888 205 206 207 208
 .set 209
 .range 7679
 
 [Action 7667]
 You've got five merits, My dear.
-.must 896
+.must 806
 .mustnot 888 205 206 207
 .unset 208
 .set 209
@@ -14300,7 +14272,7 @@ You've got five merits, My dear.
 
 [Action 7668]
 That's the maximum five merits, slave.
-.must 897
+.must 807
 .mustnot 888 205 206
 .unset 207 208
 .set 209
@@ -14309,7 +14281,7 @@ That's the maximum five merits, slave.
 [Action 7669]
 What a good little pussy!
 That's your fifth merit.
-.must 898
+.must 808
 .mustnot 888 205
 .unset 206 207 208
 .set 209
@@ -14317,7 +14289,7 @@ That's your fifth merit.
 
 [Action 7670]
 That puts you at five, My dear slave!
-.must 899
+.must 809
 .mustnot 888
 .unset 205 206 207 208
 .set 209
@@ -14327,7 +14299,7 @@ That puts you at five, My dear slave!
 [Action 7679]
 Now I'll judge your performance...
 .resetrange 7600 7679
-.unset 895 896 897 898 899
+.unset 805 806 807 808 809
 .range 7680 7689
 
 ' Probability table. Note that unlike some other scripts, you
