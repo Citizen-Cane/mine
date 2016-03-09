@@ -288,14 +288,14 @@
 ' 264          Spanking activity once per session
 ' 265          Self Bondage activity once per session
 ' 266          Story Time activity once per session
-' 267          Prepare enema for next session, carry out enema
-' 268          Enema aftermath, to handle additional visits to the toilet and to assign butt plug assignment, temporary
-' 269          completed voiding the enema, ready for plug, temporary
-' 270          Used for punishing punishment cancellations, used by the quit handler:
-'              unset during punishment cycle, set when starting activity loop
+' 267          Prepare enema for next session, carrying out enema
+' 268          Holding the enema - cleared after slave has voided enema  ' Enema aftermath, to handle additional visits to the toilet and to assign butt plug assignment, temporary
+' 269          enema voided, ready to be plugged
+' 270          plugged, ready for assignment
 ' 271          Maid training punishment once per session
 ' 272          Toy lecture given
-' 273
+' 273          Used for punishing punishment cancellations, used by the quit handler:
+'              unset during punishment cycle, set when starting activity loop
 ' 274          Quit without permission check
 ' 275          clamps/pegs timer
 ' 276:         Enema duration timer, used for exit punishment cycle, and to void enema, used with 267 268 269
@@ -495,7 +495,7 @@
 '.askcheck      95      755     755: * Asswhipping 5 marathon 60m (5655)
 '.askcheck      55      756     756: * Anal training 1 (1032)
 '.askcheck      56      757     757: * Anal training 2
-'.askcheck      57      758     758: * Anal training 3 (3101)
+'.askcheck      57      758     758: * Anal training 3 (3101) TODO more setters in order to advance plug assignments
 '.askcheck      58      759     759: * Anal training 4
 '.askcheck      59      760     760: * Anal training 5
 '.askcheck      60      761     761: * Chastity 1 (1035, 7811)
@@ -533,7 +533,7 @@
 
 
 ' 890-894 demerits for single activity
-' 895-988 merits for single activity
+' 895-899 merits for single activity
 '
 ' 200-204 demerits sum for all activites
 ' 205-209 merits sum for all activities
@@ -784,7 +784,7 @@ Would you be so kind and tell me what you've got exactly?
 .unset 235 236 237 238 239 240 241 242 243 244   ' clear next-session-toys askcheck
 .unset 251 252 253 254 255 256     258 259 260   ' once-per-session-flags
 .unset 261 262 263 264 265 266     268 269 270   ' once-per-session-flags
-.unset 271 272                 277 278 279 280   ' once-per-session-flags
+.unset 271 272 273             277 278 279 280   ' once-per-session-flags
 .unset 281 282 283 284 285 286 287 288 289 290   ' once-per-session-flags
 .unset 291 292 293 294 295 296 297 298 299       ' once-per-session-flags
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
@@ -5646,15 +5646,15 @@ and that Mistresses are to be obeyed without question!
 .range 2260
 
 
-' Enema nozzle inserted long enough? (durations are the same as in 3325-3327)
+' Postpone outstanding punishments due to planned enema voiding
 
 ' 0.5-1.0L
 [Action 2255]
 .must 267                                   ' Enema applied
 .mustnot 506 513 514 515 516 519 520 525
-.mustnot     787 788 789 790                ' 1L
-.timefrom 276 08:00"00                      ' Enema timer, filling up
-.poss 100                                   ' doesn't work like "else", but almost
+.mustnot     787 788 789 790                ' 1L or less
+.timefrom 276 00:08"00                      ' Enema timer, filling up
+.poss 100                                   ' first priority
 .range 2260
 
 ' 1.25L-1.5L
@@ -5663,17 +5663,17 @@ and that Mistresses are to be obeyed without question!
 .mustnot 506 513 514 515 516 519 520 525
 .must 786 787                               ' 1.25L
 .mustnot     789 790                        ' 1.75L-2.0L
-.timefrom 276 10:00"00                      ' Enema timer, filling up
-.poss 100                                   ' doesn't work like "else", but almost
+.timefrom 276 00:10"00                      ' Enema timer, filling up
+.poss 100                                   ' first priority
 .range 2260
 
-' 1.75L-2.05L
+' 1.75L-2.5L
 [Action 2257]
 .must 267                                   ' Enema applied
 .mustnot 506 513 514 515 516 519 520 525
 .must 786 787 788 789                       ' 1.75L-2.0L
-.timefrom 276 12:00"00                      ' Enema timer, filling up
-.poss 100                                   ' doesn't work like "else", but almost
+.timefrom 276 00:12"00                      ' Enema timer, filling up
+.poss 100                                   ' first priority
 .range 2260
 
 '[Action 2258]
@@ -7164,6 +7164,7 @@ Hopefully this will get through to you!
 ' 512 lack of hardness, level 2
 
 ' Jingle balls
+' TODO join duplicated code from 7480+ (or the other way around)
 
 [Action 2960]
 Fetch a chain, loop it tightly around the base of your flacid penis and lock it up.
@@ -7352,7 +7353,7 @@ Hopefully this will get through to you!
 ' Last session ended without quit
 [Action 3001]
 .mustnot 102
-.range 3020
+.range 3010
 
 ' Cumming opportunity can be taken
 [Action 3002]
@@ -7371,7 +7372,7 @@ I think I can cook up a suitable extra punishment for a misbehaving slaveboy lik
 .must 102
 .set 9                  ' still set after session extra has been applied, otherwise unset
 .gosub 3100 3107        ' add session extra
-.range 3018 3019
+.range 3008 3009
 
 
 [Action 3004]
@@ -7381,179 +7382,202 @@ I'm going to get you as worked up as possible,
 and then leave you hanging.
 Hopefully this will get through to you!
 .set 698                ' Not allowed to cum (cleared after denial)
-.range 3020
+.range 3010
 
 
-[Action 3018]
+[Action 3008]
 .else
 .mustnot 9
 Three demerits will work for now, I suppose. 
 .set 894
 .set 202                     ' Three demerits
 .unset 200 201     203 204
-.range 3020
+.range 3010
 
-[Action 3019]
+[Action 3009]
 .must 9                      ' session extra applied
 .unset 102
-.range 3020
+.range 3010
 
 
 ' Remove enema nozzle and secure bottom before choosing session add-ons
 
-[Action 3020]
-.range 3021 3024
+[Action 3010]
+.range 3011 3014
 
-[Action 3021]
+[Action 3011]
 Well slave, is the enema bag already empty?
 .must 267                    ' Enema applied
-.yesno 3055 3056 3025 3029
+.yesno 3045 3046 3015 3019
 .yestext Yes, Miss
 .notext No, Miss
 
-[Action 3022]
+[Action 3012]
 Well slave, I wonder whether the enema bag is already empty.
 Do you carry all the liquid inside your bowels by now?
 .must 267                    ' Enema applied
-.yesno 3055 3056 3025 3029
+.yesno 3045 3046 3015 3019
 .yestext Yes, Miss, the bag is empty
 .notext No Miss, the liquid is still flowing
 
-[Action 3023]
+[Action 3013]
 How about your enema, my dear anal slut?
 .must 267                    ' Enema applied
-.yesno 3055 3056 3025 3029
+.yesno 3045 3046 3015 3019
 .yestext The bag is empty, Miss
 .notext The liquid is still flowing, Miss
 
-[Action 3024]
+[Action 3014]
 .mustnot 267                 ' Enema applied
+.settime 276 +INF            ' enable all activities
 .range 3089
 
 
 ' Punish bag not empty
  
-[Action 3025]
-Well, slave, I expected you to have it all in by now.
-.range 3026 3029
-
-[Action 3026]
+[Action 3015]
 .mustnot 24             ' Something on balls
 .must 362               ' Clothes pegs
-.set 24 38              ' something on ball sack, clothes pegs
+Well, slave, I expected you to have it all in by now.
+[]
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
-.set -24 24 38
+.set -24 24 38          ' something on ball sack, clothes pegs
 .settime 275 -00:10"00
-.range 3030 3031        ' Comment pegs on ball sack
+.range 3020 3021        ' Comment pegs on ball sack
 
-[Action 3027]
+[Action 3016]
 .mustnot 20             ' Something on nipples
 .must 362               ' Clothes pegs
+Well, slave, I expected you to have it all in by now.
+[]
 Maybe some clothes pegs on your slave nipples help the enema flowing faster.
 Snap one on each nipple.
 .pause Done as ordered, Miss
 .set -20 20 42          ' something on nipples, clothes pegs
 .settime 275 -00:15"00
-.range 3032 3033        ' Comment pegs
+.range 3022 3023        ' Comment pegs
 
-[Action 3028]
+[Action 3017]
 .mustnot 20             ' Something on nipples
 .must 361               'completely empty.
+Well, slave, I expected you to have it all in by now.
+[]
 Maybe your nipple clamps help the enema flowing faster.
 Snap them on your slave titties and make sure they sit tight.
 .pause Done as ordered, Miss
 .set -20 20 43          ' something on nipples, nipple clamps
 .settime 275 -00:15"00
-.range 3034 3035
+.range 3024 3025
 
-' todo pussy clamps (requires action shifting up to 3049)
+[Action 3018]
+.mustnot 24             ' Something on balls
+.must 772               ' pussy clamps
+Well, slave, I expected you to have it all in by now.
+[]
+Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
+Snap four of them on your balls, slave.
+.pause Done as ordered, Miss
+.set -24 24 39          ' something on ball sack, pussy clamps
+.settime 275 -00:10"00
+.range 3026 3027        ' Comment pegs on ball sack
 
-[Action 3029]
+[Action 3019]
 .else
-.range 3038
+Well, slave, I expected you to have it all in by now.
+.range 3028
 
 
-[Action 3030]
-.range 3038
+' TODO comment clothes pegs on ball sack
 
-'[Action 3031]
+[Action 3020]
+Fine.
+You may now enjoy your pegs until the bag is completely empty.
+.range 3028
+
+'[Action 3021]
 
 
-[Action 3032]
+' comment clothes pegs on nipples
+
+[Action 3022]
 .delay 30
 Fine.
 You may now enjoy your pegs until the bag is completely empty.
-.range 3038
+.range 3028
 
-'[Action 3033]
+'[Action 3023]
 
 
-[Action 3034]
+' comment nipple clamps
+
+[Action 3024]
 .delay 30
 Very good.
 You may now enjoy your clamps until the bag is completely empty.
-.range 3038
+.range 3028
 
-'[Action 3035]
+'[Action 3025]
 
 
-[Action 3036]
+' comment pussy clamps
+
+[Action 3026]
 .delay 30
 Very good.
 You may now enjoy your clamps until the bag is completely empty.
-.range 3038
+.range 3028
 
-'[Action 3037]
+'[Action 3027]
 
 
-[Action 3038]
-.break 3039 3042 STOP 3043 3044
+[Action 3028]
+.break 3029 3032 STOP 3033 3034
 .stoptext The bag is empty, Miss
-.range 3039 3041
+.range 3029 3031
 
 
-[Action 3039]
+[Action 3029]
 Tell me when you've finished, my pet.
 .delay 30 60
-.unset 3042
-.range 3039 3042
+.unset 3032
+.range 3029 3032
 
-[Action 3040]
+[Action 3030]
 Are you enjoying your enema, slave?
 .delay 30 60
-.unset 3042
-.range 3039 3042
+.unset 3032
+.range 3029 3032
 
-[Action 3041]
+[Action 3031]
 Take your time, slut.
 .delay 30 60
-.unset 3042
-.range 3039 3042
+.unset 3032
+.range 3029 3032
 
-[Action 3042]
+[Action 3032]
 Is the water still flowing?
 Maybe you should hang the tube a little higher.
 .delay 30 60
-.must 3040 3041
-.unset 3039 3040 3041
-.range 3039 3042
+.must 3030 3031
+.unset 3029 3030 3031
+.range 3029 3032
 
 
-[Action 3043]
+[Action 3033]
 Very good, my little pet.
-.range 3045 3049
+.range 3035 3039
 
-[Action 3044]
+[Action 3034]
 Well done, my little pet.
-.range 3045 3049
+.range 3035 3039
 
 
 ' Remove nozzle and clamps/pegs
 
 ' Inflatable nozzle
-[Action 3045]
+[Action 3035]
 .must 21                ' Something in butt, enema nozzle
 Before you remove the tubing
 I want you to pump up the cuff once more, slave!
@@ -7564,99 +7588,98 @@ You may now go to the bath room,
 detach the tubing from the nozzle,
 clean it up and come back here.
 .pause All finished, Miss
-.range 3050
+.range 3040
 
 ' Plain nozzle
-[Action 3046]
+[Action 3036]
 .mustnot 21             ' Something in butt, enema nozzle
 You may now go to the bath room,
 remove the tubing and the nozzle,
 clean it up and  put it all away.
 Then come back here.
 .pause All finished, Miss
-.range 3050
+.range 3040
 
-'[Action 3047]
-'[Action 3048]
-'[Action 3049]
+'[Action 3037]
+'[Action 3038]
+'[Action 3039]
 
 
 ' enema tubing detached
 ' clamps and pegs are removed a little later
 
-[Action 3050]
-.range 3058 3059
+[Action 3040]
+.range 3048 3049
 
 
 ' Inflatable nozzle
-[Action 3055]
+[Action 3045]
 Very good. Slave.
 You may go to the bath room and detach the tubing, and clean it up together with the bag.
 Then come back here.
 .pause I'm back, Miss
 .must 21                ' Something in butt, enema nozzle
-.range 3057
+.range 3047
 
 ' Plain nozzle
-[Action 3056]
+[Action 3046]
 Very good. Slave.
 You may go to the bath room, remove the nozzle, and clean it up together with the bag.
 Then come back here.
 .pause I'm back, Miss
 .mustnot 21             ' Something in butt, enema nozzle
-.range 3058 3059
+.range 3048 3049
 
 
-[Action 3057]
+[Action 3047]
 Well, let's pump up the cuff once more, slave!
 Just to be sure.
 .pause Done, Miss
 .must 21                ' Something in butt, enema nozzle
-.range 3058 3059
+.range 3048 3049
 
 
 ' Finished, holding enema
 
-[Action 3058]
+[Action 3048]
 You certainly won't mind holding your enema for a while, slave, will you?
 .pause Of course not, Miss
-.range 3060 3062
+.range 3050 3052
 
-'[Action 3059]
+'[Action 3049]
 
 
 ' Help needed?
 
 ' no, using inflated cuff
-[Action 3060]
+[Action 3050]
 .must 21                     ' Something in butt, inflatable enema nozzle, no help needed
-.range 3085 3086
+.range 3075 3076
 
-[Action 3061]
+[Action 3051]
 Well.
 I don't want you to have an accident right here.
 Do you need a litte help to hold your enema in, slave?
 .mustnot 21                  ' Something in butt, inflatable enema nozzle
-.yesno 3063 3064 3070 3072
+.yesno 3053 3054 3060 3062
 .yestext Yes Miss, please!
 .notext No Miss, thanks
 
-'[Action 3062]
-
+'[Action 3052]
 
 
 ' Yes
 
-[Action 3063]
+[Action 3053]
 Very well, my dear slave.
-.range 3065 3066
+.range 3055 3056
 
-[Action 3064]
+[Action 3054]
 Very well my little pet.
-.range 3065 3066
+.range 3055 3056
 
 
-[Action 3065]
+[Action 3055]
 Get some rope and a belt and make yourself a nice crotch rope.
 Then take the towel you were supposed to bring along for this session,
 place it in your ass crack,
@@ -7664,117 +7687,151 @@ and pull the crotch rope tight.
 .pause My diaper is ready, Miss
 .mustnot 366            ' Some rope
 .set 27                 ' Something around waist
-.range 3080 3082
+.range 3070 3072
 
-[Action 3066]
+[Action 3056]
 Take the towel you were supposed to bring along for this session,
 place it in your ass crack,
 and fix it up with a good and tight crotch rope.
 .pause My diaper is ready, Miss
 .must 366               ' Some rope
 .set 27                 ' Something around waist
-.range 3080 3082
+.range 3070 3072
 
 
 ' No help needed
 
-[Action 3070]
+[Action 3060]
 That's a brave slave-boy!
-.range 3075
+.range 3065
 
-[Action 3071]
+[Action 3061]
 Very well my little pet.
-.range 3075
+.range 3065
 
-[Action 3072]
+[Action 3062]
 You're a naughty anal slut!
-.range 3075
+.range 3065
 
 
 ' Slave turned down help
 ' TODO shorter comments on higher levels
 
-[Action 3075]
+[Action 3065]
 We will now continue the session while you enjoy your enema.
-.range 3076
+.range 3066
  
 ' TODO Make such comments at the start of each activity
-[Action 3076]
+[Action 3066]
 You might feel the urge to relief yourself soon enough,
 but I don't like my slaves running out of the room
 all of a sudden without my consent.
-.range 3077 3078
+.range 3067 3068
 
 
-[Action 3077]
+[Action 3067]
 On the other hand, I don't want you to have an accident either.
-.range 3078
+.range 3068
 
-[Action 3078]
+[Action 3068]
 .shouldnot 786
 So should you feel the urge to relief becomes inevitable,
 you may of course bail out from our activities anytime and
 humbly ask for My gracious permission to visit the toilet.
 .pause Thank you, Miss
-.range 3088
+.range 3078
 
 
 ' Got help
 
 ' diaper
 
-[Action 3080]
+[Action 3070]
 Well slave, I don't like my slaves running out of the room all of a sudden,
 regardless how urgent the issue might be.
 Especially when they're wearing such a nice diaper.
-.range 3087
+.range 3077
  
 ' TODO Make such comments at the start of each activity
-[Action 3081]
+[Action 3071]
 .must 786
 We will now continue the session while you enjoy your enema.
 With the help of your diaper, your backdoor should be well sealed up,
 regardless how intense the cramping might become.
-.range 3087
+.range 3077
 
-[Action 3082]
+[Action 3072]
 .must 787
 That will surely help to avoid the worst.
-.range 3087
+.range 3077
 
 
 ' inflated cuff
 
-[Action 3085]
+[Action 3075]
 With the help of the inflated cuff, your backdoor should be well sealed up,
 regardless how intense the cramping might get.
 Just in case, push the pump once more to inflate the cuff some more.
 .pause Done, Miss
-.range 3087
+.range 3077
 
-[Action 3086]
+[Action 3076]
 .must 786
 Just in case, push the pump once more to inflate the cuff some more.
 .pause Done, Miss
-.range 3087
+.range 3077
 
-
-' TODO Only allow stopable activities 
-' TODO with help on higher levels slave may not go to the toilet at all - don't mention anymore
-
-[Action 3087]
+[Action 3077]
 Should you nevertheless feel the urge to relief becomes inevitable,
 you may of course bail out from our activities anytime and
 humbly ask for My gracious permission to visit the toilet.
 .pause Thank you, Miss
-.range 3088
+.range 3078
 
 
 ' enema tube detach complete
 
-[Action 3088]
+[Action 3078]
 .unset 35               ' Tethered
-.settime 276            ' Restart the enema timer to make good for the time the slave wasted while taking the enema
+.unset 267              ' taking the enema 
+.set 268                ' holding the enema
+.settime 276            ' Restart the enema timer to measure the holding duration
+.range 3080 3086
+
+' choose holding time
+
+[Action 3080]
+.mustnot 786            ' first time
+.settime 276 -00:10"00
+.range 3089
+
+[Action 3081]
+.must 786               ' Enema quantity 1.0l
+.mustnot 787
+.settime 276 -00:12"00
+.range 3089
+
+[Action 3082]
+.must 787               ' Enema quantity 1.25l
+.mustnot 788
+.settime 276 -00:15"00
+.range 3089
+
+[Action 3083]
+.must 788               ' Enema quantity 1.50l
+.mustnot 789
+.settime 276 -00:18"00
+.range 3089
+
+[Action 3084]
+.must 789               ' Enema quantity 1.75l
+.mustnot 790
+.settime 276 -00:22"00
+.range 3089
+
+[Action 3085]
+.must 790               ' Enema quantity 2.0l
+.settime 276 -00:25"00
 .range 3089
 
 
@@ -7792,6 +7849,7 @@ humbly ask for My gracious permission to visit the toilet.
 ' so add more (good or bad) to the end if desired.
 
 [Action 3089]
+.mustnot 267            ' carrying out the enema ends here
 .unset 3089
 .range 3090 3099
 
@@ -7803,7 +7861,7 @@ humbly ask for My gracious permission to visit the toilet.
 .range 3400             ' continue without extras
 
 [Action 3091]
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
 .set 9                  ' still set after session extra has been applied, otherwise unset
 .unset 3091             ' unset to ensure additional extras can be chosen
 .gosub 3100 3107        ' choose session extra
@@ -7811,20 +7869,20 @@ humbly ask for My gracious permission to visit the toilet.
 
 [Action 3092]
 .must 103               ' mistress impatient
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
 .set 9                  ' still set after session extra has been applied, otherwise unset
 .gosub 3100 3107        ' choose session extra
 .range 3108 3109        ' Another session extra or continue
 
 [Action 3093]
 .must 102               ' slave quit last session
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
 .set 9                  ' still set after session extra has been applied, otherwise unset
 .gosub 3100 3107        ' choose session extra
 .range 3108 3109        ' Another session extra or continue
 
 [Action 3094]
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
 .must 501
 .set 9                  ' still set after session extra has been applied, otherwise unset
 .gosub 3100 3107        ' choose session extra
@@ -10170,7 +10228,7 @@ you've earned for ignoring your Mistress orders.
 [Action 4900]
 Well, My dear slave, what shall we do today?
 .unset 4900
-.set 270                ' Starting activities 
+.set 273                ' Starting activities 
 .range 5005             ' Skip toy selection, since we just went through session add-ons
 
 [Action 4901]
@@ -10185,40 +10243,18 @@ What would you like to do today?
 
 
 ' Handle butt plug for single or two activities, or for after enema
-' only one of 267 268 269 is set at a time
+' only one of 268 269 is set at a time
 ' Normal plug handling (no enema)
 [Action 4905]
-.mustnot 267 268 269    ' Enema carried out, completed voiding the enema, ready for plug
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
+.mustnot 270            ' plugged, waiting for assignment
 .range 4910 4917
 
-' Skip section while holding enema
+' Skip section
 [Action 4906]
-.must 267               ' Carrying out the enema
-.mustnot 268
-.mustnot 269
+.else
 .range 4949             ' Continue with toy selection
-
-' Skip section while holding enema
-[Action 4907]
-.mustnot 267
-.must 268               ' Holding the enema
-.mustnot 269
-.range 4949             ' Continue with toy selection
-
-' Insert plug after enema has been voided completely
-[Action 4908]
-.mustnot 21             ' Something in butt
-.mustnot 267
-.mustnot 268
-.must 269               ' completed voiding the enema, ready for plug
-.range 4920 4928
-
-' Add crotch rope or harness to initiate plug over bedtime/night/day assignment
-[Action 4909]
-.mustnot 267
-.mustnot 268
-.must 269               ' completed voiding the enema, ready for plug
-.range 4930 4934
 
 
 ' Handle butt plug insertion - separated from other toys since it doesn't block any activity
@@ -10302,95 +10338,6 @@ Lube up that plug and insert it into your bottom now.
 .range 4949                  ' continue with toy selection
 
 
-
-' 269 completed voiding the enema, ready for plug: Handle butt plug insertion
-
-[Action 4920]
-.unset 4920
-.range 4949                  ' continue with toy selection
-
-[Action 4921]
-.mustnot 21                  ' Something in butt
-.must 368                    ' Butt plug
-.mustnot 756                 ' Anal training level 1
-I can't help but notice that you've gotten yourself a butt plug,
-even though you supposedly aren't interested in anal training.
-Have you changed your mind, slave?
-Would you like me to fill your enslaved ass?
-.yesno 4929 4929 4949 4949   ' insert plug or continue with toy selection
-.yestext Yes Miss, please fill my enslaved ass
-.notext Not now Miss, please
-
-[Action 4922]
-.mustnot 21                  ' Something in butt
-.must 368                    ' have a plug
-.must 757                    ' Anal training level 2
-You may lube up your slave ass and insert your buttplug now, slave.
-I want your ass pleasantly filled.
-.pause I'm plugged, Miss
-.set 21                      ' Something in butt
-.range 4949                  ' continue toy selection
-
-'[Action 4923]
-'[Action 4924]
-'[Action 4925]
-'[Action 4926]
-'[Action 4927]
-'[Action 4928]
-
-[Action 4929]
-Very good, slave.
-I'm sure you enjoy being an anal slut for your Mistress.
-Lube up that plug and insert it into your bottom now.
-.pause I'm plugged, Miss
-.set 21                      ' something in butt, buttplug temp
-.range 4949                  ' continue with toy selection
-
-
-[Action 4930]
-.else
-.unset 4930
-.range 4949                  ' continue with toy selection
-
-[Action 4931]
-.must 21                ' Plug inserted, ready for crotch rope or harness
-.mustnot 25 26          ' Ankles tied, wrists tied
-.mustnot 32 33 34 35    ' Can't stand, can't kneel, can't type/use mouse, tethered
-.must 366               ' Some rope
-I want to make sure that butt plug sits extra tight in your anus. 
-For that reason you may tie yourself a tight crotch rope now, slave.
-.range 4935
-
-[Action 4932]
-.must 21                ' Plug inserted, ready for crotch rope or harness
-.mustnot 25 26          ' Ankles tied, wrists tied
-.mustnot 32 33 34 35    ' Can't stand, can't kneel, can't type/use mouse, tethered
-.must 366               ' Some rope
-.must 426               ' Sleep in harness assignment completed 
-I want to make sure that butt plug sits extra tight in your anus.
-For that reason you may tie yourself a nice rope harness now, slave.
-.pause I'm all tied up, Miss
-.range 4936
-
-
-[Action 4935]
-.image bd227_18.jpg     ' crotch rope close-up
-As usual, tie a knot in such a way that, when the rope is taut,
-it rests directly on your anus, or as of now, on your butt plug.
-.pause I'm tied up, Miss
-.set 27                 ' Something around waist
-.range 4949             ' continue with toy selection
-
-[Action 4936]
-.image babc-alt.jpg
-You know the drill, slave, so get on it.
-As usual, tie a knot in such a way that, when the rope is taut,
-it rests directly on your anus, or as of now, on your butt plug.  
-.pause I'm all tied up, Miss
-.set 36                 ' Harnessed
-.range 4949             ' continue with toy selection
-
-
 [Action 4949]
 .range 4950 4954
 
@@ -10449,7 +10396,7 @@ Open your mouth and insert your gag now, slave.
 
 [Action 4957]
 .mustnot 217 255        ' not already doing this, done ball sack pulling already
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
 .mustnot 23 24          ' something on penis, something on balls
 .must 384               ' have a humbler
 .must 746               ' cbt level 1
@@ -10730,7 +10677,7 @@ Hmm, it seems something went wrong [with mine-td.sbd], but I think we can contin
 Well.
 That didn't work out as expected.
 I guess you're lucky - Tonight.
-.mustnot 270                 ' In activities
+.mustnot 273                 ' In activities
 .range 2151
 
 ' Continue with another activity
@@ -10738,7 +10685,7 @@ I guess you're lucky - Tonight.
 Well.
 That didn't work out as expected.
 Let's see...
-.must 270                    ' In activities
+.must 273                    ' In activities
 .range 7550                  ' Toy removal and another round
 
 
@@ -10750,7 +10697,7 @@ Let's see...
 [Action 5021]
 Trying to trick Mistress, are you?
 You should know better than that!
-.mustnot 270                 ' In activities
+.mustnot 273                 ' In activities
 .set 102                     ' left without permission
 .set 549                     ' P.O. for aborting punishemnt (quit handler)
 .unset 205 206 207 208 209   ' erasing all merits
@@ -10760,7 +10707,7 @@ You should know better than that!
 [Action 5022]
 Trying to trick Mistress, are you?
 You should know better than that!
-.must 270                    ' In activities
+.must 273                    ' In activities
 .set 102 517                 ' left without permission, training failure
 .set 893                     ' four demerits
 .unset 205 206 207 208 209   ' erasing all merits
@@ -10806,12 +10753,12 @@ I'm going to get through to you somehow!
 
 
 [Action 5035]
-.must 270               ' Activity cycle
+.must 273               ' Activity cycle
 .range 7200             ' Failed this activity
 
 [Action 5036]
 You can come back in an hour if you want to get back into my good graces.
-.mustnot 270            ' Activity cycle
+.mustnot 273            ' Activity cycle
 .set 90                 ' Wait 1 hour
 .settime 91
 .range 870
@@ -10819,7 +10766,7 @@ You can come back in an hour if you want to get back into my good graces.
 [Action 5037]
 You can come back in an hour or so
 when you're ready to accept a well-earned punishment!
-.mustnot 270            ' Activity cycle
+.mustnot 273            ' Activity cycle
 .set 90                 ' Wait 1 hour
 .settime 91
 .range 870
@@ -10827,7 +10774,7 @@ when you're ready to accept a well-earned punishment!
 [Action 5038]
 I'll let you think about your misdeeds for an hour or so,
 and then you can come back here to get what's coming to you.
-.mustnot 270            ' Activity cycle
+.mustnot 273            ' Activity cycle
 .set 90                 ' Wait 1 hour
 .settime 91
 .range 870
@@ -10835,7 +10782,7 @@ and then you can come back here to get what's coming to you.
 [Action 5039]
 You can come back in an hour,
 if you want to try to change my mind with a little suffering!
-.mustnot 270            ' Activity cycle
+.mustnot 273            ' Activity cycle
 .set 90                 ' Wait 1 hour
 .settime 91
 .range 870
@@ -10864,7 +10811,7 @@ I think that ass could use a good tanning.
 .range 7100
 
 ' TODO does't work since in range 5601- 264 is checked again
-' TODO two times is enough
+' TODO two times is enough -> add another flag
 [Action 5053]
 I think that ass could use another good tanning.
 .must 264               ' Done spanking activity already
@@ -10915,60 +10862,88 @@ I think your nipples and nuts could use a working-over.
 ' 28 collared handled in each position
 ' 24 something on balls is ignored
 ' since pegs on are an explicit part of some of the scenarios in level 2 
+' TODO check enema and pegs/clamps actual time left in mine-maid.sbd
 [Action 5070]
 Let's continue your slave training.
 .mustnot 262                      ' Done maid training activity already
 .mustnot       27    29           ' something around waist, blindfolded
 .mustnot    31                    ' can't sit on chair
 .mustnot 34 35          39        ' can't type/use mouse, tethered, pussy clamps
+.timeto 275 -00:06"00             ' Clamps & pegs
+.timeto 276 -00:06"00             ' holding the enema
 .set 262                          ' Done maid training
 .range 5129
 
 
-' Fallback
-[Action 5088]
-I can't think of anything I want you to do, My dear.
-.else                        ' Fallback
-.range 5089 5099
 
+' can't just let the slave cum, when still holding or voiding the enema,
+' and without interaction, Mine would loop until the enema holding duration was over
+' -> void enema and plug the slave to advance to plug assignment
+
+' okay for clamps, they will get removed later on
+ 
+' retry after voiding enema
+[Action 5086]
+.else                        ' Fallback
+.must 268                    ' Holding the enema
+You've been really brave holding your enema this long, slave.
+.gosub 7365 7372             ' void enema
+.resetrange 5040 5085        ' retry activity selection  
+.range 5040                  ' retry
+
+' retry after plugging slave
+[Action 5087]
+.else                        ' Fallback
+.must 269                    ' ready to be plugged
+.gosub 7430 7439             ' plug slave
+.resetrange 5040 5085        ' retry activity selection  
+.range 5040                  ' retry
+
+' Fallback if we're out of options
+[Action 5088]
+.else                        ' Fallback
+.mustnot 268                 ' Holding the enema
+.mustnot 269                 ' ready to be plugged
+I can't think of anything I want you to do, My dear.
+.range 5089 5099
 
 ' End session early depending on how many (de)merits the slave got
 ' neutral (but not 5) is mapped to positive outcome
 
-' In dubio pro reo, if happeing before any activity
+' In dubio pro reo, if happening before any activity
 [Action 5089]
 .mustnot 200 200 202 203 204 ' no demerits
 .mustnot 205 206 207 208 209 ' no merits
-.range 7725 7729
+.range 7750 7759
 
 ' Bad (-5)
 [Action 5090]
 .must 204                    ' 5 demerits
-.range 7715 7719
+.range 7730 7739
 
 ' Bad (-4)
 [Action 5091]
 .must 203                    ' 4 demerits
 .mustnot 208 209             ' Not 4 merits
-.range 7715 7719
+.range 7730 7739
 
 ' Bad (-3)
 [Action 5092]
 .must 202                    ' 3 demerits
 .mustnot 207 208 209         ' Not 3 merits
-.range 7715 7719
+.range 7730 7739
 
 ' Bad (-2)
 [Action 5093]
 .must 201                    ' 2 demerits
 .mustnot 206 207 208 209     ' Not 2 merits
-.range 7715 7719
+.range 7730 7739
 
 ' Bad (-1)
 [Action 5094]
 .must 200                    ' 1 demerit
 .mustnot 205 206 207 208 209 ' Not 1 merit
-.range 7715 7719
+.range 7730 7739
 
 ' Good (+1)
 [Action 5095]
@@ -10976,7 +10951,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 201 202 203 204     ' 2 or more demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7725 7729
+.range 7750 7759
 
 ' Good (+2)
 [Action 5096]
@@ -10984,7 +10959,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 202 203 204         ' 3 or more demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7725 7729
+.range 7750 7759
 
 ' Good (+3)
 [Action 5097]
@@ -10992,7 +10967,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 203 204             ' 4 or more demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7725 7729
+.range 7750 7759
 
 ' Good (+4)
 [Action 5098]
@@ -11000,7 +10975,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 204                 ' 5 demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7725 7729
+.range 7750 7759
 
 ' Good (+5)
 [Action 5099]
@@ -11008,14 +10983,14 @@ I can't think of anything I want you to do, My dear.
 .mustnot 204                 ' 5 demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7725 7729
+.range 7750 7759
 
 
 '   -------------------------------------------------------------------------
 
 ' maid training retuns
 
-'successful regular maid training, 2 merits
+' successful regular maid training, 2 merits
 [Action 5100]
 Well, 2 merits seem appropriate for a good training session.
 .set 896
@@ -11076,14 +11051,14 @@ Well, 2 merits seem appropriate for such a good training session.
 
 ' Achivement 601 -> vibrator as motivation for longer durations
 [Action 5120]
+.mustnot 389            ' Have vibrator
+.mustnot 685
+.poss 100
 To deepen your maid training,
 you'll need a nice vibrator or other stimulation toy
 that you can attach to your silly slave penis.
 Consider getting one until next time.
 .pause Yes, Miss
-.poss 100
-.mustnot 389            ' Have vibrator
-.mustnot 685
 ' Only one assignment may be active at the same time, so we have to
 ' start it in the toy managment section instead of here
 '.set 685                ' get or make vibrator assignment
@@ -11095,9 +11070,9 @@ Consider getting one until next time.
 
 ' Achivement 602 -> pussy clamps for nicer decorations in level 3 
 [Action 5122]
-.poss 100
 .mustnot 387            ' Have pussy clamps
 .mustnot 683
+.poss 100
 A good maid such as your yourself defintely needs a pair of nice pussy clamps.
 Some metal clamps with a nice connecting chain will suit you well, my dear.
 They will absolutely look great on your slutty ball sack.
@@ -11114,13 +11089,13 @@ Get them until next time, slut.
 
 ' Achivement 603 -> Dildo for dildo training, dildo positions 
 [Action 5124]
+.mustnot 388            ' Have dildo
+.mustnot 684
+.poss 100
 As a good maid such as yourself, to make progress in your maid training,
 you're going to need a naturally sized dildo with a suction cup.
 Make sure you have one until next time, baby.
 .pause Yes, Miss
-.poss 100
-.mustnot 388            ' Have dildo
-.mustnot 684
 ' Only one assignment may be active at the same time, so we have to
 ' start it in the toy managment section instead of here
 '.set 684                ' get a dildo assignment
@@ -11141,6 +11116,9 @@ Make sure you have one until next time, baby.
 ' Therefore we avoid this activity while wearing the gag temporarily,
 ' because this would just mean putting it in and immediately out again 
 
+' TODO check enema and pegs/clamps actual time left in mine-dildo.sbd
+' TODO no riding while enema holding/voiding
+
 ' tighter restrictions for introduction and beginner scenario
 [Action 5140]
 .mustnot 20 29               ' Something on nipples, blindfolded
@@ -11148,6 +11126,8 @@ Make sure you have one until next time, baby.
 .mustnot 34                  ' Can't type/use mouse
 .mustnot 221                 ' Gag temporary
 .mustnot 776                 ' Dildo worshiping 1
+.timeto 275 -00:06"00        ' Clamps & pegs
+.timeto 276 -00:06"00        ' holding the enema
 .range 5149
 
 ' less restrictions after introduction as more scenarios are available
@@ -11155,6 +11135,8 @@ Make sure you have one until next time, baby.
 .mustnot 29 34               ' blindfolded, can't type/use mouse
 .mustnot 221                 ' Gag temporary
 .must 776                    ' Dildo worshiping 1
+.timeto 275 -00:06"00        ' Clamps & pegs
+.timeto 276 -00:06"00        ' holding the enema
 .range 5149
 
 
@@ -11250,6 +11232,7 @@ You seem to get used to getting used very well.
 
 ' TODO shower possible with clothes pegs 42 38
 ' .timeto 275 -00:15"00
+' TODO check actual time left in mine-paddle.sbd
 
 ' shower 10m 100 paddles nips
 [Action 5201]
@@ -11257,15 +11240,19 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 361               ' Nipple clamps
+.timeto 275 -00:11"00   ' holding the enema
+.timeto 276 -00:11"00   ' holding the enema
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .set 210                ' shower one-time only
 .range 5351
 
-' shower 10m 91 paddles
+' shower 10m 100 paddles
 [Action 5202]
 .mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
+.timeto 275 -00:11"00   ' holding the enema
+.timeto 276 -00:11"00   ' holding the enema
 .set 210                ' shower one-time only
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .range 5352
@@ -11276,6 +11263,8 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 362               ' clothes pegs
+.timeto 275 -00:16"00   ' holding the enema
+.timeto 276 -00:16"00   ' holding the enema
 .set 210                ' shower one-time only
 .set 716 736 751        ' Nipple tolerance 1, restraint acceptance 1, ass whipping 1
 .range 5353
@@ -11336,6 +11325,9 @@ I like a clean slave.
 [Action 5400]
 .range 5401 5449
 
+' would basically work while holding the enema but
+' with all the preparation needed for a safe self bondage session
+' it's a little too much here
 
 ' simple hogtie
 [Action 5401]
@@ -11343,7 +11335,8 @@ I like a clean slave.
 .mustnot 26 28 31 32    ' wrists tied, collared, can't sit on chair, can't stand 
 '.mustnot 26 31 32       ' wrists tied, can't sit on chair, can't stand 
 .mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
 .must 366               ' Rope
 .must 741               ' strict self bondage 1
 .set 265                ' Done self bondage activity
@@ -11355,7 +11348,8 @@ I like a clean slave.
 .mustnot 26 28 31 32    ' wrists tied, collared, can't sit on chair, can't stand  
 '.mustnot 26 31 32       ' wrists tied, can't sit on chair, can't stand  
 .mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
 .must 743               ' strict self bondage 3
 .set 265                ' Done self bondage activity
 .range 5552
@@ -11365,7 +11359,8 @@ I like a clean slave.
 .mustnot 20 22 24 25    ' something on nipples, something in mouth, something on balls, ankles tied
 .mustnot 26 28 33 34    ' wrists tied, collared, can't kneel, can't type 
 '.mustnot 26 33 34       ' wrists tied, can't kneel, can't type 
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
 .must 361 362 363 366   ' nipple clamps, clothes pegs, wrist restraints, rope
 .must 717 743    	    ' nipple tolerance 2, strict self bondage 3
 .set 265                ' Done self bondage activity
@@ -11376,12 +11371,15 @@ I like a clean slave.
 .mustnot 20 22 24 25    ' something on nipples, something in mouth, something on balls, ankles tied
 .mustnot 26 28 33 34    ' wrists tied, collared, can't kneel, can't type 
 '.mustnot 26 33 34       ' wrists tied, can't kneel, can't type 
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
 .must 361 363 366       ' Nipple clamps, wrist restraints, rope
 .must 717 742           ' nipple tolerance 2, strict self bondage 2
 .set 265                ' Done self bondage activity
 .range 5554
 
+' TODO leave rope harness on after self-bondage scenarios
+' - if 269 unset or if plugged and 269 ready for assignment
 
 [Action 5449]
 Never mind, slave.
@@ -11492,6 +11490,7 @@ You'll be punished later for failing your training.
 .must 751               ' asswhipping 1
 .mustnot 29 33 35       ' can't kneel
 .timeto 275 -00:06"00
+.timeto 276 -00:06"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5752
 
@@ -11500,6 +11499,7 @@ You'll be punished later for failing your training.
 .must 751 752           ' asswhipping 2
 .mustnot 33             ' can't kneel
 .timeto 275 -00:09"00
+.timeto 276 -00:09"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5753
 
@@ -11515,6 +11515,7 @@ You'll be punished later for failing your training.
 .must 753               ' asswhipping 3
 .mustnot 33             ' can't kneel
 .timeto 275 -00:35"00
+.timeto 276 -00:35"00
 .set 264                ' Done spanking already
 .range 5754
 
@@ -11526,6 +11527,7 @@ You'll be punished later for failing your training.
 .must 754               ' asswhipping 4
 .mustnot 33             ' can't kneel
 .timeto 275 -00:65"00
+.timeto 276 -00:65"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5755
 
@@ -11538,6 +11540,7 @@ You'll be punished later for failing your training.
 .must 753               ' asswhipping 3
 .mustnot 33             ' can't kneel
 .timeto 275 -00:35"00
+.timeto 276 -00:35"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5754
 
@@ -11550,6 +11553,7 @@ You'll be punished later for failing your training.
 .must 754               ' asswhipping 4
 .mustnot 33             ' can't kneel
 .timeto 275 -00:65"00
+.timeto 276 -00:65"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5755
 
@@ -11562,6 +11566,7 @@ You'll be punished later for failing your training.
 .must 753               ' asswhipping 3
 .mustnot 33             ' can't kneel
 .timeto 275 -00:35"00
+.timeto 276 -00:35"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5754
 
@@ -11574,6 +11579,7 @@ You'll be punished later for failing your training.
 .must 754               ' asswhipping 4
 .mustnot 33             ' can't kneel
 .timeto 275 -00:65"00
+.timeto 276 -00:65"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5755
 
@@ -11687,6 +11693,7 @@ I will have to punish you later for failing your training.
 
 
 ' TODO some scenarios work with punishment clamps/pegs
+' TODO adjust duration according to timers
 
 ' nipple-torture game
 [Action 5801]
@@ -11694,6 +11701,7 @@ I will have to punish you later for failing your training.
 .must 361                    ' Nipple clamps
 .must 717                    ' Nipple tolerance 2
 .mustnot 20 29 34            ' something on nipples, blindfolded, can't type
+.timeto 276 -00:15"00        ' holding the enema
 .set 252                     ' Done nipple training activity
 .range 5951
 
@@ -11702,6 +11710,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 .timeto 275 -00:10"00
+.timeto 276 -00:10"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -11711,6 +11720,7 @@ I will have to punish you later for failing your training.
 .must 746                    ' cbt 1 
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 .timeto 275 -00:15"00
+.timeto 276 -00:15"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -11720,11 +11730,13 @@ I will have to punish you later for failing your training.
 .must 746 747                ' cbt 2
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 .timeto 275 -00:20"00
+.timeto 276 -00:20"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
 ' TODO very heavy weight drop from balls (20-25)
 '.timeto 275 -00:25"00
+'.timeto 276 -00:25"00        ' holding the enema
 
 
 ' light cardio nips
@@ -11734,6 +11746,7 @@ I will have to punish you later for failing your training.
 .mustnot 252                 ' Done nipple training activity already
 .must 362                    ' Clothes pegs
 .must 716
+.timeto 276 -00:10"00        ' holding the enema
 .set 252                     ' Done nipple training activity
 .range 5955
 
@@ -11743,6 +11756,7 @@ I will have to punish you later for failing your training.
 .mustnot 252                 ' Done nipple training activity already
 .must 361 362                ' nipple clamps, clothes pegs
 .must 717                    ' Nipple tolerance 2
+.timeto 276 -00:15"00        ' holding the enema
 .set 252                     ' Done nipple training activity
 .range 5964
 
@@ -11752,18 +11766,20 @@ I will have to punish you later for failing your training.
 .mustnot 252                 ' Done nipple training activity already
 .must 362                    ' clothes pegs
 .must 717 746                ' Nipple tolerance 2, cbt 1
+.timeto 276 -00:15"00        ' holding the enema
 .set 252                     ' Done nipple training activity
 .range 5965
 
 ' nipple clamp weight lifting
 [Action 5818]
 .mustnot 252                 ' Done nipple training activity already
-.mustnot 20 38 39            ' something on nipples, pegs pussy clamps on ball sack
+.mustnot 20 38 39            ' something on nipples, pegs or pussy clamps on ball sack
 .mustnot 25 29 32            ' ankles tied, blindfolded, can't stand
 .mustnot 30                  ' can't jerk off: Wanking is required to ease the pain on the nipples
 .mustnot 34 35               ' can't type/use mouse, tethered
 .must 361 366                ' Nipple clamps, rope
 .must 718                    ' Nipple tolerance 3
+.timeto 276 -00:25"00        ' holding the enema
 .set 252                     ' Done nipple training activity
 .range 5966
 
@@ -11773,6 +11789,7 @@ I will have to punish you later for failing your training.
 .mustnot 20 29 34            ' something on nipples, blindfolded, can't type/use mouse 
 .must 361 362                ' Nipple clamps, clothes pegs
 .must 718                    ' Nipple tolerance 3
+.timeto 276 -00:15"00        ' holding the enema
 .set 252                     ' Done nipple training activity
 .range 5967
 
@@ -11784,6 +11801,8 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
+.timeto 275 -00:09"00
+.timeto 276 -00:09"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -11793,6 +11812,8 @@ I will have to punish you later for failing your training.
 .must 746                    ' cbt 1
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
+.timeto 275 -00:14"00
+.timeto 276 -00:14"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -11802,6 +11823,8 @@ I will have to punish you later for failing your training.
 .must 746 747                ' cbt 2
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
+.timeto 275 -00:19"00
+.timeto 276 -00:19"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
@@ -11813,7 +11836,8 @@ I will have to punish you later for failing your training.
 .mustnot 25 32               ' ankles tied, can't stand
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
-.timeto 275 -00:10"00
+.timeto 275 -00:09"00
+.timeto 276 -00:09"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -11823,7 +11847,8 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
-.timeto 275 -00:15"00
+.timeto 275 -00:14"00
+.timeto 276 -00:14"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -11833,12 +11858,14 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.timeto 275 -00:20"00
+.timeto 275 -00:19"00
+.timeto 276 -00:19"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
 ' TODO very heavy weight drop from balls (20-25)
-'.timeto 275 -00:25"00
+'.timeto 275 -00:24"00
+'.timeto 276 -00:24"00        ' holding the enema
 
 
 [Action 5849]
@@ -11979,25 +12006,26 @@ Meanhile, three demerits will do about right.
 ' todo 20 minutes with clamps possible
 ' 2-3 * 10min
 [Action 6001]
-.mustnot 263                 ' Done wanking activity already
-.mustnot 23 24 25 29         ' something on penis, something on balls, ankles tied, blindfolded
-.mustnot 30 31 34            ' can't jerk off, can't sit on chair, can't type/use mouse     
-.mustnot 44                  ' Chastified
-.mustnot 267 268             ' Enema carrying out or holding
-.must 726 736 747            ' Denial and self-control 1, Restraint acceptance 1, cbt 2
-.timeto 275 -00:35"00        ' 30 minutes plus preparation
-.set 263                     ' Done wanking activity
+.mustnot 263            ' Done wanking activity already
+.mustnot 23 24 25 29    ' something on penis, something on balls, ankles tied, blindfolded
+.mustnot 30 31 34       ' can't jerk off, can't sit on chair, can't type/use mouse     
+.mustnot 44             ' Chastified
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
+.must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
+.timeto 275 -00:35"00   ' 30 minutes plus preparation
+.set 263                ' Done wanking activity
 .range 6151
 
 ' Terri and Jennifer #16-21
 [Action 6002]
-.mustnot 266                 ' Done story time activity already 
-.mustnot 20 22 25 26         ' something on nipples, something in mouth, ankles tied, wrists tied
-.mustnot 29 30 34 35         ' blindfolded, can't jerk off, can't type/use mouse, tethered
-.mustnot 44                  ' Chastified
-.must 361 363 364 367        ' nipple clamps, wrist restraints, ankle restraints, gag
-.must 717 736                ' Nipple tolerance 2, Restraint Acceptance 1
-.set 266                     ' Done story time activity
+.mustnot 266            ' Done story time activity already 
+.mustnot 20 22 25 26    ' something on nipples, something in mouth, ankles tied, wrists tied
+.mustnot 29 30 34 35    ' blindfolded, can't jerk off, can't type/use mouse, tethered
+.mustnot 44             ' Chastified
+.must 361 363 364 367   ' nipple clamps, wrist restraints, ankle restraints, gag
+.must 717 736           ' Nipple tolerance 2, Restraint Acceptance 1
+.set 266                ' Done story time activity
 .range 6152
 
 'Diary of Carolyn Ch. 1 excerpt
@@ -12005,101 +12033,110 @@ Meanhile, three demerits will do about right.
 'clamps, weights, clothes pegs, rope
 'need 4th level nipples, 2nd cbt
 [Action 6003]
-.mustnot 266                 ' Done story time activity already 
-.mustnot 20 24 29 32         ' Something on nipples, something on balls, blindfolded, can't stand
-.mustnot 34 35               ' can't type/use mouse, tethered 
-.must 361 362 366            ' nipple clamps, clothes pegs, rope
-.must 719 746                ' Nipple tolerance 4, cbt 1
-.set 266                     ' Done story time activity
+.mustnot 266            ' Done story time activity already 
+.mustnot 20 24 29 32    ' Something on nipples, something on balls, blindfolded, can't stand
+.mustnot 34 35          ' can't type/use mouse, tethered 
+.must 361 362 366       ' nipple clamps, clothes pegs, rope
+.must 719 746           ' Nipple tolerance 4, cbt 1
+.set 266                ' Done story time activity
 .range 6153
 
 'Light wanking 2x5m, gives 726
 [Action 6004]
-.mustnot 263                 ' Done wanking activity already
-.timeto 275 -00:11"00        ' 10 + 1
-.set 263                     ' Done wanking activity
+.mustnot 263            ' Done wanking activity already
+.timeto 275 -00:11"00   ' 10 + 1
+.set 263                ' Done wanking activity
 .range 6154
 
 'Medium wanking 5x3m
 [Action 6005]
-.mustnot 30 44               ' can't jerk off, chastified
-.mustnot 115                 ' Not with spiked ring or urethra tube
-.mustnot 263                 ' Done wanking activity already
-.must 726                    ' Denial and self-control 1 
-.timeto 275 -00:19"00        ' 15 + 4
-.set 263                     ' Done wanking activity
+.mustnot 30 44          ' can't jerk off, chastified
+.mustnot 115            ' Not with spiked ring or urethra tube
+.mustnot 263            ' Done wanking activity already
+.must 726               ' Denial and self-control 1 
+.timeto 275 -00:19"00   ' 15 + 4
+.timeto 276 -00:19"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6155
 
 '... 2x10m
 [Action 6006]
-.mustnot 30 44               ' can't jerk off, chastified
-.mustnot 263                 ' Done wanking activity already
-.must 726                    ' Denial and self-control 1
-.timeto 275 -00:20"00        ' 20 + 2
-.set 263                     ' Done wanking activity
+.mustnot 30 44          ' can't jerk off, chastified
+.mustnot 263            ' Done wanking activity already
+.must 726               ' Denial and self-control 1
+.timeto 275 -00:20"00   ' 20 + 2
+.timeto 276 -00:20"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6156
 
 ' 4x5m, gives 727
 [Action 6007]
-.mustnot 30 44               ' can't jerk off, chastified
-.mustnot 263                 ' Done wanking activity already
-.must 726                    ' Denial and self-control 1
-.timeto 275 -00:23"00        ' 20 + 3
-.set 263                     ' Done wanking activity
+.mustnot 30 44          ' can't jerk off, chastified
+.mustnot 263            ' Done wanking activity already
+.must 726               ' Denial and self-control 1
+.timeto 275 -00:23"00   ' 20 + 3
+.timeto 276 -00:23"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6157
 
 ' 7x3m, gives 727
 [Action 6008]
-.mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
-.mustnot 263                 ' Done wanking activity already
-.must 726                    ' Denial and self-control 1
-.timeto 275 -00:27"00        ' 21 + 6
-.set 263                     ' Done wanking activity
+.mustnot 20 30 44       ' something on nipples, can't jerk off, chastified
+.mustnot 263            ' Done wanking activity already
+.must 726               ' Denial and self-control 1
+.timeto 275 -00:27"00   ' 21 + 6
+.timeto 276 -00:27"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6158
 
 ' 3x10 gives 728
 [Action 6009]
-.mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
-.mustnot 263                 ' Done wanking activity already
-.must 727                    ' Denial and self-control 2
-.timeto 275 -00:32"00        ' 30 + 2
-.set 263                     ' Done wanking activity
+.mustnot 20 30 44       ' something on nipples, can't jerk off, chastified
+.mustnot 263            ' Done wanking activity already
+.must 727               ' Denial and self-control 2
+.timeto 275 -00:32"00   ' 30 + 2
+.timeto 276 -00:32"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6159
 
 ' 5x5m
 [Action 6010]
-.mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
-.mustnot 263                 ' Done wanking activity already
-.must 727                    ' Denial and self-control 2
-.timeto 275 -00:29"00        ' 25 + 4
-.set 263                     ' Done wanking activity
+.mustnot 20 30 44       ' something on nipples, can't jerk off, chastified
+.mustnot 263            ' Done wanking activity already
+.must 727               ' Denial and self-control 2
+.timeto 275 -00:29"00   ' 25 + 4
+.timeto 276 -00:29"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6160
 
 ' 9x3m
 [Action 6011]
-.mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
-.mustnot 263                 ' Done wanking activity already
-.must 727                    ' Denial and self-control 2
-.timeto 275 -00:35"00        ' 27 + 8
-.set 263                     ' Done wanking activity
+.mustnot 20 30 44       ' something on nipples, can't jerk off, chastified
+.mustnot 263            ' Done wanking activity already
+.must 727               ' Denial and self-control 2
+.timeto 275 -00:35"00   ' 27 + 8
+.timeto 276 -00:35"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6161
 
 ' 4x10m
 [Action 6012]
-.mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
-.mustnot 263                 ' Done wanking activity already
-.must 728                    ' Denial and self-control 3
-.timeto 275 -00:43"00        ' 40 + 3
-.set 263                     ' Done wanking activity
+.mustnot 20 30 44       ' something on nipples, can't jerk off, chastified
+.mustnot 263            ' Done wanking activity already
+.must 728               ' Denial and self-control 3
+.timeto 275 -00:43"00   ' 40 + 3
+.timeto 276 -00:43"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6162
 
 ' 9x5m, gives 729
 [Action 6013]
-.mustnot 20 30 44            ' something on nipples, can't jerk off, chastified
-.mustnot 263                 ' Done wanking activity already
-.must 728                    ' Denial and self-control 3
-.timeto 275 -00:53"00        ' 45 + 8
-.set 263                     ' Done wanking activity
+.mustnot 20 30 44       ' something on nipples, can't jerk off, chastified
+.mustnot 263            ' Done wanking activity already
+.must 728               ' Denial and self-control 3
+.timeto 275 -00:53"00   ' 45 + 8
+.timeto 276 -00:53"00   ' holding the enema
+.set 263                ' Done wanking activity
 .range 6163
 
 ' slavesinlove 186 pictures
@@ -12109,6 +12146,7 @@ Meanhile, three demerits will do about right.
 .mustnot 34             ' can't type
 .must 361 362 367       ' Nipple clamps, clothes pegs, gag
 .must 712 717 746       ' punishment acceptance 2, nipple tolerance 2, cbt1
+.timeto 276 -00:15"00   ' holding the enema
 .set 266                ' Done story time activity
 .range 6164
 
@@ -12420,12 +12458,12 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 [Action 7110]
 Well, my pet, you've earned a nice beating,
 but you're lacking a paddle.
-.mustnot 270             ' Punishment
+.mustnot 273             ' Punishment
 .range 7115
 
 [Action 7111]
 Slave, your inventory seems to be lacking a paddle!
-.must 270                ' Activity
+.must 273                ' Activity
 .range 7115
 
 
@@ -12519,7 +12557,7 @@ Now take your "paddle" and carefully listen to my instructions.
 
 ' Spanking activity (from 5052-5053)
 [Action 7131]
-.must 270
+.must 273
 .range 5600
 
 ' 508 inattentiveness paddle x160
@@ -12624,121 +12662,53 @@ Now take your "paddle" and carefully listen to my instructions.
 [Action 7300]
 .range 7301 7309
 
+
+' TODO Only allow stoppable activities 
+' TODO with help on higher levels slave shouldn't go to the toilet at all - don't mention anymore
+
 [Action 7301]
-.mustnot 267            ' Enema applied
+.mustnot 268            ' Holding the enema
 .range 7399
 
 ' No tool, neither help nor inflatable nozzle
 [Action 7302]
+.mustnot 21             ' Something in butt, enema doesn't count
 .mustnot 27 36 41       ' something around waist, harnessed, dildo in ass
-.must 267               ' Enema applied
-.poss 100
-.range 7310 7314        ' Shorter time
+.must 268               ' Holding the enema
+.timeto 276 00:00"00    ' Enema timer, holding
+.range 7355 7359
 
 ' Inflatable nozzle
-[Action 7304]
-.must 21                ' Something in butt, enema doesn't count
+[Action 7303]
+.must 21                ' Something in butt, inflatable nozzle
 .mustnot 41             ' Dildo in ass
-.must 267               ' Enema applied
-.range 7315 7319
-
-' Handle help tools 3063/3064-3069
-
-'[Action 7305]
-
-' Harness & towel
-[Action 7306]
-.mustnot 21             ' Something in butt, enema doesn't count
-.must 36                ' Harnessed
-.must 267               ' Enema applied
-.range 7315 7319
+.must 268               ' Holding the enema
+.timeto 276 +00:05"00   ' Enema timer, holding
+.range 7355 7359
 
 ' Crotch rope & towel
-[Action 7307]
+[Action 7304]
 .mustnot 21             ' Something in butt, enema doesn't count
 .must 27                ' Something around waist
-.must 267               ' Enema applied
-.range 7315 7319
+.must 268               ' Holding the enema
+.timeto 276 +00:05"00   ' Enema timer, holding
+.range 7355 7359
 
-' Crotch rope & dildo
+'[Action 7305]
+'[Action 7306]
+'[Action 7307]
+
+' no help - Still time left
 [Action 7308]
-.must 21                ' Something in butt, enema doesn't count
-.must 27                ' Crotch-roped
-.must 41                ' Dildo in ass
-.must 267               ' Enema applied
-.range 7315 7319
-
-' Harness & dildo
-[Action 7309]
-.must 21                ' Something in butt, enema doesn't count
-.must 36                ' Harnessed
-.must 41                ' Dildo in ass
-.must 267               ' Enema applied
-.range 7315 7319
-
-
-' duration exceeded, no help
-
-[Action 7310]
-.mustnot 786 787 788 789     ' 1L
-.timefrom 276 15:00"00       ' Enema timer, filling up
-.poss 100                    ' doesn't work like "else", but almost
-.range 7355 7359
-
-[Action 7311]
-.must 786                    ' 1.25L
-.mustnot  788 789            ' 1.75L-2.0L
-.timefrom 276 20:00"00       ' Enema timer, filling up
-.poss 100                    ' doesn't work like "else", but almost
-.range 7355 7359
-
-[Action 7312]
-.mustnot 519 525             ' Require only cumming without permission handled
-.must 786 787 788            ' 1.75L-2.0L
-.timefrom 276 25:00"00       ' Enema timer, filling up
-.poss 100                    ' doesn't work like "else", but almost
-.range 7355 7359
-
-'[Action 7313]
-
-' Still time left
-[Action 7314]
+.else
+.mustnot 21             ' Something in butt, inflatable nozzle
 .range 7320 7324
 
-
-' duration exceeded, inflatable nozzle - have to hold longer
-
-[Action 7315]
-.mustnot 786 787 788 789     ' 1L
-.timefrom 276 20:00"00       ' Enema timer, holding
-.poss 100                    ' doesn't work like "else", but almost
-.range 7355 7359
-
-[Action 7316]
-.must 786                    ' 1.25L
-.mustnot  788 789            ' 1.75L-2.0L
-.timefrom 276 25:00"00       ' Enema timer, holding
-.poss 100                    ' doesn't work like "else", but almost
-.range 7355 7359
-
-[Action 7317]
-.mustnot 519 525             ' Require only cumming without permission handled
-.must 786 787 788            ' 1.75L-2.0L
-.timefrom 276 30:00"00       ' Enema timer, holding
-.poss 100                    ' doesn't work like "else", but almost
-.range 7355 7359
-
-'[Action 7318]
-
-' Still time left
-[Action 7319]
+' inflatable nozzle - still time left
+[Action 7309]
+.else
+.must 21                ' Something in butt, inflatable nozzle
 .range 7325 7329
-
-
-' time is up -> 7355
-' Still time left
-' - without help 7320
-' - with help 7325
 
 
 ' Time left, no help utilities
@@ -12772,7 +12742,7 @@ Well, does my naughty anal slut actually
 feel the urge to visit the toilet so soon?
 .yestext Yes Miss, please let me go
 .notext I can just manage to hold it, Miss 
-.yesno 7360 7362 7330 7334
+.yesno 7360 7361 7330 7334
 
 
 ' Time left, with help utilities (crotch rope plus towel)
@@ -12807,7 +12777,7 @@ Well, does my naughty anal slut actually
 feel the urge to visit the toilet so soon?
 .yestext Yes Miss, please let me go
 .notext I can just manage to hold it, Miss 
-.yesno 7360 7362 7330 7334
+.yesno 7360 7361 7330 7334
 
 
 ' compliments when having to hold one more activity
@@ -12828,7 +12798,7 @@ I think you can hold it a little longer.
 How's your enema doing slave?
 Can you still hold it, my dear?
 .must 7201              ' Successfully finished activity
-.yesno 7365 7369 7360 7362
+.yesno 7364 7364 7360 7361
 .yestext Yes, I can just keep it in, Miss 
 .notext No Miss, please let me go to the toilet
 
@@ -12837,7 +12807,7 @@ Slave, tell me:
 How does it feel to hold all that iquid inside?
 Do you like your enema?
 .must 7201              ' Successfully finished activity
-.yesno 7365 7369 7360 7362
+.yesno 7364 7364 7360 7361
 .yestext I can just manage to hold it, Miss 
 .notext No Miss, please let me relieve myself
 
@@ -12848,7 +12818,7 @@ Do you like your enema?
 Well, does my naughty anal slave actually
 feel the urge to visit the toilet so soon?
 .must 7200              ' Pressed stop-button in activity
-.yesno 7360 7362 7365 7372
+.yesno 7360 7361 7364 7364
 .yestext Yes Miss, please let me go
 .notext No, I can just manage to hold it, Miss 
 
@@ -12860,7 +12830,7 @@ Slave!
 This enema is intended as a preparation to deepen your anal traning.
 It's uncomfortable because it's meant to be uncomfortable, you lazy anal slut.
 .mustnot 257            ' Enema intensified training
-.range 7363
+.range 7362
 
 [Action 7361]
 Slave!
@@ -12869,23 +12839,13 @@ It's uncomfortable because it's meant to be uncomfortable.
 As it looks, you're going need a little more training than expected,
 you lazy anal slut.
 .must 257               ' Enema intensified training
-.range 7364
-
-' todo enable only if this isn't called twice, in order to not hold the enema for too long
-'[Action 7362]
-'Slave!
-'This enema is intended as a preparation to deepen your anal traning.
-'It's uncomfortable because it's meant to be uncomfortable.
-'And to get used to it, you're going to hold it for another round.
-'delay 2
-'.must 257               ' Enema intensified training
-'.range 7399
+.range 7363
 
 
 ' Start intensifying training
 
 ' Bluffing
-[Action 7363]
+[Action 7362]
 I'll gracefully allow you to relieve yourself early this time,
 but we'll be intensifying your training to get you used to the
 amount of liquid you have currently inside your gut.
@@ -12893,7 +12853,7 @@ amount of liquid you have currently inside your gut.
 .range 7373 7379
 
 ' Bluffing
-[Action 7364]
+[Action 7363]
 I'll gracefully allow you to relieve yourself early this time,
 but you certainly need more training to become
 comfortable with the current amount of liquid inside you.
@@ -12901,55 +12861,51 @@ comfortable with the current amount of liquid inside you.
 .range 7373 7379
 
 
-' Keep enema quantity
+[Action 7364]
+.gosub 7365 7372
+.range 7399
+
+
+' Raise enema quantity for next time
+
 [Action 7365]
-Good boy!
-.range 7373 7379
-
-' Raise enema quantity next time, require nozzle with inflatable cuff for 1.5 and above
-
-[Action 7366]
 Good boy!
 .mustnot 786
 .poss 91
 .set 786                ' Enema quantity 1.0l
 .range 7373 7379
 
-[Action 7367]
+[Action 7366]
 Very good, my anal pet!
 .must 21                ' something in butt, require nozzle with inflatable cuff
 .mustnot 41             ' Dildo in ass               
-.must 786
+.must 786               ' Enema quantity 1.0l
 .mustnot 787
 .poss 33
 .set 787                ' Enema quantity 1.25l
 .range 7373 7379
 
 ' Not used, set when using the inflatable nozzle
-[Action 7368]
+[Action 7367]
 What a good anal slut.
 .must 21                ' something in butt, require nozzle with inflatable cuff
 .mustnot 41             ' Dildo in ass               
-.must 787
+.must 787               ' Enema quantity 1.25l
 .mustnot 788
 .poss 25
 .set 788                ' Enema quantity 1.50l
 .range 7373 7379
 
-[Action 7369]
+[Action 7368]
 Very good, my anal pet!
-.must 21                ' something in butt, require nozzle with inflatable cuff
-.mustnot 41             ' Dildo in ass               
-.must 788
+.must 788               ' Enema quantity 1.50l
 .mustnot 789
 .poss 12
 .set 789                ' Enema quantity 1.75l
 .range 7373 7379
 
-[Action 7370]
+[Action 7369]
 What a good anal slut you are!
-.must 21                ' something in butt, require nozzle with inflatable cuff
-.mustnot 41             ' Dildo in ass               
 .must 789               ' Enema quantity 1.75l
 .mustnot 790
 .poss 10
@@ -12957,31 +12913,42 @@ What a good anal slut you are!
 .range 7373 7379
 
 ' Keep enema quantity
-[Action 7371]
+[Action 7370]
 What a good anal slut!
 .range 7373 7379
 
 ' Keep enema quantity
-[Action 7372]
+[Action 7371]
 Very well, my anal pet!
+.range 7373 7379
+
+' Keep enema quantity
+[Action 7372]
+Good boy!
 .range 7373 7379
 
 
 ' Void enema and return
 
-
-' Handle help tools from 3063/3064-3069
-
-' Harness & towel
+' No help
 [Action 7373]
 .mustnot 21             ' Something in butt, enema doesn't count
-.must 36                ' Harnessed
-You may now go to the bath room,
-remove the rope harness and the towel,
-and relieve yourself.
+.mustnot 27 36          ' Neither crotch rope nor harness
+You may now go to the bath room and relieve yourself.
 .delay 60 60 STOP 7395 7396
 .stoptext Thank you Miss
-.unset 36               ' Harnessed
+.range 7390
+
+' nozzle with inflatable cuff
+[Action 7374]
+.must 21                ' Something in butt, nozzle with inflatable cuff
+.mustnot 41             ' Dildo in ass
+You may now go to the bath room, deflate and
+remove the enema nozzle, and relieve yourself.
+.delay 60 60 STOP 7395 7396
+.stoptext Thank you Miss
+.unset 21               ' Something in butt
+.set 786 787 788        ' Advance to enema quantity 1.5l
 .range 7390
 
 ' Crotch rope & towel
@@ -12994,53 +12961,6 @@ and relieve yourself.
 .delay 60 60 STOP 7395 7396
 .stoptext Thank you Miss
 .unset 27               ' Something around waist
-.range 7390
-
-' Crotch rope & dildo
-[Action 7376]
-.must 21                ' Something in butt, enema doesn't count
-.must 27                ' Something around waist
-.must 41                ' Dildo in ass
-You may now go to the bath room,
-remove the crotch rope and the dildo,
-and relieve yourself.
-.delay 60 60 STOP 7395 7396
-.stoptext Thank you Miss
-.unset 21 27 41         ' Something in butt, something around waist, dildo
-.range 7390
-
-' Harness & dildo
-[Action 7377]
-.must 21                ' Something in butt, enema doesn't count
-.must 36                ' Harnessed
-.must 41                ' Dildo in ass
-You may now go to the bath room,
-remove the rope harness and the dildo,
-and relieve yourself.
-.delay 60 60 STOP 7395 7396
-.stoptext Thank you Miss
-.unset 21 36 41         ' Something in butt, harnessed, dildo
-.range 7390
-
-' nozzle with inflatable cuff
-[Action 7378]
-.must 21                ' Something in butt, nozzle with inflatable cuff
-.mustnot 41             ' Dildo in ass
-You may now go to the bath room, deflate and
-remove the enema nozzle, and relieve yourself.
-.delay 60 60 STOP 7395 7396
-.stoptext Thank you Miss
-.unset 21               ' Something in butt
-.set 786 787 788        ' Advance to enema quantity 1.5l
-.range 7390
-
-' No help
-[Action 7379]
-.mustnot 21             ' Something in butt, enema doesn't count
-.mustnot 27 36          ' Neither crotch rope nor harness
-You may now go to the bath room and relieve yourself.
-.delay 60 60 STOP 7395 7396
-.stoptext Thank you Miss
 .range 7390
 
 
@@ -13073,35 +12993,45 @@ Tell me when you've finished, my pet.
 
 
 [Action 7398]
-.unset 267              ' Carry out enema
-.set 268                ' Enema aftermath
-.range 7399
+.unset 268              ' Holding the enema
+.settime 276 +INF       ' reset the enema holding timer to re-enable all activites 
+.set 269                ' enema voided, ready to be plugged
+.return
+
 
 ' Enama progress exit
 [Action 7399]
-.range 7400               ' Enema aftermath
+.range 7400             ' Enema aftermath
 
 
 ' Enema aftermath: Go again on the toilet, then issue butt plug assignment
 
 [Action 7400]
-.range 7401 7403
+.range 7401 7404
 
 ' No enema or still holding it
 [Action 7401]
-.mustnot 268              ' enema aftermath
-.mustnot 269              ' completed voiding the enema, ready for plug
-.range 7479               ' Continue
+.else
+.range 7479             ' Continue
+
+' still holding the enema
+[action 7402]
+.must 268               ' Holding the enema
+.range 7479             ' Continue
 
 ' Voiding stage, query if slave has to go to the toilet to void one more time
-[Action 7402]
-.must 268                 ' enema aftermath
-.range 7410 7414          ' Enema aftermath
-
-' Voiding completed (according to slave), ready for plug
+' afterwards, continue with inserting the plug
 [Action 7403]
-.must 269                 ' completed voiding the enema, ready for plug
-.range 7479               ' Continue
+.mustnot 21             ' something in butt
+.must 269               ' enema voided, ready to be plugged
+.gosub 7410 7414        ' Enema aftermath
+.range 7479             ' Continue
+
+' Voiding completed (according to slave), plugged
+[Action 7404]
+.must 21                ' something in butt
+.must 270               ' plugged, ready for assignment
+.range 7479             ' Continue
 
 
 ' Any more visits to the toilet?
@@ -13109,7 +13039,7 @@ Tell me when you've finished, my pet.
 [Action 7410]
 .must 7201              ' Successfully finished activity
 Well, does my naughty anal slut need to visit the toilet again?
-.yesno 7420 7424 7440 7444
+.yesno 7420 7424 7415 7419
 .yestext Yes please, that would be good, Miss
 .notext No Miss, I think I have it all voided
 
@@ -13117,7 +13047,7 @@ Well, does my naughty anal slut need to visit the toilet again?
 .must 7201              ' Successfully finished activity
 Well, slave, are your bowels completly empty?
 Or does my naughty anal slut need to visit the toilet again?
-.yesno 7420 7424 7440 7444
+.yesno 7420 7424 7415 7419
 .yestext Yes please, that would be good, Miss
 .notext No Miss, I think I have it all voided
 
@@ -13128,9 +13058,22 @@ Or does my naughty anal slut need to visit the toilet again?
 .must 7200              ' Pressed stop-button in activity
 Well, does my naughty anal slut actually feel
 the urge to visit the toilet again so soon?
-.yesno 7420 7424 7440 7444
+.yesno 7420 7424 7415 7419
 .yestext Yes please, that would be good, Miss
 .notext No Miss, I think I have it all voided
+
+
+' Slave doesn't need to visit the toilet again
+
+[Action 7415]
+Very good, slave.
+It seems that you've voided the enema completely.
+.range 7430 7439 
+
+'[Action 7416]
+'[Action 7417]
+'[Action 7418]
+'[Action 7419]
 
 
 ' Yes, slave needs to void another time
@@ -13138,73 +13081,180 @@ the urge to visit the toilet again so soon?
 Very well, slave.
 There is still a lot of liquid inside your bowels,
 and it takes some time to get it all out.
-.range 7430 7434 
+.range 7425 7429 
 
 '[Action 7421]
 '[Action 7422]
 '[Action 7423]
 '[Action 7424]
 
-[Action 7430]
+
+' todo explain slave can take all the time he needs
+
+[Action 7425]
 Hurry up, and just come back when you feel fully relieved.
 delay 60
 .pause I'm back, Miss
-.range 7439 
+.range 7429 
 
-'[Action 7431]
-'[Action 7432]
+'[Action 7426]
+'[Action 7427]
+'[Action 7428]
+
+[Action 7429]
+Very good, slave.
+It seems that you've voided the enema completely.
+.gosub 7430 7439 
+.return
+
+
+' Plug slave
+
+' Have neither butt plug nor dildo -> no assignments, finished
+[Action 7430]
+.mustnot 368 388        ' Butt plug, dildo
+.unset 269              ' enema voided, ready to be plugged
+.range 7479
+
+[Action 7431]
+.must 368               ' have butt plug
+You may lube up your slave ass and insert your buttplug now, slave.
+I want your ass pleasantly filled.
+.pause I'm plugged, Miss
+.set 21                 ' Something in butt
+.range 7450 7454
+
+[Action 7432]
+.must 368               ' have butt plug
+I'm sure you enjoy being an anal slut for your Mistress.
+Lube up that buttplug and insert it into your bottom now.
+.pause I'm plugged, Miss
+.set 21                 ' something in butt
+.range 7450 7454
+
 '[Action 7433]
 '[Action 7434]
 
 
-' Continue session
-[Action 7439]
-.range 7479
+[Action 7435]
+.mustnot 26             ' wrists tied
+.must 388               ' have anal dildo
+You may lube up your slave ass and insert your anal dildo now, slave.
+I want your ass pleasantly filled.
+.pause I'm plugged, Miss
+.set 21                 ' Something in butt
+.range 7455 7459        ' fix dildo with crotch rope or harness
 
 
-' Slave doesn't need to visit the toilet again
+[Action 7436]
+.mustnot 26             ' wrists tied
+.must 388               ' have anal dildo
+I'm sure you enjoy being an anal slut for your Mistress.
+Lube up that dildo and insert it into your bottom now.
+.pause I'm plugged, Miss
+.set 21 41              ' something in butt, dildo
+.range 7455 7459        ' fix dildo with crotch rope or harness
 
-[Action 7440]
-Very well, slave.
-It seems that you've voided the enema completely.
-.range 7450 7459 
+'[Action 7436]
+'[Action 7437]
+'[Action 7438]
+'[Action 7439]
 
-'[Action 7421]
-'[Action 7422]
-'[Action 7423]
-'[Action 7424]
-
-
-' Decide for a butt plug assignment
 
 [Action 7450]
-.unset 268              ' Enema aftermath
-.range 7451 7453
+.must 758               ' anal training 3
+I want to make sure that butt plug sits extra tight in your anus. 
+For that reason you may tie yourself a tight crotch rope now, slave.
+.range 7460
 
-
-' todo check the time of the day, so we don't have to assume this is played in the evening or at night
-' this is because the dildo/plug assignments assume this is played at night time, and all durations are based on this assumption
-
-' Have neither butt plug nor dildo -> no assignments, finished
 [Action 7451]
-.mustnot 368 388        ' Butt plug, dildo
-.range 7479
+.must 366               ' Some rope
+.must 426               ' Sleep in harness assignment completed 
+.must 758               ' anal training 3
+I want to make sure that butt plug sits extra tight in your anus.
+For that reason you may tie yourself a nice rope harness now, slave.
+.pause I'm all tied up, Miss
+.range 7461
 
-' Postpone to add when putting on an activity toy
-[Action 7452]
-.must 368               ' have butt plug
-.set 269                ' Completed voiding the enema, ready for plug
-.range 7460
+'[Action 7452]
+'[Action 7453]
 
-[Action 7453]
-.must 388               ' have dildo
-.set 269                ' Completed voiding the enema, ready for plug
-.range 7460
+[Action 7454]
+.else
+.range 7478
 
 
-' The plug is inserted just before the next activity 
+[Action 7455]
+.must 758               ' anal training 3
+I want to make sure that dildo sits extra tight in your anus. 
+For that reason you may tie yourself a tight crotch rope now, slave.
+.range 7465
+
+[Action 7456]
+.must 366               ' Some rope
+.must 426               ' Sleep in harness assignment completed 
+.must 758               ' anal training 3
+I want to make sure that dildo sits extra tight in your anus.
+For that reason you may tie yourself a nice rope harness now, slave.
+.range 7466
+
+'[Action 7457]
+'[Action 7458]
+'[Action 7459]
+
+
 [Action 7460]
-.range 7479
+.image bd227_18.jpg     ' crotch rope close-up
+As usual, tie a knot in such a way that, when the rope is taut,
+it rests directly on your anus -
+or as of now - on your butt plug.
+.pause I'm tied up, Miss
+.set 27                 ' Something around waist
+.range 7478
+
+[Action 7461]
+.image babc-alt.jpg
+You know the drill, slave, so get on it.
+As usual, tie a knot in such a way that, when the rope is taut,
+it rests directly on your anus -
+ or as of now - on your butt plug.  
+.pause I'm all tied up, Miss
+.set 36                 ' Harnessed
+.range 7478
+
+'[Action 7462]
+'[Action 7463]
+'[Action 7464]
+
+
+[Action 7465]
+.image bd227_18.jpg     ' crotch rope close-up
+As usual, tie a knot in such a way that, when the rope is taut,
+it rests directly on your anus -
+or as of now - on your dildo.
+.pause I'm tied up, Miss
+.set 27                 ' Something around waist
+.range 7478
+
+[Action 7466]
+.image babc-alt.jpg
+You know the drill, slave, so get on it.
+As usual, tie a knot in such a way that, when the rope is taut,
+it rests directly on your anus -
+ or as of now - on your dildo.  
+.pause I'm all tied up, Miss
+.set 36                 ' Harnessed
+.range 7478
+
+'[Action 7467]
+'[Action 7468]
+'[Action 7469]
+
+
+[Action 7478]
+.unset 269              ' enema voided, ready to be plugged
+.set 270                ' plugged, ready for assignment
+.return
 
 
 [Action 7479]
@@ -13212,6 +13262,7 @@ It seems that you've voided the enema completely.
 
 
 ' Jingle balls: Wear bells til the end of the session
+' TODO join duplicated code from 2960+ (or the other way around)
 
 [Action 7480]
 .must 360               ' some chains
@@ -13325,6 +13376,9 @@ delay 2
 .unset 7495
 .range 7549                  ' Continue the session
 
+
+' TODO duplicated from startup code
+' at least the lectures could be turned into sub routines
 
 ' 7500 7502 decide whether to ask if slave is keeping cock hard
 [Action 7500]
@@ -13860,7 +13914,8 @@ Just in case, that gag stays in, sweetheart.
 
 [Action 7600]
 It's time to review your progress today, slave.
-As you know, good slaves are rewarded, and bad ones are punished.
+As you know, good slaves are rewarded,
+and bad ones are punished.
 Let's find out which kind you are, My pussy!
 .range 7604 7609
 
@@ -14390,33 +14445,32 @@ Now I'll judge your performance...
 .range 7700 7714
 
 
-
 ' Mistress has enough
 
 ' Bad (-5)
 [Action 7700]
 .must 5
-.range 7715 7719
+.range 7730 7739
 
 ' Bad (-4)
 [Action 7701]
 .must 4
-.range 7715 7719
+.range 7730 7739
 
 ' Bad (-3)
 [Action 7702]
 .must 3
-.range 7715 7719
+.range 7730 7739
 
 ' Bad (-2)
 [Action 7703]
 .must 2
-.range 7715 7719
+.range 7730 7739
 
 ' Bad (-1)
 [Action 7704]
 .must 1
-.range 7715 7719
+.range 7730 7739
 
 ' Continue session
 
@@ -14425,35 +14479,35 @@ Now I'll judge your performance...
 .unset 7705
 .mustnot 6 7 8 9 10
 .mustnot 1 2 3 4 5
-.range 7720 7724
+.range 7740 7749
 
 ' Neutral (Not +2)
 [Action 7706]
 .unset 7706
 .mustnot 7 8 9 10
 .mustnot 2 3 4 5
-.range 7720 7724
+.range 7740 7749
 
 ' Neutral (Not +3)
 [Action 7707]
 .unset 7707
 .mustnot 8 9 10
 .mustnot 3 4 5
-.range 7720 7724
+.range 7740 7749
 
 ' Neutral (Not +4)
 [Action 7708]
 .unset 7708
 .mustnot 9 10
 .mustnot 4 5
-.range 7720 7724
+.range 7740 7749
 
 ' Neutral (Not +5)
 [Action 7709]
 .unset 7709
 .mustnot 10
 .mustnot 5
-.range 7720 7724
+.range 7740 7749
 
 ' Must have more merits than demerits for a good ending
 
@@ -14461,31 +14515,31 @@ Now I'll judge your performance...
 [Action 7710]
 .must 10
 .mustnot 5            ' No cumming with five demerits 
-.range 7725 7729
+.range 7750 7759
 
 ' Good (+2)
 [Action 7711]
 .must 9
 .mustnot 5            ' No cumming with five demerits 
-.range 7725 7729
+.range 7750 7759
 
 ' Good (+3)
 [Action 7712]
 .must 8
 .mustnot 5            ' No cumming with five demerits 
-.range 7725 7729
+.range 7750 7759
 
 ' Good (+4)
 [Action 7713]
 .must 7
 .mustnot 5            ' No cumming with five demerits 
-.range 7725 7729
+.range 7750 7759
 
 ' Good (+5)
 [Action 7714]
 .must 6
 .mustnot 5            ' No cumming with five demerits 
-.range 7725 7729
+.range 7750 7759
 
 
 ' Mistress may grow tired because of earlier demerits
@@ -14498,43 +14552,56 @@ Now I'll judge your performance...
 ' In this case cumming makes no sense, therefore .mustnot 204.
 
 ' Negative outcome
+' check 268 & 269 to complete enema, to be able to give plug assignment later
 
-[Action 7715]
+[Action 7730]
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
 I'm grown tired of you, slave.
-You don't seem to be in the mood to obey orders today, and I've had it.
+You don't seem to be in the mood to obey orders today,
+and I've had it.
 Shame on you for displeasing your Mistress in this disrespectful way!
 .set 103
-.range 7730 7734
+.range 7790 7799
 
-[Action 7716]
+[Action 7731]
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
 Well, I've had enough, even if you haven't.
 Maybe next time you'll do enough to earn a reward,
 but for today you're going to hold in all that nasty slave jizz.
 I don't want to see it!
 .mustnot 6149           ' Not if slave just came without permission
 .set 103
-.range 7730 7734
+.range 7790 7799
 
-'[Action 7718]
-'[Action 7719]
+'[Action 7732]
+'[Action 7733]
+'[Action 7734]
 
+[Action 7739]
+.else
+.range 7740 7749        ' continue the session
 
 ' Undecided
 
-[Action 7720]
+[Action 7740]
 I don't think you've had enough yet.
 Let's continue the session.
 .range 7495 7499        ' Query hardness, then remove toys and continue with next activity
 
-'[Action 7721]
-'[Action 7722]
-'[Action 7723]
-'[Action 7724]
+'[Action 7741]
+'[Action 7742]
+'[Action 7743]
+'[Action 7744]
 
 
 ' Positive outcome
+' check 268 & 269 to complete enema, to be able to give plug assignment later
 
-[Action 7725]
+[Action 7750]
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
 You've been a very good slave.
 I think I'll let you cum for your Mistress today.
 Won't that be nice?
@@ -14542,7 +14609,9 @@ Won't that be nice?
 .unset 103
 .range 9700 9719
 
-[Action 7726]
+[Action 7751]
+.mustnot 268            ' Holding the enema
+.mustnot 269            ' ready to be plugged
 You've been a very good slave.
 Wouldn't it be nice to remove your cage and cum for your Mistress tonight?
 .pause Yes Miss, that would be very nice
@@ -14550,17 +14619,22 @@ Wouldn't it be nice to remove your cage and cum for your Mistress tonight?
 .unset 103
 .range 9700 9719
 
-'[Action 7727]
-'[Action 7728]
-'[Action 7729]
+'[Action 7752]
+'[Action 7753]
+'[Action 7754]
 
+[Action 7759]
+.else
+.range 7740 7749        ' continue the session
+
+
+' negative consequences
 
 ' Jump to the straight exit 9899 -> 9900, finish ongoing assignments, but don't start something new
-
-[Action 7730]
+[Action 7790]
 .range 9899
 
-[Action 7731]
+[Action 7791]
 I'm marking you down for some punishment next time, slut,
 just as a little reminder.
 You'd better shape up!
@@ -14568,7 +14642,7 @@ You'd better shape up!
 .set 517
 .range 9899     ' just the straight ending, no alternatives since there will be punishment already
 
-[Action 7732]
+[Action 7792]
 Don't forget to remind Me to give you some additional punishment
 for this waste of My time during our next session, cunt. 
 .must 517
@@ -14576,23 +14650,35 @@ for this waste of My time during our next session, cunt.
 .set 518
 .range 9899     ' just the straight ending, no alternatives since there will be punishment already
 
-[Action 7733]
-In addition to not cumming today, I'm taking away your next opportunity as well.
-If you were a more obedient slave I might be able to reward you once in a while.
-As it is, you're such a disrespectful whore I don't know if you'll ever be a decent slave.
+[Action 7793]
+In addition to not cumming today,
+I'm taking away your next opportunity as well.
+If you were a more obedient slave
+I might be able to reward you once in a while.
+As it is,
+you're such a disrespectful whore I don't know if you'll ever be a decent slave.
 .must 517 518
 .mustnot 698
 .set 698
 .range 9899     ' just the straight ending, no alternatives since there will be punishment already
 
-[Action 7734]
+[Action 7794]
 Your disobedience is so severe today that I'm not letting you cum until further notice.
-There's plenty of punishment in your future, but in addition to that
-I'm going to have to think of a way for you to earn My forgiveness for this foul waste of time.
+There's plenty of punishment in your future,
+but in addition to that I'm going to have to think of a way for you to earn My forgiveness for this foul waste of time.
 I'm not sure you're a suitable slave at all.
 .must 517 518 698
 .set 699
 .range 9899     ' just the straight ending, no alternatives since there will be punishment already
+
+'[Action 7795]
+'[Action 7796]
+'[Action 7797]
+'[Action 7798]
+'[Action 7799]
+
+
+
 
 
 '   There are several states that prevent cumming. 
@@ -14723,7 +14809,8 @@ Quickly!
 
 [Action 8021]
 Okay, slave, hands off your hot wet cock.
-I seem to remember that you're scheduled to miss your next cumming opportunity, and this is it.
+I seem to remember that you're scheduled to miss your next cumming opportunity,
+and this is it.
 Next time, if you're a good boy, maybe you can finally get some release!
 delay 5
 .must 691
@@ -14783,7 +14870,8 @@ delay 5
 [Action 8026]
 Stop touching yourself now, slave.
 There won't be any release for you today,
-since you're scheduled for six missed cums - well, five, now.
+since you're scheduled for six missed cums -
+well, five, now.
 delay 5
 .must 696
 .unset 696
@@ -14831,20 +14919,23 @@ Isn't that terrible, slave?
 [Action 8032]
 Stop touching yourself now, slave!
 There won't be any release for you today,
-as you're not allowed to cum until further notice, My poor little slut.
+as you're not allowed to cum until further notice,
+My poor little slut.
 .must 699
 .range 9000
 
 [Action 8033]
 Oh, slave, stop it!
-There won't be any release for you today, because you're
- not allowed to cum until further notice, My poor little slut.
+There won't be any release for you today,
+because you're not allowed to cum until further notice,
+ My poor little slut.
 .must 699
 .range 9000
 
 [Action 8034]
-I hope you didn't get too worked up, slave, because as you're
-not allowed to cum until further notice, My poor little slut.
+I hope you didn't get too worked up, slave,
+because as you're not allowed to cum until further notice,
+My poor little slut.
 .must 699
 .range 9000
 
@@ -15117,21 +15208,22 @@ Get ready, slave... and keep smacking that ass...
 ' cum preparations 8130-8149
 
 [Action 8130]
-Sit in your chair, slave, and bring yourself to
-the edge. Wait for my command...
+Sit in your chair, slave, and bring yourself to the edge.
+Wait for my command...
 .mustnot 30                       ' Can't jerk off
 .mustnot 31                       ' Can't sit on chair
 .range 8090
 
 [Action 8131]
-Get on your knees. I want you to bring yourself
-to the edge, slave, and wait for My command...
+Get on your knees.
+I want you to bring yourself to the edge, slave, and wait for My command...
 .mustnot 30                       ' Can't jerk off
 .mustnot 33                       ' Can't kneel
 .range 8090
 
 [Action 8132]
-This time you'll be standing up, slave. Wait for my command...
+This time you'll be standing up, slave.
+Wait for my command...
 .mustnot 30                       ' Can't jerk off
 .mustnot 32                       ' Can't stand
 .range 8090
@@ -15237,8 +15329,8 @@ You're going to keep your slave penis locked up and will wank your cage, slut.
 ' Scheduled to cum, but doesn't have key -> deny
 [Action 8142]
 Well slave, this would be your scheduled cumming opportunity,
-but without having the key, I recommend crawling to your
-key holder to beg for an release.
+but without having the key,
+ I recommend crawling to your key holder to beg for an release.
 Good luck with that!
 .pause Thank you, Miss
 .must 44                               ' chastified
@@ -15429,11 +15521,13 @@ delay 2
 ' Slave was too late, but didn't spurt off
 
 [Action 8217]
-Oh! I'm so sorry for you.
+Oh!
+I'm so sorry for you.
 .range 8218
 
 [Action 8218]
-But if you didn't make it until now, you didn't deserve it anyway.
+But if you didn't make it until now,
+ you didn't deserve it anyway.
 You're going to stay horny tonight.
 .range 8219
 
@@ -17483,7 +17577,14 @@ Don't forget to bring a towel and some rope.
 
 
 ' Butt plug assignment for next session, good ending
-' 758 Anal training 3 and buttplug assignments 622 623 629 630 already checked 
+' 758 Anal training 3 and buttplug assignments 622 623 629 630 already checked
+
+' todo don't check 758 anal training, just depend on assignments,
+' raise anal training level when assignment has been completed
+
+' todo check the time of the day, so we don't have to assume this is played in the evening or at night
+' this is because the dildo/plug assignments assume this is played at night time, and all durations are based on this assumption
+
 [Action 9800]
 .range 9801 9804
 
@@ -17498,7 +17599,6 @@ Don't forget to bring a towel and some rope.
 It's time to deepen your anal training, slave.
 .must 21                ' Something in butt
 .must 41                ' Dildo in ass
-.must 776               ' Dildo worshiping 1
 .range 9810 9819
 
 ' butt plug assignments
