@@ -1,4 +1,4 @@
-package ss;
+package teaselib.scripts.mine;
 
 import java.io.BufferedReader;
 import java.io.File;

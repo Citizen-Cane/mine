@@ -38,6 +38,6 @@ def TeaseLib = Class.forName('teaselib.TeaseLib', true, loader)
 def teaseLib = TeaseLib.init(host,persistence)
 
 //def mine = new Mine();
-def Mine = Class.forName('ss.Mine', true, loader)
+def Mine = Class.forName('teaselib.scripts.mine.Mine', true, loader)
 def mine = Mine.newInstance(teaseLib, "scripts/", "mistress/Vana/")
 mine.run()
