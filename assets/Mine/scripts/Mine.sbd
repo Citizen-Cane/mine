@@ -5173,7 +5173,7 @@ and happy bottoms make happy Mistresses.
 .set 9
 .unset 10
 .set 513 
-.range 2150 2150
+.range 2150
 
 [Action 2032]
 .must 712
@@ -5183,7 +5183,7 @@ Sharp pain will help remind you who the slave is!
 .set 9
 .unset 10
 .set 514
-.range 2150 2150
+.range 2150
 
 [Action 2033]
 .must 713
@@ -5194,7 +5194,7 @@ and you know I'll enjoy putting you there.
 .set 9
 .unset 10
 .set 515
-.range 2150 2150
+.range 2150
 
 [Action 2034]
 .must 714
@@ -5203,7 +5203,7 @@ I think a mild bun-warming is just what the doctor ordered.
 .set 9
 .unset 10
 .set 513
-.range 2150 2150
+.range 2150
 
 [Action 2035]
 .must 714
@@ -5212,7 +5212,7 @@ I think I can satisfy your need for pain.
 .set 9
 .unset 10
 .set 514
-.range 2150 2150
+.range 2150
 
 [Action 2036]
 .must 714
@@ -5221,7 +5221,7 @@ You're learning very well, My dear boy-slave.
 .set 9
 .unset 10
 .set 515
-.range 2150 2150
+.range 2150
 
 [Action 2037]
 .must 715
@@ -5231,7 +5231,7 @@ and then we'll move on to something a little more painful.
 .set 9
 .unset 10
 .set 513 515
-.range 2150 2150
+.range 2150
 
 [Action 2038]
 .must 715
@@ -5240,7 +5240,7 @@ Today I believe a series of sessions is in order, don't you?
 .set 9
 .unset 10
 .set 513 514 515
-.range 2150 2150
+.range 2150
 
 [Action 2100]
 .mustnot 9
@@ -5252,7 +5252,7 @@ I'm a little disappointed, but I suppose we should move on.
 [Action 2101]
 .must 9
 .mustnot 10
-.range 2150 2150
+.range 2150
 
 [Action 2102]
 .must 10
@@ -5264,7 +5264,7 @@ You'll draw some extra-special punishment more for lying to Mistress, too!
 .pause Please forgive me, Miss
 .set 506                ' P.O. for lying to mistress
 .unset 711 712 713 714 715
-.range 2150 2150
+.range 2150
 
 [Action 2103]
 .mustnot 9
@@ -5288,9 +5288,10 @@ Let's see if I can remember what punishments you've earned.
 ' second and other punishments
 [Action 2151]
 Let's see if I can recall any other punishments you've earned.
-.unset 2150        ' 2150 is checked in 2290 to avoid bailing out without actually giving at least one punishment
+.unset 2150        ' 2150 is checked in 2250+ to avoid bailing out without actually giving at least one punishment
 .unset 2151
 .range 2200 2259
+
 
 '	Punishment exit points. Use 2200 - 2249 to explain which
 '	offense. 2500 - 2999 is available in 10-block increments
@@ -5614,7 +5615,7 @@ and that Mistresses are to be obeyed without question!
 [Action 2250]
 .mustnot 506 516 519 520 525                ' Severe punishments
 .mustnot 510 513 514 515                    ' punishments related to this session
-.must 2151                                  ' must have processed at least one punishment
+.mustnot 2150                               ' must have processed at least one punishment
 .range 2260
 
 
@@ -5625,7 +5626,7 @@ and that Mistresses are to be obeyed without question!
 .must 267                                   ' Enema applied
 .mustnot 506 513 514 515 516 519 520 525
 .mustnot     787 788 789 790                ' 1L or less
-.must 2151                                  ' must have processed at least one punishment
+.mustnot 2150                               ' must have processed at least one punishment
 .timefrom 276 00:08"00                      ' Enema timer, filling up
 .poss 100                                   ' first priority
 .range 2260
@@ -5636,7 +5637,7 @@ and that Mistresses are to be obeyed without question!
 .mustnot 506 513 514 515 516 519 520 525
 .must 786 787                               ' 1.25L
 .mustnot     789 790                        ' 1.75L-2.0L
-.must 2151                                  ' must have processed at least one punishment
+.mustnot 2150                               ' must have processed at least one punishment
 .timefrom 276 00:10"00                      ' Enema timer, filling up
 .poss 100                                   ' first priority
 .range 2260
@@ -5646,7 +5647,7 @@ and that Mistresses are to be obeyed without question!
 .must 267                                   ' Enema applied
 .mustnot 506 513 514 515 516 519 520 525
 .must 786 787 788 789                       ' 1.75L-2.0L
-.must 2151                                  ' must have processed at least one punishment
+.mustnot 2150                               ' must have processed at least one punishment
 .timefrom 276 00:12"00                      ' Enema timer, filling up
 .poss 100                                   ' first priority
 .range 2260
@@ -10674,7 +10675,8 @@ Hmm, it seems something went wrong [with mine-td.sbd], but I think we can contin
 [Action 5018]
 Well.
 That didn't work out as expected.
-I guess you're lucky - Tonight.
+I guess you're lucky -
+Tonight.
 .mustnot 273                 ' In activities
 .range 2151
 
