@@ -20069,6 +20069,7 @@ arranged way in front of me for inspection before you approach me.
 .unset 11800
 .range 11801 11805
 
+
 ' remove clamps
 [action 11801]
 .timefrom 49 00:00"00
@@ -20096,9 +20097,17 @@ arranged way in front of me for inspection before you approach me.
 .unset 11810
 .range 11811 11819
 
+' disable duration restrictions after clamps/pegs have been removed
+' Don't reset the timer when removing clamps/pegs you've put on,
+' because the slave may wear additional pain toys
+'
+' if the flags haven't been properly set when adding/removing clamsp/pegs
+' then this action may throw AllActionsSet to protect nipples and nuts tissue
 [action 11811]
-.else
+.timefrom 49 00:00"00
+.mustnot 20 24 42 43 38 39
 .unset 11811
+.settime 49 INF         ' disable pain toy duration restrictions
 .return
 
 ' nipple pegs
