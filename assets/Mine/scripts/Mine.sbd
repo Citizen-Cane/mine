@@ -103,6 +103,7 @@
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
 
+'   49  -   clamps/pegs timer - eitherset to -00:nn:00, or 00:00"00 to remove on next occasion, and to INF after removal
 
 ' Session timers: 1, 12, 24 hours, with two empty slots for 48h and one week
 '
@@ -299,7 +300,7 @@
 ' 273          Used for punishing punishment cancellations, used by the quit handler:
 '              unset during punishment cycle, set when starting activity loop
 ' 274          Quit without permission check
-' 275          clamps/pegs timer
+' 275          free
 ' 276:         Enema duration timer, used for exit punishment cycle, and to void enema, used with 267 268 269
 ' .
 ' .
@@ -760,7 +761,7 @@ Would you be so kind and tell me what you've got exactly?
 .unset 281 282 283 284 285 286 287 288 289 290   ' once-per-session-flags
 .unset 291 292 293 294 295 296 297 298 299       ' once-per-session-flags
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
-.settime 275 +INF                                ' set clamp timer to infinite to ignore clamps duration 
+.settime 49 +INF                                ' set clamp timer to infinite to ignore clamps duration 
 .save 50 799
 .range 848 849
 
@@ -6397,7 +6398,7 @@ I'm going to have you wear your nipple clamps today.
 Snap them on your poor slave nipples now, slut!
 I'll tell you when you may take them off.
 .pause I have them on, Miss
-.set 20 43              '
+.set 20 43              ' something on nipples, nipple clamps
 .range 2569
 
 
@@ -6472,7 +6473,7 @@ Maybe wearing your nipple clamps helps you to focus on the job.
 Snap them on your poor slave nipples now, slut!
 I'll tell you when you may take them off.
 .pause I have them on, Miss
-.set 20 43              '
+.set 20 43              ' something on nipples, nipple clamps
 .range 2579
 
 
@@ -7100,6 +7101,7 @@ will help you remember my orders in the future.
 
 
 ' comment nipple & pussy pain punishment
+' the wearing time has already been set when putting on the other pain item
 [Action 2709]
 I sincerely hope that the pain in your nipples and nuts
 will make you change your attitude about My assignments, for your sake.
@@ -7458,7 +7460,7 @@ Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing f
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
 .set -24 24 38          ' something on ball sack, clothes pegs
-.settime 275 -00:10"00
+.settime 49 -00:10"00
 .range 3020 3021        ' Comment pegs on ball sack
 
 [Action 3016]
@@ -7470,7 +7472,7 @@ Maybe some clothes pegs on your slave nipples help the enema flowing faster.
 Snap one on each nipple.
 .pause Done as ordered, Miss
 .set -20 20 42          ' something on nipples, clothes pegs
-.settime 275 -00:15"00
+.settime 49 -00:15"00
 .range 3022 3023        ' Comment pegs
 
 [Action 3017]
@@ -7482,7 +7484,7 @@ Maybe your nipple clamps help the enema flowing faster.
 Snap them on your slave titties and make sure they sit tight.
 .pause Done as ordered, Miss
 .set -20 20 43          ' something on nipples, nipple clamps
-.settime 275 -00:15"00
+.settime 49 -00:15"00
 .range 3024 3025
 
 [Action 3018]
@@ -7494,7 +7496,7 @@ Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing f
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
 .set -24 24 39          ' something on ball sack, pussy clamps
-.settime 275 -00:10"00
+.settime 49 -00:10"00
 .range 3026 3027        ' Comment pegs on ball sack
 
 [Action 3019]
@@ -10896,7 +10898,7 @@ Let's continue your slave training.
 .mustnot 262                      ' Done maid training activity already
 .mustnot             29           ' blindfolded
 .mustnot 34                       ' can't type/use mouse
-.timeto 275 -00:06"00             ' Clamps & pegs
+.timeto 49 -00:06"00             ' Clamps & pegs
 .timeto 276 -00:06"00             ' holding the enema
 .set 262                          ' Done maid training
 .range 5129
@@ -10911,7 +10913,7 @@ Let's continue your slave training.
 ' clamps will just get removed later on, so we don't have to handle them here
 [Action 5085]
 .else                        ' Fallback
-.settime 275 -INF            ' make sure clamps are going to be removed
+.settime 49 -INF            ' make sure clamps are going to be removed
 .gosub 11800                 ' remove clamps
 .range 5040                  ' retry
  
@@ -11160,7 +11162,7 @@ Make sure you have one until next time, baby.
 .mustnot 34                  ' Can't type/use mouse
 .mustnot 221                 ' Gag temporary
 .mustnot 776                 ' Dildo worshiping 1
-.timeto 275 -00:06"00        ' Clamps & pegs
+.timeto 49 -00:06"00        ' Clamps & pegs
 .timeto 276 -00:06"00        ' holding the enema
 .range 5149
 
@@ -11169,7 +11171,7 @@ Make sure you have one until next time, baby.
 .mustnot 29 34               ' blindfolded, can't type/use mouse
 .mustnot 221                 ' Gag temporary
 .must 776                    ' Dildo worshiping 1
-.timeto 275 -00:06"00        ' Clamps & pegs
+.timeto 49 -00:06"00        ' Clamps & pegs
 .timeto 276 -00:06"00        ' holding the enema
 .range 5149
 
@@ -11265,7 +11267,7 @@ You seem to get used to getting used very well.
 
 
 ' TODO shower possible with clothes pegs 42 38
-' .timeto 275 -00:15"00
+' .timeto 49 -00:15"00
 ' TODO check actual time left in mine-paddle.sbd
 
 ' shower 10m 100 paddles nips
@@ -11274,7 +11276,7 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 361               ' Nipple clamps
-.timeto 275 -00:11"00   ' holding the enema
+.timeto 49 -00:11"00   ' holding the enema
 .timeto 276 -00:11"00   ' holding the enema
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .set 210                ' shower one-time only
@@ -11285,7 +11287,7 @@ You seem to get used to getting used very well.
 .mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
-.timeto 275 -00:11"00   ' holding the enema
+.timeto 49 -00:11"00   ' holding the enema
 .timeto 276 -00:11"00   ' holding the enema
 .set 210                ' shower one-time only
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
@@ -11297,7 +11299,7 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 362               ' clothes pegs
-.timeto 275 -00:16"00   ' holding the enema
+.timeto 49 -00:16"00   ' holding the enema
 .timeto 276 -00:16"00   ' holding the enema
 .set 210                ' shower one-time only
 .set 716 736 751        ' Nipple tolerance 1, restraint acceptance 1, ass whipping 1
@@ -11523,7 +11525,7 @@ You'll be punished later for failing your training.
 [Action 5602]
 .must 751               ' asswhipping 1
 .mustnot 29 33          ' blindfolded,can't kneel
-.timeto 275 -00:06"00
+.timeto 49 -00:06"00
 .timeto 276 -00:06"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5752
@@ -11532,7 +11534,7 @@ You'll be punished later for failing your training.
 [Action 5603]
 .must 751 752           ' asswhipping 2
 .mustnot 33             ' can't kneel
-.timeto 275 -00:09"00
+.timeto 49 -00:09"00
 .timeto 276 -00:09"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5753
@@ -11548,7 +11550,7 @@ You'll be punished later for failing your training.
 .must 370               ' paddle
 .must 753               ' asswhipping 3
 .mustnot 33             ' can't kneel
-.timeto 275 -00:35"00
+.timeto 49 -00:35"00
 .timeto 276 -00:35"00
 .set 264                ' Done spanking already
 .range 5754
@@ -11560,7 +11562,7 @@ You'll be punished later for failing your training.
 .must 370               ' paddle
 .must 754               ' asswhipping 4
 .mustnot 33             ' can't kneel
-.timeto 275 -00:65"00
+.timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5755
@@ -11573,7 +11575,7 @@ You'll be punished later for failing your training.
 .must 371               ' hair brush
 .must 753               ' asswhipping 3
 .mustnot 33             ' can't kneel
-.timeto 275 -00:35"00
+.timeto 49 -00:35"00
 .timeto 276 -00:35"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5754
@@ -11586,7 +11588,7 @@ You'll be punished later for failing your training.
 .must 371               ' hair brush
 .must 754               ' asswhipping 4
 .mustnot 33             ' can't kneel
-.timeto 275 -00:65"00
+.timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5755
@@ -11599,7 +11601,7 @@ You'll be punished later for failing your training.
 .must 372               ' wooden spoon
 .must 753               ' asswhipping 3
 .mustnot 33             ' can't kneel
-.timeto 275 -00:35"00
+.timeto 49 -00:35"00
 .timeto 276 -00:35"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5754
@@ -11612,7 +11614,7 @@ You'll be punished later for failing your training.
 .must 372               ' wooden spoon
 .must 754               ' asswhipping 4
 .mustnot 33             ' can't kneel
-.timeto 275 -00:65"00
+.timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
 .set 264                ' Done spanking already
 .range 5755
@@ -11743,7 +11745,7 @@ I will have to punish you later for failing your training.
 [Action 5802]
 .mustnot 255                 ' Done ball sack pulling activity already
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
-.timeto 275 -00:10"00
+.timeto 49 -00:10"00
 .timeto 276 -00:10"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
@@ -11753,7 +11755,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1 
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
-.timeto 275 -00:15"00
+.timeto 49 -00:15"00
 .timeto 276 -00:15"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
@@ -11763,13 +11765,13 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
-.timeto 275 -00:20"00
+.timeto 49 -00:20"00
 .timeto 276 -00:20"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
 ' TODO very heavy weight drop from balls (20-25)
-'.timeto 275 -00:25"00
+'.timeto 49 -00:25"00
 '.timeto 276 -00:25"00        ' holding the enema
 
 
@@ -11835,7 +11837,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 275 -00:09"00
+.timeto 49 -00:09"00
 .timeto 276 -00:09"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
@@ -11846,7 +11848,7 @@ I will have to punish you later for failing your training.
 .must 746                    ' cbt 1
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 275 -00:14"00
+.timeto 49 -00:14"00
 .timeto 276 -00:14"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
@@ -11857,7 +11859,7 @@ I will have to punish you later for failing your training.
 .must 746 747                ' cbt 2
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 275 -00:19"00
+.timeto 49 -00:19"00
 .timeto 276 -00:19"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
@@ -11870,7 +11872,7 @@ I will have to punish you later for failing your training.
 .mustnot 25 32               ' ankles tied, can't stand
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
-.timeto 275 -00:09"00
+.timeto 49 -00:09"00
 .timeto 276 -00:09"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
@@ -11881,7 +11883,7 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
-.timeto 275 -00:14"00
+.timeto 49 -00:14"00
 .timeto 276 -00:14"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
@@ -11892,13 +11894,13 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.timeto 275 -00:19"00
+.timeto 49 -00:19"00
 .timeto 276 -00:19"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
 ' TODO very heavy weight drop from balls (20-25)
-'.timeto 275 -00:24"00
+'.timeto 49 -00:24"00
 '.timeto 276 -00:24"00        ' holding the enema
 
 
@@ -12047,7 +12049,7 @@ Meanhile, three demerits will do about right.
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 .must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
-.timeto 275 -00:35"00   ' 30 minutes plus preparation
+.timeto 49 -00:35"00   ' 30 minutes plus preparation
 .set 263                ' Done wanking activity
 .range 6151
 
@@ -12078,7 +12080,7 @@ Meanhile, three demerits will do about right.
 'Light wanking 2x5m, gives 726
 [Action 6004]
 .mustnot 263            ' Done wanking activity already
-.timeto 275 -00:11"00   ' 10 + 1
+.timeto 49 -00:11"00   ' 10 + 1
 .set 263                ' Done wanking activity
 .range 6154
 
@@ -12088,7 +12090,7 @@ Meanhile, three demerits will do about right.
 .mustnot 115            ' Not with spiked ring or urethra tube
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1 
-.timeto 275 -00:19"00   ' 15 + 4
+.timeto 49 -00:19"00   ' 15 + 4
 .timeto 276 -00:19"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6155
@@ -12098,7 +12100,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto 275 -00:20"00   ' 20 + 2
+.timeto 49 -00:20"00   ' 20 + 2
 .timeto 276 -00:20"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6156
@@ -12108,7 +12110,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto 275 -00:23"00   ' 20 + 3
+.timeto 49 -00:23"00   ' 20 + 3
 .timeto 276 -00:23"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6157
@@ -12118,7 +12120,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto 275 -00:27"00   ' 21 + 6
+.timeto 49 -00:27"00   ' 21 + 6
 .timeto 276 -00:27"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6158
@@ -12128,7 +12130,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto 275 -00:32"00   ' 30 + 2
+.timeto 49 -00:32"00   ' 30 + 2
 .timeto 276 -00:32"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6159
@@ -12138,7 +12140,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto 275 -00:29"00   ' 25 + 4
+.timeto 49 -00:29"00   ' 25 + 4
 .timeto 276 -00:29"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6160
@@ -12148,7 +12150,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto 275 -00:35"00   ' 27 + 8
+.timeto 49 -00:35"00   ' 27 + 8
 .timeto 276 -00:35"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6161
@@ -12158,7 +12160,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
-.timeto 275 -00:43"00   ' 40 + 3
+.timeto 49 -00:43"00   ' 40 + 3
 .timeto 276 -00:43"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6162
@@ -12168,7 +12170,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
-.timeto 275 -00:53"00   ' 45 + 8
+.timeto 49 -00:53"00   ' 45 + 8
 .timeto 276 -00:53"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6163
@@ -15343,7 +15345,7 @@ as close to the edge as you can and wait for My say-so...
 .mustnot 30                       ' Can't jerk off
 .must 362
 .set 20 42                        ' Something on nipples, Clothes pegs
-.settime 275 00:10"00             ' fixed duration for finale
+.settime 49 00:10"00             ' fixed duration for finale
 .range 8090
 
 [Action 8134]
@@ -15354,7 +15356,7 @@ before we go on, slave. Now, wait for My command...
 .mustnot 30                       ' Can't jerk off
 .must 362
 .set 24 38                        ' Something on balls, Clothes pegs
-.settime 275 00:10"00             ' fixed duration for finale
+.settime 49 00:10"00             ' fixed duration for finale
 .range 8090
 
 [Action 8135]
@@ -15369,7 +15371,7 @@ and wait for my command...
 .set 20 24                        ' Something on nipples, something on balls
 .set 38                           ' Clothes pegs on ball sack
 .set 42                           ' Clothes pegs on nipples
-.settime 275 00:10"00             ' fixed duration for finale
+.settime 49 00:10"00             ' fixed duration for finale
 .range 8090
 
 [Action 8136]
@@ -15380,7 +15382,7 @@ Now wait for My command as you stay on the edge...
 .mustnot 30                       ' Can't jerk off
 .must 361                         ' Nipple clamps
 .set 20 43                        ' Something on nipples, nipple clamps
-.settime 275 00:10"00             ' fixed duration for finale
+.settime 49 00:10"00             ' fixed duration for finale
 .range 8090
 
 ' TODO combine nipple and pussy clamps
@@ -19680,38 +19682,38 @@ Especically if he's chained and shackled so well.
 [action 11356]
 .mustnot 716
 .set 716
-.settime 275 +00:10"00
+.settime 49 +00:10"00
 .return
 
 [action 11357]
 .must 716
 .mustnot 717
 .set 717
-.settime 275 +00:15"00
+.settime 49 +00:15"00
 .return
 
 [action 11358]
 .must 717
 .mustnot 718
 .set 718
-.settime 275 +00:20"00
+.settime 49 +00:20"00
 .return
 
 [action 11359]
 .must 718
 .mustnot 719
-.settime 275 +00:25"00
+.settime 49 +00:25"00
 .return
 
 [action 11360]
 .must 719
 .mustnot 720
-.settime 275 +00:30"00
+.settime 49 +00:30"00
 .return
 
 [action 11361]
 .must 720
-.settime 275 +00:35"00
+.settime 49 +00:35"00
 .return
 
 ' fallback, already set
@@ -19730,37 +19732,37 @@ Especically if he's chained and shackled so well.
 [action 11366]
 .mustnot 746
 .set 746
-.settime 275 +00:10"00
+.settime 49 +00:10"00
 .return
 
 [action 11367]
 .must 746
 .mustnot 747
 .set 747
-.settime 275 +00:13"00
+.settime 49 +00:13"00
 .return
 
 [action 11368]
 .must 747
 .mustnot 748
-.settime 275 +00:16"00
+.settime 49 +00:16"00
 .return
 
 [action 11369]
 .must 748
 .mustnot 749
-.settime 275 +00:19"00
+.settime 49 +00:19"00
 .return
 
 [action 11370]
 .must 749
 .mustnot 750
-.settime 275 +00:21"00
+.settime 49 +00:21"00
 .return
 
 [action 11371]
 .must 750
-.settime 275 +00:22"00
+.settime 49 +00:22"00
 .return
 
 ' fallback, already set
@@ -19785,7 +19787,7 @@ I want you to pop a clothes peg on each of your nipples.
 .pause Ready, Miss
 .set 20 42              ' Someting on nipples, clothes pegs
 .set 325                ' remember for next session
-.settime 275 00:10"00   ' fixed duration for finale
+.settime 49 00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11611]
@@ -19796,7 +19798,7 @@ I want you to snap on your nipple clamps.
 .pause Ready, Miss
 .set 20 43              ' Something on nipples, nipple clamps
 .set 326                ' remember for next session
-.settime 275 00:10"00   ' fixed duration for finale
+.settime 49 00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11612]
@@ -19807,9 +19809,9 @@ I want you to snap on your nipple clamps.
 Slave, before we end the session,
 I want you to pop four clothes pegs on your ball sack.
 .pause Ready, Miss
-.set 24                  ' pins on ball sack
+.set 24 38               ' pins on ball sack
 .set 328                 ' remember for next session
-.settime 275 00:10"00   ' fixed duration for finale
+.settime 49 00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11613]
@@ -19822,7 +19824,7 @@ I want you to snap your pussy clamps on your slutty ball sack.
 .pause Ready, Miss
 .set 24 39               ' pussy clamps on ball sack
 .set 329                 ' remember for next session
-.settime 275 00:10"00   ' fixed duration for finale
+.settime 49 00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11614]
@@ -20069,19 +20071,19 @@ arranged way in front of me for inspection before you approach me.
 
 ' remove clamps
 [action 11801]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 .range 11810
 
 ' comment when less than 10 minutes left
 [action 11802]
-.timefrom 275 -00:10"00
-.timeto 275 -00:00"00
+.timefrom 49 -00:10"00
+.timeto 49 -00:00"00
 .range 11810
 
 ' comment when less than 20 minutes left
 [action 11803]
-.timefrom 275 -00:20"00
-.timeto 275 -00:10"00
+.timefrom 49 -00:20"00
+.timeto 49 -00:10"00
 .range 11810
 
 [action 11804]
@@ -20161,7 +20163,7 @@ Or would you like to take of them off now?
 .range 11825 11829
 
 [action 11821]
-.timeto 275 -00:00"00
+.timeto 49 -00:00"00
 Are you enjoying your clothes pegs, my pet?
 .range 11825 11829
 
@@ -20171,7 +20173,7 @@ Are you enjoying your clothes pegs, my pet?
 
 
 [action 11825]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -20179,7 +20181,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 42        ' something on nipples, clothes pegs
 .set 252                ' Done nipple training activity
-.settime 275 +INF
+.settime 49 +INF
 .range 11910 
 
 [action 11826]
@@ -20201,7 +20203,7 @@ Or would you like to take of them off now?
 .range 11835 11839
 
 [action 11831]
-.timeto 275 -00:00"00
+.timeto 49 -00:00"00
 Are you enjoying your nipple clamps, my pet?
 .range 11835 11839
 
@@ -20211,7 +20213,7 @@ Are you enjoying your nipple clamps, my pet?
 
 
 [action 11835]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -20219,7 +20221,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
 .set 252                ' Done nipple training activity
-.settime 275 +INF
+.settime 49 +INF
 .range 11910 
 
 [action 11836]
@@ -20241,7 +20243,7 @@ Or would you like to take of them off now?
 .range 11845 11849
 
 [action 11841]
-.timeto 275 -00:00"00
+.timeto 49 -00:00"00
 Are you enjoying your clothes pegs, my pet?
 .range 11845 11849
 
@@ -20251,7 +20253,7 @@ Are you enjoying your clothes pegs, my pet?
 
 
 [action 11845]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -20259,7 +20261,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -24 24 38        ' something on ball sack, clothes pegs
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 275 +INF
+.settime 49 +INF
 .range 11910 
 
 [action 11846]
@@ -20281,7 +20283,7 @@ Or would you like to take of them off now?
 .range 11855 11859
 
 [action 11851]
-.timeto 275 -00:00"00
+.timeto 49 -00:00"00
 Are you enjoying your pussy clamps, my pet?
 .range 11855 11859
 
@@ -20291,7 +20293,7 @@ Are you enjoying your pussy clamps, my pet?
 
 
 [action 11855]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -20299,7 +20301,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -24 24 39        ' something on nipples, pussy clamps
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 275 +INF
+.settime 49 +INF
 .range 11910 
 
 [action 11856]
@@ -20321,7 +20323,7 @@ Or would you like to take them off now?
 .range 11865 11869
 
 [action 11861]
-.timeto 275 -00:00"00
+.timeto 49 -00:00"00
 Are you enjoying your clothes pegs, my pet?
 .range 11865 11869
 
@@ -20331,7 +20333,7 @@ Are you enjoying your clothes pegs, my pet?
 
 
 [action 11865]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -20341,7 +20343,7 @@ That hurts good, doesn't it?
 .unset -24 24 38        ' something on ball sack, clothes pegs
 .set 252                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 275 +INF
+.settime 49 +INF
 .range 11910 
 
 [action 11866]
@@ -20363,7 +20365,7 @@ Or would you like to take them off now?
 .range 11875 11879
 
 [action 11871]
-.timeto 275 -00:00"00
+.timeto 49 -00:00"00
 Are you enjoying the clamps your nipples and your ball sack, my pet?
 .range 11875 11879
 
@@ -20373,7 +20375,7 @@ Are you enjoying the clamps your nipples and your ball sack, my pet?
 
 
 [action 11875]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -20383,7 +20385,7 @@ That hurts good, doesn't it?
 .unset -24 24 39        ' something on ball sack, pussy clamps
 .set 252                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 275 +INF
+.settime 49 +INF
 .range 11910 
 
 [action 11876]
@@ -20405,7 +20407,7 @@ Or would you like to take the clamps and pegs off?
 .range 11885 11889
 
 [action 11881]
-.timeto 275 -00:00"00
+.timeto 49 -00:00"00
 Are you enjoying the clamps and the clothes pegs, my pet?
 .range 11885 11889
 
@@ -20415,7 +20417,7 @@ Are you enjoying the clamps and the clothes pegs, my pet?
 
 
 [action 11885]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -20425,7 +20427,7 @@ That hurts good, doesn't it?
 .unset -24 24 38        ' something on ball sack, clothes pegs
 .set 252                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 275 +INF
+.settime 49 +INF
 .range 11910 
 
 [action 11886]
@@ -20447,7 +20449,7 @@ Or would you like to take the pegs and clamps off?
 .range 11895 11899
 
 [action 11891]
-.timeto 275 -00:00"00
+.timeto 49 -00:00"00
 Are you enjoying the clothes pegs and your pussy clamps, my pet?
 .range 11895 11899
 
@@ -20457,7 +20459,7 @@ Are you enjoying the clothes pegs and your pussy clamps, my pet?
 
 
 [action 11895]
-.timefrom 275 00:00"00
+.timefrom 49 00:00"00
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
@@ -20467,7 +20469,7 @@ That hurts good, doesn't it?
 .unset -24 24 38        ' something on ball sack, clothes pegs
 .set 252                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 275 +INF
+.settime 49 +INF
 .range 11910 
 
 [action 11896]
