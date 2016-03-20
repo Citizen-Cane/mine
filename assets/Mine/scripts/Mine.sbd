@@ -5288,9 +5288,23 @@ Let's see if I can remember what punishments you've earned.
 
 ' second and other punishments
 [Action 2151]
+.unset 2150             ' 2150 is checked in 2250+ to avoid bailing out without actually giving at least one punishment
+.resetrange 2151 2159
+.range 2155 2156
+
+
+[action 2155]
+.timefrom 49 00:00"00
+.gosub 11800            ' pegs/clamps tracking, comment and removal
+.range 2159
+
+[action 2156]
+.else
+.range 2159
+
+
+[action 2159]
 Let's see if I can recall any other punishments you've earned.
-.unset 2150        ' 2150 is checked in 2250+ to avoid bailing out without actually giving at least one punishment
-.unset 2151
 .range 2200 2259
 
 
@@ -10722,6 +10736,7 @@ Let's see...
 ' Quit-sub-script handler, called from the other scripts when the slave tried to close
 [Action 5020]
 .range 5021 5022
+
 
 ' Left punishment without permission
 [Action 5021]
