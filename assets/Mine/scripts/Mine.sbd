@@ -11219,7 +11219,7 @@ No, your slave holes have been used good enough.
 Well, one merit seem appropriate for a good worshiping session.
 .set 805                ' 1 merit
 .set 776                ' Dildo worshiping 1
-.range 7201
+.range 5160 5164
 
 ' Dildo worshiping, partial penetration, 1 merit
 [Action 5151]
@@ -11227,7 +11227,7 @@ Well, one merit seem appropriate for a good worshiping session.
 .set 805                ' 1 merit
 .set 756                ' Anal training 1
 .set 777                ' Dildo worshiping 2
-.range 7201
+.range 5160 5164
 
 ' slave rode the dildo fully penetrated
 [Action 5152]
@@ -11249,27 +11249,27 @@ Plus some punishment.
 .range 7200
 
 
-' Handle crotch rope, this is applied in the subscript, so we have to apply this again in main
+' Comment dildo and crotch rope
 
 ' No crotch rope
 [Action 5160]
-.mustnot 776            ' Dildo worshiping 1
+.else
 .range 7201
 
 ' Dildo fixed with crotch rope
 [Action 5161]
+.must 776               ' Dildo worshiping 1
+.mustnot 776            ' Dildo worshiping 2
 Very good, my pet.
 I can see you're getting very intimate with your new friend.
-.must 776               ' Dildo worshiping 1
-.set 21 41 27           ' Something in ass, Dildo, something around waist
+.must 21 41             ' something in butt, dildo
 .range 7201
 
-' Dildo fixed with crotch rope
 [Action 5162]
+.must 777               ' Dildo worshiping 2
 Very good, my pet.
 You seem to get used to getting used very well.
-.must 777
-.set 21 41 27           ' Something in ass, Dildo, something around waist
+.must 21 41             ' something in butt, dildo
 .range 7201
 
 '[Action 5163]
