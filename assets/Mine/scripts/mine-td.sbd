@@ -43,8 +43,8 @@
 '   101 1101    6001 -> 6151    6051    6101    2   5   MISSKRISS-style wanking 2-3x10m
 '   102 1102    6002 -> 6152    6052    6102    2   1   Terry & Jennifer Story Ch. 16
 '   103 1103    6003 -> 6153    6053    6103    3   3   Diary of Carolyn Ch. 1 excerpt
-'   104 1104    2595            2419    9500    -       1hr punishment wanking
-'   105 1105    6004 -> 6154    6054    6104    1   5   2 x  5m (52 61)
+'   104 1104    2595            2419    9500    -       1hr punishment wank
+'   105 1105    6004 -> 6154    6054    6104    1   5   2 x  5m or less
 '   106 1106    6005 -> 6155    6055    6105    1   5   5 x  3m (55 60)
 '   107 1107    6006 -> 6156    6056    6106    1   5   2 x 10m (52 62)
 '   108 1108    6007 -> 6157    6057    "       1   5   4 x  5m (54 61)
@@ -88,74 +88,77 @@
 [Action 1000]
 .quit
 
+' MISSKRISS-style wanking 2-3x10m
 [Action 1101]
 .set 101
-.range 2010
+.range 2010 2011
 
+' Terry & Jennifer Story Ch. 16
 [Action 1102]
 .set 102
 .range 2050
 
+' Diary of Carolyn Ch. 1 excerpt
 [Action 1103]
 .set 103
 .range 2150
 
-' punishment wank
+' 1hr punishment wank
 [Action 1104]
 .set 104
 .range 2200
 
-' wanking
+' 2 x  5m or less
 [Action 1105]
-.set 52 61 105
-.range 2020 2021
+.set 105
+.range 1140 1149
 
-' wanking
+' 5 x  3m
 [Action 1106]
 .set 55 60 106
 .range 2022 2023
 
-' wanking
+' 2 x 10m
 [Action 1107]
 .set 52 62 107 
 .range 2024 2025
 
-' wanking
+' 4 x  5m
 [Action 1108]
 .set 54 61 108
 .range 2030 2031
 
-' wanking
+' 7 x  3m
 [Action 1109]
 .set 57 60 109
 .range 2030 2031
 
-' wanking
+' 3 x 10m
 [Action 1110]
 .set 53 62 110
 .range 2030 2031
 
-' wanking
+' 5 x  5m
 [Action 1111]
 .set 55 61 111
 .range 2030 2031
 
-' wanking
+' 9 x  3m
 [Action 1112]
 .set 59 60 112
 .range 2030 2031
 
-' wanking
+' 4 x 10m
 [Action 1113]
 .set 54 62 113
 .range 2030 2031
 
-' wanking
+' 9 x  5m
 [Action 1114]
 .set 59 61 114
 .range 2030 2031
 
-' slavesinlove 186
+' slavesinlove 186 activity
 [Action 1115]
 .set 115
 .range 2300
@@ -166,61 +169,108 @@
 .range 2300
 
 
-'	directions. use the block of ten starting at (x - 100) * 10 + 2000, where
-'	x is the spawn type (100-299).
+' 2 x  5m or less
+
+' 3 x 3m
+[action 1140]
+.shouldnot 726          ' Denial and self-control 1
+.timeto 49 -00:11"00    ' Clamps & pegs
+.timeto 276 -00:11"00   ' holding the enema
+.poss 100
+.set 53 60
+.range 2020 2021
+
+' 2 x  5m
+[action 1141]
+.should 726             ' Denial and self-control 1
+.timeto 49 -00:11"00    ' Clamps & pegs
+.timeto 276 -00:11"00   ' holding the enema
+.poss 100
+.set 52 61
+.range 2020 2021
+
+' 2 x 3m
+[action 1142]
+.else
+.shouldnot 726          ' Denial and self-control 1
+.timeto 49 -00:07"00    ' Clamps & pegs
+.timeto 276 -00:07"00   ' holding the enema
+.set 52 60
+.range 2020 2021
+
+' 1 x  5m
+[action 1143]
+.should 726             ' Denial and self-control 1
+.timeto 49 -00:05"00    ' Clamps & pegs
+.timeto 276 -00:05"00   ' holding the enema
+.set 51 61
+.range 2020 2021
+
+' 1 x 3m
+[action 1149]
+.else
+.shouldnot 726          ' Denial and self-control 1
+.set 51 60
+.range 2020 2021
+
+
+' directions. use the block of ten starting at (x - 100) * 10 + 2000,
+' where x is the spawn type (100-299)
 
 [Action 2010]
-Today, slave, we're going to add a little twist to your stroking session.
-It's a trick I picked up from a compatriot of mine, MISSKRISS.
-.range 2011
+.else
+.set 52 62              ' 2 x 10m
+.range 2012
 
 [Action 2011]
+.timeto 49 -00:34"00    ' 30 minutes plus preparation
+.timeto 276 -00:34"00   ' holding the enema
+.must 727               ' Denial and self-control 2
+.set 53 62              ' 3 x 10m
+.range 2012
+
+
+[Action 2012]
+Today, slave, we're going to add a little twist to your stroking session.
+It's a trick I picked up from a compatriot of mine, MISSKRISS.
+.range 2013
+
+[Action 2013]
 You're going to need a couple of things, slut:
 Something to tie your ankles with, and something to tie your balls with.
 Rope is fine, but if you have ankle cuffs or a ball harness then go ahead and use those instead.
 You'll also need a good weight, maybe a pound or so.
-.pause
-.range 2012
+.pause I have everything, Miss
+.range 2014
 
-[Action 2012]
+[Action 2014]
 Okay, My dear slut, get that stuff, get in your chair and sit on the edge,
 so your pathetic slave testicles are just hanging over the edge.
 I want you to start by tying that sorry sack up.
 Leave about six or eight inches of rope left over.
-.pause
-.range 2013
+.pause My ball sack is tied up, Miss
+.range 2015
 
-[Action 2013]
+[Action 2015]
 Now, I want you to fasten that weight to your ball bondage, slut.
 It should hang in the air as you sit; don't let it rest on the ground.
-.pause
-.range 2014
+.pause I've hung the weight from my balls, Miss
+.range 2016
 
-[Action 2014]
+[Action 2016]
 Got all that?
 Your balls should be stretching nicely.
 Now, I want you to tie your ankles to the chair.
 Your ankles should be tied high enough so that your feet cannot touch the ground.
-.pause
-.resumetext Ankles tied up, Miss
-.range 2015
+.pause Ankles tied to the chair, Miss
+.range 2017
 
-[Action 2015]
+[Action 2017]
 Now, if you've followed My instructions, you should have most of your weight resting on your ass,
 right on the edge of your seat, with your balls stretched and hanging over the edge.
 I want you to keep your knees wide apart, just to reinforce the vulnerability of your so-called nutsack.
-.pause
-.range 2016 2017
-
-
-[Action 2016]
-.set 52 62 ' 2 reps 10 min.
+.pause Alright, Miss
 .range 2018
-
-[Action 2017]
-.set 53 62 ' 3 reps 10 min.
-.range 2018
-
 
 [Action 2018]
 Now, you should know the drill.
@@ -2142,7 +2192,7 @@ You're such a pussy!
 .must 104                              ' Punishment wank
 .break 7100 8949 CUM 8950
 .cumtext I've spurted off, Miss
-.range 7100 7199
+.range 7100
 
 ' regular training
 [Action 7099]
@@ -2150,17 +2200,14 @@ You're such a pussy!
 .break 7100 8949 CUM 8950 STOP 8960 
 .cumtext I've spurted off, Miss
 .stoptext I'm giving up, Miss
-.range 7100 7199
+.range 7100
 
 
 '   repetition decrementer
 
 [Action 7100]
-That's enough for now, My wanking slut.
-.delay 20
-.must 50
-.unset 7100
-.range 8969                  ' Good ending
+.range 7101 7109
+
 
 [Action 7101]
 .must 51
@@ -2538,134 +2585,144 @@ but you're not getting any release now.
 ' Pause comment between sets
 
 [Action 8900]
-.delay 50 60
-That's it for that set, slave.
-I'll give you a minute to collect yourself.
-.unset 8900
-.range 7100 7109
+.must 50
+.delay 15
+That's enough for now, My wanking slut.
+.range 8969                  ' Good ending
 
 [Action 8901]
 .mustnot 20
+.mustnot 50
 That's it for that set, slave.
 I'll give you a minute to collect yourself. 
 .unset 8901
-.range 8911
+.range 8931
 
 [Action 8902]
 .must 20 42
+.mustnot 50
 That's it for that set, slave.
 I'll give you a minute to collect yourself and enjoy your clothes pegs.
 .unset 8902
-.range 8912
+.range 8932
 
 [Action 8903]
 .must 20 43
+.mustnot 50
 That's it for that set, slave.
 I'll give you a minute to collect yourself and enjoy your nipple clamps.
 .unset 8903
-.range 8913
+.range 8933
 
 [Action 8904]
 .must 44                ' Chastified
 .mustnot 45             ' have key for chastity cage
+.mustnot 50
 Slave, you don't know how erotic this is.
 Me, the mistress, dressed as a gorgeous vixen, and on the floor you,
 the naked slave, endlessly teased but always denied. 
-.range 8914
+.range 8934
 
 [Action 8905]
 .mustnot 44             ' Chastified
+.must 45                ' have key for chastity cage
+.mustnot 50
 Slave, you don't know how erotic this is.
 Me, the mistress, dressed as a gorgeous vixen, and on the floor you,
 the naked slave, solely wanking for my pleasure. 
-.range 8915
+.range 8935
 
 [Action 8906]
+.mustnot 50
 That's it for that set, slave.
 I'll give you a minute to collect yourself.
 .unset 8906
-.range 8916
+.range 8936
 
 [Action 8907]
+.mustnot 50
 That's it for that set, slave.
 I'll give you a minute to collect yourself.
 .unset 8907
-.range 8917
+.range 8937
 
 [Action 8908]
+.mustnot 50
 That's it for that set, slave.
 I'll give you a minute to collect yourself.
 .unset 8908
-.range 8918
+.range 8938
 
 [Action 8909]
+.mustnot 50
+.delay 50 60
 That's it for that set, slave.
 I'll give you a minute to collect yourself.
-.unset 8909
-.range 8919
+.unset 8900
+.range 7100
 
 
-'[Action 8910]
+'[Action 8930]
 '.delay 45 50
 'That's it for that set, slave.
 'I'll give you a minute to collect yourself.
-'.unset 8910
-'.range 7100 7109
+'.unset 8930
+'.range 7100
 
-[Action 8911]
+[Action 8931]
 .delay 45 50
 Tease your slave nipples and make sure they're hard and stiff.
 Keep it up!
-.unset 8911
-.range 7100 7109
+.unset 8931
+.range 7100
 
-[Action 8912]
+[Action 8932]
 .delay 45 50
 Let's twist the clothes pegs to tease your nipples a little.
-.unset 8912
-.range 7100 7109
+.unset 8932
+.range 7100
 
-[Action 8913]
+[Action 8933]
 .delay 45 50
 Let's let the chain swing freely to tease your nipples a little.
-.unset 8913
-.range 7100 7109
+.unset 8933
+.range 7100
 
-[Action 8914]
+[Action 8934]
 .delay 45 50
 Look into my eyes while you try to cool down a bit
 and think about the pleasures to come.
-.range 7100 7109
+.range 7100
 
-[Action 8915]
+[Action 8935]
 .delay 45 50
 Look into my eyes while you try to cool down a bit
 and think about the pleasures to come.
-.range 7100 7109
+.range 7100
 
-[Action 8916]
+[Action 8936]
 .delay 45 50
 Just keep your hands off that prick and relax.
-.unset 8916
-.range 7100 7109
+.unset 8936
+.range 7100
 
-[Action 8917]
+[Action 8937]
 .delay 45 50
 Just keep your hands off that prick and relax.
-.unset 8917
-.range 7100 7109
+.unset 8937
+.range 7100
 
-[Action 8918]
+[Action 8938]
 .delay 45 50
 Just keep your hands off that prick and relax.
-.unset 8918
-.range 7100 7109
+.unset 8938
+.range 7100
 
-[Action 8919]
+[Action 8939]
 .delay 45 50
 Just keep your hands off that prick and relax.
-.unset 8919
-.range 7100 7109
+.unset 8939
+.range 7100
 
 
 ' 8950-8999 cumming without permission

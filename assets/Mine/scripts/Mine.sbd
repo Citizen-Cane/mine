@@ -10845,62 +10845,61 @@ What else can I do to you today, slave?
 '   ACTIVITY GROUPS --------------------------------------------------
 
 [Action 5050]
-I think you could use some strict self-bondage for today's session.
 .mustnot 265            ' Done self bondage activity already 
 .timeto 49 -01:00"00    ' Clamps & pegs
 .timeto 276 -01:00"00   ' holding the enema
+I think you could use some strict self-bondage for today's session.
 .range 5400
 
 
 [Action 5052]
-I think that ass could use a good tanning.
 .mustnot 264            ' Done spanking activity already
+I think that ass could use a good tanning.
 '.range 5600
 .range 7100
 
 ' TODO does't work since in range 5601- 264 is checked again
 ' TODO two times is enough -> add another flag
 [Action 5053]
-I think that ass could use another good tanning.
 .must 264               ' Done spanking activity already
+I think that ass could use another good tanning.
 '.range 5600
 .range 7100
 
 
 ' Dildo worshiping
 [Action 5054]
-I think you're going to worship your dildo.
 .mustnot 40 41          ' dildo in mouth, dildo in ass
 .mustnot 254            ' Mouth activity already done              
 .mustnot 260            ' Done dildo worshiping punishment before
 .must 388               ' have dildo
 .timeto 49 -00:07"00    ' Clamps & pegs
 .timeto 276 -00:07"00   ' holding the enema
+I think you're going to worship your dildo.
 .range 5140 5148
 
 ' Dildo worshiping, when already done as punishment
 [Action 5056]
-I think you're going to worship your dildo some more.
 .mustnot 40 41          ' can't type/use mouse, dildo in mouth, dildo in ass
 .mustnot 254            ' Mouth activity already done              
 .must 260               ' Done dildo worshiping punishment before
 .must 388               ' have dildo
 .timeto 49 -00:07"00    ' Clamps & pegs
 .timeto 276 -00:07"00   ' holding the enema
+I think you're going to worship your dildo some more.
 .range 5140 5148
 
 [Action 5060]
-.timeto 49 -00:11"00   ' 10 + 1
 I think you deserve a teasing session.
 '.range 6000
 .range 9520 9521        ' comment wanking while chastified
 
 
 [Action 5066]
-I think you're a dirty cunt, and you need a shower.
 .mustnot 210            ' Done already
 .timeto 49 -00:11"00    ' Clamps & pegs
 .timeto 276 -00:11"00   ' holding the enema
+I think you're a dirty cunt, and you need a shower.
 .range 5200
 
 
@@ -10921,12 +10920,12 @@ I think your nipples and nuts could use a working-over.
 ' since pegs on are an explicit part of some of the scenarios in level 2 
 ' TODO check enema and pegs/clamps actual time left in mine-maid.sbd
 [Action 5070]
-Let's continue your slave training.
 .mustnot 262            ' Done maid training activity already
 .mustnot             29 ' blindfolded
 .mustnot 34             ' can't type/use mouse
 .timeto 49 -00:06"00    ' Clamps & pegs
 .timeto 276 -00:06"00   ' holding the enema
+Let's continue your slave training.
 .set 262                ' Done maid training
 .range 5129
 
@@ -12073,7 +12072,8 @@ Meanhile, three demerits will do about right.
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 .must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
-.timeto 49 -00:35"00   ' 30 minutes plus preparation
+.timeto 49 -00:24"00    ' 20 minutes plus preparation
+.timeto 276 -00:24"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6151
 
@@ -12088,9 +12088,9 @@ Meanhile, three demerits will do about right.
 .set 266                ' Done story time activity
 .range 6152
 
-'Diary of Carolyn Ch. 1 excerpt
-'needs to "walk", nipples free
-'clamps, weights, clothes pegs, rope
+' Diary of Carolyn Ch. 1 excerpt
+' needs to "walk", nipples free
+' clamps, weights, clothes pegs, rope
 'need 4th level nipples, 2nd cbt
 [Action 6003]
 .mustnot 266            ' Done story time activity already 
@@ -12101,16 +12101,14 @@ Meanhile, three demerits will do about right.
 .set 266                ' Done story time activity
 .range 6153
 
-' TODO 3, 5, 6, 9 minutes wanking
-
-'Light wanking 2x5m, gives 726
+' Light wanking 3x3m, gives 726, 2x5m
+' if timers active, also 2x3m, 1x5m, 1x3m
 [Action 6004]
 .mustnot 263            ' Done wanking activity already
-'.timeto 49 -00:11"00   ' 10 + 1, check, already checked in 5060
 .set 263                ' Done wanking activity
 .range 6154
 
-'Medium wanking 5x3m
+' Medium wanking 5x3m
 [Action 6005]
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 115            ' Not with spiked ring or urethra tube
@@ -12121,17 +12119,17 @@ Meanhile, three demerits will do about right.
 .set 263                ' Done wanking activity
 .range 6155
 
-'... 2x10m
+' ... 2x10m, gives 727
 [Action 6006]
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto 49 -00:20"00   ' 20 + 2
-.timeto 276 -00:20"00   ' holding the enema
+.timeto 49 -00:22"00   ' 20 + 2
+.timeto 276 -00:22"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6156
 
-' 4x5m, gives 727
+' 4x5m
 [Action 6007]
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
@@ -12230,7 +12228,7 @@ Maybe later.
 ' teasing good entries
 
 [Action 6051]
-.set 806                ' 2 merits
+.set 806 727            ' 2 merits, Denial and self-control 2
 .range 7201
 
 [Action 6052]
@@ -12250,11 +12248,11 @@ Maybe later.
 .range 7201
 
 [Action 6056]
-.set 805                ' 1 merit, no advance to level 2 since there are already two opportunities 
+.set 805 727            ' 1 merit, Denial and self-control 2 
 .range 7201
 
 [Action 6057]
-.set 805 727            ' 1 merit, Denial and self-control 2
+.set 805                ' 1 merit, no advance to level 2 since there are already two opportunities
 .range 7201
 
 [Action 6058]
