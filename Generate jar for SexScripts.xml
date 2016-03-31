@@ -15,8 +15,20 @@
       <antcall target="build"/>
     </target>
 
+    <target name="syncAccessories">
+    	<java classname="teaselib.core.crypto.CryptoSync">
+    		<arg value="${basedir}/../mine-assets/assets/Mine/accessories/"/>
+    		<arg value="${basedir}/../mine-assets/assets/Mine/encrypted accessories/"/>
+    		<arg value="--recursive"/>
+    		<arg value="jpg"/>
+			<classpath>
+				<pathelement location="${basedir}/../teaselib/lib/TeaseLib.jar"/>
+				<pathelement path="$(java.class.path}"/>
+			</classpath>
+    	</java>
+	</target>
+
     <target name="syncImages">
-    	<echo message = "Project root: ${basedir}"/>
     	<java classname="teaselib.core.crypto.CryptoSync">
     		<arg value="${basedir}/../mine-assets/assets/Mine/images/"/>
     		<arg value="${basedir}/../mine-assets/assets/Mine/encrypted images/"/>
@@ -44,7 +56,7 @@
     	</java>
 	</target>
 
-    <target name="build" depends="syncImages,syncMistress">
+    <target name="build" depends="syncAccessories,syncImages,syncMistress">
         <property name="rootFolder" value="SexScripts"/>
         <jar destfile="${destination}/${rootFolder}/scripts/Mine.jar">
             <manifest>
