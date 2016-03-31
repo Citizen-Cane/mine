@@ -63,7 +63,9 @@
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/images/**,Mine/sounds/**"/>
+            <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/images/**"/>
+            <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/sounds/**"/>
+            <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/accessories/**"/>
         </jar>
         <jar destfile="${destination}/${rootFolder}/scripts/Mine Mistress.zip">
             <manifest>
@@ -71,9 +73,6 @@
             </manifest>
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/mistress/**"/>
         </jar>
-        <copy todir="${destination}/${rootFolder}/scripts/Mine/accessories/">
-            <fileset dir="${basedir}/../mine-assets/assets/Mine/accessories/"/>
-        </copy>
         <copy todir="${destination}/${rootFolder}/lib/TeaseLib">
             <fileset dir="${basedir}/../TeaseLib/lib/" excludes="**.pdb,**.exp,**.ilk,**.lib"/>
         </copy>
