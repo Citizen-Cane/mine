@@ -439,7 +439,7 @@
 '.askcheck      91      701     701: * Naked acceptance 1 (1151, 2402) 
 '.askcheck      92      702     702: * Naked acceptance 2 (1151, 2403)
 '.askcheck      93      703     703: * Naked acceptance 3 (4012) Naked day
-'.askcheck      94      704     704: * Naked acceptance 4 planned for naked week finish
+'.askcheck      94      704     704: * Naked acceptance 4 (4065) Naked week finish
 '.askcheck      95      705     705: * Naked acceptance 5 (1163)
 '.askcheck      55      707     707: * Always hard 2 (1224, 7524)
 '.askcheck      56      708     708: * Always hard 3 (1227, 7527)
@@ -1245,14 +1245,7 @@ I expect and demand your total submission from this point on!
 You may be a lowly and stupid man,
 but at least you have a competent Mistress to thrash you now.
 .set 101                     ' Now we've submitted
-.range 1016                  ' init mine-maid save state
-
-' init mine-maid save state in order to clear actions 300-699 on .restore in that script
-' because without an existing save state, .restore does nothing, leading to a wrong slave progress state 
-[Action 1016]
-.save 50 799
-.loadsbd mine-maid.sbd 998   ' init mine-maid.sbs
-' continues with .range 1029 ' init mine-dildo.sbs
+.range 1026                  ' on to the introduction query
 
 
 ' First try
@@ -1341,15 +1334,24 @@ As it is, I think I'll mark you down for a little extra punishment, just as a re
 .pause Thank you very much, Miss
 .set 101                     ' Now we've submitted.
 .set 500                     ' Set extra punishment bit for bad introduction
-'.range 1030                 ' on to the naked query
-.range 1016                  ' init mine-maid save state
+.range 1026                  ' on to the introduction query
 
 
 ' init mine-maid save state in order to clear actions 300-699 on .restore in that script
 ' because without an existing save state, .restore does nothing, leading to a wrong slave progress state 
+[Action 1026]
+.save 50 799
+.loadsbd mine-maid.sbd 998   ' init mine-maid script state
+' continues with .range 1029 ' init mine-dildo script state
+
+'[Action 1027]
+'[Action 1028]
+
+' init mine-dildo save state in order to clear actions 180-199 on .restore in that script
+' because without an existing save state, .restore does nothing, leading to a wrong slave progress state 
 [Action 1029]
 .save 50 799
-.loadsbd mine-dildo.sbd 980  ' init mine-dildo.sbs
+.loadsbd mine-dildo.sbd 980  ' init mine-dildo script state
 ' continues with .range 1030 ' Introduction query
 
 
@@ -1607,40 +1609,42 @@ Are you totally naked right now, or are you still clothed?
 ' Not naked initial group
 
 [Action 1105]
+.mustnot 100                 ' First time through
 Stupid boy!
 You should know never to hide your filthy body from me!
-.mustnot 100                 ' First time through
 .range 1108
 
 [Action 1106]
-I've warned you before, you dirty little boy.
 .must 110                    ' seen the rule before
+I've warned you before, you dirty little boy.
 .set 200                     ' one demerit
 .unset 201 202 203 204
 .range 1110 1112
 
 [Action 1107]
+.must 110                    ' seen the rule before
+.must 702                    ' 
 How dare you openly disobey Me!
 Aren't you supposed to be My willing slave?
-.must 110
 .set 201                     ' two demerits
 .unset 200 202 203 204
 .range 1111 1113
 
 [Action 1108]
+.mustnot 110                 ' seen the rule before
 Pay attention, foolish slave:
 I have many rules for you to learn.
 Your first lesson is that you may not wear clothes when you address your Mistress.
 Shameful little slaves must always go naked to reinforce the fact that...
-.mustnot 110                 ' Haven't seen the rule
 .range 1130                  ' on to the continuation
 
 [action 1109]
+.must 608
+.poss 100
 My little cunt:
 Only a dumb slave slut such as yourself could have the guts
 to appear in clothing during his naked-week assignment.
-.must 608
-.range 1121 1122
+.range 1120
 
 
 ' Not naked continuations
@@ -1669,71 +1673,99 @@ just to help you remember.
 .range 1117 1119
 
 [Action 1112]
+.mustnot 502            ' naked punishment 1
 You'd better get out of those forbidden clothes in a hurry,
 you disobedient little cunt.
 delay 5
 You'll pay for this lapse later on!
-.mustnot 502            ' naked punishment 1
 .set 503                ' naked punishment 2
 .unset 400 408 704 705  ' void naked day assignment, naked week, naked training 4 (naked week), 5
 .delay 25 35
 .range 1117 1119
 
 [Action 1113]
-Apparently you haven't taken My many lectures on nudity seriously.
 .must 110               ' Nudity lecture
+Apparently you haven't taken My many lectures on nudity seriously.
 .range 1120
 
 
 [Action 1117]
 I hope for your sake you're stark naked now, you worm.
-.range 1157 1163
+.range 1156 1163
 
 [Action 1118]
 You'd better be totally bare now, my little slut.
-.range 1157 1163
+.range 1156 1163
 
 [Action 1119]
 Next time, you'd better be in your birthday suit before you start!
-.range 1157 1163
+.range 1156 1163
 
 
 ' Not-naked punishemnts
+
 [Action 1120]
 You offend your Mistress when you flout the rules in this manner,
 you stupid filthy worthless slave.
-.range 1121 1122
+.range 1121 1124
 
 
 [Action 1121]
+.mustnot 608                      ' Naked-week assignment
+.mustnot 702 703 704 705          ' Naked acceptance 1
 Now strip down, and wait for an hour.
 Then come back to Me, on your knees.
 I'll give you a nice beating for your disobedience this time.
 And I'll make sure to prepare some good training material for you
 so that you learn the importance of being bare-ass naked!
 .pause Thank you, Miss
-.mustnot 608                      ' Naked-week assignment
-.mustnot 702 703 704 705
 .unset 400 701                    ' void naked training 1 and being-naked assignment
 .set 502                          ' Naked punishment 1
 .set 504                          ' general disobedience
-.set 90
+.set 90                           ' 1 hour wait
 .settime 91
 .range 870
 
 [Action 1122]
+.mustnot 608                      ' Naked-week assignment
+.must 702                         ' Naked acceptance 2
 This lapse in your good behavior is so severe that I've no choice
 but to retrain you in the necessity of slave nudity.
-Apparently you've forgotton your lessons on the importance of being naked and vulnerable, as a slave should be.
 You can come back in 12 hours if you want to beg me for forgiveness and accept your punishment!
 .pause Please have mercy, Miss
-.mustnot 608                      ' Naked-week assignment
-.must 702
 .unset 400 408 702 703 704 705    ' void naked training 2-5 and being-naked assignments
 .set 503                          ' Naked punishment 2
 .set 508                          ' inattentiveness
-.set 92
+.set 92                           ' 12 hours wait
 .settime 93
+.range 870
+
+[Action 1123]
+.mustnot 608                      ' Naked-week assignment
+.must 702
+Apparently you've forgotten your lessons on the importance of being naked and vulnerable, as a slave should be.
+You can come back in 12 hours if you want to beg me for forgiveness and accept your punishment!
+.pause Please have mercy, Miss
+.unset 400 408 702 703 704 705    ' void naked training 2-5 and being-naked assignments
+.set 503                          ' Naked punishment 2
+.set 508                          ' inattentiveness
+.set 92                           ' 12 hours wait
+.settime 93
+.range 870
+
+[Action 1124]
+.must    608                      ' Naked-week assignment
+This lapse in your good behavior is so severe that I've no choice
+but to retrain you in the necessity of slave nudity.
+Apparently you've forgotten your lessons on the importance of being naked and vulnerable, as a slave should be.
+[]You can come back tomorrow if you want to beg me for forgiveness and accept your punishment!
+.pause Please have mercy, Miss
+.unset 400 408 702 703 704 705    ' void naked training 2-5 and being-naked assignments
+.set 502                          ' Naked punishment 1
+.set 503                          ' Naked punishment 2
+.set 516                          ' excessive disobedience
+.set 94                           ' 24 hours wait
+.settime 95
 .range 870
 
 
@@ -1741,17 +1773,11 @@ You can come back in 12 hours if you want to beg me for forgiveness and accept y
 
 [Action 1130]
 you are a shameful naked animal...
-.range 1131
-
-[Action 1131]
+[]
 While I am the superior, and clothed, Mistress.
-.range 1132
-
-[Action 1132]
+[]
 If you please me, perhaps I will allow you to wear a collar or chains.
-.range 1133
-
-[Action 1133]
+[]
 Until then, strip off those clothes!
 delay 2
 Quickly, slave!
@@ -1768,7 +1794,7 @@ And you didn't hear My question and then strip down?
 Well, were you properly naked when I asked?
 .yesno 1151 1154 1155 1155
 .yestext Yes Miss, I was properly naked
-.notext No Miss, I wasn't
+.notext I'm sorry Miss, but I wasn't
 
 ' Advance from - to 701 to 702
 
@@ -1776,13 +1802,13 @@ Well, were you properly naked when I asked?
 Very good, My little bitch.
 .mustnot 701
 .set 701
-.range 1157 1163
+.range 1156 1163
 
 [Action 1152]
 Very good, My little bitch.
 .must 701
 .set  702
-.range 1157 1163
+.range 1156 1163
 
 '[Action 1153]
 '[Action 1154]
@@ -1799,55 +1825,61 @@ delay 2
 
 ' Naked-Lectures and assignment dispatch
 
-[Action 1157]
+[Action 1156]
+.mustnot 702 703 704 705
 You've got a lot to learn about the importance
 of presenting your nude body to me.
-.mustnot 702 703 704 705
-.range 1164
+.range 1164             ' naked-lecture
 
-[Action 1158]
+[Action 1157]
+.mustnot 703 704 705
 If there's one thing I like, it's a stark naked slaveboy.
 I hope you are feeling nude and vulnerable.
-.mustnot 703 704 705
-.range 1200
+.range 1200             ' on to "hard" question
 
-[Action 1159]
+[Action 1158]
+.mustnot 704 705
 Are you enjoying the total nudity I force on you?
 delay 2
 I know I am.
-.mustnot 704 705
-.range 1164 1166
+.range 1164 1166        ' naked-lecture
 
-[Action 1160]
+[Action 1159]
+.mustnot 705
 I can tell that you're finally starting to appreciate
 the fact that you are not allowed clothing in My presence.
-.mustnot 705
-.range 1200
+.range 1200             ' on to "hard" question
 
-[Action 1161]
+[Action 1160]
+.mustnot 502 503
+.must 705
 I'm pleased to see that I've trained you to accept
 your bare, naked, vulnerable state very well.
 It's a becoming quality for a slutty slaveboy like you.
-.mustnot 502 503
-.must 705
-.range 1200
+.range 1200             ' on to "hard" question
+
+[Action 1161]
+.mustnot 705            ' no naked training 5
+Being naked is a very important part of being My slave, you understand?
+.range 1164 1167        ' naked-lecture
 
 [Action 1162]
-Being naked is a very important part of being My slave, you understand?
-.mustnot 705            ' no naked training 5
-.range 1164 1167        ' start lecture
-
-[Action 1163]
+.must 701 702 703 704
+.mustnot 502 503
 I think you've finally come to understand how vital nudity is to a being a slave like you.
 Your hard work has pleased your Mistress very much!
 delay 2
 I love to see such naked, wanton abandon in a slutboy,
 and you can be sure you'll get a nice reward later on.
 .pause Thank you, Miss
-.must 701 702 703
-.mustnot 502 503
 .set 705                ' naked training 5
-.range 1200
+.range 1200             ' on to "hard" question
+
+[Action 1163]
+.must 701 702 703 704 705
+I just love a stark naked slaveboy.
+I hope you are feeling nude and vulnerable.
+.range 1200             ' on to "hard" question
 
 
 ' Naked Lectures and assignments
