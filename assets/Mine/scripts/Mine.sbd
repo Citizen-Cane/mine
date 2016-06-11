@@ -1889,16 +1889,16 @@ It reinforces your vulnerability and your weakness very nicely.
 .range 1165 1167
 
 [Action 1165]
+.mustnot 702
 Being totally naked removes many of your defenses.
 Don't you feel it, slave?
 Being bare to the world makes you feel more submissive, doesn't it?
-.mustnot 702
 .range 1166 1167
 
 [Action 1166]
+.mustnot 703
 It is My desire that you become more comfortable being a nude,
 bare slaveboy than you are when you are clothed.
-.mustnot 703
 .range 1168 1169
 
 [Action 1167]
@@ -1936,22 +1936,23 @@ I know it will be fun for Me!
 .range 1200
 
 [Action 1173]
+.mustnot 600 400   ' naked day not already happening, and not completed
+.must 702          ' naked acceptance 2
+.mustnot 703       ' naked acceptance 3
 To further humiliate you, and remind you of your inferiority and your slave status,
 I have an assignment for you as a part of your slaveboy training.
 You must complete this assignment before you return for your next session.
-.mustnot 600 400   ' naked day not already happening, and not completed
-.mustnot 703
 .range 1176
 
 [Action 1174]
+.mustnot 408 608   ' naked week assignment not happening already, and not completed
+.mustnot 597       ' Just started over
+.mustnot 698 699   ' cum-denial will be used as punishment during the naked-week
+.must 703          ' naked acceptance 3
+.mustnot 704       ' naked acceptance 4
 You remember your naked day assignment, don't you, my little cunt?
 Well, it's time to remind you of the importance of complete nudity for a slave,
 and to train you to accept your natural, animal state.
-.must 703
-.mustnot 408 608   ' naked week assignment not allready happening, and not completed
-.mustnot 698 699   ' cum-denial will be used as punishment during the naked-week
-.mustnot 597       ' Just started over
-.mustnot 704       ' naked training 4
 .range 1179
 
 
@@ -1965,19 +1966,13 @@ And you are not allowed to combine this assignment with any other assignments I 
 You're to concentrate only on being totally bare and naked all day.
 And I mean totally bare!
 No socks, no shoes, no nothing.
-.pause I understand, Miss
-.range 1177 1177
-
-[Action 1177]
+[I understand, Miss]
 In addition, you're certainly not allowed to put anything on to go outside,
 or to go to work, or for any other reason.
 So plan ahead!
 And remind yourself during the day that you're naked because I ordered it,
 and not because you chose to be.
-.pause Of course, Miss
-.range 1178 1178
-
-[Action 1178]
+[Of course, Miss]
 Understood?
 You may wait as long as you like before completing this assignment,
 but you're not to return to me until you have.
@@ -1987,6 +1982,7 @@ Well my pet,
 have you stupidly forgotten any of My important instructions?
 Otherwise,
 we'll continue with today's session.
+.unset 1176
 .yesno 1200 1200 1190 1193
 .yestext I've understood, Miss
 .notext Please tell me again, Miss
@@ -1999,10 +1995,7 @@ we'll continue with today's session.
 This one is a little different, and a lot longer.
 But I know you'll enjoy it, my wanton little slut!
 I call this one the "naked week"!
-.pause A whole week, Miss?
-.range 1180
-
-[Action 1180]
+[A whole week, Miss?]
 Now, I'm a reasonable Mistress.
 I don't expect you to stay inside all week!
 At least, not this time.
@@ -2010,74 +2003,61 @@ You may carry on with your day-to-day activities,
 going to work, going to the store, and so on.
 However, the first thing you do when you walk in the door
 will be to strip down to your bare skin!
-.pause I understand, Miss
-.range 1181
-
-[Action 1181]
+[I understand, Miss]
 And, as long as you are home, your orders are to remain totally naked at all times.
 You may put on your clothes as the last thing you do before you leave.
 And I mean it!
 If you put on those clothes and realize you've forgotten your wallet,
 you strip right back down again before you look for it.
-.pause Of course, Miss
-.range 1182
-
-[Action 1182]
+[Of course, Miss]
 You will do this every day for a solid week, and every day
 you will consult Me and report to Me your progress.
 Don't worry, I'll be keeping track, so don't let any
 naughty thoughts of cheating into that pretty head.
-.pause Of course not, Miss
-.range 1183
-
-[Action 1183]
+[Of course not, Miss]
 If you miss a day, I'll make you start over, so make sure to stay in My good graces.
 If you anger me, little slut, and I don't want to see you for a day,
 that's just too bad for you, because I'll make you start over, and punish you too.
-.pause Yes Miss!
-.range 1184
-
-[Action 1184]
+[Yes Miss!]
 Do you remember and understand all your orders for your naked week, My slave?
-.yesno 1172 1172 1194 1196
+.set 597                     ' start naked week assignment tracking
+.unset 1179
 .yestext Yes Miss, I understand
 .notext No Miss, I'm sorry
-.set 597                     ' start naked week assignment tracking
+.yesno 1172 1172 1194 1196
 
 
 ' Naked day assignment - not listening carefully
 
 [Action 1190]
+.mustnot 507                  ' Attention deficit
 So, my little cocktease, you weren't listening carefully?
 You'll draw a little extra punishment for that later on.
 I'll repeat Myself, but this time pay attention.
 .pause Thank you, Miss
-.mustnot 507                  ' Attention deficit
 .set 507
-.unset 1176 1177 1178
 .range 1176
 
 [Action 1191]
+.mustnot 103
+.must 507                     ' Attention deficit
 Little cunt!
-I've had enough of this.
 How many times did I tell you to listen carefully to my instructions?
 I'll repeat myself once more, but this time pay attention to your Mistress!
 .pause Thank you very much, Miss
-.mustnot 103
-.must 507                     ' Attention deficit
 .set 103
-.unset 1176 1177 1178
 .range 1176
 
 [Action 1192]
+.must 103
+.must 507                    ' Attention deficit
 You stupid little bitch!
+I've had enough of this.
 You can come back in an hour if you want to get back into my good graces.
 And you'd better stay bare-ass naked that whole time, understand?
 And keep off the furniture!
 Maybe some rugburn on your knees will remind you to pay attention to your Mistress, slave!
 .pause Please have mercy, Miss
-.must 103
-.must 507                    ' Attention deficit
 .set 508                     ' Inattentiveness
 .set 90
 .settime 91
@@ -2089,36 +2069,34 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 ' Naked week assignment - not listening carefully
 
 [Action 1194]
+.mustnot 507                  ' Attention deficit
 So, my little cocktease, you weren't listening carefully?
 You'll draw a little extra punishment for that later on.
 I'll repeat Myself, but this time pay attention.
 .pause Thank you, Miss
-.mustnot 507                  ' Attention deficit
 .set 507
-.unset 1179 1180 1181 1182 1183 1184
-.range 1179 1179
+.range 1179
 
 [Action 1195]
+.mustnot 103
+.must 507                     ' Attention deficit
 Little cunt!
-I've had enough of this.
 How many times did I tell you to listen carefully to my instructions?
 I'll repeat myself once more, but this time pay attention to your Mistress!
 .pause Thank you very much, Miss
-.mustnot 103
-.must 507                     ' Attention deficit
 .set 103
-.unset 1179 1180 1181 1182 1183 1184
-.range 1179 1179
+.range 1179
 
 [Action 1196]
+.must 103
+.must 507                    ' Attention deficit
 You stupid little bitch!
+I've had enough of this.
 You can come back in an hour if you want to get back into my good graces.
 And you'd better stay bare-ass naked that whole time, understand?
 And keep off the furniture!
 Maybe some rugburn on your knees will remind you to pay attention to your Mistress, slave!
 .pause Please have mercy, Miss
-.must 103
-.must 507                    ' Attention deficit
 .set 508                     ' Inattentiveness
 .set 90
 .settime 91
@@ -2237,9 +2215,7 @@ me any type of satisfaction or pleasure?
 [Action 1217]
 In the future you are to keep that prick fully erect whenever you are in My presence.
 A nice hard cock can be punished, decorated, played with, or even allowed to give you pleasure.
-.range 1218
-
-[Action 1218]
+[]
 A soft and small boy penis can do none of those things,
 so you keep playing with that meat even if it's raw and sore.
 I'll mark you down for a little extra reminder later on as well.
