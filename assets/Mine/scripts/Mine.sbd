@@ -297,7 +297,7 @@
 ' 270          plugged, ready for assignment
 ' 271          Maid training punishment once per session
 ' 272          Toy lecture given
-' 273          Used for punishing punishment cancellations, used by the quit handler:
+' 273          Activity section flag, used for punishing punishment cancellations, used by the quit handler
 '              unset during punishment cycle, set when starting activity loop
 ' 274          Quit without permission check
 ' 275          free
@@ -442,9 +442,9 @@
 '.askcheck      94      704     704: * Naked acceptance 4 (4065) Naked week finish
 '.askcheck      95      705     705: * Naked acceptance 5 (1163)
 '.askcheck      55      707     707: * Always hard 2 (1224, 7524)
-'.askcheck      56      708     708: * Always hard 3 (1227, 7527)
-'.askcheck      57      709     709: * Always hard 4 (1231, 7531)
-'.askcheck      58      710     710: * Always hard 5 (1232, 7532)
+'.askcheck      56      708     708: * Always hard 3 (1235, 7527)
+'.askcheck      57      709     709: * Always hard 4 (1241, 7531)
+'.askcheck      58      710     710: * Always hard 5 (1242, 7532)
 ' Punishment acceptance: Increase level of punishments: maid training, sil_186, voluntary punishments, punishment for cumming with demerits
 '.askcheck      59      711     711: * Punishment acceptance 1 (1046, 1048, 1050, 2011, 2030)
 '.askcheck      60      712     712: * Punishment acceptance 2 (1048, 1050, 2413)
@@ -2107,23 +2107,23 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 
 ' too late
 [Action 1197]
-You seem to like keeping your mistress waiting, don't you, you sluggish slave.
-Remind me to teach you a little lesson on the topic later on.   
 .mustnot 509                 ' P.O. for wasting mistress time
+You seem to like keeping your mistress waiting, don't you, you sluggish slave.
+Remind me to teach you a little lesson on the topic later on.
 .set 509
 .pause Thank you, Miss
 .range 1199
 
 [Action 1198]
+.must 509 
 How can answering such a simple question take such a long time?
 You'll deserve a couple of demerits for your time-wasting behaviour, slave.
 Hopefully that will be enough to remind you to answer my questions promptly,
 for pity's sake.
 .pause Thank you, Miss
-.must 509 
+.set 103                     ' mistress impatient after waiting so long for this easy question
 .set 201                     ' two demerits
 .unset 200 202 203 204
-.set 103                     ' mistress impatient after waiting so long for this easy question
 .unset 1198
 .range 1199
 
@@ -2133,7 +2133,7 @@ for pity's sake.
 .unset 1199
 And now tell your Mistress:
 Have you been keeping yourself nice and hard since you came into my presense?
-.delay 15 15 confirm yes 1238 1243 no 1219 1223 
+.delay 15 15 confirm yes 1237 1237 no 1212 1212
 .yestext Yes Miss, of course I have!
 .notext I'm sorry Miss, but I haven't
 .range 1197 1198
@@ -2146,8 +2146,8 @@ Have you been keeping yourself nice and hard since you came into my presense?
 
 ' No chastity cage, ask "Being hard" question
 [Action 1201]
-Now, My dear slut, tell Me the truth...
 .mustnot 380                ' Have chastity device
+Now, My dear slut, tell Me the truth...
 .range 1205 1209
 
 ' Skip "Being hard" question now and ask after toy check because the slave my be encaged 
@@ -2160,21 +2160,21 @@ Now, My dear slut, tell Me the truth...
 
 
 [Action 1205]
-Have you been touching yourself since you came into My presence?
 .mustnot 111                 ' masturbation lecture
 .mustnot 380                 ' Have chastity device 
+Have you been touching yourself since you came into My presence?
 .set 256                     ' Hardness question one-time per session
-.yesno 1238 1243 1213 1213
+.yesno 1237 1237 1213 1213
 .yestext Yes Miss, I have
 .notext Of course not, Miss
 
 [Action 1206]
-Have you been keeping yourself nice and hard for your Mistress?
 .must 111                    ' masturbation lecture
 .mustnot 380                 ' Have chastity device
+Have you been keeping yourself nice and hard for your Mistress?
 .set 256                     ' Hardness question one-time per session     
 .unset 1202
-.delay 15 15 confirm yes 1238 1243 no 1219 1223 
+.delay 15 15 confirm yes 1237 1237 no 1212 1212 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
 .range 1197 1198
@@ -2185,6 +2185,12 @@ Have you been keeping yourself nice and hard for your Mistress?
 '[Action 1209]
 
 
+' punishments
+[Action 1212]
+.gosub 1219 1223
+.range 1250
+
+
 [Action 1213]
 Remember, My slave, you should never lie to me.
 Are you sure you haven't been playing with yourself at all?
@@ -2192,27 +2198,35 @@ Are you sure you haven't been playing with yourself at all?
 .yestext Yes, Miss, I'm sure
 .notext Well Miss, maybe I have
 
+
 [Action 1214]
+.gosub 1215
+.range 1250
+
+
+' not-hard lecture - called from 1214, 1226, 7504
+
+[Action 1215]
 Well, My little slave, that's not acceptable.
 I insist that My slaves keep themselves nice and hard for me at all times,
 unless I order otherwise.
 Not for your pleasure, of course, but for Mine.
-.range 1215 1216
+.range 1216 1217
 
-[Action 1215]
+[Action 1216]
 It's very insulting to Me and very naughty of you to
 present a sorry little shriveled up prick like that.
 What am I supposed to do with that thing?
-.range 1217
+.range 1218
 
-[Action 1216]
+[Action 1217]
 Look at that pathetic flaccid so-called cock.
 Do you think I want to see that?
 Do you think that miserable member is capable of giving
 me any type of satisfaction or pleasure?
-.range 1217
+.range 1218
 
-[Action 1217]
+[Action 1218]
 In the future you are to keep that prick fully erect whenever you are in My presence.
 A nice hard cock can be punished, decorated, played with, or even allowed to give you pleasure.
 []
@@ -2222,39 +2236,43 @@ I'll mark you down for a little extra reminder later on as well.
 Keep a hand on that silly prick from now on!
 .pause Understood, Miss
 .set 511                          ' not being hard punishment 1
-.unset 709 710
-.range 1250
+.unset 709 710                    ' always hard 4,5
+.return
 
 
 [Action 1219]
+.mustnot 708                      ' second lecture not heard
 Is that so, you smutty slave?
 I know I've told you before to keep that member stiff!
 It's a very sorry slave who can't even play with himself, I must say.
 It looks like I'll have to give you a little extra punishment later on.
 .pause Thank you very much, Miss
-.mustnot 708                      ' second lecture not heard
-.set 512                          ' not being hard punishment 2
+.unset 111                        ' always hard lecture heard
 .set 200                          ' one demerit
 .unset 201 202 203 204
-.unset 111 707 708 709 710        ' reset all lectures
-.range 1250
+.set 512                          ' not being hard punishment 2
+.unset 707 708 709 710            ' clear advancement
+.return
 
 [Action 1220]
+.must 708                         ' second lecture
+.mustnot 709                      ' choose a different punishment
 That's very curious, dog, because I seem to remember telling you
 to keep your hand on that prick at all times.
 You must be extremely stupid even for a boy-slave
 if you can't even masturbate correctly!
 A couple of punishment sessions should fix the problem, I hope.
 .pause Please forgive me, Miss
-.must 708                         ' second lecture
-.mustnot 709                      ' choose a different punishment
-.set 511 512                      ' not being hard punishment 1&2
+.unset 111                        ' always hard lecture heard
 .set 201                          ' two demerits
 .unset 200 202 203 204
-.unset 111 707 708 709 710        ' reset lectures and levels
-.range 1250
+.set 511 512                      ' not being hard punishment 1&2
+.unset 707 708 709 710            ' clear advancement
+.return
 
 [Action 1221]
+.must 103                         ' impatience
+.mustnot 273                      ' Activity cycle
 You dare insult Me with that wretched flaccid thing?
 You've been an extremely disobedient slave, indeed!
 Don't worry, I'll soon give you something to remember,
@@ -2262,41 +2280,43 @@ and you can look forward to another series of harsh training sessions.
 You can think about your foolishness for the next hour while I prepare your torment,
 you worthless cunt.
 .pause Please have mercy, Miss
-.must 103                         ' impatience
-.set 501                          ' impatience punishment
-.set 511 512                      ' both not hard punishments               
 .set 90
 .settime 91                       ' wait one hour
-.unset 111 707 708 709 710        ' reset all lectures and level
-.range 870
+.unset 111                        ' always hard lecture heard
+.set 501                          ' impatience punishment
+.set 511 512                      ' both not hard punishments               
+.unset 707 708 709 710            ' clear advancement
+.range 870                        ' exit
 
 [Action 1222]
+.must 709
+.mustnot 710
 Is that so, you smutty slave?
 I know I've told you before to keep that member stiff!
 It's a very sorry slave who can't even play with himself, I must say.
 It looks like I'll have to give you a little extra punishment later on.
 .pause Please forgive me, Miss
-.must 709
-.mustnot 710
-.set 512                          ' not being hard punishment 2
+.unset 111                        ' always hard lecture heard
 .set 200                          ' one demerit
 .unset 201 202 203 204
-.unset 111 707 708 709 710        ' reset all lectures
-.range 1250
+.set 512                          ' not being hard punishment 2
+.unset 707 708 709 710            ' clear advancement
+.return
 
 [Action 1223]
+.must 710
 That's very curious, dog, because I seem to remember telling you to
 keep your hand on that prick at all times.
 You must be extremely stupid even for a boy-slave
 if you can't even masturbate correctly!
 A couple of punishment sessions should fix the problem, I hope.
 .pause Please have mercy, Miss
-.must 710
-.set 511 512                      ' not being hard punishment 1 & 2
+.unset 111                        ' always hard lecture heard
 .set 201                          ' two demerits
 .unset 200 202 203 204
-.unset 111 707 708 709 710        ' reset lectures and levels
-.range 1250
+.set 511 512                      ' not being hard punishment 1 & 2
+.unset 707 708 709 710            ' clear advancement
+.return
 
 '[Action 1224]
 
@@ -2313,124 +2333,117 @@ who has the gall to insult his Mistress by lying right to Her face.
 Remind me to teach you a lesson on answering honestly later on.
 .pause Please forgive me, Miss
 .set 103                          ' impatience
-.set 504 506 512                  ' general disobeydience, lying, not being hard
+.set 504 506                      ' general disobedience, lying
 .unset 707 708 709 710            ' reset lectures
-.range 1214                       ' Assume not hard 
+.gosub 1215                       ' Assume not hard, results in p.o. lack of hardness level 1 511 
+.range 1250
 
 
+' always hard lecture, called from (122 , 7528)
 [Action 1227]
 I insist that all My slaves keep themselves hard for Me for many reasons.
-.range 1228
-
-[Action 1228]
+[]
 For one thing, it helps keep inattentive slaveboys focused on the task at hand.
 I do so hate it when the little minds of my little cunts wander.
-.range 1229
-
-[Action 1229]
+[]
 It also keeps that silly rod ready for punishment and torture at My whim.
 Whipping a nice hard dick is so much more satisfying, don't you think?
-.range 1230
-
-[Action 1230]
+[]
 It's also very important that My slaves learn to hold that jizm inside
 until I give the okay, and the best way to learn is to practice.
-.range 1231
-
-[Action 1231]
+[]
 Of course I love watching the frustration of a poor slave waiting and waiting to cum.
 All that waiting teaches patience, and promotes good behavior, too.
-.range 1232
-
-[Action 1232]
+[]
 Little boy slaves are very easy to control when they think they might get to blow their load.
 Most of you stupid cum-drunk boys will do just about anything for Me if you think I might give you pleasure and release.
 And the longer the slave has to hold it in, the more pliant that poor slave becomes.
-.range 1233
-
-[Action 1233]
+[]
 Finally, and most importantly, it's another vital degredation of you, the slave.
 There you are, bare naked and endlessly playing with yourself,
 but never to cum without permission.
 Mistresses get to cum whenever they like,
 but naughty slaveboys like you must hold it in all the time.
-.range 1234
-
-[Action 1234]
+[]
 So keep it up, My slave, as we continue the session.
 .set 111 707            ' lecture and level 1
-.range 1250
+.return
 
 
+'alway hard lecture, called from (1240, 7530)
 [Action 1235]
 It feels good to keep rubbing that thing, doesn't it?
 Primitive animal boys like you always require primitive rewards.
 A sensible slavegirl could take pleasure just from My love and affection,
 but stupid slaveboys like you aren't quite sophisticated enough for that!
-.range 1236
-
-[Action 1236]
+[]
 Remember, as long as you're being a dutiful and obedient slave I want you to feel good.
 A slavegirl would understand at once that making the Mistress happy makes the slave happy, too.
 Unfortunately slaveboys like you need a little extra encouragement.
-.range 1237
-
-[Action 1237]
+[]
 Of course, feeling too good isn't proper for slaves either!
 So make sure that you never cum when you're not supposed to,
 or I'll make sure that you don't feel good for a while!
 Now let's continue today's session.
 .set 111 708
-.range 1250
+.return
 
 
-' compliments 1238-1243
+' compliments and advancement
+[Action 1237]
+.gosub 1238 1243
+.range 1250             ' Continue the session
+
+
+' called from 1237, 7517
 
 [Action 1238]
+.mustnot 111
 That's very good, slave.
 I order you to keep on fondling that little prick of yours.
 Of course, it should go without saying that spurting
 your load without permission is a very bad no-no for My slaves.
 .pause Yes, Miss
-.mustnot 111
-.range 1227
+.gosub 1227
+.return
 
 [Action 1239]
+.must 111
 That's right, slave, keep that little tool
 hard and stiff for your Mistress at all times.
-.must 111
-.range 1250
+.return
 
 [Action 1240]
+.must 707
+.mustnot 708
 Very good, My dear.
 Making you constantly play with that slave-penis of yours is,
 as you know,
 one of My dearest pleasures.
-.mustnot 708
-.must 707
-.range 1235
+.gosub 1235
+.return
 
 [Action 1241]
+.must 708
 That's a good boy!
 Now keep fondling that silly cock for your Mistress while we move on with the session.
-.must 708
 .set 709
-.range 1250
+.return
 
 [Action 1242]
+.must 709
 That's a good boy!
 Now keep fondling that silly cock for your Mistress while we move on with the session.
-.must 709
 .set 710
 .set 706                ' entitled for light punishment, reset when given
-.range 1250
+.return
 
 [Action 1243]
+.must 710
 That's a good boy!
 Now keep fondling that silly cock for your Mistress while we move on with the session.
-.must 710
 .set 706                ' entitled for light punishment, reset when given
-.range 1250
+.return
 
 
 ' from 9299
@@ -5916,7 +5929,7 @@ I might subject your owned slave-body to.
 How's that silly slave-penis now?
 I hope for its sake that you have learned something today!
 Now keep that cock tall and proud or we'll have to go again.
-.must 511               ' Mandatory here becuase punishments are commonly used by 511 and 512
+.must 511               ' Mandatory here because punishments are commonly used by 511 and 512
 .unset 511
 .range 2151
 
@@ -13482,9 +13495,6 @@ delay 2
 .range 7549                  ' Continue the session
 
 
-' TODO duplicated from startup code
-' at least the lectures could be turned into sub routines
-
 ' 7500 7502 decide whether to ask if slave is keeping cock hard
 [Action 7500]
 Now, My dear slut, tell Me the truth...
@@ -13504,98 +13514,13 @@ Are you sure you haven't been playing with yourself at all?
 
 
 [Action 7504]
-Well, My little slave, that's not acceptable.
-I insist that My slaves keep themselves nice and hard for me at all times,
-unless I order otherwise.
-Not for your pleasure, of course, but for Mine.
-.range 7505 7506
-
-[Action 7505]
-It's very insulting to Me and very naughty of you to
-present a sorry little shriveled up prick like that.
-What am I supposed to do with that thing?
-.range 7507
-
-[Action 7506]
-Look at that pathetic flaccid so-called cock.
-Do you think I want to see that?
-Do you think that miserable member is capable of
-giving me any type of satisfaction or pleasure?
-.range 7507
-
-[Action 7507]
-In the future you are to keep that prick fully erect whenever you are in My presence.
-A nice hard cock can be punished, decorated, played with,
-or even allowed to give you pleasure.
-.range 7508
-
-[Action 7508]
-A soft and small boy penis can do none of those things,
-so you keep playing with that meat even if it's raw and sore.
-I'll mark you down for a little extra reminder later on as well.
-Keep a hand on that silly prick from now on!
-.pause Yes, Miss
-.set 511                     ' not being hard punishment 1
-.unset 709 710
+.gosub 1215
 .range 7549                  ' Continue the session
 
 
+' punishments
 [Action 7509]
-.mustnot 708
-Is that so, you smutty slave?
-I know I've told you before to keep that member stiff!
-It's a very sorry slave who can't even play with himself, I must say.
-It looks like I'll have to give you a little extra punishment later on.
-.pause Please forgive me, Miss
-.set 512                          ' not being hard punishment 2
-.unset 111 707 708 709 710        ' reset all lectures
-.range 7480 7481
-
-[Action 7510]
-.must 708
-That's very curious, dog, because I seem to remember telling you to
-keep your hand on that prick at all times.
-You must be extremely stupid even for a boy-slave if you can't even masturbate correctly!
-A couple of punishment sessions should fix the problem, I hope.
-.pause I'm so sorry, Miss
-.set 511 512                      ' not being hard punishment 1&2
-.unset 111 707 708 709 710        ' reset lectures
-.range 7480 7481
-
-[Action 7511]
-.must 103
-You dare insult Me with that wretched flaccid thing?
-You've been an extremely disobedient slave, indeed!
-Don't worry, I'll soon give you something to remember,
-and you can look forward to another series of harsh training sessions that will
-hopefully make you regret your foolishness, you worthless cunt.
-.pause I'm so sorry, Miss
-.set 501                          ' impatience punishment
-.set 511 512                      ' both not hard punishments
-.unset 111 707 708 709 710        ' reset lectures
-.range 7480 7481
-
-[Action 7512]
-.must 709
-.mustnot 710
-Is that so, you smutty slave?
-I know I've told you before to keep that member stiff!
-It's a very sorry slave who can't even play with himself, I must say.
-It looks like I'll have to give you a little extra punishment later on.
-.pause Please forgive me, Miss
-.set 512                          ' not being hard punishment 2
-.unset 111 707 708 709 710        ' reset all lectures
-.range 7480 7481
-
-[Action 7513]
-.must 710
-That's very curious, dog, because I seem to remember telling you to
-keep your hand on that prick at all times.
-You must be extremely stupid even for a boy-slave if you can't even masturbate correctly!
-A couple of punishment sessions should fix the problem, I hope.
-.pause Please forgive me, Miss
-.set 511 512                      ' not being hard punishment 1&2
-.unset 111 707 708 709 710        ' reset lectures
+.gosub 1219 1223
 .range 7480 7481
 
 
@@ -13611,129 +13536,18 @@ I've got plenty of extra torture in store for you, my poor little cocktoy.
 .range 7480 7481
 
 
+' compliments and advancement
 [Action 7517]
-I insist that all My slaves keep themselves hard for Me for many reasons.
-.range 7518
+.gosub 1238 1243
+.range 7549             ' Continue the session
 
 [Action 7518]
-For one thing, it helps keep inattentive slaveboys focused on the task at hand.
-I do so hate it when the little minds of my little cunts wander.
-.range 7519
-
-[Action 7519]
-It also keeps that silly rod ready for punishment and torture at My whim.
-Whipping a nice hard dick is so much more satisfying, don't you think?
-.range 7520
-
-[Action 7520]
-It's also very important that My slaves learn to hold that jizm inside
-until I give the okay, and the best way to learn is to practice.
-.range 7521
-
-[Action 7521]
-Of course I love watching the frustration of a poor slave waiting and waiting
-to cum. All that waiting teaches patience, and promotes good behavior, too.
-.range 7522
-
-[Action 7522]
-Little boy slaves are very easy to control when
-they think they might get to blow their load.
-Most of you stupid cum-drunk boys will do just about anything for Me
-if you think I might give you pleasure and release.
-And the longer the slave has to hold it in, the more pliant that poor slave becomes.
-.range 7523
-
-[Action 7523]
-Finally, and most importantly, it's another vital degredation of you, the slave.
-There you are, bare naked and endlessly playing with yourself,
-but never to cum without permission.
-Mistresses get to cum whenever they like,
-but naughty slaveboys like you must hold it in all the time.
-.pause Of course, Miss
-.range 7524
-
-[Action 7524]
-So keep it up, My slave, as we continue the session.
-.set 111 707            ' lecture and level 1
-.range 7549             ' Continue the session
-
-
-[Action 7525]
-It feels good to keep rubbing that thing, doesn't it?
-Primitive animal boys like you always require primitive rewards.
-A sensible slavegirl could take pleasure just from My love and affection,
-but stupid slaveboys like you aren't quite sophisticated enough for that!
-.range 7526
-
-[Action 7526]
-Remember, as long as you're being a dutiful and obedient slave I want you to feel good.
-A slavegirl would understand at once that making the Mistress happy makes the slave happy, too.
-Unfortunately slaveboys like you need a little extra encouragement.
-.range 7527
-
-[Action 7527]
-Of course, feeling too good isn't proper for slaves either!
-So make sure that you never cum when you're not supposed to,
-or I'll make sure that you don't feel good for a while!
-Now let's continue today's session.
-.set 111 708
-.range 7549              ' Continue the session
-
-
-[Action 7528]
-That's very good, slave.
-Keep on fondling that little prick of yours.
-Of course, it should go without saying that spurting your load
-without permission is a very bad no-no for My slaves.
-.mustnot 111
-.range 7517
-
-[Action 7529]
-That's right, slave, keep that little tool
-hard and stiff for your Mistress at all times.
-.must 111
-.range 7549             ' Continue the session
-
-[Action 7530]
-Very good, My dear.
-Making you constantly play with that slave-penis of
-yours is, as you know, one of My dearest pleasures.
-.mustnot 708
-.must 707
-.range 7525
-
-[Action 7531]
-That's a good boy!
-Now keep fondling that silly cock for your
-Mistress while we move on with the session.
-.must 708
-.set 709
-.range 7549              ' Continue the session
-
-[Action 7532]
-That's a good boy!
-Now keep fondling that silly cock for your
-Mistress while we move on with the session.
-.must 709
-.set 710
-.set 706                ' entitled for lighter punishment, reset when given
-.range 7549             ' Continue the session
-
-[Action 7533]
-That's a good boy!
-Now keep fondling that silly cock for your
-Mistress while we move on with the session.
-.must 710
-.set 706                ' entitled for light punishment, reset when given
-.range 7549             ' Continue the session
-
-[Action 7534]
-.poss 25
+.poss 12
 Are you sure about that?
 You didn't perhaps allow your slave penis to shrivel up from time to time?
 And you didn't hear My question and then started wanking your prick?
 Well, was your slave penis properly hard and stiff when I asked? 
-.yesno 7528 7533 7516 7516
+.yesno 7517 7517 7516 7516
 .yestext Yes, Miss, my slave penis was hard when you asked
 .notext I'm sorry Miss, but it wasn't
 
@@ -13743,7 +13557,7 @@ Well, was your slave penis properly hard and stiff when I asked?
 [Action 7540]
 .mustnot 111                    ' masturbation lecture
 Have you been touching yourself since you came into My presence?
-.delay 15 15 confirm yes 7528 7534 no 7503 7503 
+.delay 15 15 confirm yes 7517 7518 no 7503 7503 
 ' 7503 7503
 .yestext Yes, Miss, I have
 .notext  Of course not, Miss
@@ -13752,7 +13566,7 @@ Have you been touching yourself since you came into My presence?
 [Action 7541]
 .must 111                    ' masturbation lecture
 Are you keeping yourself nice and hard for your Mistress?
-.delay 15 15 confirm yes 7528 7534 no 7509 7513 
+.delay 15 15 confirm yes 7517 7518 no 7509 7509 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I havent't
 .range 7545 7547
@@ -13760,7 +13574,7 @@ Are you keeping yourself nice and hard for your Mistress?
 [Action 7542]
 .must 111                    ' masturbation lecture
 Are you keeping that little penis hard and stiff for your Mistress?
-.delay 15 15 confirm yes 7528 7534 no 7509 7513 
+.delay 15 15 confirm yes 7517 7518 no 7509 7509 
 .yestext Of course, Miss, all the time
 .notext I'm sorry  Miss, but I haven't
 .range 7545 7547
@@ -13770,7 +13584,7 @@ Are you keeping that little penis hard and stiff for your Mistress?
 Are you following my orders to play with that slave-penis
 at all times to keep it hard and erect?
 .unset 7542
-.delay 15 15 confirm yes 7528 7534 no 7509 7513 
+.delay 15 15 confirm yes 7517 7518 no 7509 7509 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
 .range 7545 7547
@@ -13818,7 +13632,7 @@ Hopefully this will help you to answer my questions promptly.
 .unset 7548
 And now tell your Mistress:
 Have you been keeping yourself nice and hard for your mistress?
-.delay 15 15 confirm yes 7528 7534 no 7509 7513 
+.delay 15 15 confirm yes 7517 7518 no 7509 7509 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
 .range 7545 7547
