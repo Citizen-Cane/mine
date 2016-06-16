@@ -441,6 +441,7 @@
 '.askcheck      93      703     703: * Naked acceptance 3 (4012) Naked day
 '.askcheck      94      704     704: * Naked acceptance 4 (4065) Naked week finish
 '.askcheck      95      705     705: * Naked acceptance 5 (1163)
+'.askcheck      54      706     707: * Always hard lighter punishment
 '.askcheck      55      707     707: * Always hard 2 (1224, 7524)
 '.askcheck      56      708     708: * Always hard 3 (1235, 7527)
 '.askcheck      57      709     709: * Always hard 4 (1241, 7531)
@@ -2204,7 +2205,7 @@ Are you sure you haven't been playing with yourself at all?
 .range 1250
 
 
-' not-hard lecture - called from 1214, 1226, 7504
+' not-hard lecture - called from 1214, 1225, 7513
 
 [Action 1215]
 Well, My little slave, that's not acceptable.
@@ -2212,6 +2213,7 @@ I insist that My slaves keep themselves nice and hard for me at all times,
 unless I order otherwise.
 Not for your pleasure, of course, but for Mine.
 .range 1216 1217
+
 
 [Action 1216]
 It's very insulting to Me and very naughty of you to
@@ -2226,6 +2228,7 @@ Do you think that miserable member is capable of giving
 me any type of satisfaction or pleasure?
 .range 1218
 
+
 [Action 1218]
 In the future you are to keep that prick fully erect whenever you are in My presence.
 A nice hard cock can be punished, decorated, played with, or even allowed to give you pleasure.
@@ -2236,9 +2239,16 @@ I'll mark you down for a little extra reminder later on as well.
 Keep a hand on that silly prick from now on!
 .pause Understood, Miss
 .set 511                          ' not being hard punishment 1
-.unset 709 710                    ' always hard 4,5
+.unset 707 708 709 710            ' always hard 2,3,4,5
 .return
 
+
+' assign punishment 512, and reset lecture and level
+' as a result, the next failure will result in 511,
+' and clear the lecture as well.
+' this avoids asking the introduction question during activities
+' If the slave wears a chastity cage, the lecture can only
+' be cleared during activities.
 
 [Action 1219]
 .mustnot 708                      ' second lecture not heard
@@ -2261,12 +2271,11 @@ That's very curious, dog, because I seem to remember telling you
 to keep your hand on that prick at all times.
 You must be extremely stupid even for a boy-slave
 if you can't even masturbate correctly!
-A couple of punishment sessions should fix the problem, I hope.
+It looks like I'll have to give you a little extra punishment later on.
 .pause Please forgive me, Miss
-.unset 111                        ' always hard lecture heard
 .set 201                          ' two demerits
 .unset 200 202 203 204
-.set 511 512                      ' not being hard punishment 1&2
+.set 512                          ' not being hard punishment 2
 .unset 707 708 709 710            ' clear advancement
 .return
 
@@ -2282,9 +2291,8 @@ you worthless cunt.
 .pause Please have mercy, Miss
 .set 90
 .settime 91                       ' wait one hour
-.unset 111                        ' always hard lecture heard
 .set 501                          ' impatience punishment
-.set 511 512                      ' both not hard punishments               
+.set 512                          ' not being hard punishment 2
 .unset 707 708 709 710            ' clear advancement
 .range 870                        ' exit
 
@@ -2294,9 +2302,8 @@ you worthless cunt.
 Is that so, you smutty slave?
 I know I've told you before to keep that member stiff!
 It's a very sorry slave who can't even play with himself, I must say.
-It looks like I'll have to give you a little extra punishment later on.
+A couple of punishment sessions should fix the problem, I hope.
 .pause Please forgive me, Miss
-.unset 111                        ' always hard lecture heard
 .set 200                          ' one demerit
 .unset 201 202 203 204
 .set 512                          ' not being hard punishment 2
@@ -2311,35 +2318,32 @@ You must be extremely stupid even for a boy-slave
 if you can't even masturbate correctly!
 A couple of punishment sessions should fix the problem, I hope.
 .pause Please have mercy, Miss
-.unset 111                        ' always hard lecture heard
 .set 201                          ' two demerits
 .unset 200 202 203 204
-.set 511 512                      ' not being hard punishment 1 & 2
+.set 512                          ' not being hard punishment 1 & 2
 .unset 707 708 709 710            ' clear advancement
 .return
 
 '[Action 1224]
 
 
+' Continue, as in this case it's a trick question 
+' and therefore just a small infraction
 [Action 1225]
 My little slave:
 How can you not be sure about that!
-.range 1226
-
-' Continue, as in this case it's a trick question and therefore just a small infriction
-[Action 1226]
+[]
 If there's one thing I can't stand, it's a foul-mannered slave
 who has the gall to insult his Mistress by lying right to Her face.
 Remind me to teach you a lesson on answering honestly later on.
 .pause Please forgive me, Miss
 .set 103                          ' impatience
 .set 504 506                      ' general disobedience, lying
-.unset 707 708 709 710            ' reset lectures
 .gosub 1215                       ' Assume not hard, results in p.o. lack of hardness level 1 511 
 .range 1250
 
 
-' always hard lecture, called from (122 , 7528)
+' always hard lecture, called from (1238)
 [Action 1227]
 I insist that all My slaves keep themselves hard for Me for many reasons.
 []
@@ -2391,7 +2395,7 @@ Now let's continue today's session.
 
 ' compliments and advancement
 [Action 1237]
-.gosub 1238 1243
+.gosub 1238 1245
 .range 1250             ' Continue the session
 
 
@@ -2399,16 +2403,18 @@ Now let's continue today's session.
 
 [Action 1238]
 .mustnot 111
+.mustnot 511 512
 That's very good, slave.
 I order you to keep on fondling that little prick of yours.
 Of course, it should go without saying that spurting
 your load without permission is a very bad no-no for My slaves.
 .pause Yes, Miss
-.gosub 1227
+.gosub 1227                  ' always hard lecture
 .return
 
 [Action 1239]
 .must 111
+.mustnot 511 512
 That's right, slave, keep that little tool
 hard and stiff for your Mistress at all times.
 .return
@@ -2416,6 +2422,7 @@ hard and stiff for your Mistress at all times.
 [Action 1240]
 .must 707
 .mustnot 708
+.mustnot 511 512
 Very good, My dear.
 Making you constantly play with that slave-penis of yours is,
 as you know,
@@ -2425,6 +2432,7 @@ one of My dearest pleasures.
 
 [Action 1241]
 .must 708
+.mustnot 511 512
 That's a good boy!
 Now keep fondling that silly cock for your Mistress while we move on with the session.
 .set 709
@@ -2432,6 +2440,7 @@ Now keep fondling that silly cock for your Mistress while we move on with the se
 
 [Action 1242]
 .must 709
+.mustnot 511 512
 That's a good boy!
 Now keep fondling that silly cock for your Mistress while we move on with the session.
 .set 710
@@ -2440,13 +2449,36 @@ Now keep fondling that silly cock for your Mistress while we move on with the se
 
 [Action 1243]
 .must 710
+.mustnot 511 512
 That's a good boy!
 Now keep fondling that silly cock for your Mistress while we move on with the session.
 .set 706                ' entitled for light punishment, reset when given
 .return
 
+[Action 1244]
+.else                   ' any of 511 512
+.mustnot 273            ' activity cycle
+Very good, slave.
+Finally you seem to be getting the hang of it.
+[]
+Well, you still have a punishment outstanding for not being hard in My presence,
+so remind me later on to give you a little extra reminder on masturbating correctly.
+.pause Yes, Mistress
+.return
 
-' from 9299
+[Action 1245]
+.else                   ' any of 511 512
+.must 273               ' activity cycle
+Very good, slave.
+Finally you seem to be getting the hang of it.
+[]
+Well, you still have a punishment outstanding for not being hard,
+so remind me later on to give you a little extra reminder on masturbating correctly.
+.pause Yes, Mistress
+.return
+
+
+
 [Action 1250]
 .range 1251 1252
 
@@ -5926,18 +5958,19 @@ I might subject your owned slave-body to.
 .range 2151
 
 [Action 2411]
+.must 511               ' Mandatory here because punishments are commonly used by 511 and 512
+.mustnot 512            ' handle 512 first
 How's that silly slave-penis now?
 I hope for its sake that you have learned something today!
 Now keep that cock tall and proud or we'll have to go again.
-.must 511               ' Mandatory here because punishments are commonly used by 511 and 512
 .unset 511
 .range 2151
 
 [Action 2412]
+.must 512               ' Mandatory here becuase punishments are commonly used by 511 and 512
 How's that silly slave-penis now?
 I hope for its sake that you have learned something today!
 Now keep that cock tall and proud or we'll have to go again.
-.must 512               ' Mandatory here becuase punishments are commonly used by 511 and 512
 .unset 512
 .range 2151
 
@@ -6662,10 +6695,12 @@ I'll punish you for not jerking off later, I suppose.
 .poss 1
 .mustnot 200 201 202 203 204
 .must 511
+.mustnot 512                 ' handle 512 first
 I'll just give you a couple of demerits, slave.
-Hopefully that will be enough to remind you to play with yourself, for pity's sake.
+Hopefully that will be enough to remind you to play with yourself,
+for pity's sake.
 .set 201                     ' 2 demerits
-.unset 511 512
+.unset 511
 .range 2151
 
 [Action 2612]
@@ -6673,63 +6708,48 @@ Hopefully that will be enough to remind you to play with yourself, for pity's sa
 .mustnot 200 201 202 203 204
 .must 512
 I'll just give you a couple of demerits, slave.
-Hopefully that will be enough to remind you to play with yourself, for pity's sake.
+Hopefully that will be enough to remind you to play with yourself,
+for pity's sake.
 .set 202                     ' 3 demerits
-.unset 511 512
+.unset 512
 .range 2151
 
 [Action 2613]
-.mustnot 24
+.mustnot 24                  ' something on balls
 .mustnot 44                  ' Chastified
+.shouldnot 385               ' ball harness
 You surely have some rope at hand, my dear.
-If not some shoe laces will also do.
+Otherwise some shoe laces will also do.
 Tie up your slutty ball sack until your balls stand out nicely
 and there's only a short length of rope left.
-Make sure the rope can't slip off.
+Make sure the rope won't slip off.
 .pause Done it, Miss
-.set 746 747                 ' CBT 2
 .set 24                      ' Something on balls
-.range 2620 2624
+.range 2620 2623             ' weight to rope
 
-[Action 2614]
-.mustnot 24
-.mustnot 44                  ' Chastified
-.must 746 747                ' CBT 2
-You surely have some rope at hand, my dear.
-If not shoe laces will also do.
-Tie the rope once around the base of your ball sack and fix it with a knot.
-Route the rope once between the balls to seperate them.
-Then tie the rope around the ball sack until your balls stand out nicely
-and there's only a short length of rope left.
-.pause Done, Miss
-.set 746 747 748             ' CBT 3
-.set 24                      ' something on balls
-.range 2620 2624
+'[Action 2614]                ' duplicated to advance CBT
 
 [Action 2615]
 .mustnot 23 24 37            ' Something on penis, something on balls, ball harness
 .must 385                    ' ball harness
 You certainly don't mind putting on your ball harness, do you?
-Put it on now, and make sure your balls are properly squeezed.
+Put it on now, and make sure it sits tight.
 .pause Done, Miss
 .set 24 37                   ' something on balls, ball harness
-.range 2625 2627
+.range 2624 2627             ' weight to ball stretcher
 
-' Fallback if there's already something on balls
+' Fallback if there's something on balls already
 ' Lighter punishment for having been obedient for a longer time
 [Action 2616]
 .mustnot 44                  ' Chastified
-.must 706
+.should 706
 On the other hand,
 just feeling the flush of humiliation will suit you good enough this time.
-.range 2960 2964             ' Jingle balls
+.gosub 2960 2964             ' Jingle balls
+.unset 706
+.range 2978 2979             ' complete punishment without comment
 
-' Fallback if there's already something on balls
-[Action 2617]
-.mustnot 44                  ' Chastified
-On the other hand,
-just feeling the flush of humiliation will suit you good enough this time.
-.range 2960 2964             ' Jingle balls
+'[Action 2617]
 
 ' corner time (5-10 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
 [Action 2618]
@@ -6750,58 +6770,117 @@ just feeling the flush of humiliation will suit you good enough this time.
 .loadsbd mine-paddle.sbd 2560 2560
 
 
+' weight to rope punishments
+ 
 [Action 2620]
-.must 511
+.shouldnot 512
+.shouldnot 747
 Good.
-Now attach a heavy weight of at least a pound to the end of the rope.
-Keep it short, you're not allowed to rest the weight on the ground, slave!
+Now attach a heavy weight of at least half a pound to the end of the rope.
+Keep the rope short, slave -
+you're not allowed to rest the weight on the ground!
 .pause Weight attached, Miss
+.set 746                    ' CBT 1
 .range 2628 2629
 
 [Action 2621]
-.must 512
+.shouldnot 512
+.should 747                 ' CBT 1
 Good.
-Now attach a heavy weight of at least two pounds to the end of the rope.
-Keep it short, you're not allowed to rest the weight on the ground, slave!
+Now attach a heavy weight of at least one pound to the end of the rope.
+Keep the rope short, slave -
+you're not allowed to rest the weight on the ground!
 .pause Weight attached, Miss
+.set 746 747 748             ' CBT 3
 .range 2628 2629
 
-'[Action 2962]
-'[Action 2963]
-'[Action 2964]
+[Action 2622]
+.shouldnot 511
+.must 746 747 748            ' CBT 3
+Good.
+Now attach a heavy weight of at least one and a half pound to the end of the rope.
+Keep the rope short, slave -
+you're not allowed to rest the weight on the ground!
+.pause Weight attached, Miss
+.set 746 747 748 749         ' CBT 4
+.range 2628 2629
 
+[Action 2623]
+.shouldnot 511
+.must 746 747 748 749        ' CBT 4
+Good.
+Now attach a heavy weight of at least two pounds to the end of the rope.
+Keep the rope short, slave -
+you're not allowed to rest the weight on the ground!
+.pause Weight attached, Miss
+.set 746 747 748 749 750     ' CBT 5
+.range 2628 2629
+
+
+' weight to ball stretcher punishments
+
+[Action 2624]
+.shouldnot 512
+.shouldnot 747
+Good.
+Now get a good weight of at least a pound and attach it to the ball spreader.
+Keep the connection short, slave -
+you're not allowed to rest the weight on the ground, my pet.
+.pause Weight attached, Miss
+.set 746                    ' CBT 1
+.range 2628 2629
 
 [Action 2625]
-.must 511
+.shouldnot 512
+.should 746                 ' CBT 1
 Good.
-Now get a good weight of at least a pound and attach it right below your balls.
-You're not allowed to rest the rope on the ground, my pet.
+Now get a good weight of at least a pound and attach it to the ball spreader.
+Keep the connection short, slave -
+you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
+.set 746 747 748             ' CBT 3
 .range 2628 2629
 
 [Action 2626]
-.must 512
+.shouldnot 511
+.must 746 747 748            ' CBT 3
 Good.
-Now get a good weight of at least two pounds and attach it right below your balls.
-You're not allowed to rest the rope on the ground,
-my pet.
+Now get a good weight of at least two pounds and attach it to the ball spreader.
+Keep the connection short, slave -
+you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
+.set 746 747 748 749         ' CBT 4
+.range 2628 2629
+
+[Action 2627]
+.shouldnot 511
+.must 746 747 748 749        ' CBT 4
+Good.
+Now get a good weight of at least two pounds and attach it to the ball spreader.
+Keep the connection short, slave -
+you're not allowed to rest the weight on the ground, my pet.
+.pause Weight attached, Miss
+.set 746 747 748 749 750     ' CBT 5
 .range 2628 2629
 
 
+' punishment complete, presence since it's applied the whole session
+' for completed punishments continue at 2411-2412
+
 [Action 2628]
+.must 511
+.mustnot 512                 ' handle 512 first
 How's that silly slave-penis now?
 I hope for its sake that you learn something today!
 Now keep that cock tall and proud or we'll have to go again.
-.must 511
 .unset 511
 .range 2151
 
 [Action 2629]
+.must 512
 How's that silly slave-penis now?
 I hope for its sake that you learn something today!
 Now keep that cock tall and proud or we'll have to go again.
-.must 512
 .unset 512
 .range 2151
 
@@ -7192,57 +7271,80 @@ Hopefully this will get through to you!
 ' 512 lack of hardness, level 2
 
 ' Jingle balls
-' TODO join duplicated code from 7480+ (or the other way around)
 
 [Action 2960]
+.mustnot 37             ' ball harness
+.must 360               ' some chains
 Fetch a chain, loop it tightly around the base of your flacid penis and lock it up.
 But be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
 .pause Finished, Miss
-.must 360               ' some chains
-.range 2965
+.range 2964
 
 [Action 2961]
+.mustnot 37             ' ball harness
+.mustnot 360            ' some chains
 Let's get some rope, and tie it around the base of your flacid penis.
 Be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
 .pause Finished, Miss
-.mustnot 360            ' some chains
-.range 2965
+.range 2964
 
 [Action 2962]
-Fetch your ball harness, and put it on.
-Pull the straps tight, slave!
-.pause Done, Miss
 .mustnot 24 37         ' Something on balls, ball harness
 .must 385              ' Ball harness
+Go fetch your ball harness, and put it on.
+Pull the straps tight, slave!
+.pause Done, Miss
 .set 24 37
-.range 2965
+.range 2964
+
+[Action 2963]
+.must 24 37            ' Something on balls, ball harness
+Tonight, we're using your sweet ball harness
+to teach you to masturbate correctly!
+.range 2964
 
 
-[Action 2965]
+[Action 2964]
 You'll also need a bell or some other jingling items.
 Use some loose chains, a bunch of keys or similar metal objects.
 The more the better.
-I think five items are satisfying.
-Three if you can produce an actual bell.
-.pause I have them, Miss
+I think seven items are satisfying.
+Five if you can produce an actual bell.
+.yestext Look Miss, I've got a bell!
+.notext I have them, Miss
+.yesno 2965 2965 2966 2969
+
+
+[Action 2965]
+Very good, slave!
 .range 2966 2969
 
+
 [Action 2966]
+.must 2960
 Now connect all those jingling items to your cock ring.
 .pause Done, Miss
-.mustnot 2962
 .range 2970
 
 [Action 2967]
+.must 2961
 Now tie all those jingling items to the loose end of the rope.
 .pause Done, Miss
 .mustnot 2962
 .range 2970
 
 [Action 2968]
+.must 2962
 Now connect all those jingling items to your ball harness.
+.pause Done, Miss
+.must 2962              ' bells on balls
+.range 2970
+
+[Action 2969]
+.must 2963
+Now go ahead and connect all those jingling items to your ball harness.
 .pause Done, Miss
 .must 2962              ' bells on balls
 .range 2970
@@ -7252,36 +7354,41 @@ Now connect all those jingling items to your ball harness.
 Well, isn't that nice, slave?
 Now wank for me,
 I'd like to hear those bells jingle.
-.delay 30
 .playwav 30m.mp3
+.delay 30
 .range 2971
 
 [Action 2971]
-Come on!
-Louder slave, make those bells jingle.
-.delay 30
 .playwav 30f.mp3
+Come on, slave!
+delay 10
+Louder!
+delay 10
+Make those bells jingle!
+.delay 30
 .range 2972
 
 [Action 2972]
 Well, that's good enough.
-.range 2973 2974
-
-
-[Action 2973]
+delay 2
+[]
 Now let your bells jingle over the course of the session in a regular manner,
 or I will punish you with a more humiliating and painful reminder.
 .pause Yes, Miss
+.return
+
+
+' punishment complete, already commented
+
+[Action 2978]
 .must 511
-.unset 706 511
+.mustnot 512            ' handle 512 first
+.unset 511
 .range 2151
 
-[Action 2974]
-Now let your bells jingle over the course of the session in a regular manner,
-or I will punish you with a more humiliating and painful reminder.
-.pause Yes, Miss
+[Action 2979]
 .must 512
-.unset 706 512
+.unset 512
 .range 2151
 
 
@@ -13379,83 +13486,9 @@ or as of now - on your dildo.
 .range 7600               ' Judgement, hardness, removing toys
 
 
-' Jingle balls: Wear bells til the end of the session
-' TODO join duplicated code from 2960+ (or the other way around)
-
-[Action 7480]
-.must 360               ' some chains
-Plus a little reminder right now.
-delay 2
-Get a chain, loop it a around the base of your flacid penis, and lock it up.
-Be careful to not restrict the flow of blood too much.
-I still want you to work hard to stay hard, slave.
-.pause My cock is collared, Miss
-.Range 7482
-
-[Action 7481]
-.mustnot 360            ' some chains
-Plus a little reminder right now.
-delay 2
-Get some rope or shoelace, and tie it around the base of your flacid penis.
-Be careful to not restrict the flow of blood too much.
-I still want you to work hard to stay hard, slave.
-.pause My cock is collared, Miss
-.Range 7482
-
-[Action 7482]
-You'll also need a bell or anything else that can be used to resemble one.
-Use some loose chains, a bunch of keys or something similar.
-The more the better.
-Five items are satisfying,
-three if you can produce an actual bell.
-Go slave, fetch them!
-delay 15
-.yesno 7484 7484 7484 7484
-.yestext Look Miss, I've got a bell!
-.notext I've found some jingling items, Miss
-
-
-[Action 7484]
-Now connect all those jingling items to your cock-"collar".
-.pause Done, Miss
-.Range 7485
-
-[Action 7485]
-Well, isn't that nice, slave?
-And now wank for me, I'd like to hear those bells jingle.
-delay 10
-I want to hear you wanking your member stiff for me, slave!
-.delay 30
-.playwav 30m.mp3
-.Range 7486
-
-[Action 7486]
-Louder slave!
-delay 10
-Let those bells jingle!
-delay 10
-I said "Louder slave"!
-Come on!
-.delay 30
-.playwav 30f.mp3
-.Range 7487
-
-[Action 7487]
-Well slave, that's good enough.
-delay 2
-.Range 7488
-
-[Action 7488]
-Now let your bells jingle over the course of the session in a regular manner,
-and keep your member stiff at all times.
-delay 2
-.unset 706              ' entitled for lighter punishment
-.range 7549             ' Continue the session
-
-
-' A copy of the code from 1200-1249, used
-' to query hardness when the slave has worn
-' the chastity belt at the start of the session
+' Query hardness when the slave has worn
+' the chastity belt at the start of the session,
+' and to check hardness from time to time
 
 ' Once all lectures have been heard, the question is sometimes skipped at the start
 ' to allow asking here, and to catch the slave with the element of surprise
@@ -13471,7 +13504,7 @@ delay 2
 .mustnot 6063
 .mustnot 256                 ' already asked this at session start
 .poss 33
-.range 7500 7502
+.range 7500 7501
 
 ' 10% if already asked (element of surprise)
 [Action 7496]
@@ -13483,127 +13516,75 @@ delay 2
 .must 111 707 708            ' must have heard all lectures in order to ask "Being hard" question again
 .must 256                    ' already asked this before
 .poss 10
-.range 7500 7502
+.range 7500 7501
 
 '[Action 7497]
 '[Action 7498]
 
-' else
 [Action 7499]
 .else                        ' Fallback
-.unset 7495
-.range 7549                  ' Continue the session
+.unset 7495 7496 7497 7498 7499
+.return
 
 
-' 7500 7502 decide whether to ask if slave is keeping cock hard
 [Action 7500]
 Now, My dear slut, tell Me the truth...
 .set 256                     ' ask only once during activities
-.range 7540 7544
+.range 7502 7506
 
 '[Action 7501]
-'[Action 7502]
 
 
-[Action 7503]
-Remember, My slave, you should never lie to me.
-Are you sure you haven't been playing with yourself at all?
-.yesno 7504 7504 7516 7516
-.yestext Yes, Miss, I'm sure
-.notext Well Miss, maybe I have
+' 7502-7506 Questions about hardness
 
-
-[Action 7504]
-.gosub 1215
-.range 7549                  ' Continue the session
-
-
-' punishments
-[Action 7509]
-.gosub 1219 1223
-.range 7480 7481
-
-
-[Action 7516]
-My little slave: How can one not sure about that!
-If there's one thing I can't stand, it's a foul-mannered slave who has
-the gall to insult his Mistress by lying right to Her face.
-I've got plenty of extra torture in store for you, my poor little cocktoy.
-.pause Please forgive me, Miss
-.set 103
-.set 504 506 512                  ' general disobeyience, lying, not being hard
-.unset 111 707 708 709 710        ' reset lectures
-.range 7480 7481
-
-
-' compliments and advancement
-[Action 7517]
-.gosub 1238 1243
-.range 7549             ' Continue the session
-
-[Action 7518]
-.poss 12
-Are you sure about that?
-You didn't perhaps allow your slave penis to shrivel up from time to time?
-And you didn't hear My question and then started wanking your prick?
-Well, was your slave penis properly hard and stiff when I asked? 
-.yesno 7517 7517 7516 7516
-.yestext Yes, Miss, my slave penis was hard when you asked
-.notext I'm sorry Miss, but it wasn't
-
-
-' 7540-7544 Questions about hardness
-
-[Action 7540]
-.mustnot 111                    ' masturbation lecture
+[Action 7502]
+.mustnot 111                 ' masturbation lecture
 Have you been touching yourself since you came into My presence?
-.delay 15 15 confirm yes 7517 7518 no 7503 7503 
-' 7503 7503
+.delay 15 15 confirm yes 7517 7518 no 7512 7512 
 .yestext Yes, Miss, I have
 .notext  Of course not, Miss
-.range 7545 7547
+.range 7507 7509
 
-[Action 7541]
+[Action 7503]
 .must 111                    ' masturbation lecture
 Are you keeping yourself nice and hard for your Mistress?
-.delay 15 15 confirm yes 7517 7518 no 7509 7509 
+.delay 15 15 confirm yes 7517 7518 no 7514 7514 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I havent't
-.range 7545 7547
+.range 7507 7509
 
-[Action 7542]
+[Action 7504]
 .must 111                    ' masturbation lecture
 Are you keeping that little penis hard and stiff for your Mistress?
-.delay 15 15 confirm yes 7517 7518 no 7509 7509 
+.delay 15 15 confirm yes 7517 7518 no 7514 7514 
 .yestext Of course, Miss, all the time
 .notext I'm sorry  Miss, but I haven't
-.range 7545 7547
+.range 7507 7509
 
-[Action 7543]
+[Action 7505]
 .must 111                    ' masturbation lecture
 Are you following my orders to play with that slave-penis
 at all times to keep it hard and erect?
 .unset 7542
-.delay 15 15 confirm yes 7517 7518 no 7509 7509 
+.delay 15 15 confirm yes 7517 7518 no 7514 7514 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
-.range 7545 7547
+.range 7507 7509
 
-'[Action 7543]
-'[Action 7544]
+'[Action 7506]
 
 
 ' Answering late
 
-[Action 7545]
+[Action 7507]
 .mustnot 103                 ' Mistress impatient 
 .mustnot 509                 ' P.O. for wasting mistress time
 You seem to like keeping your mistress waiting, don't you, you sluggish slave.
 Remind me to teach you a little lesson on the topic next time.
 .set 509
-.range 7548                  ' Retry
+.range 7510                  ' Retry
 
-[Action 7546]
+[Action 7508]
 .mustnot 103                  ' Mistress impatient 
 If there's one thing I can't stand it's a sluggish slave boy
 who doesn't answer his Mistress question promptly.
@@ -13612,9 +13593,9 @@ Hopefully this will be enough to remind you to answer my questions promptly next
 for pity's sake.
 .pause I'm sorry, Miss
 .set 103                     ' mistress impatient after waiting so long for this easy question
-.range 7548                  ' Retry
+.range 7510                  ' Retry
 
-[Action 7547]
+[Action 7509]
 .must 103
 .must 509
 Little cunt!
@@ -13624,23 +13605,77 @@ Hopefully this will help you to answer my questions promptly.
 .pause I'm so sorry, Miss
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 509                     ' p.o. for wasting mistress time
-.range 7548                  ' Retry
+.unset 7509
+.range 7510                  ' Retry
 
 
 ' Retry
-[Action 7548]
+[Action 7510]
 .unset 7548
 And now tell your Mistress:
 Have you been keeping yourself nice and hard for your mistress?
-.delay 15 15 confirm yes 7517 7518 no 7509 7509 
+.delay 15 15 confirm yes 7517 7518 no 7514 7514 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
-.range 7545 7547
+.range 7507 7509
 
 
-' Common exit from being hard query
-[Action 7549] 
-.range 7550                  ' Remove toys
+
+' first time trick question
+
+[Action 7512]
+Remember, My slave, you should never lie to me.
+Are you sure you haven't been playing with yourself at all?
+.yesno 7513 7513 7516 7516
+.yestext Yes, Miss, I'm sure
+.notext Well Miss, maybe I have
+
+[Action 7513]
+.gosub 1215
+.return
+
+' jingle balls now plus punishments next time
+
+[Action 7514]
+.gosub 1219 1223
+.unset 706                   ' entitled for lighter punishment
+.range 7515
+
+[Action 7515]
+.gosub 2960 2964             ' Jingle balls
+.return
+
+
+[Action 7516]
+My little slave: How can you not be sure about that!
+If there's one thing I can't stand, it's a foul-mannered slave who has
+the gall to insult his Mistress by lying right to Her face.
+I've got plenty of extra torture in store for you, my poor little cocktoy.
+.pause Please forgive me, Miss
+.set 103
+.unset 111 
+.set 504 506 512             ' general disobeyience, lying, not being hard
+.unset 707 708 709 710       ' reset lectures
+.gosub 2960 2964             ' Jingle balls
+.unset 706                   ' entitled for lighter punishment
+.return
+
+
+' compliments and advancement
+[Action 7517]
+.gosub 1238 1245
+.return
+
+
+[Action 7518]
+.poss 12
+Are you sure about that?
+You didn't perhaps allow your slave penis to shrivel up from time to time?
+And you didn't hear My question and then started wanking your prick?
+Well, was your slave penis properly hard and stiff when I asked? 
+.yestext Yes, Miss, my slave penis was hard when you asked
+.notext I'm sorry Miss, but it wasn't
+.yesno 7517 7517 7516 7516
 
 
 ' Activity toy removal section 7550 7559 (called from 75xx)
@@ -14521,7 +14556,8 @@ I don't want to see it!
 [Action 7740]
 I don't think you've had enough yet.
 Let's continue the session.
-.range 7495 7499        ' Query hardness, then remove toys and continue with next activity
+.gosub 7495 7499        ' Query hardness, then remove toys and continue with next activity
+.range 7550             ' Remove toys
 
 '[Action 7741]
 '[Action 7742]
