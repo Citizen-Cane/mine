@@ -441,7 +441,7 @@
 '.askcheck      93      703     703: * Naked acceptance 3 (4012) Naked day
 '.askcheck      94      704     704: * Naked acceptance 4 (4065) Naked week finish
 '.askcheck      95      705     705: * Naked acceptance 5 (1163)
-'.askcheck      54      706     707: * Always hard lighter punishment
+'.askcheck      54      706     706: * Always hard lighter punishment, toggles between weight and jingle balls
 '.askcheck      55      707     707: * Always hard 2 (1224, 7524)
 '.askcheck      56      708     708: * Always hard 3 (1235, 7527)
 '.askcheck      57      709     709: * Always hard 4 (1241, 7531)
@@ -2444,7 +2444,6 @@ Now keep fondling that silly cock for your Mistress while we move on with the se
 That's a good boy!
 Now keep fondling that silly cock for your Mistress while we move on with the session.
 .set 710
-.set 706                ' entitled for light punishment, reset when given
 .return
 
 [Action 1243]
@@ -2452,7 +2451,6 @@ Now keep fondling that silly cock for your Mistress while we move on with the se
 .mustnot 511 512
 That's a good boy!
 Now keep fondling that silly cock for your Mistress while we move on with the session.
-.set 706                ' entitled for light punishment, reset when given
 .return
 
 [Action 1244]
@@ -6693,23 +6691,27 @@ I'll punish you for not jerking off later, I suppose.
 
 [Action 2611]
 .poss 1
-.mustnot 200 201 202 203 204
+.mustnot 201 202 203 204     ' 2 demerits
 .must 511
 .mustnot 512                 ' handle 512 first
+.should 706                  ' entitled for lighter punishment
 I'll just give you a couple of demerits, slave.
 Hopefully that will be enough to remind you to play with yourself,
 for pity's sake.
+.unset 200 202 203 204
 .set 201                     ' 2 demerits
 .unset 511
 .range 2151
 
 [Action 2612]
 .poss 1
-.mustnot 200 201 202 203 204
+.mustnot 202 203 204         ' 3 demerits
 .must 512
+.should 706                  ' entitled for lighter punishment
 I'll just give you a couple of demerits, slave.
 Hopefully that will be enough to remind you to play with yourself,
 for pity's sake.
+.unset 200 201 203 204
 .set 202                     ' 3 demerits
 .unset 512
 .range 2151
@@ -6717,7 +6719,8 @@ for pity's sake.
 [Action 2613]
 .mustnot 24                  ' something on balls
 .mustnot 44                  ' Chastified
-.shouldnot 385               ' ball harness
+.shouldnot 385               ' have ball harness
+.shouldnot 706               ' entitled for lighter punishment
 You surely have some rope at hand, my dear.
 Otherwise some shoe laces will also do.
 Tie up your slutty ball sack until your balls stand out nicely
@@ -6727,22 +6730,26 @@ Make sure the rope won't slip off.
 .set 24                      ' Something on balls
 .range 2620 2623             ' weight to rope
 
-'[Action 2614]                ' duplicated to advance CBT
+[Action 2614]
+.must 37                     ' ball harness
+.shouldnot 706               ' entitled for lighter punishment
+.range 2624 2627             ' weight to ball harness
 
 [Action 2615]
 .mustnot 23 24 37            ' Something on penis, something on balls, ball harness
-.must 385                    ' ball harness
+.must 385                    ' have ball harness
+.shouldnot 706               ' entitled for lighter punishment
 You certainly don't mind putting on your ball harness, do you?
 Put it on now, and make sure it sits tight.
 .pause Done, Miss
 .set 24 37                   ' something on balls, ball harness
-.range 2624 2627             ' weight to ball stretcher
+.range 2624 2627             ' weight to ball harness
 
 ' Fallback if there's something on balls already
 ' Lighter punishment for having been obedient for a longer time
 [Action 2616]
 .mustnot 44                  ' Chastified
-.should 706
+.should 706                  ' entitled for lighter punishment
 On the other hand,
 just feeling the flush of humiliation will suit you good enough this time.
 .gosub 2960 2964             ' Jingle balls
@@ -6754,7 +6761,7 @@ just feeling the flush of humiliation will suit you good enough this time.
 ' corner time (5-10 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
 [Action 2618]
 .mustnot 258                 ' Corner time already given
-.must 511                    ' Lack of hardness level 2
+.must 511                    ' Lack of hardness level 1
 .mustnot 519                 ' 519 cumming without permission must be executed first because it uses corner time as a fallback
 .set 258
 .save 50 799
@@ -6823,7 +6830,7 @@ you're not allowed to rest the weight on the ground!
 .shouldnot 512
 .shouldnot 747
 Good.
-Now get a good weight of at least a pound and attach it to the ball spreader.
+Now get a good weight of at least a pound and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
@@ -6834,7 +6841,7 @@ you're not allowed to rest the weight on the ground, my pet.
 .shouldnot 512
 .should 746                 ' CBT 1
 Good.
-Now get a good weight of at least a pound and attach it to the ball spreader.
+Now get a good weight of at least a pound and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
@@ -6845,7 +6852,7 @@ you're not allowed to rest the weight on the ground, my pet.
 .shouldnot 511
 .must 746 747 748            ' CBT 3
 Good.
-Now get a good weight of at least two pounds and attach it to the ball spreader.
+Now get a good weight of at least two pounds and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
@@ -6856,7 +6863,7 @@ you're not allowed to rest the weight on the ground, my pet.
 .shouldnot 511
 .must 746 747 748 749        ' CBT 4
 Good.
-Now get a good weight of at least two pounds and attach it to the ball spreader.
+Now get a good weight of at least two pounds and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
@@ -6874,6 +6881,7 @@ How's that silly slave-penis now?
 I hope for its sake that you learn something today!
 Now keep that cock tall and proud or we'll have to go again.
 .unset 511
+.set 706                     ' entitled for lighter punishment
 .range 2151
 
 [Action 2629]
@@ -6882,6 +6890,7 @@ How's that silly slave-penis now?
 I hope for its sake that you learn something today!
 Now keep that cock tall and proud or we'll have to go again.
 .unset 512
+.set 706                     ' entitled for lighter punishment
 .range 2151
 
 
@@ -13638,11 +13647,11 @@ Are you sure you haven't been playing with yourself at all?
 
 [Action 7514]
 .gosub 1219 1223
-.unset 706                   ' entitled for lighter punishment
 .range 7515
 
 [Action 7515]
 .gosub 2960 2964             ' Jingle balls
+.unset 706                   ' entitled for lighter punishment
 .return
 
 
