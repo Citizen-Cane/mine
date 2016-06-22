@@ -6728,12 +6728,14 @@ and there's only a short length of rope left.
 Make sure the rope won't slip off.
 .pause Done it, Miss
 .set 24                      ' Something on balls
-.range 2620 2623             ' weight to rope
+.gosub 2620 2623             ' weight to rope
+.range 2628 2629
 
 [Action 2614]
 .must 37                     ' ball harness
 .shouldnot 706               ' entitled for lighter punishment
-.range 2624 2627             ' weight to ball harness
+.gosub 2624 2627             ' weight to ball harness
+.range 2628 2629
 
 [Action 2615]
 .mustnot 23 24 37            ' Something on penis, something on balls, ball harness
@@ -6743,7 +6745,8 @@ You certainly don't mind putting on your ball harness, do you?
 Put it on now, and make sure it sits tight.
 .pause Done, Miss
 .set 24 37                   ' something on balls, ball harness
-.range 2624 2627             ' weight to ball harness
+.gosub 2624 2627             ' weight to ball harness
+.range 2628 2629
 
 ' Fallback if there's something on balls already
 ' Lighter punishment for having been obedient for a longer time
@@ -6777,7 +6780,7 @@ just feeling the flush of humiliation will suit you good enough this time.
 .loadsbd mine-paddle.sbd 2560 2560
 
 
-' weight to rope punishments
+' weight to rope punishments sub
  
 [Action 2620]
 .shouldnot 512
@@ -6788,7 +6791,7 @@ Keep the rope short, slave -
 you're not allowed to rest the weight on the ground!
 .pause Weight attached, Miss
 .set 746                    ' CBT 1
-.range 2628 2629
+.return
 
 [Action 2621]
 .shouldnot 512
@@ -6799,7 +6802,7 @@ Keep the rope short, slave -
 you're not allowed to rest the weight on the ground!
 .pause Weight attached, Miss
 .set 746 747 748             ' CBT 3
-.range 2628 2629
+.return
 
 [Action 2622]
 .shouldnot 511
@@ -6810,7 +6813,7 @@ Keep the rope short, slave -
 you're not allowed to rest the weight on the ground!
 .pause Weight attached, Miss
 .set 746 747 748 749         ' CBT 4
-.range 2628 2629
+.return
 
 [Action 2623]
 .shouldnot 511
@@ -6821,10 +6824,10 @@ Keep the rope short, slave -
 you're not allowed to rest the weight on the ground!
 .pause Weight attached, Miss
 .set 746 747 748 749 750     ' CBT 5
-.range 2628 2629
+.return
 
 
-' weight to ball stretcher punishments
+' weight to ball stretcher punishments sub
 
 [Action 2624]
 .shouldnot 512
@@ -6835,7 +6838,7 @@ Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
 .set 746                    ' CBT 1
-.range 2628 2629
+.return
 
 [Action 2625]
 .shouldnot 512
@@ -6846,7 +6849,7 @@ Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
 .set 746 747 748             ' CBT 3
-.range 2628 2629
+.return
 
 [Action 2626]
 .shouldnot 511
@@ -6857,7 +6860,7 @@ Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
 .set 746 747 748 749         ' CBT 4
-.range 2628 2629
+.return
 
 [Action 2627]
 .shouldnot 511
@@ -6868,7 +6871,7 @@ Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
 .pause Weight attached, Miss
 .set 746 747 748 749 750     ' CBT 5
-.range 2628 2629
+.return
 
 
 ' punishment complete, presence since it's applied the whole session
@@ -7380,7 +7383,19 @@ Make those bells jingle!
 [Action 2972]
 Well, that's good enough.
 delay 2
-[]
+.range 2973 2974
+
+
+[Action 2973]
+.must 511 512                ' both set -> one left for next session
+Now let your bells jingle over the course of the session in a regular manner.
+delay 2
+And remind me to teach you another lesson on how to masturbate correctly next time.
+.pause Yes, Miss
+.return
+
+[Action 2974]
+.else
 Now let your bells jingle over the course of the session in a regular manner,
 or I will punish you with a more humiliating and painful reminder.
 .pause Yes, Miss
@@ -13643,30 +13658,27 @@ Are you sure you haven't been playing with yourself at all?
 .gosub 1215
 .return
 
-' jingle balls now plus punishments next time
+' reminder now plus punishments next time
 
 [Action 7514]
 .gosub 1219 1223
-.range 7515
-
-[Action 7515]
-.gosub 2960 2964             ' Jingle balls
-.unset 706                   ' entitled for lighter punishment
-.return
+.range 7520
 
 
 [Action 7516]
-My little slave: How can you not be sure about that!
-If there's one thing I can't stand, it's a foul-mannered slave who has
-the gall to insult his Mistress by lying right to Her face.
-I've got plenty of extra torture in store for you, my poor little cocktoy.
+My little slave:
+How can you not be sure about that!
+If there's one thing I can't stand,
+it's a foul-mannered slave who has the gall
+to insult his Mistress by lying right to Her face.
+I've got plenty of extra torture in store for you,
+my poor little cocktoy.
 .pause Please forgive me, Miss
 .set 103
 .unset 111 
 .set 504 506 512             ' general disobeyience, lying, not being hard
 .unset 707 708 709 710       ' reset lectures
-.gosub 2960 2964             ' Jingle balls
-.unset 706                   ' entitled for lighter punishment
+.gosub 7520
 .return
 
 
@@ -13674,7 +13686,6 @@ I've got plenty of extra torture in store for you, my poor little cocktoy.
 [Action 7517]
 .gosub 1238 1245
 .return
-
 
 [Action 7518]
 .poss 12
@@ -13685,6 +13696,71 @@ Well, was your slave penis properly hard and stiff when I asked?
 .yestext Yes, Miss, my slave penis was hard when you asked
 .notext I'm sorry Miss, but it wasn't
 .yesno 7517 7517 7516 7516
+
+
+' lack-of-hardness "reminders" - weight on balls or jingle balls
+
+[Action 7520]
+.range 7521 7524
+
+
+[Action 7521]
+.should 706                  ' entitled for lighter punishment
+.gosub 2960 2964             ' Jingle balls
+.unset 706                   ' entitled for lighter punishment
+.return
+
+[Action 7522]
+.mustnot 24                  ' something on balls
+.mustnot 44                  ' Chastified
+.shouldnot 385               ' have ball harness
+.shouldnot 706               ' entitled for lighter punishment
+You surely have some rope at hand, my dear.
+Otherwise some shoe laces will also do.
+Tie up your slutty ball sack until your balls stand out nicely
+and there's only a short length of rope left.
+Make sure the rope won't slip off.
+.pause Done it, Miss
+.set 24                      ' Something on balls
+.gosub 2620 2623             ' weight to rope
+.range 7528 7529
+
+[Action 7523]
+.must 37                     ' ball harness
+.shouldnot 706               ' entitled for lighter punishment
+.gosub 2624 2627             ' weight to ball harness
+.range 7528 7529
+
+[Action 7524]
+.mustnot 23 24 37            ' Something on penis, something on balls, ball harness
+.must 385                    ' have ball harness
+.shouldnot 706               ' entitled for lighter punishment
+You certainly don't mind putting on your ball harness, do you?
+Put it on now, and make sure it sits tight.
+.pause Done, Miss
+.set 24 37                   ' something on balls, ball harness
+.gosub 2624 2627             ' weight to ball harness
+.range 7528 7529
+
+
+' final comment
+
+[Action 7528]
+.must 511 512
+This will certainly do for today's session,
+but since you've been so ill-disciplined in my dearest matter,
+remind me next time to teach you to masturbate correctly.
+.pause Yes, Miss
+.set 706                     ' entitled for lighter punishment
+.return
+
+[Action 7529]
+.else
+This will certainly do for today's session, slave,
+but remind me next time to teach you another lesson on how to masturbate correctly.
+.pause Yes, Miss
+.set 706                     ' entitled for lighter punishment
+.return
 
 
 ' Activity toy removal section 7550 7559 (called from 75xx)
