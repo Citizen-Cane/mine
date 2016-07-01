@@ -5495,7 +5495,7 @@ Now then, I find it difficult to believe that a wanton sex slave such as yoursel
 Nevertheless I don't mind giving you a painful reminder!
 .pause Please Miss, it won't happen again
 .set 8                  ' only one hardness punishment per session
-.range 2610 2619
+.range 2610 2618
 
 [Action 2212]
 .must 512
@@ -5506,7 +5506,7 @@ but it appears you're at the bottom of your class.
 Maybe a painful punishment session will give you the incentive you need to fondle yourself like a good slave.
 .pause No Miss, please forgive me!
 .set 8                  ' only one hardness punishment per session
-.range 2610 2619        ' 511 and 512 share the same range, but 512 punishments are harder
+.range 2610 2618        ' 511 and 512 share the same range, but 512 punishments are harder
 
 [Action 2213]
 .must 513
@@ -5592,7 +5592,7 @@ who failed to wear the proper getup when he approached his mistress.
 A little reminder is needed to keep the slave's thoughts and focus in line
 and restore respect to his mistress and her precise instructions.
 .pause Please Miss, I'll make good next time
-.range 2700 2708
+.range 2700 2707
 
 [Action 2221]
 .must 521
@@ -5609,21 +5609,21 @@ A little reminder is needed to keep the slave's thoughts and focus in line and r
 '.pause
 '.must 522
 '.mustnot 520            ' must be executed first in order to complete clamps/pegs punishment and to start clamps/pegs removal timer
-'.range 2720 2725
+'.range 2720 2724
 '
 '[Action 2223]
 '
 '.pause
 '.must 523
 '.mustnot 520            ' must be executed first in order to complete clamps/pegs punishment and to start clamps/pegs removal timer
-'.range 2730 2735
+'.range 2730 2734
 '
 '[Action 2224]
 '
 '.pause
 '.must 524
 '.mustnot 520            ' must be executed first in order to complete clamps/pegs punishment and to start clamps/pegs removal timer
-'.range 2740 2745
+'.range 2740 2744
 '
 [Action 2225]
 .must 525
@@ -5879,9 +5879,9 @@ I certainly hope you learned your lesson!
 '	Re-entry points for punishment subroutines.
 
 [Action 2400]
-I hope you now realize that I require not only your submission 
+I hope you now realize that I require not only your submission
 but your best manners as well.
-.unset 500	'	punishment complete
+.unset 500              ' punishment complete
 .range 2151
 
 [Action 2401]
@@ -5956,7 +5956,7 @@ I might subject your owned slave-body to.
 .range 2151
 
 [Action 2411]
-.must 511               ' Mandatory here because punishments are commonly used by 511 and 512
+.must 511               ' Mandatory here because 511 & 512 share the same punishment section
 .mustnot 512            ' handle 512 first
 How's that silly slave-penis now?
 I hope for its sake that you have learned something today!
@@ -5965,7 +5965,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .range 2151
 
 [Action 2412]
-.must 512               ' Mandatory here becuase punishments are commonly used by 511 and 512
+.must 512               ' Mandatory here because 511 & 512 share the same punishment section
 How's that silly slave-penis now?
 I hope for its sake that you have learned something today!
 Now keep that cock tall and proud or we'll have to go again.
@@ -6117,9 +6117,14 @@ I guess you've gotten away with one this time.
 ' corner time + marker
 [Action 2501]
 .mustnot 258                 ' Corner time already given
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2500 2500
+
+
+' corner time return
+[Action 2505]
+.set 258                     ' Corner time already given
+.range 2400
 
 
 ' 501 Mistress impatience
@@ -6266,7 +6271,6 @@ You may have escaped me this time, but don't make a habit of it!
 ' corner time + marker
 [Action 2522]
 .mustnot 258            ' Corner time already given
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2512 2512
 
@@ -6281,6 +6285,12 @@ You may have escaped me this time, but don't make a habit of it!
 .poss 100
 .save 50 799
 .loadsbd mine-paddle.sbd 2987 2987
+
+
+' corner time + marker return
+[Action 2529]
+.set 258                ' Corner time already given
+.range 2402
 
 
 ' 503 "naked rule" violation, level 2
@@ -6306,7 +6316,6 @@ I guess we'll have to skip it today.
 ' corner time + marker
 [Action 2532]
 .mustnot 258            ' Corner time already given
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2517 2517
 
@@ -6321,6 +6330,12 @@ I guess we'll have to skip it today.
 .poss 100
 .save 50 799
 .loadsbd mine-paddle.sbd 2986 2986
+
+
+' corner time + marker return
+[Action 2539]
+.set 258                ' Corner time already given
+.range 2403
 
 
 ' 504 general disobedience
@@ -6385,11 +6400,15 @@ I guess you've gotten away with one this time.
 ' corner time
 [Action 2551]
 .mustnot 258            ' Corner time already given
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2525 2525
 
 ' TODO additional punishments, as this is a common offense
+
+' corner time return
+[Action 2559]
+.set 258                ' Corner time already given
+.range 2405
 
 
 ' 506 lying
@@ -6759,25 +6778,27 @@ just feeling the flush of humiliation will suit you good enough this time.
 .unset 706
 .range 2978 2979             ' complete punishment without comment
 
-'[Action 2617]
-
 ' corner time (5-10 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
-[Action 2618]
+[Action 2617]
 .mustnot 258                 ' Corner time already given
 .must 511                    ' Lack of hardness level 1
 .mustnot 519                 ' 519 cumming without permission must be executed first because it uses corner time as a fallback
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2555 2555
 
 ' corner time (10-15 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
-[Action 2619]
+[Action 2618]
 .mustnot 258                 ' Corner time already given
 .must 512                    ' Lack of hardness level 2
 .mustnot 519                 ' 519 cumming without permission must be executed first because it uses corner time as a fallback
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2560 2560
+
+
+' corner time return
+[Action 2619]
+.set 258                     ' Corner time already given
+.range 2411 2412
 
 
 ' weight to rope punishments sub
@@ -6878,30 +6899,30 @@ you're not allowed to rest the weight on the ground, my pet.
 ' for completed punishments continue at 2411-2412
 
 [Action 2628]
-.must 511
-.mustnot 512                 ' handle 512 first
+.must 511                         ' Mandatory here because 511 & 512 share the same punishment section
+.mustnot 512                      ' handle 512 first
 How's that silly slave-penis now?
 I hope for its sake that you learn something today!
 Now keep that cock tall and proud or we'll have to go again.
 .unset 511
-.set 706                     ' entitled for lighter punishment
+.set 706                          ' entitled for lighter punishment
 .range 2151
 
 [Action 2629]
-.must 512
+.must 512                         ' Mandatory here because 511 & 512 share the same punishment section
 How's that silly slave-penis now?
 I hope for its sake that you learn something today!
 Now keep that cock tall and proud or we'll have to go again.
 .unset 512
-.set 706                     ' entitled for lighter punishment
+.set 706                          ' entitled for lighter punishment
 .range 2151
 
 
 ' 513 Voluntary punishment upon slave's request, level 1
 
 [Action 2630]
-.shouldnot 264          ' spanking already done
-.range 7100             ' Ensure paddle or replacement
+.shouldnot 264                    ' spanking already done
+.range 7100                       ' Ensure paddle or replacement
 
 [Action 2635]
 ' No corner time is given after this spanking
@@ -6912,11 +6933,11 @@ Now keep that cock tall and proud or we'll have to go again.
 
 ' paddle fast x160
 [Action 2640]
-.shouldnot 264          ' spanking already done
-.range 7100             ' Ensure paddle or replacement
+.shouldnot 264                    ' spanking already done
+.range 7100                       ' Ensure paddle or replacement
 
 [Action 2645]
-.set 258                ' Corner time given after spanking in mine-paddle
+.set 258                          ' Corner time given after spanking in mine-paddle
 .range 2414
 
 
@@ -6924,43 +6945,43 @@ Now keep that cock tall and proud or we'll have to go again.
 
 ' paddle x400
 [Action 2650]
-.shouldnot 264          ' spanking already done
-.range 7100             ' Ensure paddle or replacement
+.shouldnot 264                    ' spanking already done
+.range 7100                       ' Ensure paddle or replacement
 
 ' shower 15m, 200 paddles, clamps
 [Action 2651]
-.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
-.mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
-.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
-.mustnot 210            ' punishment shower, already done
-.set 210                ' shower one-time only
-.set 751                ' Ass-whipping 1
+.mustnot 20 24 25                 ' something on nipples, something on balls, ankles tied
+.mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
+.mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
+.mustnot 210                      ' punishment shower, already done
+.set 210                          ' shower one-time only
+.set 751                          ' Ass-whipping 1
 .range 2656 2657
 
 
 [Action 2655]
-.set 258                ' Corner time given after spanking in mine-paddle
+.set 258                          ' Corner time given after spanking in mine-paddle
 .range 2415
 
 
 [Action 2656]
-.set 716                ' nipple tolerance 1
+.set 716                          ' nipple tolerance 1
 .save 50 799
 .loadSbd mine-paddle.sbd 2989 2989
 
 [Action 2657]
-.mustnot 361 362        ' nipple clamps, clothes pegs
+.mustnot 361 362                  ' nipple clamps, clothes pegs
 .poss 100
 .save 50 799
-.loadSbd mine-paddle.sbd 2989 2989
+.loadSbd mine-paddle.sbd 2989
 
 
 ' 516 excessive disobedience
 
 ' paddle x400
 [Action 2660]
-.shouldnot 264          ' spanking already done
-.range 7100             ' Ensure paddle or replacement
+.shouldnot 264                    ' spanking already done
+.range 7100                       ' Ensure paddle or replacement
 
 ' Maid training
 [Action 2661]
@@ -6969,7 +6990,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .mustnot 34                       ' can't type/use mouse
 .set 271
 .save 50 799
-.loadsbd mine-maid.sbd 1003 1003  ' Medium punishment (according to punishment acceptance)
+.loadsbd mine-maid.sbd 1003       ' Medium punishment (according to punishment acceptance)
 
 
 [Action 2665]
@@ -6980,7 +7001,7 @@ Now keep that cock tall and proud or we'll have to go again.
 ' 517 training failure 1
 
 [Action 2670]
-.else                   ' Fallback
+.else                             ' Fallback
 Unfortunately your brazen misbehavior has no punishment assigned to it as yet.
 I'll get you next time, you dirty slave!
 .unset 517
@@ -6988,8 +7009,8 @@ I'll get you next time, you dirty slave!
 
 ' paddle x240
 [Action 2671]
-.shouldnot 264          ' spanking already done
-.range 7100             ' Ensure paddle or replacement
+.shouldnot 264                    ' spanking already done
+.range 7100                       ' Ensure paddle or replacement
 
 [Action 2672]
 .poss 100                         ' Prefer this since his punishment is about failing training
@@ -6999,11 +7020,11 @@ I'll get you next time, you dirty slave!
 .mustnot 34                       ' can't type/use mouse
 .set 271
 .save 50 799
-.loadsbd mine-maid.sbd 1002 1002  ' Light punishment (according to punishment acceptance)
+.loadsbd mine-maid.sbd 1002       ' Light punishment (according to punishment acceptance)
 
 
 [Action 2675]
-.set 258                ' Corner time given after spanking in mine-paddle
+.set 258                          ' Corner time given after spanking in mine-paddle
 .range 2417
 
 
@@ -7011,7 +7032,7 @@ I'll get you next time, you dirty slave!
 ' 518 training failure 2
 
 [Action 2680]
-.else                   ' Fallback
+.else                             ' Fallback
 Unfortunately your brazen misbehavior has no punishment assigned to it as yet.
 I'll get you next time, you dirty slave!
 .unset 518
@@ -7029,35 +7050,35 @@ I'll get you next time, you dirty slave!
 
 ' shower 10m, 91 paddles, clamps, kneeling
 [Action 2682]
-.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
-.mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
-.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
-.mustnot 210            ' punishment shower, already done
-.set 210                ' shower one-time only
-.set 751                ' Ass-whipping 1
+.mustnot 20 24 25                 ' something on nipples, something on balls, ankles tied
+.mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
+.mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
+.mustnot 210                      ' punishment shower, already done
+.set 210                          ' shower one-time only
+.set 751                          ' Ass-whipping 1
 .range 2686 2687
 
 ' paddle x400
 [Action 2683]
-.shouldnot 264          ' spanking already done
-.range 7100             ' Ensure paddle or replacement
+.shouldnot 264                    ' spanking already done
+.range 7100                       ' Ensure paddle or replacement
 
 
 [Action 2685]
-.set 258                ' Corner time given after spanking in mine-paddle
+.set 258                          ' Corner time given after spanking in mine-paddle
 .range 2418
 
 
 [Action 2686]
-.set 716                ' nipple tolerance 1
+.set 716                          ' nipple tolerance 1
 .save 50 799
-.loadSbd mine-paddle.sbd 2981 2981
+.loadSbd mine-paddle.sbd 2981
 
 [Action 2687]
-.mustnot 361 362        ' nipple clamps, clothes pegs
+.mustnot 361 362                  ' nipple clamps, clothes pegs
 .poss 100
 .save 50 799
-.loadSbd mine-paddle.sbd 2981 2981
+.loadSbd mine-paddle.sbd 2981
 
 
 ' 519 cumming illegally
@@ -7100,20 +7121,24 @@ I'll get you next time, you dirty slave!
 ' shorter corner time is used when wearing clamps, so this can safely be called
 [Action 2693]
 .mustnot 258            ' Corner time already given
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2596 2599
 
 ' 35-45m kneeling, clamps and cuffs are preferred, but this works without any toys as well
-' fallback if none of the other punishments can be used, to avoid AllActionsSet
 ' shorter corner time is used when wearing clamps, so this can safely be called
+' - fallback if none of the other punishments can be used, to avoid AllActionsSet
 [Action 2694]
 .else
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2596 2599
 
 ' todo cold shower fallback, would work with pegs and chastity cage
+
+
+' corner time return
+[Action 2699]
+.set 258                ' Corner time already given
+.range 2419
 
 
 ' 520 Punishment outstanding for not wearing the requested getup at the beginning of the session
@@ -7129,21 +7154,20 @@ I guess you've gotten away with one this time.
 
 ' Corner time + marker
 ' 519 Cumming without permission doesn't have a fallback, and only corner time doesn't have any toy requirements
-' 519 is also a severe punishment that can't be skipped.
+' 519 is also a severe punishment that can't be skipped
 ' So to avoid crashing in 519 punishment selection,
 ' corner time must be skipped here if punishment 519 is outstanding.
 [Action 2701]
 .mustnot 258            ' Corner time already given
 .mustnot 519            ' 520 is executed before, but 519 has no fallback
 .unset -20 -24          ' don't remove clamps or pegs in activity
-.set 258
 .save 50 799
 .loadsbd mine-paddle.sbd 2600 2600
 
 ' complete the clamps / complete the pegs
 ' if the slave wears one pain toy, complete punishment getup with the other
 
-[Action 2703]
+[Action 2702]
 .must 20                ' something on nipples
 .mustnot 24
 '.mustnot 38 39
@@ -7153,9 +7177,9 @@ Go fetch four of them and snap'em on your slutty ball sack!
 Do it now, slave.
 .pause Done, Miss
 .set 24 38              ' something on balls, clothes pegs
-.range 2709
+.range 2708
 
-[Action 2704]
+[Action 2703]
 .must 20                ' something on nipples
 .mustnot 24
 '.mustnot 38 39
@@ -7163,9 +7187,9 @@ Do it now, slave.
 Go fetch your pussy clamps and snap them on your slutty ball sack!
 .pause Done, Miss
 .set 24 39              ' something on balls, pussy clamps
-.range 2709
+.range 2708
 
-[Action 2705]
+[Action 2704]
 .mustnot 20
 .must 24 38             ' something on ball sack
 .should 38              ' prefer clothes pegs
@@ -7173,18 +7197,18 @@ Some clothes pegs on your slave nipples will do this time.
 Put them on now, slave!
 .pause Done, Miss
 .set 20 42              ' something on nipples, clothess pegs
-.range 2709
+.range 2708
 
-[Action 2706]
+[Action 2705]
 .mustnot 20
 .must 24                ' something on nipples
 .should 39              ' prefer pussy clamps
 Go fetch your nipple clamps and snap them on your poor slave nipples!
 .pause Done, Miss
 .set 20 43              ' something on nipples, nipple clamps
-.range 2709
+.range 2708
 
-[Action 2707]
+[Action 2706]
 .must 20 38             ' something on nipples, something on balls, clothes pegs
 I sincerely hope that the pain in your nipples and nuts
 will help you remember my orders in the future.
@@ -7194,7 +7218,7 @@ will help you remember my orders in the future.
 .set -520               ' complete punishment later
 .range 2151
 
-[Action 2708]
+[Action 2707]
 .must 20 39             ' something on nipples, something on balls, clamps
 I sincerely hope that the pain in your nipples and nuts
 will help you remember my orders in the future.
@@ -7207,15 +7231,21 @@ will help you remember my orders in the future.
 
 ' comment nipple & pussy pain punishment
 ' the wearing time has already been set when putting on the other pain item
-[Action 2709]
+[Action 2708]
 I sincerely hope that the pain in your nipples and nuts
 will make you change your attitude about My assignments, for your sake.
 .unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520
 .set -520               ' complete punishment later
-' clamps time already set when applying tghe other clamps/pegs,
+' clamps time already set when applying the other clamps/pegs,
 ' so we should reset the time here or the wearing time will be longer than expected
 .range 2151
+
+
+' corner time return
+[Action 2709]
+.set 258                ' Corner time already given
+.range 2420
 
 
 ' 521 Punishment outstanding for not performing out-of-session assignment
@@ -7231,11 +7261,16 @@ I guess you've gotten away with one this time.
 ' Corner time + marker
 [Action 2711]
 .mustnot 258            ' Corner time already given
-.set 258                ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2605 2605
 
 ' TODO Punishemnts for not performing assignments while away from his mistress other than corner time?
+
+
+' corner time return
+[Action 2719]
+.set 258                ' Corner time already given
+.range 2421
 
 
 ' 522
@@ -7251,9 +7286,15 @@ I guess you've gotten away with one this time.
 ' Corner time + marker
 [Action 2740]
 .mustnot 258            ' Corner time already given
-.set 258
+.set 258                ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2620 2620
+
+
+' corner time return
+[Action 2749]
+.set 258                ' Corner time already given
+.range 2424
 
 
 ' 525 cumming after mistress denied
