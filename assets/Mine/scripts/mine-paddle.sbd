@@ -8,7 +8,9 @@
 ' clear actions that have been set in another script, critical as these aren't cleared automatically
 .resetrange 800 99999
 
-.resetrange 50 199      ' reset all temp variables from main script but keep slave state, toys and achievements  
+.resetrange 50 130      ' reset all temp variables from main script but keep slave state, toys and achievements
+                        ' range 131-139 is used to store lectures gien in mine-paddle  
+.resetrange 140 199     ' reset all temp variables from main script but keep slave state, toys and achievements  
 
 ' The action number to indicate that the slave is wearing a gag
 .gag 22
@@ -1527,13 +1529,33 @@ I hope so, slut!
 ' Free slots
 
 [Action 1765]
-.range 1829
+.range 1825
+
+
+' marker completed - done here or send into corner
+' Since PCM-script is not a programming langauage,
+' we can't bail out right after the marker punishment,
+' as the endings there jump directly into the setup section.
+' Therefore we have to complete the setup, and bail out here
+ 
+[action 1825]
+.range 1826 1829
+
+
+' return to main script
+[action 1826]
+.must 258
+.range 9800 9899
+
+'[action 1827]
+'[action 1828]
+
+[Action 1829]
+.else
+.range 1830 1849
 
 
 ' Comment reason for Corner time punishment
-
-[Action 1829]
-.range 1830 1849
 
 
 ' respect - 500 for bad introduction
@@ -2172,33 +2194,52 @@ Good boy, slave.
 ' Marker humiliation
 '
 ' Write text on specific slave body parts, depends on the punishments type (derived from entry exit action)
-' Continues wuith sending into the corner, with predefined punishmnt severity
-
+' Continues with sending slave into the corner, with predefined punishment severity
+' - corner time is given once, but 258 can be set anyway
+' - marker punishment is repeated, but -258 can be set anyway
+' all when returning from the sub script
+' -> no need to check for 258 anymore to avoid repeated corner time, unless corner time essential
+' (as for punishing cummming without permission)
 [Action 2200]
-.range 2201 2208
+.range 2201 2209
 
-' todo remember lecture
-' - Remember in Main script?
-' - add state to mine-paddle?
-' mine 258 set after corner time punishment
-' just per session, copy to persistent lecture flag
-
+' lecture, remembered in main script
+' The "magic marker" mentioned here (as in the original version of Mine)
+' either references the 1953 version of the marker pen invented in the US
+' (see https://en.wikipedia.org/wiki/Marker_pen),
+' or the US/UK colloquialism for the marker pen.
+' Additional clues are given to make the assignment as
+' understandable as possible for non-english native tongues.
 [Action 2201]
+.mustnot 131                 '  magic marker lecture heart
 The first part of your punishment is to shame yourself.
-For that purpose, I want you to find a magic marker. 
-.pause I've found one, Miss
+For that purpose, I want you to find a magic marker.
+ShowChoices
+delay 5
+A thick marker pen is appreciated, especially if it's permanent.
+[I've found one, Miss]
+Very good, slave!
 .range 2210
 
 [Action 2202]
-Okay slave, get your magic marker.
-.pause I have it, Miss
-.must 721          ' Not the first time
+.must 131                    ' magic marker lecture heart
+Okay slave, get your magic marker!
+.pause I have it ready, Miss
 .range 2210
 
 [Action 2203]
-Okay slave, go fetch your magic marker.
+.must 131                    ' magic marker lecture heart
+Okay slave, go fetch your magic marker!
 .pause I've got it, Miss
-.must 721          ' Not the first time
+.range 2210
+
+[Action 2209]
+.must 131                    ' magic marker lecture heart
+.must -258                   ' Got another marker punishment
+.poss 100
+I'm pretty sure there's some space left on your wretched slave body to write on,
+so get your magic marker ready once again, slave!
+.pause I have it, Miss
 .range 2210
 
 
@@ -2713,22 +2754,23 @@ A disobedient slut that's going to be punished.
 '[Action 2332]
 'The first part of your punishment is to shame yourself.
 'With that marker,
-'I want you to write "SLUTTY" on your right tigh,
+'I want you to write "SLUTTY" on your right thigh,
 'and "NAUGHTY" on your left.
 'On your cock,
 'you'll write the words "SLAVE" and "MEAT".
 'Understand, slave?
-'It was very slutty and naughty of you to show off your flacid slave meat
+'It was very slutty and naughty of you to show off your flaccid slave meat
 'to your mistress when you were not supposed to do so.
 '.pause
 '.range 1700
-'
 
 
 ' Punishments section:
 '
 ' Direct entries from mine.sbd, action numbers correspond
-'
+' TODO punishment ranges in Mine are now 10 actions wide,
+' whereas the scheme here reflects the old 5 actions scheme
+
 ' Corner time: See comments before action 1700
 
 

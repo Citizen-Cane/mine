@@ -229,8 +229,12 @@
 .askcheck      94      119     119: Chastity cage suggestions check due
 
 ' 120 enema bulb lecture
-     
-' 121-199 free
+
+' 121-130 free
+
+' 131 magic marker lecture heart (in mine-paddle.sbd) - only from range 131-139    
+
+' 122-199 free
 
 
 ' temp variables for use within the session
@@ -283,6 +287,7 @@
 ' 256          Stay-Hard question one-time per session 
 ' 257          Enema intensified training, remembered for next session
 ' 258          Corner time punishment given, one-time per session, checked in 2500 2999, for some punishments in dispatcher 2200-2299, see also 2301
+'-258          Magic marker punishment given, multiple times if possible, checked in 2500 2999
 ' 259          Ball sack pegs or pussy clamps one-time per session
 ' 260          Dildo worshiping already done as punishment
 ' 261          Cock bondage one-time per session
@@ -747,6 +752,7 @@ Would you be so kind and tell me what you've got exactly?
 
 ' clear and set temps
 [Action 847]
+.resetrange -799 -1                              ' reset session global variable space
 .resetrange 1 47                                 ' Slave state
 .unset 200 201 202 203 204                       ' demerits
 .unset 205 206 207 208 209                       ' merits
@@ -5372,7 +5378,6 @@ Let's see if I can recall any other punishments you've earned.
 
 [Action 2200]
 .must 500
-.mustnot 258            ' Corner time already given
 .mustnot 519            ' 519 cumming without permission must be executed first because it uses corner time as a  fallback
 .mustnot 520            ' must be executed first in order to complete clamps/pegs punishment and to start clamps/pegs removal timer
 I seem to remember a certain submissive wretch who failed
@@ -5596,7 +5601,6 @@ and restore respect to his mistress and her precise instructions.
 
 [Action 2221]
 .must 521
-.mustnot 258            ' Corner time already given
 .mustnot 519            ' 519 cumming without permission must be executed first because it has no fallback
 .mustnot 520            ' must be executed first in order to complete clamps/pegs punishment and to start clamps/pegs removal timer
 I seem to remember a certain submissive wretch who failed to properly peform his mistress' assignments during his away-time from her.
@@ -6116,13 +6120,14 @@ I guess you've gotten away with one this time.
 
 ' corner time + marker
 [Action 2501]
-.mustnot 258                 ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2500 2500
 
 
-' corner time return
+' corner time + marker return
 [Action 2505]
+.set 131                     ' Magic marker lecture heart
+.set -258                    ' Magic marker applied
 .set 258                     ' Corner time already given
 .range 2400
 
@@ -6270,7 +6275,6 @@ You may have escaped me this time, but don't make a habit of it!
 
 ' corner time + marker
 [Action 2522]
-.mustnot 258            ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2512 2512
 
@@ -6289,6 +6293,8 @@ You may have escaped me this time, but don't make a habit of it!
 
 ' corner time + marker return
 [Action 2529]
+.set 131                ' Magic marker lecture heart
+.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2402
 
@@ -6315,7 +6321,6 @@ I guess we'll have to skip it today.
 
 ' corner time + marker
 [Action 2532]
-.mustnot 258            ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2517 2517
 
@@ -6334,6 +6339,8 @@ I guess we'll have to skip it today.
 
 ' corner time + marker return
 [Action 2539]
+.set 131                ' Magic marker lecture heart
+.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2403
 
@@ -6397,7 +6404,7 @@ I guess you've gotten away with one this time.
 .unset 505
 .range 2151
 
-' corner time
+' corner time - no magic marker so we have to check first
 [Action 2551]
 .mustnot 258            ' Corner time already given
 .save 50 799
@@ -6795,8 +6802,10 @@ just feeling the flush of humiliation will suit you good enough this time.
 .loadsbd mine-paddle.sbd 2560 2560
 
 
-' corner time return
+' corner time + marker return
 [Action 2619]
+.set 131                     ' Magic marker lecture heart
+.set -258                    ' Magic marker applied
 .set 258                     ' Corner time already given
 .range 2411 2412
 
@@ -6936,6 +6945,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .shouldnot 264                    ' spanking already done
 .range 7100                       ' Ensure paddle or replacement
 
+
 [Action 2645]
 .set 258                          ' Corner time given after spanking in mine-paddle
 .range 2414
@@ -6994,7 +7004,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 
 [Action 2665]
-.set 258                ' Corner time given after spanking in mine-paddle
+.set 258                          ' Corner time given after spanking in mine-paddle
 .range 2416
 
 
@@ -7117,14 +7127,14 @@ I'll get you next time, you dirty slave!
 .save 50 799
 .loadsbd mine-td.sbd 1104 1104
 
-' 35-45m kneeling, clamps and cuffs are preferred, but this works without any toys as well
+' 35-45m kneeling + marker, clamps and cuffs are preferred, but this works without any toys as well
 ' shorter corner time is used when wearing clamps, so this can safely be called
 [Action 2693]
-.mustnot 258            ' Corner time already given
+.mustnot 258            ' Corner time already given - essential for punishing "cumming without permission"
 .save 50 799
 .loadsbd mine-paddle.sbd 2596 2599
 
-' 35-45m kneeling, clamps and cuffs are preferred, but this works without any toys as well
+' 35-45m kneeling + marker, clamps and cuffs are preferred, but this works without any toys as well
 ' shorter corner time is used when wearing clamps, so this can safely be called
 ' - fallback if none of the other punishments can be used, to avoid AllActionsSet
 [Action 2694]
@@ -7135,8 +7145,10 @@ I'll get you next time, you dirty slave!
 ' todo cold shower fallback, would work with pegs and chastity cage
 
 
-' corner time return
+' corner time + marker return
 [Action 2699]
+.set 131                ' Magic marker lecture heart
+.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2419
 
@@ -7242,8 +7254,10 @@ will make you change your attitude about My assignments, for your sake.
 .range 2151
 
 
-' corner time return
+' corner time + marker return
 [Action 2709]
+.set 131                ' Magic marker lecture heart
+.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2420
 
@@ -7260,7 +7274,6 @@ I guess you've gotten away with one this time.
 
 ' Corner time + marker
 [Action 2711]
-.mustnot 258            ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2605 2605
 
@@ -7269,6 +7282,8 @@ I guess you've gotten away with one this time.
 
 ' corner time return
 [Action 2719]
+.set 131                ' Magic marker lecture heart
+.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2421
 
@@ -7285,14 +7300,14 @@ I guess you've gotten away with one this time.
 
 ' Corner time + marker
 [Action 2740]
-.mustnot 258            ' Corner time already given
-.set 258                ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2620 2620
 
 
 ' corner time return
 [Action 2749]
+.set 131                ' Magic marker lecture heart
+.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2424
 
