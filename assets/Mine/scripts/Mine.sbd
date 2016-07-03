@@ -6321,6 +6321,7 @@ I guess we'll have to skip it today.
 
 ' corner time + marker
 [Action 2532]
+.shoudnot 502           ' naked-rule violation 1 - prefer punishment shower
 .save 50 799
 .loadsbd mine-paddle.sbd 2517 2517
 
@@ -6335,6 +6336,20 @@ I guess we'll have to skip it today.
 .poss 100
 .save 50 799
 .loadsbd mine-paddle.sbd 2986 2986
+
+
+' punishment shower returns
+
+' process also naked-rule-violation 1
+[Action 2537]
+.must 502               ' naked-rule-violation 1
+.numactionsavailable 2532 2532 1
+.set 258                ' just apply magic marker punishment
+.range 2532
+
+[Action 2538]
+.else
+.range 2403
 
 
 ' corner time + marker return
