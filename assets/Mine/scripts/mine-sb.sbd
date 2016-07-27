@@ -388,6 +388,9 @@ Your nipple clamps, connected with a chain.
 Two lengths of rope. A couple of yards each is plenty.
 °
 Your handcuffs.
+ShowChoices
+delay 5 
+Tell me when you have them all handy.
 .pause All ready, Miss 
 ' .range 2106 2107
 .range 2110
@@ -398,7 +401,9 @@ Your handcuffs.
 .must 367               ' gag
 I also see that you own a gag, is it by any chance a ring gag, my dear?
 You know, the kind you can stick your tongue through?
-.yesno 2110 2110 2109 2109
+.yestext Yes, Miss, I have
+.notext No Miss, I haven't
+.yesno 2108 2108 2109 2109
 
 [Action 2107]
 .mustnot 367            ' gag
@@ -408,7 +413,6 @@ You know, the kind you can stick your tongue through?
 
 [Action 2108]
 Very good my dear!
-.pause
 .set 212                ' use ring gag
 .range 2110
 
@@ -416,20 +420,24 @@ Very good my dear!
 Well, I won't risk your life.
 Please put it away.
 We'll just skip that part.
-.pause
+.pause Okay, Miss
 .unset 212              ' ring gag not available
 .range 2110
 
 
 [Action 2110]
 Now tell me, have you got a key to your handcuffs already frozen in ice?
+.yestext Yes, Miss, I have
+.notext No Miss, I haven't
 .yesno 2115 2115 2116 2116
 
 
 [Action 2115]
-Very good, slave! Run and fetch it - don't let it melt too far, now.
+Very good, slave!
+Run and fetch it -
+don't let it melt too far, now.
 You'll need to have some way to connect it to your nipple clamp chain, too.
-.pause
+.pause I have everything ready, Miss
 .set 210      ' ice cube
 .unset 211
 .range 2117
@@ -439,7 +447,7 @@ That's too bad, slave, but we can work with that.
 Make sure you have a key to your handcuffs handy and put it somewhere you can get to it.
 If you have another, go freeze it right now, so we have it for next time!
 In the meantime, you'll need a good heavy weight you can hang from those nips of yours for now.
-.pause
+.pause I have the weight, Miss
 .unset 210
 .set 211      ' key nearby
 .range 2117
@@ -448,7 +456,7 @@ In the meantime, you'll need a good heavy weight you can hang from those nips of
 [Action 2117]
 Now clear a space, kneel down, and get ready.
 .image isb2a.jpg
-.pause
+.pause Ready, Miss
 .range 2118
 
 [Action 2118]
