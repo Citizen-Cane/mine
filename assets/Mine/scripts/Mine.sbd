@@ -33,10 +33,6 @@
 .textcolor 0 0 0
 .ssdir mine
 
-'.yestext Yes, Mistress
-'.notext No, Mistress
-'.resumeText Yes, Mistress
-
 .onAllSet 860
 .onClose 890
 .onRecognitionRejected 999900
@@ -2757,16 +2753,20 @@ whether you are with Me or not, unless I specifically order you to.
 .range 1295
 
 [Action 1300]
+.must 118
 Now, slave, this is very important:
 Have you cum without permission since our last session?
+.yestext Yes, Mistress
+.notext No, Mistress
 .yesno 1309 1314 1302 1307
-.must 118
 
 [Action 1301]
+.must 118
 Now, this is very important, slave:
 Have you cum without permission?
+.yestext Yes, Mistress
+.notext No, Mistress
 .yesno 1309 1314 1302 1307
-.must 118
 
 
 ' If the slave came without permission, either 519 or 525 is set
@@ -2814,6 +2814,8 @@ You certainly remember spurting your load although I revoked my permission to do
 [Action 1306]
 This is your last chance, slave.
 Have you cum without permission?
+.yestext You're right, Mistress, I have
+.notext No, Mistress, honestly!
 .yesno 1320 1321 1302 1305
 
 ' Trick question
@@ -2821,6 +2823,8 @@ Have you cum without permission?
 Slave!
 This is your last chance.
 Have you cum without permission?
+.yestext You're right, Mistress, I have
+.notext No, Mistress, honestly!
 .yesno 1320 1321 1302 1305
 
 
@@ -4387,41 +4391,41 @@ How much liquid did you fill your enema bag with?
 
 ' 1l expected
 [Action 1685]
-My little slave:
-I told you to fill your bag with one litre, and no less.
 .must 786
 .mustnot 787
+My little slave:
+I told you to fill your bag with one litre, and no less.
 .range 1726
 
 ' 1.25l expected
 [Action 1686]
-My little slave:
-I told you to fill your bag with 1 litre and a quarter, no less.
 .must 787
 .mustnot 788
+My little slave:
+I told you to fill your bag with 1 litre and a quarter, no less.
 .range 1726
 
 ' 1.5l expected
 [Action 1687]
-My little slave:
-I told you to fill your bag with 1 litre and a half, no less.
 .must 788
 .mustnot 789
+My little slave:
+I told you to fill your bag with 1 litre and a half, no less.
 .range 1726
 
 ' 1.75l expected
 [Action 1688]
-My little slave:
-I told you to fill your bag with 1 litre and three quarters, no less.
 .must 789
 .mustnot 790
+My little slave:
+I told you to fill your bag with 1 litre and three quarters, no less.
 .range 1726
 
 ' 2l expected
 [Action 1689]
+.must 790
 My little slave:
 I told you to fill your bag with 2 litres, no less. 
-.must 790
 .range 1726
 
 
@@ -4429,40 +4433,40 @@ I told you to fill your bag with 2 litres, no less.
 
 ' 1l expected
 [Action 1690]
-Very good, my little anal slut.
 .must 786
 .mustnot 787
+Very good, my little anal slut.
 .range 1729 1731
 
 ' 1.25l expected
 [Action 1691]
-My little slave:
-I told you to fill your bag with 1 litre and a quarter, no less.
 .must 787
 .mustnot 788
+My little slave:
+I told you to fill your bag with 1 litre and a quarter, no less.
 .range 1726
 
 ' 1.5l expected
 [Action 1692]
-My little slave:
-I told you to fill your bag with 1 litre and a half, no less.
 .must 788
 .mustnot 789
+My little slave:
+I told you to fill your bag with 1 litre and a half, no less.
 .range 1726
 
 ' 1.75l expected
 [Action 1693]
-My little slave:
-I told you to fill your bag with 1 litre and three quarters, no less.
 .must 789
 .mustnot 790
+My little slave:
+I told you to fill your bag with 1 litre and three quarters, no less.
 .range 1726
 
 ' 2l expected
 [Action 1694]
+.must 790
 My little slave:
 I told you to fill your bag with 2 litres, no less.
-.must 790
 .range 1726
 
 
@@ -4470,39 +4474,39 @@ I told you to fill your bag with 2 litres, no less.
 
 ' 1l expected
 [Action 1695]
-Well done, my little anal slut.
 .must 786
 .mustnot 787
+Well done, my little anal slut.
 .range 1729 1731
 
 ' 1.25l expected
 [Action 1696]
-Very well, my little anal slut.
 .must 787
 .mustnot 788
+Very well, my little anal slut.
 .range 1729 1731
 
 ' 1.5l expected
 [Action 1697]
-My little slave:
-I told you to fill your bag with 1 litre and a half, no less.
 .must 788
 .mustnot 788
+My little slave:
+I told you to fill your bag with 1 litre and a half, no less.
 .range 1726
 
 ' 1.75l expected
 [Action 1698]
-My little slave:
-I told you to fill your bag with 1 litre and three quarters, no less.
 .must 789
 .mustnot 790
+My little slave:
+I told you to fill your bag with 1 litre and three quarters, no less.
 .range 1726
 
 ' 2l expected
 [Action 1699]
+.must 790
 My little slave:
 I told you to fill your bag with 2 litres, no less. 
-.must 790
 .range 1726
 
 
@@ -4510,39 +4514,38 @@ I told you to fill your bag with 2 litres, no less.
 
 ' 1l expected
 [Action 1705]
-Well done, you dirty anal slut.
 .must 786
 .mustnot 787
+Well done, you dirty anal slut.
 .range 1729 1731
 
 ' 1.25l expected
 [Action 1706]
-Well done, my little anal slut.
 .must 787
 .mustnot 788
+Well done, my little anal slut.
 .range 1729 1731
 
 ' 1.5l expected
 [Action 1707]
-Very good, my little anal slut.
-.pause 
 .must 788
 .mustnot 789
+Very good, my little anal slut.
 .range 1729 1731
 
 ' 1.75l expected
 [Action 1708]
-My little slave:
-I told you to fill your bag with 1 litre and three quarters, no less.
 .must 789
 .mustnot 790
+My little slave:
+I told you to fill your bag with 1 litre and three quarters, no less.
 .range 1726
 
 ' 2l expected
 [Action 1709]
+.must 790
 My little slave:
 I told you to fill your bag with 2 litres, no less. 
-.must 790
 .range 1726
 
 
@@ -4550,39 +4553,37 @@ I told you to fill your bag with 2 litres, no less.
 
 ' 1l expected
 [Action 1710]
-Well done, you dirty anal slut.
 .must 786
 .mustnot 787
+Well done, you dirty anal slut.
 .range 1729 1731
 
 ' 1.25l expected
 [Action 1711]
-Well done, you dirty anal slut.
 .must 787
 .mustnot 788
+Well done, you dirty anal slut.
 .range 1729 1731
 
 ' 1.5l expected
 [Action 1712]
-Well done, my little anal slut.
-.pause 
 .must 788
 .mustnot 789
+Well done, my little anal slut.
 .range 1729 1731
 
 ' 1.75l expected
 [Action 1713]
-Very well, my little anal slut.
-.pause 
 .must 789
 .mustnot 790
+Very well, my little anal slut.
 .range 1729 1731
 
 ' 2l expected
 [Action 1714]
+.must 790
 My little slave:
 I told you to fill your bag with 2 litres, no less. 
-.must 790
 .range 1726
 
 
@@ -4590,39 +4591,36 @@ I told you to fill your bag with 2 litres, no less.
 
 ' 1l expected
 [Action 1720]
-Well done, you dirty anal slut.
 .must 786
 .mustnot 787
+Well done, you dirty anal slut.
 .range 1729 1731
 
 ' 1.25l expected
 [Action 1721]
-Well done, you dirty anal slut.
 .must 787
 .mustnot 788
+Well done, you dirty anal slut.
 .range 1729 1731
 
 ' 1.5l expected
 [Action 1722]
-Well done, you dirty anal slut.
-.pause
 .must 788
 .mustnot 789
+Well done, you dirty anal slut.
 .range 1729 1731
 
 ' 1.75l expected
 [Action 1723]
-Well done, my little anal slut.
-.pause 
 .must 789
 .mustnot 790
+Well done, my little anal slut.
 .range 1729 1731
 
 ' 2l expected
 [Action 1724]
-Very well, my little anal slut.
-.pause 
 .must 790
+Very well, my little anal slut.
 .range 1729 1731
 
 
@@ -6660,7 +6658,7 @@ Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
 When you're finished, connect the left-over of that rope to the rope between your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
-.pause
+.pause Done, Miss
 .set 24 32              ' balls tied, can't stand
 .range 2599
 
@@ -8918,36 +8916,37 @@ You are not allowed to rest the weight on the ground, My pet, so don't leave too
 ' 3250-3299 ball harness
 
 [Action 3250]
+.mustnot 23 24          ' something on penis, something on balls
 One thing I like is a slutty little slaveboy wearing his tight ball harness.
 Put it on now, slave.
 .pause I'm wearing it, Miss
-.mustnot 23 24          ' something on penis, something on balls
 .set 24 37              ' something on balls, ball harness
 .range 3290
 
 
 [Action 3252]
-You know one thing I like is a slutty little slaveboy wearing his slave chains.
 .mustnot 22 25 26 32    ' something in mouth, wrist and ankle retraints, can't stand
 .mustnot 23 24          ' something on penis, something on balls, ball
 .must 363 364 360       ' wrist, ankle restraints, chains
+You know one thing I like is a slutty little slaveboy wearing his slave chains.
 .range 3253
 
 [Action 3253]
+.must 3252
 For today's session I want you to put on your
 wrist and ankle restraints and chain them together.
-.pause
-.must 3252
+[I'm chained up, Miss]
+Almost, my pet, almost.
 .set 25 26 32           ' ankles tied, wrists tied, can't stand
 .range 3254
 
 [Action 3254]
+.must 3253
 Now put on your ball harness and attach it to your slave chains.
 Give yourself enough play so that you can comfortably kneel
 or grab your little slave titties,
 but not enough to stand up straight or reach your neck.
-.pause
-.must 3253
+.pause Finished, Miss
 .set 31 32              ' can't sit on chair, can't stand
 .set 24 37              ' something on balls, ball harness
 .set 3124               ' Can't put on slave collar anymore 
@@ -8955,69 +8954,69 @@ but not enough to stand up straight or reach your neck.
 
 
 [Action 3264]
-One thing I like is a slutty little slaveboy wearing his tight ball harness.
-Put it on now, slave!
-.pause I'm wearing it, Miss
 .must 747               ' cbt 2
 .mustnot 23 24          ' something on penis, something on balls
 .mustnot 748            ' cbt 3, favour heavier weight
+One thing I like is a slutty little slaveboy wearing his tight ball harness.
+Put it on now, slave!
+.pause I'm wearing it, Miss
 .set 24 37
 .range 3265
 
 [Action 3265]
+.must 3264
 Very good, slave.
 Go grab a convenient weight - about a pound or so - and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
 .pause Weight attached, Miss
-.must 3264
 .set 748                ' cbt 3
 .range 3290
 
 
 [Action 3266]
+.mustnot 23 24 37       ' something on penis, something on balls, ball harness
+.must 748               ' cbt 3
 One thing I like is a slutty little slaveboy wearing his tight ball harness.
 Put it on now, slave.
 .pause I'm wearing it, Miss
-.mustnot 23 24 37       ' something on penis, something on balls, ball harness
-.must 748               ' cbt 3
 .set 24 37              ' ball harness
 .range 3267
 
 [Action 3267]
+.must 3266
 Now slave, grab a convenient weight - about two pound or so - and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
 .pause Weight attached, Miss
-.must 3266
 .set 749                ' cbt 4
 .range 3290
 
 
 [Action 3268]
+.mustnot 23 24          ' something on penis, something on balls
+.must 749               ' cbt 4
 One thing I like is a slutty little slaveboy wearing his tight ball harness.
 Put it on now, slave.
 .pause I'm wearing it, Miss
-.mustnot 23 24          ' something on penis, something on balls
-.must 749               ' cbt 4
 .set 24 37              ' ball harness
 .range 3269
 
 [Action 3269]
+.must 3268
 Now grab a good weight of three to four pounds and attach it to the harness.
 Leave it there for the whole session.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
 .pause Weight attached, Miss
-.must 3268
 .set 750                ' cbt 5
 .range 3290
 
 
 [Action 3270]
-Get your ankle restraints, your slave chains, and your ball harness.
-Chain each ankle to your slutty ball sack so that you can just kneel straight.
-.pause Ankles tied to balls, Miss
 .must 747                    ' cbt 2
 .must 364 360 385            ' ankle restraints, chains, ball harness
 .mustnot 23 24 25 32 37      ' something on penis, balls, ankles tied, can't stand, ball harness
+Get your ankle restraints, your slave chains, and your ball harness.
+Chain each ankle to your slutty ball sack so that you can just kneel straight.
+.pause Ankles tied to balls, Miss
 .set 24 25 32 37             ' Something on balls, ankles tied, wrists tied, can't stand, ball harness
 .range 3290
 
@@ -17572,17 +17571,17 @@ hand warm water enema along with a good dash of salt.
 .range 9765 9774
 
 [Action 9761]
+.must 788                    ' Have had enema before, 1.5l
 Very good, my anal slut.
 For our next session, I want you to prepare a hand warm
 camomile enema along with a good dash of salt, slave.
-.must 788                    ' Have had enema before, 1.5l
 .range 9765 9774
 
 [Action 9762]
+.must 790                    ' Have had enema before, 2.0l
 Very good, my anal slut.
 For our next session, I want you to prepare a hand-warm water
 enema, along with a good dash of salt and one-tenth of olive oil.
-.must 790                    ' Have had enema before, 2.0l
 .range 9765 9774
 
 '[Action 9763]
@@ -17590,73 +17589,71 @@ enema, along with a good dash of salt and one-tenth of olive oil.
 
 
 [Action 9765]
+.mustnot 786 787 788 789
 Since we'll be doing this the first time, you'll
 start with a small amount, let's say half a litre.
-.mustnot 786 787 788 789
 .range 9777 9779
 
 [Action 9766]
-I think this time one litre will be more
-than enough for a pretty anal slut like you.
 .must 786
 .mustnot 787 788 789 790
+I think this time one litre will be more
+than enough for a pretty anal slut like you.
 .range 9777 9779
 
 [Action 9767]
-One litre and a quarter should do the trick.
-.pause
 .must 787
 .mustnot 788 789 790
+One litre and a quarter should do the trick.
 .range 9777 9779
 
 [Action 9768]
-One litre and a quarter should be enough.
-.pause
 .must 787
 .mustnot 788 789 790
+One litre and a quarter should be enough.
 .range 9777 9779
 
 [Action 9769]
-I think one and a half litre is a sufficient
-quantity for a nice training session.
 .must 788
 .mustnot 789 790
+I think one and a half litre is a sufficient
+quantity for a nice training session.
 .range 9777 9779
 
 [Action 9770]
-I think one and a half litre will suit you well.
 .must 788
 .mustnot 789 790
+I think one and a half litre will suit you well.
 .range 9777 9779
 
 [Action 9771]
-One litre and three quarters should do the trick.
 .must 789
 .mustnot 790
+One litre and three quarters should do the trick.
 .range 9777 9779
 
 [Action 9772]
-You'll take one litre and three quarters, and no less.
 .must 789
 .mustnot 790
+You'll take one litre and three quarters, and no less.
 .range 9777 9779
 
 [Action 9773]
-Two litres will work well for a pretty anal slut like you.
 .must 790
+Two litres will work well for a pretty anal slut like you.
 .range 9777 9779
 
 [Action 9774]
+.must 790
 You're going to fill your enema bag with
 two full litres, and no less, cunt.
-.must 790
 .range 9777 9779
 
 
 [Action 9777]
 .mustnot 786 787
 Now setting up the enema tubing, heating up the water,
-filling the enema bag and so on may take its time,
+filling the enema bag and so on may take some time,
 and I don't like sitting around waiting.
 So I expect you to have it already prepared when you approach me next time.
 .pause Of course, Miss
