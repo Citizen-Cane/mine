@@ -3,8 +3,8 @@ package teaselib.scripts.mine;
 import java.io.IOException;
 
 import pcm.controller.Player;
-import pcm.model.ParseError;
-import pcm.model.ValidationError;
+import pcm.model.ScriptParsingException;
+import pcm.model.ValidationIssue;
 import teaselib.Actor;
 import teaselib.TeaseLib;
 import teaselib.Toys;
@@ -44,9 +44,9 @@ public class Mine extends Player {
     public static void main(String argv[]) {
         try {
             recordVoices(Mine.class, MineMistress, Assets, "Mine");
-        } catch (ParseError e) {
+        } catch (ScriptParsingException e) {
             TeaseLib.instance().log.error(argv, e);
-        } catch (ValidationError e) {
+        } catch (ValidationIssue e) {
             TeaseLib.instance().log.error(argv, e);
         } catch (IOException e) {
             TeaseLib.instance().log.error(argv, e);
