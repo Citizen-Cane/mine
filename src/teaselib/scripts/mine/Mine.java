@@ -2,6 +2,9 @@ package teaselib.scripts.mine;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import pcm.controller.Player;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
@@ -34,6 +37,8 @@ import teaselib.core.texttospeech.Voice;
 // Debug Mine
 
 public class Mine extends Player {
+    private static final Logger logger = LoggerFactory.getLogger(Mine.class);
+
     private static final String Namespace = "Mine";
     private static final Actor MineMistress = new Actor(Actor.Dominant,
             Voice.Gender.Female, "en-us");
@@ -45,13 +50,13 @@ public class Mine extends Player {
         try {
             recordVoices(Mine.class, MineMistress, Assets, "Mine");
         } catch (ScriptParsingException e) {
-            TeaseLib.instance().log.error(argv, e);
+            logger.error(e.getMessage(), e);
         } catch (ValidationIssue e) {
-            TeaseLib.instance().log.error(argv, e);
+            logger.error(e.getMessage(), e);
         } catch (IOException e) {
-            TeaseLib.instance().log.error(argv, e);
+            logger.error(e.getMessage(), e);
         } catch (Throwable t) {
-            TeaseLib.instance().log.error(argv, t);
+            logger.error(t.getMessage(), t);
         }
         System.exit(0);
     }
