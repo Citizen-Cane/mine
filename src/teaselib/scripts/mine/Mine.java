@@ -9,6 +9,7 @@ import pcm.controller.Player;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import teaselib.Actor;
+import teaselib.Images;
 import teaselib.TeaseLib;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
@@ -40,8 +41,9 @@ public class Mine extends Player {
     private static final Logger logger = LoggerFactory.getLogger(Mine.class);
 
     private static final String Namespace = "Mine";
-    private static final Actor MineMistress = new Actor(Actor.Dominant,
-            Voice.Gender.Female, "en-us");
+
+    private static final Actor MineMistress = new Actor("Mistress", "Miss,",
+            Voice.Gender.Female, Actor.Key.Dominant, "en-us", Images.None);
 
     static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip",
             "Mine Mistress.zip" };
