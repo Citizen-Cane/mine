@@ -43,7 +43,8 @@ public class Mine extends Player {
     private static final String Namespace = "Mine";
 
     private static final Actor MineMistress = new Actor("Mistress", "Miss,",
-            Voice.Gender.Female, Actor.Key.Dominant, "en-us", Images.None);
+            Voice.Gender.Female, "en-uk", Actor.Key.DominantFemale,
+            Images.None);
 
     static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip",
             "Mine Mistress.zip" };
