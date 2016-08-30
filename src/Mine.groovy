@@ -34,7 +34,7 @@ def Persistence = Class.forName('teaselib.hosts.SexScriptsStatePersistence', tru
 def persistence = Persistence.newInstance(this)
 
 // teaseLib = new teaselib.TeaseLib(
-def TeaseLib = Class.forName('teaselib.TeaseLib', true, loader)
+def TeaseLib = Class.forName('teaselib.core.TeaseLib', true, loader)
 def teaseLib = TeaseLib.newInstance(host,persistence)
 
 //def mine = new Mine();

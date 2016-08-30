@@ -10,9 +10,9 @@ import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import teaselib.Actor;
 import teaselib.Images;
-import teaselib.TeaseLib;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
+import teaselib.core.TeaseLib;
 import teaselib.core.texttospeech.Voice;
 
 /**
