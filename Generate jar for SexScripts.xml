@@ -85,9 +85,6 @@
             </manifest>
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/mistress/**"/>
         </jar>
-        <copy todir="${destination}/${rootFolder}/lib/TeaseLib">
-            <fileset dir="${basedir}/../TeaseLib/lib/" excludes="**.pdb,**.exp,**.ilk,**.lib"/>
-        </copy>
     	<copy file="src/Mine.groovy" tofile="${destination}/${rootFolder}/Scripts/Mine.groovy"/>
     </target>
 </project>
