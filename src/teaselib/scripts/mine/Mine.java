@@ -1,6 +1,7 @@
 package teaselib.scripts.mine;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +44,7 @@ public class Mine extends Player {
     private static final String Namespace = "Mine";
 
     private static final Actor MineMistress = new Actor("Mistress", "Miss,",
-            Voice.Gender.Female, "en-uk", Actor.Key.DominantFemale,
+            Voice.Gender.Female, Locale.UK, Actor.Key.DominantFemale,
             Images.None);
 
     static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip",
