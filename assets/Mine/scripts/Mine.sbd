@@ -99,7 +99,7 @@
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
 
-'   49  -   clamps/pegs timer - eitherset to -00:nn:00, or 00:00"00 to remove on next occasion, and to INF after removal
+'   49  -   clamps/pegs timer - either set to -00:nn:00, or 00:00"00 to remove on next occasion, and to INF after removal
 
 ' Session timers: 1, 12, 24 hours, with two empty slots for 48h and one week
 '
@@ -9950,35 +9950,42 @@ and strip off immediately each time you walk in the door.
 ' punishments for not performing assignment
 
 [Action 4080]
-As a little motivation to take your naked week assignment a little graver,
-you're also going to skip your next cumming opportunity.
-Be a decent slave and catch up on your naked-week assignment, and I might let you cum again. 
-.pause Yes Miss
 .must 45           ' Must have key for chastity cage (set by default)
 .mustnot 698 699
+As a little motivation to take your naked week assignment a little graver,
+you're also going to skip your next cumming opportunity.
+Be a decent slave and catch up on your naked-week assignment,
+and I might let you cum again. 
+.pause Yes Miss
 .set 698
 .range 4085 4086
 
 [Action 4081]
+.must 45           ' Must have key for chastity cage (set by default)
+.must 698
+.mustnot 699
 As my little negligent slut seems to need some additional motivation to perform his assignment,
 I'm going to put you on a temporary cum-denial during the course of the naked week.
 You better catch up If you want me to let you cum again.
 .pause Yes Miss
-.must 45           ' Must have key for chastity cage (set by default)
-.must 698
-.mustnot 699
 .set 699
 .range 4085 4086
 
 [Action 4082]
-.else
+.must 698 699
+As my little negligent slut seems to need some additional motivation to perform his assignment,
+I'm going to extend your cum-denial for the course of the whole naked week.
+Be a decent slave and catch up on your naked-week assignment,
+and I might let you cum again.
+.unset 698 699
+.set 691 692 693 694 695 696 697 
 .range 4085 4086
 
 '[Action 4083]
 
 [Action 4084]
-.must 698 699
-.range 4085 4086
+.else
+.range 4086
 
 
 [Action 4085]
@@ -12315,7 +12322,7 @@ Meanhile, three demerits will do about right.
 .mustnot 115            ' Not with spiked ring or urethra tube
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1 
-.timeto 49 -00:19"00   ' 15 + 4
+.timeto  49 -00:19"00   ' 15 + 4
 .timeto 276 -00:19"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6155
@@ -12325,7 +12332,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto 49 -00:22"00   ' 20 + 2
+.timeto  49 -00:22"00   ' 20 + 2
 .timeto 276 -00:22"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6156
@@ -12335,7 +12342,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto 49 -00:23"00   ' 20 + 3
+.timeto  49 -00:23"00   ' 20 + 3
 .timeto 276 -00:23"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6157
@@ -12345,7 +12352,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto 49 -00:27"00   ' 21 + 6
+.timeto  49 -00:27"00   ' 21 + 6
 .timeto 276 -00:27"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6158
@@ -12355,7 +12362,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto 49 -00:32"00   ' 30 + 2
+.timeto  49 -00:32"00   ' 30 + 2
 .timeto 276 -00:32"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6159
@@ -12365,7 +12372,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto 49 -00:29"00   ' 25 + 4
+.timeto  49 -00:29"00   ' 25 + 4
 .timeto 276 -00:29"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6160
@@ -12375,7 +12382,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto 49 -00:35"00   ' 27 + 8
+.timeto  49 -00:35"00   ' 27 + 8
 .timeto 276 -00:35"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6161
@@ -12385,7 +12392,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
-.timeto 49 -00:43"00   ' 40 + 3
+.timeto  49 -00:43"00   ' 40 + 3
 .timeto 276 -00:43"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6162
@@ -12395,7 +12402,7 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
-.timeto 49 -00:53"00   ' 45 + 8
+.timeto  49 -00:53"00   ' 45 + 8
 .timeto 276 -00:53"00   ' holding the enema
 .set 263                ' Done wanking activity
 .range 6163
@@ -16437,44 +16444,27 @@ Let'see if you can earn a release later on.
 .return
 
 
-' Ask for key, entry point when we know that the slave wears the cage,
-' called from toys-at-startup 11336  
+' Ask for key, entry point when we know that the slave wears the cage
 
-[action 9255]
-Well, does my dear chastity slave actually have the key for his cage?
-.yesno 9260 9264 9270 9274 
-.yestext Yes, Miss, I have it
-.notext I'm sorry Miss, but I haven't
-
-'[action 9256]
-'[action 9257]
-'[action 9258]
-'[action 9259]
-
-
-' slave has key
-
-[action 9260]
-Very good, my little pet.
-.range 9269
-
-'[action 9261]
-'[action 9262]
-'[action 9263]
-'[action 9264]
-
+' Slave has the key
 ' Continue with asking whether slave likes to be released
-[Action 9269]
-.set 45                 ' Have key for chastity cage
+[action 9255]
+.must 45                ' Have key for chastity cage
 .range 9210 9214
 
-
 ' Slave doesn't have key
+' Continue with asking whether slave likes to be released
+' TODO Handle expiration of chastity within session - don't release without key
+' TODO consider expiration time
+' TODO Slave might have the key even if chastity hasn't been expired
+[Action 9256]
+.mustnot 45               ' Have key for chastity cage
+.range 9280 9284
 
-[action 9270]
-What a poor slut you are.
-.pause Yes Miss, I am
-.range 9279
+'[Action 9257]
+'[Action 9258]
+'[Action 9259]
+
 
 '[action 9271]
 '[action 9272]
@@ -16482,29 +16472,26 @@ What a poor slut you are.
 '[action 9274]
 
 
-' Continue with asking whether slave likes to be released
-[Action 9279]
-.unset 45               ' Have key for chastity cage
-.range 9280 9284
-
-
 ' No continuations ("but")
 
 [Action 9280]
 But you surely want to be allowed to take
 the castity cage off, don't you, slave?
-.yesno 9290 9294 9205 9207
 .yestext Yes please Miss
 .notext Thanks Miss, but I'm fine
+.yesno 9290 9294 9205 9207
 
 [Action 9281]
 But your swollen hot cock surely bursts inside that tight cage, doesn't it?
-.yesno 9290 9294 9208 9209
 .yestext Yes Miss, I'm so horny
 .notext No Miss, it's flaccid
+.yesno 9290 9294 9208 9209
 
-'[Action 9282]
-'[Action 9283]
+[action 9282]
+But you  don't have the key!
+What a poor slut you are.
+.pause Yes Miss, I am
+.range 9251             ' Chastified
 
 [Action 9284]
 Well, my pet.
@@ -19614,7 +19601,6 @@ Especically if he's chained and shackled so well.
 .must 236
 .set 23 30 44           ' Something on penis, can't jerk off, chastified
 .unset 236
-.gosub 9255
 .range  11324
 
 '[action 11337]

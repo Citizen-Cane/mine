@@ -10,6 +10,7 @@ import pcm.controller.Player;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import teaselib.Actor;
+import teaselib.Body;
 import teaselib.Images;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
@@ -70,14 +71,14 @@ public class Mine extends Player {
                 mistressPath);
         resources.addAssets(Assets);
         // Toy categories - multiple items
-        state.addMapping(363, toys(Toys.Wrist_Restraints));
-        state.addMapping(364, toys(Toys.Ankle_Restraints));
-        state.addMapping(365, toys(Toys.Collars));
-        state.addMapping(367, toys(Toys.Gags));
-        state.addMapping(368, toys(Toys.Buttplugs));
-        state.addMapping(370, toys(Toys.Spanking_Implements));
-        state.addMapping(380, toys(Toys.Chastity_Devices));
-        state.addMapping(389, toys(Toys.Vibrators, Toys.EStim_Devices));
+        state.addToyMapping(363, toys(Toys.Wrist_Restraints));
+        state.addToyMapping(364, toys(Toys.Ankle_Restraints));
+        state.addToyMapping(365, toys(Toys.Collars));
+        state.addToyMapping(367, toys(Toys.Gags));
+        state.addToyMapping(368, toys(Toys.Buttplugs));
+        state.addToyMapping(370, toys(Toys.Spanking_Implements));
+        state.addToyMapping(380, toys(Toys.Chastity_Devices));
+        state.addToyMapping(389, toys(Toys.Vibrators, Toys.EStim_Devices));
 
         // Toy simple mappings
         state.addMapping(361, toy(Toys.Nipple_clamps));
@@ -98,6 +99,31 @@ public class Mine extends Player {
         state.addMapping(371, toy(Toys.Hairbrush));
         state.addMapping(372, toy(Toys.Wooden_Spoon));
         state.addMapping(373, toy(Toys.Ruler));
+
+        // state mappings
+        state.addStateMapping(20, state(Body.SomethingOnNipples));
+        state.addStateMapping(21, state(Body.SomethingInButt));
+        state.addStateMapping(22, state(Body.SomethingInMouth));
+        state.addStateMapping(23, state(Body.SomethingOnPenis));
+        state.addStateMapping(24, state(Body.SomethingOnBalls));
+        state.addStateMapping(25, state(Body.AnklesTied));
+        state.addStateMapping(26, state(Body.WristsTied));
+        state.addStateMapping(27, state(Body.SomethingAroundWaist));
+        state.addStateMapping(28, state(Body.Collared));
+        state.addStateMapping(30, state(Body.CannotJerkOff));
+        state.addStateMapping(31, state(Body.CantSitOnChair));
+        state.addStateMapping(32, state(Body.CannotStand));
+        state.addStateMapping(33, state(Body.CannotKneel));
+        state.addStateMapping(34, state(Body.CannotTypeOrUseMouse));
+        state.addStateMapping(35, state(Body.Tethered));
+        state.addStateMapping(36, state(Body.Harnessed));
+
+        state.addStateMapping(44, state(Body.Chastified));
+
+        // state elapsed mappings
+        // TODO Should map to TimeLock device state, see Mine.sbd:[action 9255]
+        state.addStateExpiredMapping(45, state(Body.Chastified));
+
     }
 
     @Override
