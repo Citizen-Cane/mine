@@ -122,7 +122,7 @@ public class Mine extends Player {
 
         // state elapsed mappings
         // TODO Should map to TimeLock device state, see Mine.sbd:[action 9255]
-        state.addStateExpiredMapping(45, state(Body.Chastified));
+        state.addStateTimeMapping(45, state(Body.Chastified));
 
     }
 
