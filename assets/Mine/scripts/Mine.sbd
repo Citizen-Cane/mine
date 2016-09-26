@@ -95,7 +95,7 @@
 '   43  -   Nipple clamps on nipples, along with 20 something on nipples
 '
 '   44  -   Chastified (Encaged slave penis)
-'   45  -   Have key for chastity cage
+'   45  -   Have key for chastity cage timer
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
 
@@ -15874,7 +15874,7 @@ Sort it out until next time!
 ' good ending
 
 [Action 9000]
-.gosub 9950 9955             ' chastity lockup
+.gosub 9940 9945             ' chastity lockup
 .range 9001 9002
 
 
@@ -15944,12 +15944,12 @@ Sort it out until next time!
 ' assignment decision 9000
 ' confess 9050 9053
 ' assignment continuation 9900 (all subs)
-' chastity 9950 9955
+' chastity 9940 9945
 ' exit 9994 9998
 '
 ' but should be
 ' 
-' chastity 9950 9955
+' chastity 9940 9945
 ' assignment decision 9000
 ' assignment continuation 9900 (all subs)
 ' confess 9050 9053
@@ -16459,6 +16459,8 @@ Let'see if you can earn a release later on.
 [Action 9256]
 .timeto 45 -02:00"00     ' Haven't key for chastity cage
 .range 9280 9284
+
+' TODO comment different duration lengths (> 3h means non release in this session)
 
 '[Action 9257]
 '[Action 9258]
@@ -18098,7 +18100,7 @@ I give you permission to tie yourself with a nice crotch rope.
 ' Bad ending: called from bad endings to indicate the slave has been a bitch
 [Action 9899]
 .unset 267 268 269      ' clear enema flags, no further assist
-.gosub 9950 9955        ' chastity lockup
+.gosub 9940 9945        ' chastity lockup
 .range 9900
 
 
@@ -18106,7 +18108,7 @@ I give you permission to tie yourself with a nice crotch rope.
 ' Bad ending/Good ending continuations
 ' from 9050+, good ending, 
 ' or from 9899, bad ending,
-' eventually jumps to 9950 9955 
+' eventually jumps to 9940 9945 
 
 [Action 9900]
 .range 9901 9909
@@ -18144,101 +18146,172 @@ I give you permission to tie yourself with a nice crotch rope.
 ' After assignments
 
 [action 9910]
-.gosub 9050 9953        ' confession about honesty in the session
+.gosub 9050 9053        ' confession about honesty in the session
 .range 9994 9999        ' on to last words and final exit
-
-
 
 
 ' Put chastity belt back on
 
-' 9950 rules do not apply -> no
-' 9950 next-session-toy cock toy on -> no
-' 9950 no chastity belt (slave abandoned the toy) -> no
-' 9951 lock up
-' 9954 stay locked up
-[Action 9950]
+' 9940 rules do not apply -> no
+' 9940 next-session-toy cock toy on -> no
+' 9940 no chastity belt (slave abandoned the toy) -> no
+' 9941 lock up
+' 9944 stay locked up
+[Action 9940]
 .else
 .return
 
 ' Yes, put on
-[Action 9951]
+[Action 9941]
 .poss 100
 .must 686                         ' chastity belt rules apply 1
 .must 380                         ' chastity device
 .mustnot 44                       ' chastified
 .mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
 It's time to lock up your silly slave penis, slave.
-' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9973-9975
+' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9953-9955
 ' next-session-toys assignment test for chastity belt rules, because they are to be worn after the session
 .mustnot 304 305 306    ' 4 pins on ball sack, humbler, ball harness as next-session-toy
-.range 9973 9975
+.range 9953 9955
 
 ' Yes, put on
-[Action 9952]
+[Action 9942]
 .must 686               ' chastity belt rules apply 1
 .must 380               ' chastity device
 .mustnot 44             ' chastified
-' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9973-9975
+' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9953-9955
 ' next-session-toys assignment test for chastity belt rules, because they are to be worn after the session
 .mustnot 304 305 306    ' 4 pins on ball sack, humbler, ball harness as next-session-toy
 Meanwhile, your useless peace of meat will be secured well.
-.range 9973 9975
+.range 9953 9955
 
 ' Yes, put on
-[Action 9953]
+[Action 9943]
 .must 686               ' chastity belt rules apply 1
 .must 380               ' chastity device
 .mustnot 44             ' chastified
-' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9973-9975
+' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9953-9955
 ' next-session-toys assignment test for chastity belt rules, because they are to be worn after the session
 .mustnot 304 305 306    ' 4 pins on ball sack, humbler, ball harness as next-session-toy
 For the time being, your filthy cock is going to be shut away.
-.range 9973 9975
+.range 9953 9955
 
 ' Yes, already on, just decide how long to wear 
-[Action 9954]
+[Action 9944]
 .must 686               ' chastity belt rules apply 1
 .must 380               ' chastity device
 .must 44                ' chastified
 For your notice, slave, that filthy little prick of yours is going to stay locked up.
-.range 9957 9959
+.range 9947 9949
 
 ' Yes, already on, just decide how long to wear 
-[Action 9955]
+[Action 9945]
 .must 686               ' chastity belt rules apply 1
 .must 380               ' chastity device
 .must 44                ' chastified
 Just to remind you, slave, that silly slave penis will stay locked up.
-.range 9957 9959
+.range 9947 9949
 
 
+' 9947-9949 comments about being locked up while home alone
 
-' 9957-9959 comments about being locked up while home alone
-
-[Action 9957]
+[Action 9947]
 That way you're surely not touching yourself while you're away from me.
 .range 9960 9972
 
-[Action 9958]
+[Action 9948]
 This way you're surely not touching yourself while you're alone.
 .range 9960 9972
 
-[Action 9959]
+[Action 9949]
 That way you're not playing with yourself while you're alone.
 .range 9960 9972
 
 
+
+' cleaning 9953-9955, lock up 9956-9957, comment 9958-9959
+
+' Good outcome
+[Action 9953]
+.mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
+.mustnot 23 24 30 37              ' Any toys on cock
+.delay 60
+This is a good moment to clean that dirty cock by
+giving it a thorough wash with ice cold water.
+I want you to adjust the water as cold as possible,
+And I want you come back with a cold shrivelled prick!
+Now head off into the bathroom, slut. 
+.range 9956 9957 
+
+' Good outcome
+[Action 9954]
+.else                             ' Fallback
+.mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
+.unset 23 24 30 37                ' Any toys on cock
+.delay 60
+This is a good moment to remove any toys from your cock
+and give it a thorough wash with ice cold water.
+I want you to adjust the water as cold as possible,
+And I want you come back with a cold shrivelled prick!
+Now head off into the bathroom, slut. 
+.range 9956 9957
+
+' Bad outcome, different tone
+[Action 9955]
+.else                             ' Fallback
+Squeeze your filthy cock into the chastity cage and lock it up.
+delay 15
+.pause I'm locked up, Miss
+.unset 24 37                      ' Any toys on cock
+.set 23 30 44                     ' Something on penis, can't jerk off, chastified
+.range 9958 9959                  ' No cleaning for failed slaves
+
+
+' Lock up 9956 9957
+
+[Action 9956]
+When you've finished,
+squeeze it back in your chastity cage and lock it up.
+delay 15
+.pause I'm locked up, Miss
+.set 23 30 44                     ' Something on penis, can't jerk off, chastified
+.range 9958 9959 
+
+[Action 9957]
+After you have finished,
+put that flacid dick back into your chastity cage and lock it up.
+delay 15
+.pause I'm locked up, Miss
+.set 23 30 44                     ' Something on penis, can't jerk off, chastified
+.range 9958 9959 
+
+' 9958-9959 comments about being locked up
+
+[Action 9958]
+That cage will surely help you not touching yourself while you're alone.
+.range 9960 9972 
+
+[Action 9959]
+That cage will surely keep you from playing with yourself.
+.range 9960 9972 
+
+
 ' 9960-9970 keep cock locked away after this session
+
+' TODO handle verification of putting on the cage in time before the session -> separate script
 
 ' basic training at level 1
 [Action 9960]
 .must 686               ' Chastity belt rules apply 1
 .mustnot 687            ' Chastity belt rules apply 2
 But since you're still in training with wearing a chastity device,
-I graciously grand you permission to take your chastity cage off after one hour. 
-.pause Thank you, Miss
-.range 9980
+I graciously grand you permission to take your chastity cage off after one hour.
+[Thank you, Miss]
+I'd also like to see your swollen hot cock tightly encaged next time,
+so remember to put the cage back on before or next session.
+.pause Yes Miss
+.settime 45 01:00"00
+.return
 
 ' 20% chance to advance to level 2
 [Action 9961]
@@ -18248,15 +18321,26 @@ I graciously grand you permission to take your chastity cage off after one hour.
 And since by now you should have gotten a bit comfortable with your chastity cage,
 so in addition to wearing it for one hour after the current session,
 from now on you're also going to wear it one hour before the next. 
-.pause Thank you, Miss
-.range 9981
+[Thank you, Miss]
+This additional hour of wearing time will keep you compliant
+when you approach me next time.
+.pause Yes, Miss
+.settime 45 01:00"00
+.set 687                     ' up one notch
+.return
 
 [Action 9962]
 .must 687               ' Chastity belt rules apply 2
 .mustnot 688            ' Chastity belt rules apply 3
 But since you're still in training with wearing a chastity device,
 I graciously allow you to take off your cage after 1 hour. 
-.range 9982
+[Thank you, Miss]
+Off course it goes without saying that you're going to squeeze your peace of meat
+back into that cage one full hour before you approach me again.
+Understood?
+.pause Yes, Miss
+.settime 45 01:00"00
+.return
 
 ' 20% chance to get chastity cage for a day assignment
 [Action 9963]
@@ -18266,10 +18350,16 @@ I graciously allow you to take off your cage after 1 hour.
 .mustnot 424 624        ' not already doing this or already done
 To improve your chastity training,
 you're not only continuing to wear your cage for one hour now,
-but I'm also order you to wear it continously
-for twelve solid hours before approaching me for another session. 
-.pause As you wish, Miss
-.range 9983
+but I'm also order you to wear it for twelve solid hours
+before approaching me for another session. 
+[As you wish, Miss]
+You may take as much time and training as you want,
+but don't come back to me until you've managed to keep your prick locked up 12 hours nonstop.
+Have you understood, slave?
+.pause Yes, Miss
+.settime 45 01:00"00
+.set 624                     ' chastity cage for a day assignment
+.return
 
 ' 20% chance to advance to level 3
 [Action 9964]
@@ -18280,13 +18370,23 @@ for twelve solid hours before approaching me for another session.
 .mustnot 624            ' not already doing this
 You surely remember your recent 12-hour-long lock up, slave.
 I hope you liked it, because this time, you'll be doing it again. 
-.range 9984
+Keep your poor shriveled up prick locked up for one hour from now,
+and lock it up again at least twelve hours before our next session, slave.
+.pause Yes, Miss
+.settime 45 01:00"00
+.set 688                     ' advance to level 3
+.return
 
 [Action 9965]
 .must 688               ' Chastity belt rules apply 3
 .mustnot 689            ' Chastity belt rules apply 4
 You're going to stay locked up for the next hour, slut.
-.range 9985
+And of course you will keep your cock in that cage locked up continously
+for at least 12 hours before approaching me for our next session.
+Understood?
+.pause Yes, Miss, understood
+.settime 45 01:00"00
+.return
 
 ' 20% chance to get chastity cage for night & day assignment
 [Action 9966]
@@ -18295,8 +18395,19 @@ You're going to stay locked up for the next hour, slut.
 .mustnot 689            ' Chastity belt rules apply 4
 .mustnot 425 625        ' not already doing this or already done
 To improve your chastity training, you're going to wear your cage
-the next 12 hours nonstop before you may take it off.
-.range 9986
+for the next 12 hours nonstop before you may take it off.
+And as usual you will squeeze your swollen peace of meat
+back into that cage twelve hours before our next session.
+And no combining, slut.
+Your poor shriveled up prick will be
+locked away from your dirty hands night and day.
+Are my instructions clear to you?
+.settime 45 12:00"00
+.set 94                      ' 24 hours wait
+.settime 95
+.set 625                     ' chastity cage for night & day assignment
+.pause Yes, Miss, twelve hours after and before the session
+.return
 
 ' 20% chance to advance to level 4
 [Action 9967]
@@ -18307,14 +18418,31 @@ the next 12 hours nonstop before you may take it off.
 .mustnot 625            ' not already doing this
 You surely remember your cock being locked up night-and day, slave.
 I hope you liked it, because this time, you'll be doing it again. 
-.range 9987
+[]
+Your cock will be locked up for twelve hours nonstop.
+before you may take the cage off.
+And before you approach me again,
+you're going to squeeze your swollen peace of meat back into that cage for another twelve hours,
+resulting in a whopping twentyfour hour lock-up.
+Understood?
+.settime 45 12:00"00
+.set 94                      ' 24 hours wait
+.settime 95
+.set 689                     ' advance to level 4
+.pause Yes, Miss, twelve hours after and before the session
+.return
 
 [Action 9968]
 .must 689               ' Chastity belt rules apply 4
 .mustnot 690            ' Chastity belt rules apply 5
-Therefore, your little prick will stay locked up for 12 hours, slut.
-You'll be wearing your chastity cage for the next 12 hours, slave.
-.range 9988
+Therefore, your little prick will stay locked up for 12 hours from now, slut.
+And off course, you're going to squeeze your swollen peace of meat back into that cage
+for another twelve hours, before you approach me for another session.
+.pause Yes, Miss, twelve hours before and after the session
+.settime 45 12:00"00
+.set 94                      ' 24 hours wait
+.settime 95
+.return
 
 ' 20% advancement to level 5
 [Action 9969]
@@ -18325,7 +18453,15 @@ For a long time I was graciously kind enough
 to allow you to take that cage off after a while,
 but you've come to a point in chastity training
 where I don't think that's necessary anymore.
-.range 9989
+[Yes, Miss]
+Therefore your cock will be locked up all the time until our next session.
+This way I feel certain about you not playing with yourself without my consent.
+.pause You're Right Miss, I'll better be locked up
+.set 690                     ' advance to level 5
+.set 94                      ' 24 hours wait
+.settime 45 24:00"00
+.settime 95
+.return
 
 ' TODO Add variance to chastity rules apply 5 9970 9972,
 ' since this there's no further advancement possible
@@ -18333,206 +18469,31 @@ where I don't think that's necessary anymore.
 [Action 9970]
 .must 690               ' Chastity belt rules apply 5
 And I don't want you to give any chance to touch yourself while you're alone.
-.range 9990 9992        ' on to last words and final exit
-
-[Action 9971]
-.must 690               ' Chastity belt rules apply 5
-And I don't want you to give any chance to touch yourself while you're alone.
-.range 9990 9992        ' on to last words and final exit
-
-[Action 9972]
-.must 690               ' Chastity belt rules apply 5
-And I don't want you to give any chance to touch yourself while you're alone.
-.range 9990 9992        ' on to last words and final exit
-
-
-' cleaning 9973-9975, lock up 9976-9977, comment 9978-9979
-
-' Good outcome
-[Action 9973]
-.mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
-.mustnot 23 24 30 37              ' Any toys on cock
-.delay 60
-This is a good moment to clean that dirty cock by
-giving it a thorough wash with ice cold water.
-I want you to adjust the water as cold as possible,
-And I want you come back with a cold shrivelled prick!
-Now head off into the bathroom, slut. 
-.range 9976 9977 
-
-' Good outcome
-[Action 9974]
-.else                             ' Fallback
-.mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
-.unset 23 24 30 37                ' Any toys on cock
-.delay 60
-This is a good moment to remove any toys from your cock
-and give it a thorough wash with ice cold water.
-I want you to adjust the water as cold as possible,
-And I want you come back with a cold shrivelled prick!
-Now head off into the bathroom, slut. 
-.range 9976 9977
-
-' Bad outcome, different tone
-[Action 9975]
-.else                             ' Fallback
-Squeeze your filthy cock into the chastity cage and lock it up.
-delay 15
-.pause I'm locked up, Miss
-.unset 24 37                      ' Any toys on cock
-.set 23 30 44                     ' Something on penis, can't jerk off, chastified
-.range 9978 9979                  ' No cleaning for failed slaves
-
-
-' Lock up 9976 9977
-
-[Action 9976]
-When you've finished,
-squeeze it back in your chastity cage and lock it up.
-delay 15
-.pause I'm locked up, Miss
-.set 23 30 44                     ' Something on penis, can't jerk off, chastified
-.range 9978 9979 
-
-[Action 9977]
-After you have finished,
-put that flacid dick back into your chastity cage and lock it up.
-delay 15
-.pause I'm locked up, Miss
-.set 23 30 44                     ' Something on penis, can't jerk off, chastified
-.range 9978 9979 
-
-' 9977-9979 comments about being locked up
-
-[Action 9978]
-That cage will surely help you not touching yourself while you're alone.
-.range 9960 9972 
-
-[Action 9979]
-That cage will surely keep you from playing with yourself.
-.range 9960 9972 
-
-
-
-' lock up time before next session 9980 9992, continued from 9960-9972
-
-[Action 9980]
-I'd also like to see your swollen hot cock tightly encaged next time,
-so remember to put the cage back on before or next session.
-.pause Yes Miss
-.range 9993                  ' chastity handling completed
-
-[Action 9981]
-This additional hour of wearing time will make you crave for release
-when you approach me next time.
-.pause Yes, Miss
-.set 687                     ' up one notch
-.range 9993                  ' chastity handling completed
-
-[Action 9982]
-Off course it goes without saying that you're going to squeeze your peace of meat
-back into that cage one full hour before you approach me again.
-Understood?
-.pause Yes, Miss
-.range 9993                  ' chastity handling completed
-
-[Action 9983]
-You may take as much time and training as you want,
-but don't come back to me until you've managed to keep your prick locked up 12 hours nonstop.
-	, slave?
-.pause Yes, Miss
-.set 624                     ' chastity cage for a day assignment
-.range 9993                  ' chastity handling completed
-
-[Action 9984]
-Keep your poor shriveled up prick locked up for one hour from now,
-and lock it up again at least twelve hours before our next session, slave.
-.pause Yes, Miss
-.set 688                     ' advance to level 3
-.range 9993                  ' chastity handling completed
-
-[Action 9985]
-And of course you will keep your cock in that cage locked up continously
-for at least 12 hours before approaching me for our next session.
-Understood?
-.unset 9965 9985
-.yestext Yes, Miss, understood
-.notext No, Miss, can you tell me again, please
-.yesno 9993 9993 9965 9965   ' chastity handling completed or repeat instructions
-
-[Action 9986]
-And as usual you will squeeze your swollen peace of meat
-back into that cage twelve hours before our next session.
-And no combining, slut.
-Your poor shriveled up prick will be
-locked away from your dirty hands night and day.
-Are my instructions clear to you?
-.set 625                     ' chastity cage for night & day assignment
-.set 94                      ' 24 hours wait
-.settime 95
-.unset 9966 9986
-.yestext Yes, Miss, twelve hours after and before the session
-.notext I'm sorry Miss, can you tell me again, please
-.yesno 9993 9993 9966 9966   ' chastity handling completed or repeat instructions
-
-[Action 9987]
-As the last time your cock is going to stay locked up in that cage for twelve hours nonstop.
-Only then you may take the cage off.
-And before you're approaching me again for our next session,
-you're going to squeeze your swollen peace of meat back into that cage for another twelve hours,
-resulting in a whopping twentyfour hour lock-up.
-Understood?
-.set 689                     ' advance to level 4
-.set 94                      ' 24 hours wait
-.settime 95
-.unset 9967 9987
-.yestext Yes, Miss, twelve hours after and before the session
-.notext I'm sorry Miss, can you tell me again, please
-.yesno 9993 9993 9967 9967   ' chastity handling completed or repeat instructions
-
-[Action 9988]
-And off course, you're going to squeeze your swollen peace of meat back into that cage
-for another twelve hours, before you approach me for another session.
-.pause Yes, Miss, twelve hours before and after the session
-.set 94                      ' 24 hours wait
-.settime 95
-.range 9993                  ' chastity handling completed
-
-[Action 9989]
-Therefore your cock is going to stay locked up all the time until our next session.
-This way I feel safe that you don't play with yourself without my supervision.
-.pause Right Miss, I'm staying locked up
-.set 690                     ' advance to level 5
-.set 94                      ' 24 hours wait
-.settime 95
-.range 9993                  ' chastity handling completed
-
-' TODO Add variance to chastity rules apply 5 9991 9992,
-' since there's no further advancement possible
-
-[Action 9990]
 For that reason you'll be wearing your chastity cage all the time until our next session.
-.pause Right Miss, I'm staying locked up
+.pause Right Miss, I'll be locked up all the time
+.settime 45 24:00"00
 .set 94                      ' 24 hours wait
 .settime 95
 .return
 
-[Action 9991]
+[Action 9971]
+.must 690               ' Chastity belt rules apply 5
+And I don't want you to give any chance to touch yourself while you're alone.
 For that reason you'll be wearing your chastity cage all the time until our next session.
-.pause Right Miss, I'm staying locked up all the time
+.pause Right Miss, I'll be locked up all the time
+.settime 45 24:00"00
 .set 94                      ' 24 hours wait
 .settime 95
-.range 9993                  ' chastity handling completed
+.return
 
-[Action 9992]
+[Action 9972]
+.must 690               ' Chastity belt rules apply 5
+And I don't want you to give any chance to touch yourself while you're alone.
 For that reason you'll be wearing your chastity cage all the time until our next session.
-.pause Right Miss, I'm staying locked up all the time
+.pause Right Miss, I'll be locked up all the time
+.settime 45 24:00"00
 .set 94                      ' 24 hours wait
 .settime 95
-.range 9993                  ' chastity handling completed
-
-
-[Action 9993]
 .return
 
 
