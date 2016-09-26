@@ -66,6 +66,10 @@ public class Mine extends Player {
         System.exit(0);
     }
 
+    public Mine(TeaseLib teaseLib) {
+        this(teaseLib, "/Mine/mistress/Vana/");
+    }
+
     public Mine(TeaseLib teaseLib, String mistressPath) {
         super(teaseLib, new ResourceLoader(Mine.class), MineMistress, Namespace,
                 mistressPath);
