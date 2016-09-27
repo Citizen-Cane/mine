@@ -2989,6 +2989,7 @@ Tell me when you've retrieved it, slaveboy.
 .range 7506
 
 [Action 7506]
+.keyrelease prepare 3600
 Now, cross your ankles and tie them together, nice and tight.
 There shouldn't be more than an inch of play between them.
 Report to me when you've finished.
@@ -2996,6 +2997,7 @@ Report to me when you've finished.
 .range 7507
 
 [Action 7507]
+.keyrelease start 3600
 All secure?
 Good.
 Those clamps should be settling in nicely by now.
@@ -3447,11 +3449,13 @@ Rub those nipples and get the blood flowing again!
 Now put your toys away like a good little boy,
 and come back when you're done.
 delay 10
+.keyrelease release
 .pause All put away, Miss
 .range 9000 9099
 
 
 [Action 7590]
+.keyrelease release
 I'm very disappointed in you, slave.
 delay 2
 You've failed me again.
@@ -3575,8 +3579,10 @@ What a sad spectacle.
 
 ' Slave closed
 [Action 9998]
+.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 ' Abnormal ending, bailing out
 [Action 9999]
+.keyrelease release
 .loadsbd Mine.sbd 5012 5012

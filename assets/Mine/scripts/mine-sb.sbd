@@ -179,6 +179,7 @@ I'm very disappointed in you, slave.
 
 
 [Action 2013]
+.keyrelease prepare 3600
 Very good, slave.
 Get the rope, and pay attention.
 I want you to tie your ankles together,
@@ -237,6 +238,7 @@ except for the tits.
 .range 2019
 
 [Action 2019]
+.keyrelease prepare 1800
 Mmm, I like that.
 I think I'll leave you there for a half hour or so, My slave.
 I hope you enjoy your bondage as much as I like watching it!
@@ -264,7 +266,9 @@ Now, get everything you need and start getting ready.
 .range 2023
 
 [Action 2023]
+.keyrelease prepare 3600
 Make sure your release method is set and you have at least one backup ready to go.
+deleay 15
 Tie yourself up as much as possible, and tell me when you're almost ready to go.
 .pause I'm ready to go, Miss
 .range 2024
@@ -275,6 +279,7 @@ Okay, slave, I'll give you two minutes to make your final preparations.
 .range 2025
 
 [Action 2025]
+.keyrelease start 2400
 You should be locked in now, slave!
 lock.mp3
 delay 10
@@ -315,6 +320,7 @@ a weight for the clamps, and your wrist restraints.
 .range 2046
 
 [Action 2046]
+.keyrelease prepare 3600
 Your hands will be locked behind you, slave,
 and attached to the harness so that you are unable to move them very far.
 You will need to be able to use your handcuff key, or an escape knife,
@@ -357,6 +363,7 @@ delay 5
 .range 2052
 
 [Action 2052]
+.keyrelease start 1200
 Now you're my prisoner, slave.
 I hope those nipple clamps are feeling good,
 because you will be wearing them for about twenty minutes.
@@ -452,6 +459,7 @@ You'll need to have some way to connect it to your nipple clamp chain, too.
 .range 2117
 
 [Action 2116]
+.keyrelease prepare 3600
 That's too bad, slave, but we can work with that.
 Make sure you have a key to your handcuffs handy and put it somewhere you can get to it.
 If you have another, go freeze it right now, so we have it for next time!
@@ -560,6 +568,7 @@ and tell me to let Me know you've finished freeing yourself.
 
 [Action 2130]
 .must 211           ' key nearby
+.keyrelease start 3600
 Just lay back and enjoy yourself, slave.
 I think you're good for a half hour or so.
 .image isb2k.jpg
@@ -580,12 +589,13 @@ I think you're good for a half hour or so.
 
 ' bad ending
 [Action 7999]
+.keyrelease release
 .range 9400 9599
 
 
 ' key nearby, wait for mistress' order
 
-'20 minutes or so
+' 20 minutes or so
 [Action 8000]
 .unset 8000
 .stoptext I've given up, Miss
@@ -597,6 +607,7 @@ I think you're good for a half hour or so.
 .stoptext I've given up, Miss
 .delay 25 35 STOP 7999
 .range 9001 9099
+
 
 '30 min
 [Action 8100]
@@ -611,6 +622,7 @@ I think you're good for a half hour or so.
 .delay 25 35 STOP 7999
 .range 9001 9099
 
+
 '45 min
 [Action 8200]
 .unset 8200
@@ -623,6 +635,7 @@ I think you're good for a half hour or so.
 .stoptext I've given up, Miss
 .delay 25 35 STOP 7999
 .range 9001 9099
+
 
 '60 min
 [Action 8300]
@@ -650,10 +663,10 @@ I think you're good for a half hour or so.
 
 
 [Action 8900]
-.unset 8800
+.unset 8900
 .stoptext I've freed myself, Miss
 .delay 40 80 STOP 8999
-.range 8800
+.range 8900
 
 [Action 8999]
 .range 9001 9099
@@ -664,6 +677,7 @@ I think you're good for a half hour or so.
 
 [Action 9001]
 .must 101
+.keyrelease release
 Very good, slave.
 You may use the knife to release yourself.
 .pause I'm free, Miss
@@ -671,12 +685,14 @@ You may use the knife to release yourself.
 
 [Action 9002]
 .must 102
+.keyrelease release
 That's a good slave.
 .pause I'm free, Miss
 .range 9107 9109
 
 [Action 9003]
 .must 103
+.keyrelease release
 Good boy, slave.
 You may take off the nipple clamps, ropes, and clothes pegs,
 but you'll keep on the rope harness, which you may wear or the rest of the session.
@@ -685,11 +701,14 @@ but you'll keep on the rope harness, which you may wear or the rest of the sessi
 
 [Action 9004]
 .must 104
+.keyrelease release
 That's a good boy, slave.
 You may free yourself and remove all of your toys, with the exception of the rope harness.
 You may wear that for the rest of the session.
 .pause I'm free, Miss
 .range 9105
+
+'[action 9099]
 
 
 [Action 9105]
@@ -781,9 +800,11 @@ Now, did you faithfully execute all my instructions, slave?
 
 ' Slave closed
 [Action 9998]
+.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 
 ' Abnormal ending, bailing out
 [Action 9999]
+.keyrelease release
 .loadsbd Mine.sbd 5015

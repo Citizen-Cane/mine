@@ -34,7 +34,7 @@
 ' * 183 2525    2551            2559    -                               corner time (15-30 min) + cuffs + clamps
 ' * 184 2555    2617            2619                    lack of hardness, level 1
 ' * 185 2560    2617            2619                    lack of hardness, level 2
-' * 186 2596    ????            2699                    45 min, kneeling (for cumming w/o perm)
+' * 186 2596    ????            2699                    45 min, kneeling (for cumming w/o perm), or 35m kneeling with clamps
 ' * 187 2600    2701            2709                    Wrong toys at session start
 ' * 188 2605    2711            2719                    Didn't perform assignment
 ' * 189 2620    2740            2749                    -
@@ -81,6 +81,7 @@
 .askcheck	14	104	A very tough session.
 .askcheck	15	105	An extrememly tough session.
 
+'          TODO? 110 special cumming-without-permission corner punishment
 .askcheck   16  111  5 min. corner
 .askcheck   17  112 10 min. corner
 .askcheck   18  113 15 min. corner
@@ -93,8 +94,8 @@
 .askcheck   25  120 90 min. corner
 .askcheck   26  121 Corner time is kneeling
 .askcheck   27  122 Corner time is on tiptoes
-.askcheck   28  123 Corner time is handcuffed
-.askcheck   29  130 Corner time is clamped
+.askcheck   28  123 Corner time is handcuffed - as a result of 124=0%, 125=50% or 126=100%
+.askcheck   29  130 Corner time is clamped - as a result of 127=0%, 128=50% or 129=100%
 '124-126 are handcuff temps
 '127-129 are nipple clamp temps
 
@@ -1197,9 +1198,10 @@ I hope so, slut!
 
 '   Kneeling is automatic 50%, so are tiptoes
 '   However, it can be set, and is used 100% 
-'   121 - Corner time is kneeling.
-'   122 - Corner time is on tiptoes.
-'   123 - Corner time is handcuffed.
+'   121 - Corner time is kneeling
+'   122 - Corner time is on tiptoes
+'   123 - Corner time is handcuffed
+'   130 - Corner time is clamped
 
 '   124 - no chance of handcuffs
 '   125 - 50% chance of cuffs
@@ -1669,6 +1671,7 @@ uncomfortable, and it will make you feel very stupid and naughty.
 
 [Action 1861]
 .must 123 130
+.keyrelease prepare 3600
 I want you to have something extra to think about over in the corner,
 so go fetch me your nipple clamps,
 and grab your handcuffs while you're at it.
@@ -1678,6 +1681,7 @@ and grab your handcuffs while you're at it.
 [Action 1862]
 .must 123
 .mustnot 130
+.keyrelease prepare 3600
 I don't want you touching yourself in the corner,
 so go fetch your handcuffs before we get started.
 .pause I have them ready, Miss
@@ -1695,6 +1699,7 @@ Grab your nipple clamps and keep them handy.
 .mustnot 123 130
 .range 1870
 
+' TODO 186 + toys more severe bondage in corner for cumming w/o permission
 
 ' Kneeling/tip toes
 
@@ -1939,6 +1944,7 @@ Now put your handcuffs on, behind your back.
 Make sure that the key is somewhere you can get at it
 - of course, not anywhere near the corner.
 .pause I've cuffed my hands behind my back, Miss
+.keyrelease start 3600
 .range 2000
 
 [Action 1992]
@@ -2154,6 +2160,7 @@ Now tiptoe over to that corner, you naughty boy, and think about the error of yo
 
 
 [Action 2131]
+.keyrelease release
 Very good, slave.
 You may now take off your handcuffs and nipple clamps.
 .pause Thank you, Miss
@@ -2171,6 +2178,7 @@ You may take off those nipple clamps now.
 .range 2140
 
 [Action 2133]
+.keyrelease release
 Good boy.
 You may take off the handcuffs.
 .pause Thank you, Miss
@@ -2865,8 +2873,10 @@ A disobedient slut that's going to be punished.
 
 ' 45 minutes kneeling, marker
 [Action 2596]
+.else
 .set 121                     ' Kneeling
-.set 124 127                 ' No cuffs, no clamps 
+.set 124 127                 ' No cuffs, no clamps
+.unset 123 130               ' referenced in marker section
 .unset 122 125 126 128 129
 .set 186
 .range 2200
@@ -2878,6 +2888,8 @@ A disobedient slut that's going to be punished.
 .mustnot 363                 ' Wrist restraints
 .set 121                     ' Kneeling
 .set 124 129                 ' No cuffs, clamps
+.unset 123
+.set 130                     ' referenced in marker section
 .unset 122 125 126 127 128
 .set 186
 .range 2200                  ' Shame yourself (write on body with marker), then corner time
@@ -2889,7 +2901,10 @@ A disobedient slut that's going to be punished.
 .mustnot 361                 ' Nipple clamps
 .must 363                    ' Wrist restraints
 .set 121                     ' Kneeling
-.set 126 127                 ' No clamps, cuffs
+.set 126 127                 ' Cuffs, no clamps
+.set 123                     ' referenced in marker section
+.unset 130                   ' referenced in marker section
+
 .unset 122 124 125 128 129
 .set 186
 .range 2200                  ' Shame yourself (write on body with marker), then corner time
@@ -2900,7 +2915,8 @@ A disobedient slut that's going to be punished.
 .mustnot 20 22 26            ' Something on nipples, something in mouth, wrists tied
 .must 361 363                ' Nipple clamps, wrist restraints
 .set 121                     ' Kneeling
-.set 126 129                 ' Clamps, cuffs
+.set 126 129                 ' Cuffs, clamps
+.set 123 130                 ' Cuffs, clamps, referenced in marker section, but resolved later
 .unset 122 124 125 127 128
 .set 186
 .range 2200                  ' Shame yourself (write on body with marker), then corner time
@@ -2951,10 +2967,10 @@ A disobedient slut that's going to be punished.
  
 ' Corner time + marker
 [Action 2600]
-.set 124 127                 ' No cuffs, no clamps
+.set 124 127                      ' No cuffs, no clamps
 .unset 125 126 128 129
 .set 187
-.range 2200                  ' Shame yourself (write on body with marker), then corner time
+.range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
 ' 521 Failed to perform assignment
@@ -4267,8 +4283,10 @@ You may remove the weight now, slave.
 
 ' Slave closed
 [Action 9998]
+.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 ' Abnormal ending, bailing out
 [Action 9999]
+.keyrelease release
 .loadsbd Mine.sbd 5014

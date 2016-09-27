@@ -782,7 +782,7 @@ But keep it handy, because you're going to put it back in after your worshiping 
 .else
 .range 3119
 
-
+' TODO assignment conflicts with optional key release 
 [Action 3110]
 Leave the keys to your restraints on the desk, you may need them later.
 .must 170
@@ -792,28 +792,34 @@ Leave the keys to your restraints on the desk, you may need them later.
 .mustnot 170
 .range 3119
 
-
+' TODO assignment conflicts with optional key release
 [Action 3112]
+.must 170
 Leave the keys to your restraints on the floor in front of your desk,
 you may need them later.
-.must 170
+.keyrelease start 3600
 .range 3119
 
 [Action 3113]
 .mustnot 170
+.keyrelease start 3600
 .range 3119
 
 
-' Referenced in 3420-3449 to recall position
-' Referenced in 3850-3889 to continue scenarios with appropriate images
 [Action 3119]
 .return
+
+
+' TODO lost comment, move to right place
+' Referenced in 3420-3449 to recall position
+' Referenced in 3850-3889 to continue scenarios with appropriate images
 
 
 ' hands tied on back
 
 [action 3120]
 .must 22                ' something in mouth
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue.
 So after taking your gag out, I want you to pick up your wrist restraints
 and tie your hands on your back.
@@ -827,6 +833,7 @@ delay 10
 
 [action 3121]
 .mustnot 22             ' something in mouth
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue.
 Go get your wrist restraints and tie your hands on your back.
 delay 10
@@ -840,6 +847,7 @@ delay 10
 
 [action 3124]
 .must 22                ' something in mouth
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go get your wrist and ankle restraints, and
 - after taking your gag out -
@@ -858,6 +866,7 @@ Keep the connecting chains short, my pet.
 
 [action 3125]
 .mustnot 22             ' something in mouth
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go get your wrist and ankle restraints and tie each wrist to the corresponding ankle.
 delay 10
@@ -876,6 +885,7 @@ Keep the connecting chains short, my pet.
 [action 3128]
 .must 22                ' something in mouth
 .mustnot 44             ' chastified
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so get your wrist restraints and
 - after taking out your gag -
@@ -889,6 +899,7 @@ tie your wrists to your slutty ball sack.
 [action 3129]
 .mustnot 22             ' something in mouth
 .mustnot 44             ' chastified
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so let's get your wrist restraints and tie your wrists to your slutty ball sack.
 .pause Done as ordered, Miss
@@ -898,6 +909,7 @@ so let's get your wrist restraints and tie your wrists to your slutty ball sack.
 [action 3130]
 .must 22                ' something in mouth
 .must 44                ' chastified
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so get your wrist restraints and
 - after taking your gag out -
@@ -911,6 +923,7 @@ tie your wrists to your chastity cage.
 [action 3131]
 .mustnot 22             ' something in mouth
 .must 44                ' chastified
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so let's get your wrist restraints and tie your wrists to your chastity cage.
 .pause Done as ordered, Miss
@@ -922,6 +935,7 @@ so let's get your wrist restraints and tie your wrists to your chastity cage.
 
 [action 3132]
 .must 22                ' something in mouth
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so get your wrist restraints and 
 - after taking your gag out -
@@ -935,6 +949,7 @@ lock your hands to your collar.
 
 [action 3133]
 .mustnot 22             ' something in mouth
+.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so get your wrist restraints and lock your hands to your collar.
 .pause Done as ordered, Miss
@@ -1747,9 +1762,11 @@ Have you figured out a place, slave?
 
 
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
+' TODO images missing, not in assets folder
 
 [Action 3365]
 .must 363 364           ' wrist restraints, ankle restraints
+.keyrelease prepare 3600
 This time I want to make absolutely sure you aren't distracted and attain full focus while carrying out your ordeal, slave.
 delay 2
 []
@@ -1796,6 +1813,7 @@ Get down on the floor, crawl to your worshiping position and mount the dildo.
 delay 5
 Then put on the blindfold,lock your wrists to your ankles, and listen to my commands! 
 delay 10
+.keyrelease start 3600
 .range 3369
 
 [Action 3368]
@@ -4596,6 +4614,7 @@ You're a bit of a disappointment tonight, aren't you, slave?
 .range 4390
 
 [Action 4382]
+.keyrelease release
 You can untie your wrists, slave.
 .pause Finished, Miss
 .must 10                ' Wrists on back 
@@ -4603,6 +4622,7 @@ You can untie your wrists, slave.
 .range 4390
 
 [Action 4383]
+.keyrelease release
 You can untie your wrists and ankles, slave.
 .pause Finished, Miss
 .must 11                ' Wrists to ankles 
@@ -4610,6 +4630,7 @@ You can untie your wrists and ankles, slave.
 .range 4390
 
 [Action 4384]
+.keyrelease release
 You can untie your wrists from your ball sack, slave.
 .pause Finished, Miss
 .must 16                ' Wrists to ball sack
@@ -4618,6 +4639,7 @@ You can untie your wrists from your ball sack, slave.
 .range 4390
 
 [Action 4385]
+.keyrelease release
 You may untie your wrists from your ball sack, slave.
 But keep your wrists tied. 
 .pause Done, Miss
@@ -4627,6 +4649,7 @@ But keep your wrists tied.
 .range 4390
 
 [Action 4386]
+.keyrelease release
 You can untie your wrists from your collar and take it off,
 but keep your wrists tied.
 .pause Done, Miss
@@ -4637,6 +4660,7 @@ but keep your wrists tied.
 .range 4390
 
 [Action 4387]
+.keyrelease release
 You can untie your wrists from your collar,
 but keep your wrists tied.
 I also want you to keep wearing your collar, slave. 
@@ -4648,6 +4672,7 @@ I also want you to keep wearing your collar, slave.
 .range 4390
 
 [Action 4388]
+.keyrelease release
 You can untie your wrists from your collar, and take off both. 
 .pause All done, Miss
 .must 17                ' Wrists to collar, collar
@@ -4657,6 +4682,7 @@ You can untie your wrists from your collar, and take off both.
 .range 4390
 
 [Action 4389]
+.keyrelease release
 You can untie your wrists from your collar and take them off.
 But I want you to keep wearing your collar, slave. 
 .pause Wrists untied, Miss
@@ -5874,9 +5900,11 @@ Came, did you, you disobedient slut!
 ' Slave closed
 [Action 9998]
 .save 180 199
+.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 ' Abnormal ending, bailing out
 [Action 9999]
 .save 180 199
+.keyrelease release
 .loadsbd Mine.sbd 5009 5009
