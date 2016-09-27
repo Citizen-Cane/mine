@@ -48,8 +48,14 @@ public class Mine extends Player {
             Voice.Gender.Female, Locale.UK, Actor.Key.DominantFemale,
             Images.None);
 
-    static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip",
-            "Mine Mistress.zip" };
+    private static final String[] Assets = { "Mine Scripts.zip",
+            "Mine Resources.zip", "Mine Mistress.zip" };
+
+    public enum Punishment {
+        BadIntroduction,
+        NotNaked,
+        CummingWithoutPermission
+    }
 
     public static void main(String argv[]) {
         try {
@@ -135,4 +141,23 @@ public class Mine extends Player {
         play("Mine");
     }
 
+    public void punish(Punishment punishment) {
+        switch (punishment) {
+        case BadIntroduction:
+            set("mine.500", 1);
+            break;
+        case NotNaked:
+            if (getInteger("mine.502") == 1) {
+                set("mine.503", 1);
+            } else {
+                set("mine.502", 1);
+            }
+            break;
+        case CummingWithoutPermission:
+            set("mine.519", 1);
+            break;
+        default:
+            break;
+        }
+    }
 }
