@@ -90,25 +90,23 @@ public class Mine extends Player {
         state.addToyMapping(380, toys(Toys.Chastity_Devices));
         state.addToyMapping(389, toys(Toys.Vibrators, Toys.EStim_Devices));
 
-        // Toy simple mappings
-        state.addMapping(361, toy(Toys.Nipple_clamps));
-        state.addMapping(362, toy(Toys.Clothespins));
-        state.addMapping(366, toy(Toys.Rope));
-        state.addMapping(360, toy(Toys.Chains));
-        state.addMapping(382, toy(Toys.Blindfold));
-        state.addMapping(384, toy(Toys.Humbler));
-        state.addMapping(388, toy(Toys.Anal_Dildo));
-        state.addMapping(383, toy(Toys.Enema_Kit));
-        // TODO map enema bulb to flag but don't display in toy list
-        // mappedState.addMapping(383, get(Toys.Enema_Bulb));
-        state.addMapping(387, toy(Toys.Pussy_Clamps));
-        state.addMapping(385, toy(Toys.Ball_Stretcher));
+        // Toys simple mappings
+        state.addToyMapping(361, toy(Toys.Nipple_clamps));
+        state.addToyMapping(362, toy(Toys.Clothespins));
+        state.addToyMapping(366, toy(Toys.Rope));
+        state.addToyMapping(360, toy(Toys.Chains));
+        state.addToyMapping(382, toy(Toys.Blindfold));
+        state.addToyMapping(384, toy(Toys.Humbler));
+        state.addToyMapping(388, toy(Toys.Anal_Dildo));
+        state.addToyMapping(383, toy(Toys.Enema_Kit));
+        state.addToyMapping(387, toy(Toys.Pussy_Clamps));
+        state.addToyMapping(385, toy(Toys.Ball_Stretcher));
 
         // Toy simple mappings - ingame toys (not selectable in toy list)
-        state.addMapping(383, toy(Toys.Enema_Bulb));
-        state.addMapping(371, toy(Toys.Hairbrush));
-        state.addMapping(372, toy(Toys.Wooden_Spoon));
-        state.addMapping(373, toy(Toys.Ruler));
+        state.addToyMapping(371, toy(Toys.Hairbrush));
+        state.addToyMapping(372, toy(Toys.Wooden_Spoon));
+        state.addToyMapping(373, toy(Toys.Ruler));
+        state.addToyMapping(374, toy(Toys.Enema_Bulb));
 
         // state mappings
         state.addStateMapping(20, state(Body.SomethingOnNipples));
@@ -159,5 +157,9 @@ public class Mine extends Player {
         default:
             break;
         }
+    }
+
+    public void override(Toys toy, boolean available) {
+        state.overwrite(toy, available);
     }
 }
