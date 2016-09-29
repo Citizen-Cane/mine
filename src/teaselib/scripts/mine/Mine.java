@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import pcm.controller.Player;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
+import pcm.state.MappedState;
 import teaselib.Actor;
 import teaselib.Body;
 import teaselib.Images;
@@ -85,60 +86,70 @@ public class Mine extends Player {
         super(teaseLib, new ResourceLoader(Mine.class), MineMistress, Namespace,
                 mistressPath);
         resources.addAssets(Assets);
+
         // Toy categories - multiple items
-        state.addToyMapping(363, toys(Toys.Wrist_Restraints));
-        state.addToyMapping(364, toys(Toys.Ankle_Restraints));
-        state.addToyMapping(365, toys(Toys.Collars));
-        state.addToyMapping(367, toys(Toys.Gags));
-        state.addToyMapping(368, toys(Toys.Buttplugs));
-        state.addToyMapping(370, toys(Toys.Spanking_Implements));
-        state.addToyMapping(380, toys(Toys.Chastity_Devices));
-        state.addToyMapping(389, toys(Toys.Vibrators, Toys.EStim_Devices));
+        state.addToyMapping(MappedState.Global, 363, toys(Toys.Wrist_Restraints));
+        state.addToyMapping(MappedState.Global, 364, toys(Toys.Ankle_Restraints));
+        state.addToyMapping(MappedState.Global, 365, toys(Toys.Collars));
+        state.addToyMapping(MappedState.Global, 367, toys(Toys.Gags));
+        state.addToyMapping(MappedState.Global, 368, toys(Toys.Buttplugs));
+        state.addToyMapping(MappedState.Global, 370,
+                toys(Toys.Spanking_Implements));
+        state.addToyMapping(MappedState.Global, 380, toys(Toys.Chastity_Devices));
+        state.addToyMapping(MappedState.Global, 389,
+                toys(Toys.Vibrators, Toys.EStim_Devices));
 
         // Toys simple mappings
-        state.addToyMapping(361, toy(Toys.Nipple_clamps));
-        state.addToyMapping(362, toy(Toys.Clothespins));
-        state.addToyMapping(366, toy(Toys.Rope));
-        state.addToyMapping(360, toy(Toys.Chains));
-        state.addToyMapping(382, toy(Toys.Blindfold));
-        state.addToyMapping(384, toy(Toys.Humbler));
-        state.addToyMapping(388, toy(Toys.Anal_Dildo));
-        state.addToyMapping(383, toy(Toys.Enema_Kit));
-        state.addToyMapping(387, toy(Toys.Pussy_Clamps));
-        state.addToyMapping(385, toy(Toys.Ball_Stretcher));
+        state.addToyMapping(MappedState.Global, 361, toy(Toys.Nipple_clamps));
+        state.addToyMapping(MappedState.Global, 362, toy(Toys.Clothespins));
+        state.addToyMapping(MappedState.Global, 366, toy(Toys.Rope));
+        state.addToyMapping(MappedState.Global, 360, toy(Toys.Chains));
+        state.addToyMapping(MappedState.Global, 382, toy(Toys.Blindfold));
+        state.addToyMapping(MappedState.Global, 384, toy(Toys.Humbler));
+        state.addToyMapping(MappedState.Global, 388, toy(Toys.Anal_Dildo));
+        state.addToyMapping(MappedState.Global, 383, toy(Toys.Enema_Kit));
+        state.addToyMapping(MappedState.Global, 387, toy(Toys.Pussy_Clamps));
+        state.addToyMapping(MappedState.Global, 385, toy(Toys.Ball_Stretcher));
 
         // Toy simple mappings - ingame toys (not selectable in toy list)
-        state.addToyMapping(371, toy(Toys.Hairbrush));
-        state.addToyMapping(372, toy(Toys.Wooden_Spoon));
-        state.addToyMapping(373, toy(Toys.Ruler));
-        state.addToyMapping(374, toy(Toys.Enema_Bulb));
+        state.addToyMapping(MappedState.Global, 371, toy(Toys.Hairbrush));
+        state.addToyMapping(MappedState.Global, 372, toy(Toys.Wooden_Spoon));
+        state.addToyMapping(MappedState.Global, 373, toy(Toys.Ruler));
+        state.addToyMapping(MappedState.Global, 374, toy(Toys.Enema_Bulb));
 
         // state mappings
-        state.addStateMapping(20, state(Body.SomethingOnNipples));
-        state.addStateMapping(21, state(Body.SomethingInButt));
-        state.addStateMapping(22, state(Body.SomethingInMouth));
-        state.addStateMapping(23, state(Body.SomethingOnPenis));
-        state.addStateMapping(24, state(Body.SomethingOnBalls));
-        state.addStateMapping(25, state(Body.AnklesTied));
-        state.addStateMapping(26, state(Body.WristsTied));
-        state.addStateMapping(27, state(Body.SomethingAroundWaist));
-        state.addStateMapping(28, state(Body.Collared));
-        state.addStateMapping(30, state(Body.CannotJerkOff));
-        state.addStateMapping(31, state(Body.CantSitOnChair));
-        state.addStateMapping(32, state(Body.CannotStand));
-        state.addStateMapping(33, state(Body.CannotKneel));
-        state.addStateMapping(34, state(Body.CannotTypeOrUseMouse));
-        state.addStateMapping(35, state(Body.Tethered));
-        state.addStateMapping(36, state(Body.Harnessed));
+        state.addStateMapping(MappedState.Global, 20,
+                state(Body.SomethingOnNipples));
+        state.addStateMapping(MappedState.Global, 21, state(Body.SomethingInButt));
+        state.addStateMapping(MappedState.Global, 22,
+                state(Body.SomethingInMouth));
+        state.addStateMapping(MappedState.Global, 23,
+                state(Body.SomethingOnPenis));
+        state.addStateMapping(MappedState.Global, 24,
+                state(Body.SomethingOnBalls));
+        state.addStateMapping(MappedState.Global, 25, state(Body.AnklesTied));
+        state.addStateMapping(MappedState.Global, 26, state(Body.WristsTied));
+        state.addStateMapping(MappedState.Global, 27,
+                state(Body.SomethingAroundWaist));
+        state.addStateMapping(MappedState.Global, 28, state(Body.Collared));
+        state.addStateMapping(MappedState.Global, 30, state(Body.CannotJerkOff));
+        state.addStateMapping(MappedState.Global, 31, state(Body.CantSitOnChair));
+        state.addStateMapping(MappedState.Global, 32, state(Body.CannotStand));
+        state.addStateMapping(MappedState.Global, 33, state(Body.CannotKneel));
+        state.addStateMapping(MappedState.Global, 34,
+                state(Body.CannotTypeOrUseMouse));
+        state.addStateMapping(MappedState.Global, 35, state(Body.Tethered));
+        state.addStateMapping(MappedState.Global, 36, state(Body.Harnessed));
 
-        state.addStateMapping(44, state(Body.Chastified));
+        state.addStateMapping(MappedState.Global, 44, state(Body.Chastified));
 
-        state.addStateMapping(95, state(Assignments.NextSession));
-        state.addStateMapping(267, state(Assignments.Enema));
+        String mainScript = "Mine";
+        state.addStateMapping(mainScript, 95, state(Assignments.NextSession));
+        state.addStateMapping(mainScript, 267, state(Assignments.Enema));
 
         // state elapsed mappings
         // TODO Should map to TimeLock device state, see Mine.sbd:[action 9255]
-        state.addStateTimeMapping(45, state(Body.Chastified));
+        state.addStateTimeMapping(MappedState.Global, 45, state(Body.Chastified));
     }
 
     @Override
