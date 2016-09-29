@@ -57,6 +57,11 @@ public class Mine extends Player {
         CummingWithoutPermission
     }
 
+    public enum Assignments {
+        NextSession,
+        Enema
+    }
+
     public static void main(String argv[]) {
         try {
             recordVoices(Mine.class, MineMistress, Assets, "Mine");
@@ -128,10 +133,12 @@ public class Mine extends Player {
 
         state.addStateMapping(44, state(Body.Chastified));
 
+        state.addStateMapping(95, state(Assignments.NextSession));
+        state.addStateMapping(267, state(Assignments.Enema));
+
         // state elapsed mappings
         // TODO Should map to TimeLock device state, see Mine.sbd:[action 9255]
         state.addStateTimeMapping(45, state(Body.Chastified));
-
     }
 
     @Override

@@ -104,17 +104,12 @@
 ' Session timers: 1, 12, 24 hours, with two empty slots for 48h and one week
 '
 ' 90: Wait 1 hour
-' 91: Wait 1 hour timer
+' 91:
 ' 92: Wait 12 hours
-' 93: Wait 12 hours timer
+' 93:
 ' 94: Wait 24 hours
-' 95: Wait 24 hours timer
-
-' 96: Wait ?? hours
-' 97: Wait ?? hours timer
-
-' 98: Wait ?? hours
-' 99: Wait ?? hours timer
+'
+' 95: Wait 1/12/24 hours timer
 
 
 ' Toy menu and toy definitions 360-389
@@ -1041,7 +1036,7 @@ You'd better stay sharp if you don't want extra punishment!
 [Action 950]
 .must 90
 .mustnot 92 94
-.timefrom 91 00:59"00
+.timefrom 95 -00:00"00
 .unset 90
 .range 948
 
@@ -1049,14 +1044,14 @@ You'd better stay sharp if you don't want extra punishment!
 [Action 952]
 .must 92
 .mustnot 94
-.timefrom 93 11:59"00
+.timefrom 95 -00:00"00
 .unset 92 90
 .range 948
 
 '(back after waiting 24 hours)
 [Action 954]
 .must 94
-.timefrom 95 23:59"00
+.timefrom 95 -00:00"00
 .unset 94 92 90
 .range 948
 
@@ -1103,41 +1098,41 @@ Also, remind me to give you some extra punishment to help you remember your plac
 ' slave tries to attend again after being warned 
 
 [Action 996]
+.must 505
+.must 90
+.mustnot 92 94
 You cunt!
 I've already told you not to bother me!
 Don't come back for another hour, you little whore!
 .pause Please Miss, forgive me
 .else
-.must 505
-.must 90
-.mustnot 92 94
 .set 501 504            ' additional general punishment, imp.
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 [Action 997]
+.must 505
+.must 92
+.mustnot 94
 If there's one thing I hate, it's a stupid ignorant slaveboy who doesn't listen to the Mistress.
 I told you at least twice not to bother me - now you can wait another twelve hours for My presence.
 Get out of here and stop pestering me, slave!
 .pause Please forgive me, Miss
 .else
-.must 505
-.must 92
-.mustnot 94
 .set 501 504            ' additional general punishment, imp.
-.settime 93
+.settime 95 12:00"00
 .range 870
 
 [Action 998]
+.else
+.must 505
+.must 94
 Well, you stupid slutty cunt slave, I've had it.
 I don't want to see you for another 24 hours.
 Get the hell out of here!
 .pause Please Miss, forgive me
-.else
-.must 505
-.must 94
 .set 501 504            ' additional general punishment, imp.
-.settime 95
+.settime 95 24:00"00
 .range 870
 
 
@@ -1236,7 +1231,7 @@ Nevertheless I'll give you a second chance at my favor.
 Come back in an hour, wench!
 .pause Thank you, Miss
 .set 90
-.settime 91
+.settime 95 01:00"00
 .range 850
 
 
@@ -1265,7 +1260,7 @@ You've disappointed Me, you filthy little disobedient whore.
 Come back in an hour if you have a change of heart, and perhaps I'll relent.
 .must 100
 .set 90                 ' 1 hour
-.settime 91
+.settime 95 01:00"00
 .range 850              ' Save and exit
 
 
@@ -1277,7 +1272,7 @@ You can come back in 12 hours if you're done wasting time.
 Maybe I'll reconsider!
 .mustnot 103
 .set 92                 ' 12 hours
-.settime 93
+.settime 95 12:00"00
 .set 103                ' Mistress impatient
 .range 870              ' Save and exit
 
@@ -1287,7 +1282,7 @@ You can come back in 24 hours,
 if you want to convince Me to take you back!
 .must 103
 .set 94
-.settime 95
+.settime 95 24:00"00
 .range 870
 
 
@@ -1325,7 +1320,7 @@ I'm not interested in wasting any more of my valuable time with you.
 You can come back tomorrow, if you want to try to change my mind with a little suffering!
 .pause Thank you very much, Miss
 .set 94
-.settime 95
+.settime 95 24:00"00
 .range 870
 
 
@@ -1594,7 +1589,7 @@ And for your own good, you'll better stay bare naked that hour.
 .pause Please forgive me, Miss
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 90                      ' come back in an hour
-.settime 91
+.settime 95 01:00"00
 .range 880
 
 
@@ -1726,7 +1721,7 @@ so that you learn the importance of being bare-ass naked!
 .set 502                          ' Naked punishment 1
 .set 504                          ' general disobedience
 .set 90                           ' 1 hour wait
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 [Action 1122]
@@ -1740,7 +1735,7 @@ You can come back in 12 hours if you want to beg me for forgiveness and accept y
 .set 503                          ' Naked punishment 2
 .set 508                          ' inattentiveness
 .set 92                           ' 12 hours wait
-.settime 93
+.settime 95 12:00"00
 .range 870
 
 [Action 1123]
@@ -1753,7 +1748,7 @@ You can come back in 12 hours if you want to beg me for forgiveness and accept y
 .set 503                          ' Naked punishment 2
 .set 508                          ' inattentiveness
 .set 92                           ' 12 hours wait
-.settime 93
+.settime 95 12:00"00
 .range 870
 
 [Action 1124]
@@ -1767,7 +1762,7 @@ Apparently you've forgotten your lessons on the importance of being naked and vu
 .set 503                          ' Naked punishment 2
 .set 516                          ' excessive disobedience
 .set 94                           ' 24 hours wait
-.settime 95
+.settime 95 24:00"00
 .range 870
 
 
@@ -2062,7 +2057,7 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 .pause Please have mercy, Miss
 .set 508                     ' Inattentiveness
 .set 90
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 '[Action 1193]
@@ -2101,7 +2096,7 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 .pause Please have mercy, Miss
 .set 508                     ' Inattentiveness
 .set 90
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 
@@ -2291,7 +2286,7 @@ You can think about your foolishness for the next hour while I prepare your torm
 you worthless cunt.
 .pause Please have mercy, Miss
 .set 90
-.settime 91                       ' wait one hour
+.settime 95 01:00"00              ' wait one hour
 .set 501                          ' impatience punishment
 .set 512                          ' not being hard punishment 2
 .unset 707 708 709 710            ' clear advancement
@@ -5142,7 +5137,7 @@ You can come back tomorrow, and be prepared for a rough session!
 .set 9
 .set 94
 .set 501
-.settime 95
+.settime 95 24:00"00
 .range 870
 
 [Action 2019]
@@ -11014,7 +11009,7 @@ I'm going to get through to you somehow!
 You can come back in an hour if you want to get back into my good graces.
 .mustnot 273            ' Activity cycle
 .set 90                 ' Wait 1 hour
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 [Action 5037]
@@ -11022,7 +11017,7 @@ You can come back in an hour or so
 when you're ready to accept a well-earned punishment!
 .mustnot 273            ' Activity cycle
 .set 90                 ' Wait 1 hour
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 [Action 5038]
@@ -11030,7 +11025,7 @@ I'll let you think about your misdeeds for an hour or so,
 and then you can come back here to get what's coming to you.
 .mustnot 273            ' Activity cycle
 .set 90                 ' Wait 1 hour
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 [Action 5039]
@@ -11038,7 +11033,7 @@ You can come back in an hour,
 if you want to try to change my mind with a little suffering!
 .mustnot 273            ' Activity cycle
 .set 90                 ' Wait 1 hour
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 
@@ -16082,7 +16077,7 @@ And for your own good, you'll better stay bare naked and locked up that hour.
 .pause Sorry, Miss, I'm so sorry
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 90                      ' come back in an hour
-.settime 91
+.settime 95 01:00"00
 .range 880
 
 
@@ -16268,7 +16263,7 @@ And I hope for your own sake that you will still be wearing it when you come bac
 .pause Of course, Miss
 .must 103               ' mistress impatient
 .set 90                 ' come back in an hour
-.settime 91
+.settime 95 01:00"00
 .set 508                ' inattentiveness punishment
 .range 870
 
@@ -16284,7 +16279,7 @@ And I hope for your own sake that you will still be wearing it when you crawl ba
 .set 508                ' inattentiveness punishment
 .set 516                ' excessive disobedience punishment
 .set 90                 ' come back in an hour
-.settime 91
+.settime 95 01:00"00
 .range 870
 
 ' confessed to remember orders
@@ -18404,7 +18399,7 @@ locked away from your dirty hands night and day.
 Are my instructions clear to you?
 .settime 45 12:00"00
 .set 94                      ' 24 hours wait
-.settime 95
+.settime 95 24:00"00
 .set 625                     ' chastity cage for night & day assignment
 .pause Yes, Miss, twelve hours after and before the session
 .return
@@ -18427,7 +18422,7 @@ resulting in a whopping twentyfour hour lock-up.
 Understood?
 .settime 45 12:00"00
 .set 94                      ' 24 hours wait
-.settime 95
+.settime 95 24:00"00
 .set 689                     ' advance to level 4
 .pause Yes, Miss, twelve hours after and before the session
 .return
@@ -18441,7 +18436,7 @@ for another twelve hours, before you approach me for another session.
 .pause Yes, Miss, twelve hours before and after the session
 .settime 45 12:00"00
 .set 94                      ' 24 hours wait
-.settime 95
+.settime 95 24:00"00
 .return
 
 ' 20% advancement to level 5
@@ -18460,7 +18455,7 @@ This way I feel certain about you not playing with yourself without my consent.
 .set 690                     ' advance to level 5
 .set 94                      ' 24 hours wait
 .settime 45 24:00"00
-.settime 95
+.settime 95 24:00"00
 .return
 
 ' TODO Add variance to chastity rules apply 5 9970 9972,
@@ -18473,7 +18468,7 @@ For that reason you'll be wearing your chastity cage all the time until our next
 .pause Right Miss, I'll be locked up all the time
 .settime 45 24:00"00
 .set 94                      ' 24 hours wait
-.settime 95
+.settime 95 24:00"00
 .return
 
 [Action 9971]
@@ -18483,7 +18478,7 @@ For that reason you'll be wearing your chastity cage all the time until our next
 .pause Right Miss, I'll be locked up all the time
 .settime 45 24:00"00
 .set 94                      ' 24 hours wait
-.settime 95
+.settime 95 24:00"00
 .return
 
 [Action 9972]
@@ -18493,7 +18488,7 @@ For that reason you'll be wearing your chastity cage all the time until our next
 .pause Right Miss, I'll be locked up all the time
 .settime 45 24:00"00
 .set 94                      ' 24 hours wait
-.settime 95
+.settime 95 24:00"00
 .return
 
 
@@ -18507,7 +18502,7 @@ Do as told, and don't disturb Me for at least twelve hours.
 .must 211               ' next-session toy
 .mustnot 94             ' Only if 24 hours wait hasn't been enabled elsewhere
 .set 92                 ' 12 hours
-.settime 93
+.settime 95 12:00"00
 .range 850
 
 ' next-session-toy exit
@@ -18516,7 +18511,7 @@ I think that's enough for today's session, My slave.
 Do as told, and don't disturb Me for at least 24 hours.
 .must 211               ' next-session toy
 .must 94                ' 24 hours set before
-.settime 95
+.settime 95 24:00"00
 .range 850
 
 
@@ -18528,7 +18523,7 @@ but don't disturb Me for at least twelve hours.
 .mustnot 211            ' next-session toy
 .mustnot 94             ' Only if 24 hours wait hasn't been enabled elsewhere
 .set 92                 ' 12 hours
-.settime 93             ' update time
+.settime 95 12:00"00    ' update time
 .range 850
 
 ' original exit from 9000
@@ -18538,7 +18533,7 @@ You can take off any toys that you still have on and go about your business,
 but don't disturb Me for at least 24 hours.
 .mustnot 211            ' next-session toy
 .must 94                ' 24 hours set before
-.settime 95             ' update time 
+.settime 95 24:00"00    ' update time 
 .range 850
 
 '[Action 9998]
