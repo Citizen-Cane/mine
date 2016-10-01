@@ -3815,7 +3815,7 @@ or you're to press the "STOP" button immediately.
 dildo_worshiping_suck_lying_ride_sitting_ride.jpg
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
 [Action 3821]
@@ -3823,7 +3823,7 @@ Now slave, get ready!
 dildo_worshiping_suck_lying_ride_kneeling_inserted.jpg
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3222 On stool, kneeling, riding on stool
 [Action 3822]
@@ -3831,14 +3831,14 @@ Now slave, get ready!
 dildo_worshiping_suck_stool_ride_stool_ride.jpg
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3223 kneeling upright in front of desk - worshiping version
 [Action 3823]
 .must 3223
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3224 Mount dildo on wall or cupboard, suck kneeling upright, ride standing, bending forward, supported by chair or opposite wall
 [Action 3824]
@@ -3846,7 +3846,7 @@ Now slave, get ready!
 dildo_ride_standing_a2.jpg
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
 [Action 3825]
@@ -3854,14 +3854,14 @@ Now slave, get ready!
 dildo_worshiping_suck_kneeling_ride_all_four_ride.jpg
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3226 Dildo yoga
 [Action 3826]
 .must 3226 
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 3827]
@@ -3869,7 +3869,7 @@ Now slave, get ready!
 dildo_worshiping_suck_lying_ride_sitting_ride.jpg
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3228 Suck standing, ride on all four
 [Action 3828]
@@ -3877,7 +3877,7 @@ Now slave, get ready!
 dildo_worshiping_suck_standing_ride_on_all_four_ride_position.jpg
 .delay 5
 Now slave, get ready!
-.range 3929
+.range 3900
 
 ' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [Action 3829]
@@ -3885,7 +3885,25 @@ Now slave, get ready!
 dildo_worshiping_sucking_on_all_four_riding_on_all_four_ride_mount.jpg
 .delay 5
 Now slave, get ready!
+.range 3900
+
+
+' choose pattern set
+
+[Action 3900]
+.range 3902 3909
+
+
+' around the clock
+[Action 3901]
 .range 3929
+
+' TODO back & forth, up and down
+[Action 3902]
+.range 5929
+
+'[Action 3909]
+
 
 
 ' Reset duration counter for ride
@@ -5504,6 +5522,581 @@ Wasn't that a nice workout?
 .image RebeccaYoga(46).jpg
 .delay 20
 .return
+
+
+
+
+
+
+' Reset duration counter for ride
+[Action 5929]
+.unset 50 51 52 53 54 55 56 57 58 59 60 61 62 63
+.range 5930 5931
+
+
+' with cage
+[Action 5930]
+.mustnot 7              ' can rub or wank
+.break 5940 6049 STOP 4370
+.stoptext I have enough, Miss
+.range 5940 5959
+
+[Action 5931]
+.must 7                 ' can rub or wank
+.break 5940 6049 STOP 4370 CUM 9990 9991 
+.stoptext I have enough, Miss
+.cumtext I've spurted off, Miss
+.range 5940 5959
+
+
+'   Set riding duration
+
+[Action 5940]           ' 1 x 3 minutes
+.mustnot 713 714 715    ' Dildo worshiping 3-5
+.set 51 60
+.range 5960 5969
+
+[Action 5941]           ' 1 x 4 minutes
+.mustnot 713 714 715    ' Dildo worshiping 3-5
+.set 51 61
+.range 5960 5969
+
+[Action 5942]           ' 1 x 5 minutes
+.must 185               ' Dildo worshiping 1
+.mustnot 714 715        ' Dildo worshiping 4-5
+.set 51 62
+.range 5960 5969
+
+[Action 5943]           ' 2 x 3 minutes
+.must 186               ' Dildo worshiping 2
+.mustnot 715            ' Dildo worshiping 5
+.set 52 60
+.range 5960 5969
+
+[Action 5944]           ' 1 x 7 minutes
+.must 187               ' Dildo worshiping 3
+.set 51 63
+.range 5960 5969
+
+[Action 5945]           ' 2 x 4 minutes
+.must 187               ' Dildo worshiping 3
+.set 52 61
+.range 5960 5969
+
+[Action 5946]           ' 3 x 3 minutes
+.must 188               ' Dildo worshiping 4
+.set 53 61
+.range 5960 5969
+
+[Action 5947]           ' 2 x 5 minutes
+.must 189               ' Dildo worshiping 5
+.set 52 62
+.range 5960 5969
+
+[Action 5948]           ' 3 x 4 minutes
+.must 189               ' Dildo worshiping 5
+.set 53 61
+.range 5960 5969
+
+[Action 5949]           ' 2 x 7 minutes
+.must 189               ' Dildo worshiping 5
+.set 52 63
+.range 5960 5969
+
+[Action 5950]           ' 3 x 5 minutes
+.must 189               ' Dildo worshiping 5
+.set 53 62
+.range 5960 5969
+
+
+'   repetition decrementer
+
+[Action 5960]
+That's enough for now, My little cock tease.
+.playwav whip.mp3
+.delay 20
+.must 50
+.range 4050
+
+[Action 5961]
+.must 51
+.unset 51
+.set 50
+.range 5970 5979
+
+[Action 5962]
+.must 52
+.unset 52
+.set 51
+.range 5970 5979
+
+[Action 5963]
+.must 53
+.unset 53
+.set 52
+.range 5970 5979
+
+[Action 5964]
+.must 54
+.unset 54
+.set 53
+.range 5970 5979
+
+[Action 5965]
+.must 55
+.unset 55
+.set 54
+.range 5970 5979
+
+[Action 5966]
+.must 56
+.unset 56
+.set 55
+.range 5970 5979
+
+[Action 5967]
+.must 57
+.unset 57
+.set 56
+.range 5970 5979
+
+[Action 5968]
+.must 58
+.unset 58
+.set 57
+.range 5970 5979
+
+[Action 5969]
+.must 59
+.unset 59
+.set 58
+.range 5970 5979
+
+
+'   duration...
+
+[Action 5970]
+.must 60                '  3 minutes
+.unset 5970
+.range 5980
+
+[Action 5971]
+.must 61                '  4 minutes
+.unset 5971
+.range 5990
+
+[Action 5972]
+.must 62                ' 5 minutes
+.unset 5972
+.range 6005
+
+[Action 5973]
+.must 63                ' 7 minutes
+.unset 5972
+.range 6020
+
+
+'   3 minutes:
+
+[Action 5980]
+Back and forth, slave.
+Tilt your pelvis to ride the dildo.
+.playwav ride30ss.mp3
+.delay 30
+.unset 5980
+.range 5981 5981 
+
+[Action 5981]
+Side to side, slave.
+Ride that dildo.
+.playwav ride30ss.mp3
+.delay 30
+.unset 5981
+.range 5982 5982 
+
+[Action 5982]
+Now up and down.
+Slowly fuck your dildo.
+.playwav ride30ss.mp3
+.delay 30
+.unset 5982
+.range 5984 5984 
+
+[Action 5983]
+Back and forth again.
+This time a little faster.
+.playwav ride20s.mp3
+.delay 20
+.unset 5983
+.range 5984 
+
+[Action 5984]
+Now rotate around the clock, slave.
+Tilt your pelvis around the dildo.
+.playwav ride20s.mp3
+.delay 20
+.unset 5984
+.range 5985 
+
+[Action 5985]
+And against the clock.
+Hold your hips steady.
+.playwav ride20s.mp3
+.delay 20
+.unset 5985
+.range 5986 
+
+[Action 5986]
+And up and down again.
+Fuck that dildo, slave.
+.playwav ride30s.mp3
+.delay 30
+.unset 5986
+.range 6040 6049 
+
+
+'   4 minutes: 
+
+[Action 5990]
+Back and forth, slave.
+Tilt your pelvis to ride your dildo.
+.playwav ride30ss.mp3
+.delay 30
+.unset 5990
+.range 5991
+
+[Action 5991]
+Side to side, slave.
+Ride that dildo.
+.playwav ride30ss.mp3
+.delay 30
+.unset 5991
+.range 5992
+
+[Action 5992]
+Now rotate around the clock, slave.
+Tilt your pelvis to rotate around the dildo.
+.playwav ride20ss.mp3
+.delay 20
+.unset 5992
+.range 5993
+
+[Action 5993]
+And against the clock.
+Hold your hips steady and just move your pelvis.
+.playwav ride20ss.mp3
+.delay 20
+.unset 5993
+.range 5994
+
+[Action 5994]
+Now up and down.
+Slowly fuck your dildo, my slutty cunt.
+.playwav ride30ss.mp3
+.delay 30
+.unset 5994
+.range 5995
+
+[Action 5995]
+Back and forth again.
+This time a little faster.
+.playwav ride20s.mp3
+.delay 20
+.unset 5995
+.range 6040 6049
+
+[Action 5996]
+Side to side again.
+.playwav ride20s.mp3
+.delay 20
+.unset 5996
+.range 5997 
+
+[Action 5997]
+Now slave!
+Up and down.
+Fuck that dildo!
+.playwav ride30s.mp3
+.delay 30
+.unset 5997
+.range 5998 
+
+[Action 5998]
+Around the clock, slave.
+.playwav ride20s.mp3
+.delay 30
+.unset 5998
+.range 5999 
+
+[Action 5999]
+And against the clock.
+Hips steady!
+.playwav ride20s.mp3
+.delay 20
+.unset 5999
+.range 6000 
+
+[Action 6000]
+Now slave!
+Up and down. Fuck that dildo!
+.playwav ride20s.mp3
+.delay 20
+.unset 6000
+.range 6040 6049 
+
+
+'   5 minutes:
+
+[Action 6005]
+Back and forth, slave!
+Slowly.
+.playwav ride30ss.mp3
+.delay 30
+.unset 6005
+.range 6006
+
+[Action 6006]
+Side to side, slave.
+Ride that dildo!
+.playwav ride30ss.mp3
+.delay 30
+.unset 6006
+.range 6007
+
+[Action 6007]
+Now rotate around the clock, slave.
+Tilt your pelvis to rotate around the dildo.
+.playwav ride20ss.mp3
+.delay 20
+.unset 6007
+.range 6008
+
+[Action 6008]
+And against the clock!
+Hold your hips steady.
+.playwav ride20ss.mp3
+.delay 20
+.unset 6008
+.range 6009
+
+[Action 6009]
+Up and down.
+Fuck your dirty slave ass!
+.playwav ride30ss.mp3
+.delay 30
+.unset 6009
+.range 6010
+
+[Action 6010]
+Back and forth again.
+This time a little faster!
+.playwav ride30ss.mp3
+.delay 30
+.unset 6010
+.range 6011
+
+[Action 6011]
+Up and down.
+Fuck your dildo!
+.playwav ride30s.mp3
+.delay 30
+.unset 6011
+.range 6012
+
+[Action 6012]
+Side to side, slave.
+Ride that dildo!
+.playwav ride20s.mp3
+.delay 20
+.unset 6012
+.range 6013
+
+[Action 6013]
+And up and down.
+Slowly fuck your dildo, my slutty cunt.
+.playwav ride30s.mp3
+.delay 30
+.unset 6013
+.range 6014
+
+[Action 6014]
+Around the clock, slave.
+A little faster this time!
+.playwav ride20s.mp3
+.delay 20
+.unset 6014
+.range 6015
+
+[Action 6015]
+And against the clock.
+Hold your hips steady.
+.playwav ride20s.mp3
+.delay 20
+.unset 6015
+.range 6016
+
+[Action 6016]
+Now slave!
+Up and down.
+Fuck that dildo!
+.playwav ride30s.mp3
+.delay 30
+.unset 6016
+.range 6040 6049
+
+
+'   7 minutes:
+
+[Action 6020]
+Back and forth, slave.
+Slowly tilt your pelvis to ride your dildo to the rhythm.
+.playwav ride30ss.mp3
+.delay 30
+.unset 6020
+.range 6021
+
+[Action 6021]
+Now up and down!
+Slowly fuck your dildo, my slutty cunt.
+.playwav ride30ss.mp3
+.delay 30
+.unset 6021
+.range 6022
+
+[Action 6022]
+Side to side, slave.
+Ride that dildo!
+.playwav ride30ss.mp3
+.delay 30
+.unset 6022
+.range 6023
+
+[Action 6023]
+Up and down again!
+Keep the rhythm and let the dildo penetrate your dirty hole.
+.playwav ride30ss.mp3
+.delay 30
+.unset 6023
+.range 6024
+
+[Action 6024]
+Now rotate around the clock, slave.
+Tilt your pelvis to rotate around the dildo.
+.playwav ride20ss.mp3
+.delay 20
+.unset 6024
+.range 6025
+
+[Action 6025]
+Up and down again!
+.playwav ride30ss.mp3
+.delay 30
+.unset 6025
+.range 6026
+
+[Action 6026]
+And against the clock.
+Hold your hips steady!
+.playwav ride20ss.mp3
+.delay 20
+.unset 6026
+.range 6027
+
+[Action 6027]
+Now up and down again.
+Slowly fuck your dildo, my slutty cunt!
+.playwav ride30ss.mp3
+.delay 30
+.unset 6027
+.range 6028
+
+[Action 6028]
+Back and forth again.
+This time a little faster!
+.playwav ride30ss.mp3
+.delay 30
+.unset 6028
+.range 6029
+
+[Action 6029]
+Up and down!
+Fuck your dirty slave ass.
+.playwav ride30ss.mp3
+.delay 30
+.unset 6029
+.range 6030
+
+[Action 6030]
+Side to side, slave.
+Ride that dildo!
+.playwav ride20s.mp3
+.delay 20
+.unset 6030
+.range 6031
+
+[Action 6031]
+Up and down!
+Fuck your dildo!
+.playwav ride30s.mp3
+.delay 30
+.unset 6031
+.range 6032
+
+[Action 6032]
+Around the clock, slave!
+A little faster this time!
+.playwav ride20s.mp3
+.delay 20
+.unset 6032
+.range 6033
+
+[Action 6033]
+And up and down again!
+Slowly fuck your dildo, my slutty cunt.
+.playwav ride30s.mp3
+.delay 30
+.unset 6033
+.range 6034
+
+[Action 6034]
+And against the clock.
+Hold your hips steady.
+.playwav ride20s.mp3
+.delay 20
+.unset 6034
+.range 6035
+
+[Action 6035]
+Now slave!
+Up and down.
+Fuck that dildo!
+.playwav ride30s.mp3
+.delay 20
+.unset 6035
+.range 6040 6049
+
+
+[Action 6040]
+That's it for this set, slave.
+I'll give you a minute to collect yourself.
+.delay 60
+.unset 6040
+.range 5960 5969
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ' put the gag back in
