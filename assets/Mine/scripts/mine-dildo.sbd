@@ -966,30 +966,33 @@ so get your wrist restraints and lock your hands to your collar.
 
 ' It's suck or suck & ride
 ' just riding had been thought of, but the mouth has to be free
+' TODO Now that the gag is removed, re-think - maybe if sucked earlier on?
 
 ' no restrictions - suck and ride
 [Action 3160]
-.mustnot 21             ' something in butt
-.mustnot 36             ' Harnessed
-.must 170               ' Only ride in activity
-.mustnot 267 268 269    ' Enema carrying out or holding, voided completly, to favour buttplug assignments
-.must 756               ' Anal training 1
-.set 8                  ' can suck
-.set 9                  ' can ride
-.range 3170 3171        ' sucking and riding
+.mustnot 21                       ' something in butt
+.mustnot 36                       ' Harnessed
+.must 170                         ' Only ride in activity
+.mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
+.must 756                         ' Anal training 1
+.NumActionsAvailable 3200 3219 1  ' only if at least one of the scenarios can be performed
+.set 8                            ' can suck
+.set 9                            ' can ride
+.range 3170 3171                  ' sucking and riding
 
 ' no restrictions - Not interested in anal training (yet)
 [Action 3161]
 .poss 10
-.mustnot 21             ' something in butt
-.mustnot 22             ' something in mouth
-.mustnot 36             ' Harnessed
-.must 170               ' Only ride in activity
-.mustnot 267 268 269    ' Enema carrying out or holding, voided completely, to favour buttplug assignments
-.mustnot 756            ' Anal training 1 
-.set 8                  ' can suck
-.set 9                  ' can ride - but ask later
-.range 3170 3171        ' sucking and riding
+.mustnot 21                       ' something in butt
+.mustnot 22                       ' something in mouth
+.mustnot 36                       ' Harnessed
+.must 170                         ' Only ride in activity
+.mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
+.mustnot 756                      ' Anal training 1 
+.NumActionsAvailable 3200 3219 1  ' only if at least one of the scenarios can be performed
+.set 8                            ' can suck
+.set 9                            ' can ride - but ask later
+.range 3170 3171                  ' sucking and riding
 
 [Action 3169]
 .else
@@ -1010,6 +1013,7 @@ so get your wrist restraints and lock your hands to your collar.
 .else
 .range 3172 3173
 
+
 [Action 3172]
 .must 183
 .must 188
@@ -1020,6 +1024,7 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3173]
 .else
 .range 3174 3175
+
 
 [Action 3174]
 .must 182
@@ -1032,6 +1037,7 @@ so get your wrist restraints and lock your hands to your collar.
 .else
 .range 3176 3177
 
+
 [Action 3176]
 .must 181
 .must 186
@@ -1042,6 +1048,7 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3177]
 .else
 .range 3178 3179
+
 
 [Action 3178]
 .must 180
@@ -1265,13 +1272,13 @@ so get your wrist restraints and lock your hands to your collar.
 ' 3220 lie down on the floor, riding fully penetrated on the floor
 [Action 3220]
 .mustnot 20             ' Something on nipples
-.mustnot 32             ' Can't stand, assume standing and lying have the same restrictions
+' would be 32 Can't stand, assume standing and lying have the same restrictions, but lower legs can point upwards (as the model does)
 .return
 
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
 [Action 3221]
 .mustnot 20             ' Something on nipples
-.mustnot 32             ' Can't stand, assume standing and lying have the same restrictions
+' would be 32 Can't stand, assume standing and lying have the same restrictions, but lower legs can point upwards (as the model does)
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model)
 .return
 
@@ -1329,7 +1336,6 @@ so get your wrist restraints and lock your hands to your collar.
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 [Action 3234]
 .mustnot 26             ' wrists tied
-.mustnot 32             ' Can't stand 
 .mustnot 170            ' Worshiping activity
 .must 382               ' have blindfold
 .must 181               ' achievement 1, because it's a difficult scenario
