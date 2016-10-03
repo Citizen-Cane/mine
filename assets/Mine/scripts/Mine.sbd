@@ -3266,10 +3266,11 @@ make you skip your next seven cumming opportunities.
 .set 765                ' advance to chastity level 5
 .range 1449
 
-' Chastity level 5 99% 1%
+
+' Chastity level 5 100%
 [Action 1442]
 .mustnot 250 691 692 693 694 695 696 697
-.poss 99
+.poss 100
 .range 1444 1447
 
 [Action 1443]
@@ -3304,6 +3305,7 @@ make you skip your next seven cumming opportunities.
 .poss 30
 .set 697
 .range 1449
+
 
 ' Chastity training interval end
 [Action 1449]
@@ -6523,7 +6525,7 @@ Unfortunately your attention deficit disorder must go unavenged today.
 .loadsbd mine-dildo.sbd 903 903
 
 [Action 2572]
-.poss 1
+.poss 1                      ' fallback, because else is already in use
 .mustnot 26
 .mustnot 267 268             ' Enema carrying out or holding
 .mustnot 363                 ' wrist restraints
@@ -6536,7 +6538,7 @@ You stay like this the whole session.
 .range 2407
 
 [Action 2573]
-.poss 1
+.poss 1                      ' fallback, because else is already in use
 .mustnot 26
 .mustnot 267 268             ' Enema carrying out or holding
 .must 363                    ' wrist restraints
@@ -6725,7 +6727,7 @@ I'll punish you for not jerking off later, I suppose.
 .range 2151
 
 [Action 2611]
-.poss 1
+.poss 1                      ' fallback, because else is already in use
 .mustnot 201 202 203 204     ' 2 demerits
 .must 511
 .mustnot 512                 ' handle 512 first
@@ -6739,7 +6741,7 @@ for pity's sake.
 .range 2151
 
 [Action 2612]
-.poss 1
+.poss 1                      ' fallback, because else is already in use
 .mustnot 202 203 204         ' 3 demerits
 .must 512
 .should 706                  ' entitled for lighter punishment
@@ -10527,10 +10529,11 @@ Would you like me to fill your enslaved ass?
 .mustnot 267 268 269         ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368                    ' have a plug
 .must 756                    ' anal training 1
+.poss 10
 You may lube up your slave anus and insert your buttplug now, slave.
 I want your ass pleasantly filled for our next activity.
 .pause I'm plugged, Miss
-.set 21 220 251              ' something in butt, buttplug temp, buttplug once per session.poss 10
+.set 21 220 251              ' something in butt, buttplug temp, buttplug once per session
 .range 4949                  ' continue with toy selection
 
 [Action 4913]
