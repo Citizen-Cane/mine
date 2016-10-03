@@ -2683,7 +2683,8 @@ Let's continue your slave training.
 
 
 ' first position - put on vibrator
-
+' TODO Putting on the vibrator needs more variation
+ 
 [Action 1821]
 .mustnot 44             ' chastified
 .mustnot 47             ' Vibrator attached
@@ -2751,17 +2752,22 @@ and set it up to a teasing, tantalizing rythm!
 .must 47                ' Vibrator attached
 .mustnot 179            ' punishment
 Well, I think you can ramp up the intensity of your teasing toy a couple of notches
-and choose a more tantalizing rythm.
+or choose a more tantalizing rythm.
 What do you choose, slave?
 .yestext Increased intensity , Miss 
 .notext A more tantalizing rythm, Miss
 .yesno 1880 1880 1880 1880
 
 
+[Action 1838]
+.must 179               ' punishment
+.unset 1838
+.range 1899
+
 [Action 1839]
+.else
 .mustnot 389            ' A vibrator
 .unset 1839
-.else
 .range 1899
 
 
@@ -2789,7 +2795,7 @@ Very good, my pet.
 It goes without saying that you aren't allowed to
 change the settings of your little teasing toy during your training.
 And of course you are also not to cum.
-.pause Yes Miss, I may not cum
+.pause Ok Miss, I may not cum
 .range 1896 1897
 
 [Action 1883]
@@ -2801,7 +2807,7 @@ Now keep it up and don't touch the controls
 while you are holding your position.
 And of course don't spurt off!
 If you do, you're going to tell me immediately!
-.pause As you wish, Miss, promised
+.pause Of course Miss, promised
 .range 1898
 
 [Action 1884]
@@ -2811,7 +2817,7 @@ If you do, you're going to tell me immediately!
 Very good, my pet.
 Now keep it up and keep your naughty hands off your little get-up.
 And of course won't spurt off during your training.
-.pause As you wish, Miss, promised
+.pause Of course Miss, promised
 .range 1898
 
 '[Action 1885]
