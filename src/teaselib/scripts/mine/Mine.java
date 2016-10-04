@@ -83,19 +83,24 @@ public class Mine extends Player {
     }
 
     public Mine(TeaseLib teaseLib, String mistressPath) {
-        super(teaseLib, new ResourceLoader(Mine.class), MineMistress, Namespace,
-                mistressPath);
+        super(teaseLib,
+                new ResourceLoader(Mine.class,
+                        ResourceLoader.ResourcesInProjectFolder),
+                MineMistress, Namespace, mistressPath);
         resources.addAssets(Assets);
 
         // Toy categories - multiple items
-        state.addToyMapping(MappedState.Global, 363, toys(Toys.Wrist_Restraints));
-        state.addToyMapping(MappedState.Global, 364, toys(Toys.Ankle_Restraints));
+        state.addToyMapping(MappedState.Global, 363,
+                toys(Toys.Wrist_Restraints));
+        state.addToyMapping(MappedState.Global, 364,
+                toys(Toys.Ankle_Restraints));
         state.addToyMapping(MappedState.Global, 365, toys(Toys.Collars));
         state.addToyMapping(MappedState.Global, 367, toys(Toys.Gags));
         state.addToyMapping(MappedState.Global, 368, toys(Toys.Buttplugs));
         state.addToyMapping(MappedState.Global, 370,
                 toys(Toys.Spanking_Implements));
-        state.addToyMapping(MappedState.Global, 380, toys(Toys.Chastity_Devices));
+        state.addToyMapping(MappedState.Global, 380,
+                toys(Toys.Chastity_Devices));
         state.addToyMapping(MappedState.Global, 389,
                 toys(Toys.Vibrators, Toys.EStim_Devices));
 
@@ -120,7 +125,8 @@ public class Mine extends Player {
         // state mappings
         state.addStateMapping(MappedState.Global, 20,
                 state(Body.SomethingOnNipples));
-        state.addStateMapping(MappedState.Global, 21, state(Body.SomethingInButt));
+        state.addStateMapping(MappedState.Global, 21,
+                state(Body.SomethingInButt));
         state.addStateMapping(MappedState.Global, 22,
                 state(Body.SomethingInMouth));
         state.addStateMapping(MappedState.Global, 23,
@@ -132,8 +138,10 @@ public class Mine extends Player {
         state.addStateMapping(MappedState.Global, 27,
                 state(Body.SomethingAroundWaist));
         state.addStateMapping(MappedState.Global, 28, state(Body.Collared));
-        state.addStateMapping(MappedState.Global, 30, state(Body.CannotJerkOff));
-        state.addStateMapping(MappedState.Global, 31, state(Body.CantSitOnChair));
+        state.addStateMapping(MappedState.Global, 30,
+                state(Body.CannotJerkOff));
+        state.addStateMapping(MappedState.Global, 31,
+                state(Body.CantSitOnChair));
         state.addStateMapping(MappedState.Global, 32, state(Body.CannotStand));
         state.addStateMapping(MappedState.Global, 33, state(Body.CannotKneel));
         state.addStateMapping(MappedState.Global, 34,
@@ -149,7 +157,8 @@ public class Mine extends Player {
 
         // state elapsed mappings
         // TODO Should map to TimeLock device state, see Mine.sbd:[action 9255]
-        state.addStateTimeMapping(MappedState.Global, 45, state(Body.Chastified));
+        state.addStateTimeMapping(MappedState.Global, 45,
+                state(Body.Chastified));
     }
 
     @Override
