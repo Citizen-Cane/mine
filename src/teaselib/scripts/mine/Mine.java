@@ -91,36 +91,36 @@ public class Mine extends Player {
 
         // Toy categories - multiple items
         state.addToyMapping(MappedState.Global, 363,
-                toys(Toys.Wrist_Restraints));
+                items(Toys.Wrist_Restraints));
         state.addToyMapping(MappedState.Global, 364,
-                toys(Toys.Ankle_Restraints));
-        state.addToyMapping(MappedState.Global, 365, toys(Toys.Collars));
-        state.addToyMapping(MappedState.Global, 367, toys(Toys.Gags));
-        state.addToyMapping(MappedState.Global, 368, toys(Toys.Buttplugs));
+                items(Toys.Ankle_Restraints));
+        state.addToyMapping(MappedState.Global, 365, items(Toys.Collars));
+        state.addToyMapping(MappedState.Global, 367, items(Toys.Gags));
+        state.addToyMapping(MappedState.Global, 368, items(Toys.Buttplugs));
         state.addToyMapping(MappedState.Global, 370,
-                toys(Toys.Spanking_Implements));
+                items(Toys.Spanking_Implements));
         state.addToyMapping(MappedState.Global, 380,
-                toys(Toys.Chastity_Devices));
+                items(Toys.Chastity_Devices));
         state.addToyMapping(MappedState.Global, 389,
-                toys(Toys.Vibrators, Toys.EStim_Devices));
+                items(Toys.Vibrators, Toys.EStim_Devices));
 
         // Toys simple mappings
-        state.addToyMapping(MappedState.Global, 361, toy(Toys.Nipple_clamps));
-        state.addToyMapping(MappedState.Global, 362, toy(Toys.Clothespins));
-        state.addToyMapping(MappedState.Global, 366, toy(Toys.Rope));
-        state.addToyMapping(MappedState.Global, 360, toy(Toys.Chains));
-        state.addToyMapping(MappedState.Global, 382, toy(Toys.Blindfold));
-        state.addToyMapping(MappedState.Global, 384, toy(Toys.Humbler));
-        state.addToyMapping(MappedState.Global, 388, toy(Toys.Anal_Dildo));
-        state.addToyMapping(MappedState.Global, 383, toy(Toys.Enema_Kit));
-        state.addToyMapping(MappedState.Global, 387, toy(Toys.Pussy_Clamps));
-        state.addToyMapping(MappedState.Global, 385, toy(Toys.Ball_Stretcher));
+        state.addToyMapping(MappedState.Global, 361, item(Toys.Nipple_clamps));
+        state.addToyMapping(MappedState.Global, 362, item(Toys.Clothespins));
+        state.addToyMapping(MappedState.Global, 366, item(Toys.Rope));
+        state.addToyMapping(MappedState.Global, 360, item(Toys.Chains));
+        state.addToyMapping(MappedState.Global, 382, item(Toys.Blindfold));
+        state.addToyMapping(MappedState.Global, 384, item(Toys.Humbler));
+        state.addToyMapping(MappedState.Global, 388, item(Toys.Anal_Dildo));
+        state.addToyMapping(MappedState.Global, 383, item(Toys.Enema_Kit));
+        state.addToyMapping(MappedState.Global, 387, item(Toys.Pussy_Clamps));
+        state.addToyMapping(MappedState.Global, 385, item(Toys.Ball_Stretcher));
 
         // Toy simple mappings - ingame toys (not selectable in toy list)
-        state.addToyMapping(MappedState.Global, 371, toy(Toys.Hairbrush));
-        state.addToyMapping(MappedState.Global, 372, toy(Toys.Wooden_Spoon));
-        state.addToyMapping(MappedState.Global, 373, toy(Toys.Ruler));
-        state.addToyMapping(MappedState.Global, 374, toy(Toys.Enema_Bulb));
+        state.addToyMapping(MappedState.Global, 371, item(Toys.Hairbrush));
+        state.addToyMapping(MappedState.Global, 372, item(Toys.Wooden_Spoon));
+        state.addToyMapping(MappedState.Global, 373, item(Toys.Ruler));
+        state.addToyMapping(MappedState.Global, 374, item(Toys.Enema_Bulb));
 
         // state mappings
         state.addStateMapping(MappedState.Global, 20,
