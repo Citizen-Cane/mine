@@ -18,7 +18,7 @@ def mainScriptClass = 'teaselib.scripts.mine.Mine'
 // Bootstrap TeaseLib
 ///////////////////////////////////////////////
 
-def classLoader = this.class.classLoader
+def classLoader = ClassLoader.getSystemClassLoader()
 def teaselibClasspath = new File('lib/TeaseLib/TeaseLib.jar')
 if (!teaselibClasspath.exists()) {
 	showButton(teaselibClasspath.getAbsolutePath() + " not found - bailing out")
@@ -30,8 +30,8 @@ classLoader.addURL(teaselibClasspath.toURI().toURL())
 // run the script
 ///////////////////////////////////////////////
 
-teaselib.core.TeaseLib.run(
-	new teaselib.hosts.SexScriptsHost(this),
-	new teaselib.hosts.SexScriptsStatePersistence(this),
+Class.forName('teaselib.core.TeaseLib', true, classLoader).run(
+	Class.forName('teaselib.hosts.SexScriptsHost', true, classLoader).newInstance(this),
+	Class.forName('teaselib.hosts.SexScriptsStatePersistence', true, classLoader).newInstance(this),
 	scriptResources,
-	mainScriptClass);
+	mainScriptClass)
