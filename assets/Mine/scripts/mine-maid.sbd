@@ -5709,7 +5709,9 @@ You do have a crop, don't you, slave?
 [Action 4164]
 .keyrelease prepare 1800
 If you haven't yet, slave, go ahead and put on the restraints.
-delay 15
+[I'm tied up, Miss]
+Now go fetch your crop!
+[I have it, Miss]
 .set -26 26                  ' wrists tied
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4167
@@ -5729,13 +5731,14 @@ Now hurry up and fetch your crop.
 
 [Action 4167]
 bd048_52.jpg
+Very good, slave.
 Kneel straight on the ground, and point your toes behind you.
 .delay 15
 .range 4168
 
 [Action 4168]
 bd048_52.jpg
-Now take the crop and present it to me at about shoulder height, palms up.
+Now take your crop and present it to me at about shoulder height, palms up.
 .delay 15
 .range 4169
 
@@ -5763,7 +5766,7 @@ You do have these items, slave, don't you?
 .must 28                     ' collared
 This will be a fairly easy position, slave.
 For this submissive slave position,
-You'll need your ankle and wrist retraints.
+You'll need your ankle and wrist restraints.
 You do have these items, slave, don't you?
 .yesno 4174 4174 7708 7715
 
@@ -5778,8 +5781,8 @@ You do have these items, slave, don't you?
 .keyrelease prepare 1800
 Excellent.
 bd037_13.jpg
-Let's put on your collar, then continue with your restraints. 
-.delay 40
+Let's put on your collar, then continue with the restraints.
+[I'm collared and cuffed, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .set -28 28                  ' collared
 .range 4177
@@ -5790,7 +5793,7 @@ Let's put on your collar, then continue with your restraints.
 Excellent.
 bd037_13.jpg
 Let's put on your restraints now. 
-.delay 30
+[I'm tied up, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .range 4177
 
@@ -5952,7 +5955,7 @@ Now I want you to take your ankle and wrist restraints,
 and chain each wrist to the corresponding ankle.
 delay 10
 I don't want you to have too much wiggle room, so keep the chains between them short.
-.delay 45
+[I'm chained up, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .range 4197
 
@@ -6941,7 +6944,7 @@ Perfect!
 .keyrelease prepare 1800
 bd037_13.jpg
 Go ahead, put on your collar and the restraints. 
-.delay 60
+[I'm collared and chained up, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .set -28 28                  ' collared
 .range 5127
@@ -6951,7 +6954,7 @@ Go ahead, put on your collar and the restraints.
 .keyrelease prepare 1800
 bd037_13.jpg
 Go ahead and put on the restraints. 
-.delay 40
+[I'm chained up, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .range 5127
 
@@ -6997,7 +7000,7 @@ You do have these items, slave, don't you?
 Excellent.
 bd037_13.jpg
 Let's put on your collar, then continue with your restraints. 
-.delay 40
+[I'm collared and chained up, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .set -28 28                  ' collared
 .range 5137
@@ -7007,8 +7010,8 @@ Let's put on your collar, then continue with your restraints.
 .keyrelease prepare 1800
 Excellent.
 bd037_13.jpg
-Let's put on your restraints now. 
-.delay 40
+Let's put on your restraints now.
+[I'm chained up, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .range 5137
 
@@ -7057,7 +7060,7 @@ Excellent, my pet.
 .keyrelease prepare 1800
 bd037_13.jpg
 Let's put on your collar, then continue with your restraints. 
-.delay 40
+[I'm collared and chained up, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .set -28 28                  ' collared
 .range 5147
@@ -7067,7 +7070,7 @@ Let's put on your collar, then continue with your restraints.
 .keyrelease prepare 1800
 bd037_13.jpg
 Let's put on your restraints. 
-.delay 40
+[I'm chained up, Miss]
 .set -25 25 -26 26           ' ankle and wrist restraints
 .set -28 28                  ' collared
 .range 5147
@@ -7132,7 +7135,7 @@ You do have nipple clamps, don't you, slave?
 .keyrelease prepare 1800
 bd022_46.jpg
 Go ahead, put on the restraints, and pop those clamps on your nipples, slave.
-.delay 40
+[All done, Miss]
 .set -20 20 43               ' something on nipples, nipple clamps
 .settime 49 00:00"00         ' remove in or after activity
 .set -26 26                  ' wrists tied
@@ -7143,15 +7146,15 @@ Go ahead, put on the restraints, and pop those clamps on your nipples, slave.
 .keyrelease prepare 1800
 bd022_46.jpg
 Go ahead and put on your restraints, slave.
-.delay 30
+[I'm chained up, Miss]
 .set -26 26                  ' wrists tied
 .range 5159
 
 [Action 5157]
 .must 5152
+.delay 20
 bd022_46.jpg
 Go ahead, pop those nipple clamps on your nipples, slave.
-.delay 20
 .set -20 20 43               ' something on nipples, nipple clamps
 .settime 49 00:00"00         ' remove in or after activity
 .range 5159
@@ -7890,13 +7893,12 @@ Then place the rug or towel on the ground.
 .mustnot 26             ' Wrists tied
 .keyrelease prepare 1800
 Now put the handcuffs on.
-delay 20
+[Cuffed and Ready, Miss]
 bd159_25.jpg
 Kneel on the rug as shown.
 Your knees should be spread as wide as possible and
 your toes should be curled under your feet.
 Your feet should be touching each other. 
-.delay 30
 .set -26 26             ' wrists tied
 .range 5789
 
@@ -10344,7 +10346,7 @@ That's pathetic, slave, and I'm just fed up with you.
 
 [Action 8300]
 .unset 8300
-.keyrelease prepare 1800
+.keyrelease release
 .range 8301 8398
 
 
