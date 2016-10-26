@@ -1036,7 +1036,7 @@ Let's continue your slave training.
 ' Select position
 [Action 1219]
 .resetrange 1200 1219   ' in case another position is needed, if doing another on after a seucessful position, very long duration is disabled in 9711
-.resetrange 1400 1699   ' reset position selector - means that the same position an be selected twice but otherwise the wrong toy removal would be selected 
+.resetrange 1400 1699   ' reset position selector - means that the same position an be selected twice but otherwise the wrong toy removal would be selected - duplicate positions are avoided with additional checks in 1400-1699  
 .set 130                ' comment holding position - default
 .unset 131 132          ' Don't comment dildo sucking, shoe licking 
 .unset 133              ' Multiple positions
@@ -2144,7 +2144,8 @@ Let's continue your slave training.
 ' init loop
 [Action 1700]
 .resetrange 190 199     ' reset progress indicators
-.resetrange 1700 1792   ' set loop counters to zero, reset loop start actions
+.resetrange 1700 1792   ' reset loop counters to zero, reset loop start actions
+.resetrange 1900 3999   ' reset comments, necessary for "another" position
 .range 1701
 
 ' set progress indicators to 0, so that the
@@ -2852,9 +2853,7 @@ If you do, you're going to tell me immediately!
 .return
 
 
-' "Hold your position" comments right at the start of the loop
-
-' "Hold your position" comment
+' initial "Hold your position" comments right at the start of the loop
 [Action 1900]
 .must 130               ' comment holding position
 .range 1910 1949
@@ -2875,19 +2874,19 @@ If you do, you're going to tell me immediately!
 .mustnot 130 131 132
 .range 1999
 
-' After the comment
+' "stay" comments after the initial one
 [Action 1905]
 .must 1900              ' comment first
 .unset 1905
 .range 1999
 
-' After the comment
+' dildo sucking comments after the initial one
 [Action 1906]
 .must 1901              ' comment first
 .unset 1906
 .range 1999
 
-' After the comment
+' Shoe licking comments after the initial one
 [Action 1907]
 .must 1902              ' comment first
 .unset 1907
@@ -2949,23 +2948,27 @@ I will tell you when to move.
 .range 3990
 
 
-' Dildo sucking
+' Dildo sucking intro
 
 [Action 1920]
 Keep it up until I'm satisfied.
 .delay 20
 .range 3990
 
+'[Action 1929]
 
-' Shoe licking
+
+' Shoe licking intro
 
 [Action 1930]
 Keep it up until I'm satisfied.
 .delay 20
 .range 3990
 
+'[Action 1929]
 
-' special or generic comment
+
+' forward to subsequent stay or "keep doing" comments
 [Action 1999]
 .unset 1999
 .range 2000 2010
@@ -3665,7 +3668,8 @@ Keep your nose on the floor, slave!
 [Action 2255]
 .must 1418
 .mustnot 190 191 192 198 199
-.mustnot -2254
+.must 2254
+.mustnot 2256
 bd037_16.jpg
 Keep your arms crossed in front, slave!
 .delay 20
@@ -6017,7 +6021,7 @@ You'll need a tray of some kind
 .keyrelease prepare 1800
 bd259_00.jpg
 Start with putting on your wrist and ankle restraints.
-delay 60
+.delay 20
 ActorImage
 Go into the kitchen and fetch the tray.
 Also fetch a glass, and fill it with water.
@@ -6032,7 +6036,7 @@ Place the glass on the tray and return to Me.
 .keyrelease prepare 1800
 bd259_00.jpg
 Start with putting on your wrist restraints.
-delay 45
+delay 15
 ActorImage
 Go into the kitchen and fetch the tray.
 Also fetch a glass, and fill it with water.
@@ -6046,7 +6050,7 @@ Place the glass on the tray and return to Me.
 .keyrelease prepare 1800
 bd259_00.jpg
 Start with putting on your ankle restraints.
-delay 45
+delay 15
 ActorImage
 Go into the kitchen and fetch the tray.
 Also fetch a glass, and fill it with water.
@@ -6059,7 +6063,8 @@ Place the glass on the tray and return to Me.
 
 [Action 5007]
 bd259_00.jpg
-Go into the kitchen and fetch a tray of some kind - a cookie sheet or anything similar will serve.
+Go into the kitchen and fetch a tray of some kind
+- a cookie sheet or anything similar will serve.
 Also fetch a glass, and fill it with water.
 bd259_01.jpg
 Place the glass on the tray and return to Me.
