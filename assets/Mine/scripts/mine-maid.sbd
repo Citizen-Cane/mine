@@ -24,7 +24,9 @@
 ' The action number to indicate that the slave is wearing a gag
 .gag 22
 
-' condition ranges to relax conditions when choosing a position
+' condition ranges for should/shouldnot:
+' condition statements to be dropped one after another
+' when no matching position can be selected (starting from the top)
 .ConditionRange 400 699      ' Try to select a position that hasn't been done before, but it's better to match the toy setup
 .ConditionRange 39           ' pussy clamps
 .ConditionRange 28           ' collared
@@ -135,13 +137,15 @@
 '   allows us to have one check against status bits to see if any position is possible (no
 '   tether, etc). We should allow for many types of positions.
 '   We should choose position and time based on difficulty. Grade each position as either easy,
-'   medium, or hard. Then consult:
+'   medium, or hard. Then consult (for a comfortable duration) :
 '           easy    medium  hard    extreme
-'   10m     1       2       3       4
-'   15m     2       3       4       5
-'   20m     3       4       5       6
-'   30m?    4       5       6       7
+'    7m     1       2       3       4
+'   12m     2       3       4       5
+'   16m     3       4       5       6
+'   20m     4       5       6       7
 '   these times are examples, since actual times are set in each particular position, depending.
+'   There are five position exertion types (180-184), ranging from comfortable to exhausting.
+'   These adjust the actual position duration for each level.
 
 '   to advance you should really have to complete a variety of positions and times.
 '   I would also like to keep track of unsuccessful attempts somehow. Transporting 
@@ -317,7 +321,7 @@
 '	26	-	wrists tied
 '	27	-	something around waist
 '	28	-	collared
-'	29	-	blindfold on
+'	29	-	blindfolded
 '	30	-	can't jerk off
 '	31	-	can't sit on chair
 '	32	-	can't stand
@@ -326,7 +330,7 @@
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
 '   37  -	ball harness (includes 24)
-'   38  -   
+'   38  -   pussy pegs - additional to 24 something on balls
 '   39  -   Pussy clamps - additional to 24 something on balls 
 '   40  -   Dildo in mouth, along with 22 something in mouth
 '   41  -   Dildo in ass, along with 21 something in ass
@@ -334,10 +338,10 @@
 '   43  -   Nipple clamps on nipples, along with 20 something on nipples
 '
 '   44  -   Chastified (Encaged slave penis)
-'   45  -   Have key for chastity cage
+'   45  -   Have key for chastity cage timer
 '   46  -   free
-'
 '   47  -   Vibrator or E-EStim device attached
+
 
 ' multiple position management
 ' continueable but just one of each kind (for more variety): book, shoe, tray/glass
@@ -356,12 +360,27 @@
 '      but complex rope bondage that changes the slave state (crotch rope and more) should be avoided
 ' Solution: Set such state globally, so the main script can handle it
 ' But for now, avoid such combinations
-
+'
+'
 ' when adding a new position:
 ' - sort out non-matching toy setups by using ".shouldnot x" on any toy not displayed in the instructional images
 '   -> such toys are avoided, but still used if there wouldn't be a position available otherwise
 ' - avoid toys that are handled statically in the position setup by using ".mustnot x"
+'
 ' 
+' key release handling:
+' - key release statements are ignored when there's no key release device present,
+'   so they can just be placed in the script where they're needed
+' .keyrelease prepare 1800
+' -> selects an actuator that will auto release within half an hour and arms the device for hooking the key up
+' .keyrelease start 615 -> will set the actual duration, and releaee the key after that duration
+' .keyrelease release -> releases the key
+' The point of the two duration is that you can setup a long time for preparing the bondage or locking yourself up,
+' then set the actual duration until release when ready.
+' if the computer fails to start the second countdown after hooking up the key,
+' the key will be released anyway when the preparation duration ends
+
+
 ' local slave state
 ' -20 something on nipples, with 42 clothes pegs
 ' -20 something on nipples, with 43 nipple clamps
@@ -444,10 +463,10 @@
 ' for instance standing on tip toes might be more fatigueing than just standing
 ' Set by the actual position
 .askcheck       45     	180	180 -	8/12/16/20 comfortable
-.askcheck       46     	181	181 -	5/10/14/18 convenient
-.askcheck       47     	182	182 -	7/11/14/16 demanding
-.askcheck       48     	183 183 -	6/10/13/15 challenging
-.askcheck       49     	184	184 -	5/ 8/10/12 exhausting
+.askcheck       46     	181	181 -	5/11/14/18 convenient
+.askcheck       47     	182	182 -	7/10/13/16 demanding
+.askcheck       48     	183 183 -	6/ 9/12/14 challenging
+.askcheck       49     	184	184 -	6/ 8/10/12 exhausting
 
 ' 190 series indicates the progress of the training, advanced by the duration counter
 '.askcheck       45     	190	190 -   Just started	
@@ -466,7 +485,7 @@
 .askcheck       56     	26	26 -	wrists tied
 .askcheck       57      27	27 -	something around waist
 .askcheck       58      28	28 -	collared
-.askcheck       59      29	29 -	blindfold on
+.askcheck       59      29	29 -	blindfolded
 .askcheck       60      30	30 -	can't jerk off
 .askcheck       61      31	31 -	can't sit on chair
 .askcheck       62     	32	32 -	can't stand
@@ -474,11 +493,17 @@
 .askcheck       64     	34	34 -	can't type/use mouse  (this is also the case when blindfolded)
 .askcheck       65      35	35 -	tethered - can't leave computer area
 .askcheck       66      36  36 -	harnessed
-.askcheck       67      37  37 -	cock harness (includes 23, 24, possibly 30)
-.askcheck       68      38  38 -	
+.askcheck       67      37  37 -	ball harness (24)
+.askcheck       68      38  38 -	pussy pegs - additional to 24 something on balls
 .askcheck       69      39  39 -	Pussy clamps  - additional to 24 something on balls 
 .askcheck       70      40  40 -	Dildo in mouth, along with 22
 .askcheck       71      41  41 -	Dildo in ass, along with 21
+.askcheck       72      42  42 -	Clothes pegs on nipples, along with 20 something on nipples
+.askcheck       73      43  43 -	Nipple clamps on nipples, along with 20 something on nipples
+.askcheck       74      44  44 -	Chastified (Encaged slave penis)
+.askcheck       75      45  45 -	Have key for chastity cage timer
+.askcheck       76      46  46 -	free
+.askcheck       77      47  47 -	Vibrator or E-EStim device attached
 
 
 ' Debug
@@ -598,7 +623,7 @@
 [Action 992]
 .noimage
 .txt Values for custom session (#11 - 66)
-.ask 50 71
+.ask 50 77
 .unset 992
 .range 990
 
@@ -2160,25 +2185,30 @@ Let's continue your slave training.
 ' break up duration into 10 steps for the progress indicator
 ' .repeatadd adds from 0, since we've set the count to 0 in 1700
 
+' set the key release to the duration of the position, plus 15s headroom
+' this is just a pre-caution if the network connection is lost, since
+' the release will also be triggered explicitly when completing or failing the position
+
 ' 180	8/12/16/20 comfortable  24/36/48/60
 
-' 24 * 20 = 240s -> 4 minutes
+' 24 * 20 = 480s -> 8 minutes
 [Action 1750]
 .must 100
 .must 180
 .repeatadd 1801 2 2     
-.repeatadd 1802 2 2
-.repeatadd 1803 3 3
-.repeatadd 1804 2 2
+.repeatadd 1802 3 3
+.repeatadd 1803 2 2
+.repeatadd 1804 3 3
 .repeatadd 1805 2 2
 .repeatadd 1806 3 3
 .repeatadd 1807 2 2
 .repeatadd 1808 2 2
 .repeatadd 1809 3 3
 .repeatadd 1810 2 2
+.keyrelease start 255
 .range 1790
 
-' 36
+' 36 * 20 = 720s -> 12 minutes
 [Action 1751]
 .must 101
 .must 180
@@ -2192,9 +2222,10 @@ Let's continue your slave training.
 .repeatadd 1808 4 4
 .repeatadd 1809 3 3
 .repeatadd 1810 4 4
+.keyrelease start 735
 .range 1790
 
-' 48
+' 48 * 20 = 960s -> 16 minutes
 [Action 1752]
 .must 102
 .must 180
@@ -2208,9 +2239,10 @@ Let's continue your slave training.
 .repeatadd 1808 5 5
 .repeatadd 1809 5 5
 .repeatadd 1810 4 4
+.keyrelease start 975
 .range 1790
 
-' 60
+' 60 * 20 = 1200s -> 20 minutes
 [Action 1753]
 .must 103
 .must 180
@@ -2224,44 +2256,47 @@ Let's continue your slave training.
 .repeatadd 1808 6 6
 .repeatadd 1809 6 6
 .repeatadd 1810 6 6
+.keyrelease start 1215
 .range 1790
 
 
-' 181	5/10/14/18 convenient   15/30/42/54
+' 181	7/10/14/18 convenient   21/30/42/54
 
-' 15
+' 21 * 20 = 420s -> 7 minutes 
 [Action 1754]
 .must 100
 .must 181
-.repeatadd 1801 1 1  
+.repeatadd 1801 2 2  
 .repeatadd 1802 2 2
-.repeatadd 1803 1 1
+.repeatadd 1803 2 2
 .repeatadd 1804 2 2
-.repeatadd 1805 1 1
+.repeatadd 1805 3 3
 .repeatadd 1806 2 2
-.repeatadd 1807 1 1
+.repeatadd 1807 2 2
 .repeatadd 1808 2 2
-.repeatadd 1809 1 1
+.repeatadd 1809 2 2
 .repeatadd 1810 2 2
+.keyrelease start 435
 .range 1790
 
-' 30
+' 33 * 20 = 660s -> 11 minutes
 [Action 1755]
 .must 101
 .must 181
-.repeatadd 1801 3 3  
+.repeatadd 1801 3 3
 .repeatadd 1802 3 3
-.repeatadd 1803 3 3
+.repeatadd 1803 4 4
 .repeatadd 1804 3 3
 .repeatadd 1805 3 3
-.repeatadd 1806 3 3
+.repeatadd 1806 4 4
 .repeatadd 1807 3 3
 .repeatadd 1808 3 3
-.repeatadd 1809 3 3
+.repeatadd 1809 4 4
 .repeatadd 1810 3 3
+.keyrelease start 645
 .range 1790
 
-' 42
+' 42 * 20 = 840s -> 14 minutes
 [Action 1756]
 .must 102
 .must 181
@@ -2275,9 +2310,10 @@ Let's continue your slave training.
 .repeatadd 1808 4 4
 .repeatadd 1809 4 4
 .repeatadd 1810 4 4
+.keyrelease start 855
 .range 1790
 
-' 54
+' 54 * 20 = 1080s -> 18 minutes
 [Action 1757]
 .must 103
 .must 181
@@ -2291,12 +2327,13 @@ Let's continue your slave training.
 .repeatadd 1808 6 6
 .repeatadd 1809 5 5
 .repeatadd 1810 5 5
+.keyrelease start 1095
 .range 1790
 
 
 ' 182	7/11/14/16 demanding    21/33/42/48
 
-' 21
+' 21 * 20 = 420s -> 7 minutes 
 [Action 1758]
 .must 100
 .must 182
@@ -2310,41 +2347,44 @@ Let's continue your slave training.
 .repeatadd 1808 2 2
 .repeatadd 1809 2 2
 .repeatadd 1810 2 2
+.keyrelease start 435
 .range 1790
 
-' 33
+' 30 * 20 = 600s -> 10 minutes
 [Action 1759]
 .must 101
 .must 182
-.repeatadd 1801 3 3
+.repeatadd 1801 3 3  
 .repeatadd 1802 3 3
-.repeatadd 1803 4 4
+.repeatadd 1803 3 3
 .repeatadd 1804 3 3
 .repeatadd 1805 3 3
-.repeatadd 1806 4 4
+.repeatadd 1806 3 3
 .repeatadd 1807 3 3
 .repeatadd 1808 3 3
-.repeatadd 1809 4 4
+.repeatadd 1809 3 3
 .repeatadd 1810 3 3
+.keyrelease start 615
 .range 1790
 
-' 42
+' 39 * 20 = 780s -> 13 minutes
 [Action 1760]
 .must 102
 .must 182
 .repeatadd 1801 4 4  
 .repeatadd 1802 4 4
 .repeatadd 1803 4 4
-.repeatadd 1804 5 5
-.repeatadd 1805 4 4
+.repeatadd 1804 4 4
+.repeatadd 1805 3 3
 .repeatadd 1806 4 4
-.repeatadd 1807 5 5
+.repeatadd 1807 4 4
 .repeatadd 1808 4 4
 .repeatadd 1809 4 4
 .repeatadd 1810 4 4
+.keyrelease start 795
 .range 1790
 
-' 48
+' 48 * 20 = 960s -> 16 minutes
 [Action 1761]
 .must 103
 .must 182
@@ -2358,12 +2398,13 @@ Let's continue your slave training.
 .repeatadd 1808 4 4
 .repeatadd 1809 5 5
 .repeatadd 1810 5 5
+.keyrelease start 975
 .range 1790
 
 
-' 183	6/10/13/15 challenging  18/30/39/45
+' 183	6/09/12/14 challenging  18/27/36/42
 
-' 18
+' 18 * 20 = 360s -> 6 minutes
 [Action 1762]
 .must 100
 .must 183
@@ -2377,75 +2418,81 @@ Let's continue your slave training.
 .repeatadd 1808 2 2
 .repeatadd 1809 2 2
 .repeatadd 1810 2 2
+.keyrelease start 375
 .range 1790
 
-' 30
+' 27 * 20 = 540s -> 9 minutes
 [Action 1763]
 .must 101
 .must 183
 .repeatadd 1801 3 3  
 .repeatadd 1802 3 3
-.repeatadd 1803 3 3
+.repeatadd 1803 2 2
 .repeatadd 1804 3 3
 .repeatadd 1805 3 3
-.repeatadd 1806 3 3
+.repeatadd 1806 2 2
 .repeatadd 1807 3 3
 .repeatadd 1808 3 3
-.repeatadd 1809 3 3
+.repeatadd 1809 2 2
 .repeatadd 1810 3 3
+.keyrelease start 555
 .range 1790
 
-' 39
+' 36 * 20 = 720s -> 12 minutes
 [Action 1764]
 .must 102
 .must 183
 .repeatadd 1801 4 4
 .repeatadd 1802 4 4
-.repeatadd 1803 4 4
+.repeatadd 1803 3 3
 .repeatadd 1804 4 4
-.repeatadd 1805 4 4
+.repeatadd 1805 3 3
 .repeatadd 1806 4 4
 .repeatadd 1807 4 4
-.repeatadd 1808 4 4
+.repeatadd 1808 3 3
 .repeatadd 1809 4 4
 .repeatadd 1810 3 3
+.keyrelease start 735
 .range 1790
 
-' 45
+' 42 * 20 = 840s -> 14 minutes
 [Action 1765]
 .must 103
 .must 183
 .repeatadd 1801 4 4 
-.repeatadd 1802 5 5
+.repeatadd 1802 4 4
 .repeatadd 1803 4 4
 .repeatadd 1804 5 5
 .repeatadd 1805 4 4
-.repeatadd 1806 5 5
+.repeatadd 1806 4 4
 .repeatadd 1807 4 4
 .repeatadd 1808 5 5
 .repeatadd 1809 4 4
-.repeatadd 1810 5 5
+.repeatadd 1810 4 4
+.keyrelease start 855
 .range 1790
+
 
 ' 184	5/ 8/10/12 exhausting   15/24/30/36
 
-' 15
+' 18 * 20 = 360s -> 6 minutes
 [Action 1766]
 .must 100
 .must 184
 .repeatadd 1801 2 2  
-.repeatadd 1802 1 1
+.repeatadd 1802 2 2
 .repeatadd 1803 2 2
 .repeatadd 1804 1 1
 .repeatadd 1805 2 2
-.repeatadd 1806 1 1
-.repeatadd 1807 2 2
-.repeatadd 1808 1 1
+.repeatadd 1806 2 2
+.repeatadd 1807 1 1
+.repeatadd 1808 2 2
 .repeatadd 1809 2 2
-.repeatadd 1810 1 1
+.repeatadd 1810 2 2
+.keyrelease start 375
 .range 1790
 
-' 24
+' 24 * 20 = 480s -> 8 minutes
 [Action 1767]
 .must 101
 .must 184
@@ -2459,9 +2506,10 @@ Let's continue your slave training.
 .repeatadd 1808 2 2
 .repeatadd 1809 3 3
 .repeatadd 1810 2 2
+.keyrelease start 495
 .range 1790
 
-' 30
+' 30 * 20 = 600s -> 10 minutes
 [Action 1768]
 .must 102
 .must 184
@@ -2475,9 +2523,10 @@ Let's continue your slave training.
 .repeatadd 1808 3 3
 .repeatadd 1809 3 3
 .repeatadd 1810 3 3
+.keyrelease start 615
 .range 1790
 
-' 36
+' 36 * 20 = 720s -> 12 minutes
 [Action 1769]
 .must 103
 .must 184
@@ -2491,9 +2540,10 @@ Let's continue your slave training.
 .repeatadd 1808 3 3
 .repeatadd 1809 4 4
 .repeatadd 1810 3 3
+.keyrelease start 735
 .range 1790
 
-' up to 1789 for ten durations
+' up to 1789 for ten duration sets
 
 
 ' Loop start
@@ -5127,7 +5177,6 @@ bd066_45.jpg
 Keep your palms on your thighs and your head up.
 That's all there is to it.
 delay 20
-.keyrelease start 1800
 .range 1700
 
 
@@ -5632,7 +5681,6 @@ delay 10
 bd066_50.jpg
 Rest your palms on your knees.
 delay 10
-.keyrelease start 1800
 .range 1700
 
 
@@ -5748,7 +5796,6 @@ delay 1
 bd048_52.jpg
 This is how you're are going to present yourself to me for your punishment from now on!
 .delay 15
-.keyrelease start 1800
 .range 1700
 
 
@@ -5809,7 +5856,6 @@ Very good, slave.
 bd037_23.jpg
 Now bend a bit forward and rest your knuckles on the ground.
 .delay 30
-.keyrelease start 1800
 .range 1700
 
 
@@ -5909,7 +5955,6 @@ Keep your face down.
 delay 5
 Your nose should touch the ground.
 delay 10
-.keyrelease start 1800
 .range 1700
 
 
@@ -5963,7 +6008,6 @@ I don't want you to have too much wiggle room, so keep the chains between them s
 bd023_24.jpg
 Now kneel as shown, breasts on the floor, ass up, your head aside.
 .delay 15
-.keyrelease start 1800
 .range 1700
 
 
@@ -6089,7 +6133,6 @@ bd259_02.jpg
 You may bring your arms closer to your body to rest them periodically,
 but if you put down the tray you have failed.
 delay 10
-.keyrelease start 1800
 .range 1700
 
 
@@ -6611,7 +6654,6 @@ bd178_01.jpg
 You may bring your arms closer to your body to rest them periodically,
 but if you put down the tray you have failed.
 delay 20
-.keyrelease start 1800
 .range 1700
 
 
@@ -6969,7 +7011,6 @@ delay 5
 bd037_45.jpg
 Keep your legs spread!
 delay 10
-.keyrelease start 1800
 .range 1700
 
 
@@ -7028,7 +7069,6 @@ bd037_35.jpg
 This is a two-point kneel, with your feet flat on the ground.
 delay 10
 .delay 30
-.keyrelease start 1800
 .range 1700
 
 
@@ -7086,7 +7126,6 @@ delay 10
 Raise your ass up!
 delay 5
 .delay 30
-.keyrelease start 1800
 .range 1700
 
 
@@ -7174,7 +7213,6 @@ delay 10
 bd022_48.jpg
 Keep your head up!
 .delay 15
-.keyrelease start 1800
 .range 1700
 
 
@@ -7371,7 +7409,6 @@ Stretch your elbows out.
 delay 6
 bd028_33.jpg
 Arch your back and keep your head up.
-.keyrelease start 1800
 .range 1700
 
 
@@ -7919,7 +7956,6 @@ Also keep your head and eyes up.
 A nice supplicative expression is appreciated. 
 .image bd159_25.jpg
 .delay 30
-.keyrelease start 1800
 .range 1700
 
 
@@ -8391,7 +8427,6 @@ delay 10
 Put your hands behind your head, and stretch your elbows out.
 delay 5
 Keep your head up, and your eyes down.
-.keyrelease start 1800
 .range 1700
 
 
@@ -8631,7 +8666,6 @@ Put your hands behind your head, and stretch your elbows out.
 delay 5
 bd021_39.jpg
 Keep your head up, and your eyes down.
-.keyrelease start 1800
 .range 1700
 
 
@@ -9104,7 +9138,6 @@ delay 20
 bd178_07.jpg
 Don't let the glass fall off, my pet.
 delay 20
-.keyrelease start 1800
 .range 1700
 
 
@@ -9259,7 +9292,6 @@ bd645_051.jpg
 If the dildo slips out of your mouth or any of the clamps slip off, you've failed this position.
 delay 10
 .set -26 26                  ' wrists tied
-.keyrelease start 1800
 .range 1700
 
 
@@ -9319,7 +9351,6 @@ Keep your head up:
 The back of it should be against the wall.
 Your knees should be spread as far as they will go.
 .delay 30
-.keyrelease start 1800
 .range 7007 7008
 
 
@@ -9331,7 +9362,6 @@ If the butt plug slips out, slave, or you'll let it slide in completely, you've 
 [Action 7008]
 .must 7002                   ' Dildo selected 
 If the dildo slips out, slave, then you've failed this position!
-.keyrelease start 1800
 .range 1700
 
 
