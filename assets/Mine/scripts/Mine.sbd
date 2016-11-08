@@ -287,10 +287,10 @@
 ' 264          Spanking activity once per session
 ' 265          Self Bondage activity once per session
 ' 266          Story Time activity once per session
-' 267          Prepare enema for next session, carrying out enema
-' 268          Holding the enema - cleared after slave has voided enema  ' Enema aftermath, to handle additional visits to the toilet and to assign butt plug assignment, temporary
-' 269          enema voided, ready to be plugged
-' 270          plugged, ready for assignment
+' 267          Prepare enema for next session, carrying out enema (1587, 9001, 9005)
+' 268          Holding the enema - cleared after slave has voided enema (3080
+' 269          enema voided, ready to be plugged (decision 7300-7399, set in 7364)
+' 270          plugged, ready for assignment (decision 7400-7469, set in 7478)
 ' 271          Maid training punishment once per session
 ' 272          Toy lecture given
 ' 273          Activity section flag, used for punishing punishment cancellations, used by the quit handler
@@ -513,11 +513,11 @@
 '.askcheck      72      773     773: * Maid training 3
 '.askcheck      73      774     774: * Maid training 4
 '.askcheck      74      775     775: * Maid training 5
-.askcheck      75      776     776: * Dildo worshiping 1 - slave sucked the dildo
-.askcheck      76      777     777: * Dildo worshiping 2 - slave rode the dildo
-.askcheck      77      778     778: * Dildo worshiping 3 - slave rode the dildo fully penetrated
-.askcheck      78      779     779: * Dildo worshiping 4
-.askcheck      79      780     780: * Dildo worshiping 5
+.askcheck      75      776     776: * Dildo worshiping 1 - slave sucked the dildo (5150)
+.askcheck      76      777     777: * Dildo worshiping 2 - slave rode the dildo (5151)
+.askcheck      77      778     778: * Dildo worshiping 3 - slave rode the dildo fully penetrated (5152)
+.askcheck      78      779     779: * Dildo worshiping 4 - room for further achievements
+.askcheck      79      780     780: * Dildo worshiping 5 - room for further achievements
 
 '.askcheck      80      781     781: * Gag training Level 1
 '.askcheck      81      782     782: * Gag training Level 2
@@ -545,32 +545,33 @@
 .menu 9  7600 7600 Skip to judgement section - 7600
 .menu 10 5401 5401 (simple hogtie) - 5401
 .menu 11 5402 5402 (indefinate hogtie) - 5402
-.menu 12 5801 5801 (nipple-torture game) - 5801
-.menu 13 5802 5802 (light weight drop from balls) - 5802
-.menu 14 5803 5803 (medium weight drop from balls) - 5803
-.menu 15 5804 5804 (heavy weight drop from balls) - 5804
-.menu 16 5816 5816 (nipple-clamp weight lifting) - 5816
-.menu 17 5814 5814 (quick pins) - 5814
-.menu 18 5601 5601 (paddle x40) - 5601
-.menu 19 5602 5602 (paddle x60) - 5602
-.menu 20 5603 5603 (paddle x100) - 5603
-.menu 21 6001 6001 (MISSKRISS-style wanking) - 6001
-.menu 22 6002 6002 (T&J #16-21) - 6002
-.menu 23 6003 6003 (Carolyn #1) - 6003
-.menu 24 5201 5201 (shower #1) - 5201
-.menu 25 5202 5202 (shower #2) - 5202
-.menu 26 5203 5203 (shower #3) - 5203
-.menu 27 5805 5805 (light cardio nips) - 5805
-.menu 28 5815 5815 (15 pins) - 5815
-.menu 29 5403 5403 (diana sb pictures) - 5403
-.menu 30 6004 6004 (light wanking) - 6004
-.menu 31 6005 6005 (med. wanking 1) - 6005
-.menu 32 6006 6006 (med. wanking 2) - 6006
-.menu 33 5044 5044 (dildo worshping) - 5044
-.menu 34 5070 5070 (mine-maid.sbd) - 5060
-.menu 35 5817 5817 (shake those titties) - 5817
-.menu 36 5404 5404 (kneel beads) - 5404
-.menu 37 5405 5405 (harness kneel clamps) - 5405
+.menu 12 5404 5404 (diana simple) - 5404
+.menu 13 5403 540* (diana complete) - 5403
+.menu 14 5801 5801 (nipple-torture game) - 5801
+.menu 15 5802 5802 (light weight drop from balls) - 5802
+.menu 16 5803 5803 (medium weight drop from balls) - 5803
+.menu 17 5804 5804 (heavy weight drop from balls) - 5804
+.menu 18 5816 5816 (nipple-clamp weight lifting) - 5816
+.menu 19 5814 5814 (quick pins) - 5814
+.menu 20 5601 5601 (paddle x40) - 5601
+.menu 21 5602 5602 (paddle x60) - 5602
+.menu 22 5603 5603 (paddle x100) - 5603
+.menu 23 6001 6001 (MISSKRISS-style wanking) - 6001
+.menu 24 6002 6002 (T&J #16-21) - 6002
+.menu 25 6003 6003 (Carolyn #1) - 6003
+.menu 26 5201 5201 (shower #1) - 5201
+.menu 27 5202 5202 (shower #2) - 5202
+.menu 28 5203 5203 (shower #3) - 5203
+.menu 29 5805 5805 (light cardio nips) - 5805
+.menu 30 5815 5815 (15 pins) - 5815
+.menu 31 5403 5403 (diana sb pictures) - 5403
+.menu 32 6004 6004 (light wanking) - 6004
+.menu 33 6005 6005 (med. wanking 1) - 6005
+.menu 34 6006 6006 (med. wanking 2) - 6006
+.menu 35 6014 6014 (slavesinlove beeads kneel clamps) - 6014
+.menu 36 5044 5044 (dildo worshping) - 5044
+.menu 37 5070 5070 (mine-maid.sbd) - 5060
+.menu 38 5817 5817 (shake those titties) - 5817
 
 
 ' Debug menu
@@ -8082,7 +8083,10 @@ humbly ask for My gracious permission to visit the toilet.
 
 
 ' Extras are skipped when carrying out the enema,
-' to avoid accidents because of being tied up
+' to avoid accidents because of being tied up,
+' and to maximize chances to ride the dildo
+' toy cleaning issues after voiding may also become an issue,
+' so let's keep the amount of attached items low - slave is busy enough already :^)
 
 [Action 3090]
 .range 3400             ' continue without extras
@@ -10475,17 +10479,16 @@ Well, My dear slave, what shall we do today?
 [Action 4901]
 What else can I do to you today, slave?
 .unset 4901
-.range 4905 4908
+.range 4905 4906
 
 [Action 4902]
 What would you like to do today?
 .unset 4902
-.PopUp 8 37
+.PopUp 8 38
 
 
-' Handle butt plug for single or two activities, or for after enema
-' only one of 268 269 is set at a time
-' Normal plug handling (no enema)
+' Handle butt plug for single or two activities
+' plugging after the enma (269 set) is handled after each activitiy
 [Action 4905]
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
@@ -10504,13 +10507,11 @@ What would you like to do today?
 ' Normal (no enema has been given in this session)
 
 [Action 4910]
-.unset 4910
 .range 4949                  ' continue with toy selection
 
 [Action 4911]
 .mustnot 220 251
 .mustnot 21                  ' Something in butt
-.mustnot 267 268 269         ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368
 .mustnot 756                 ' Anal training level 1
 .poss 20
@@ -10526,7 +10527,6 @@ Would you like me to fill your enslaved ass?
 [Action 4912]
 .mustnot 21                  ' nothing in butt
 .mustnot 220 251             ' not already doing this
-.mustnot 267 268 269         ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368                    ' have a plug
 .must 756                    ' anal training 1
 .poss 10
@@ -10539,7 +10539,6 @@ I want your ass pleasantly filled for our next activity.
 [Action 4913]
 .mustnot 21                  ' nothing in butt
 .mustnot 220 251             ' not already doing this
-.mustnot 267 268 269         ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368                    ' have a plug
 .must 756                    ' anal training 2
 .poss 10
@@ -10565,7 +10564,6 @@ I want your ass pleasantly filled for our next activity.
 [Action 4915]
 .mustnot 21                  ' nothing in butt
 .mustnot 220 251             ' not already doing this
-.mustnot 267 268 269         ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368                    ' have a plug
 .must 757                    ' Anal training level 2
 .poss 10
@@ -11136,16 +11134,17 @@ Let's continue your slave training.
 .range 5129
 
 
+' No Activities-left bailout section
 
 ' can't just let the slave cum when still holding or voiding the enema,
-' plus the slave should be plugged in order to give a plug assignment. 
-' Also , without interaction, Mine would loop until the enema holding duration was over
+' plus the slave must be plugged in order to receive a plug assignment. 
+' Also, without interaction, the script would loop until the enema holding duration was over
 ' -> void enema and plug the slave to advance to plug assignment
 
 ' clamps will just get removed later on, so we don't have to handle them here
 [Action 5085]
 .else                        ' Fallback
-.settime 49 -INF            ' make sure clamps are going to be removed
+.settime 49 -INF             ' make sure clamps are going to be removed
 .gosub 11800                 ' remove clamps
 .range 5040                  ' retry
  
@@ -11157,7 +11156,7 @@ You've been really brave holding your enema this long, slave.
 .set 269                     ' enema voided, ready to be plugged
 .gosub 7365 7372             ' level up and void enema
 .resetrange 5040 5085        ' retry activity selection  
-.range 5040                  ' retry
+.range 5087                  ' fast path to plugging, although slave may not have voided the enema completely
 
 ' retry after plugging slave
 [Action 5087]
@@ -11383,9 +11382,9 @@ Make sure you have one until next time, baby.
 ' the gag is taken out and restored at the end of the activity
 ' Therefore we avoid this activity while wearing the gag temporarily,
 ' because this would just mean putting it in and immediately out again 
-
+' holding and voiding the enema is taken care of by not riding
+' - would become a mess otherwise since we cannot assume the slave has fully voided already
 ' TODO check enema and pegs/clamps actual time left in mine-dildo.sbd
-' TODO no riding while enema holding/voiding
 
 ' tighter restrictions for introduction and beginner scenario
 [Action 5140]
@@ -11404,14 +11403,16 @@ Make sure you have one until next time, baby.
 .range 5149
 
 
-' Dildo worshiping, when already done as punishment
+' Dildo worshiping, when not done as punishment
 [Action 5147]
 .else
+.mustnot 260
 No, I don't feel like filling those slave holes yet.
 .range 5040
 
 ' Dildo worshiping, when already done as punishment
 [Action 5148]
+.else
 .must 260
 No, your slave holes have been used good enough.
 .range 5040
@@ -11425,6 +11426,8 @@ No, your slave holes have been used good enough.
 
 
 ' Dildo worshiping good returns
+' The actual return callback depends on the level in the sub-script,
+' and can can be used to model further achievments 
 
 ' Dildo worshiping blowjob, no penetration, 1 merit
 [Action 5150]
@@ -11438,15 +11441,47 @@ Well, one merit seem appropriate for a good worshiping session.
 Well, one merit seem appropriate for a good worshiping session.
 .set 805                ' 1 merit
 .set 756                ' Anal training 1
-.set 777                ' Dildo worshiping 2
+.set 776 777            ' Dildo worshiping 2
 .range 5160 5164
 
-' slave rode the dildo fully penetrated
+' slave rode the dildo fully penetrated - level 1
 [Action 5152]
 Well, two merits seem appropriate for such a good worshiping session.
 .set 806                ' 2 merits
 .set 756 757            ' Anal training 2
-.set 778                ' Dildo worshiping 3
+.set 776 777 778        ' Dildo worshiping 3
+.range 5160 5164
+
+' slave rode the dildo fully penetrated - level 2
+[Action 5153]
+Well, two merits seem appropriate for such a good worshiping session.
+.set 806                ' 2 merits
+.set 756 757            ' Anal training 2
+.set 776 777 778        ' Dildo worshiping 3
+.range 5160 5164
+
+' slave rode the dildo fully penetrated - level 3
+[Action 5154]
+Well, two merits seem appropriate for such a good worshiping session.
+.set 806                ' 2 merits
+.set 756 757 758        ' Anal training 3
+.set 776 777 778        ' Dildo worshiping 3
+.range 5160 5164
+
+' slave rode the dildo fully penetrated - level 4
+[Action 5155]
+Well, two merits seem appropriate for such a good worshiping session.
+.set 806                ' 2 merits
+.set 756 757 758        ' Anal training 3
+.set 776 777 778        ' Dildo worshiping 3
+.range 5160 5164
+
+' slave rode the dildo fully penetrated - level 5
+[Action 5156]
+Well, two merits seem appropriate for such a good worshiping session.
+.set 806                ' 2 merits
+.set 756 757 758        ' Anal training 3
+.set 776 777 778        ' Dildo worshiping 3
 .range 5160 5164
 
 
@@ -11470,18 +11505,17 @@ Plus some punishment.
 
 ' Dildo fixed with crotch rope
 [Action 5161]
-.must 776               ' Dildo worshiping 1
-.mustnot 776            ' Dildo worshiping 2
+.must 21 41             ' something in butt, dildo
+.must 778               ' Dildo worshiping 3
 Very good, my pet.
 I can see you're getting very intimate with your new friend.
-.must 21 41             ' something in butt, dildo
 .range 7201
 
 [Action 5162]
-.must 777               ' Dildo worshiping 2
+.must 21 41             ' something in butt, dildo
+.must 778               ' Dildo worshiping 3
 Very good, my pet.
 You seem to get used to getting used very well.
-.must 21 41             ' something in butt, dildo
 .range 7201
 
 '[Action 5163]
@@ -11593,6 +11627,13 @@ I like a clean slave.
 ' with all the preparation needed for a safe self bondage session
 ' it's a little too much here
 
+' Also self bondage leaves little room for visiting the toilet,
+' but multiple visits are to be expected while voiding the enema (269)
+' - so skip self bondage activity until plugged (270)
+
+' TODO leave rope harness on after self-bondage scenarios
+' - if neither 268 or 269 set or if plugged and 270 ready for assignment
+
 ' simple hogtie
 [Action 5401]
 .mustnot 20 22 24       ' something on nipples, something in mouth, something on balls
@@ -11642,8 +11683,6 @@ I like a clean slave.
 .set 265                ' Done self bondage activity
 .range 5554
 
-' TODO leave rope harness on after self-bondage scenarios
-' - if 269 unset or if plugged and 269 ready for assignment
 
 [Action 5449]
 Never mind, slave.
@@ -13124,7 +13163,7 @@ feel the urge to visit the toilet so soon?
 .must 7200              ' Pressed stop-button in activity
 .yesno 7360 7361 7364 7364
 .yestext Yes Miss, please let me go
-.notext No, I can just manage to hold it, Miss 
+.notext Thanks Miss, but I can hold it 
 
 
 ' deepen anal training handling 
@@ -13171,7 +13210,7 @@ comfortable with the current amount of liquid inside you.
 [Action 7364]
 .set 269                ' enema voided, ready to be plugged
 .gosub 7365 7372        ' increase quantity
-.range 7399
+.range 7399             ' keep state for one more activity to allow for another toilet visit before inseting a plug
 
 
 ' Increase enema quantity for next time (entry point from 5086)
@@ -13373,7 +13412,7 @@ Well, does my naughty anal slut need to visit the toilet again?
 Well, slave, are your bowels completely empty?
 Or does my naughty anal slut need to visit the toilet again?
 .yesno 7420 7424 7415 7419
-.yestext Yes please, that would be good, Miss
+.yestext Yes please, Miss
 .notext No Miss, I think I have it all voided
 
 '[Action 7412]
@@ -18092,6 +18131,7 @@ I give you permission to tie yourself with a nice crotch rope.
 
 
 [Action 9849]
+.unset 270              ' plugged, ready for assignment
 .return
 
 
