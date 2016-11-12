@@ -900,122 +900,127 @@ You will regret this, you stupid cunt.
 
 ' First time, not submitted -> introduction
 [Action 900]
-Hello, you foolish boy.
-I understand that you're looking for a Mistress!
 .mustnot 100            ' Haven't run before and made it to cum-question
 .mustnot 101            ' Haven't submitted
 .mustnot 102            ' No bad quit (impossible at this point)
 .mustnot 501            ' No impatience (impossible at this point)
+#if Ff
+	Hello, you foolish girl.
+#else
+	Hello, you foolish boy.
+#endif
+I understand that you're looking for a Mistress!
 .range 1002             ' ...to the submission sequence!
+
 
 ' Second time, not submitted, slave has failed to introduce properly
 [Action 901]
-Well, I see you've come crawling back.
-I hope you're ready to show your desire to serve me this time!
 .must 100               ' Have run before
 .mustnot 101            ' Haven't submitted
 .mustnot 102            ' No bad quit
 .mustnot 103            ' No impatience
+Well, I see you've come crawling back.
+I hope you're ready to show your desire to serve me this time!
 .unset 100              ' used to explain things later in the session, so this must be reset
 .range 1021             ' ...to the submission sequence, 2nd and 3rd try!
 
 ' Third time, still not submitted, slave has failed to introduce properly
 [Action 902]
-I'm rapidly tiring of your games, little cunt.
-You may be sure that, if you are fortunate enough to serve Me,
-I will make you pay for all of My time you've wasted.
 .must 100               ' Have run before and made it to cum-question
 .mustnot 101            ' Haven't submitted
 .mustnot 102            ' No bad quit
 .must 103               ' impatience
+I'm rapidly tiring of your games, little cunt.
+You may be sure that, if you are fortunate enough to serve Me,
+I will make you pay for all of My time you've wasted.
 .set 509                ' P.O. for wasting mistress time
 .range 1021             ' ...to the submission sequence, 2nd and 3rd try!
 
 ' First time, Not submitted, slave tried to close window before finishing submission sequence
 [Action 903]
-Well, I see you've come crawling back.
-Are you regretting your rudeless behaviour?
 .mustnot 100            ' Have run before and made it to the cum-question
 .mustnot 101            ' Have submitted
 .must 102               ' bad quit
+Well, I see you've come crawling back.
+Are you regretting your rudeless behaviour?
 .range 1002             ' ...to the submission sequence!
 
 ' Second time, Not submitted, slave tried to close window before finishing submission sequence
 [Action 904]
-Well, I see you've come crawling back.
-Are you regretting your rudeless behaviour?
 .must 100               ' Have run before and made it to the cum-question
 .mustnot 101            ' Have submitted
 .must 102               ' bad quit
 .mustnot 103            ' No impatience
+Well, I see you've come crawling back.
+Are you regretting your rudeless behaviour?
 .range 1021             ' ...to the submission sequence, 2nd and 3rd try!
 
 ' Third time, Not submitted, slave tried to close window before finishing submission sequence
 [Action 905]
-So, you've come crawling back.
-I warn you.
-I'm in quite a foul mood today.
 .must 100               ' Have run before and made it to the cum-question
 .mustnot 101            ' Have submitted
 .must 102               ' bad quit
 .must 103               ' impatience
+So, you've come crawling back.
+I warn you.
+I'm in quite a foul mood today.
 .range 1021             ' ...to the submission sequence, 2nd and 3rd try!
 
 ' submitted -> start session
 [Action 906]
-Welcome back, My dear!
-I hope you're prepared for another slave session.
 .must 100               ' Have run before and made it to cum-question
 .must 101               ' Have submitted
 .mustnot 102            ' No bad quit
 .mustnot 103            ' No impatience
+Welcome back, My dear!
+I hope you're prepared for another slave session.
 .range 1090             ' ...to the naked query!
 
 ' Submitted, but mistress is impatient and in a foul mood
 [Action 907]
-So you're back, My slave!
-I warn you.
-I'm in quite a foul mood today.
-You'd better stay sharp if you don't want extra punishment!
 .must 100               ' Have run before and made it to cum-question
 .must 101               ' Have submitted
 .mustnot 102            ' No bad quit
 .must 501               ' impatience punishment
+So you're back, My slave!
+I warn you.
+I'm in quite a foul mood today.
+You'd better stay sharp if you don't want extra punishment!
 .range 1090             ' ...to the naked query!
 
 ' Submitted, slave tried to close window
 [Action 908]
-So, you think the slave can leave his Mistress without Her permission?
-Now you're in for it, my poor cunt!
 .must 100               ' Have run before and made it to the cum-question
 .must 101               ' Have submitted
 .must 102               ' bad quit
+So, you think the slave can leave his Mistress without Her permission?
+Now you're in for it, my poor cunt!
 .range 1090             ' ...to the naked query!
 
 ' Slave managed to kill process, submitted, but script didn't properly exit
 [Action 909]
+.mustnot 100            ' Have run before and made it to cum-question
+.must 101               ' Have submitted
+.must 102               ' bad quit
 So, you've come crawling back.
 Did you think the slave can leave his Mistress without Her permission?
 Now you're in for it, my poor cunt!
 ' 100 is set after the first run, when ending the script -> done via exit to 850 or 880
 ' May not be set when app process is unexpectedly terminated after saving for jumping into sub script 
 ' -> 100 unset, but 101 set
-.mustnot 100            ' Have run before and made it to cum-question
-.must 101               ' Have submitted
-.must 102               ' bad quit
 .range 1090             ' ...to the naked query!
 
 ' Submitted, but mistress is impatient and in a foul mood
 [Action 910]
-So you're back, My slave!
-I warn you.
-I'm a bit impatient today.
-You'd better stay sharp if you don't want extra punishment!
 .must 100               ' Have run before and made it to cum-question
 .must 101               ' Have submitted
 .mustnot 102            ' No bad quit
 .must 103               ' impatience
 .mustnot 501            ' Impetience punishment
+So you're back, My slave!
+I warn you.
+I'm a bit impatient today.
+You'd better stay sharp if you don't want extra punishment!
 .range 1090             ' ...to the naked query!
 
 
@@ -1028,7 +1033,6 @@ You'd better stay sharp if you don't want extra punishment!
 ' Attend session 949-999
 
 ' slave attends at the correct time
-
 [Action 949]
 .mustnot 90 92 94
 .range 948
@@ -1060,38 +1064,38 @@ You'd better stay sharp if you don't want extra punishment!
 ' slave tries to attend before the correct time
 
 [Action 990]
-Sorry, little slave.
-I said I didn't want to see you for an hour, and I meant it.
-I'll make sure to punish you for disturbing me when you return at the proper time.
-.pause Please forgive me, Miss
 .else
 .mustnot 505
 .must 90
 .mustnot 92 94
+Sorry, little slave.
+I said I didn't want to see you for an hour, and I meant it.
+I'll make sure to punish you for disturbing me when you return at the proper time.
+.pause Please forgive me, Miss
 .set 505                ' premature retry punishment.
 '.pause
 .range 870
 
 [Action 991]
-Slave, I thought I told you not to come back for twelve hours.
-Now get out of here.
-You can look forward to some extra punishment when you return at the correct time.
-.pause Please Miss, forgive me
 .else
 .mustnot 505
 .must 92
 .mustnot 94
+Slave, I thought I told you not to come back for twelve hours.
+Now get out of here.
+You can look forward to some extra punishment when you return at the correct time.
+.pause Please Miss, forgive me
 .set 505
 .range 870
 
 [Action 992]
+.else
+.mustnot 505
+.must 94
 I told you not to return for an entire day, slave, and I wasn't kidding.
 Get the hell out of here and don't come back until you're due.
 Also, remind me to give you some extra punishment to help you remember your place.
 .pause Please forgive me, Miss
-.else
-.mustnot 505
-.must 94
 .set 505
 .range 870
 
@@ -1099,6 +1103,7 @@ Also, remind me to give you some extra punishment to help you remember your plac
 ' slave tries to attend again after being warned 
 
 [Action 996]
+.else
 .must 505
 .must 90
 .mustnot 92 94
@@ -1106,12 +1111,12 @@ You cunt!
 I've already told you not to bother me!
 Don't come back for another hour, you little whore!
 .pause Please Miss, forgive me
-.else
 .set 501 504            ' additional general punishment, imp.
 .settime 95 01:00"00
 .range 870
 
 [Action 997]
+.else
 .must 505
 .must 92
 .mustnot 94
@@ -1119,7 +1124,6 @@ If there's one thing I hate, it's a stupid ignorant slave boy who doesn't listen
 I told you at least twice not to bother me - now you can wait another twelve hours for My presence.
 Get out of here and stop pestering me, slave!
 .pause Please forgive me, Miss
-.else
 .set 501 504            ' additional general punishment, imp.
 .settime 95 12:00"00
 .range 870
