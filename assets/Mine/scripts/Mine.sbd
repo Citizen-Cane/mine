@@ -789,7 +789,7 @@ Would you be so kind and tell me what you've got exactly?
 ' good end
 
 [Action 850]
-.gosub 895              ' Don't reset quit check
+.gosub 895              ' reset quit check
 .unset 850
 .range 851 859
 
@@ -801,11 +801,13 @@ Goodbye, slave...
 .unset 881
 .range 899              ' final quit
 
+'[Action 859]
+
 
 ' onAllSet
 
 [Action 860]
-.gosub 895              ' Don't reset quit check
+.gosub 895              ' reset quit check
 .unset 860
 .range 861
 
@@ -822,7 +824,7 @@ We'll be forced to stop today.
 ' thrown out for disobedience
 
 [Action 870]
-.gosub 895              ' Don't reset quit check
+.gosub 895              ' reset quit check
 .unset 870
 .range 871 879
 
@@ -834,11 +836,13 @@ Now get out of My sight!
 .unset 881
 .range 899              ' final quit
 
+'[Action 879]
+
 
 ' thrown out for stupidity 
 
 [Action 880]
-.gosub 895              ' Don't reset quit check
+.gosub 895              ' don't reset quit check
 .unset 880
 .range 881 889
 
@@ -849,6 +853,8 @@ Goodbye, you stupid slut.
 .noimage
 .unset 881
 .range 899              ' final quit
+
+'[Action 889]
 
 
 ' onClose
