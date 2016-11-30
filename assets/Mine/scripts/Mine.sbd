@@ -911,13 +911,7 @@ You will regret this, you stupid cunt.
 .mustnot 101            ' Haven't submitted
 .mustnot 102            ' No bad quit (impossible at this point)
 .mustnot 501            ' No impatience (impossible at this point)
-#if Ff Mf
-	Hello, you foolish girl.
-#else
-	Hello, you foolish boy.
-#endif
-I understand that you're looking for a Mistress!
-.range 1002             ' ...to the submission sequence!
+.range 1001             ' ...to the submission sequence!
 
 
 ' Second time, not submitted, slave has failed to introduce properly
@@ -1152,6 +1146,16 @@ Get the hell out of here!
 
 ' First try
 
+[Action 1001]
+#if Ff Mf
+	Hello, you foolish girl.
+#else
+	Hello, you foolish boy.
+#endif
+I understand that you're looking for a Mistress!
+.pause Yes, that's true, Miss!
+.range 1002
+
 [Action 1002]
 Before I consider making you my slave, you must humble yourself before me.
 .range 1003
@@ -1208,6 +1212,7 @@ and the time you'll spend fondling yourself, hoping for release.
 [Action 1010]
 Of course I have a number of surprises, as well.
 And I'm not very fond of naughty little boys that cheat my instructions, either.
+delay 1
 I have ways of finding out who the nasty little disobedient slaves are, you know!
 .range 1011
 
