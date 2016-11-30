@@ -79,14 +79,12 @@ public class Mine extends Player {
     }
 
     public Mine(TeaseLib teaseLib) {
-        this(teaseLib, "/Mine/mistress/Vana/");
+        this(teaseLib, "mistress/Vana/");
     }
 
     public Mine(TeaseLib teaseLib, String mistressPath) {
-        super(teaseLib,
-                new ResourceLoader(Mine.class,
-                        ResourceLoader.ResourcesInProjectFolder),
-                MineMistress, Namespace, mistressPath);
+        super(teaseLib, new ResourceLoader(Mine.class, "Mine"), MineMistress,
+                Namespace, mistressPath);
         resources.addAssets(Assets);
 
         // Toy categories - multiple items
