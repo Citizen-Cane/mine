@@ -2305,6 +2305,17 @@ so get your magic marker ready once again, slave!
 '.range 2320
 
 
+' shaming
+'
+' prompts that describe the text written on the body are recognized with relaxed confidence,
+' to avoid breaking the flow of the scene - they're very long and long sentence are hard to speak correctly
+' 
+' The conclusive prompts are expected to be repeated
+' (via speech recognition rejected - louder slave, I'd like to hear it again...)
+' this just adds to the realism of the scene, as the slave should speak loud and clear
+
+' TODO speech recognition-rejected script
+
 ' 500 Bad introduction
 
 [Action 2240]
@@ -2316,6 +2327,7 @@ and write the word "BAD" on your left buttcheek,
 and the word "SLAVE" on your right buttcheek.
 Understand, slave?
 You must be properly shamed for your lack of respect.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Bad Slave" on my buttcheecks, Miss
 .range 2244
 
@@ -2325,6 +2337,7 @@ I want you to write "NAUGHTY" on your left asscheek,
 and "SLAVE" on your right.
 Understand?
 You have been a naughty and disrespectful slave.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Naughty Slave" on my asscheeks, Miss
 .range 2245
 
@@ -2338,6 +2351,7 @@ Now tell me what you are!
 [Action 2245]
 Very good, slave.
 Now tell me what you've been!
+.relaxedSpeechRecognitionConfidence
 .pause I've been a naughty slave, Miss
 .range 2248
 
@@ -2363,6 +2377,7 @@ A naughty slave that's going to be punished.
 Take it and write "NAKED" on your left buttcheek,
 and "SLUT" on your right.
 You must remember that you are My naked slut, after all!
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Naked slut" on my buttcheeks, Miss
 .range 2254
 
@@ -2399,13 +2414,15 @@ write the word "SLUTTY",
  "CUNT".
 Got all that?
 Get to it!
-.pause I've written it all, Miss
+.relaxedSpeechRecognitionConfidence
+.pause I've written it all down on my tits and ass cheeks, Miss
 .range 2264
 
 
 [Action 2264]
 Very good, slave.
 Now tell me what you are!
+.relaxedSpeechRecognitionConfidence
 .pause I am a bare naked naughty slave, Miss
 .range 2265
 
@@ -2441,6 +2458,7 @@ With that marker, I want you to write "STUPID" on your right ball,
 and "SLAVE" on your left ball.
 Understand, slave?
 What else but stupid is a slave that can't keep his meat hard for his mistress!
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Stupid Slave" on my balls, Miss
 .range 2284        ' light punishment
 
@@ -2451,6 +2469,7 @@ Then take your marker, and write "STUPID" on the right side of your cock,
 and "CUNT" on the left side.
 Understand, slave?
 What else is a slave that can't keep his meat hard for his mistress but a stupid cunt!
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Stupid Cunt" on my slave penis, Miss
 .range 2285        ' Light punishment
 
@@ -2493,6 +2512,7 @@ and write the word "BAD" on your right ball,
 and the word "GIRL" on your left ball.
 Understand, slave?
 You've been a bad girl for not keeping your member stiff for me when you absolutely were to.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Bad Girl" on my balls, Miss
 .range 1710        ' medium punishment
 
@@ -2503,6 +2523,7 @@ Then take your marker, and write the word "BAD" on the right side of your cock,
 and the word "SLAVE" on the left side.
 Understand, slave?
 You are a bad slave for not keeping your member stiff for me when you were to.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Bad Slave" on my slave penis, Miss
 .range 2295        ' Light punishment
 
@@ -2544,6 +2565,7 @@ write the word "BAD" on your right ball,
 and the word "GIRL" on your left ball.
 Understand, slave?
 You have been a bad girl for spurting your load when you were not to do so.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Bad Girl" on my balls, Miss
 .range 2302
 
@@ -2552,6 +2574,7 @@ Next, I want you to write "DISOBEDIENT" below your belly button half way down to
 and "SLAVE" right below.
 Understand, slave?
 You've been a very disobedient slave when you came without my permission.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Disobedient slave" below my belly, Miss
 .range 2303
 
@@ -2560,6 +2583,7 @@ Now go ahead and write the word "CUNT" on your cock,
 vertically in large bold letters.
 Understand, slave?
 You are a cunt, and so is that filthy prick of yours.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "cunt" on my cock, Miss
 .mustnot 23 30
 .range 2304
@@ -2569,33 +2593,37 @@ Finally, write "NAUGHTY" on your right thigh,
 and "SLUTTY" on your left.
 Understand slave?
 It was very naughty of you to spurt your load without permission and you are a slutty slave for doing so.
+.relaxedSpeechRecognitionConfidence
 .pause I've written it on my thighs, Miss
 .range 2305
 
 [Action 2305]
 So, what have you been, slave?
-.pause I've been a bad girl for spurting my load, Miss
+.relaxedSpeechRecognitionConfidence
+.pause I've been a bad girl for spurting my load!
 .range 2306
 
 [Action 2306]
 And, what else?
-.pause I've been a disobedient slave, Miss
+.pause I've been a disobedient slave, Miss!
 .range 2307
 
 [Action 2307]
 And what are you, slave?
-.pause I'm a naughty slutty cunt, Miss
+.pause I'm a naughty slutty cunt!
 .range 2308 2309
 
 
 ' 35 minutes with clamps, avoid applying clamps any longer!
 [Action 2308]
+Very good, slave!
 Now you are properly shamed for your lack of self control.
 .must 129          ' Clamps
 .range 1737        ' 35 minutes corner time kneeling
 
 ' 45 minutes without toys
 [Action 2309]
+Very good, slave!
 Now you are properly shamed for your lack of self control.
 .mustnot 129       ' Clamps
 .range 1739        ' 45 minutes corner time kneeling
@@ -2614,6 +2642,7 @@ and write the word "SLUTTY" on your right thigh,
 and the word "CUNT" on your left thigh.
 Understand, slave?
 You are a slutty cunt for your improper appearance when approaching me.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Slutty Cunt" on my thighs, Miss
 .range 2314
 
@@ -2624,6 +2653,7 @@ belly button half way down to your cock,
 and "SLUT" right below.
 Understand, slave?
 You are a disobedient slut for ignoring your mistress precise assignment on how to appear for this session.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Disobedient Slut" below my belly, Miss
 .range 2315
 
@@ -2634,6 +2664,7 @@ and the word "SLAVE" on your left hip.
 Understand, slave?
 You are a stupid slave
 because you've ignored my precise orders.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Stupid Slave" on my hips, Miss
 .range 2316
 
@@ -2641,19 +2672,19 @@ because you've ignored my precise orders.
 [Action 2314]
 Very good, slave.
 Now tell me what you are!
-.pause I am a slutty cunt, Miss
+.pause I am a slutty cunt
 .range 2318 2319
 
 [Action 2315]
 Very good, slave.
 Now tell me what you are!
-.pause I am a disobedient slut, Miss
+.pause I am a disobedient slut
 .range 2318 2319
 
 [Action 2316]
 Very good, slave.
 Now tell me what you are!
-.pause I am a stupid slave, Miss
+.pause I am a stupid slave
 .range 2318 2319
 
 
@@ -2684,6 +2715,7 @@ and write the word "SLUTTY" on your right thigh,
 and the word "CUNT" on your left thigh.
 Understand, slave?
 You are a slutty cunt because you didn't carry out your assignment.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Slutty Cunt" on my thighs, Miss
 .range 2324
 
@@ -2693,6 +2725,7 @@ I want you to write "STUPID" below your belly button half way down to your cock,
 and "SLAVE" right below.
 Understand, slave?
 You are a stupid slave for ignoring your mistress' precise orders.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Stupid Slave" below my belly button, Miss
 .range 2325
 
@@ -2702,6 +2735,7 @@ and write the word "DISOBEDIENT" on your right hip,
 and the word "SLUT" on your left hip.
 Understand, slave?
 You are a disobedient slut for not performing your mistress' orders.
+.relaxedSpeechRecognitionConfidence
 .pause I've written "Disobedient Slut" on my hips, Miss
 .range 2326
 
@@ -2709,19 +2743,19 @@ You are a disobedient slut for not performing your mistress' orders.
 [Action 2324]
 Very good, slave.
 Now tell me what you are!
-.pause I am a slutty cunt, Miss
+.pause I am a slutty cunt
 .range 2327
 
 [Action 2325]
 Very good, slave.
 Now tell me what you are!
-.pause I am a stupid slave, Miss
+.pause I am a stupid slave
 .range 2328
 
 [Action 2326]
 Very good, slave.
 Now tell me what you are!
-.pause I am a disobedient slut, Miss
+.pause I am a disobedient slut
 .range 2329
 
 
@@ -2760,6 +2794,7 @@ A disobedient slut that's going to be punished.
 'Understand, slave?
 'You have been a bad girl when you vulgarly displayed your flacid slave
 'penis to your mistress although you we not allowed to do so.
+'.relaxedSpeechRecognitionConfidence
 '.pause
 '.range 1700
 '
@@ -2773,6 +2808,7 @@ A disobedient slut that's going to be punished.
 'Understand, slave?
 'It was very slutty and naughty of you to show off your flaccid slave meat
 'to your mistress when you were not supposed to do so.
+'.relaxedSpeechRecognitionConfidence
 '.pause
 '.range 1700
 

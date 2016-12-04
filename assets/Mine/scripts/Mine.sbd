@@ -1234,9 +1234,13 @@ You can just kneel there and await My pleasure.
 
 ' in dubius mitius - more leniently in case of doubt:
 ' stop the timeout after the first speech recognition event
+' recognition confidence is relaxed because at this point
+' the wannabe-slave might not have a lot of speech ecognition experience,
+' and we're still in the introduction, so we are be extra-forgiving here
 [Action 1013]
 Very well, I've made My decision.
 Would you like to hear it?
+.relaxedSpeechRecognitionConfidence
 .delay 15 15 confirm indubiomitius resume 1015 1015
 .resumetext Yes please, Miss
 .range 1014
@@ -1322,9 +1326,13 @@ You can kneel there like a patient slave and await My decision.
 
 ' in dubius mitius - more leniently in case of doubt:
 ' stop the timeout after the first speech recognition event
+' recognition confidence is relaxed because at this point
+' the wannabe-slave might not have a lot of speech ecognition experience,
+' and we're still in the introduction, so we are be extra-forgiving here
 [Action 1023]
 I've made my decision, slut.
 Would you like to hear it?
+.relaxedSpeechRecognitionConfidence
 .delay 15 15 confirm indubiomitius resume 1025 1025
 .resumetext Yes please, Miss
 .range 1024
@@ -2605,6 +2613,13 @@ Don't come back until you have plenty of rope.
 .range 880
 
 
+' The action contains multiple inline replies - [....]
+' for these the PCM player hints the speech recognizer to lower the recognition confidence
+' in order to improve the flow of conversation.
+' The final .pause statement  uses the default recognition confidence,
+' as the pause statement is some kind of barrier to the next action, 
+' thus all commands and demands should be accomplished before dismissing the prompt.
+
 [Action 1270]
 babc1.jpg
 Now, to illustrate what you're going to do we'll look at this fun series of pictures.
@@ -2649,7 +2664,7 @@ Around back, and then out front again.
 Just like the first time.
 babc7.jpg
 Keep doing this until you run out of knots in front.
-[All finished, Miss]
+.pause All finished, Miss
 .range 1279
 
 
