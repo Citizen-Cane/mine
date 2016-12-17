@@ -44,6 +44,8 @@ public class Mine extends Player {
     private static final Logger logger = LoggerFactory.getLogger(Mine.class);
 
     private static final String Namespace = "Mine";
+    private static final String ResourcesFolder = "Mine";
+    private static final String MainScript = "Mine";
 
     private static final Actor MineMistress = new Actor("Mistress", "Miss,",
             Voice.Gender.Female, Locale.UK, Actor.Key.DominantFemale,
@@ -65,7 +67,8 @@ public class Mine extends Player {
 
     public static void main(String argv[]) {
         try {
-            recordVoices(Mine.class, MineMistress, Assets, "Mine");
+            recordVoices(MineMistress, MainScript, Mine.class, ResourcesFolder,
+                    Assets);
         } catch (ScriptParsingException e) {
             logger.error(e.getMessage(), e);
         } catch (ValidationIssue e) {
@@ -83,9 +86,9 @@ public class Mine extends Player {
     }
 
     public Mine(TeaseLib teaseLib, String mistressPath) {
-        super(teaseLib, new ResourceLoader(Mine.class, "Mine"), MineMistress,
-                Namespace, mistressPath);
-        resources.addAssets(Assets);
+        super(teaseLib, new ResourceLoader(Mine.class, ResourcesFolder, Assets),
+                MineMistress, Namespace, mistressPath);
+        // resources.addAssets(Assets);
 
         // Toy categories - multiple items
         state.addToyMapping(MappedState.Global, 363,

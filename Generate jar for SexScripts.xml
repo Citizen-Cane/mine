@@ -78,7 +78,9 @@
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/images/**"/>
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/sounds/**"/>
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/accessories/**"/>
+        	<fileset dir="${basedir}/assets" includes="Mine/*"/>
         </jar>
+    	<!-- TODO Buid dir with prerecorded voices and Actor voices.properties-->
         <jar destfile="${destination}/${rootFolder}/scripts/Mine Mistress.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
