@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="build_sexscripts_debug" name="Create jars for Mine">
+<project default="deploySexScriptsDebug" name="Build Mine">
     <!--ANT 1.7 is required -->
 
-    <target name="build_sexscripts_release">
+    	  <import file="${basedir}/../TeaseLib/build.xml"/>
+	
+    <target name="deploySexScriptsRelease">
         <property name="release_name" value="Mine Redux for SexScripts"/>
         <property name="version" value="1.01"/>
         <property name="destination" value="${basedir}/../Releases/${release_name} ${version}"/>
+    	<antcall target="deployToMine"/>
         <antcall target="build"/>
     </target>
 
-	<target name="build_sexscripts_debug">
-        <property name="destination" value="${basedir}/../"/>
-        <property name="rootFolder" value="SexScripts"/>
+	<target name="deploySexScriptsDebug">
+        <property name="destination" value="${basedir}/../SexScripts"/>
+    	<antcall target="deployToSexScripts"/>
         <antcall target="build"/>
-        <copy file="assets/Mine/debug.txt" tofile="${destination}/${rootFolder}/scripts/Mine/debug.txt"/>
+        <copy file="assets/Mine/debug.txt" tofile="${destination}/scripts/Mine/debug.txt"/>
     </target>
 
     <target name="syncAccessories">
@@ -58,21 +61,20 @@
 	</target>
 
     <target name="build" depends="syncAccessories,syncImages,syncMistress">
-        <property name="rootFolder" value="SexScripts"/>
-        <jar destfile="${destination}/${rootFolder}/scripts/Mine.jar">
+        <jar destfile="${destination}/scripts/Mine.jar">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="bin"/>
             <fileset dir="${basedir}/../PCMPlayer/bin"/>
         </jar>
-        <jar destfile="${destination}/${rootFolder}/scripts/Mine Scripts.zip">
+        <jar destfile="${destination}/scripts/Mine Scripts.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="assets" includes="Mine/scripts/**"/>
         </jar>
-        <jar destfile="${destination}/${rootFolder}/scripts/Mine Resources.zip">
+        <jar destfile="${destination}/scripts/Mine Resources.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
@@ -82,12 +84,12 @@
         	<fileset dir="${basedir}/assets" includes="Mine/*" excludes="Mine/debug.txt"/>
         </jar>
     	<!-- TODO Buid dir with prerecorded voices and Actor voices.properties-->
-        <jar destfile="${destination}/${rootFolder}/scripts/Mine Mistress.zip">
+        <jar destfile="${destination}/scripts/Mine Mistress.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/mistress/**"/>
         </jar>
-    	<copy file="src/Mine.groovy" tofile="${destination}/${rootFolder}/scripts/Mine.groovy"/>
+    	<copy file="src/Mine.groovy" tofile="${destination}/scripts/Mine.groovy"/>
     </target>
 </project>
