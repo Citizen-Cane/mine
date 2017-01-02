@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="build_sexscripts_test" name="Create jars for Mine">
-    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
-    <!--ANT 1.7 is required                                        -->
+<project default="build_sexscripts_debug" name="Create jars for Mine">
+    <!--ANT 1.7 is required -->
 
     <target name="build_sexscripts_release">
         <property name="release_name" value="Mine Redux for SexScripts"/>
-        <property name="version" value="${release_name} 1.0"/>
-        <property name="destination" value="Releases/${version}"/>
+        <property name="version" value="1.01"/>
+        <property name="destination" value="${basedir}/../Releases/${release_name} ${version}"/>
         <antcall target="build"/>
     </target>
 
-	<target name="build_sexscripts_test">
-      <property name="destination" value="${basedir}/../"/>
-      <antcall target="build"/>
+	<target name="build_sexscripts_debug">
+        <property name="destination" value="${basedir}/../"/>
+        <property name="rootFolder" value="SexScripts"/>
+        <antcall target="build"/>
+        <copy file="assets/Mine/debug.txt" tofile="${destination}/${rootFolder}/scripts/Mine/debug.txt"/>
     </target>
 
     <target name="syncAccessories">
@@ -78,7 +79,7 @@
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/images/**"/>
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/sounds/**"/>
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/accessories/**"/>
-        	<fileset dir="${basedir}/assets" includes="Mine/*"/>
+        	<fileset dir="${basedir}/assets" includes="Mine/*" excludes="Mine/debug.txt"/>
         </jar>
     	<!-- TODO Buid dir with prerecorded voices and Actor voices.properties-->
         <jar destfile="${destination}/${rootFolder}/scripts/Mine Mistress.zip">
@@ -87,6 +88,6 @@
             </manifest>
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/mistress/**"/>
         </jar>
-    	<copy file="src/Mine.groovy" tofile="${destination}/${rootFolder}/Scripts/Mine.groovy"/>
+    	<copy file="src/Mine.groovy" tofile="${destination}/${rootFolder}/scripts/Mine.groovy"/>
     </target>
 </project>
