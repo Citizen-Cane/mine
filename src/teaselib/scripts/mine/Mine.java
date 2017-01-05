@@ -1,5 +1,6 @@
 package teaselib.scripts.mine;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
@@ -67,8 +68,8 @@ public class Mine extends Player {
 
     public static void main(String argv[]) {
         try {
-            recordVoices(MineMistress, MainScript, Mine.class, ResourcesFolder,
-                    Assets);
+            recordVoices(MineMistress, MainScript, new File(argv[0]),
+                    ResourcesFolder, Assets);
         } catch (ScriptParsingException e) {
             logger.error(e.getMessage(), e);
         } catch (ValidationIssue e) {

@@ -10,6 +10,7 @@
         <property name="destination" value="${basedir}/../Releases/${release_name} ${version}"/>
     	<antcall target="deployToMine"/>
         <antcall target="build"/>
+        <antcall target="prerecordSpeech"/>
     </target>
 
 	<target name="deploySexScriptsDebug">
@@ -83,7 +84,7 @@
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/accessories/**"/>
         	<fileset dir="${basedir}/assets" includes="Mine/*" excludes="Mine/debug.txt"/>
         </jar>
-    	<!-- TODO Buid dir with prerecorded voices and Actor voices.properties-->
+    	<!-- TODO Build dir with prerecorded voices and Actor voices.properties-->
         <jar destfile="${destination}/scripts/Mine Mistress.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
@@ -92,4 +93,21 @@
         </jar>
     	<copy file="src/Mine.groovy" tofile="${destination}/scripts/Mine.groovy"/>
     </target>
+
+    <target name="prerecordSpeech">
+    	<!-- TODO current dir has to contain lib/TeaseLib/ in order to load native TTS library -->
+    	<!-- TODO is $(basedir) but must be ${destination} -->
+    	<java classname="teaselib.scripts.mine.Mine">
+	        <sysproperty key="TeaseLib.Config.Assets" value="${destination}/scripts/"/>
+    		<arg value="${destination}/scripts/"/>
+			<classpath>
+				<pathelement location="${destination}/lib/teaselib/TeaseLib.jar"/>
+				<pathelement location="${destination}/lib/teaselib/jump3r-1.0.3.jar"/>
+				<pathelement location="${destination}/scripts/Mine.jar"/>
+				<pathelement location="${basedir}/../SexScripts/lib/slf4j-api-1.7.2.jar"/>
+				<pathelement location="${basedir}/../SexScripts/lib/slf4j-simple-1.7.10.jar"/>
+				<pathelement path="$(java.class.path}"/>
+			</classpath>
+    	</java>
+	</target>
 </project>
