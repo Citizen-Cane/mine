@@ -14,7 +14,20 @@
 .resetrange 800 99999
 
 ' reset all temp variables from main script but keep slave state, toys and achievements
-.resetrange 50 299
+
+' local slave state
+' -20 something on nipples
+' -22 something in mouth
+
+' 50-59 counter for wanking
+' 60-62 wanking duration
+
+' 100-116 activities
+
+' 70 ankles and wrists tied - currently not used
+' 71 ankles and wrists tied, locked
+
+.resetrange 50 119
 
 ' clear sub script temporary range 
 .resetrange -799 1
@@ -57,13 +70,6 @@
 '   114 1114    6013 -> 6163    6063    "       2   5   9 x  5m (59 61)
 '   115 1115    5404 -> 6014    6064            2       slavesinlove bd186 activity
 '   116 1116    6013 -> 6163    2401            -       slavesinlove bd186 punishment
-
-' local slave state
-' -20 something on nipples
-' -22 something in mouth
-
-' 220 ankles and wrists tied - currently not used
-' 221 ankles and wrists tied, locked
 
 ' Debug
 
@@ -1762,7 +1768,7 @@ Go fetch your blindfold, and make sure you can hear my voice.
 .must 363 364 360 382        ' have wrist restraints, ankle restraints, chains, blindfold
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
 I want to be sure you're totally helpless for your punishment, slave. 
-.set 221                     ' addons, remember to remove
+.set 71                      ' addons, remember to remove
 .unset 2212
 .range 2220
 
@@ -1787,7 +1793,7 @@ Go fetch your blindfold, and make sure you can hear my voice.
 .must 727                    ' Denial and self-control 2
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
 I want to be sure you'll totally focussed on the job, slave. 
-.set 221                     ' search key
+.set 71                      ' search key
 .unset 2212
 .range 2220
 
@@ -1864,8 +1870,8 @@ Tell me when you're ready to put your blindfold on, slave!
 Now put on your blindfold,
 and prepare to lock your wrist and ankles together on my command. 
 .delay 20
-.unset 220                   ' select release comment
-.set 221                     ' retrieve keys to get free
+.unset 70                    ' select release comment
+.set 71                      ' retrieve keys to get free
 .unset 2225
 .range 2226
 
@@ -2765,16 +2771,16 @@ Just keep your hands off that prick and relax.
 ' release key
 
 [Action 8955]
-.must 220                    ' ankles and wrists tied
+.must 70                     ' ankles and wrists tied
 .range 9500 9599
 
 [Action 8956]
-.must 221                    ' ankles and wrists tied, locked
+.must 71                     ' ankles and wrists tied, locked
 .keyrelease release
 .range 9500 9599
 
 [Action 8959]
-.mustnot 220 221
+.mustnot 70 71
 .range 9500 9599
 
 
@@ -2891,19 +2897,19 @@ I love it!
 
 
 [Action 9191]
-.mustnot 29 220 221     ' no toys
+.mustnot 29 70 71       ' no toys
 .range 9199
 
 [Action 9196]
 By the way, you may remove your blindfold now, slave.
 .must 29
-.mustnot 221            ' key away, ankles tied 
+.mustnot 71             ' key away, ankles tied 
 .pause Thank you, Miss
 .range 9199
 
 [Action 9197]
 .must 29
-.must 220               ' key away, ankles tied
+.must 70                ' key away, ankles tied
 By the way, you may remove the chains and take your blindfold off, slave.
 .keyrelease release
 .pause Thank you, Miss
@@ -2911,7 +2917,7 @@ By the way, you may remove the chains and take your blindfold off, slave.
 
 [Action 9198]
 .must 29
-.must 221               ' key away, ankles tied
+.must 71                ' key away, ankles tied
 By the way, you may crawl over to retrieve your keys and remove your chains and blindfold, slave.
 .keyrelease release
 .pause Thank you, Miss
