@@ -45,7 +45,7 @@ public class Mine extends Player {
     private static final Logger logger = LoggerFactory.getLogger(Mine.class);
 
     private static final String Namespace = "Mine";
-    private static final String ResourcesFolder = "Mine";
+    private static final String ResourcesRoot = "Mine";
     private static final String MainScript = "Mine";
 
     private static final Actor MineMistress = new Actor("Mistress", "Miss,",
@@ -53,7 +53,7 @@ public class Mine extends Player {
             Images.None);
 
     private static final String[] Assets = { "Mine Scripts.zip",
-            "Mine Resources.zip", "Mine Mistress.zip" };
+            "Mine Resources.zip", "Mine Mistress.zip", "Mine Speech.zip" };
 
     public enum Punishment {
         BadIntroduction,
@@ -69,7 +69,7 @@ public class Mine extends Player {
     public static void main(String argv[]) {
         try {
             recordVoices(MineMistress, MainScript, new File(argv[0]),
-                    ResourcesFolder, Assets);
+                    ResourcesRoot, Assets);
         } catch (ScriptParsingException e) {
             logger.error(e.getMessage(), e);
         } catch (ValidationIssue e) {
@@ -87,7 +87,7 @@ public class Mine extends Player {
     }
 
     public Mine(TeaseLib teaseLib, String mistressPath) {
-        super(teaseLib, new ResourceLoader(Mine.class, ResourcesFolder, Assets),
+        super(teaseLib, new ResourceLoader(Mine.class, ResourcesRoot, Assets),
                 MineMistress, Namespace, mistressPath);
         // resources.addAssets(Assets);
 
