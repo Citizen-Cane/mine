@@ -6,7 +6,7 @@
 ' if more slave state is needed go up to 90 (or 100) or move temp variables in sub scripts
 ' 50 - blocked by mine-dildo, mine-td
 ' 60 - blocked by mine-ooe
-' 91 - blocked by mine-maid
+' 90 - blocked by mine-maid
 ' 97 - blocked by mine-paddle
 .restore
 
@@ -104,9 +104,9 @@
 ' Session timers: 1, 12, 24 hours, with two empty slots for 48h and one week
 '
 ' 90: Wait 1 hour
-' 91:
+' 91: free
 ' 92: Wait 12 hours
-' 93:
+' 93: free
 ' 94: Wait 24 hours
 '
 ' 95: Wait 1/12/24 hours timer
@@ -458,7 +458,7 @@
 ' desired -5m with cuffs, another -5m with clamps
 '.askcheck      69      721     721: * Patient waiting 1 < 10-15m -> 722 (1015, 2512)
 '.askcheck      70      722     722: * Patient waiting 2  (2405, 2419, 2500, 2501, 2517)
-' inconsistent < 15-20m+91%cuffs+marker, 20-30m, 15-30m+91%cuffs, 15-35m+cuffs+91%clamps, 15-30m+cuffs+clamps -> 723 
+' inconsistent < 15-20m+50%cuffs+marker, 20-30m, 15-30m+50%cuffs, 15-35m+cuffs+50%clamps, 15-30m+cuffs+clamps -> 723 
 '.askcheck      71      723     723: * Patient waiting 3 (2419) 
 '.askcheck      72      724     724: * Patient waiting 4
 '.askcheck      73      725     725: * Patient waiting 5
@@ -3171,7 +3171,7 @@ make you skip your next three cumming opportunities.
 .range 1449
 
 
-' Chastity level 2 91% 91%
+' Chastity level 2 50% 50%
 [Action 1416]
 .mustnot 250 691 692 693 694 695 696 697
 .poss 40
@@ -3488,7 +3488,7 @@ We shall talk of this more in a moment.
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .set 669
-.poss 91
+.poss 50
 .range 1516 1520
 
 
@@ -5395,7 +5395,7 @@ Let's see if I can recall any other punishments you've earned.
 '   For some punishments there is no "bad" reentry so there's 
 '   no reason not to use the extra 2 slots in the 2500 range.
 '   If you need a lot more you can always call out to an external range
-'	2300-2399 and 2450-2499 should be free because there are only 91 punishment slots.
+'	2300-2399 and 2450-2499 should be free because there are only 50 punishment slots.
 
 ' Severe action that must be taken care of
 ' 506 lying to mistress
@@ -7110,7 +7110,7 @@ I'll get you next time, you dirty slave!
 .save 50 799
 .loadsbd mine-maid.sbd 1005 1005  ' Severe punishment (according to punishment acceptance)
 
-' shower 10m, 91 paddles, clamps, kneeling
+' shower 10m, 50 paddles, clamps, kneeling
 [Action 2682]
 .mustnot 20 24 25                 ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
@@ -8184,7 +8184,7 @@ humbly ask for My gracious permission to visit the toilet.
 ' impatience add-ons
 [Action 3101]
 .must 103	
-.poss 91 
+.poss 50 
 .range 3140 3159
 
 ' just tying wrist and ankles, chains
@@ -9138,7 +9138,7 @@ Leave it that way for the whole session, slave.
 .unset 3100             ' unique items can be combined quite well and don't restict activities
 .unset 3101             ' if the mistress is impatient the slave is in trouble
 .unset 3301
-.range 3091 3099        ' another one, 3090 ommited to avoid 91% skip
+.range 3091 3099        ' another one, 3090 ommited to avoid 50% skip
 
 [Action 3302]
 .range 3400
@@ -14542,26 +14542,26 @@ Now I'll judge your performance...
 'M0  D5    0%   0% 100%
 'M1  D0   20%  80%   0%
 'M1  D1   17%  67%  17%
-'M1  D2   17%  91%  33%
-'M1  D3   17%  33%  91%
+'M1  D2   17%  50%  33%
+'M1  D3   17%  33%  50%
 'M1  D4   17%  17%  67%
 'M1  D5   17%   0%  83%
 'M2  D0   40%  60%   0%
-'M2  D1   33%  91%  17%
+'M2  D1   33%  50%  17%
 'M2  D2   29%  43%  29%
 'M2  D3   29%  29%  43%
 'M2  D4   29%  14%  57%
 'M2  D5   29%   0%  71%
 'M3  D0   60%  40%   0%
-'M3  D1   91%  33%  17%
+'M3  D1   50%  33%  17%
 'M3  D2   43%  29%  29%
 'M3  D3   38%  25%  38%
-'M3  D4   38%  13%  91%
+'M3  D4   38%  13%  50%
 'M3  D5   38%   0%  63%
 'M4  D0   80%  20%   0%
 'M4  D1   67%  17%  17%
 'M4  D2   57%  14%  29%
-'M4  D3   91%  13%  38%
+'M4  D3   50%  13%  38%
 'M4  D4   44%  11%  44%
 'M4  D5   44%   0%  56%
 'M5  D0  100%   0%   0%
@@ -14569,7 +14569,7 @@ Now I'll judge your performance...
 'M5  D2   71%   0%  29%
 'M5  D3   63%   0%  38%
 'M5  D4   56%   0%  44%
-'M5  D5   91%   0%  91%
+'M5  D5   50%   0%  50%
 
 ' Merits and demerit flags are not accumulated, only the flag that represents
 ' the number of (de)merits is set, all others are explicitly unset.
