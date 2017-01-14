@@ -53,7 +53,9 @@ public class Mine extends Player {
             Images.None);
 
     private static final String[] Assets = { "Mine Scripts.zip",
-            "Mine Resources.zip", "Mine Mistress.zip", "Mine Speech.zip" };
+            "Mine Resources.zip", "Mine Mistress.zip" };
+
+    private static final String[] OptionalAssets = { "Mine Speech.zip" };
 
     public enum Punishment {
         BadIntroduction,
@@ -89,7 +91,7 @@ public class Mine extends Player {
     public Mine(TeaseLib teaseLib, String mistressPath) {
         super(teaseLib, new ResourceLoader(Mine.class, ResourcesRoot, Assets),
                 MineMistress, Namespace, mistressPath);
-        // resources.addAssets(Assets);
+        resources.addAssets(OptionalAssets);
 
         // Toy categories - multiple items
         state.addToyMapping(MappedState.Global, 363,
