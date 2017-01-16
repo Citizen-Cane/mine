@@ -2621,14 +2621,14 @@ Don't come back until you have plenty of rope.
 ' thus all commands and demands should be accomplished before dismissing the prompt.
 
 [Action 1270]
-babc1.jpg
 Now, to illustrate what you're going to do we'll look at this fun series of pictures.
+babc1.jpg
 This is a very simple tie and it shouldn't cause you any problems:
 It's called a Karada tie;
 "Karada" is Japanese for "body".
 [Alright, Miss]
-babc1.jpg
 First, do as the pretty girl does and hang the rope over your neck as shown.
+babc1.jpg
 I needn't remind you that you are to make extra-specially certain that you
 don't choke yourself like an idiot.
 [Yes, Miss]
@@ -2676,9 +2676,9 @@ Doesn't that feel good?
 Wiggle around a little bit in there for me.
 delay 10
 []
-Turn around, slave!
+Turn around!
 delay 2
-Come on, slave, wiggle!
+Come on, slave, wiggle for me!
 delay 8
 []
 Face back to me!
@@ -2794,7 +2794,7 @@ Now, slave, this is very important:
 Have you cum without permission since our last session?
 .yestext Yes, Mistress
 .notext No, Mistress
-.yesno 1309 1314 1302 1307
+.yesno 1309 1314 1302 1308
 
 [Action 1301]
 .must 118
@@ -2802,7 +2802,7 @@ Now, this is very important, slave:
 Have you cum without permission?
 .yestext Yes, Mistress
 .notext No, Mistress
-.yesno 1309 1314 1302 1307
+.yesno 1309 1314 1302 1308
 
 
 ' If the slave came without permission, either 519 or 525 is set
@@ -2813,55 +2813,59 @@ Have you cum without permission?
 
 ' Good - Didn't cum without permission
 [Action 1302]
+.mustnot 519 525	    ' any p.o. for cumming without permission 
 That's a good boy, slave.
 Don't make me punish you for failing me! 
 You are not allowed to cum at your own whim,
 because you are a grovelling slave.
 Make sure you always remember that.
 .pause Yes Miss, I'll do
-.mustnot 519 525	    ' any p.o. for cumming without permission 
 .range 1360             ' Wank for mistress
+
+'[Action 1303]
+'[Action 1304]
 
 ' Mistress already knows since slave admitted by cancelling wanking activity
 ' 	You are well aware, 	You know perfectly well
-[Action 1303]
+[Action 1305]
+.must 519	            ' slave came although mistress told to stop
 You're a liar and a cheat, you stupid slut!
 You certainly remember spurting your load
 although I explicitely reminded you to the fact that you were not allowed to.
 .pause Yes Miss, I remember
-.must 519	            ' slave came although mistress told to stop
 .else                   ' favour double question
 .set 506                ' p.o. for lying to mistress
 .range 1324 1325        ' cumming wihout permission
 
 ' Mistress already knows since slave admitted last time after cum cycle
-[Action 1304]
+[Action 1306]
+.must 525	            ' slave came although mistress told to stop
 You're a liar and a cheat, you stupid slut!
 You certainly remember spurting your load although I revoked my permission to do so.
 .pause Yes Miss, I remember
-.must 525	            ' slave came although mistress told to stop
 .else                   ' favour double question
 .set 506                ' p.o. for lying to mistress
 .range 1326 1327        ' cumming after permission to cum has been revoked
 
-'[Action 1305]
-
-' Trick question
-[Action 1306]
-This is your last chance, slave.
-Have you cum without permission?
-.yestext You're right, Mistress, I have
-.notext No, Mistress, honestly!
-.yesno 1320 1321 1302 1305
 
 ' Trick question
 [Action 1307]
+.poss 25
+This is your last chance, slave!
+Have you cum without permission?
+.yestext You're right, Mistress, I have
+.notext No, Mistress, honestly!
+.yesno 1320 1321 1302 1306
+
+' Trick question
+[Action 1308]
+.poss 25
 Slave!
 This is your last chance.
 Have you cum without permission?
 .yestext You're right, Mistress, I have
 .notext No, Mistress, honestly!
-.yesno 1320 1321 1302 1305
+.yesno 1320 1321 1302 1306
 
 
 ' Slave admitted
