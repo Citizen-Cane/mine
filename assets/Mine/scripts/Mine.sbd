@@ -114,7 +114,7 @@
 
 ' Toy menu and toy definitions 360-389
 ' There are mappings in Mine.java to link these toys to their TeaseLib toy categories and the host toy management
-' Take a look at each toy category setter where the categories are commented and set  
+' Take a look at each toy category setter where the categories are commented and set
 .asktitle       1 I Have:
 .askcheck       2      360 Some chains
 .askcheck       3      361 Nipple clamps with a connecting chain
@@ -135,6 +135,10 @@
 .askcheck2     18      389 771 A vibrator
 .askcheck2     19      387 772 Some Pussy clamps with a connecting chain
 .askcheck2     20      385 749 My personal ball harness
+
+' Some of these ask items are mapped to multiple toy items (java code in Mine.java)
+' Since the mapping is global (not script related) calling .resetrange in a subscript clears all toys,
+' and they're not restored on .restore when returning to the main script
 
 
 ' in-game toys (not selectable in toys-menu)
@@ -10759,125 +10763,125 @@ Tie the left-over around the base and fix it up with a good knot.
 .range 5005
 
 [Action 4987]
+.must 44                ' chastified
+.timefrom 45 00:00"00   ' have key for chastity cage
+.must 380               ' chastity cage
+.mustnot 4951           ' Toy selecttion
 It looks like your cock is well placed inside that cage.
 Let's leave there a little while and we see later whether
 that shriveled old prick of yours deserves to be released.
-.mustnot 4951           ' Toy selecttion
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity cage
-.unset 4992
+.unset 4987
 .range 5005
 
 [Action 4988]
-As it looks, your silly slave penis is well placed.
-so let's leave that shriveld old prick locked up.
-.mustnot 4951           ' Toy selecttion
 .must 44                ' chastified
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 380               ' chastity cage
-.unset 4992
+.mustnot 4951           ' Toy selecttion
+As it looks, your silly slave penis is well placed.
+so let's leave that shriveld old prick locked up.
+.unset 4988
 .range 5005
 
 [Action 4989]
-I want you your cock hard and wet for our next activity,
-so let's take off the chastity cage.
-.pause Thank you, Miss
-.mustnot 4951           ' Toy selecttion
 .poss 16
 .must 44                ' chastified
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 380               ' chastity device
+.mustnot 4951           ' Toy selecttion
+I want you your cock hard and wet for our next activity,
+so let's take off the chastity cage.
+.pause Thank you, Miss
 .unset 23 30 44         ' Something on penis, can't jerk off, chastified
 .range 4995
 
 [Action 4990]
-I want you your cock hard and wet, so let's take the cage off.
-.pause Thank you, Miss
-.mustnot 4951           ' Toy selecttion
 .poss 16
 .must 44                ' chastified
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 380               ' chastity device
+.mustnot 4951           ' Toy selecttion
+I want you your cock hard and wet, so let's take the cage off.
+.pause Thank you, Miss
 .unset 23 30 44         ' Something on penis, can't jerk off, chastified
 .range 4995
 
 
 [Action 4991]
+.must 44                ' chastified
+.timefrom 45 00:00"00   ' have key for chastity cage
+.must 380               ' chastity device
+.must 4951              ' Toy selecttion
 It looks like your cock is well placed inside that cage.
 Let's leave it there a little while and we see later whether
 that shriveled old prick of yours deserves to be released.
-.must 4951              ' Toy selecttion
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity device
-.unset 4992
+.unset 4991
 .range 5005
 
 [Action 4992]
-As it looks, your silly slave penis is well placed,
-so let's leave that shriveld old prick locked up.
-.must 4951              ' Toy selecttion
 .must 44                ' chastified
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 380               ' chastity device
+.must 4951              ' Toy selecttion
+As it looks, your silly slave penis is well placed,
+so let's leave that shriveld old prick locked up.
 .unset 4992
 .range 5005
 
 
 [Action 4993]
-And I also want you your cock hard and wet for our
-next activity, so let's remove the chastity cage.
-.pause Thank you, Miss
-.must 4951              ' Toy selecttion
 .poss 16
 .must 44                ' chastified
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 380               ' chastity device
+.must 4951              ' Toy selecttion
+And I also want you your cock hard and wet for our
+next activity, so let's remove the chastity cage.
+.pause Thank you, Miss
 .unset 23 30 44         ' Something on penis, can't jerk off, chastified
 .range 5000
 
 [Action 4994]
-And I want you your cock hard and wet, so let's take the cage off.
-.pause Thank you, Miss
-.must 4951              ' Toy selection
 .poss 16
 .must 44                ' chastified
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 380               ' chastity device
+.must 4951              ' Toy selection
+And I want you your cock hard and wet, so let's take the cage off.
+.pause Thank you, Miss
 .unset 23 30 44         ' Something on penis, can't jerk off, chastified
 .range 5000
 
 ' No key
 [Action 4995]
-You'd surely like to wank your cock, won't you slave?
-Too sad you're going to stay locked up tonight.
-.mustnot 4951           ' Toy selection
 .must 44                ' chastified
 .timeto 45 00:00"00     ' have key for chastity cage
 .must 380               ' chastity cage
-.unset 4992
+.mustnot 4951           ' Toy selection
+You'd surely like to wank your cock, won't you slave?
+Too sad you're going to stay locked up tonight.
+.unset 4995
 .range 5005
 
 [Action 4996]
+.must 44                ' chastified
+.timeto 45 00:00"00     ' have key for chastity cage
+.must 380               ' chastity cage
+.mustnot 4951           ' Toy selection
 You'd surely like to yonk your hard wet cock, won't you slave?
 I'm very sorry for you - well, not really
 - but you know that you're going to stay locked up tonight.
-.mustnot 4951           ' Toy selection
-.must 44                ' chastified
-.timeto 45 00:00"00     ' have key for chastity cage
-.must 380               ' chastity cage
-.unset 4992
+.unset 4996
 .range 5005
 
 [Action 4997]
-It looks like your cock is well placed inside that cage.
-And you know, that you are not going to get unlocked.
-.mustnot 4951           ' Toy selecttion
 .must 44                ' chastified
 .timeto 45 00:00"00     ' have key for chastity cage
 .must 380               ' chastity cage
-.unset 4992
+.mustnot 4951           ' Toy selecttion
+It looks like your cock is well placed inside that cage.
+And you know, that you are not going to get unlocked.
+.unset 4997
 .range 5005
 
 '[Action 4998]
@@ -10886,8 +10890,8 @@ And you know, that you are not going to get unlocked.
 [Action 4999]
 .else
 .must 44                ' Chastified
-.timeto 45 00:00"00     ' haven't got key
-.unset 4987
+.timeto 45 00:00"00     ' have key for chastity cage
+.unset 4999
 .range 5005
 
 
