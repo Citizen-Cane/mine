@@ -28,6 +28,9 @@
 .resetrange 0 19
 .resetrange 800 839
 
+' actions 20-799 aren't cleared because they're restored, plus
+' the range contains mapped items which would be otherwise unintentionally cleared
+
 
 .backcolor 240 200 200
 .textcolor 0 0 0
@@ -68,6 +71,8 @@
 '	instructions are all over the place, so don't bother with checking that
 '	unless it's an integral part of the activity. If cumming is part of an
 '	activity (always done at end?), make sure to check or handle 691 - 699.
+
+' There are mappings in Mine.java to link these states to their TeaseLib equivalent
 
 '	20	-	something on nipples
 '	21	-	something in butt
@@ -113,8 +118,10 @@
 
 
 ' Toy menu and toy definitions 360-389
+
 ' There are mappings in Mine.java to link these toys to their TeaseLib toy categories and the host toy management
 ' Take a look at each toy category setter where the categories are commented and set  
+
 .asktitle       1 I Have:
 .askcheck       2      360 Some chains
 .askcheck       3      361 Nipple clamps with a connecting chain
