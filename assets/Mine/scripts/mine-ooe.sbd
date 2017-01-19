@@ -9,7 +9,8 @@
 .resetrange 800 99999
 
 ' reset all temp variables from main script but keep slave state, toys and achievements
-.resetrange 60 599
+.resetrange 60 359
+.resetrange 400 599
 
 ' The action number to indicate that the slave is wearing a gag
 .gag 22
@@ -30,9 +31,9 @@
 '    71       M plays to 10
 '    72       M plays to  5
 
-'   101 - 115 are set in sequence to represent s's points
-'   201 - 215 likewise for M's points
-'   300 - 339 indicate the type of entry. 300 means a standalone run.
+'   101 - 115 are set in sequence to represent slave's points
+'   201 - 215 likewise for Mistress's points
+'   300 - 302 indicate the type of entry. 300 means a standalone run.
 '   401 - 415 is what happens when you lose a round:
 '   401       Nothing.
 '   402       Paddle x times.
@@ -316,17 +317,26 @@ This means you'll add the weight to the clamp that I order you to, my pussy.
 
 
 [Action 1499]
-.range 1500
+.range 1500 1502
 
 [Action 1500]
+.mustnot 30             ' can't jerk off
+.must 300               ' standalone run
 Remember, My standard rules apply.
 You'd better be naked, and you'd better keep that little cock hard.
-.mustnot 30             ' can't jerk off
 .range 1997
 
 [Action 1501]
+.mustnot 30             ' can't jerk off
+.mustnot 300            ' standalone run
+Remember, My standard rules apply,
+so you'd better keep that little cock hard.
+.range 1997
+
+[Action 1502]
 .must 30                ' can't jerk off
 .range 1997
+
 
 ' (debug)
 [Action 1997]

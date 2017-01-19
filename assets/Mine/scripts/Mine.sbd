@@ -118,10 +118,8 @@
 
 
 ' Toy menu and toy definitions 360-389
-
 ' There are mappings in Mine.java to link these toys to their TeaseLib toy categories and the host toy management
-' Take a look at each toy category setter where the categories are commented and set  
-
+' Take a look at each toy category setter where the categories are commented and set
 .asktitle       1 I Have:
 .askcheck       2      360 Some chains
 .askcheck       3      361 Nipple clamps with a connecting chain
@@ -142,6 +140,10 @@
 .askcheck2     18      389 771 A vibrator
 .askcheck2     19      387 772 Some Pussy clamps with a connecting chain
 .askcheck2     20      385 749 My personal ball harness
+
+' Some of these ask items are mapped to multiple toy items (java code in Mine.java)
+' Since the mapping is global (not script related) calling .resetrange in a subscript clears all toys,
+' and they're not restored on .restore when returning to the main script
 
 
 ' in-game toys (not selectable in toys-menu)
@@ -751,8 +753,6 @@ Would you be so kind and tell me what you've got exactly?
 
 ' clear and set temps
 [Action 847]
-.resetrange -799 -1                              ' reset session global variable space
-.resetrange 1 47                                 ' Slave state
 .unset 200 201 202 203 204                       ' demerits
 .unset 205 206 207 208 209                       ' merits
 .unset 210 212 213                               ' shower temp, next-session-toy, next-session-toy
@@ -769,7 +769,6 @@ Would you be so kind and tell me what you've got exactly?
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
 .settime 49 +INF                                ' set clamp timer to infinite to ignore clamps duration 
 .settime 276 +INF                               ' set enema timer to infinite to ignore
-.save 50 799
 .range 848 849
 
 
@@ -5341,7 +5340,7 @@ Well, I see that you have some punishment coming to you after all!
 It's very naughty of you to try and fool me, and you can see how useless it is as well.
 Naughty, bad slave boys should be happy to be punished for their misdeeds.
 You'll draw some extra-special punishment more for lying to Mistress, too!
-.pause Please forgive me, Miss
+.pause Please Miss, I'm so sorry!
 .set 506                ' P.O. for lying to mistress
 .unset 711 712 713 714 715
 .range 2150
@@ -11143,8 +11142,7 @@ I think you're going to worship your dildo some more.
 
 [Action 5060]
 I think you deserve a teasing session.
-'.range 6000
-.range 9520 9521        ' comment wanking while chastified
+.range 6000
 
 
 [Action 5066]
@@ -12368,6 +12366,7 @@ Meanhile, three demerits will do about right.
 .timeto 49 -00:24"00    ' 20 minutes plus preparation
 .timeto 276 -00:24"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6151
 
 ' Terri and Jennifer #16-21
@@ -12399,6 +12398,7 @@ Meanhile, three demerits will do about right.
 [Action 6004]
 .mustnot 263            ' Done wanking activity already
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6154
 
 ' Medium wanking 5x3m
@@ -12410,6 +12410,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:19"00   ' 15 + 4
 .timeto 276 -00:19"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6155
 
 ' ... 2x10m, gives 727
@@ -12420,6 +12421,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:22"00   ' 20 + 2
 .timeto 276 -00:22"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6156
 
 ' 4x5m
@@ -12430,6 +12432,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:23"00   ' 20 + 3
 .timeto 276 -00:23"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6157
 
 ' 7x3m, gives 727
@@ -12440,6 +12443,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:27"00   ' 21 + 6
 .timeto 276 -00:27"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6158
 
 ' 3x10 gives 728
@@ -12450,6 +12454,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:32"00   ' 30 + 2
 .timeto 276 -00:32"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6159
 
 ' 5x5m
@@ -12460,6 +12465,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:29"00   ' 25 + 4
 .timeto 276 -00:29"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6160
 
 ' 9x3m
@@ -12470,6 +12476,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:35"00   ' 27 + 8
 .timeto 276 -00:35"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6161
 
 ' 4x10m
@@ -12480,6 +12487,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:43"00   ' 40 + 3
 .timeto 276 -00:43"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6162
 
 ' 9x5m, gives 729
@@ -12490,6 +12498,7 @@ Meanhile, three demerits will do about right.
 .timeto  49 -00:53"00   ' 45 + 8
 .timeto 276 -00:53"00   ' holding the enema
 .set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
 .range 6163
 
 ' slavesinlove 186 pictures
@@ -16611,8 +16620,9 @@ I'm done with you, slave.
 It's clear to me that you're not interested in following orders and I've run out of patience.
 You can start your training over with some other Mistress, cunt.
 Goodbye.
-.pause Please don't leave, Miss
-.resetrange 1 799
+.pause Please, don't leave me, Miss
+.resetrange 60 359
+.resetrange 400 599
 .save 50 799
 .range 9501
 
@@ -16625,40 +16635,39 @@ Goodbye.
 
 ' wanking with chastity belt
 
-' from 5060 - you deserve a teasing session
+[Action 9520]
+.range 9521 9522
+
 
 ' Not wearing cage
-[Action 9520]
+[Action 9521]
 .mustnot 44             ' chastified
-.range 9529
+.return
 
 ' Explain encaged wanking 
-[Action 9521]
+[Action 9522]
 .must 44                ' chastified
-.range 9522 9528
+.range 9523 9529
 
 
 ' Comment reason for encaged wanking
  
-[Action 9522]
-I'm curious to see how big your cock can become inside this cage.
-.range 9529
-
 [Action 9523]
-Let's find out how big your cock can become inside this cage.
-.range 9529
+I'm curious to see how big your cock can become inside this cage.
+.return
 
 [Action 9524]
-I guess you're so horny that your cage  will burst!
-.range 9529
+Let's find out how big your cock can become inside this cage.
+.return
 
-'[Action 9525]
+[Action 9525]
+I guess you're so horny that your cage  will burst!
+.return
+
 '[Action 9526]
 '[Action 9527]
 '[Action 9528]
-
-[Action 9529]
-.range 6000
+'[Action 9529]
 
 
 ' cum slut: 9540-9699
