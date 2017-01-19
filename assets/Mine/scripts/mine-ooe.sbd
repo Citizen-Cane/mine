@@ -9,7 +9,8 @@
 .resetrange 800 99999
 
 ' reset all temp variables from main script but keep slave state, toys and achievements
-.resetrange 60 599
+.resetrange 60 359
+.resetrange 400 599
 
 ' The action number to indicate that the slave is wearing a gag
 .gag 22
@@ -30,9 +31,9 @@
 '    71       M plays to 10
 '    72       M plays to  5
 
-'   101 - 115 are set in sequence to represent s's points
-'   201 - 215 likewise for M's points
-'   300 - 339 indicate the type of entry. 300 means a standalone run.
+'   101 - 115 are set in sequence to represent slave's points
+'   201 - 215 likewise for Mistress's points
+'   300 - 302 indicate the type of entry. 300 means a standalone run.
 '   401 - 415 is what happens when you lose a round:
 '   401       Nothing.
 '   402       Paddle x times.
@@ -92,8 +93,8 @@
 .askcheck   63 403 Add a clamp/weight.
 .askcheck   64 404 Add pin.
 .askcheck   65 405 20 swats.
-.askcheck   66 300 300
-.askcheck   67 361 361
+.askcheck   66 300 300 Standalone run
+.askcheck   67 301 301 unused
 .askcheck   68 302 302
 
 '   401       Nothing.
@@ -127,7 +128,6 @@
 '   Entry point for a standalone run.
 [Action 1000]
 So you'd like to play a game a chance, slave? Let me think...
-.resetrange 1 599            ' reset all for stand alone run
 .unset 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
 .unset 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
 .unset 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415
@@ -139,7 +139,6 @@ So you'd like to play a game a chance, slave? Let me think...
 [Action 1002]
 I think a nipple-torture game would be fun, don't you?
 Naturally, it'll be your nipples being tortured, slave.
-.resetrange 60 599                ' reset all but keep toys from main script
 .unset 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
 .unset 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
 .unset 401 402     404 405     407 408 409 410 411 412 413 414 415
@@ -148,6 +147,7 @@ Naturally, it'll be your nipples being tortured, slave.
 .set 302 501 60 70                ' activity, nothing, 15 rounds
 '.set 10 302 403 501 62 72 101 102 103 104 201 202 203 204
 .range 1101
+
 
 [Action 1100]
 Let's play odds and evens, slut.
@@ -1033,29 +1033,30 @@ Add another weight to your left slave-nipple!
 
 
 [Action 5020]
-You lucky slave! Cum for Mistress, hurry!
 .must 300
+You lucky slave!
+Cum for Mistress, hurry!
 .range 9000 9499
 .delay 30
 
 [Action 5022]
-It looks like you won the game, slave!
 .must 302
+It looks like you won the game, slave!
 .range 9000 9499
 
 [Action 5060]
-I won, and the game is over, slut. Too bad!
 .must 300
+I won, and the game is over, slut. Too bad!
 .range 9500 9599
 
 [Action 5061]
+.must 301
 I won, and the game is over, slut. Too bad!
-.must 361
 .range 9500 9599
 
 [Action 5062]
-It looks like I won the game, slave!
 .must 302
+It looks like I won the game, slave!
 .range 9500 9599
 
 ' ---------------------------------- s won
