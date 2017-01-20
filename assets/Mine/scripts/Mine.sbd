@@ -280,7 +280,7 @@
 '              This works even if the slave cancels or tries to quit
 '              TODO Some are used as assignments (enema) -> move these to 600 assignment range 
 ' 251          Buttplug single-event
-' 252          Nipple training (clamps) one-time per session
+' 252          Nipple training (clamps & pegs) one-time per session
 ' 253          Ball harness one-time per session
 ' 254          Gag one-time per session
 ' 255          ball sack pulling one-time per session (Humbler, weights)
@@ -6415,17 +6415,19 @@ I guess you're off the hook, you lucky slave boy.
 
 ' Shake those titties punishment
 [Action 2541]
+.mustnot 20 29 34       ' something on nipples, blindfolded, can't type/use mouse 
+.mustnot 252            ' Done nipple training activity already
 .must 361 362           ' clamps, pins
 .must 717               ' nipple tolerance 2, gives 3.
-.mustnot 20 29 34       ' something on nipples, blindfolded, can't type/use mouse 
+.set 252                ' Done nipple training activity
 .save 50 799
 .loadsbd mine-nipt.sbd 1019 1019
 
 ' dildo punishment
 [Action 2542]
-.must 388
 .mustnot 22 29 34 41    ' something in mouth, blindfolded, can't type/use mouse, dildo in ass
 .mustnot 260            ' Dildo worshiping already done
+.must 388               ' have dildo
 .set 260
 .save 50 799
 .loadsbd mine-dildo.sbd 902 902
