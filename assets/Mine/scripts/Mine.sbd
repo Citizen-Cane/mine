@@ -214,6 +214,7 @@
 .askcheck      42      101     101: Mistress has accepted slave's submission
 .askcheck      43      102     102: Slave has quit without permission
 .askcheck      44      103     103: Mistress is impatient
+'.askcheck      44      104     104: Return with enough rope for harness
 
 .askcheck      45      110     110: Nudity lecture heard
 .askcheck      46      111     111: Masturbation lecture heard
@@ -1276,16 +1277,16 @@ but at least you have a competent Mistress to thrash you now.
 ' First try
 
 [Action 1017]
+.mustnot 100
 I can see that you're not willing to make the sacrifices
 necessary to being a good slave, you impertinent little puppy.
 Come back if you change your mind, cocktoy!
-.mustnot 100
 .range 850              ' Save and exit
 
 [Action 1018]
+.must 100
 You've disappointed Me, you filthy little disobedient whore.
 Come back in an hour if you have a change of heart, and perhaps I'll relent.
-.must 100
 .set 90                 ' 1 hour
 .settime 95 01:00"00
 .range 850              ' Save and exit
@@ -1294,20 +1295,20 @@ Come back in an hour if you have a change of heart, and perhaps I'll relent.
 ' 2nd and 3rd try
 
 [Action 1019]
+.mustnot 103
 Pathetic worthless cunt!
 You can come back in 12 hours if you're done wasting time.
 Maybe I'll reconsider!
-.mustnot 103
 .set 92                 ' 12 hours
 .settime 95 12:00"00
 .set 103                ' Mistress impatient
 .range 870              ' Save and exit
 
 [Action 1020]
+.must 103
 Then leave, you little trollop!
 You can come back in 24 hours,
 if you want to convince Me to take you back!
-.must 103
 .set 94
 .settime 95 24:00"00
 .range 870
@@ -1324,10 +1325,10 @@ submit to all My orders and My every whim?
 .notext Well, I'm still not sure, Miss
 
 [Action 1022]
+.delay 270        ' 4:30
 Very well, cocktoy, I'm going to do you a favor and think about it.
 noimage
 You can kneel there like a patient slave and await My decision.
-.delay 270        ' 4:30
 .range 1023
 
 ' in dubius mitius - more leniently in case of doubt:
@@ -1796,7 +1797,8 @@ You can come back in 12 hours if you want to beg me for forgiveness and accept y
 This lapse in your good behavior is so severe that I've no choice
 but to retrain you in the necessity of slave nudity.
 Apparently you've forgotten your lessons on the importance of being naked and vulnerable, as a slave should be.
-[]You can come back tomorrow if you want to beg me for forgiveness and accept your punishment!
+[]
+You can come back tomorrow if you want to beg me for forgiveness and accept your punishment!
 .pause Please have mercy, Miss
 .unset 400 408 702 703 704 705    ' void naked training 2-5 and being-naked assignments
 .set 503                          ' Naked punishment 2
@@ -2514,53 +2516,64 @@ so remind me later on to give you a little extra reminder on masturbating correc
 
 
 [Action 1250]
-.range 1251 1252
+.range 1251 1254
 
 
 ' Carrying out enema
 [Action 1251]
 .must 267               ' Carry out enema
+.poss 100
 .range 1660
 
 ' Tied question
 [Action 1252]
+.poss 20
 .mustnot 267            ' Carry out enema
-.range 1253 1259
+.mustnot 20 24 32       ' something on nipples, something on balls, can't stand
+.mustnot 26 35 36       ' wrists tied, harnessed, tethered
+.must 366               ' Some rope
+.range 1255 1259
+
+' come back with enough rope
+[Action 1253]
+.must 104
+.mustnot 267
+.poss 100
+.range 1266
+
+' just continue
+[Action 1254]
+.mustnot 104
+.mustnot 267
+.range 1259
 
 
 ' todo putting on the harness here should be able to be repeatable, as there are variations later on already
-
-[Action 1253]
-.poss 20
-.mustnot 20 24 32       ' something on nipples, something on balls, can't stand
-.mustnot 26 35 36       ' wrists tied, harnessed, tethered
-.must 366 736           ' Some rope, restraint acceptance 1
+' todo triggers 100% although it should be just 20% - add flag to revisit when haven't had enough rope
+[Action 1255]
 .mustnot 426            ' non-repeatable
 .mustnot 626 627        ' harness assignments
+.must 736               ' restraint acceptance 1
 Well, My dear slave, would you like to be tied up tonight?
-.yesno 1270 1270 1260 1262
+.yesno 1265 1265 1260 1262
 .yestext Ooh yes please, Miss
 .notext Maybe another time, Miss
 
-[Action 1254]
-.poss 20
-.mustnot 20 24 32       ' something on nipples, something on balls, can't stand
-.mustnot 26 35 36       ' ankles tied, wrists tied, harnessed, tethered
-.must 366 737           ' Some rope, restraint acceptance 2
+[Action 1256]
+.mustnot 626 627        ' harness assignments
 .must 426               ' must have done nighttime first
 .mustnot 427            ' non-repeatable
-.mustnot 626 627        ' harness assignments
+.must 737               ' restraint acceptance 2
 Well, My dear slave, would you like to be tied up today?
 .yesno 1290 1290 1285 1285
 .yestext Ooh yes please, Miss
 .notext Maybe another time, Miss
 
-'[Action 1255]
-'[Action 1256]
 '[Action 1257]
 '[Action 1258]
 
-'no tied question, just continue
+
+' just continue
 [Action 1259]
 .else
 .range 1299 1301
@@ -2584,7 +2597,7 @@ Come again, slave?
 I don't think I heard you properly.
 I said, would you like to be tied up tonight, cunt?
 .set 200
-.yesno 1270 1270 1260 1260
+.yesno 1265 1265 1260 1260
 .yestext I meant "Yes please, Miss"
 .notext No I wouldn't, Miss
 
@@ -2593,30 +2606,59 @@ Well, that's too bad, cunt, because you're going to be, like it or not.
 I'll mark you for a demerit since you've adopted such a contrary attitude.
 .set 200
 .unset 738 739 740      ' Restraint acceptance 3, 4, 5
-.range 1270
+.range 1264
 
 
 [Action 1263]
+.playwav whip.mp3
 That's enough, slut.
 Get your nude ass over here and get ready for the rest of My instructions.
-.playwav whip.mp3
-.range 1270
+delay 4
+.range 1264
+
+
+[Action 1264]
+You'll need about 40 feet of rope or so.
+You do have enough rope, I trust?
+.yesno 1270 1270 1267 1268
+.yestext Certainly, Miss, I've got plenty of rope
+.notext Oh, I'm afraid I haven't
+
 
 [Action 1265]
 Very good, slave.
 You'll need about 40 feet of rope or so.
 You do have enough rope, I trust?
-.yesno 1270 1270 1266 1266
+.yesno 1270 1270 1267 1268
 .yestext Certainly, Miss, I've got plenty of rope
 .notext Oh, I'm afraid I haven't
 
-
 [Action 1266]
+Have you brought along about 40 feet of rope?
+.yesno 1270 1270 1267 1268
+.yestext Yes, Miss, I've got plenty this time
+.notext Oh, I'm afraid I haven't
+
+
+[Action 1267]
+.mustnot 104            ' Return with enough rope for harness
 Well, slave, you'll be punished for ruining the session, of course.
 Don't come back until you have plenty of rope.
-.set 509                ' wasting Mistress's time
 .pause As you wish, Miss
-.range 880
+.set 509                ' wasting Mistress's time
+.range 880              ' thrown out for stupidity 
+
+[Action 1268]
+.must 104               ' Return with enough rope for harness
+Stupid bitch!
+You know what?
+I've had it.
+Come back tomorrow with plenty of rope, and be prepared for a rough session!
+.pause Of course, Miss
+.set 94
+.settime 95 24:00"00
+.set 516                ' excessive disobedience
+.range 880              ' thrown out for stupidity 
 
 
 ' The action contains multiple inline replies - [....]
@@ -2705,15 +2747,18 @@ there is absolutely no way you can catch your harness on anything
 and hang yourself like a fool of a slave.
 Sleep on the floor just to be safe, and keep away from anything you might snag.
 [Alright, Miss]
-.set 598 626 36 27 
+.set 27 36              ' something around waist, harnessed
+.unset 104              ' Return with enough rope for harness
+.set 598 626            ' skip assignment check this time,  sleep in harness assignment
 .range 1299 1301
 
 
 [Action 1285]
 Frankly, I don't give a shit, slave.
 Although I do care enough to punish you for your negative attitude later.
-.set 504
+.set 504                ' general disobedience
 .range 1290
+
 
 [Action 1290]
 Okay, slave, I'm sure you remember when you put on the rope
@@ -2752,7 +2797,8 @@ And of course, take care that you don't strangle yourself in the night
 - sleep on the floor just to be safe, and well away
 from anything that could catch on that harness.
 .pause Okay, Miss
-.set 27 36 598 627
+.set 27 36              ' something around waist, harnessed
+.set 598 627            ' skip assignment check this time,  harness under clothes for day assignment
 .range 1299 1301
 
 
@@ -12286,7 +12332,7 @@ Good job, My dear slave.
 You can go ahead and remove those heavy clamps now,
 My poor dear slave boy.
 I'll punish you later for losing.
-.set 504                ' p.o for general disobeydience
+.set 504                ' p.o for general disobedience
 .range 7200
 
 '  quick pins
