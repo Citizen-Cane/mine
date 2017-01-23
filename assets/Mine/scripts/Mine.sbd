@@ -294,7 +294,7 @@
 ' 261          Cock bondage one-time per session
 ' 262          Maid training activity once per session
 ' 263          Wanking activity once per session 
-' 264          Spanking activity once per session
+' 264          Spanking done once
 ' 265          Self Bondage activity once per session
 ' 266          Story Time activity once per session
 ' 267          Prepare enema for next session, carrying out enema (1587, 9001, 9005)
@@ -306,7 +306,7 @@
 ' 273          Activity section flag, used for punishing punishment cancellations, used by the quit handler
 '              unset during punishment cycle, set when starting activity loop
 ' 274          Quit without permission check
-' 275          free
+' 275          Spanking done in activity
 ' 276:         Enema duration timer, used for exit punishment cycle, and to void enema, used with 267 268 269
 ' .
 ' .
@@ -739,14 +739,14 @@ Would you be so kind and tell me what you've got exactly?
 
 ' start normally, init quit check
 [Action 845]
-.mustnot 274
-.set 274
+.mustnot 274            ' Quit without permission check
+.set 274                ' Quit without permission check
 .set 849                ' release code path, no debug
 .range 847
 
 ' start if slave quit without permission last time
 [Action 846]
-.must 274
+.must 274               ' Quit without permission check
 .set 102                ' slave quit without permission last time
 .set 849                ' release code path, no debug
 .range 847
@@ -770,6 +770,9 @@ Would you be so kind and tell me what you've got exactly?
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
 .settime 49 +INF                                ' set clamp timer to infinite to ignore clamps duration 
 .settime 276 +INF                               ' set enema timer to infinite to ignore
+' save the "Quick without permission" check
+' in order to to catch abnormal process termination
+.save 50 799
 .range 848 849
 
 
@@ -6694,6 +6697,7 @@ You can leave it in there for our entire session, slave.
 .shouldnot 264          ' spanking already done
 '.save 50 799
 '.loadsbd mine-paddle.sbd 3013 3013
+.set 264                ' Spanking done
 .range 7100             ' Ensure paddle or replacement
 
 
@@ -7039,6 +7043,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 [Action 2630]
 .shouldnot 264                    ' spanking already done
+.set 264                          ' Spanking done
 .range 7100                       ' Ensure paddle or replacement
 
 [Action 2635]
@@ -7051,6 +7056,7 @@ Now keep that cock tall and proud or we'll have to go again.
 ' paddle fast x160
 [Action 2640]
 .shouldnot 264                    ' spanking already done
+.set 264                          ' Spanking done
 .range 7100                       ' Ensure paddle or replacement
 
 
@@ -7064,6 +7070,7 @@ Now keep that cock tall and proud or we'll have to go again.
 ' paddle x400
 [Action 2650]
 .shouldnot 264                    ' spanking already done
+.set 264                          ' Spanking done
 .range 7100                       ' Ensure paddle or replacement
 
 ' shower 15m, 200 paddles, clamps
@@ -7099,6 +7106,7 @@ Now keep that cock tall and proud or we'll have to go again.
 ' paddle x400
 [Action 2660]
 .shouldnot 264                    ' spanking already done
+.set 264                          ' Spanking done
 .range 7100                       ' Ensure paddle or replacement
 
 ' Maid training
@@ -7128,6 +7136,7 @@ I'll get you next time, you dirty slave!
 ' paddle x240
 [Action 2671]
 .shouldnot 264                    ' spanking already done
+.set 264                          ' Spanking done
 .range 7100                       ' Ensure paddle or replacement
 
 [Action 2672]
@@ -7179,6 +7188,7 @@ I'll get you next time, you dirty slave!
 ' paddle x400
 [Action 2683]
 .shouldnot 264                    ' spanking already done
+.set 264                          ' Spanking done
 .range 7100                       ' Ensure paddle or replacement
 
 
@@ -11158,11 +11168,11 @@ I think that ass could use a good tanning.
 '.range 5600
 .range 7100
 
-' TODO does't work since in range 5601- 264 is checked again
-' TODO two times is enough -> add another flag
 [Action 5053]
 .must 264               ' Done spanking activity already
+.mustnot 275            ' Done spanking in activity already
 I think that ass could use another good tanning.
+.set 275
 '.range 5600
 .range 7100
 
@@ -11881,120 +11891,136 @@ You'll be punished later for failing your training.
 [Action 5601]
 .mustnot 33             ' can't kneel
 .timeto 49 -00:04"00
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5751
 
 ' paddle x60
 [Action 5602]
-.must 751               ' asswhipping 1
 .mustnot 29 33          ' blindfolded,can't kneel
+.must 751               ' asswhipping 1
 .timeto 49 -00:06"00
 .timeto 276 -00:06"00   ' holding the enema
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5752
 
 ' paddle x100
 [Action 5603]
-.must 751 752           ' asswhipping 2
 .mustnot 33             ' can't kneel
+.must 751 752           ' asswhipping 2
 .timeto 49 -00:09"00
 .timeto 276 -00:09"00   ' holding the enema
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5753
 
 
-' spanking marathons require the lecture to be heard in advance,
-' so they're never the firs spanking ever - that would be too much
+' spanking marathon is only available if there haven't been any spanking punishments
+
+' paddle
 
 ' marathon 30m
 [Action 5604]
+.mustnot 33             ' can't kneel
 .must 117               ' Spanking lecture heard
-.mustnot 264            ' Done spanking activity already
+.mustnot 264            ' Done spanking already
 .must 370               ' paddle
 .must 753               ' asswhipping 3
-.mustnot 33             ' can't kneel
 .timeto 49 -00:35"00
 .timeto 276 -00:35"00
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5754
 
 ' marathon 60m
 [Action 5605]
+.mustnot 33             ' can't kneel
 .must 117               ' Spanking lecture heard
-.mustnot 264            ' Done spanking activity already
+.mustnot 264            ' Done spanking already
 .must 370               ' paddle
 .must 754               ' asswhipping 4
-.mustnot 33             ' can't kneel
 .timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5755
+
+
+' hair brush
 
 ' marathon 30m
 [Action 5606]
+.mustnot 33             ' can't kneel
 .must 117               ' Spanking lecture heard
-.mustnot 264            ' Done spanking activity already
+.mustnot 264            ' Done spanking already
 .mustnot 370            ' paddle
 .must 371               ' hair brush
 .must 753               ' asswhipping 3
-.mustnot 33             ' can't kneel
 .timeto 49 -00:35"00
 .timeto 276 -00:35"00   ' holding the enema
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5754
 
 ' marathon 60m
 [Action 5607]
+.mustnot 33             ' can't kneel
 .must 117               ' Spanking lecture heard
-.mustnot 264            ' Done spanking activity already
+.mustnot 264            ' Done spanking already
 .mustnot 370            ' paddle
 .must 371               ' hair brush
 .must 754               ' asswhipping 4
-.mustnot 33             ' can't kneel
 .timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5755
+
+
+' wooden spoon
 
 ' marathon 30m
 [Action 5608]
+.mustnot 33             ' can't kneel
 .must 117               ' Spanking lecture heard
-.mustnot 264            ' Done spanking activity already
+.mustnot 264            ' Done spanking already
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
 .must 753               ' asswhipping 3
-.mustnot 33             ' can't kneel
 .timeto 49 -00:35"00
 .timeto 276 -00:35"00   ' holding the enema
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5754
 
 ' marathon 60m
 [Action 5609]
+.mustnot 33             ' can't kneel
 .must 117               ' Spanking lecture heard
-.mustnot 264            ' Done spanking activity already
+.mustnot 264            ' Done spanking already
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
 .must 754               ' asswhipping 4
-.mustnot 33             ' can't kneel
 .timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
-.set 264                ' Done spanking already
+.set 264                ' Spanking done
+.set 275                ' spanking done in activity
 .range 5755
 
 
 [Action 5648]
+.else                   ' Fallback
+.must 264               ' Done spanking already
 I've changed my mind, slave.
 Your slave bottom has been paddled good enough.
-.else                   ' Fallback
-.must 264               ' Done spanking activity already
 .range 5040
 
 [Action 5649]
-I've changed my mind, slave.
-We'll paddle that slave bottom some other time.
 .else                   ' Fallback
 .mustnot 264            ' Done spanking activity already
+I've changed my mind, slave.
+We'll paddle that slave bottom some other time.
 .range 5040
 
 
@@ -12931,6 +12957,7 @@ Go fetch it for me!
 .set 371                ' Have hair brush
 .range 7129
 
+
 [Action 7123]
 What! No wooden spoon?
 No hairbrush?
@@ -12948,10 +12975,12 @@ In the meantime, you can use your bare hand.
 .range 7128
 
 
+' bare hand
 [Action 7128]
 And now listen carefully to my instructions!
 .range 7130
 
+' hair brush or wooden spoon
 [Action 7129]
 Very good, my little pet.
 Now take your "paddle" and carefully listen to my instructions.
@@ -12959,12 +12988,13 @@ Now take your "paddle" and carefully listen to my instructions.
 
 
 ' Spanking dispatch table
-' Add forwards to spnking routine entry in 7130-7149
+' Add forwards to spanking routine entry in 7130-7149
 
 [Action 7130]
 .set 117                ' Spanking lecture heard
-.set 264                ' spanking done - simpler to set it here
 .range 7131 7149
+
+' TODO  return here from gosub and call ach entry directly
 
 ' Spanking activity (from 5052-5053)
 [Action 7131]
