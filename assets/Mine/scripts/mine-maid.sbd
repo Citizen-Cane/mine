@@ -2891,15 +2891,19 @@ If you do, you're going to tell me immediately!
 .range 1898
 
 
+' break and immediate return isn't compatible with .break stack correction handling
+' but there's no other way to do it here when
+' the buttons should start displaying in the preparation section
+
 [Action 1898]
 .unset 1898
-.break 1700 6999 STOP 7300 CUM 9990 9991
+.break 1700 6999 suppressStackCorrectionOnBreak STOP 7300 CUM 9990 9991
 .return
 
 
 [Action 1899]
 .unset 1899
-.break 1700 6999 STOP 7300
+.break 1700 6999 suppressStackCorrectionOnBreak STOP 7300
 .return
 
 
@@ -11626,7 +11630,7 @@ You may detach the leash, slave.
 ' toys and clamps: announce to take off clamps last, remove other toys first, then remove clamps
 [Action 9406]
 .else
-.gosub 9420 9439             ' Remove toys first, then clamps or pegs
+.gosub 9420                  ' Remove toys first, then clamps or pegs
 .range 9409
 
 '[Action 9407]
@@ -12315,7 +12319,7 @@ Remove your gag, slave.
 ' np
 
 [Action 9560]
-.range 9561 9656
+.range 9561 9568
 
 ' nc pc
 [Action 9561]

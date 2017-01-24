@@ -2432,10 +2432,9 @@ You have thirty seconds.
 '   repetition decrementer
 
 [Action 3460]
+.must 50
 That's enough for now, my pet.
 .delay 10
-.must 50
-.gosub 9340             ' advance sucking level
 .range 3505 3514        ' Blow job end - Back to desk or continue
 
 [Action 3461]
@@ -2799,9 +2798,10 @@ Carry on teasing, my dirty slut.
 [Action 3519]
 .range 3520 3529
 
+
 ' Default
 [Action 3520]
-.range 3530 3531
+.range 3530
 
 ' wall mounted, nipple clamps attached to dildo
 '[Action 3521]
@@ -2815,13 +2815,18 @@ Carry on teasing, my dirty slut.
 '[Action 3529]
 
 
-' End of punishment
 [Action 3530]
+.gosub 9340             ' advance sucking level
+.range 3531 3532
+
+
+' End of worshiping
+[Action 3531]
 .mustnot 9              ' can't ride 
 .range 4380             ' end of dildo worshiping, clean up, put away toys
 
 ' or continue with riding activity
-[Action 3531]
+[Action 3532]
 .must 9                 ' can ride
 .range 3540 3559        ' continue scenario
 
