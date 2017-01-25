@@ -6695,10 +6695,12 @@ You can leave it in there for our entire session, slave.
 [Action 2582]
 .mustnot 29 33          ' Blindfolded, can't kneel
 .shouldnot 264          ' spanking already done
-'.save 50 799
-'.loadsbd mine-paddle.sbd 3013 3013
+.should 751             ' asswhipping 1
+.gosub 7100             ' Ensure paddle or replacement
 .set 264                ' Spanking done
-.range 7100             ' Ensure paddle or replacement
+.set 751 752            ' asswhipping 2
+.save 50 799
+.loadsbd mine-paddle.sbd 3013 3013
 
 
 [Action 2585]
@@ -7043,8 +7045,12 @@ Now keep that cock tall and proud or we'll have to go again.
 
 [Action 2630]
 .shouldnot 264                    ' spanking already done
-.set 264                          ' Spanking done
 .range 7100                       ' Ensure paddle or replacement
+.set 264                          ' Spanking done
+.set 751                          ' asswhipping 1
+.save 50 799
+.loadSbd mine-paddle.sbd 3022 3022
+
 
 [Action 2635]
 ' No corner time is given after this spanking
@@ -7056,8 +7062,12 @@ Now keep that cock tall and proud or we'll have to go again.
 ' paddle fast x160
 [Action 2640]
 .shouldnot 264                    ' spanking already done
+.should 751                       ' asswhipping 2
+.gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
-.range 7100                       ' Ensure paddle or replacement
+.set 751 752                      ' asswhipping 2
+.save 50 799
+.loadsbd mine-paddle.sbd 3016 3016
 
 
 [Action 2645]
@@ -7070,8 +7080,12 @@ Now keep that cock tall and proud or we'll have to go again.
 ' paddle x400
 [Action 2650]
 .shouldnot 264                    ' spanking already done
+.should 752                       ' asswhipping 2
+.gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
-.range 7100                       ' Ensure paddle or replacement
+.set 751 752 753                  ' asswhipping 3
+.save 50 799
+.loadsbd mine-paddle.sbd 3017 3017
 
 ' shower 15m, 200 paddles, clamps
 [Action 2651]
@@ -7106,8 +7120,12 @@ Now keep that cock tall and proud or we'll have to go again.
 ' paddle x400
 [Action 2660]
 .shouldnot 264                    ' spanking already done
+.should 752                       ' asswhipping 2
 .set 264                          ' Spanking done
-.range 7100                       ' Ensure paddle or replacement
+.gosub 7100                       ' Ensure paddle or replacement
+.set 751 752 753                  ' asswhipping 3
+.save 50 799
+.loadsbd mine-paddle.sbd 3015 3015
 
 ' Maid training
 [Action 2661]
@@ -7136,8 +7154,12 @@ I'll get you next time, you dirty slave!
 ' paddle x240
 [Action 2671]
 .shouldnot 264                    ' spanking already done
+.should 752                       ' asswhipping 2
+.gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
-.range 7100                       ' Ensure paddle or replacement
+.set 751 752 753                  ' asswhipping 3
+.save 50 799
+.loadsbd mine-paddle.sbd 3014 3014
 
 [Action 2672]
 .poss 100                         ' Prefer this since his punishment is about failing training
@@ -7188,8 +7210,12 @@ I'll get you next time, you dirty slave!
 ' paddle x400
 [Action 2683]
 .shouldnot 264                    ' spanking already done
+.should 752                       ' asswhipping 2
+.gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
-.range 7100                       ' Ensure paddle or replacement
+.set 751 752 753                  ' asswhipping 3
+.save 50 799
+.loadsbd mine-paddle.sbd 3023 3023
 
 
 [Action 2685]
@@ -7623,15 +7649,28 @@ Hopefully this will get through to you!
 .range 2448
 
 ' paddle x160
-' paddle x400
 [Action 2983]
+.shouldnot 264                    ' spanking already done
+.should 751                       ' asswhipping 1
+.gosub 7100                       ' Ensure paddle or replacement
+.set 264                          ' Spanking done
+.set 751 752                      ' Asswhipping 1 & 2
 .save 50 799
-'.loadsbd mine-paddle.sbd 3020 3020
-.range 7100             ' Ensure paddle or replacement
+.loadsbd mine-paddle.sbd 3020 3020
+
+' paddle x400
+[Action 2984]
+.shouldnot 264                    ' spanking already done
+.should 752                       ' asswhipping 2
+.gosub 7100                       ' Ensure paddle or replacement
+.set 264                          ' Spanking done
+.set 751 752 753                  ' asswhipping 3
+.save 50 799
+.loadsbd mine-paddle.sbd 3021 3021
 
 
 [Action 2985]
-.set 258                ' Corner time given after spanking in mine-paddle
+.set 258                          ' Corner time given after spanking in mine-paddle
 .range 2448
 
 
@@ -7669,12 +7708,23 @@ Hopefully this will get through to you!
 .range 2449
 
 ' paddle x160
-' paddle x400
 [Action 2993]
-.set 752                ' Asswhipping 2
-'.save 50 799
-'.loadsbd mine-paddle.sbd 3018 3018
-.range 7100             ' Ensure paddle or replacement
+.shouldnot 264                    ' spanking already done
+.should 751                       ' asswhipping 1
+.gosub 7100                       ' Ensure paddle or replacement
+.set 264                          ' Spanking done
+.set 751 752                      ' Asswhipping 1 & 2
+.save 50 799
+.loadsbd mine-paddle.sbd 3018 3018
+
+' paddle x400
+[Action 2994]
+.shouldnot 264                    ' spanking already done
+.should 752                       ' asswhipping 2
+.gosub 7100                       ' Ensure paddle or replacement
+.set 751 752 753                  ' asswhipping 3
+.save 50 799
+.loadsbd mine-paddle.sbd 3019 3019
 
 
 [Action 2995]
@@ -11165,16 +11215,14 @@ I think you could use some strict self-bondage for today's session.
 [Action 5052]
 .mustnot 264            ' Done spanking activity already
 I think that ass could use a good tanning.
-'.range 5600
-.range 7100
+.range 5600
 
 [Action 5053]
 .must 264               ' Done spanking activity already
 .mustnot 275            ' Done spanking in activity already
 I think that ass could use another good tanning.
 .set 275
-'.range 5600
-.range 7100
+.range 5600
 
 
 ' Dildo worshiping
@@ -11891,6 +11939,7 @@ You'll be punished later for failing your training.
 [Action 5601]
 .mustnot 33             ' can't kneel
 .timeto 49 -00:04"00
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5751
@@ -11901,6 +11950,7 @@ You'll be punished later for failing your training.
 .must 751               ' asswhipping 1
 .timeto 49 -00:06"00
 .timeto 276 -00:06"00   ' holding the enema
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5752
@@ -11911,6 +11961,7 @@ You'll be punished later for failing your training.
 .must 751 752           ' asswhipping 2
 .timeto 49 -00:09"00
 .timeto 276 -00:09"00   ' holding the enema
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5753
@@ -11929,6 +11980,7 @@ You'll be punished later for failing your training.
 .must 753               ' asswhipping 3
 .timeto 49 -00:35"00
 .timeto 276 -00:35"00
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5754
@@ -11942,6 +11994,7 @@ You'll be punished later for failing your training.
 .must 754               ' asswhipping 4
 .timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5755
@@ -11959,6 +12012,7 @@ You'll be punished later for failing your training.
 .must 753               ' asswhipping 3
 .timeto 49 -00:35"00
 .timeto 276 -00:35"00   ' holding the enema
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5754
@@ -11973,6 +12027,7 @@ You'll be punished later for failing your training.
 .must 754               ' asswhipping 4
 .timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5755
@@ -11990,6 +12045,7 @@ You'll be punished later for failing your training.
 .must 753               ' asswhipping 3
 .timeto 49 -00:35"00
 .timeto 276 -00:35"00   ' holding the enema
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5754
@@ -12004,6 +12060,7 @@ You'll be punished later for failing your training.
 .must 754               ' asswhipping 4
 .timeto 49 -00:65"00
 .timeto 276 -00:65"00   ' holding the enema
+.gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
 .range 5755
@@ -12854,11 +12911,12 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 
 
 
-' 7100 Get paddle replacement:
-' Call 7100 from punishment decision action, can remove .must 370 (paddle)
+' Get spanking replacement:
+' Call 7100 from before punishment action,
+' use existing implement (crop or paddle, hair brush, wooden spoon),
 ' Ask for hairbrush or wooden spoon,
 ' Use bare hands if slave has neither
-' Dispatch table at 7131-7149 forwards to actual punishment entry
+' give assignment to get a crop or paddle
 
 [Action 7100]
 .range 7101 7109
@@ -12866,15 +12924,15 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 
 [Action 7101]
 .must 370               ' Have paddle
-.range 7130
+.range 7129
 
 [Action 7102]
 .must 371               ' Have hair brush
-.range 7130
+.range 7129
 
 [Action 7103]
 .must 372               ' Have wooden spoon
-.range 7130
+.range 7129
 
 [Action 7104]
 .mustnot 370 371 372     ' Have neither
@@ -12884,7 +12942,7 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 [Action 7105]
 .mustnot 370 371 372
 .must 676               ' Get a paddle, don't tell lecture again
-.range 7130
+.range 7129
 
 
 '[Action 7107]
@@ -12926,7 +12984,7 @@ Very good, my pet.
 Go fetch it for me!
 .pause I have it, Miss
 .set 372                ' Have wooden spoon
-.range 7129
+.range 7128
 
 [Action 7119]
 What, no wooden spoon?
@@ -12955,7 +13013,7 @@ Very good, my little bitch.
 Go fetch it for me!
 .pause I have it, Miss
 .set 371                ' Have hair brush
-.range 7129
+.range 7128
 
 
 [Action 7123]
@@ -12972,119 +13030,24 @@ you're going to get one before our next visit together!
 In the meantime, you can use your bare hand.
 .pause Yes, Miss
 .set 676                ' Get a paddle
-.range 7128
-
+.range 7126
 
 ' bare hand
-[Action 7128]
+[Action 7126]
 And now listen carefully to my instructions!
-.range 7130
+.range 7129
 
 ' hair brush or wooden spoon
-[Action 7129]
+[Action 7128]
 Very good, my little pet.
 Now take your "paddle" and carefully listen to my instructions.
-.range 7130
+.range 7129
 
 
-' Spanking dispatch table
-' Add forwards to spanking routine entry in 7130-7149
-
-[Action 7130]
+[Action 7129]
 .set 117                ' Spanking lecture heard
-.range 7131 7149
+.return
 
-' TODO  return here from gosub and call ach entry directly
-
-' Spanking activity (from 5052-5053)
-[Action 7131]
-.must 273
-.range 5600
-
-' 508 inattentiveness paddle x160
-[Action 7132]
-'.must 751              ' asswhipping 1
-.must 2582
-.set 751 752            ' asswhipping 2
-.save 50 799
-.loadsbd mine-paddle.sbd 3013 3013
-
-' 513 Voluntary punishment upon slave's request, level 1
-[Action 7133]
-.must 2630
-.set 751                ' asswhipping 1
-.save 50 799
-.loadSbd mine-paddle.sbd 3022 3022
-
-' 514 Voluntary punishment upon slave's request, level 2
-[Action 7134]
-'.must 751               ' asswhipping 1
-.must 2640
-.set 751 75             ' asswhipping 2
-.save 50 799
-.loadsbd mine-paddle.sbd 3016 3016
-
-' 515 Voluntary punishment upon slave's request, level 3
-[Action 7135]
-'.must 752               ' asswhipping 2
-.must 2650
-.set 751 752 753        ' asswhipping 3
-.save 50 799
-.loadsbd mine-paddle.sbd 3017 3017
-
-' 516 excessive disobedience paddle x400
-[Action 7136]
-.must 2660
-.save 50 799
-.loadsbd mine-paddle.sbd 3015 3015
-
-' 517 training failure 1 paddle x240
-[Action 7137]
-'.must 752               ' asswhipping 2
-.must 2671
-.set 751 752 753        ' asswhipping 3
-.save 50 799
-.loadsbd mine-paddle.sbd 3014 3014
-
-' 518 training failure 1 paddle x400
-[Action 7138]
-'.must 752               ' asswhipping 2
-.must 2671
-.set 751 752 753        ' asswhipping 3
-.save 50 799
-.loadsbd mine-paddle.sbd 3023 3023
-
-' 548 Escaping punishment (cancel handler) paddle x160
-[Action 7140]
-.must 2983
-.set 751 752            ' Asswhipping 1 & 2
-.save 50 799
-.loadsbd mine-paddle.sbd 3020 3020
-
-' 548 Escaping punishment (cancel handler) paddle x400
-[Action 7141]
-.must 752               ' Asswhipping 2
-.must 2983
-.set 753                ' asswhipping 3
-.save 50 799
-.loadsbd mine-paddle.sbd 3021 3021
-
-' 549 Escaping punishment (quit handler) paddle x160
-[Action 7142]
-.must 2993
-.set 751 752            ' Asswhipping 1 & 2
-.save 50 799
-.loadsbd mine-paddle.sbd 3018 3018
-
-' 549 Escaping punishment (quit handler) paddle x400
-[Action 7143]
-.must 752               ' ass whipping 2
-.must 2993
-.set 753                ' asswhipping 3
-.save 50 799
-.loadsbd mine-paddle.sbd 3019 3019
-
-'[Action 7149]
 
 
 ' Common entry for failed activities
