@@ -126,11 +126,11 @@ public class Mine extends Player {
         state.addToyMapping(MappedState.Global, 373, item(Toys.Ruler));
         state.addToyMapping(MappedState.Global, 374, item(Toys.Enema_Bulb));
 
-        // state mappings
+        // session state mappings
+        // TODO These are currently indefinite, but should scope to the session
+
         state.addStateMapping(MappedState.Global, 20,
                 state(Body.SomethingOnNipples));
-        state.addStateMapping(MappedState.Global, 21,
-                state(Body.SomethingInButt));
         state.addStateMapping(MappedState.Global, 22,
                 state(Body.SomethingInMouth));
         state.addStateMapping(MappedState.Global, 23,
@@ -151,15 +151,24 @@ public class Mine extends Player {
         state.addStateMapping(MappedState.Global, 34,
                 state(Body.CannotTypeOrUseMouse));
         state.addStateMapping(MappedState.Global, 35, state(Body.Tethered));
-        state.addStateMapping(MappedState.Global, 36, state(Body.Harnessed));
 
         state.addStateMapping(MappedState.Global, 44, state(Body.Chastified));
+
+        // Timed states
+        // TODO These are timed states with assignments,
+        // and should be handled as timed states -> mapping mut be timed
+
+        state.addStateMapping(MappedState.Global, 21,
+                state(Body.SomethingInButt));
+        state.addStateMapping(MappedState.Global, 36, state(Body.Harnessed));
+
+        // Indefinite states
 
         String mainScript = "Mine";
         state.addStateMapping(mainScript, 95, state(Assignments.NextSession));
         state.addStateMapping(mainScript, 267, state(Assignments.Enema));
 
-        // state elapsed mappings
+        // state time mappings
         // TODO Should map to TimeLock device state, see Mine.sbd:[action 9255]
         state.addStateTimeMapping(MappedState.Global, 45,
                 state(Body.Chastified));
