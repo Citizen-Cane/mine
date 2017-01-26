@@ -2526,7 +2526,8 @@ so remind me later on to give you a little extra reminder on masturbating correc
 [Action 1251]
 .must 267               ' Carry out enema
 .poss 100
-.range 1660
+.gosub 1660
+.range 1299 1301          ' On to cum-query 
 
 ' Tied question
 [Action 1252]
@@ -4106,12 +4107,12 @@ We will talk about this in a minute.
 
 [Action 1587]
 I'm glad to see you've gotten that enema kit, slave.
-You are going to take your first enema next time.
+You'll be taking your first enema next time.
 We'll talk about this at the end of the session.
+' where we trigger the enema assignment for the next session (in 9001)
 .must 383
 .must 681
 .unset 681
-.set 267                ' Prepare enema for next session
 .range 1591 1595
 
 [Action 1588]
@@ -4947,7 +4948,7 @@ in order to ensure the necessary descent for the liquid to flow.
 
 
 [Action 1759]
-.range 1299 1301          ' On to cum-query 
+.return 
 
 ' The nozzle will stay plugged in until the end of the punishment
 ' cycle so the slave is tethered to the computer area until then
@@ -7045,7 +7046,7 @@ Now keep that cock tall and proud or we'll have to go again.
 
 [Action 2630]
 .shouldnot 264                    ' spanking already done
-.range 7100                       ' Ensure paddle or replacement
+.gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751                          ' asswhipping 1
 .save 50 799
