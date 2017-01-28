@@ -221,21 +221,29 @@ public class Mine extends Player {
     public void punish(Punishment punishment) {
         switch (punishment) {
         case BadIntroduction:
-            set("mine.500", 1);
+            setScriptState(MainScript, 500, 1);
             break;
         case NotNaked:
-            if (getInteger("mine.502") == 1) {
-                set("mine.503", 1);
+            if (getScriptState(MainScript, 502) == 1) {
+                setScriptState(MainScript, 503, 1);
             } else {
-                set("mine.502", 1);
+                setScriptState(MainScript, 502, 1);
             }
             break;
         case CummingWithoutPermission:
-            set("mine.519", 1);
+            setScriptState(MainScript, 519, 1);
             break;
         default:
             break;
         }
+    }
+
+    private int getScriptState(String scriptName, int n) {
+        return getInteger(scriptName + "." + n);
+    }
+
+    private void setScriptState(String scriptName, int n, int value) {
+        set(scriptName + "." + n, value);
     }
 
     public <T> void override(T toy, boolean available) {
