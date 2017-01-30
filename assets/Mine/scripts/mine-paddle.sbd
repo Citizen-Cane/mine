@@ -8,8 +8,8 @@
 ' clear actions that have been set in another script, critical as these aren't cleared automatically
 .resetrange 800 99999
 
-.resetrange 50 130      ' reset all temp variables from main script but keep slave state, toys and achievements
-                        ' range 131-139 is used to store lectures gien in mine-paddle  
+.resetrange 100 130     ' reset all temp variables from main script but keep slave state, toys and achievements
+                        ' range 131-139 is used to access lectures flags given in mine-paddle but stored by the main script  
 .resetrange 140 199     ' reset all temp variables from main script but keep slave state, toys and achievements  
 
 ' The action number to indicate that the slave is wearing a gag
@@ -39,9 +39,9 @@
 ' * 188 2605    2711            2719                    Didn't perform assignment
 ' * 189 2620    2740            2749                    -
 
-'   97 3002    5802 -> 5952     5852   -       1       weight from balls easy
-'   98 3003    5803 -> 5953     5853   -       1       weight from balls medium
-'   99 3004    5804 -> 5954     5854   -       2       weight from balls hard
+'   177 3002   5802 -> 5952     5852   -       1       weight from balls easy
+'   178 3003   5803 -> 5953     5853   -       1       weight from balls medium
+'   179 3004   5804 -> 5954     5854   -       2       weight from balls hard
 '   160 3010   5601 -> 5751     5651   -       1       paddle x40
 '   161 3011   5602 -> 5752     5652   -               paddle x60
 '   162 3012   5603 -> 5753     5653   -               paddle x100
@@ -3084,17 +3084,17 @@ A disobedient slut that's going to be punished.
 
  ' Weight drop from balls light
 [Action 3002]
-.set 97
+.set 177
 .range 3050
 
 ' Weight drop from balls medium
 [Action 3003]
-.set 98
+.set 178
 .range 3051
 
 ' Weight drop from balls heavy
 [Action 3004]
-.set 99
+.set 179
 .range 3052
 
 
@@ -4174,15 +4174,15 @@ You may remove the weight now, slave.
 .loadSbd Mine.sbd 2635
 
 [Action 9801]
-.must 97
+.must 177
 .loadsbd Mine.sbd 5852
 
 [Action 9802]
-.must 98
+.must 178
 .loadsbd Mine.sbd 5853
 
 [Action 9803]
-.must 99
+.must 179
 .loadsbd Mine.sbd 5854
 
 [Action 9810]

@@ -3,11 +3,7 @@
 ' Original RELEASE version 1.01 (07 MAR 2006)
 
 ' This restores range 50 to 799
-' if more slave state is needed go up to 90 (or 100) or move temp variables in sub scripts
-' 50 - blocked by mine-dildo, mine-td
-' 60 - blocked by mine-ooe
-' 90 - blocked by mine-maid
-' 97 - blocked by mine-paddle
+' if more slave state is needed go up to 99 or relocate temp variables in sub scripts
 .restore
 
 ' temp variables
@@ -16664,8 +16660,14 @@ It's clear to me that you're not interested in following orders and I've run out
 You can start your training over with some other Mistress, cunt.
 Goodbye.
 .pause Please, don't leave me, Miss
-.resetrange 60 359
-.resetrange 400 599
+' reset the complete game state
+.resetrange  50 94
+.unset 95               ' mapped states must be unset explicitely
+.resetrange  96 266
+.unset 267              ' mapped states must be unset explicitely
+.resetrange 268 359
+' skip mapped toy range 360-389
+.resetrange 390 599
 .save 50 799
 .range 9501
 

@@ -19,15 +19,15 @@
 ' -20 something on nipples
 ' -22 something in mouth
 
-' 50-59 counter for wanking
-' 60-62 wanking duration
+' 150-159 counter for wanking
+' 160-162 wanking duration
 
 ' 100-116 activities
 
-' 70 ankles and wrists tied - currently not used
-' 71 ankles and wrists tied, locked
+' 170 ankles and wrists tied - currently not used
+' 171 ankles and wrists tied, locked
 
-.resetrange 50 119
+.resetrange 100 179
 
 ' clear sub script temporary range 
 .resetrange -799 1
@@ -37,21 +37,21 @@
 
 .range 1000
 
-.askcheck 50 50 50: 0 repetitions: finished.
-.askcheck 51 51 51: 1 repetition.
-.askcheck 52 52 52: 2 reps.
-.askcheck 53 53 53: 3 reps.
-.askcheck 54 54 54: 4 reps.
-.askcheck 55 55 55: 5 reps.
-.askcheck 56 56 56: 6 reps.
-.askcheck 57 57 57: 7 reps.
-.askcheck 58 58 58: 8 reps.
-.askcheck 59 59 59: 9 reps.
+.askcheck 50 150 150: 0 repetitions: finished.
+.askcheck 51 151 151: 1 repetition.
+.askcheck 52 152 152: 2 reps.
+.askcheck 53 153 153: 3 reps.
+.askcheck 54 154 154: 4 reps.
+.askcheck 55 155 155: 5 reps.
+.askcheck 56 156 156: 6 reps.
+.askcheck 57 157 157: 7 reps.
+.askcheck 58 158 158: 8 reps.
+.askcheck 59 159 159: 9 reps.
 
-.askcheck 60 60 60: 3 minutes.
-.askcheck 61 61 61: 5 min.
-.askcheck 62 62 62: 10 min.
-.askcheck 63 63 63: 15 min.
+.askcheck 60 160 160: 3 minutes.
+.askcheck 61 161 161: 5 min.
+.askcheck 62 162 162: 10 min.
+.askcheck 63 163 163: 15 min.
 '   Returns
 '   #   Entry       From        Good    Bad     +   -   Desc
 '   101 1101    6001 -> 6151    6051    6101    2   5   MISSKRISS-style wanking 2-3x10m
@@ -59,15 +59,15 @@
 '   103 1103    6003 -> 6153    6053    6103    3   3   Diary of Carolyn Ch. 1 excerpt
 '   104 1104    2595            2419    9500    -       1hr punishment wank
 '   105 1105    6004 -> 6154    6054    6104    1   5   2 x  5m or less
-'   106 1106    6005 -> 6155    6055    6105    1   5   5 x  3m (55 60)
-'   107 1107    6006 -> 6156    6056    6106    1   5   2 x 10m (52 62)
-'   108 1108    6007 -> 6157    6057    "       1   5   4 x  5m (54 61)
-'   109 1109    6008 -> 6158    6058    "       1   5   7 x  3m (57 60)
-'   110 1110    6009 -> 6159    6059    "       1   5   3 x 10m (53 62)
-'   111 1111    6010 -> 6160    6060    "       1   5   5 x  5m (55 61)
-'   112 1112    6011 -> 6161    6061    "       1   5   9 x  3m (59 60)
-'   113 1113    6012 -> 6162    6062    "       2   5   4 x 10m (54 62)
-'   114 1114    6013 -> 6163    6063    "       2   5   9 x  5m (59 61)
+'   106 1106    6005 -> 6155    6055    6105    1   5   5 x  3m (155 160)
+'   107 1107    6006 -> 6156    6056    6106    1   5   2 x 10m (152 162)
+'   108 1108    6007 -> 6157    6057    "       1   5   4 x  5m (154 161)
+'   109 1109    6008 -> 6158    6058    "       1   5   7 x  3m (157 160)
+'   110 1110    6009 -> 6159    6059    "       1   5   3 x 10m (153 162)
+'   111 1111    6010 -> 6160    6060    "       1   5   5 x  5m (155 161)
+'   112 1112    6011 -> 6161    6061    "       1   5   9 x  3m (159 160)
+'   113 1113    6012 -> 6162    6062    "       2   5   4 x 10m (154 162)
+'   114 1114    6013 -> 6163    6063    "       2   5   9 x  5m (159 161)
 '   115 1115    5404 -> 6014    6064            2       slavesinlove bd186 activity
 '   116 1116    6013 -> 6163    2401            -       slavesinlove bd186 punishment
 
@@ -78,10 +78,10 @@
 .menu 42  1103 1103 Diary of Carolyn Ch. 1 excerpt
 .menu 43  1104 1104 1hr punishment wanking
 .menu 44  1115 1115 slavesinlove bd186
-.menu 45  1105 1105 tease and denial 2 x  5m (52 61)
-.menu 46  1106 1106 tease and denial 5 x  3m (55 60)
-.menu 47  1107 1107 tease and denial 2 x 10m (52 62)
-.menu 48  1109 1109 tease and denial 7 x  3m (57 60)
+.menu 45  1105 1105 tease and denial 2 x  5m (152 161)
+.menu 46  1106 1106 tease and denial 5 x  3m (155 160)
+.menu 47  1107 1107 tease and denial 2 x 10m (152 162)
+.menu 48  1109 1109 tease and denial 7 x  3m (157 160)
 .menu 49  1000 1000 Exit
 
 [Action 990]
@@ -122,47 +122,47 @@
 
 ' 5 x  3m
 [Action 1106]
-.set 55 60 106
+.set 155 160 106
 .range 2022 2023
 
 ' 2 x 10m
 [Action 1107]
-.set 52 62 107 
+.set 152 162 107 
 .range 2024 2025
 
 ' 4 x  5m
 [Action 1108]
-.set 54 61 108
+.set 154 161 108
 .range 2030 2031
 
 ' 7 x  3m
 [Action 1109]
-.set 57 60 109
+.set 157 160 109
 .range 2030 2031
 
 ' 3 x 10m
 [Action 1110]
-.set 53 62 110
+.set 153 162 110
 .range 2030 2031
 
 ' 5 x  5m
 [Action 1111]
-.set 55 61 111
+.set 155 161 111
 .range 2030 2031
 
 ' 9 x  3m
 [Action 1112]
-.set 59 60 112
+.set 159 160 112
 .range 2030 2031
 
 ' 4 x 10m
 [Action 1113]
-.set 54 62 113
+.set 154 162 113
 .range 2030 2031
 
 ' 9 x  5m
 [Action 1114]
-.set 59 61 114
+.set 159 161 114
 .range 2030 2031
 
 ' slavesinlove 186 activity
@@ -184,7 +184,7 @@
 .timeto 49 -00:11"00    ' Clamps & pegs
 .timeto 276 -00:11"00   ' holding the enema
 .poss 100
-.set 53 60
+.set 153 160
 .range 2020 2021
 
 ' 2 x  5m
@@ -193,7 +193,7 @@
 .timeto 49 -00:11"00    ' Clamps & pegs
 .timeto 276 -00:11"00   ' holding the enema
 .poss 100
-.set 52 61
+.set 152 161
 .range 2020 2021
 
 ' 2 x 3m
@@ -202,7 +202,7 @@
 .shouldnot 726          ' Denial and self-control 1
 .timeto 49 -00:07"00    ' Clamps & pegs
 .timeto 276 -00:07"00   ' holding the enema
-.set 52 60
+.set 152 160
 .range 2020 2021
 
 ' 1 x  5m
@@ -210,14 +210,14 @@
 .should 726             ' Denial and self-control 1
 .timeto 49 -00:05"00    ' Clamps & pegs
 .timeto 276 -00:05"00   ' holding the enema
-.set 51 61
+.set 151 161
 .range 2020 2021
 
 ' 1 x 3m
 [action 1149]
 .else
 .shouldnot 726          ' Denial and self-control 1
-.set 51 60
+.set 151 160
 .range 2020 2021
 
 
@@ -226,14 +226,14 @@
 
 [Action 2010]
 .else
-.set 52 62              ' 2 x 10m
+.set 152 162              ' 2 x 10m
 .range 2012
 
 [Action 2011]
 .timeto 49 -00:34"00    ' 30 minutes plus preparation
 .timeto 276 -00:34"00   ' holding the enema
 .must 727               ' Denial and self-control 2
-.set 53 62              ' 3 x 10m
+.set 153 162              ' 3 x 10m
 .range 2012
 
 
@@ -1701,7 +1701,7 @@ there will be a reward for you later!
 
 [Action 2200]
 Part of your punishment is a good old-fashioned cocktease.
-.set 62 56
+.set 162 156
 .range 2201
 
 [Action 2201]
@@ -1768,7 +1768,7 @@ Go fetch your blindfold, and make sure you can hear my voice.
 .must 363 364 360 382        ' have wrist restraints, ankle restraints, chains, blindfold
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
 I want to be sure you're totally helpless for your punishment, slave. 
-.set 71                      ' addons, remember to remove
+.set 171                     ' addons, remember to remove
 .unset 2212
 .range 2220
 
@@ -1793,7 +1793,7 @@ Go fetch your blindfold, and make sure you can hear my voice.
 .must 727                    ' Denial and self-control 2
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
 I want to be sure you'll totally focussed on the job, slave. 
-.set 71                      ' search key
+.set 171                     ' search key
 .unset 2212
 .range 2220
 
@@ -1870,8 +1870,8 @@ Tell me when you're ready to put your blindfold on, slave!
 Now put on your blindfold,
 and prepare to lock your wrist and ankles together on my command. 
 .delay 20
-.unset 70                    ' select release comment
-.set 71                      ' retrieve keys to get free
+.unset 170                   ' select release comment
+.set 171                     ' retrieve keys to get free
 .unset 2225
 .range 2226
 
@@ -2237,65 +2237,65 @@ You're such a pussy!
 
 
 [Action 7101]
-.must 51
-.unset 51
-.set 50
+.must 151
+.unset 151
+.set 150
 .unset 7101
 .range 7999
 
 [Action 7102]
-.must 52
-.unset 52
-.set 51
+.must 152
+.unset 152
+.set 151
 .unset 7102
 .range 7999
 
 [Action 7103]
-.must 53
-.unset 53
-.set 52
+.must 153
+.unset 153
+.set 152
 .unset 7103
 .range 7999
 
 [Action 7104]
-.must 54
-.unset 54
-.set 53
+.must 154
+.unset 154
+.set 153
 .unset 7104
 .range 7999
 
 [Action 7105]
-.must 55
-.unset 55
-.set 54
+.must 155
+.unset 155
+.set 154
 .unset 7105
 .range 7999
 
 [Action 7106]
-.must 56
-.unset 56
-.set 55
+.must 156
+.unset 156
+.set 155
 .unset 7106
 .range 7999
 
 [Action 7107]
-.must 57
-.unset 57
-.set 56
+.must 157
+.unset 157
+.set 156
 .unset 7107
 .range 7999
 
 [Action 7108]
-.must 58
-.unset 58
-.set 57
+.must 158
+.unset 158
+.set 157
 .unset 7108
 .range 7999
 
 [Action 7109]
-.must 59
-.unset 59
-.set 58
+.must 159
+.unset 159
+.set 158
 .unset 7109
 .range 7999
 
@@ -2309,23 +2309,23 @@ You're such a pussy!
 
 [Action 8000]
 .unset 8000
-.must 60
+.must 160
 .range 8030
 
 [Action 8001]
 .unset 8001
-.must 61
+.must 161
 .range 8040
 
 [Action 8002]
-.must 62
+.must 162
 .unset 8002
 .range 8010
 
 [Action 8003]
 Fifteen minute sets aren't ready, slave!
 .unset 8003
-.must 63
+.must 163
 .range 9999
 
 '   ten minutes: SMSMFSSMFxSMFMFMFMFF
@@ -2612,14 +2612,14 @@ but you're not getting any release now.
 ' Pause comment between sets
 
 [Action 8900]
-.must 50
+.must 150
 .delay 15
 That's enough for now, My wanking slut.
 .range 8969                  ' Good ending
 
 [Action 8901]
 .mustnot 20
-.mustnot 50
+.mustnot 150
 That's it for that set, slave.
 I'll give you a minute to collect yourself. 
 .unset 8901
@@ -2627,7 +2627,7 @@ I'll give you a minute to collect yourself.
 
 [Action 8902]
 .must 20 42
-.mustnot 50
+.mustnot 150
 That's it for that set, slave.
 I'll give you a minute to collect yourself and enjoy your clothes pegs.
 .unset 8902
@@ -2635,7 +2635,7 @@ I'll give you a minute to collect yourself and enjoy your clothes pegs.
 
 [Action 8903]
 .must 20 43
-.mustnot 50
+.mustnot 150
 That's it for that set, slave.
 I'll give you a minute to collect yourself and enjoy your nipple clamps.
 .unset 8903
@@ -2644,7 +2644,7 @@ I'll give you a minute to collect yourself and enjoy your nipple clamps.
 [Action 8904]
 .must 44                ' Chastified
 .mustnot 45             ' have key for chastity cage
-.mustnot 50
+.mustnot 150
 Slave, you don't know how erotic this is.
 Me, the mistress, dressed as a gorgeous vixen, and on the floor you,
 the naked slave, endlessly teased but always denied. 
@@ -2653,35 +2653,35 @@ the naked slave, endlessly teased but always denied.
 [Action 8905]
 .mustnot 44             ' Chastified
 .must 45                ' have key for chastity cage
-.mustnot 50
+.mustnot 150
 Slave, you don't know how erotic this is.
 Me, the mistress, dressed as a gorgeous vixen, and on the floor you,
 the naked slave, solely wanking for my pleasure. 
 .range 8935
 
 [Action 8906]
-.mustnot 50
+.mustnot 150
 That's it for that set, slave.
 I'll give you a minute to collect yourself.
 .unset 8906
 .range 8936
 
 [Action 8907]
-.mustnot 50
+.mustnot 150
 That's it for that set, slave.
 I'll give you a minute to collect yourself.
 .unset 8907
 .range 8937
 
 [Action 8908]
-.mustnot 50
+.mustnot 150
 That's it for that set, slave.
 I'll give you a minute to collect yourself.
 .unset 8908
 .range 8938
 
 [Action 8909]
-.mustnot 50
+.mustnot 150
 .delay 50 60
 That's it for that set, slave.
 I'll give you a minute to collect yourself.
@@ -2771,16 +2771,16 @@ Just keep your hands off that prick and relax.
 ' release key
 
 [Action 8955]
-.must 70                     ' ankles and wrists tied
+.must 170                     ' ankles and wrists tied
 .range 9500 9599
 
 [Action 8956]
-.must 71                     ' ankles and wrists tied, locked
+.must 171                     ' ankles and wrists tied, locked
 .keyrelease release
 .range 9500 9599
 
 [Action 8959]
-.mustnot 70 71
+.mustnot 170 171
 .range 9500 9599
 
 
@@ -2897,30 +2897,33 @@ I love it!
 
 
 [Action 9191]
-.mustnot 29 70 71       ' no toys
+.mustnot 29 170 171       ' no toys
 .range 9199
 
 [Action 9196]
 By the way, you may remove your blindfold now, slave.
 .must 29
-.mustnot 71             ' key away, ankles tied 
+.mustnot 171             ' key away, ankles tied 
 .pause Thank you, Miss
+.unset 29
 .range 9199
 
 [Action 9197]
 .must 29
-.must 70                ' key away, ankles tied
+.must 170                ' key away, ankles tied
 By the way, you may remove the chains and take your blindfold off, slave.
 .keyrelease release
 .pause Thank you, Miss
+.unset 29 170
 .range 9199
 
 [Action 9198]
 .must 29
-.must 71                ' key away, ankles tied
+.must 171                ' key away, ankles tied
 By the way, you may crawl over to retrieve your keys and remove your chains and blindfold, slave.
 .keyrelease release
 .pause Thank you, Miss
+.unset 29 171
 .range 9199
 
 

@@ -21,7 +21,7 @@
 .resetrange 800 99999
 
 ' reset all temp variables from main script but keep slave state, toys and achievements
-.resetrange 50 179
+.resetrange 100 149
 
 ' clear sub script temporary range 
 .resetrange -799 1
@@ -32,31 +32,32 @@
 
 .range 1000
 
-
 '   #   Entry       From        Good    Bad     +   -   Description
 '    --- ------- --------------- ------- ------- -   -   -----------
-'   dildo punishment
-'   171 201 3000 3004
+'   dildo worshiping activity
+'   140 900-901 3010 3014 or 3020 3024
+'   dildo worshiping punishment
+'   141 201 3000 3004
 '   ... ... ....
-'   179 209 3000 3004
+'   149 209 3000 3004
 
 
 ' Dildo sucking/riding
-.askcheck 50 50 50: 0 repetitions: finished.
-.askcheck 51 51 51: 1 repetition.
-.askcheck 52 52 52: 2 reps.
-.askcheck 53 53 53: 3 reps.
-.askcheck 54 54 54: 4 reps.
-.askcheck 55 55 55: 5 reps.
-.askcheck 56 56 56: 6 reps.
-.askcheck 57 57 57: 7 reps.
-.askcheck 58 58 58: 8 reps.
-.askcheck 59 59 59: 9 reps.
+.askcheck 50 150 150: 0 repetitions: finished.
+.askcheck 51 151 151: 1 repetition.
+.askcheck 52 152 152: 2 reps.
+.askcheck 53 153 153: 3 reps.
+.askcheck 54 154 154: 4 reps.
+.askcheck 55 155 155: 5 reps.
+.askcheck 56 156 156: 6 reps.
+.askcheck 57 157 157: 7 reps.
+.askcheck 58 158 158: 8 reps.
+.askcheck 59 159 159: 9 reps.
 
-.askcheck 60 60 60: 3 minutes
-.askcheck 61 61 61: 4 minutes
-.askcheck 62 62 62: 5 minutes
-.askcheck 63 63 63: 7 minutes
+.askcheck 60 160 160: 3 minutes
+.askcheck 61 161 161: 4 minutes
+.askcheck 62 162 162: 5 minutes
+.askcheck 63 163 163: 7 minutes
 
 ' Toys
 .askcheck 75 20	20	-	something on nipples
@@ -111,7 +112,7 @@
 ' 180-184 sucking advance
 ' 185-189 riding advance
 ' ->
-' 70-74 combined advance =
+' 170-174 combined advance =
 '       only sucking: 180-184
 '       riding possible: minimum of 180-184 and 185-189 
 
@@ -121,8 +122,7 @@
 ' 778 - rode the dildo fully penetrated
 
 ' all currently set in 4350-4369
-' -> advance 70-74 here instead,
-'    then advance 776-780 based on 70-74 in 9850-9859
+' -> advance 170-174 there, then advance 776-780 based on 170-174 in 9850-9859
 
 ' Debug
 
@@ -163,53 +163,53 @@
 ' Dildo worshiping activity
 [Action 900]
 .mustnot 260            ' Already done this session
-.set 170
+.set 140
 .range 3010 3014
 
 ' Dildo worshiping activity, done before
 [Action 901]
 .must 260               ' Already done this session
-.set 170
+.set 140
 .range 3020 3024
 
 ' Dildo worshiping 504 general disobedience, level 1
 [Action 902]
-.set 172
+.set 142
 .range 3000 3004
 
 ' Dildo worshiping 507 attention deficit
 [Action 903]
-.set 173
+.set 143
 .range 3000 3004
 
 ' Dildo worshiping
 '[Action 904]
-'.set 174
+'.set 144
 '.range 3000 3004
 
 ' Dildo worshiping 501 mistress impatience
 [Action 905]
-.set 175
+.set 145
 .range 3000 3004
 
 ' Dildo worshiping 
 '[Action 906]
-'.set 176
+'.set 146
 '.range 3000 3004
 
 ' Dildo worshiping 
 '[Action 907]
-'.set 177
+'.set 147
 '.range 3000 3004
 
 ' Dildo worshiping 
 '[Action 908]
-'.set 178
+'.set 148
 '.range 3000 3004
 
 ' Dildo worshiping
 '[Action 909]
-'.set 179
+'.set 149
 '.range 3000 3004
 
 
@@ -302,14 +302,14 @@
 [action 940]
 .set 180 181 182 183 184
 .set 185 186 187 188 189
-.set 170
+.set 140
 .set 756
 .range 3010 3014
 
 [action 941]
 .set 180 181 182 183 184
 .set 185 186 187 188 189
-.unset 170
+.unset 140
 .set 756
 .range 3000 3004
 
@@ -341,7 +341,7 @@ So, what will you be wearing, slave?
 
 ' first time
 [Action 991]
-.set 170                     ' Worshiping activity
+.set 140                     ' Worshiping activity
 .set 756                     ' Anal training 1
 .unset 776 777 778 779 780   ' Beginner
 .unset 180 181 182 183 184   ' Beginner
@@ -350,7 +350,7 @@ So, what will you be wearing, slave?
 
 ' second time
 [Action 992]
-.set 170                     ' Worshiping activity
+.set 140                     ' Worshiping activity
 .set 756                     ' Anal training 1
 .set 776
 .unset     777 778 779 780   ' Dildo worshiping 1
@@ -361,7 +361,7 @@ So, what will you be wearing, slave?
 
 ' full penetration
 [Action 993]
-.set 170                     ' Worshiping activity
+.set 140                     ' Worshiping activity
 .set 756                     ' Anal training 1
 .set 776 777
 .unset         778 779 780   ' Dildo worshiping 2
@@ -373,7 +373,7 @@ So, what will you be wearing, slave?
 
 ' advancement 1
 [Action 994]
-.set 170                     ' Worshiping activity
+.set 140                     ' Worshiping activity
 .set 756                     ' Anal training 1
 .set 776 777
 .unset         778 779 780   ' Dildo worshiping 2
@@ -385,7 +385,7 @@ So, what will you be wearing, slave?
 
 ' advancement 2
 [Action 995]
-.set 170                     ' Worshiping activity
+.set 140                     ' Worshiping activity
 .set 756                     ' Anal training 1
 .set 776 777
 .unset         778 779 780   ' Dildo worshiping 2
@@ -397,7 +397,7 @@ So, what will you be wearing, slave?
 
 ' advancement 3
 [Action 996]
-.set 170                     ' Worshiping activity
+.set 140                     ' Worshiping activity
 .set 756                     ' Anal training 1
 .set 776 777
 .unset         778 779 780   ' Dildo worshiping 2
@@ -409,7 +409,7 @@ So, what will you be wearing, slave?
 
 ' advancement 4
 [Action 997]
-.set 170                     ' Worshiping activity
+.set 140                     ' Worshiping activity
 .set 756                     ' Anal training 1
 .set 776 777
 .unset         778 779 780   ' Dildo worshiping 2
@@ -421,7 +421,7 @@ So, what will you be wearing, slave?
 
 ' level 5 punishment
 [Action 998]
-.unset 170                   ' Worshiping punishment
+.unset 140                   ' Worshiping punishment
 .set 756                     ' Anal training 1
 .set 776 777
 .unset         778 779 780   ' Dildo worshiping 2
@@ -431,7 +431,7 @@ So, what will you be wearing, slave?
 
 ' first time, not submitted to anal training
 [Action 999]
-.set 170                     ' Worshiping activity
+.set 140                     ' Worshiping activity
 .unset 756                   ' Anal training 1
 .unset 776 777 778 779 780   ' Dildo worshiping 0
 .unset 180 181 182 183 184   ' suck level 0
@@ -462,13 +462,13 @@ Your punishment will be to give your dildo a decent blow job.
 
 ' introduction
 [Action 3005]
-.mustnot 70             ' beginner
+.mustnot 170            ' beginner
 .gosub 3030             ' introduction
 .range 3249             ' on to scenario
 
 ' revisit
 [Action 3006]
-.must 70                ' advanced sucking
+.must 170               ' advanced sucking
 .gosub 3040 3044        ' revisit
 .range 3249             ' on to scenario
 
@@ -487,13 +487,13 @@ We will now train your dildo worshiping skills.
 
 ' introduction
 [action 3015]
-.mustnot 70             ' beginner
+.mustnot 170            ' beginner
 .gosub 3030             ' introduction
 .range 3249             ' on to scenario
 
 ' revisit
 [action 3016]
-.must 70                ' advanced sucking
+.must 170               ' advanced sucking
 .gosub 3040 3044        ' revisit
 .range 3249             ' on to scenario
 
@@ -666,7 +666,7 @@ delay 10
 .mustnot 26             ' wrists tied
 .must 363               ' wrist restraints
 .must 738               ' Restraints acceptance 2
-.must 70                ' achievement 1, or we might not be able to start the first scenario
+.must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 3220           ' hands needed next to head for blow job
 .mustnot 3221           ' grabbing the shaft
 '.mustnot 3222
@@ -692,7 +692,7 @@ delay 10
 .mustnot 25 26          ' ankles tied, wrists tied
 .must 363 364           ' wrist restraints, ankle restraints
 .must 737               ' Restraints acceptance 2
-.must 70                ' achievement 1, or we might not be able to start the first scenario
+.must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 3220           ' Can't kneel, must lie down
 .mustnot 3221           ' Can't kneel, must lie down, grabbing the shaft
 '.mustnot 3222
@@ -718,7 +718,7 @@ delay 10
 .mustnot 23 24          ' Something on penis, something on balls
 .must 363               ' Wrist restraints
 .must 738               ' Restraints acceptance 2
-.must 70                ' achievement 1, or we might not be able to start the first scenario
+.must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 3220           ' Hands next to head
 .mustnot 3221           ' Must lie down, grabbing the shaft
 '.mustnot 3222
@@ -742,7 +742,7 @@ delay 10
 ' wrists to collar
 [Action 3104]
 .must 28                ' collared
-.must 70                ' achievement 1, or we might not be able to start the first scenario
+.must 170               ' achievement 1, or we might not be able to start the first scenario
 .must 737               ' Restraints acceptance 2
 .must 363 365           ' wrist restraints, collar
 '.mustnot 3220          ' Hands next to head possible
@@ -785,23 +785,23 @@ But keep it handy, because you're going to put it back in after your worshiping 
 ' TODO assignment conflicts with optional key release 
 [Action 3110]
 Leave the keys to your restraints on the desk, you may need them later.
-.must 170
+.must 140
 .range 3119
 
 [Action 3111]
-.mustnot 170
+.mustnot 140
 .range 3119
 
 ' TODO assignment conflicts with optional key release
 [Action 3112]
-.must 170
+.must 140
 Leave the keys to your restraints on the floor in front of your desk,
 you may need them later.
 .keyrelease start 3600
 .range 3119
 
 [Action 3113]
-.mustnot 170
+.mustnot 140
 .keyrelease start 3600
 .range 3119
 
@@ -972,7 +972,7 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3160]
 .mustnot 21                       ' something in butt
 .mustnot 36                       ' Harnessed
-.must 170                         ' Only ride in activity
+.must 140                         ' Only ride in activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
 .must 756                         ' Anal training 1
 .NumActionsAvailable 3200 3219 1  ' only if at least one of the scenarios can be performed
@@ -986,7 +986,7 @@ so get your wrist restraints and lock your hands to your collar.
 .mustnot 21                       ' something in butt
 .mustnot 22                       ' something in mouth
 .mustnot 36                       ' Harnessed
-.must 170                         ' Only ride in activity
+.must 140                         ' Only ride in activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
 .mustnot 756                      ' Anal training 1 
 .NumActionsAvailable 3200 3219 1  ' only if at least one of the scenarios can be performed
@@ -1001,12 +1001,12 @@ so get your wrist restraints and lock your hands to your collar.
 .range 3180 3185        ' sucking only
 
 
-' sucking & riding : copy minimum of 180-184 and 185-189 to 70-74 
+' sucking & riding : copy minimum of 180-184 and 185-189 to 170-174 
 
 [Action 3170]
 .must 184
 .must 189
-.set 70 71 72 73 74
+.set 170 171 172 173 174
 .range 3196
 
 [Action 3171]
@@ -1017,8 +1017,8 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3172]
 .must 183
 .must 188
-.set 70 71 72 73
-.unset 74
+.set 170 171 172 173
+.unset 174
 .range 3196
 
 [Action 3173]
@@ -1029,8 +1029,8 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3174]
 .must 182
 .must 187
-.set 70 71 72
-.unset 73 74
+.set 170 171 172
+.unset 173 174
 .range 3196
 
 [Action 3175]
@@ -1041,8 +1041,8 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3176]
 .must 181
 .must 186
-.set 70 71
-.unset 72 73 74
+.set 170 171
+.unset 172 173 174
 .range 3196
 
 [Action 3177]
@@ -1053,95 +1053,95 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3178]
 .must 180
 .must 186
-.set 70
-.unset 71 72 73 74
+.set 170
+.unset 171 172 173 174
 .range 3196
 
 [Action 3179]
 .else
-.unset 70 71 72 73 74 75
+.unset 170 171 172 173 174
 .range 3196
 
 
-' sucking only : copy 170-174 to 70 74
+' sucking only : copy 180-184 to 170-174
 
 [action 3180]
 .must 184
-.set 70 71 72 73 74 
+.set 170 171 172 173 174 
 .range 3196
 
 [action 3181]
 .must 183
 .mustnot 184
-.set 70 71 72 73
-.unset 74 
+.set 170 171 172 173
+.unset 174 
 .range 3196
 
 [action 3182]
 .must 182
 .mustnot 183
-.set 70 71 72 
-.unset 73 74 
+.set 170 171 172 
+.unset 173 174 
 .range 3196
 
 [action 3183]
 .must 181
 .mustnot 182
-.set 70 71 
-.unset 72 73 74 
+.set 170 171 
+.unset 172 173 174 
 .range 3196
 
 [action 3184]
 .must 180
 .mustnot 181
-.set 70 
-.unset 71 72 73 74 
+.set 170 
+.unset 171 172 173 174 
 .range 3196
 
 [action 3185]
 .mustnot 180
-.unset 70 71 72 73 74 
+.unset 170 171 172 173 174 
 .range 3196
 
 
-' riding only : copy 175-179 to 70 74
+' riding only : copy 185-189 to 170-174
 
 [action 3190]
 .must 189
-.set 70 71 72 73 74 
+.set 170 171 172 173 174 
 .range 3196
 
 [action 3191]
 .must 188
 .mustnot 189
-.set 70 71 72 73
-.unset 74 
+.set 170 171 172 173
+.unset 174 
 .range 3196
 
 [action 3192]
 .must 187
 .mustnot 188
-.set 70 71 72 
-.unset 73 74 
+.set 170 171 172 
+.unset 173 174 
 .range 3196
 
 [action 3193]
 .must 186
 .mustnot 187
-.set 70 71 
-.unset 72 73 74 
+.set 170 171 
+.unset 172 173 174 
 .range 3196
 
 [action 3194]
 .must 185
 .mustnot 186
-.set 70 
-.unset 71 72 73 74 
+.set 170 
+.unset 171 172 173 174 
 .range 3196
 
 [action 3195]
 .mustnot 185
-.unset 70 71 72 73 74 
+.unset 170 171 172 173 174 
 .range 3196
 
 
@@ -1200,14 +1200,14 @@ so get your wrist restraints and lock your hands to your collar.
 ' 3222 On stool, kneeling, riding on stool
 [Action 3202]
 .mustnot 31 33          ' Can't sit on chair, can't stand
-.must 70                ' achievement 1, full penetration
+.must 170               ' achievement 1, full penetration
 .set 3222
 .return
 
 ' 3223 Kneeling upright in front of desk, squatting down to ride, worshiping version
 [Action 3203]
 .mustnot 33             ' Can't kneel
-.must 71                ' achievement 2, full penetration, nice exercise
+.must 171               ' achievement 2, full penetration, nice exercise
 .set 3223
 .return
 
@@ -1215,14 +1215,14 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3204]
 .mustnot 32             ' Can't stand 
 .mustnot 33             ' Can't kneel
-.must 71                ' achievement 2, full penetration
+.must 171               ' achievement 2, full penetration
 .set 3224
 .return
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
 [Action 3205]
 .mustnot 33             ' Can't kneel
-.must 72                ' achievement 3, full penetration
+.must 172               ' achievement 3, full penetration
 .set 3225
 .return
 
@@ -1230,7 +1230,7 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3206]
 .mustnot 25 26          ' Ankles, wrists tied
 .mustnot 32 33          ' Can't stand, Can't kneel 
-.must 72                ' achievement 3, full penetration
+.must 172               ' achievement 3, full penetration
 .set 3226
 .return
 
@@ -1245,7 +1245,7 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3208]
 .mustnot 32             ' Can't stand 
 .mustnot 33             ' can't kneel
-.must 74                ' achievement 5
+.must 174               ' achievement 5
 .set 3228
 .return
 
@@ -1253,12 +1253,12 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3209]
 .mustnot 32 33          ' Can't stand, can't kneel
 .mustnot 43             ' nipple clamps on nipples
-.must 73                ' achievement 4, full penetration
+.must 173               ' achievement 4, full penetration
 .must 362               ' Clothes pegs
 .set 3229
 .return
 
-' TODO two more 74 (achievement 5)
+' TODO two more 174 (achievement 5)
 
 
 
@@ -1285,25 +1285,25 @@ so get your wrist restraints and lock your hands to your collar.
 ' 3222 On stool, kneeling, riding on stool
 [Action 3222]
 .mustnot 33             ' Can't kneel
-.must 70                ' advancement 1, full penetration
+.must 170               ' advancement 1, full penetration
 .return
 
 ' 3223 Kneeling upright in front of desk, squatting down to ride, worshiping version
 [Action 3223]
 .mustnot 33             ' Can't kneel 
-.must 71                ' advancement 2, full penetration, nice exercise
+.must 171               ' advancement 2, full penetration, nice exercise
 .return
 
 ' 3224 Mount dildo on wall or cupboard, suck kneeling upright, ride standing, bending forward, supported by chair or opposite wall
 [Action 3224]
 .mustnot 33             ' Can't kneel
-.must 71                ' advancement 2, full penetration
+.must 171               ' advancement 2, full penetration
 .return
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
 [Action 3225]
 .mustnot 33             ' Can't kneel
-.must 72                ' advancement 3, full penetration
+.must 172               ' advancement 3, full penetration
 .return
 
 ' 3226 Dildo yoga only available for sucking & riding
@@ -1319,14 +1319,14 @@ so get your wrist restraints and lock your hands to your collar.
 ' 3228 Suck standing, ride on all four
 [Action 3228]
 .mustnot 32             ' can't stand
-.must 74                ' advancement 5, full penetration
+.must 174               ' advancement 5, full penetration
 .return
 
 ' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs 
 [Action 3229]
 .mustnot 32             ' can't stand
 .mustnot 43             ' nipple clamps on nipples
-.must 73                ' advancement 4, full penetration
+.must 173               ' advancement 4, full penetration
 .must 362               ' Clothes pegs
 .return
 
@@ -1336,7 +1336,7 @@ so get your wrist restraints and lock your hands to your collar.
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 [Action 3234]
 .mustnot 26             ' wrists tied
-.mustnot 170            ' Worshiping activity
+.mustnot 140            ' Worshiping activity
 .must 382               ' have blindfold
 .must 181               ' achievement 1, because it's a difficult scenario
 .return
@@ -1345,33 +1345,33 @@ so get your wrist restraints and lock your hands to your collar.
 [Action 3235]
 .must 103               ' Mistress impatient
 .mustnot 33             ' Can't kneel 
-.mustnot 170            ' Worshiping activity
+.mustnot 140            ' Worshiping activity
 .return
 
 ' 3236 Mount dildo on a wall or cupboard, kneel upright, arms behind head
 [Action 3236]
 .mustnot 33             ' Can't kneel 
-.mustnot 170            ' Worshiping activity
+.mustnot 140            ' Worshiping activity
 .return
 
 ' 3237 Mount dildo on a window pane or mirror, sit on heels, nipple clamps
 [Action 3237]
 .mustnot 33             ' Can't kneel 
 .mustnot 42             ' clothes pegs on nipples
-.mustnot 170            ' Worshiping activity
+.mustnot 140            ' Worshiping activity
 .must 361               ' have nipple clamps
 .return
 
 ' 3238 Kneeling upright in front of desk - punishment version
 [Action 3238]
 .mustnot 33             ' Can't kneel 
-.mustnot 170            ' Worshiping activity
+.mustnot 140            ' Worshiping activity
 .return
 
 ' 3239 Wall mounted, nipple clamps attached to dildo 
 [Action 3239]
 .mustnot 42             ' clothes pegs on nipples
-.mustnot 170            ' Worshping activity
+.mustnot 140            ' Worshping activity
 .must 361               ' have nipple clamps
 .return
 
@@ -2286,7 +2286,7 @@ You have thirty seconds.
 
 ' Reset duration counter for blow job
 [Action 3442]
-.unset 50 51 52 53 54 55 56 57 58 59 60 61 62 63
+.unset 150 151 152 153 154 155 156 157 158 159 160 161 162 163
 .range 3443 3444
 
 
@@ -2308,55 +2308,55 @@ You have thirty seconds.
 
 [Action 3445]           ' 2 x 2 minutes
 .else
-.must 170               ' Dildo worshping activity
+.must 140               ' Dildo worshping activity
 .shouldnot 713 714 715  ' Dildo worshiping 3-5
-.set 52 60
+.set 152 160
 .range 3460 3469
 
 [Action 3446]           ' 1 x 5 minutes
-.must 170               ' Dildo worshping activity
+.must 140               ' Dildo worshping activity
 .must 180               ' Dildo worshiping 1
 .shouldnot 714 715      ' Dildo worshiping 4-5
-.set 51 62
+.set 151 162
 .range 3460 3469
 
 [Action 3447]           ' 2 x 3 minutes
-.must 170               ' Dildo worshping activity
+.must 140               ' Dildo worshping activity
 .must 181               ' Dildo worshiping 2
 .shouldnot 715          ' Dildo worshiping 5
-.set 52 61
+.set 152 161
 .range 3460 3469
 
 [Action 3448]           ' 4 x 2 minutes
-.must 170               ' Dildo worshping activity
+.must 140               ' Dildo worshping activity
 .must 182               ' Dildo worshiping 3
 .timeto 49 -00:10"00    ' 8 + 4*0.5m
 .timeto 276 -00:10"00   ' holding the enema
-.set 54 60
+.set 154 160
 .range 3460 3469
 
 [Action 3449]           ' 3 x 3 minutes
-.must 170               ' Dildo worshping activity
+.must 140               ' Dildo worshping activity
 .must 183               ' Dildo worshiping 4
 .timeto 49 -00:10"30    ' 9 + 3*0.5m
 .timeto 276 -00:10"30   ' holding the enema
-.set 53 61
+.set 153 161
 .range 3460 3469
 
 [Action 3450]           ' 2 x 5 minutes
-.must 170               ' Dildo worshiping activity
+.must 140               ' Dildo worshiping activity
 .must 184               ' Dildo worshiping 5
 .timeto 49 -00:11"00    ' 10 + 2*0.5m
 .timeto 276 -00:11"00   ' holding the enema
-.set 52 62
+.set 152 162
 .range 3460 3469
 
 [Action 3451]           ' 6 x 2 minutes
-.must 170               ' Dildo worshping activity
+.must 140               ' Dildo worshping activity
 .must 184               ' Dildo worshiping 5
 .timeto 49 -00:15"00    ' 12 + 6*0.5m
 .timeto 276 -00:15"00   ' holding the enema
-.set 56 60
+.set 156 160
 .range 3460 3469
 
 
@@ -2364,148 +2364,148 @@ You have thirty seconds.
 
 [Action 3452]           ' 2 x 2 minutes
 .else
-.mustnot 170                 ' Dildo worshping activity
+.mustnot 140                 ' Dildo worshping activity
 .shouldnot 712 713 714 715   ' Punishment acceptance 1-5
-.set 52 60
+.set 152 160
 .range 3460 3469
 
 [Action 3453]           ' 1 x 5 minutes
-.mustnot 170            ' Dildo worshping activity
+.mustnot 140            ' Dildo worshping activity
 .shouldnot 713 714 715  ' Punishment acceptance 3-5
 .timeto 49 -00:05"00    ' 5 + 0*0.5m
 .timeto 276 -00:05"00   ' holding the enema
-.set 51 62
+.set 151 162
 .range 3460 3469
 
 [Action 3454]           ' 2 x 3 minutes
-.mustnot 170            ' Dildo worshping activity
+.mustnot 140            ' Dildo worshping activity
 .must 711               ' Punishment acceptance 1
 .shouldnot 713 714 715  ' Punishment acceptance 3-5
 .timeto 49 -00:07"00    ' 6 + 2*0.5m
 .timeto 276 -00:07"00   ' holding the enema
-.set 52 61
+.set 152 161
 .range 3460 3469
 
 [Action 3455]           ' 4 x 2 minutes
-.mustnot 170            ' Dildo worshping activity
+.mustnot 140            ' Dildo worshping activity
 .must 712               ' Punishment acceptance 2
 .shouldnot 714 715      ' Punishment acceptance 4-5
 .timeto 49 -00:10"00    ' 8 + 4*0.5m
 .timeto 276 -00:10"00   ' holding the enema
-.set 54 60
+.set 154 160
 .range 3460 3469
 
 [Action 3456]           ' 3 x 3 minutes
-.mustnot 170            ' Dildo worshping activity
+.mustnot 140            ' Dildo worshping activity
 .must 713               ' Punishment acceptance 3
 .shouldnot 715          ' Punishment acceptance 5
 .timeto 49 -00:10"30    ' 9 + 3*0.5m
 .timeto 276 -00:10"30   ' holding the enema
-.set 53 61
+.set 153 161
 .range 3460 3469
 
 [Action 3457]           ' 2 x 5 minutes
-.mustnot 170            ' Dildo worshping activity
+.mustnot 140            ' Dildo worshping activity
 .must 714               ' Punishment acceptance 4
 .timeto 49 -00:11"00    ' 10 + 2*0.5m
 .timeto 276 -00:11"00   ' holding the enema
-.set 52 62
+.set 152 162
 .range 3460 3469
 
 [Action 3458]           ' 6 x 2 minutes
-.mustnot 170            ' Dildo worshping activity
+.mustnot 140            ' Dildo worshping activity
 .must 714               ' Punishment acceptance 4
 .timeto 49 -00:15"00    ' 12 + 6*0.5m
 .timeto 276 -00:15"00   ' holding the enema
-.set 56 60
+.set 156 160
 .range 3460 3469
 
 [Action 3459]           ' 3 x 5 minutes
-.mustnot 170            ' Dildo worshping activity
+.mustnot 140            ' Dildo worshping activity
 .must 715               ' Punishment acceptance 5
 .timeto 49 -00:16"00    ' 15 + 3*0.5m
 .timeto 276 -00:16"00   ' holding the enema
-.set 53 62
+.set 153 162
 .range 3460 3469
 
 
 '   repetition decrementer
 
 [Action 3460]
-.must 50
+.must 150
 That's enough for now, my pet.
 .delay 10
 .range 3505 3514        ' Blow job end - Back to desk or continue
 
 [Action 3461]
-.must 51
-.unset 51
-.set 50
+.must 151
+.unset 151
+.set 150
 .range 3470 3474
 
 [Action 3462]
-.must 52
-.unset 52
-.set 51
+.must 152
+.unset 152
+.set 151
 .range 3470 3474
 
 [Action 3463]
-.must 53
-.unset 53
-.set 52
+.must 153
+.unset 153
+.set 152
 .range 3470 3474
 
 [Action 3464]
-.must 54
-.unset 54
-.set 53
+.must 154
+.unset 154
+.set 153
 .range 3470 3474
 
 [Action 3465]
-.must 55
-.unset 55
-.set 54
+.must 155
+.unset 155
+.set 154
 .range 3470 3474
 
 [Action 3466]
-.must 56
-.unset 56
-.set 55
+.must 156
+.unset 156
+.set 155
 .range 3470 3474
 
 [Action 3467]
-.must 57
-.unset 57
-.set 56
+.must 157
+.unset 157
+.set 156
 .range 3470 3474
 
 [Action 3468]
-.must 58
-.unset 58
-.set 57
+.must 158
+.unset 158
+.set 157
 .range 3470 3474
 
 [Action 3469]
-.must 59
-.unset 59
-.set 58
+.must 159
+.unset 159
+.set 158
 .range 3470 3474
 
 
 '    Set duration...
 
 [Action 3470]
-.must 60                ' 2 minutes
+.must 160                ' 2 minutes
 .unset 3470
 .range 3475
 
 [Action 3471]
-.must 61                ' 3 minutes
+.must 161                ' 3 minutes
 .unset 3471
 .range 3480
 
 [Action 3472]
-.must 62                ' 5 minutes
+.must 162                ' 5 minutes
 .unset 3472
 .range 3490
 
@@ -3931,7 +3931,7 @@ Now slave, get ready!
 
 ' Reset duration counter for ride
 [Action 3929]
-.unset 50 51 52 53 54 55 56 57 58 59 60 61 62 63
+.unset 150 151 152 153 154 155 156 157 158 159 160 161 162 163
 .range 3930 3931
 
 
@@ -3954,59 +3954,59 @@ Now slave, get ready!
 
 [Action 3940]           ' 1 x 3 minutes
 .mustnot 713 714 715    ' Dildo worshiping 3-5
-.set 51 60
+.set 151 160
 .range 3960 3969
 
 [Action 3941]           ' 1 x 4 minutes
 .mustnot 713 714 715    ' Dildo worshiping 3-5
-.set 51 61
+.set 151 161
 .range 3960 3969
 
 [Action 3942]           ' 1 x 5 minutes
 .must 185               ' Dildo worshiping 1
 .mustnot 714 715        ' Dildo worshiping 4-5
-.set 51 62
+.set 151 162
 .range 3960 3969
 
 [Action 3943]           ' 2 x 3 minutes
 .must 186               ' Dildo worshiping 2
 .mustnot 715            ' Dildo worshiping 5
-.set 52 60
+.set 152 160
 .range 3960 3969
 
 [Action 3944]           ' 1 x 7 minutes
 .must 187               ' Dildo worshiping 3
-.set 51 63
+.set 151 163
 .range 3960 3969
 
 [Action 3945]           ' 2 x 4 minutes
 .must 187               ' Dildo worshiping 3
-.set 52 61
+.set 152 161
 .range 3960 3969
 
 [Action 3946]           ' 3 x 3 minutes
 .must 188               ' Dildo worshiping 4
-.set 53 61
+.set 153 161
 .range 3960 3969
 
 [Action 3947]           ' 2 x 5 minutes
 .must 189               ' Dildo worshiping 5
-.set 52 62
+.set 152 162
 .range 3960 3969
 
 [Action 3948]           ' 3 x 4 minutes
 .must 189               ' Dildo worshiping 5
-.set 53 61
+.set 153 161
 .range 3960 3969
 
 [Action 3949]           ' 2 x 7 minutes
 .must 189               ' Dildo worshiping 5
-.set 52 63
+.set 152 163
 .range 3960 3969
 
 [Action 3950]           ' 3 x 5 minutes
 .must 189               ' Dildo worshiping 5
-.set 53 62
+.set 153 162
 .range 3960 3969
 
 
@@ -4016,83 +4016,83 @@ Now slave, get ready!
 That's enough for now, My little cock tease.
 .playwav whip.mp3
 .delay 20
-.must 50
+.must 150
 .range 4050
 
 [Action 3961]
-.must 51
-.unset 51
-.set 50
+.must 151
+.unset 151
+.set 150
 .range 3970 3979
 
 [Action 3962]
-.must 52
-.unset 52
-.set 51
+.must 152
+.unset 152
+.set 151
 .range 3970 3979
 
 [Action 3963]
-.must 53
-.unset 53
-.set 52
+.must 153
+.unset 153
+.set 152
 .range 3970 3979
 
 [Action 3964]
-.must 54
-.unset 54
-.set 53
+.must 154
+.unset 154
+.set 153
 .range 3970 3979
 
 [Action 3965]
-.must 55
-.unset 55
-.set 54
+.must 155
+.unset 155
+.set 154
 .range 3970 3979
 
 [Action 3966]
-.must 56
-.unset 56
-.set 55
+.must 156
+.unset 156
+.set 155
 .range 3970 3979
 
 [Action 3967]
-.must 57
-.unset 57
-.set 56
+.must 157
+.unset 157
+.set 156
 .range 3970 3979
 
 [Action 3968]
-.must 58
-.unset 58
-.set 57
+.must 158
+.unset 158
+.set 157
 .range 3970 3979
 
 [Action 3969]
-.must 59
-.unset 59
-.set 58
+.must 159
+.unset 159
+.set 158
 .range 3970 3979
 
 
 '   duration...
 
 [Action 3970]
-.must 60                '  3 minutes
+.must 160                '  3 minutes
 .unset 3970
 .range 3980
 
 [Action 3971]
-.must 61                '  4 minutes
+.must 161                '  4 minutes
 .unset 3971
 .range 3990
 
 [Action 3972]
-.must 62                ' 5 minutes
+.must 162                ' 5 minutes
 .unset 3972
 .range 4005
 
 [Action 3973]
-.must 63                ' 7 minutes
+.must 163                ' 7 minutes
 .unset 3972
 .range 4020
 
@@ -5553,7 +5553,7 @@ Wasn't that a nice workout?
 
 ' Reset duration counter for ride
 [Action 5929]
-.unset 50 51 52 53 54 55 56 57 58 59 60 61 62 63
+.unset 150 151 152 153 154 155 156 157 158 159 160 161 162 163
 .range 5930 5931
 
 
@@ -5576,59 +5576,59 @@ Wasn't that a nice workout?
 
 [Action 5940]           ' 1 x 3 minutes
 .mustnot 713 714 715    ' Dildo worshiping 3-5
-.set 51 60
+.set 151 160
 .range 5960 5969
 
 [Action 5941]           ' 1 x 4 minutes
 .mustnot 713 714 715    ' Dildo worshiping 3-5
-.set 51 61
+.set 151 161
 .range 5960 5969
 
 [Action 5942]           ' 1 x 5 minutes
 .must 185               ' Dildo worshiping 1
 .mustnot 714 715        ' Dildo worshiping 4-5
-.set 51 62
+.set 151 162
 .range 5960 5969
 
 [Action 5943]           ' 2 x 3 minutes
 .must 186               ' Dildo worshiping 2
 .mustnot 715            ' Dildo worshiping 5
-.set 52 60
+.set 152 160
 .range 5960 5969
 
 [Action 5944]           ' 1 x 7 minutes
 .must 187               ' Dildo worshiping 3
-.set 51 63
+.set 151 163
 .range 5960 5969
 
 [Action 5945]           ' 2 x 4 minutes
 .must 187               ' Dildo worshiping 3
-.set 52 61
+.set 152 161
 .range 5960 5969
 
 [Action 5946]           ' 3 x 3 minutes
 .must 188               ' Dildo worshiping 4
-.set 53 61
+.set 153 161
 .range 5960 5969
 
 [Action 5947]           ' 2 x 5 minutes
 .must 189               ' Dildo worshiping 5
-.set 52 62
+.set 152 162
 .range 5960 5969
 
 [Action 5948]           ' 3 x 4 minutes
 .must 189               ' Dildo worshiping 5
-.set 53 61
+.set 153 161
 .range 5960 5969
 
 [Action 5949]           ' 2 x 7 minutes
 .must 189               ' Dildo worshiping 5
-.set 52 63
+.set 152 163
 .range 5960 5969
 
 [Action 5950]           ' 3 x 5 minutes
 .must 189               ' Dildo worshiping 5
-.set 53 62
+.set 153 162
 .range 5960 5969
 
 
@@ -5638,83 +5638,83 @@ Wasn't that a nice workout?
 That's enough for now, My little cock tease.
 .playwav whip.mp3
 .delay 20
-.must 50
+.must 150
 .range 4050
 
 [Action 5961]
-.must 51
-.unset 51
-.set 50
+.must 151
+.unset 151
+.set 150
 .range 5970 5979
 
 [Action 5962]
-.must 52
-.unset 52
-.set 51
+.must 152
+.unset 152
+.set 151
 .range 5970 5979
 
 [Action 5963]
-.must 53
-.unset 53
-.set 52
+.must 153
+.unset 153
+.set 152
 .range 5970 5979
 
 [Action 5964]
-.must 54
-.unset 54
-.set 53
+.must 154
+.unset 154
+.set 153
 .range 5970 5979
 
 [Action 5965]
-.must 55
-.unset 55
-.set 54
+.must 155
+.unset 155
+.set 154
 .range 5970 5979
 
 [Action 5966]
-.must 56
-.unset 56
-.set 55
+.must 156
+.unset 156
+.set 155
 .range 5970 5979
 
 [Action 5967]
-.must 57
-.unset 57
-.set 56
+.must 157
+.unset 157
+.set 156
 .range 5970 5979
 
 [Action 5968]
-.must 58
-.unset 58
-.set 57
+.must 158
+.unset 158
+.set 157
 .range 5970 5979
 
 [Action 5969]
-.must 59
-.unset 59
-.set 58
+.must 159
+.unset 159
+.set 158
 .range 5970 5979
 
 
 '   duration...
 
 [Action 5970]
-.must 60                '  3 minutes
+.must 160                '  3 minutes
 .unset 5970
 .range 5980
 
 [Action 5971]
-.must 61                '  4 minutes
+.must 161                '  4 minutes
 .unset 5971
 .range 5990
 
 [Action 5972]
-.must 62                ' 5 minutes
+.must 162                ' 5 minutes
 .unset 5972
 .range 6005
 
 [Action 5973]
-.must 63                ' 7 minutes
+.must 163                ' 7 minutes
 .unset 5972
 .range 6020
 
@@ -6119,21 +6119,6 @@ I'll give you a minute to collect yourself.
 .range 5960 5969
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ' put the gag back in
 
 [Action 9300]
@@ -6361,14 +6346,14 @@ my dear anal pet, so let's put the gag back in.
 [Action 9850]
 .mustnot 100
 .mustnot 9              ' can ride
-.must 170               ' activity
+.must 140               ' activity
 .save 180 199
 .loadsbd Mine.sbd 5150
 
 [Action 9851]
 .must 9                 ' can ride
 .mustnot 100
-.must 170               ' activity
+.must 140               ' activity
 .mustnot 185            ' -> Dildo worshiping partial penetration
 .save 180 199
 .loadsbd Mine.sbd 5151
@@ -6376,7 +6361,7 @@ my dear anal pet, so let's put the gag back in.
 [Action 9852]
 .must 9                 ' can ride
 .mustnot 100
-.must 170               ' activity
+.must 140               ' activity
 .must 185               ' level 1 -> dildo worshiping full penetration
 .mustnot 186            ' level 2
 .save 180 199
@@ -6385,7 +6370,7 @@ my dear anal pet, so let's put the gag back in.
 [Action 9853]
 .must 9                 ' can ride
 .mustnot 100
-.must 170               ' activity
+.must 140               ' activity
 .must 186               ' level 2
 .mustnot 187            ' level 3
 .save 180 199
@@ -6394,7 +6379,7 @@ my dear anal pet, so let's put the gag back in.
 [Action 9854]
 .must 9                 ' can ride
 .mustnot 100
-.must 170
+.must 140
 .must 187               ' level 3
 .mustnot 188            ' level 4
 .save 180 199
@@ -6403,7 +6388,7 @@ my dear anal pet, so let's put the gag back in.
 [Action 9855]
 .must 9                 ' can ride
 .mustnot 100
-.must 170
+.must 140
 .must 188               ' level 4
 .mustnot 189            ' level 5
 .save 180 199
@@ -6412,7 +6397,7 @@ my dear anal pet, so let's put the gag back in.
 [Action 9856]
 .must 9                 ' can ride
 .mustnot 100
-.must 170
+.must 140
 .must 189               ' level 5
 .save 180 199
 .loadsbd Mine.sbd 5156
@@ -6428,55 +6413,55 @@ my dear anal pet, so let's put the gag back in.
 ' Dildo worshiping punishments sucess
 
 '[Action 9861]
-'.must 171
+'.must 141
 '.save 180 199
 '.loadsbd Mine.sbd xxxx xxxx
 
 [Action 9862]
 .mustnot 100
-.must 172
+.must 142
 .save 180 199
 .loadsbd Mine.sbd 2404 2404
 
 [Action 9863]
 .mustnot 100
-.must 173
+.must 143
 .save 180 199
 .loadsbd Mine.sbd 2407 2407
 
 '[Action 9864]
 '.mustnot 100
-'.must 174
+'.must 144
 '.save 180 199
 '.loadsbd Mine.sbd XXXX XXXX
 
 [Action 9865]
 .mustnot 100
-.must 175
+.must 145
 .save 180 199
 .loadsbd Mine.sbd 2401 2401
 
 '[Action 9866]
 '.mustnot 100
-'.must 176
+'.must 146
 '.save 180 199
 '.loadsbd Mine.sbd xxxx xxxx
 
 '[Action 9867]
 '.mustnot 100
-'.must 177
+'.must 147
 '.save 180 199
 '.loadsbd Mine.sbd xxxx xxxx
 
 '[Action 9868]
 '.mustnot 100
-'.must 178
+'.must 148
 '.save 180 199
 '.loadsbd Mine.sbd xxxx xxxx
 
 '[Action 9869]
 '.mustnot 100
-'.must 179
+'.must 149
 '.save 180 199
 '.loadsbd Mine.sbd xxxx xxxx
 
@@ -6492,38 +6477,38 @@ my dear anal pet, so let's put the gag back in.
 ' worshping activity
 [Action 9900]
 .mustnot 100
-.must 170
+.must 140
 .save 180 199
 .loadsbd Mine.sbd 5159 5159
 
 ' worshiping punishment
 [Action 9901]
 .mustnot 100
-.must 171
+.must 141
 .save 180 199
 .loadsbd Mine.sbd 2490 2490
 
 [Action 9902]
 .mustnot 100
-.must 172
+.must 142
 .save 180 199
 .loadsbd Mine.sbd 2490 2490
 
 [Action 9903]
 .mustnot 100
-.must 173
+.must 143
 .save 180 199
 .loadsbd Mine.sbd 2490 2490
 
 [Action 9904]
 .mustnot 100
-.must 174
+.must 144
 .save 180 199
 .loadsbd Mine.sbd 2490 2490
 
 [Action 9905]
 .mustnot 100
-.must 175
+.must 145
 .save 180 199
 .loadsbd Mine.sbd 2490 2490
 

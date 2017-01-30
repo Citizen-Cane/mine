@@ -9,8 +9,12 @@
 .resetrange 800 99999
 
 ' reset all temp variables from main script but keep slave state, toys and achievements
-.resetrange 60 359
-.resetrange 400 599
+.resetrange 100 115
+.resetrange 160 179
+.resetrange 200 215
+.resetrange 300 302
+.resetrange 400 415
+.resetrange 500 515
 
 ' The action number to indicate that the slave is wearing a gag
 .gag 22
@@ -23,13 +27,13 @@
 '    10       Odds and evens, s is odd, M is even.
 '    11       Odds and evens, other way around.
 
-'    60       s plays to 15
-'    61       s plays to 10
-'    62       s plays to  5
+'    160      s plays to 15
+'    161      s plays to 10
+'    162      s plays to  5
 
-'    70       M plays to 15
-'    71       M plays to 10
-'    72       M plays to  5
+'    170      M plays to 15
+'    171      M plays to 10
+'    172      M plays to  5
 
 '   101 - 115 are set in sequence to represent slave's points
 '   201 - 215 likewise for Mistress's points
@@ -40,7 +44,6 @@
 '   403       Add a clamp/weight.
 '   404       Add pin.
 '   405       Paddle 20 times.
-'   403       Add a clamp/weight.
 '   501 - 515 is what happens when you win a round:
 '   501       Nothing.
 
@@ -61,9 +64,9 @@
 .askcheck   23  113 Thirteen.
 .askcheck   24  114 Fourteen.
 .askcheck   25  115 Fifteen.
-.askcheck   26   62 Playing to five.
-.askcheck   27   61 Playing to ten.
-.askcheck   28   60 Playing to fifteen.
+.askcheck   26  162 Playing to five.
+.askcheck   27  161 Playing to ten.
+.askcheck   28  160 Playing to fifteen.
 .askcheck   29   10 Odds.
 
 .asktitle   40      Mistress points:
@@ -82,9 +85,9 @@
 .askcheck   53  213 Thirteen.
 .askcheck   54  214 Fourteen.
 .askcheck   55  215 Fifteen.
-.askcheck   56   72 Playing to five.
-.askcheck   57   71 Playing to ten.
-.askcheck   58   70 Playing to fifteen.
+.askcheck   56  172 Playing to five.
+.askcheck   57  171 Playing to ten.
+.askcheck   58  170 Playing to fifteen.
 .askcheck   59   11 Odds.
 
 .asktitle   60  Misc.
@@ -132,7 +135,7 @@ So you'd like to play a game a chance, slave? Let me think...
 .unset 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
 .unset 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415
 .unset 501 502 503 504 505 506 507 508 509 510 511 512 513 514 515
-.set 300 60 70
+.set 300 160 170
 .set 401 501
 .range 1100 
 
@@ -144,8 +147,8 @@ Naturally, it'll be your nipples being tortured, slave.
 .unset 401 402     404 405     407 408 409 410 411 412 413 414 415
 .unset     502 503 504 505 506 507 508 509 510 511 512 513 514 515
 .set           403         406    ' nipple clamps weights
-.set 302 501 60 70                ' activity, nothing, 15 rounds
-'.set 10 302 403 501 62 72 101 102 103 104 201 202 203 204
+.set 302 501 160 170              ' activity, nothing, 15 rounds
+'.set 10 302 403 501 162 172 101 102 103 104 201 202 203 204
 .range 1101
 
 
@@ -269,7 +272,7 @@ You are going to need a dozen weights for this game.
 Go fetch them, slave!
 .pause I have them, Miss
 .must 403
-.must 60 70
+.must 160 170
 .range 1499
 
 [Action 1403]
@@ -277,7 +280,7 @@ You are going to need seven weights for this game.
 Go fetch them, slave!
 .pause I have them, Miss
 .must 403
-.must 61 71
+.must 161 171
 .range 1499
 
 [Action 1404]
@@ -285,7 +288,7 @@ You are going to need two weights for this game.
 Go fetch them, slave!
 .pause I have them, Miss
 .must 403
-.must 62 72
+.must 162 172
 .range 1499
 
 
@@ -584,37 +587,37 @@ You've got fifteen points, you dirty little whore!
 .range 3190 3199
 
 [Action 3190]
-.must 62
+.must 162
 .mustnot 105
 .unset 3190
 .range 3600 3799
 
 [Action 3191]
-.must 62
+.must 162
 .must 105
 .unset 3191
 .range 5020 5059
 
 [Action 3192]
-.must 61
+.must 161
 .mustnot 110
 .unset 3192
 .range 3600 3799
 
 [Action 3193]
-.must 61
+.must 161
 .must 110
 .unset 3193
 .range 5020 5059
 
 [Action 3194]
-.must 60
+.must 160
 .mustnot 115
 .unset 3194
 .range 3600 3799
 
 [Action 3195]
-.must 60
+.must 160
 .must 115
 .unset 3195
 .range 5020 5059
@@ -747,12 +750,12 @@ Finally, fifteen points for Me.
 [Action 3290]
 Now for your penalty...
 .mustnot 205
-.must 62
+.must 162
 .range 3800 3999
 .unset 3290
 
 [Action 3291]
-.must 62
+.must 162
 .must 205
 .unset 3291
 .range 5060 5099
@@ -760,25 +763,25 @@ Now for your penalty...
 [Action 3292]
 Now for your penalty...
 .mustnot 210
-.must 61
+.must 161
 .range 3800 3999
 .unset 3292
 
 [Action 3293]
-.must 61
+.must 161
 .must 210
 .unset 3293
 .range 5060 5099
 
 [Action 3294]
 Now for your penalty...
-.must 60
+.must 160
 .mustnot 215
 .unset 3294
 .range 3800 3999
 
 [Action 3295]
-.must 60
+.must 160
 .must 215
 .unset 3295
 .range 5060 5099
