@@ -270,12 +270,14 @@
 '              chance of imposing a delay based on chaste level.
 '              Cleared after checked!
 '              Set after last missed opportunity in 8091 to allow cumming next time
+
 ' 251-299      Flags for various purposes:
 '              Actions that should be executed only once per session
 '              Clear these at the beginning of the session
 '              These can also be used from removing toys put on in the sub script
 '              This works even if the slave cancels or tries to quit
-'              TODO Some are used as assignments (enema) -> move these to 600 assignment range 
+'              TODO Some are used as assignments (enema) -> move these to 600 assignment range
+
 ' 251          Buttplug single-event
 ' 252          Nipple training (clamps & pegs) one-time per session
 ' 253          Ball harness one-time per session
@@ -298,12 +300,13 @@
 ' 269          enema voided, ready to be plugged (decision 7300-7399, set in 7364)
 ' 270          plugged, ready for assignment (decision 7400-7469, set in 7478)
 ' 271          Maid training punishment once per session
-' 272          Toy lecture given
+' 272          Toy lecture given once per session
 ' 273          Activity section flag, used for punishing punishment cancellations, used by the quit handler
 '              unset during punishment cycle, set when starting activity loop
 ' 274          Quit without permission check
 ' 275          Spanking done in activity
-' 276:         Enema duration timer, used for exit punishment cycle, and to void enema, used with 267 268 269
+' 276          Enema duration timer, used for exit punishment cycle, and to void enema, used with 267 268 269
+' 277          semi-safe self bondage features enabled (handcuffs on back & wearing gag, but still able to move) - set at your own risk
 ' .
 ' .
 ' .
@@ -760,7 +763,7 @@ Would you be so kind and tell me what you've got exactly?
 .unset 235 236 237 238 239 240 241 242 243 244   ' clear next-session-toys askcheck
 .unset 251 252 253 254 255 256     258 259 260   ' once-per-session-flags
 .unset 261 262 263 264 265 266     268 269 270   ' once-per-session-flags
-.unset 271 272 273             277 278 279 280   ' once-per-session-flags
+.unset 271 272 273                 278 279 280   ' once-per-session-flags
 .unset 281 282 283 284 285 286 287 288 289 290   ' once-per-session-flags
 .unset 291 292 293 294 295 296 297 298 299       ' once-per-session-flags
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
@@ -4420,14 +4423,14 @@ Have you prepared your enema as ordered?
 
 
 [Action 1675]
+.must 509
 Slave, you ruined the session!
 .set 103                ' Mistress gets impatient
-.must 509
 .range 1678 1679
 
 [Action 1676]
-Well, slave, you'll be punished for ruining the session, of course.
 .mustnot 509
+Well, slave, you'll be punished for ruining the session, of course.
 .set 509                ' wasting Mistress's time
 .range 1678 1679
 
@@ -4435,14 +4438,14 @@ Well, slave, you'll be punished for ruining the session, of course.
 
 
 [Action 1678]
-Don't come back until you have prepared your enema, you lazy slut.
 .mustnot 103
+Don't come back until you have prepared your enema, you lazy slut.
 .pause Yes, Miss
 .range 880
 
 [Action 1679]
-Don't dare to come back until you have prepared your enema!
 .must 103
+Don't dare to come back until you have prepared your enema!
 .pause Yes, Miss
 .range 880
 
@@ -6514,7 +6517,7 @@ I guess you've gotten away with one this time.
 
 ' corner time - no magic marker so we have to check first
 [Action 2551]
-.mustnot 258            ' Corner time already given
+.mustnot 258                 ' Corner time already given
 .save 50 799
 .loadsbd mine-paddle.sbd 2525 2525
 
@@ -6522,7 +6525,7 @@ I guess you've gotten away with one this time.
 
 ' corner time return
 [Action 2559]
-.set 258                ' Corner time already given
+.set 258                     ' Corner time already given
 .range 2405
 
 
@@ -6716,7 +6719,7 @@ if you don't take this punishment to heart.
 
 
 ' 509 wasting mistress time
-
+' TODO add more punishments (corner time?) to be compatible with the enema
 [Action 2590]
 .else                   ' Fallback
 Unfortunately there is no punishment yet for time-wasting slave boys.
@@ -6725,7 +6728,7 @@ Unfortunately there is no punishment yet for time-wasting slave boys.
 
 [Action 2591]
 .mustnot 25
-.mustnot 267 268        ' Enema carrying out or holding
+.shouldnot 267 268      ' Enema carrying out or holding
 You wasted my time, now I'm wasting yours.
 Get some rope or shoelace and tie up your ankles.
 Keep the connection between your ankles short.
@@ -7273,7 +7276,7 @@ I'll get you next time, you dirty slave!
 [Action 2693]
 .mustnot 258            ' Corner time already given - essential for punishing "cumming without permission"
 .save 50 799
-.loadsbd mine-paddle.sbd 2596 2599
+.loadsbd mine-paddle.sbd 2595 2595
 
 ' 35-45m kneeling + marker, clamps and cuffs are preferred, but this works without any toys as well
 ' shorter corner time is used when wearing clamps, so this can safely be called
@@ -7281,7 +7284,7 @@ I'll get you next time, you dirty slave!
 [Action 2694]
 .else
 .save 50 799
-.loadsbd mine-paddle.sbd 2596 2599
+.loadsbd mine-paddle.sbd 2595 2595
 
 ' todo cold shower fallback, would work with pegs and chastity cage
 

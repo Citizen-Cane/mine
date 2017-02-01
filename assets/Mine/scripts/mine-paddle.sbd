@@ -1434,6 +1434,7 @@ I hope so, slut!
 [Action 1750]
 .range 1751 1752
 
+
 ' Not kneeling
 [Action 1751]
 .mustnot 121            ' kneeling (can be preset)
@@ -1445,6 +1446,7 @@ I hope so, slut!
 .set 121                ' Kneeling 
 .unset 122              ' Tip toes
 .range 1755 1759
+
 
 ' Not on tiptoes
 [Action 1753]
@@ -1474,8 +1476,6 @@ I hope so, slut!
 ' 50% chance of handcuffs = yes (have wrist restraints 363)
 [Action 1757]
 .must 125               ' Cuffs requested 50%
-.mustnot 267 268        ' Enema carried out, completed voiding the enema
-.must 363               ' Wrist restraints
 .must 721               ' Patient Waiting level 1
 .set 123                ' Corner time is handcuffed
 .range 1760 1764
@@ -1483,8 +1483,6 @@ I hope so, slut!
 ' 100% chance of handcuffs (haven't wrist restraints 363)
 [Action 1758]
 .must 126               ' Cuffs requested 100%
-.mustnot 267 268        ' Enema carried out, completed voiding the enema
-.mustnot 363            ' Wrist restraints
 .unset 123              ' Corner time is handcuffed
 .range 1760 1764
 
@@ -1492,11 +1490,8 @@ I hope so, slut!
 [Action 1759]
 .mustnot 26             ' Wrists tied
 .must 126               ' Cuffs requested 100%
-.mustnot 267 268        ' Enema carried out, completed voiding the enema
-.must 363               ' Wrist restraints
 .set 123                ' Corner time is handcuffed
 .range 1760 1764
-
 
 ' 0% chance of clamps
 [Action 1760]
@@ -1508,27 +1503,24 @@ I hope so, slut!
 .must 128               ' Clamps requested 50%
 .range 1765 1770
 
-' 50% chance of clamps = yes (have nipple clamps 361)
+' 50% chance of clamps = yes
 [Action 1762]
 .mustnot 20             ' Something on nipples
 .must 128               ' Clamps requested 50%
-.must 361               ' Nipple clamps
 .must 721               ' Patient Waiting level 1
 .set 130                ' Clamps
 .range 1765 1770
 
-' 100% chance of clamps (haven't nipple clampa 361)
+' 100% chance of clamps
 [Action 1763]
 .must 129               ' Clamps requested 100%
-.mustnot 361            ' Nipple clamps
 .set 130                ' Clamps
 .range 1765 1770
 
-' 100% chance of clamps (have nipple clamps 361)
+' 100% chance of clamps
 [Action 1764]
 .mustnot 20             ' Something on nipples
 .must 129               ' Clamps requested 100%
-.must 361               ' Nipple clamps
 .set 130                ' Clamps
 .range 1765 1770
 
@@ -2203,6 +2195,64 @@ Good boy, slave.
 .range 9800 9899
 
 
+' limit corner time extras (cuffs, clamps) to what's possible
+
+[Action 2190]
+.range 2191 2196
+
+
+[Action 2191]
+.must 267                         ' Enema carried out
+.set 124                          ' no cuffs
+.unset 125 126                    ' 50%, 100% cuffs behind back
+.range 2197 2199
+
+[Action 2192]
+.must 268                         ' Enema holding
+.set 124                          ' no cuffs
+.unset 125 126                    ' 50%, 100% cuffs behind back
+.range 2197 2199
+
+[Action 2193]
+.must 22                          ' something in mouth
+.mustnot 277                      ' semi-safe self bondage features enabled
+.set 124                          ' no cuffs
+.unset 125 126                    ' 50%, 100% cuffs behind back
+.range 2197 2199
+
+[Action 2194]
+.must 26                          ' Something on nipples, wrists tied
+.set 124                          ' no cuffs
+.unset 125 126                    ' 50%, 100% cuffs behind back
+.range 2197 2199
+
+[Action 2195]
+.mustnot 363                      ' wrist restraints
+.set 124                          ' no cuffs
+.unset 125 126                    ' 50%, 100% cuffs behind back
+.range 2197 2199
+ 
+[Action 2196]
+.else
+.range 2197 2199
+
+
+[Action 2197]
+.must 361                         ' Nipple clamps
+.mustnot 20                       ' something on nipples
+.return
+
+[Action 2198]
+.mustnot 361                      ' Nipple clamps
+.unset 128 129                    ' 50%, 100% clamps
+.return
+
+[Action 2199]
+.must 20                          ' something on nipples
+.unset 128 129                    ' 50%, 100% clamps
+.return
+
+
 ' Marker humiliation
 '
 ' Write text on specific slave body parts, depends on the punishments type (derived from entry exit action)
@@ -2448,21 +2498,21 @@ A slutty cunt that's going to be punished.
 ' 511 Lack of hardness, level 1
 
 [Action 2280]
-.range 2281 2283
+.range 2281 2282
 
 
 [Action 2281]
-.mustnot 30        ' something on penis, can't jerk off
+.else
 With that marker, I want you to write "STUPID" on your right ball,
 and "SLAVE" on your left ball.
 Understand?
 What else but stupid is a slave that can't keep his meat hard for his mistress!
 .relaxedSpeechRecognitionConfidence
 .pause I've written "Stupid Slave" on my balls, Miss
-.range 2284        ' light punishment
+.range 2284             ' light punishment
 
 [Action 2282]
-.must 30           ' something on penis, can't jerk off
+.mustnot 23 30 44       ' something on penis, can't jerk off
 I want you to wank your silly slave penis hard and erect.
 Then take your marker, and write "STUPID" on the right side of your cock,
 and "CUNT" on the left side.
@@ -2501,11 +2551,11 @@ A stupid cunt that's going to be punished.
 ' 512 Lack of hardness, level 2
 
 [Action 2290]
-.range 2291 2293
+.range 2291 2292
 
 
 [Action 2291]
-.mustnot 30        ' something on penis, can't jerk off
+.else
 I want you to take your marker,
 and write the word "BAD" on your right ball,
 and the word "GIRL" on your left ball.
@@ -2513,10 +2563,10 @@ Understand, slave?
 You've been a bad girl for not keeping your member stiff for me when you absolutely were to.
 .relaxedSpeechRecognitionConfidence
 .pause I've written "Bad Girl" on my balls, Miss
-.range 1710        ' medium punishment
+.range 2294
 
 [Action 2292]
-.must 30           ' Can't jerk off
+.mustnot 23 30 44       ' something on penis, can't jerk off
 I want you to wank your silly slave penis hard and erect.
 Then take your marker, and write the word "BAD" on the right side of your cock,
 and the word "SLAVE" on the left side.
@@ -2531,7 +2581,7 @@ You are a bad slave for not keeping your member stiff for me when you were to.
 Very good.
 Now tell me what you've been!
 .pause I've been a bad girl, Miss
-.range 2297        ' Light punishment
+.range 2297
 
 [Action 2295]
 Very good.
@@ -2575,40 +2625,46 @@ Understand?
 You've been a very disobedient slave when you came without my permission.
 .relaxedSpeechRecognitionConfidence
 .pause I've written "Disobedient slave" below my belly, Miss
-.range 2303
+.range 2303 2304
+
 
 [Action 2303]
+.mustnot 23 30 44
 Now go ahead and write the word "CUNT" on your cock,
 vertically in large bold letters.
 Understand, slave?
 You are a cunt, and so is that filthy prick of yours.
 .relaxedSpeechRecognitionConfidence
-.pause I've written "cunt" on my cock, Miss
-.mustnot 23 30
-.range 2304
+.pause I've written "CUNT" on my cock, Miss
+.range 2306
 
 [Action 2304]
+.else
+Now go ahead and write the word "CUNT" right above your cock,
+in large bold letters.
+Understand, slave?
+You are a cunt, and so is that filthy prick of yours.
+.relaxedSpeechRecognitionConfidence
+.pause I've written "CUNT" on my cock, Miss
+.range 2306
+
+
+[Action 2306]
 Finally, write "NAUGHTY" on your right thigh,
 and "SLUTTY" on your left.
 Understand slave?
 It was very naughty of you to spurt your load without permission and you are a slutty slave for doing so.
 .relaxedSpeechRecognitionConfidence
 .pause I've written it on my thighs, Miss
-.range 2305
-
-[Action 2305]
-So, what have you been?
-.relaxedSpeechRecognitionConfidence
-.pause I've been a bad girl for spurting my load!
-.range 2306
-
-[Action 2306]
-And, what else?
-.relaxedSpeechRecognitionConfidence
-.pause I've been a disobedient slave!
 .range 2307
 
+
 [Action 2307]
+.relaxedSpeechRecognitionConfidence
+So, what have you been?
+[I've been a bad girl for spurting my load!]
+And, what else?
+[I've been a disobedient slave!]
 And what are you?
 .pause I'm a naughty slutty cunt!
 .range 2308 2309
@@ -2616,14 +2672,14 @@ And what are you?
 
 ' 35 minutes with clamps, avoid applying clamps any longer!
 [Action 2308]
-.must 129          ' Clamps
+.must 129          ' Clamps %100% chance
 Very good!
 Now you are properly shamed for your lack of self control.
 .range 1737        ' 35 minutes corner time kneeling
 
 ' 45 minutes without toys
 [Action 2309]
-.mustnot 129       ' Clamps
+.mustnot 129       ' Clamps %100 chance
 Very good!
 Now you are properly shamed for your lack of self control.
 .range 1739        ' 45 minutes corner time kneeling
@@ -2689,16 +2745,16 @@ Now tell me what you are!
 
 
 ' one of the "before session" assignments is to
-' wear ports on balls, so we have to account for it
+' wear pegs on balls, so we have to account for it
 
 [Action 2318]
-.must 24           ' Something on balls, might be pegs
+.must 24 38        ' Something on balls, pegs
 Indeed you are!
 .unset 724 725     ' Limit corner time because pegs on ball sack are severe
 .range 1700        ' Light punishment
 
 [Action 2319]
-.mustnot 24        ' Something on balls, might be pegs
+.else
 Indeed you are!
 .range 1710        ' medium punishment
 
@@ -2827,6 +2883,7 @@ A disobedient slut that's going to be punished.
 .set 124 127                      ' No cuffs, no clamps 
 .unset 121 122 125 126 128 129
 .set 180                          ' Punishment dispatch
+.gosub 2190                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2837,8 +2894,9 @@ A disobedient slut that's going to be punished.
  
 [Action 2512]
 .set 125 128                      ' 50% cuffs, 50% clamps 
-.unset 121 122 123 124 126 127 129
+.unset 121 122 124 126 127 129
 .set 181
+.gosub 2190                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2846,8 +2904,9 @@ A disobedient slut that's going to be punished.
 
 [Action 2517]
 .set 125 128                      ' 50% cuffs, 50% clamps 
-.unset 121 122 123 124 126 127 129
+.unset 121 122 124 126 127 129
 .set 182
+.gosub 2190                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2858,8 +2917,9 @@ A disobedient slut that's going to be punished.
 
 [Action 2525]
 .set 125 128                      ' 50% cuffs, 50% clamps 
-.unset 121 122 123 124 126 127 129
+.unset 121 122 124 126 127 129
 .set 183
+.gosub 2190                       ' limit corner time features to slave state
 .range 1710
 
 
@@ -2873,12 +2933,14 @@ A disobedient slut that's going to be punished.
 
 ' 510 ignorance
 
+
 ' 511 Lack of hardness, write on cock or balls
 
 [Action 2555]
 .set 125 128                      ' 50% cuffs, 50% clamps 
-.unset 121 122 123 124 126 127 129
+.unset 121 122 124 126 127 129
 .set 184
+.gosub 2190                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2886,8 +2948,9 @@ A disobedient slut that's going to be punished.
 
 [Action 2560]
 .set 125 128                      ' 50% cuffs, 50% clamps 
-.unset 121 122 123 124 126 127 129
+.unset 121 122 124 126 127 129
 .set 185
+.gosub 2190                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2912,50 +2975,16 @@ A disobedient slut that's going to be punished.
 ' 519 cumming without permission
 
 ' 45 minutes kneeling, marker
-[Action 2596]
-.else
-.set 121                     ' Kneeling
-.set 124 127                 ' No cuffs, no clamps
-.unset 123 130               ' referenced in marker section
-.unset 122 125 126 128 129
-.set 186
-.range 2200
-
 ' 35m kneeling, marker, clamps
-[Action 2597]
-.must 361                    ' Nipple clamps
-.mustnot 363                 ' Wrist restraints
-.set 121                     ' Kneeling
-.set 124 129                 ' No cuffs, clamps
-.unset 123
-.set 130                     ' referenced in marker section
-.unset 122 125 126 127 128
-.set 186
-.range 2200                  ' Shame yourself (write on body with marker), then corner time
-
 ' 45m kneeling, marker, cuffs
-[Action 2598]
-.mustnot 22 26               ' Something in mouth, wrists tied
-.mustnot 361                 ' Nipple clamps
-.must 363                    ' Wrist restraints
-.set 121                     ' Kneeling
-.set 126 127                 ' Cuffs, no clamps
-.set 123                     ' referenced in marker section
-.unset 130                   ' referenced in marker section
-.unset 122 124 125 128 129
-.set 186
-.range 2200                  ' Shame yourself (write on body with marker), then corner time
-
 ' 35m kneeling, marker, cuffs, clamps
-[Action 2599]
-.mustnot 20 22 26            ' Something on nipples, something in mouth, wrists tied
-.must 361 363                ' Nipple clamps, wrist restraints
-.set 121                     ' Kneeling
-.set 126 129                 ' Cuffs, clamps
-.set 123 130                 ' Cuffs, clamps, referenced in marker section, but resolved later
+[Action 2595]
+.set 121                          ' Kneeling
+.set 126 129                      ' Cuffs 100%, clamps 100%
 .unset 122 124 125 127 128
 .set 186
-.range 2200                  ' Shame yourself (write on body with marker), then corner time
+.gosub 2190                       ' limit corner time extras (cuffs, clamps) to what's possible
+.range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
 ' Write what the slave is:
@@ -3006,6 +3035,7 @@ A disobedient slut that's going to be punished.
 .set 124 127                      ' No cuffs, no clamps
 .unset 125 126 128 129
 .set 187
+.gosub 2190                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -3014,8 +3044,9 @@ A disobedient slut that's going to be punished.
 ' Corner time + marker
 [Action 2605]
 .set 125 128                      ' 50% cuffs, 50% clamps 
-.unset 121 122 123 124 126 127 129
+.unset 121 122 124 126 127 129
 .set 188
+.gosub 2190                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -3023,8 +3054,9 @@ A disobedient slut that's going to be punished.
 
 [Action 2620]
 .set 125 128                      ' 50% cuffs, 50% clamps 
-.unset 121 122 123 124 126 127 129
+.unset 121 122 124 126 127 129
 .set 189
+.gosub 2190                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -3929,7 +3961,7 @@ Now hurry over for five minutes of well-deserved corner time to think about what
 Don't rub that red butt, and don't come back until I tell you to.
 .set 111                ' 5 minutes corner time 
 .unset 123 130          ' No cuffs, no clamps
-.range 2000
+.range 2000             ' go into corner immediately (setup done)
 
 [Action 9154]
 .mustnot 105
@@ -3943,7 +3975,7 @@ You may not rub your bottom, you naughty boy.
 Don't come back until I tell you to.
 .set 111                ' 5 minutes corner time
 .unset 123 130          ' No cuffs, no clamps
-.range 2000
+.range 2000             ' go into corner immediately (setup done)
 
 [Action 9155]
 .mustnot 258            ' Corner time already given
@@ -3956,7 +3988,7 @@ Don't you dare rub that naughty bottom.
 Don't come back until you hear me call for you.
 .set 112                ' 10 minutes corner time
 .unset 123 130          ' No cuffs, no clamps
-.range 2000
+.range 2000             ' go into corner immediately (setup done)
 
 
 ' Corner time already given 
