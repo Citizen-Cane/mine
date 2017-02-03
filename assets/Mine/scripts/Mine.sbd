@@ -27,6 +27,16 @@
 ' actions 20-799 aren't cleared because they're restored, plus
 ' the range contains mapped items which would be otherwise unintentionally cleared
 
+' actions -799 -1 aren't cleared because they're used as session wide extension variables
+' the meaning depends on the actual action, usually to model some session or script local state
+'
+' general rules
+' - for toys, a set negative action means that the toys should be removed before exiting the script
+'   this aspect makes the negative numbers appear script local, but this isn't the case
+' - for punishments/activities, a set action usually means that a sub aspect of the action has been performed
+'   this aspect makes the negative action numbers session wide,
+'   useful to pass values back to the main script, or to remember values between sub-script calls
+
 
 .backcolor 240 200 200
 .textcolor 0 0 0
@@ -276,7 +286,9 @@
 '              Clear these at the beginning of the session
 '              These can also be used from removing toys put on in the sub script
 '              This works even if the slave cancels or tries to quit
+'
 '              TODO Some are used as assignments (enema) -> move these to 600 assignment range
+'              TODO move session-scope variables to session global space
 
 ' 251          Buttplug single-event
 ' 252          Nipple training (clamps & pegs) one-time per session
@@ -286,7 +298,7 @@
 ' 256          Stay-Hard question one-time per session 
 ' 257          Enema intensified training, remembered for next session
 ' 258          Corner time punishment given, one-time per session, checked in 2500 2999, for some punishments in dispatcher 2200-2299, see also 2301
-'-258          Magic marker punishment given, multiple times if possible, checked in 2500 2999
+'-258          Magic marker punishment given, multiple times if possible
 ' 259          Ball sack pegs or pussy clamps one-time per session
 ' 260          Dildo worshiping already done as punishment
 ' 261          Cock bondage one-time per session
@@ -6222,7 +6234,6 @@ I guess you've gotten away with one this time.
 ' corner time + marker return
 [Action 2505]
 .set 131                     ' Magic marker lecture heart
-.set -258                    ' Magic marker applied
 .set 258                     ' Corner time already given
 .range 2400
 
@@ -6389,7 +6400,6 @@ You may have escaped me this time, but don't make a habit of it!
 ' corner time + marker return
 [Action 2529]
 .set 131                ' Magic marker lecture heart
-.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2402
 
@@ -6451,7 +6461,6 @@ I guess we'll have to skip it today.
 ' corner time + marker return
 [Action 2539]
 .set 131                ' Magic marker lecture heart
-.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2403
 
@@ -6903,7 +6912,6 @@ just feeling the flush of humiliation will suit you good enough this time.
 
 ' corner time (5-10 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
 [Action 2617]
-.mustnot 258                 ' Corner time already given
 .must 511                    ' Lack of hardness level 1
 .mustnot 519                 ' 519 cumming without permission must be executed first because it uses corner time as a fallback
 .save 50 799
@@ -6911,7 +6919,6 @@ just feeling the flush of humiliation will suit you good enough this time.
 
 ' corner time (10-15 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
 [Action 2618]
-.mustnot 258                 ' Corner time already given
 .must 512                    ' Lack of hardness level 2
 .mustnot 519                 ' 519 cumming without permission must be executed first because it uses corner time as a fallback
 .save 50 799
@@ -6921,7 +6928,6 @@ just feeling the flush of humiliation will suit you good enough this time.
 ' corner time + marker return
 [Action 2619]
 .set 131                     ' Magic marker lecture heart
-.set -258                    ' Magic marker applied
 .set 258                     ' Corner time already given
 .range 2411 2412
 
@@ -7294,7 +7300,6 @@ I'll get you next time, you dirty slave!
 ' corner time + marker return
 [Action 2699]
 .set 131                ' Magic marker lecture heart
-.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2419
 
@@ -7316,8 +7321,9 @@ I guess you've gotten away with one this time.
 ' So to avoid crashing in 519 punishment selection,
 ' corner time must be skipped here if punishment 519 is outstanding.
 [Action 2701]
+.else
 .mustnot 258            ' Corner time already given
-.mustnot 519            ' 520 is executed before, but 519 has no fallback
+.mustnot 519            ' 520 is executed before, but 519 has no fallback - TODO can be relaxed by moving 258 from main script save to session global space
 .unset -20 -24          ' don't remove clamps or pegs in activity
 .save 50 799
 .loadsbd mine-paddle.sbd 2600 2600
@@ -7403,7 +7409,6 @@ will make you change your attitude about My assignments, for your sake.
 ' corner time + marker return
 [Action 2709]
 .set 131                ' Magic marker lecture heart
-.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2420
 
@@ -7423,13 +7428,12 @@ I guess you've gotten away with one this time.
 .save 50 799
 .loadsbd mine-paddle.sbd 2605 2605
 
-' TODO Punishemnts for not performing assignments while away from his mistress other than corner time?
+' TODO Punishemnts for not performing assignments while away from mistress other than corner time?
 
 
 ' corner time return
 [Action 2719]
 .set 131                ' Magic marker lecture heart
-.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2421
 
@@ -7453,7 +7457,6 @@ I guess you've gotten away with one this time.
 ' corner time return
 [Action 2749]
 .set 131                ' Magic marker lecture heart
-.set -258               ' Magic marker applied
 .set 258                ' Corner time already given
 .range 2424
 

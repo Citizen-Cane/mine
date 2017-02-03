@@ -1532,7 +1532,7 @@ I hope so, slut!
 
 
 ' marker completed - done here or send into corner
-' Since PCM-script is not a programming langauage,
+' Since PCM-script is not a programming language,
 ' we can't bail out right after the marker punishment,
 ' as the endings there jump directly into the setup section.
 ' Therefore we have to complete the setup, and bail out here
@@ -1541,21 +1541,24 @@ I hope so, slut!
 .range 1826 1829
 
 
-' return to main script
 [action 1826]
-.must 258
-.range 9800 9899
+.must 258               ' Corner time already given
+.range 9800 9899        ' return to main script
 
+' TODO desired but doesn't work since 258 is set in main script
+' TODO remember corner time variables in session global instead of save space of main script
 '[action 1827]
+'.must 519               ' p. o. for cumming without permission - having corner time available issential
+'.range 9800 9899        ' return to main script
+
 '[action 1828]
 
 [Action 1829]
 .else
-.range 1830 1849
+.range 1830 1849        ' send slave into the corner
 
 
 ' Comment reason for Corner time punishment
-
 
 ' respect - 500 for bad introduction
 [Action 1830]
@@ -2267,6 +2270,7 @@ Good boy, slave.
 [Action 2200]
 .range 2201 2209
 
+
 ' lecture, remembered in main script
 ' The "magic marker" mentioned here (as in the original version of Mine)
 ' either references the 1953 version of the marker pen invented in the US
@@ -2312,6 +2316,7 @@ so get your magic marker ready once again, slave!
 
 
 [Action 2220]
+.set -258           ' Magic marker applied
 .range 2221 2229
 
 
