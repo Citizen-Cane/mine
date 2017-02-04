@@ -6057,7 +6057,7 @@ if you don't take this punishment to heart.
 .range 2151
 
 [Action 2409]
-I hope for your sake that you've learned the value of your Mistresses time.
+I hope for your sake that this teaches you the value of your Mistresses time.
 Don't waste it in the future, or I'll give you a sharper lesson.
 .unset 509
 .range 2151
@@ -6733,7 +6733,7 @@ if you don't take this punishment to heart.
 
 
 ' 509 wasting mistress time
-' TODO add more punishments (corner time?) to be compatible with the enema
+
 [Action 2590]
 .else                   ' Fallback
 Unfortunately there is no punishment yet for time-wasting slave boys.
@@ -6741,33 +6741,65 @@ Unfortunately there is no punishment yet for time-wasting slave boys.
 .range 2151
 
 [Action 2591]
-.mustnot 25
+.mustnot 25             ' Ankles tied
 .shouldnot 267 268      ' Enema carrying out or holding
 You wasted my time, now I'm wasting yours.
 Get some rope or shoelace and tie up your ankles.
-Keep the connection between your ankles short.
+And don't you dare to leave any play between them -
+I just want you to hump.
 .pause Done, Miss
 .set 25                 ' ankles tied
-.range 2598 2599
+.range 2595 2599
 
 [Action 2592]
 .mustnot 23 24          ' something on penis, something on balls
 .mustnot 267 268        ' Enema carrying out or holding
 .must 384               ' humbler
-.must 2546
 Go fetch your humbler and lock up your slutty balls behind you,
 stretching them taut.
-You'll stay on the floor for the whole session. 
+You'll stay on the floor for the whole session, cunt. 
 .pause Done, Miss
 .set 24 31 32           ' something on balls, can't sit on chair, can't stand
-.range 2598 2599
+.range 2595 2599
 
-'[Action 2593]
+[Action 2593]
+.must 25                ' Ankles tied
+.shouldnot 267 268      ' Enema carrying out or holding
+.must 364               ' Ankle restraints
+You wasted my time, now I'm wasting yours.
+Get your ankle restraints and tie up your ankles.
+And don't you dare to leave any play between them -
+I just want you to hump.
+.pause Done, Miss
+.set 25                 ' ankles tied
+.range 2595 2599
+
 '[Action 2594]
 
 
-[Action 2598]
-.mustnot 24
+[Action 2595]
+.must 24                ' Something on balls
+.mustnot 38 39          ' pegs or pussy-clips
+.must 2591
+Now get another rope, and tie your slutty ballsack to your ankles.
+I don't want you to be able to stand, so keep the connecting rope short.
+.pause Done, Miss
+.set 32                 ' can't stand
+.range 2599
+
+[Action 2596]
+.must 24                ' Something on balls
+.mustnot 38 39          ' pegs or pussy-clips
+.must 2593
+Now get some rope or a chain, and tie your slutty ballsack to your ankles.
+I don't want you to be able to stand, so keep the connecting rope short.
+.pause Done, Miss
+.set 32                 ' can't stand
+.range 2599
+
+[Action 2597]
+.mustnot 24             ' Something on balls
+.must 2591
 Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
 When you're finished, connect the left-over of that rope to the rope between your ankles.
@@ -6776,10 +6808,19 @@ I don't want you to be able to stand, so keep the connecting rope short.
 .set 24 32              ' balls tied, can't stand
 .range 2599
 
+[Action 2598]
+.mustnot 24             ' Something on balls
+.must 2593
+Now get another rope, and tie up your slutty ball sack,
+with your balls separated by the rope.
+When you're finished, connect the left-over of that rope to your ankle restraints.
+I don't want you to be able to stand, so keep the connecting rope short.
+.pause Done, Miss
+.set 24 32              ' balls tied, can't stand
+.range 2599
+
 [Action 2599]
-.must 24
-Do you like your little reminder, slave?
-When you move around, you will have plenty of time to think about your misdoings.
+.else
 .range 2409
 
 
@@ -8843,7 +8884,8 @@ One thing I like is a slutty little slave boy wearing his slave chains.
 
 [Action 3167]
 For today's session I want you to put on your wrist and ankle restraints and chain them together.
-Give yourself enough play so that you can kneel comfortably, but not enough so that you can stand up straight.
+Give yourself enough play so that you can kneel comfortably,
+but not enough so that you can stand up straight.
 Leave your chains on for the whole session, slave.
 .pause I'm chained up, Miss
 .must 3166
@@ -8861,8 +8903,9 @@ One thing I like is a slutty little slave boy wearing his collar and chains.
 
 [Action 3169]
 For today's session I want you to put on your collar, wrist and ankle restraints.
-Start chaining your ankles and wrists together. Give yourself enough play so
-that you can kneel comfortably, but not enough so that you can stand up straight.
+Start chaining your ankles and wrists together. 
+Give yourself enough play so that you can kneel comfortably, 
+but not enough so that you can stand up straight.
 .pause I'm chained and collared, Miss
 .must 3168
 .set 25 26 28 32        'Ankle and wrist restraints, collar, can't stand
@@ -8886,7 +8929,8 @@ One thing I like is a slutty little slave boy wearing his slave chains.
 
 [Action 3173]
 For today's session I want you to put on your wrist and ankle restraints and chain them together.
-Give yourself enough play so that you can stand straight with your hands on your dick, but no more.
+Give yourself enough play so that you can stand straight with your hands on your dick,
+but no more.
 Leave your chains on for the whole session, slave.
 .pause I'm chained up, Miss
 .must 3172
@@ -8929,7 +8973,8 @@ Start by tying your ankles together, nice and snug.
 .must 3200
 When you've finished, tie another rope around that slutty ballsack,
 and tie that to your ankles as well.
-You should have enough play to kneel, but not enough to stand, at least not comfortably!
+You should have enough play to kneel, but not enough to stand, 
+at least not comfortably!
 .pause Tied up, Miss
 .range 3290
 
@@ -8960,8 +9005,10 @@ For today's session, My dear, I want you to fetch some rope or shoe lace.
 
 [Action 3207]
 Very good.
-Now tie your ankles together, and then tie them to your slave balls.
-You should have just enough play so that you can comfortably rest on your heels, but no more, slave!
+Now tie your ankles together,
+and then tie them to your slave balls.
+You should have just enough play so that you can comfortably rest on your heels,
+but no more, slave!
 .pause Tied up, Miss
 .mustnot 3206
 .set 24 25 31 32
@@ -17073,7 +17120,7 @@ Now put your fingers, one after another, in your mouth and lick them clean.
 .range 9656 9658
 
 [Action 9656]
-Let your tongue play around your fingers while you enjoy your juice.
+Let your tongue play around your fingers while you enjoy your cum.
 .delay 20
 .range 9656 9658
 
