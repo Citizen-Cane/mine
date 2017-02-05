@@ -6,7 +6,7 @@
 .onAllSet 9999
 
 ' clear actions that have been set in another script, critical as these aren't cleared automatically
-.resetrange 800 99999
+.resetrange 840 99999
 
 .resetrange 100 130     ' reset all temp variables from main script but keep slave state, toys and achievements
                         ' range 131-139 is used to access lectures flags given in mine-paddle but stored by the main script  
@@ -1542,14 +1542,12 @@ I hope so, slut!
 
 
 [action 1826]
-.must 258               ' Corner time already given
+.must 810               ' Corner time already given
 .range 9800 9899        ' return to main script
 
-' TODO desired but doesn't work since 258 is set in main script
-' TODO remember corner time variables in session global instead of save space of main script
-'[action 1827]
-'.must 519               ' p. o. for cumming without permission - having corner time available issential
-'.range 9800 9899        ' return to main script
+[action 1827]
+.must 519               ' p. o. for cumming without permission - relies on corner time so skip until performed
+.range 9800 9899        ' return to main script
 
 '[action 1828]
 
@@ -2194,7 +2192,10 @@ Good boy, slave.
 .pause Thank you, Miss
 .range 2140
 
+
+' corner time exit
 [Action 2140]
+.set 810                ' Corner time applied
 .range 9800 9899
 
 
@@ -2260,13 +2261,12 @@ Good boy, slave.
 
 ' Marker humiliation
 '
-' Write text on specific slave body parts, depends on the punishments type (derived from entry exit action)
+' Write text on specific slave body parts
+' depends on the punishments type (derived from entry exit action)
 ' Continues with sending slave into the corner, with predefined punishment severity
-' - corner time is given once, but 258 can be set anyway
-' - marker punishment is repeated, but -258 can be set anyway
-' all when returning from the sub script
-' -> no need to check for 258 anymore to avoid repeated corner time, unless corner time essential
-' (as for punishing cummming without permission)
+' - corner time is applied once, and skipped when 810 is set
+' - marker punishment is repeatable, 811 is set to comment repeated application
+
 [Action 2200]
 .range 2201 2209
 
@@ -2303,7 +2303,7 @@ Okay slave, go fetch your magic marker!
 
 [Action 2209]
 .must 131                    ' magic marker lecture heart
-.must -258                   ' Got another marker punishment
+.must 811                    ' Got another marker punishment
 .poss 100
 I'm pretty sure there's some space left on your wretched slave body to write on,
 so get your magic marker ready once again, slave!
@@ -2316,7 +2316,6 @@ so get your magic marker ready once again, slave!
 
 
 [Action 2220]
-.set -258           ' Magic marker applied
 .range 2221 2229
 
 
@@ -2415,11 +2414,13 @@ Now tell me what you've been!
 [Action 2247]
 That's right.
 A bad slave that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1700        ' Light punishment
 
 [Action 2248]
 That's right.
 A naughty slave that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1700        ' Light punishment
 
 
@@ -2449,6 +2450,7 @@ Now tell me what you are!
 That's right, slave.
 A naked slut!
 A naked slut that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1700        ' Light punishment
 
 
@@ -2493,12 +2495,14 @@ That's right!
 You are a bare naked naughty slave!
 And a slutty cunt as well.
 A slutty cunt that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1710        ' medium punishment
 
 
 ' 5xx empty
 
 '[Action 2270]
+'.set 811           ' Magic marker applied
 '.range 1710
 
 
@@ -2546,12 +2550,14 @@ Now tell me what you are!
 [Action 2287]
 That's right.
 A stupid slave that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1700        ' Light punishment
 
 [Action 2288]
 That's right.
 You are a stupid cunt!
 A stupid cunt that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1700        ' light punishment
 
 
@@ -2601,12 +2607,14 @@ Now tell me what you are!
 That's right.
 You've been a bad girl.
 A bad girl that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1710        ' medium punishment
 
 [Action 2298]
 That's right.
 You are a bad slave!
 And bad slaves are going to be punished.
+.set 811           ' Magic marker applied
 .range 1710        ' medium punishment
 
 
@@ -2682,6 +2690,7 @@ And what are you?
 .must 129          ' Clamps %100% chance
 Very good!
 Now you are properly shamed for your lack of self control.
+.set 811           ' Magic marker applied
 .range 1737        ' 35 minutes corner time kneeling
 
 ' 45 minutes without toys
@@ -2689,6 +2698,7 @@ Now you are properly shamed for your lack of self control.
 .mustnot 129       ' Clamps %100 chance
 Very good!
 Now you are properly shamed for your lack of self control.
+.set 811           ' Magic marker applied
 .range 1739        ' 45 minutes corner time kneeling
 
 
@@ -2758,11 +2768,13 @@ Now tell me what you are!
 .must 24 38        ' Something on balls, pegs
 Indeed you are!
 .unset 724 725     ' Limit corner time because pegs on ball sack are severe
+.set 811           ' Magic marker applied
 .range 1700        ' Light punishment
 
 [Action 2319]
 .else
 Indeed you are!
+.set 811           ' Magic marker applied
 .range 1710        ' medium punishment
 
 
@@ -2826,18 +2838,21 @@ Now tell me what you are!
 That's right.
 You are a slutty cunt.
 A slutty cunt that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1710        ' medium punishment
 
 [Action 2328]
 That's right.
 You are a stupid slave!
 A stupid slave that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1710        ' medium punishment
 
 [Action 2329]
 That's right.
 You are a disobedient slut!
 A disobedient slut that's going to be punished.
+.set 811           ' Magic marker applied
 .range 1710        ' medium punishment
 
 
@@ -2859,6 +2874,7 @@ A disobedient slut that's going to be punished.
 'penis to your mistress although you we not allowed to do so.
 '.relaxedSpeechRecognitionConfidence
 '.pause
+'.set 811           ' Magic marker applied
 '.range 1700
 '
 '[Action 2332]
@@ -2873,6 +2889,7 @@ A disobedient slut that's going to be punished.
 'to your mistress when you were not supposed to do so.
 '.relaxedSpeechRecognitionConfidence
 '.pause
+'.set 811           ' Magic marker applied
 '.range 1700
 
 
@@ -3960,37 +3977,42 @@ That's enough for now, slave.
 
 [Action 9153]
 .mustnot 104 105
-.mustnot 258            ' Corner time already given
+.mustnot 810            ' Corner time already given
 .numactionsfrom 9150 41
 .delay 30
 One hundred and sixty, give or take.
-Now hurry over for five minutes of well-deserved corner time to think about what a naughty boy you've been.
-Don't rub that red butt, and don't come back until I tell you to.
+Now hurry over for five minutes of well-deserved corner time
+to think about what a naughty boy you've been.
+Don't rub that red butt,
+and don't come back until I tell you to.
 .set 111                ' 5 minutes corner time 
 .unset 123 130          ' No cuffs, no clamps
 .range 2000             ' go into corner immediately (setup done)
 
 [Action 9154]
 .mustnot 105
-.mustnot 258            ' Corner time already given
+.mustnot 810            ' Corner time already given
 .numactionsfrom 9150 61
 .delay 30 30
 240 smacks!
 I bet you learned your lesson!
-To make sure, you can go stand in the corner with your bright red fanny on display for five minutes.
-You may not rub your bottom, you naughty boy.
+To make sure, you can go stand in the corner
+with your bright red fanny on display for five minutes.
+You may not rub your bottom,
+you naughty boy.
 Don't come back until I tell you to.
 .set 111                ' 5 minutes corner time
 .unset 123 130          ' No cuffs, no clamps
 .range 2000             ' go into corner immediately (setup done)
 
 [Action 9155]
-.mustnot 258            ' Corner time already given
+.mustnot 810            ' Corner time already given
 .numactionsfrom 9150 100
 .delay 30 30
 Four hundred smacks.
 That should teach you a lesson you won't forget.
-I want you to go into the corner now for ten minutes to think about what a bad boy you've been.
+I want you to go into the corner now for ten minutes
+to think about what a bad boy you've been.
 Don't you dare rub that naughty bottom.
 Don't come back until you hear me call for you.
 .set 112                ' 10 minutes corner time
@@ -4002,7 +4024,7 @@ Don't come back until you hear me call for you.
 
 [Action 9156]
 .mustnot 104 105
-.must 258               ' Corner time already given
+.must 810               ' Corner time already given
 .numactionsfrom 9150 41
 .delay 30
 One hundred and sixty,
@@ -4011,7 +4033,7 @@ give or take.
 
 [Action 9157]
 .mustnot 105
-.must 258               ' Corner time already given
+.must 810               ' Corner time already given
 .numactionsfrom 9150 61
 .delay 30
 Two hundred and forty smacks!
@@ -4019,7 +4041,7 @@ I bet you learned your lesson!
 .range 9199
 
 [Action 9158]
-.must 258               ' Corner time already given
+.must 810               ' Corner time already given
 .numactionsfrom 9150 100
 .delay 30
 Four hundred smacks.
@@ -4209,8 +4231,7 @@ You may remove the weight now, slave.
 
 [Action 9800]
 .must 169
-'.loadSbd Mine.sbd 2413
-.loadSbd Mine.sbd 2635
+.loadSbd Mine.sbd 2413
 
 [Action 9801]
 .must 177
@@ -4238,7 +4259,7 @@ You may remove the weight now, slave.
 
 [Action 9813]
 .must 183
-.loadsbd Mine.sbd 2559
+.loadsbd Mine.sbd 2405
 
 [Action 9814]
 .must 194
@@ -4306,37 +4327,31 @@ You may remove the weight now, slave.
 
 [Action 9835]
 .must 163
-'.loadsbd Mine.sbd 2408
-.loadsbd Mine.sbd 2585
+.loadsbd Mine.sbd 2408
 
 [Action 9836]
 .must 164
-'.loadsbd Mine.sbd 2417
-.loadsbd Mine.sbd 2675
+.loadsbd Mine.sbd 2417
 
 [Action 9837]
 .must 165
-'.loadsbd Mine.sbd 2416
-.loadsbd Mine.sbd 2665
+.loadsbd Mine.sbd 2416
 
 [Action 9838]
 .must 166
-'.loadsbd Mine.sbd 2414
-.loadsbd Mine.sbd 2645
+.loadsbd Mine.sbd 2414
 
 [Action 9839]
 .must 167
-'.loadsbd Mine.sbd 2415
-.loadsbd Mine.sbd 2655
+.loadsbd Mine.sbd 2415
 
 [Action 9840]
 .must 168
-'.loadsbd Mine.sbd 2449
-.loadsbd Mine.sbd 2995
+.loadsbd Mine.sbd 2449
 
 [Action 9841]
 .must 170
-.loadsbd Mine.sbd 2985
+.loadsbd Mine.sbd 2448
 
 [Action 9842]
 .must 191
@@ -4344,8 +4359,8 @@ You may remove the weight now, slave.
 
 [Action 9843]
 .must 171
-'.loadsbd Mine.sbd 2418
-.loadsbd Mine.sbd 2685
+.loadsbd Mine.sbd 2418
+
 
 
 ' Bad exits 9900-9990
