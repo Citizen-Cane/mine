@@ -2,8 +2,7 @@
 ' Revisited RELEASE version 1.02 (3 DEZ 2011?)
 ' Original RELEASE version 1.01 (07 MAR 2006)
 
-' This restores range 50 to 799
-' if more slave state is needed go up to 99 or relocate temp variables in sub scripts
+' This restores range 90 to 799
 .restore
 
 ' temp variables
@@ -787,7 +786,7 @@ Would you be so kind and tell me what you've got exactly?
 .settime 276 +INF                               ' set enema timer to infinite to ignore
 ' save the "Quick without permission" check
 ' in order to to catch abnormal process termination
-.save 50 799
+.save 90 799
 .range 848 849
 
 
@@ -917,7 +916,7 @@ You will regret this, you stupid cunt.
 
 ' Save
 [Action 898]
-.save 50 799
+.save 90 799
 .unset 898
 .return
 
@@ -1388,7 +1387,7 @@ As it is, I think I'll mark you down for a little extra punishment, just as a re
 ' init mine-maid save state in order to clear actions 300-699 on .restore in that script
 ' because without an existing save state, .restore does nothing, leading to a wrong slave progress state 
 [Action 1026]
-.save 50 799
+.save 90 799
 .loadsbd mine-maid.sbd 998   ' init mine-maid script state
 ' continues with .range 1029 ' init mine-dildo script state
 
@@ -1398,7 +1397,7 @@ As it is, I think I'll mark you down for a little extra punishment, just as a re
 ' init mine-dildo save state in order to clear actions 180-199 on .restore in that script
 ' because without an existing save state, .restore does nothing, leading to a wrong slave progress state 
 [Action 1029]
-.save 50 799
+.save 90 799
 .loadsbd mine-dildo.sbd 980  ' init mine-dildo script state
 ' continues with .range 1030 ' Introduction query
 
@@ -6233,7 +6232,7 @@ I guess you've gotten away with one this time.
 
 ' corner time + marker
 [Action 2501]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2500 2500
 
 
@@ -6271,7 +6270,7 @@ I guess I'll have to turn the other cheek this time.
 .mustnot 20 22 33 34         ' something on nipples, something in mouth, can't kneel, can't type
 .must 361 362 367
 .must 712 717 746 
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1116 1116
 
 ' dildo punishment
@@ -6280,7 +6279,7 @@ I guess I'll have to turn the other cheek this time.
 .mustnot 22 29 34 41         ' something in mouth, blindfolded, can't type/use mouse, dildo in ass
 .mustnot 260                 ' Dildo worshiping already done
 .set 260
-.save 50 799
+.save 90 799
 .loadsbd mine-dildo.sbd 901 901
 
 [Action 2513]
@@ -6386,19 +6385,19 @@ You may have escaped me this time, but don't make a habit of it!
 
 ' corner time + marker
 [Action 2522]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2512 2512
 
 
 [Action 2525]
 .set 716                ' nipple tolerance 1
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2987 2987
 
 [Action 2526]
 .mustnot 361 362        ' clothes pegs or nipple clamps
 .poss 100
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2987 2987
 
 
@@ -6431,19 +6430,19 @@ I guess we'll have to skip it today.
 ' corner time + marker
 [Action 2532]
 .shouldnot 502          ' naked-rule violation 1 - prefer punishment shower
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2517 2517
 
 
 [Action 2535]
 .set 716                ' nipple tolerance 1
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2986 2986
 
 [Action 2536]
 .mustnot 361 362        ' clothes pegs
 .poss 100
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2986 2986
 
 
@@ -6483,7 +6482,7 @@ I guess you're off the hook, you lucky slave boy.
 .must 361 362           ' clamps, pins
 .must 717               ' nipple tolerance 2, gives 3.
 .set 252                ' Done nipple training activity
-.save 50 799
+.save 90 799
 .loadsbd mine-nipt.sbd 1019 1019
 
 ' dildo punishment
@@ -6492,7 +6491,7 @@ I guess you're off the hook, you lucky slave boy.
 .mustnot 260            ' Dildo worshiping already done
 .must 388               ' have dildo
 .set 260
-.save 50 799
+.save 90 799
 .loadsbd mine-dildo.sbd 902 902
 
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
@@ -6531,7 +6530,7 @@ I guess you've gotten away with one this time.
 ' corner time - no magic marker so we have to check first
 [Action 2551]
 .mustnot 810                 ' Corner time already given
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2525 2525
 
 ' TODO additional punishments, as this is a common offense, and may collide with 519
@@ -6595,13 +6594,13 @@ I'll tell you when you may take them off.
 [Action 2565]
 .must 362               ' clothes pegs
 .set 716 746            ' nipple tolerance 1, CBT 1
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2984 2984
 
 [Action 2566]
 .mustnot 362           ' clothes pegs
 .poss 100
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2984 2984
 
 
@@ -6629,7 +6628,7 @@ Unfortunately your attention deficit disorder must go unavenged today.
 .mustnot 22 29 34 41         ' something in mouth, blindfolded, can't type/use mouse, dildo in ass
 .mustnot 260                 ' Dildo worshiping already done
 .set 260
-.save 50 799
+.save 90 799
 .loadsbd mine-dildo.sbd 903 903
 
 [Action 2572]
@@ -6707,7 +6706,7 @@ You can leave it in there for our entire session, slave.
 .gosub 7100             ' Ensure paddle or replacement
 .set 264                ' Spanking done
 .set 751 752            ' asswhipping 2
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3013 3013
 
 
@@ -6946,13 +6945,13 @@ just feeling the flush of humiliation will suit you good enough this time.
 ' corner time (5-10 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
 [Action 2617]
 .must 511                    ' Lack of hardness level 1
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2555 2555
 
 ' corner time (10-15 min) + marker (cuffs + clamps sorted out in mine-paddle.sbd)
 [Action 2618]
 .must 512                    ' Lack of hardness level 2
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2560 2560
 
 
@@ -7086,7 +7085,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751                          ' asswhipping 1
-.save 50 799
+.save 90 799
 .loadSbd mine-paddle.sbd 3022 3022
 
 
@@ -7099,7 +7098,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751 752                      ' asswhipping 2
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3016 3016
 
 
@@ -7112,7 +7111,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751 752 753                  ' asswhipping 3
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3017 3017
 
 ' shower 15m, 200 paddles, clamps
@@ -7128,13 +7127,13 @@ Now keep that cock tall and proud or we'll have to go again.
 
 [Action 2656]
 .set 716                          ' nipple tolerance 1
-.save 50 799
+.save 90 799
 .loadSbd mine-paddle.sbd 2989 2989
 
 [Action 2657]
 .mustnot 361 362                  ' nipple clamps, clothes pegs
 .poss 100
-.save 50 799
+.save 90 799
 .loadSbd mine-paddle.sbd 2989
 
 
@@ -7147,7 +7146,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .set 264                          ' Spanking done
 .gosub 7100                       ' Ensure paddle or replacement
 .set 751 752 753                  ' asswhipping 3
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3015 3015
 
 ' Maid training
@@ -7156,7 +7155,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .mustnot             29           ' something around waist, blindfolded
 .mustnot 34                       ' can't type/use mouse
 .set 271
-.save 50 799
+.save 90 799
 .loadsbd mine-maid.sbd 1003       ' Medium punishment (according to punishment acceptance)
 
 
@@ -7176,7 +7175,7 @@ I'll get you next time, you dirty slave!
 .gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751 752 753                  ' asswhipping 3
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3014 3014
 
 [Action 2672]
@@ -7186,7 +7185,7 @@ I'll get you next time, you dirty slave!
 .mustnot    31                    ' can't sit on chair
 .mustnot 34                       ' can't type/use mouse
 .set 271
-.save 50 799
+.save 90 799
 .loadsbd mine-maid.sbd 1002       ' Light punishment (according to punishment acceptance)
 
 
@@ -7206,7 +7205,7 @@ I'll get you next time, you dirty slave!
 .mustnot    31                    ' can't sit on chair
 .mustnot 34                       ' can't type/use mouse
 .set 271
-.save 50 799
+.save 90 799
 .loadsbd mine-maid.sbd 1005 1005  ' Severe punishment (according to punishment acceptance)
 
 ' shower 10m, 50 paddles, clamps, kneeling
@@ -7226,19 +7225,19 @@ I'll get you next time, you dirty slave!
 .gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751 752 753                  ' asswhipping 3
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3023 3023
 
 
 [Action 2686]
 .set 716                          ' nipple tolerance 1
-.save 50 799
+.save 90 799
 .loadSbd mine-paddle.sbd 2981
 
 [Action 2687]
 .mustnot 361 362                  ' nipple clamps, clothes pegs
 .poss 100
-.save 50 799
+.save 90 799
 .loadSbd mine-paddle.sbd 2981
 
 
@@ -7256,7 +7255,7 @@ I'll get you next time, you dirty slave!
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 810               ' Corner time already given
 .unset 23 30 44         ' Something on penis, can't jerk off, chastified
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1104 1104
 
 '' 1hr punishment wanking fallback only when wearing chastity device and not having key
@@ -7267,7 +7266,7 @@ I'll get you next time, you dirty slave!
 '.must 44                ' Chastified
 '.timeto 45 00:00"00     ' have key for chastity cage
 '.must 810               ' Corner time already given
-'.save 50 799
+'.save 90 799
 '.loadsbd mine-td.sbd 1104 1104
 
 ' 1hr punishment wanking
@@ -7275,7 +7274,7 @@ I'll get you next time, you dirty slave!
 ' TODO implement taking the clamps off during wanking, and relax timing conditions in activities
 .mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
 .mustnot 30 44          ' Can't jerk off
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1104 1104
 
 ' 35-45m kneeling + marker, clamps and cuffs are preferred, but this works without any toys as well
@@ -7283,7 +7282,7 @@ I'll get you next time, you dirty slave!
 [Action 2693]
 .shouldnot 505          ' premature retry to attend session has just corner time, so avoid here if possible
 .mustnot 810            ' Corner time already given - essential for punishing "cumming without permission"
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2595 2595
 
 ' 35-45m kneeling + marker, clamps and cuffs are preferred, but this works without any toys as well
@@ -7291,7 +7290,7 @@ I'll get you next time, you dirty slave!
 ' - fallback if none of the other punishments can be used, to avoid AllActionsSet
 [Action 2694]
 .else
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2595 2595
 
 ' todo cold shower fallback, would work with pegs and chastity cage
@@ -7310,7 +7309,7 @@ I'll get you next time, you dirty slave!
 [Action 2700]
 .else
 .unset -20 -24          ' don't remove clamps or pegs in activity
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2600 2600
 
 ' complete the clamps / complete the pegs
@@ -7409,7 +7408,7 @@ I guess you've gotten away with one this time.
 
 ' Corner time + marker
 [Action 2711]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2605 2605
 
 ' TODO Punishemnts for not performing assignments while away from mistress other than corner time?
@@ -7433,7 +7432,7 @@ I guess you've gotten away with one this time.
 
 ' Corner time + marker
 [Action 2740]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 2620 2620
 
 
@@ -7642,7 +7641,7 @@ Hopefully this will get through to you!
 .gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751 752                      ' Asswhipping 1 & 2
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3020 3020
 
 ' paddle x400
@@ -7652,7 +7651,7 @@ Hopefully this will get through to you!
 .gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751 752 753                  ' asswhipping 3
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3021 3021
 
 
@@ -7696,7 +7695,7 @@ Hopefully this will get through to you!
 .gosub 7100                       ' Ensure paddle or replacement
 .set 264                          ' Spanking done
 .set 751 752                      ' Asswhipping 1 & 2
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3018 3018
 
 ' paddle x400
@@ -7705,7 +7704,7 @@ Hopefully this will get through to you!
 .should 752                       ' asswhipping 2
 .gosub 7100                       ' Ensure paddle or replacement
 .set 751 752 753                  ' asswhipping 3
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3019 3019
 
 
@@ -10358,97 +10357,97 @@ delay 5
 
 [Action 4801]
 .must 667          ' get or make some chains
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2100 2109
 
 [Action 4802]
 .must 668          ' get or make some nipple clamps
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2200 2209
 
 [Action 4803]
 .must 669          ' get or make some clothes pegs
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2300 2309
 
 [Action 4804]
 .must 670          ' get or make some wrist restraints
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2400 2409
 
 [Action 4805]
 .must 671          ' get or make some ankles restraints
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2500 2509
 
 [Action 4806]
 .must 672          ' get or make a collar
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2600 2609
 
 [Action 4807]
 .must 673          ' get some rope
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2700 2709
 
 [Action 4808]
 .must 674          ' get or make a gag
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2800 2809
 
 [Action 4809]
 .must 675          ' get or make a butt plug
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 2900 2909
 
 [Action 4810]
 .must 676          ' get or make a whip
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3000 3009
 
 [Action 4811]
 .must 677          ' get or make a chastity device
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3100 3109
 
 [Action 4812]
 .must 678          ' get or make a humbler
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3200 3209
 
 [Action 4813]
 .must 679          ' get or make ball harness
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3300 3309
 
 [Action 4814]
 .must 680          ' 
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3400 3409
 
 [Action 4815]
 .must 681          ' get an enema kit
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3500 3509
 
 [Action 4816]
 .must 682          ' get a blindfold
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3600 3609
 
 [Action 4817]
 .must 684          ' get a dildo
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3700 3709
 
 [Action 4818]
 .must 685          ' get a vibrator
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3800 3809
 
 [Action 4819]
 .must 683          ' get some pussy clamps
-.save 50 799
+.save 90 799
 .loadsbd mine-equip.sbd 3900 3909
 
 '
@@ -11510,7 +11509,7 @@ Make sure you have one until next time, baby.
 
 ' Maid training jump pad
 [Action 5129]
-.save 50 799
+.save 90 799
 .loadsbd mine-maid.sbd 1000 1000
 
 
@@ -11557,7 +11556,7 @@ No, your slave holes have been used good enough.
 ' Dildo worshiping jump pad
 [Action 5149]
 .set 254                          ' Done mouth activity
-.save 50 799
+.save 90 799
 .loadsbd mine-dildo.sbd 900 901
 
 
@@ -11739,15 +11738,15 @@ I like a clean slave.
 
 ' punishment shower activity jumps
 [Action 5351]
-.save 50 799
+.save 90 799
 .loadSbd mine-paddle.sbd 2988 2988
 
 [Action 5352]
-.save 50 799
+.save 90 799
 .loadSbd mine-paddle.sbd 2982 2982
 
 [Action 5353]
-.save 50 799
+.save 90 799
 .loadSbd mine-paddle.sbd 2983 2983
 
 
@@ -11893,19 +11892,19 @@ You'll be punished later for failing your training.
 
 ' self bondage activities jumps
 [Action 5551]
-.save 50 799
+.save 90 799
 .loadSbd mine-sb.sbd 1101 1101
 
 [Action 5552]
-.save 50 799
+.save 90 799
 .loadSbd mine-sb.sbd 1102 1102
 
 [Action 5553]
-.save 50 799
+.save 90 799
 .loadsbd mine-sb.sbd 1103 1103
 
 [Action 5554]
-.save 50 799
+.save 90 799
 .loadsbd mine-sb.sbd 1104 1104
 
 '   -------------------------------------------------------------------------
@@ -12119,23 +12118,23 @@ I will have to punish you later for failing your training.
 ' spanking activities jumps
 
 [Action 5751]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3010 3010
 
 [Action 5752]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3011 3011
 
 [Action 5753]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3012 3012
 
 [Action 5754]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 1500 1500
 
 [Action 5755]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 1520 1520
 
 
@@ -12424,39 +12423,39 @@ Meanhile, three demerits will do about right.
 
 
 [Action 5951]
-.save 50 799
+.save 90 799
 .loadSbd mine-ooe.sbd 1002 1002
 
 [Action 5952]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3002 3002
 
 [Action 5953]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3003 3003
 
 [Action 5954]
-.save 50 799
+.save 90 799
 .loadsbd mine-paddle.sbd 3004 3004
 
 [Action 5955]
-.save 50 799
+.save 90 799
 .loadsbd mine-nipt.sbd 1017 1017
 
 [Action 5964]
-.save 50 799
+.save 90 799
 .loadsbd mine-nipt.sbd 1014 1014
 
 [Action 5965]
-.save 50 799
+.save 90 799
 .loadsbd mine-nipt.sbd 1015 1015
 
 [Action 5966]
-.save 50 799
+.save 90 799
 .loadsbd mine-nipt.sbd 1016 1016
 
 [Action 5967]
-.save 50 799
+.save 90 799
 .loadsbd mine-nipt.sbd 1018 1018
 
 
@@ -12836,59 +12835,59 @@ There will be punishment for this, and in addition you aren't allowed to cum unt
 
 
 [Action 6151]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1101 1101
 
 [Action 6152]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1102 1102
 
 [Action 6153]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1103 1103
 
 [Action 6154]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1105 1105
 
 [Action 6155]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1106 1106
 
 [Action 6156]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1107 1107
 
 [Action 6157]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1108 1108
 
 [Action 6158]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1109 1109
 
 [Action 6159]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1110 1110
 
 [Action 6160]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1111 1111
 
 [Action 6161]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1112 1112
 
 [Action 6162]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1113 1113
 
 [Action 6163]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1114 1114
 
 [Action 6164]
-.save 50 799
+.save 90 799
 .loadsbd mine-td.sbd 1115 1115
 
 
@@ -16654,7 +16653,7 @@ Goodbye.
 .resetrange 268 359
 ' skip mapped toy range 360-389
 .resetrange 390 799
-.save 50 799
+.save 90 799
 .range 9501
 
 [Action 9501]
