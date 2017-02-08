@@ -1476,7 +1476,6 @@ I hope so, slut!
 ' 50% chance of handcuffs = yes (have wrist restraints 363)
 [Action 1757]
 .must 125               ' Cuffs requested 50%
-.must 721               ' Patient Waiting level 1
 .set 123                ' Corner time is handcuffed
 .range 1760 1764
 
@@ -1486,12 +1485,6 @@ I hope so, slut!
 .unset 123              ' Corner time is handcuffed
 .range 1760 1764
 
-' 100% chance of handcuffs (have wrist restraints 363)
-[Action 1759]
-.mustnot 26             ' Wrists tied
-.must 126               ' Cuffs requested 100%
-.set 123                ' Corner time is handcuffed
-.range 1760 1764
 
 ' 0% chance of clamps
 [Action 1760]
@@ -1505,21 +1498,12 @@ I hope so, slut!
 
 ' 50% chance of clamps = yes
 [Action 1762]
-.mustnot 20             ' Something on nipples
 .must 128               ' Clamps requested 50%
-.must 721               ' Patient Waiting level 1
 .set 130                ' Clamps
 .range 1765 1770
 
 ' 100% chance of clamps
 [Action 1763]
-.must 129               ' Clamps requested 100%
-.set 130                ' Clamps
-.range 1765 1770
-
-' 100% chance of clamps
-[Action 1764]
-.mustnot 20             ' Something on nipples
 .must 129               ' Clamps requested 100%
 .set 130                ' Clamps
 .range 1765 1770
@@ -2250,11 +2234,13 @@ Good boy, slave.
 
 [Action 2198]
 .mustnot 361                      ' Nipple clamps
+.set 127                          ' no clamps
 .unset 128 129                    ' 50%, 100% clamps
 .return
 
 [Action 2199]
 .must 20                          ' something on nipples
+.set 127                          ' no clamps
 .unset 128 129                    ' 50%, 100% clamps
 .return
 
