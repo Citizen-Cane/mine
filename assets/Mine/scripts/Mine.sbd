@@ -16151,21 +16151,6 @@ delay 2
 .return
 
 
-' Appreciating wearing the cage
-
-[Action 9190]
-Very good, my little pet.
-.set 23 30 44           ' something on penis, can't jerk off, chastified
-'.range 9210 9214
-.range 9255 9259        ' key question
-
-[Action 9191]
-That's a good chastity slave.
-.set 23 30 44           ' something on penis, can't jerk off, chastified
-'.range 9210 9214
-.range 9255 9259        ' key question
-
-
 ' Chastity cage in time check
 
 [Action 9196]
@@ -16208,31 +16193,34 @@ And for your own good, you'll better stay bare naked and locked up that hour.
 [Action 9199]
 .unset 9199
 Well, then tell your Mistress:
-Are you wearing your chastity cage?
-.delay 15 15 confirm yes 9203 9204 no 9215 9216
+Are you wearing your chastity cage right now?
+.delay 15 15 confirm yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
 
 
-' Chastity cage check, after toy setup, from 1632, to 1650
-' Adds quick answer check, then advances to 9203 9304
+' Chastity cage check entry, callde after toy setup
 
+' already wearing, confirmed
 [Action 9200]
 .must 44
 .unset 9200
 .return
 
+' ask
 [Action 9201]
 .mustnot 44
 .unset 9201
 .range 9202 9204
 
 
+' wearing the cage?
+
 [Action 9202]
 It's always a pleasure to see a slave and his chastity cage.
 Are you wearing it already?
-.delay 15 15 confirm yes 9190 9191 no 9215 9216
+.delay 15 15 confirm yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
@@ -16240,97 +16228,94 @@ Are you wearing it already?
 [Action 9203]
 What about your chastity cage, sweetie?
 Are you wearing it?
-.delay 15 15 confirm yes 9190 9191 no 9215 9216
+.delay 15 15 confirm yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
 
 [Action 9204]
 Are you wearing your chastity cage right now?
-.delay 15 15 confirm yes 9190 9191 no 9215 9216
+.delay 15 15 confirm yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
 
 
+' slave is fine with being locked up
+' TODO remove references to key holder, or check for no key earlier (here release is within 2 hours)
+' TODO model INDEFINITE without key - so far we have only timed releases
+
 [Action 9205]
-.timefrom 45 00:00"00   ' Have key for chastity cage
+.timefrom 45 -00:00"00  ' Have key for chastity cage
 Well, as you wish slave.
-Your swollen hot cock will stay in that cage until further notice.
-.set 687                ' Chastity belt rules apply 2
-.range 9251             ' Chastified
+That swollen hot cock will stay in that cage for a while.
+.set 686 687            ' Chastity belt rules apply 2
+.range 9250             ' Chastified
 
 [Action 9206]
-.timeto 45 00:00"00     ' Have key for chastity cage 
-Well, you don't have the key, my poor pet.
-Don't mind, slave.
-I' going to work you up as high as possible, and after the session
-you can crawl to your key holder and beg for a release.
-.range 9251             ' Chastified
+.else
+Well, as you wish slave.
+That swollen hot cock will stay in that cage until further notice.
+.set 686 687            ' Chastity belt rules apply 2
+.range 9250             ' Chastified
 
 [Action 9207]
-.timeto 45 00:00"00     ' Have key for chastity cage 
-That's right, slave.
-You don't have the key, and you don't get release!
-However I'm going to work you up as high as possible, and after the session
-you can crawl to your key holder and beg for a release.
-.range 9251             ' Chastified
+.timeto 45 -INF         ' Have key for chastity cage never
+Well, you don't have the key anyway, my poor pet.
+Don't mind, slave.
+I'm going to work you up as high as possible,
+and after the session you can crawl to your key holder and beg for a release.
+.range 9250             ' Chastified
+
+'[Action 9208]
+'[Action 9209]
 
 
-[Action 9208]
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-Well, in this case you doesn't seem to be that aroused right now,
-so it's no loss to keep that little prick locked up for a while.
-.range 9251             ' Chastified
-
-[Action 9209]
-.timeto 45 00:00"00     ' Have key for chastity cage 
-Well, you don't have the key, my poor pet.
-I think I will work you up as high as possible, and you can then crawl
-to your key holder and beg for a release after the session.
-.range 9251             ' Chastified
-
-
-' Tease and denial: ask but don't actually release
+' Tease and denial: have key now or soon - ask but don't actually release
 
 [Action 9210]
-You surely want to be allowed to take that castity cage off, don't you, slave?
+.timefrom 45 -00:00"00   ' Have key for chastity cage now
+You surely want to be allowed to take that chastity cage off, don't you, slave?
 .yestext Yes Miss, please take it off
 .notext Thanks Miss, I'm fine
-.yesno 9230 9239 9205 9207
-
+.yesno 9230 9239 9205 9209
 
 [Action 9211]
 .mustnot 103
+.timefrom 45 -02:00"00   ' Have key for chastity cage now or soon
 Your swollen hot cock surely bursts inside that tight cage, doesn't it?
 .yestext Yes, please let me take it off, Miss
 .notext Thanks Miss, I'm fine
-.yesno 9240 9249 9208 9209
+.yesno 9240 9249 9205 9209
 
 [Action 9212]
-.timefrom 45 00:00"00   ' Have key for chastity cage 
+.timefrom 45 -02:00"00   ' Have key for chastity cage now
 .must 103
-But you've been such a bitch recently that I don't see a reason to
+And you've been such a bitch recently that I don't see a reason to
 grand you any satisfaction right now.
 You'll stay locked up.
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 [Action 9213]
-.timefrom 45 00:00"00   ' Have key for chastity cage 
+.timefrom 45 -00:00"00   ' Have key for chastity cage 
 You certainly don't mind staying locked up for the time being, do you, slave?
-Maybe I'll allow you to wank for me a little later.
-.range 9251             ' Chastified
+Well,
+maybe I'll allow you to wank for me a little later.
+.range 9250             ' Chastified
 
 [Action 9214]
-.timefrom 45 00:00"00   ' Have key for chastity cage 
+.timefrom 45 -00:00"00   ' Have key for chastity cage 
 .mustnot 103
+.poss 100
 .numberofactionsset 500 549 1     ' if there is any punishment outstanding
-You surely want to be released from your chastity cage, don't you slave?
+You surely want to be released from your chastity cage, don't you?
+[]
 But being released from the cage and allowed to wank for your mistress is a privilege
 you have to earn through submission and discipline.
-We'll see later, whether you make up a good enough slave to be allowed to touch yourself.
+We'll see later,
+whether you make up a good enough slave to be allowed to touch yourself.
 .pause Thank you, Miss
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 
 ' Not wearing cage
@@ -16423,24 +16408,24 @@ You can expect some punishment later on for this lapse.
 You may put on your cage now, slave.
 But don't expect to be released again any time soon.
 .pause Ready Miss, I'm locked up
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 ' neutral
 [Action 9226]
 And now get your silly slave penis locked up in that cage
 immediately if you want to stay in my good graces. 
 .pause Ready Miss, I'm locked up
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 '[Action 9227]
 
 
 ' confessed to remember orders
 [Action 9228]
-And now get that silly slave penis into your chastity cage, slave.
+Now get that silly slave penis into your chastity cage!
 And prepare yourself for a though session to make up for your impudent ignorance.
 .pause I'm locked up, Miss
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 '[Action 9229]
 
@@ -16458,45 +16443,46 @@ And prepare yourself for a though session to make up for your impudent ignorance
 
 
 ' ... be allowed to take the cage off
+' time must go back to the maximum time in 9255
 
 [Action 9230]
+.timefrom 45 -00:00"00   ' Have key for chastity cage 
+.must 103
+.poss 15
 Well, I don't think you have earned the privilege to touch yourself yet.
 We'll see later, if you make up a good enough slave to be allwowed to wank for my pleasure.
-.poss 15
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-.must 103
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 [Action 9231]
+.timefrom 45 -00:00"00   ' Have key for chastity cage 
+.poss 10
 Slave, I know you want to be relased from that tight cage,
 but for the time being, we gonna leave your little shriveled up prick locked up.
-.poss 10
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 [Action 9232]
+.timefrom 45 -02:00"00   ' Have key for chastity cage 
+.mustnot 103
+.poss 10
 It looks like it is in good hands in there, hihi.
 Let's leave that little shriveled up prick of yours locked up.
-.poss 10
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-.mustnot 103
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 [Action 9233]
+.timefrom 45 -01:00"00   ' Have key for chastity cage 
+.poss 10
 As it looks, your piece of meat is well placed inside that cage,
 so let's leave that little shriveled up prick of yours locked up until later.
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-.poss 10
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 [Action 9234]
+.timefrom 45 -02:00"00   ' Have key for chastity cage 
+.must 103
+.poss 15
 Slave, you've been such a bitch recently that I don't see
 a reason to grand you any satisfaction right now.
 Let'see if you can earn a release later on.
-.poss 15
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-.must 103
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 '[Action 9235]
 '[Action 9236]
@@ -16508,46 +16494,46 @@ Let'see if you can earn a release later on.
 ' ... bursts inside that tight cage 
 
 [Action 9240]
+.timefrom 45 -00:00"00   ' Have key for chastity cage 
+.mustnot 103
+.poss 15
 Well, I don't think you have earned the privilege to touch yourself yet.
 We'll see later, if you make up a good enough slave to be allwowed to wank for me.
-.poss 15
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-.mustnot 103
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
-' Not appropriate for "bursts"
+' TODO Not appropriate for "bursts"
 '[Action 9241]
+'.timefrom 45 -00:00"00   ' Have key for chastity cage 
+'.poss 10
 'Slave, I know you want to be released from that tight cage,
 'but for the time being, we gonna keep your little shriveled up prick locked up.
-'.poss 10
-'.timefrom 45 00:00"00   ' Have key for chastity cage 
-'.range 9251             ' Chastified
+'.range 9250             ' Chastified
 '
-'' Not appropriate for "bursts"
+'' TODO Not appropriate for "bursts"
 '[Action 9242]
+'.timefrom 45 -00:00"00   ' Have key for chastity cage 
+'.mustnot 103
+'.poss 10
 'It looks like it is in good hands in there, hihi. Let's leave
 'that little shriveled up prick of yours locked up until later.
-'.poss 10
-'.timefrom 45 00:00"00   ' Have key for chastity cage 
-'.mustnot 103
-'.range 9251             ' Chastified
+'.range 9250             ' Chastified
 '
 [Action 9243]
+.timefrom 45 -02:00"00   ' Have key for chastity cage 
+.mustnot 103
+.poss 10
 Don't be sad, slave, but your swollen piece of meat stays squeezed
 into that tight cage until you deserve it to be released.
-.poss 10
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-.mustnot 103
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 [Action 9244]
+.timefrom 45 -02:00"00   ' Have key for chastity cage 
+.must 103
+.poss 15
 Slave, you've been so bitchy recently that I don't see why I should grand you
 any satisfaction right now.
 Let'see if you can earn a release later on.
-.poss 15
-.timefrom 45 00:00"00   ' Have key for chastity cage 
-.must 103
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
 '[Action 9245]
 '[Action 9246]
@@ -16557,32 +16543,48 @@ Let'see if you can earn a release later on.
 
 
 ' back to chastity cage setup, cock still in cage
-[Action 9251]
+[Action 9250]
 .set 23 30 44           ' something on penis, can't jerk off, chastified
 .return
 
 
-' Ask for key, entry point when we know that the slave wears the cage
-' comment not having key when the key isn't available within the next two hours
+' Appreciating wearing the cage
 
-' Slave has the key
+[Action 9251]
+Very good, my little pet.
+.set 23 30 44           ' something on penis, can't jerk off, chastified
+'.range 9210 9214
+.range 9255 9259        ' key question
+
+[Action 9252]
+That's a good chastity slave.
+.set 23 30 44           ' something on penis, can't jerk off, chastified
+'.range 9210 9214
+.range 9255 9259        ' key question
+
+'[Action 9253]
+'[Action 9254]
+
+
+' Entry point when we know that the slave wears the cage -> Ask for key
+' Comment not having key when the key isn't available within the next 2 hours
+
+' Slave has the key - soon in the next two hours
 ' Continue with asking whether slave likes to be released
 [action 9255]
 .timefrom 45 -02:00"00   ' Have key for chastity cage
 .range 9210 9214
 
-' Slave doesn't have key
-' Continue with asking whether slave likes to be released
-' TODO Slave might have the key even if chastity hasn't been expired
-[Action 9256]
-.timeto 45 -02:00"00     ' Haven't key for chastity cage
-.range 9280 9284
-
 ' TODO comment different duration lengths (> 3h means non release in this session)
-
+'[Action 9256]
 '[Action 9257]
 '[Action 9258]
-'[Action 9259]
+
+' Slave doesn't have key within the next two hours
+' Continue with asking whether slave likes to be released
+[Action 9259]
+.else
+.range 9280 9284
 
 
 '[action 9271]
@@ -16595,7 +16597,7 @@ Let'see if you can earn a release later on.
 
 [Action 9280]
 But you surely want to be allowed to take
-the castity cage off, don't you, slave?
+the chastity cage off, don't you, slave?
 .yestext Yes please Miss
 .notext Thanks Miss, but I'm fine
 .yesno 9290 9294 9205 9207
@@ -16604,37 +16606,63 @@ the castity cage off, don't you, slave?
 But your swollen hot cock surely bursts inside that tight cage, doesn't it?
 .yestext Yes Miss, I'm so horny
 .notext No Miss, it's flaccid
-.yesno 9290 9294 9208 9209
+.yesno 9290 9294 9295 9299
 
 [action 9282]
-But you  don't have the key!
+But you don't have the key!
 What a poor slut you are.
 .pause Yes Miss, I am
-.range 9251             ' Chastified
+.range 9250             ' Chastified
 
-[Action 9284]
-Well, my pet.
-You don't have the key, so you don't get a release tonight!
-However, I'm going to work you up as high as possible, and after the session,
-you can crawl to your key holder and beg for a release.
-.range 9251             ' Chastified
+'[action 9283]
+'.range 9250             ' Chastified
+
+'[Action 9284]
+'.range 9250             ' Chastified
 
 
 ' No key, denial
 
 [Action 9290]
+.timeto 45 -INF         ' Have key for chastity cage never
 Unfortunately you don't have the key, my poor pet.
 Well, don't mind, slave.
 I'm going to work you up as high as possible, and after the session
 you can crawl to your key holder and beg for a release.
 .pause Thank you, Miss
 .set 23 30 44           ' something on penis, can't jerk off, chastified
-.range 9251
+.range 9250
 
-'[Action 9291]
+[Action 9291]
+But you don't have the key!
+What a poor slut you are.
+.pause Yes Miss, I am
+.range 9250             ' Chastified
+
 '[Action 9292]
 '[Action 9293]
 '[Action 9294]
+
+
+[Action 9295]
+.timeto 45 -INF         ' Have key for chastity cage never
+You don't have the key anyway, my poor pet.
+Well, don't mind.
+I'm going to work you up as high as possible, and after the session
+you can crawl to your key holder and beg for a release.
+.pause Thank you, Miss
+.set 23 30 44           ' something on penis, can't jerk off, chastified
+.range 9250
+
+[Action 9296]
+And you don't even have the key!
+What a poor slut you are.
+.pause Yes Miss, I am
+.range 9250             ' Chastified
+
+'[Action 9297]
+'[Action 9298]
+'[Action 9299]
 
 
 ' Mistress is done with the slave
