@@ -2864,8 +2864,9 @@ If you do, you're going to tell me immediately!
 .mustnot 130            ' holding position
 .unset 1894
 Very good, my pet.
-Now keep it up and keep your naughty hands off your little get-up.
-And of course won't spurt off during your training.
+Now keep it up and keep your naughty hands away from the controls.
+And don't spurt off!
+If you do, you're going to tell me immediately!
 .pause Of course Miss, promised
 .range 1898
 
@@ -11575,11 +11576,14 @@ You may detach the leash, slave.
 .settime 49 00:00"00         ' remove in or after activity
 '.set -25 25                  ' ankles tied
 '.set -26 26                  ' wrists tied
-'.set -28 28                  ' collared
+.set -28 28                  ' collared
+'.set 20 43
+'.unset -20
 .set 100
 .range 9400
 
-' change all continueable positions to not take off toys
+
+' changed all continueable positions to not take off toys
 ' goto 9700 instead, 9400 generic removal is called from there and cleans everything up
 ' 9400 is a noop if there are no temporary toys to remove anymore, so it can be called more than once
  
@@ -11587,7 +11591,7 @@ You may detach the leash, slave.
 .unset 9400
 .range 9401 9402
 
-
+' no toys at all
 [Action 9401]
 .mustnot -20                 ' something on nipples
 .mustnot -22                 ' something in mouth
@@ -11598,45 +11602,60 @@ You may detach the leash, slave.
 .unset 9401
 .return
 
+' remove toys
 [Action 9402]
 .else
-.range 9403 9404
+.range 9405 9409
 
 
-' neither clips nor clamps, toys optional
-[Action 9403]
-.mustnot -20 42 43
-.mustnot -24 38 39
-.gosub 9480                  ' Remove toys
-.range 9409
-
-' clamps
-[Action 9404]
-.else
-.range 9405 9408
-
-
-' no (as supported by maid training) toys, just clamps or pegs
+' handle something on nipples, clamps | pegs
 [Action 9405]
+.must -20                    ' something on nipples
+.range 9410 9414
+
+'[Action 9406]
+
+' handle something on balls, pegs
+[Action 9407]
+.must -24 38                 ' something on  balls, pegs
+.range 9410 9414
+
+' handle something on balls, pussy clips
+[Action 9408]
+.must -24 39                 ' something on  balls, pussy clips
+.range 9410 9414
+
+' no pain toys
+[Action 9409]
+.else
+.gosub 9480                  ' Remove non-pain toys only
+.range 9419
+
+
+' take off non-pain toys (if any) first, then clamps and pegs
+
+' just clamps or pegs, no other (as supported by maid training)
+[Action 9410]
 .mustnot -22                 ' something in mouth
 .mustnot -25                 ' ankles tied
 .mustnot -26                 ' wrists tied
 .mustnot -28                 ' collared 
 .gosub 9560                  ' Just remove clamps
-.range 9409
+.range 9419
 
 ' toys and clamps: announce to take off clamps last, remove other toys first, then remove clamps
-[Action 9406]
+[Action 9411]
 .else
 .gosub 9420                  ' Remove toys first, then clamps or pegs
-.range 9409
+.range 9419
 
-'[Action 9407]
-'[Action 9408]
+'[Action 9412]
+'[Action 9413]
+'[Action 9414]
 
 
 ' all done, complete session
-[Action 9409]
+[Action 9419]
 .return
 
 
