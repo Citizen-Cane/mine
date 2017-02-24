@@ -4307,7 +4307,7 @@ We'll talk about this in a minute.
 [Action 1632]
 .must 380
 .must 112
-.gosub 9200 9201             ' Check whether slave wears it
+.gosub 9200 9204             ' Check whether slave wears it
 .range 1651
 
 ' Have it, lecture not heard yet
@@ -10959,8 +10959,8 @@ that shriveled old prick of yours deserves to be released.
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 380               ' chastity cage
 .mustnot 4951           ' Toy selecttion
-As it looks, your silly slave penis is well placed.
-so let's leave that shriveld old prick locked up.
+As it looks, your silly slave penis is locked up well -
+let's leave it that way.
 .unset 4988
 .range 5005
 
@@ -16300,32 +16300,33 @@ Are you wearing your chastity cage right now?
 .range 9196 9198
 
 
-' Chastity cage check entry, callde after toy setup
+' Chastity cage check entry, called after toy setup
 
-' already wearing, confirmed
 [Action 9200]
-.must 44
+.must 44                     ' Chastified
 .unset 9200
 .return
 
-' ask
 [Action 9201]
-.mustnot 44
-.unset 9201
-.range 9202 9204
-
-
-' wearing the cage?
+.mustnot 44                  ' Chastified
+Oh, slave, by the way -
+Are you wearing your chastity cage right now?
+.delay 15 15 confirm yes 9251 9254 no 9215 9216
+.yestext Yes Miss, I'm locked up
+.notext No Miss, I don't
+.range 9196 9198
 
 [Action 9202]
-It's always a pleasure to see a slave and his chastity cage.
-Are you wearing it already?
+.mustnot 44                  ' Chastified
+Apropos, slave!
+Are you wearing your chastity cage?
 .delay 15 15 confirm yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
 
 [Action 9203]
+.mustnot 44                  ' Chastified
 What about your chastity cage, sweetie?
 Are you wearing it?
 .delay 15 15 confirm yes 9251 9254 no 9215 9216
@@ -16334,6 +16335,7 @@ Are you wearing it?
 .range 9196 9198
 
 [Action 9204]
+.mustnot 44                  ' Chastified
 Are you wearing your chastity cage right now?
 .delay 15 15 confirm yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
@@ -16598,7 +16600,8 @@ Let'see if you can earn a release later on.
 .mustnot 103
 .poss 15
 Well, I don't think you have earned the privilege to touch yourself yet.
-We'll see later, if you make up a good enough slave to be allwowed to wank for me.
+We'll see later,
+whether you are allwowed to wank for me.
 .range 9250             ' Chastified
 
 ' TODO Not appropriate for "bursts"
@@ -16614,8 +16617,8 @@ We'll see later, if you make up a good enough slave to be allwowed to wank for m
 '.timefrom 45 -00:00"00   ' Have key for chastity cage 
 '.mustnot 103
 '.poss 10
-'It looks like it is in good hands in there, hihi. Let's leave
-'that little shriveled up prick of yours locked up until later.
+'It looks like it is in good hands in there, hihi.
+'Let's leave that little shriveled up prick of yours locked up until later.
 '.range 9250             ' Chastified
 '
 [Action 9243]
