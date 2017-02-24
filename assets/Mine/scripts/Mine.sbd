@@ -1741,41 +1741,44 @@ to appear in clothing during his naked-week assignment.
 '[action 1109]
 
 
-' Not naked continuations - rule told
-' TODO enable both not-naked punishments
+' Not naked continuations - rule told - punishment selection
 
 [Action 1110]
-.mustnot 103            ' impatience
-.mustnot 502 503        ' naked punishment 1 & 2
+.mustnot 103                      ' impatience
+.mustnot 502 503                  ' naked punishment 1 & 2
 .delay 25 35
 I'm feeling generous today,
 so I'll give you thirty seconds to strip those offending clothes off.
 delay 2
 Hurry up!
-.unset 400 408 705      ' void naked day assignment, maked week, naked training 5
+.unset 400 408 705                ' void naked day assignment, maked week, naked training 5
 .range 1117 1119
 
 [Action 1111]
-.mustnot 503            ' naked punishment 2
+.mustnot 502                      ' naked punishment 1
+.shouldnot 702 703 704 705        ' Naked acceptance 1
 .delay 25 35
 Strip those clothes off, then,
 you little whore!
 delay 6
 And I'll mark you down for a little extra punishment,
 just to help you remember.
-.set 502                ' naked punishment 1
-.unset 400 408 705      ' void naked day assignment, maked week, naked training 5
+.unset 400 408                    ' void naked day assignment, naked week
+.set 502                          ' naked punishment 1
+.unset 705                        ' naked training 5
 .range 1117 1119
 
 [Action 1112]
-.mustnot 502            ' naked punishment 1
+.mustnot 503                      ' naked punishment 2
+.should 702                       ' Naked acceptance 2
 .delay 25 35
 You'd better get out of those forbidden clothes in a hurry,
 you disobedient little cunt.
 delay 5
 You'll pay for this lapse later on!
-.set 503                ' naked punishment 2
-.unset 400 408 704 705  ' void naked day assignment, naked week, naked training 4 (naked week), 5
+.unset 400 408                    ' void naked day assignment, naked week
+.set 503                          ' naked punishment 2
+.unset 704 705                    ' naked training 4 (naked week), 5
 .range 1117 1119
 
 [Action 1113]
@@ -1796,7 +1799,7 @@ Next time, you'd better be in your birthday suit before you start!
 .range 1156 1163
 
 
-' Not-naked punishemnts
+' Not-naked punishment - throw slave out
 
 [Action 1120]
 You offend your Mistress when you flout the rules in this manner,
@@ -1825,30 +1828,31 @@ so that you learn the importance of being bare-ass naked!
 .must 702                         ' Naked acceptance 2
 This lapse in your good behavior is so severe that I've no choice
 but to retrain you in the necessity of slave nudity.
-You can come back in 12 hours if you want to beg me for forgiveness and accept your punishment!
+You can come back in an hour
+if you want to beg me for forgiveness and accept your punishment!
 .pause Please have mercy, Miss
 .unset 400 408 702 703 704 705    ' void naked training 2-5 and being-naked assignments
 .set 503                          ' Naked punishment 2
 .set 508                          ' inattentiveness
-.set 92                           ' 12 hours wait
-.settime 95 12:00"00
+.set 90                           ' 1 hour wait
+.settime 95 01:00"00
 .range 870
 
 [Action 1123]
 .mustnot 608                      ' Naked-week assignment
-.must 702
+.must 703                         ' Naked acceptance 3
 Apparently you've forgotten your lessons on the importance of being naked and vulnerable, as a slave should be.
 You can come back in 12 hours if you want to beg me for forgiveness and accept your punishment!
 .pause Please have mercy, Miss
-.unset 400 408 702 703 704 705    ' void naked training 2-5 and being-naked assignments
+.unset 400 408 703 704 705        ' void naked training 3-5 and being-naked assignments
 .set 503                          ' Naked punishment 2
-.set 508                          ' inattentiveness
+.set 516                          ' excessive disobedience
 .set 92                           ' 12 hours wait
 .settime 95 12:00"00
 .range 870
 
 [Action 1124]
-.must    608                      ' Naked-week assignment
+.must 608                         ' Naked-week assignment
 This lapse in your good behavior is so severe that I've no choice
 but to retrain you in the necessity of slave nudity.
 Apparently you've forgotten your lessons on the importance of being naked and vulnerable, as a slave should be.
@@ -1895,6 +1899,7 @@ Well, were you properly naked when I asked?
 .yesno 1151 1154 1155 1155
 .yestext Yes Miss, I was properly naked
 .notext I'm sorry Miss, but I wasn't
+
 
 ' Advance from - to 701 to 702
 
@@ -5589,7 +5594,6 @@ You'll pay for that lapse!
 [Action 2202]
 .must 502
 .mustnot 503            ' take care of naked 2 before 1
-.mustnot 519            ' 519 cumming without permission must be executed first because it uses corner time as a fallback
 .mustnot 520            ' must be executed first in order to complete clamps/pegs punishment and to start clamps/pegs removal timer
 Of course My cunt remembers when he stupidly wore clothes while addressing his Mistress.
 You should remember this lesson the next time you balk at exposing your naked boy-body to me.
@@ -6097,7 +6101,6 @@ Remember to keep that skin of yours bare and exposed from now on.
 Well, did My disobedient cunt learn anything about keeping himself bare to his Mistress?
 Pathetic slaves like you don't have the privilege to wear clothes.
 That's for Mistresses only.
-.unset 502
 .unset 503
 .set 701 702
 .range 2151
@@ -6460,6 +6463,7 @@ You may have escaped me this time, but don't make a habit of it!
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .mustnot 210            ' shower one-time only
+.shouldnot 811          ' magic marker applied
 .set 210
 .range 2525 2526
 
@@ -6499,40 +6503,41 @@ I guess we'll have to skip it today.
 
 ' shower 15m, wet, ankles, 200 paddles, clamps
 [Action 2531]
-.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
-.mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
-.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
-.mustnot 210            ' shower one time only
-.set 210                ' shower one-time only
-.set 736 751            ' restraint acceptance 1, ass whipping 1
+.mustnot 20 24 25                 ' something on nipples, something on balls, ankles tied
+.mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
+.mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
+.mustnot 210                      ' shower one time only
+.shouldnot 811                    ' magic marker applied
+.set 210                          ' shower one-time only
+.set 736 751                      ' restraint acceptance 1, ass whipping 1
 .range 2535 2536
 
 ' corner time + marker
 [Action 2532]
-.shouldnot 502          ' naked-rule violation 1 - prefer punishment shower
 .save 90 799
 .loadsbd mine-paddle.sbd 2517 2517
 
 
 [Action 2535]
-.set 716                ' nipple tolerance 1
+.set 716                          ' nipple tolerance 1
 .save 90 799
 .loadsbd mine-paddle.sbd 2986 2986
 
 [Action 2536]
-.mustnot 361 362        ' clothes pegs
+.mustnot 361 362                  ' clothes pegs
 .poss 100
 .save 90 799
 .loadsbd mine-paddle.sbd 2986 2986
 
 
-' punishment shower returns
-
-' process also naked-rule-violation 1
+' punishment shower return
+' continue with marker & corner time if other not-naked punishhment is also outstanding
 [Action 2537]
-.must 131               ' magic marker lecture heart, to avoid message "...first part of your punishment..." 
-.must 502               ' naked-rule-violation 1
+.must 131                         ' magic marker lecture heart, to avoid message "...first part of your punishment..." 
+.must 502                         ' naked-rule-violation 1
+.shouldnot 811                    ' magic marker applied
 .numactionsavailable 2532 2532 1
+.unset 502                        ' clear the other punishment
 .range 2532
 
 [Action 2538]
@@ -6631,6 +6636,7 @@ suitable for a lying degenerate cunt slave.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .mustnot 210            ' shower one-time only
+.shouldnot 811          ' magic marker applied
 .set 210                ' shower one-time only
 .set 736 751            ' Restraint acceptance 1, ass whipping 1
 .range 2565 2566
@@ -7200,6 +7206,7 @@ Now keep that cock tall and proud or we'll have to go again.
 .mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
 .mustnot 210                      ' punishment shower, already done
+.shouldnot 811                    ' magic marker applied
 .set 210                          ' shower one-time only
 .set 751                          ' Ass-whipping 1
 .range 2656 2657
@@ -7294,6 +7301,7 @@ I'll get you next time, you dirty slave!
 .mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
 .mustnot 210                      ' punishment shower, already done
+.shouldnot 811                    ' magic marker applied
 .set 210                          ' shower one-time only
 .set 751                          ' Ass-whipping 1
 .range 2686 2687
@@ -11316,9 +11324,20 @@ I think you deserve a teasing session.
 
 [Action 5066]
 .mustnot 210            ' Done already
+.shouldnot 811          ' magic marker applied
 .timeto 49 -00:11"00    ' Clamps & pegs
 .timeto 276 -00:11"00   ' holding the enema
-I think you're a dirty cunt, and you need a shower.
+I think you're a dirty cunt,
+and you need a shower.
+.range 5200
+
+[Action 5067]
+.mustnot 210            ' Done already
+.else                   ' as fallback, even if magic marker applied
+.timeto 49 -00:11"00    ' Clamps & pegs
+.timeto 276 -00:11"00   ' holding the enema
+I think you're a dirty cunt,
+and you need a shower.
 .range 5200
 
 
@@ -11359,6 +11378,7 @@ Let's continue your slave training.
 ' clamps will just get removed later on, so we don't have to handle them here
 [Action 5085]
 .else                        ' Fallback
+.shouldnot 811               ' magic marker applied
 .settime 49 -INF             ' make sure clamps are going to be removed
 .gosub 11800                 ' remove clamps
 .range 5040                  ' retry
