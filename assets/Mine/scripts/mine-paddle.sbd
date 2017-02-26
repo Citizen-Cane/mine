@@ -870,6 +870,7 @@ Put them on now.
 You will wear your nipple clamps in the shower today, cunt.
 Put them on now.
 .pause Done, Miss
+.set 812                ' Done nipple training activity
 .range 1634 1635
 
 
@@ -1013,11 +1014,11 @@ You may not stand in the shower today, cunt
 
 
 [Action 1654]
+.mustnot 141 142 143 144 145
 Okay, slave, go and shower!
 Tell me when you're finished.
 delay 15
 .pause I'm finished, Miss
-.mustnot 141 142 143 144 145
 .range 1660
 
 [Action 1655]
@@ -2150,6 +2151,7 @@ Now tiptoe over to that corner, you naughty boy, and think about the error of yo
 Very good, slave.
 You may now take off your handcuffs and nipple clamps.
 .pause Thank you, Miss
+.set 812                ' Done nipple training activity
 .range 2140
 
 [Action 2132]
@@ -2159,6 +2161,7 @@ You may now take off your handcuffs and nipple clamps.
 Good boy.
 You may take off those nipple clamps now.
 .pause Thank you, Miss
+.set 812                ' Done nipple training activity
 .range 2140
 
 [Action 2133]
@@ -2187,63 +2190,84 @@ Good boy, slave.
 
 ' limit corner time extras (cuffs, clamps) to what's possible
 
-[Action 2190]
-.range 2191 2196
+[Action 2180]
+.range 2181 2186
 
 
-[Action 2191]
+[Action 2181]
 .must 267                         ' Enema carried out
 .mustnot 277                      ' semi-safe self bondage features enabled
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
-.range 2197 2199
+.range 2190
 
-[Action 2192]
+[Action 2182]
 .must 268                         ' Enema holding
 .mustnot 277                      ' semi-safe self bondage features enabled
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
-.range 2197 2199
+.range 2190
 
-[Action 2193]
+[Action 2183]
 .must 22                          ' something in mouth
 .mustnot 277                      ' semi-safe self bondage features enabled
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
-.range 2197 2199
+.range 2190
 
-[Action 2194]
+[Action 2184]
 .must 26                          ' wrists tied
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
-.range 2197 2199
+.range 2190
 
-[Action 2195]
+[Action 2185]
 .mustnot 363                      ' wrist restraints
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
-.range 2197 2199
+.range 2190
+
+'[Action 2186]
+'[Action 2187]
+'[Action 2188]
  
-[Action 2196]
+[Action 2189]
 .else
-.range 2197 2199
+.range 2190
 
 
-[Action 2197]
-.must 361                         ' Nipple clamps
-.mustnot 20                       ' something on nipples
-.return
+[Action 2190]
+.range 2191 2199
 
-[Action 2198]
+
+[Action 2191]
 .mustnot 361                      ' Nipple clamps
 .set 127                          ' no clamps
 .unset 128 129                    ' 50%, 100% clamps
 .return
 
-[Action 2199]
+[Action 2192]
 .must 20                          ' something on nipples
 .set 127                          ' no clamps
 .unset 128 129                    ' 50%, 100% clamps
+.return
+
+[Action 2193]
+.must 812                         ' Done nipple training activity
+.set 127                          ' no clamps
+.unset 128 129                    ' 50%, 100% clamps
+.return
+
+'[Action 2194]
+'[Action 2195]
+'[Action 2196]
+'[Action 2197]
+'[Action 2198]
+
+[Action 2199]
+.must 361                         ' Nipple clamps
+.mustnot 20                       ' something on nipples
+.mustnot 812                      ' Done nipple training activity
 .return
 
 
@@ -2897,7 +2921,7 @@ A disobedient slut that's going to be punished.
 .set 124 127                      ' No cuffs, no clamps 
 .unset 121 122 125 126 128 129
 .set 180                          ' Punishment dispatch
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2910,7 +2934,7 @@ A disobedient slut that's going to be punished.
 .set 125 128                      ' 50% cuffs, 50% clamps 
 .unset 121 122 124 126 127 129
 .set 181
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2920,7 +2944,7 @@ A disobedient slut that's going to be punished.
 .set 125 128                      ' 50% cuffs, 50% clamps 
 .unset 121 122 124 126 127 129
 .set 182
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2933,7 +2957,7 @@ A disobedient slut that's going to be punished.
 .set 125 128                      ' 50% cuffs, 50% clamps 
 .unset 121 122 124 126 127 129
 .set 183
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 1710
 
 
@@ -2954,7 +2978,7 @@ A disobedient slut that's going to be punished.
 .set 125 128                      ' 50% cuffs, 50% clamps 
 .unset 121 122 124 126 127 129
 .set 184
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2964,7 +2988,7 @@ A disobedient slut that's going to be punished.
 .set 125 128                      ' 50% cuffs, 50% clamps 
 .unset 121 122 124 126 127 129
 .set 185
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -2997,7 +3021,7 @@ A disobedient slut that's going to be punished.
 .set 126 129                      ' Cuffs 100%, clamps 100%
 .unset 122 124 125 127 128
 .set 186
-.gosub 2190                       ' limit corner time extras (cuffs, clamps) to what's possible
+.gosub 2180                       ' limit corner time extras (cuffs, clamps) to what's possible
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -3049,7 +3073,7 @@ A disobedient slut that's going to be punished.
 .set 124 127                      ' No cuffs, no clamps
 .unset 125 126 128 129
 .set 187
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -3060,7 +3084,7 @@ A disobedient slut that's going to be punished.
 .set 125 128                      ' 50% cuffs, 50% clamps 
 .unset 121 122 124 126 127 129
 .set 188
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 
@@ -3070,7 +3094,7 @@ A disobedient slut that's going to be punished.
 .set 125 128                      ' 50% cuffs, 50% clamps 
 .unset 121 122 124 126 127 129
 .set 189
-.gosub 2190                       ' limit corner time features to slave state
+.gosub 2180                       ' limit corner time features to slave state
 .range 2200                       ' Shame yourself (write on body with marker), then corner time
 
 

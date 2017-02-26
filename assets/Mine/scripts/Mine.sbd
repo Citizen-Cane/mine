@@ -290,7 +290,7 @@
 '              TODO move session-scope variables to session global space
 
 ' 251          Buttplug single-event
-' 252          Nipple training (clamps & pegs) one-time per session
+' 252          Free
 ' 253          Ball harness one-time per session
 ' 254          Gag one-time per session
 ' 255          ball sack pulling one-time per session (Humbler, weights)
@@ -561,6 +561,7 @@
 ' 810-839 session variables, used to return sub-script state
 ' 810    Corner time applied, once time per session, checked in 2500 2999, for some punishments in dispatcher 2200-2299, see also 2301
 ' 811    Magic marker applied, multiple runs possible
+' 812    Nipple training (clamps & pegs) one-time per session
 
 
 ' Activity menu
@@ -787,8 +788,11 @@ Would you be so kind and tell me what you've got exactly?
 .unset 281 282 283 284 285 286 287 288 289 290   ' once-per-session-flags
 .unset 291 292 293 294 295 296 297 298 299       ' once-per-session-flags
 .unset 590 591 592 593 594 595 596 597 598 599   ' Start assignment delays
-.settime 49 +INF                                ' set clamp timer to infinite to ignore clamps duration 
-.settime 276 +INF                               ' set enema timer to infinite to ignore
+.unset 810 811 812 813 814 815 816 817 818 819   ' session global variables
+.unset 820 821 822 823 824 825 826 827 828 829   ' session global variables
+.unset 830 831 832 833 834 835 836 837 838 839   ' session global variables
+.settime 49 +INF                                 ' set clamp timer to infinite to ignore clamps duration 
+.settime 276 +INF                                ' set enema timer to infinite to ignore
 ' save the "Quick without permission" check
 ' in order to to catch abnormal process termination
 .save 90 799
@@ -6563,10 +6567,10 @@ I guess you're off the hook, you lucky slave boy.
 ' Shake those titties punishment
 [Action 2541]
 .mustnot 20 29 34       ' something on nipples, blindfolded, can't type/use mouse 
-.mustnot 252            ' Done nipple training activity already
+.mustnot 812            ' Done nipple training activity already
 .must 361 362           ' clamps, pins
 .must 717               ' nipple tolerance 2, gives 3.
-.set 252                ' Done nipple training activity
+.set 812                ' Done nipple training activity
 .save 90 799
 .loadsbd mine-nipt.sbd 1019 1019
 
@@ -7474,7 +7478,7 @@ will make you change your attitude about My assignments, for your sake.
 .unset 520
 .set -520               ' complete punishment later
 ' clamps time already set when applying the other clamps/pegs,
-' so we should reset the time here or the wearing time will be longer than expected
+' so we should reset the timer here or the wearing time will be longer than expected
 .range 2151
 
 
@@ -8056,6 +8060,7 @@ Then come back here.
 
 ' enema tubing detached
 ' clamps and pegs are removed a little later
+' TODO mention to keep wearing clamps/pegs
 
 [Action 3040]
 .range 3048 3049
@@ -12261,12 +12266,12 @@ I will have to punish you later for failing your training.
 
 ' nipple-torture game
 [Action 5801]
-.mustnot 252                 ' Done nipple training activity already
+.mustnot 812                 ' Done nipple training activity already
 .must 361                    ' Nipple clamps
 .must 717                    ' Nipple tolerance 2
 .mustnot 20 29 34            ' something on nipples, blindfolded, can't type
 .timeto 276 -00:15"00        ' holding the enema
-.set 252                     ' Done nipple training activity
+.set 812                     ' Done nipple training activity
 .range 5951
 
 ' light weight drop from balls (5-10)
@@ -12307,36 +12312,36 @@ I will have to punish you later for failing your training.
 [Action 5805]
 .mustnot 20 24 25 26 29      ' something on nipples, something on ball sack, ankles tied, wrists tied, blindfolded 
 .mustnot 31 32 34 35         ' can't sit on chair, can't stand, can't type/use mouse, tethered 
-.mustnot 252                 ' Done nipple training activity already
+.mustnot 812                 ' Done nipple training activity already
 .must 362                    ' Clothes pegs
 .must 716
 '.timeto 276 -00:09"00        ' holding the enema, already checked in 5068
-.set 252                     ' Done nipple training activity
+.set 812                     ' Done nipple training activity
 .range 5955
 
 ' quick pins
 [Action 5814]
 .mustnot 20 25 29 34         ' something on nipples, ankles tied, blindfolded, can't type/use mouse
-.mustnot 252                 ' Done nipple training activity already
+.mustnot 812                 ' Done nipple training activity already
 .must 361 362                ' nipple clamps, clothes pegs
 .must 717                    ' Nipple tolerance 2
 .timeto 276 -00:15"00        ' holding the enema
-.set 252                     ' Done nipple training activity
+.set 812                     ' Done nipple training activity
 .range 5964
 
 ' quick pins 16
 [Action 5815]
 .mustnot 20 24 29 34         ' something on nipples, something on balls, blindfolded, can't type/use mouse
-.mustnot 252                 ' Done nipple training activity already
+.mustnot 812                 ' Done nipple training activity already
 .must 362                    ' clothes pegs
 .must 717 746                ' Nipple tolerance 2, cbt 1
 .timeto 276 -00:15"00        ' holding the enema
-.set 252                     ' Done nipple training activity
+.set 812                     ' Done nipple training activity
 .range 5965
 
 ' nipple clamp weight lifting
 [Action 5818]
-.mustnot 252                 ' Done nipple training activity already
+.mustnot 812                 ' Done nipple training activity already
 .mustnot 20 38 39            ' something on nipples, pegs or pussy clamps on ball sack
 .mustnot 25 29 32            ' ankles tied, blindfolded, can't stand
 .mustnot 30                  ' can't jerk off: Wanking is required to ease the pain on the nipples
@@ -12344,17 +12349,17 @@ I will have to punish you later for failing your training.
 .must 361 366                ' Nipple clamps, rope
 .must 718                    ' Nipple tolerance 3
 .timeto 276 -00:25"00        ' holding the enema
-.set 252                     ' Done nipple training activity
+.set 812                     ' Done nipple training activity
 .range 5966
 
 ' shake those titties
 [Action 5819]
-.mustnot 252                 ' Done nipple training activity already
+.mustnot 812                 ' Done nipple training activity already
 .mustnot 20 29 34            ' something on nipples, blindfolded, can't type/use mouse 
 .must 361 362                ' Nipple clamps, clothes pegs
 .must 718                    ' Nipple tolerance 3
 .timeto 276 -00:15"00        ' holding the enema
-.set 252                     ' Done nipple training activity
+.set 812                     ' Done nipple training activity
 .range 5967
 
 
@@ -20405,7 +20410,7 @@ delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 42        ' something on nipples, clothes pegs
-.set 252                ' Done nipple training activity
+.set 812                ' Done nipple training activity
 .settime 49 +INF
 .range 11910 
 
@@ -20445,7 +20450,7 @@ delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
-.set 252                ' Done nipple training activity
+.set 812                ' Done nipple training activity
 .settime 49 +INF
 .range 11910 
 
@@ -20566,7 +20571,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 42        ' something on nipples, clothes pegs
 .unset -24 24 38        ' something on ball sack, clothes pegs
-.set 252                ' Done nipple training activity
+.set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
 .range 11910 
@@ -20608,7 +20613,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
 .unset -24 24 39        ' something on ball sack, pussy clamps
-.set 252                ' Done nipple training activity
+.set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
 .range 11910 
@@ -20650,7 +20655,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
 .unset -24 24 38        ' something on ball sack, clothes pegs
-.set 252                ' Done nipple training activity
+.set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
 .range 11910 
@@ -20692,7 +20697,7 @@ That hurts good, doesn't it?
 .pause Yes, Miss
 .unset -20 20 43        ' something on nipples, nipple clamps
 .unset -24 24 38        ' something on ball sack, clothes pegs
-.set 252                ' Done nipple training activity
+.set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
 .range 11910 

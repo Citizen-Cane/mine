@@ -138,21 +138,21 @@ delay 5
 
 
 [Action 5004]
+.mustnot 30             ' can't jerk off
 And remember to keep that cock nice and hard during the workout, however you can.
 We'll start up with some jumping jacks, and I want to see good extension.
-.mustnot 30             ' can't jerk off
 .range 5010
 
 [Action 5005]
-We'll start up with some jumping jacks, and I'd
-like to see that cage bouncing up and down too.
 .must 44                ' Chastifed
+We'll start up with some jumping jacks,
+and I'd like to see that cage bouncing up and down too.
 .range 5010
 
 [Action 5006]
-We'll start up with some jumping jacks.
 .must 30                ' can't jerk off
 .mustnot 44             ' Chastified
+We'll start up with some jumping jacks.
 .range 5010
 
 
@@ -173,27 +173,27 @@ Spread those arms and legs!
 .range 5011 5015
 
 [Action 5012]
+.mustnot 30             ' can't jerk off
 .playwav slap_2.mp3
 Jump, slave!
 Keep that cock hard!
-.mustnot 30             ' can't jerk off
 .unset 5012
 .delay 10
 .range 5011 5015
 
 [Action 5013]
+.must 30                ' can't jerk off
 .playwav slap_2.mp3
 Jump, slave!
-.must 30                ' can't jerk off
 .unset 5013
 .delay 10
 .range 5011 5015
 
 [Action 5015]
+.numactionsfrom 5010 10
 Okay, slave, put two clothes pegs on your ball sack.
 We're going to try some running in place now.
 .delay 20
-.numactionsfrom 5010 10
 .range 5016
 
 
@@ -210,15 +210,15 @@ Keep those legs pumping!
 .range 5018 5019
 
 [Action 5018]
+.mustnot 30             ' can't jerk off
 That cock better be hard, slave, and that heart better be beating good!
 .delay 20 40
-.mustnot 30             ' can't jerk off
 .range 5020
 
 [Action 5019]
+.must 30                ' can't jerk off
 And that heart better be beating good!
 .delay 20 40
-.must 30                ' can't jerk off
 .range 5020
 
 [Action 5020]
@@ -263,17 +263,17 @@ Give me a push-up!
 
 
 [Action 5028]
+.numactionsfrom 5025 10
 Very good, slave.
 Put the last two clothes pegs on your slave titties.
 .delay 15
-.numactionsfrom 5025 10
 .range 5030
 
 [Action 5029]
+.numactionsfrom 5025 6
 Very good, slave.
 Put the last four clothes pegs on your slave titties, two on each side.
 .delay 20
-.numactionsfrom 5025 6
 .range 5030
 
 
@@ -303,16 +303,16 @@ Come back and kneel back down.
 .range 5035 5036
 
 [Action 5035]
-I'll give you a minute to cool down and to feel those clamps and pegs a little better.
-.delay 60 120
 .must 216               ' Clamps or pegs temporary (favors clamps)
 .must 361               ' nipple clamps
+I'll give you a minute to cool down and to feel those clamps and pegs a little better.
+.delay 60 120
 .range 5044 5046
 
 [Action 5036]
+.else
 I'll give you a minute to cool down and to feel those clothes pegs a little better.
 .delay 60 120
-.else
 .range 5044
 
 
@@ -754,7 +754,7 @@ You've done a very good job.
 
 [Action 7020]
 We're going to be punishing your nipples and balls today,
-with one of the most versitile of all toys:
+with one of the most versatile of all toys:
 Clothes pegs!
 You will need fifteen clothes pegs for this "activity", my pet.
 Go fetch then now!
@@ -3513,6 +3513,8 @@ What a sad spectacle.
 '   117 1017    5805 -> 5955                    1   -   light cardio nips
 '   118 1018    5817 -> 5967    5867    -       2   -   shake those titties
 
+' clamps/pegs -20/20 aren't set during the activities so we must set 812 here
+
 ' Debug
 [Action 9000]
 .must 100
@@ -3521,31 +3523,37 @@ What a sad spectacle.
 '  quick pins
 [Action 9014]
 .must 114
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5864 5864
 
 ' quick pins 16
 [Action 9015]
 .must 115
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5865 5865
 
 ' nipple clamp weight-lifting
 [Action 9016]
 .must 116
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5866 5866 
 
 ' light cardio nips
 [Action 9017]
 .must 117
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5855 5855
 
 ' shake those titties activity
 [Action 9018]
 .must 118
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5867 5867
 
 ' shake those titties punishment
 [Action 9019]
 .must 119
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 2404 2404
 
 
@@ -3559,16 +3567,19 @@ What a sad spectacle.
 '  quick pins
 [Action 9114]
 .must 114
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5914 5914
 
 ' quick pins 16
 [Action 9115]
 .must 115
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5915 5915
 
 ' nipple clamp weight-lifting
 [Action 9116]
 .must 116
+.set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5916 5916
 
 
