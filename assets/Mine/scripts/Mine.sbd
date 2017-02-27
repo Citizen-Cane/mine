@@ -223,12 +223,11 @@
 .askcheck      46      111     111: Masturbation lecture heard
 ' add-ons
 .askcheck      47      112     112: Chastity device lecture heard
-.askcheck      48      113     113: Chastity cage safety suggestion 1
-.askcheck      90      114     114: Chastity cage safety suggestion 2	 
-.askcheck      91      115     115: Chastity cage safety suggestion 3
-.askcheck      91      116     116: Chastity cage safety suggestion 4
+.askcheck      48      113     113: Chastity cage safety suggestion 1 - smaller base ring
+.askcheck      90      114     114: Chastity cage safety suggestion 2 - shorter tube
+.askcheck      91      115     115: Chastity cage safety suggestion 3 - spikes
+.askcheck      91      116     116: Chastity cage safety suggestion 4 - urethra tube
 .askcheck      92      117     117: Spanking lecture heard
-
 .askcheck      93      118     118: no-cum lecture heard
 .askcheck      94      119     119: Chastity cage suggestions check due
 
@@ -10596,47 +10595,48 @@ I'm curious what you're going to bring along next time.
 .range 4899
 
 ' Ask slave if chastity cage security measure have been implemented
-' one-shot, no repeat, since chastity cage changes are sort of expensive, and I don't want to ruin my slaves
+' one-shot, no repeat, since chastity cage changes are sort of expensive,
+' and I don't want to ruin my poor slaves
 
 [Action 4832]
-Did you follow my recommendations to make your chastity cage safer
-by using a smaller ring around the base of your cock?
 .mustnot 113 114 115
 .must 119
+Did you follow my recommendations to make your chastity cage safer
+by using a smaller ring around the base of your cock?
 .yesno 4836 4836 4840 4841
-.yestext Yes Miss, the base ring is tighter now
+.yestext Yes Miss, the base ring is smaller now
 .notext Not yet, Miss
 .set 113
 
 [Action 4833]
-Did you follow my suggestions to make your chastity cage safer and got a shorter tube?
 .must 113
 .mustnot 114 115
 .must 119
+Did you follow my suggestions to make your chastity cage safer and got a shorter tube?
 .yesno 4837 4837 4840 4841
-.yestext Yes Miss, the tube is shorter now
+.yestext Yes Miss, I've got a shorter tube
 .notext Not yet, Miss
 .set 114
 
 [Action 4834]
-Did you follow my advice to prevent your encaged slave penis
-from getting aroused by adding a couple of spikes to your cage?
 .must 113 114
 .mustnot 115
 .must 119
+Did you follow my advice to prevent your encaged slave penis
+from getting aroused by adding a couple of spikes to your cage?
 .yesno 4838 4838 4840 4841
 .yestext Yes Miss, my erections are very painful now
 .notext Not yet, Miss
 .set 115
 
 [Action 4835]
-Did you follow my suggestions to make your chastity cage safer and
-improved your chastity cage with an integrated urethra tube?
 .must 113 114 115
 .must 119
+Did you follow my suggestions to make your chastity cage safer and
+improved your chastity cage with an integrated urethra tube?
 .yesno 4839 4839 4840 4841
 .yestext Yes Miss, my encaged penis is impaled now 
-.notext Not yet, Miss
+.notext I'm sorry, Miss, Not yet
 .set 116
 
 
@@ -10659,32 +10659,32 @@ Now don't get too aroused while we go on.
 .range 4849
 
 [Action 4839]
-Very good.
-No more unauthorisized cummings, slave!
-With the tube inside your uthera I'm sure you can't even think of wanking.
 I'm delighted.  
+No more unauthorisized cummings!
+With the tube inside your uthera
+I'm sure you don't even think of wanking.
 .range 4849
 
 
 ' No, clear one-shot assignment
 
 [Action 4840]
+.mustnot 504            ' General disobedience
 What a disappointment your are, slave.
 I know you could do better than that!
 Maybe you do after receiving the punishment
 I'll give you for ignoring your Mistress orders.
 .pause I'm sorry, Miss
-.mustnot 504            ' General disobedience
 .set 504
 .range 4849
 
 [Action 4841]
+.must 504               ' General disobedience
 What a poor excuse of a slave you are.
 I know you could do better than that!
 Maybe you do after receiving the punishment
 you've earned for ignoring your Mistress orders.
 .pause I'm sorry, Miss
-.must 504               ' General disobedience
 .set 508                ' inattentiveness      
 .range 4849
 
@@ -12615,6 +12615,7 @@ Meanhile, three demerits will do about right.
 ' Light wanking 3x3m, gives 726, 2x5m
 ' if timers active, also 2x3m, 1x5m, 1x3m
 [Action 6004]
+.mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
@@ -12623,7 +12624,6 @@ Meanhile, three demerits will do about right.
 ' Medium wanking 5x3m
 [Action 6005]
 .mustnot 30 44          ' can't jerk off, chastified
-.mustnot 115            ' Not with spiked ring or urethra tube
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1 
 .timeto  49 -00:19"00   ' 15 + 4
@@ -12730,6 +12730,18 @@ Meanhile, three demerits will do about right.
 .timeto 276 -00:15"00   ' holding the enema
 .set 266                ' Done story time activity
 .range 6164
+
+
+' Light wanking 3x3m, gives 726, 2x5m
+' if timers active, also 2x3m, 1x5m, 1x3m
+' with encaged cock
+[Action 6044]
+.must 44                ' chastified
+.mustnot 116            ' Not with urethra tube
+.mustnot 263            ' Done wanking activity already
+.set 263                ' Done wanking activity
+.gosub 9520             ' comment wanking while chastified
+.range 6154
 
 
 [Action 6048]
@@ -15634,104 +15646,103 @@ Now wait for My command as you stay on the edge...
 ' TODO combine nipple and pussy clamps
 
 [Action 8137]
-Take your paddle and spank yourself to the beat with one
-hand while you keep yourself on the edge with the other, slut.
 .delay 20
 .mustnot 30                       ' Can't jerk off
 .must 370                         ' Paddle
+Take your paddle and spank yourself to the beat with one
+hand while you keep yourself on the edge with the other, slut.
 .range 8120
 
 [Action 8138]
-Put on your blindfold, slave, and keep yourself fully aroused.
 .delay 30
 .mustnot 30                       ' Can't jerk off
 .must 382                         ' have blindfold
 .mustnot 8118                     ' no cum-on-command (set in 8114)
 .mustnot 9540 9541 9542 9543 9544 9545 9546 9547 9548 9549 ' not if having to eat cum
+Put on your blindfold, slave, and keep yourself fully aroused.
 .set 29                           ' blindfold on 
 .range 8090
 
 [Action 8139]
-Get your paddle ready, slave, and put on your blindfold.
 .delay 45
 .mustnot 30                       ' Can't jerk off
 .must 370                         ' Paddle
 .must 382                         ' have blindfold
 .must 753                         ' Ass paddling 3
 .mustnot 8118                     ' no cum-on-command (set in 8114)
+Get your paddle ready, slave, and put on your blindfold.
 .mustnot 9540 9541 9542 9543 9544 9545 9546 9547 9548 9549 ' not if having to eat cum
 .set 29                           ' blindfold on 
 .range 8120
 
 [Action 8140]
+.must 44                          ' chastified
+.timefrom 45 00:00"00             ' Have key for chastity cage
 You need it so badly, slave, don't you?
 Remove that cage and get your member stiff!
 .pause I'm wanking my cock stiff, miss
-.must 44                          ' chastified
-.timefrom 45 00:00"00             ' Have key for chastity cage
 .unset 23 30 44                   ' something on penis, can't jerk off, chastified
 .range 8130 8149                  ' choose how to cum range again
 
 [Action 8141]
+.must 44                          ' chastified
+.mustnot 116                      ' Don't test anymore after all suggestions have been made
+.mustnot 119                      ' Not until safety measures are implemented
 Let's see how safe your chastity cage really is.
 You're going to keep your slave penis locked up and will wank your cage, slut.
-.must 44                          ' chastified
-.mustnot 115                      ' Don't test anymore after all suggestions have been made
-.mustnot 119                      ' Not until safety measures are implemented
 .must 380                         ' chastity device
 .range 8090                       ' choose how to cum range again
 
 ' Scheduled to cum, but doesn't have key -> deny
 [Action 8142]
+.must 44                          ' chastified
+.timeto 45 00:00"00               ' Must have key
 Well slave, this would be your scheduled cumming opportunity,
 but without having the key,
  I recommend crawling to your key holder to beg for an release.
 Good luck with that!
 .pause Thank you, Miss
-.must 44                          ' chastified
-.timeto 45 00:00"00               ' Must have key
 .range 9000
 
 [Action 8143]
-Place your dildo on the floor and suck it deep into your mouth.
 .delay 30
 .mustnot 30                       ' Can't jerk off
 .must 388                         ' have dildo
 .mustnot 41                       ' dildo in ass
+Place your dildo on the floor and suck it deep into your mouth.
 .range 8090
 
 [Action 8144]
-Take your hairbrush and spank yourself to the beat with one
-hand while you keep yourself on the edge with the other, slut.
 .delay 20
 .mustnot 30                       ' Can't jerk off
 .mustnot 370                      ' Paddle
 .must 371                         ' Hairbrush
+Take your hairbrush and spank yourself to the beat with one
+hand while you keep yourself on the edge with the other, slut.
 .range 8120
 
 [Action 8145]
-Take your wooden spoon and spank yourself to the beat with one
-hand while you keep yourself on the edge with the other, slut.
 .delay 20
 .mustnot 30                       ' Can't jerk off
 .mustnot 370                      ' Paddle
 .must 372                         ' Wooden spoon
+Take your wooden spoon and spank yourself to the beat with one
+hand while you keep yourself on the edge with the other, slut.
 .range 8120
 
 
 
 [Action 8149]
-Keep yourself fully aroused, slave, and wait for my command...
 .else
 .mustnot 30                       ' Can't jerk off
+Keep yourself fully aroused, slave, and wait for my command...
 .range 8090
 
 
 ' Cum!
 
 ' todo Distinguish between stop (in cage) and cum (with or without cage)
-' todo avoid wanking in cage with uthera pipe (113 114 115 116)
- 
+
 [Action 8190]
 .break 8191 8207 CUM 9639  ' cum slut end
 .cumtext I came, Miss
@@ -16037,9 +16048,11 @@ Hmm.
 [action 8995]
 .mustnot 113 114 115 116
 Well, I think in order to prevent unauthorized orgasms,
-your silly slave penis has to fill out the tube more completely.
-I recommend using a tighter ring around the base.
-Sort it out until next time.
+I order you to use a tighter ring around the base of your cock.
+This will restrict the blood flow a bit,
+causing your silly slave penis to fill out the tube more completely,
+thereby preventing masturbation.
+Sort it out until next time!
 .pause Yes Miss, I'll sort it out
 .set 119
 .range 9000
@@ -16048,8 +16061,10 @@ Sort it out until next time.
 [action 8996]
 .must 113
 .mustnot 114 115 116
-Well, I think in order to prevent unauthorized orgasms, your chastity cage needs a shorter tube.
-This will keep your silly slave penis from being moved inside the tube, resulting in less arousal.
+Well, I think in order to prevent unauthorized orgasms,
+you'll need to have a shorter tube for your cage.
+This will keep your silly slave penis from being moved inside the tube,
+resulting in less arousal.
 Sort it out until next time.
 .pause Yes Miss, I'll sort it out
 .set 119
@@ -16059,9 +16074,10 @@ Sort it out until next time.
 [action 8997]
 .must 113 114
 .mustnot 115 116
-Well, I think in order to prevent unauthorized orgasms,
+Well, I think in order to keep you from stroking your encageed prick,
 we must restrict the desire to arouse yourself.
-Some spikes on a ring around the penis tip, the base or the shaft of your cock
+A couple of spikes around the tip,
+the base or the shaft of your cock
 will painfully remind you to the fact that arousal has to be avoided.
 Be sure to have that little accessory applied next time.
 .pause Yes Miss, I'll sort it out
@@ -16075,7 +16091,7 @@ Be sure to have that little accessory applied next time.
 Well, as it looks, my naughty little cock tease needs a lot more discipline than I thought
 to keep his hands from his encaged slave penis.
 []
-To continue thrusting your chastity attempts,
+Well,
 you leave me with no other choice than to have you install an integrated urethra tube into your cage.
 delay 3
 I know it's a harsh measure, slave,
