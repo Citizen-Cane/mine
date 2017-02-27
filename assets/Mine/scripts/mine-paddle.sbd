@@ -528,8 +528,8 @@ Give that red butt a good rubdown now.
 [Action 1562]
 .must 150               ' Pegs in shower
 .mustnot 361            ' Nipple clamps
-.must 362               ' Nipple clamps, clothes pegs
-.unset 150 151
+.must 362               ' clothes pegs
+.unset 151
 .range 1565
  
 ' No clamps, no pegs
@@ -545,18 +545,7 @@ Give that red butt a good rubdown now.
 .range 1565
 
 
-' Adjust number of paddles 153 154 155 and duration
 [Action 1565]
-.range 1566 1567
-
-' No spanking in activity
-[Action 1566]
-.must 273               ' Activity
-.unset 153 154 155
-.range 1575
-
-[Action 1567]
-.mustnot 273            ' Punishment
 .range 1568 1574
 
 
@@ -697,14 +686,16 @@ but of course you must obey My special rules.
 [Action 1601]
 .mustnot 44             ' Chastified
 The first rule is that you must remain hard in the shower,
-but you are not allowed to cum, as I'm sure you're well aware.
+but you are not allowed to cum,
+as I'm sure you're well aware.
 .range 1612 1617
 
 [Action 1602]
 .must 44                ' Chastified
 The first rule is that you must keep your encaged slave penis 
 squeezing against its cage at all times whilst in the shower,
-but you are not allowed to cum, as I'm sure you're well aware.
+but you are not allowed to cum,
+as I'm sure you're well aware.
 .range 1612 1617
 
 
@@ -863,6 +854,8 @@ Tie your wrists and ankles now.
 You will wear two clothes pegs on your nipples in the shower, slave.
 Put them on now.
 .pause Done, Miss
+.set -20 20 42          ' something on nipples, clothes pegs
+.settime 49 00:15"00    ' remove in or after activity
 .range 1634 1635
 
 [Action 1633]
@@ -870,7 +863,8 @@ Put them on now.
 You will wear your nipple clamps in the shower today, cunt.
 Put them on now.
 .pause Done, Miss
-.set 812                ' Done nipple training activity
+.set -20 20 43          ' something on nipples, nipple clamps
+.settime 49 00:15"00    ' remove in or after activity
 .range 1634 1635
 
 
@@ -883,6 +877,8 @@ Put them on now.
 Put two clothes pegs on your slave balls now, bitch.
 You'll wear those in the shower, too.
 .pause Done, Miss
+.set -24 24 38          ' something on balls, pussy clips
+.settime 49 00:15"00    ' remove in or after activity
 .range 1636 1637
 
 
@@ -1019,7 +1015,8 @@ Okay, slave, go and shower!
 Tell me when you're finished.
 delay 15
 .pause I'm finished, Miss
-.range 1660
+.range 1660            ' In time
+
 
 [Action 1655]
 .must 141
@@ -1028,7 +1025,7 @@ Tell me when you return.
 Better hurry up!
 .delay 300 300 STOP 1660
 .stoptext I'm back, Miss
-.range 1670
+.range 1680            ' Too late
 
 [Action 1656]
 .must 142 
@@ -1037,7 +1034,7 @@ You have seven minutes to be back here, starting now.
 Tell me when you get back.
 .delay 420 420 STOP 1660
 .stoptext I'm back, Miss
-.range 1670
+.range 1680            ' Too late
 
 [Action 1657]
 .must 143
@@ -1046,7 +1043,7 @@ Better move your ass!
 Tell me when you return.
 .delay 600 600 STOP 1660
 .stoptext I've finished my shower, Miss
-.range 1670
+.range 1680            ' Too late
 
 [Action 1658]
 .must 144
@@ -1055,7 +1052,7 @@ Better hurry up!
 Tell me when you're done.
 .delay 720 720 STOP 1660
 .stoptext I've finished my shower, Miss
-.range 1670
+.range 1680            ' Too late
 
 [Action 1659]
 .must 145
@@ -1064,42 +1061,90 @@ You have fifteen minutes exactly.
 Tell me when you're done.
 .delay 900 900 STOP 1660
 .stoptext I've finished my shower, Miss
-.range 1670
+.range 1680            ' Too late
 
+
+' finished in time
 
 [Action 1660]
-.range 1661 1662
+.range 1661 1664
 
 
 [Action 1661]
-.mustnot 147            ' No drying afterwards
-I hope you're nice and clean, my pretty little slave boy.
+.mustnot 22                            ' something in mouth
+.mustnot 147                           ' No drying afterwards
+.mustnot 148 149 150 151 152 157 158   ' all punishment items
+I hope you're nice and clean,
+my pretty little slave boy.
+.pause Yes, Miss
+.range 1699
+
+[Action 1662]
+.mustnot -22                           ' something in mouth, applied in sub-script
+.must 22                               ' something in mouth
+.mustnot 147                           ' No drying afterwards
+I hope you're nice and clean,
+my pretty little slave boy.
+You may take off any punishment items you have on now.
+Well, you can leave your gag in,
+I just want you to moan.
+.pause Thank you, Miss
+.range 1699
+
+[Action 1663]
+.else
+.mustnot 147                           ' No drying afterwards
+I hope you're nice and clean,
+my pretty little slave boy.
 You may take off any punishment items you have on now.
 .pause Thank you, Miss
 .range 1699
 
-[action 1662]
+[action 1664]
 .must 147               ' No drying afterwards
 Now my pet:
 Did you follow my order and resisted to dry your body after your shower?
 Are you still wet, slave? 
-.yesno 1663 1664 1665 1665
+.yesno 1670 1672 1675 1675
 .yestext Yes Miss, soaking wet
 .notext No Miss, I'm dry
 
 
-[Action 1663]
+[Action 1670]
+.mustnot 22                            ' something in mouth
+.mustnot 148 149 150 151 152 157 158   ' all punishment items
 Very good!
-I hope you're nice and clean too, my pretty little slave boy.
+I hope you're nice and clean too,
+my pretty little slave boy.
+You may place your towel on the floor to drip on.
+.pause Thank you, Miss
+.range 1699
+
+[Action 1671]
+.mustnot -22                           ' something in mouth, applied in sub-script
+.must 22                               ' something in mouth
+Very good!
+I hope you're nice and clean too,
+my pretty little slave boy.
+You may place your towel on the floor to drip on
+and take off any punishment items you have on now.
+Well, you can leave your gag in,
+I just want you to moan.
+.pause As you wish, Miss
+.range 1699
+
+[Action 1672]
+.else
+Very good!
+I hope you're nice and clean too,
+my pretty little slave boy.
 You may place your towel on the floor to drip on
 and take off any punishment items you have on now.
 .pause Thank you, Miss
 .range 1699
 
-'[Action 1664]
 
-
-[Action 1665]
+[Action 1675]
 Wow.
 The poor cunt dared to ignore his mistress precise orders.
 Well, you can just return to the bathroom and shower yourself off again,
@@ -1107,75 +1152,103 @@ to get wet as you were supposed to be.
 Cold water only this time!
 delay 30
 .pause Here I am again, Miss
-.range 1666
+.range 1676
 
-[Action 1666]
+[Action 1676]
 Very good.
 That was certainly refreshing, don't you think?
 I hope you're properly wet this time.
 .pause Yes Miss, soaking wet
-.range 1673 1674
+.range 1683 1684
 
 
-[Action 1670]
+' Too late
+
+[Action 1680]
 Tsk, tsk, slave.
 You're late.
 .pause I'm sorry, Miss
-.range 1671 1672
+.range 1681 1682
 
 
 ' Too late corner time
 
-[Action 1671]
-You may go stand in the corner until I tell you to come back, you naughty slave.
-While you're over there, put your hands on your head and think about how bad you've been.
+[Action 1681]
 .delay 60
-.range 1675
+You may go stand in the corner until I tell you to come back, you naughty slave.
+While you're over there,
+put your hands on your head and think about how bad you've been.
+.range 1685
 
-[Action 1672]
+[Action 1682]
+.delay 60
 You may go kneel in the corner until I tell you to come back, you stupid cunt.
 Put your hands on your head and cross your ankles while you're over there.
-.delay 60
-.range 1675
+.range 1685
 
 
 ' Not wet corner time
 
-[Action 1673]
-You may go stand in the corner on your towel until I tell you to come back, you naughty slave.
-While you're over there, put your hands on your head and think about how bad you've been.
+[Action 1683]
 .delay 60
-.range 1675
+You may go stand in the corner on your towel until I tell you to come back, you naughty slave.
+While you're over there,
+put your hands on your head and think about how bad you've been.
+.range 1685
 
-[Action 1674]
+[Action 1684]
+.delay 60
 You may go kneel in the corner on your towel until I tell you to come back, you stupid cunt.
 Put your hands on your head and cross your ankles while you're over there.
-.delay 60
-.range 1675
+.range 1685
 
 
-[Action 1675]
+[Action 1685]
 .noimage
 .delay 540 840
-.range 1676
+.range 1686 1688
 
-[Action 1676]
+
+[Action 1686]
+.mustnot 22                            ' something in mouth
+.mustnot 148 149 150 151 152 157 158   ' all punishment items
+.playwav whip.mp3
+Okay, slave, that's enough.
+Did you learn your lesson?
+.pause Yes Miss, I've learned my lesson
+.range 1689
+
+[Action 1687]
+.mustnot -22                           ' something in mouth, applied in sub-script
+.must 22                               ' something in mouth
+.playwav whip.mp3
+Okay, slave, that's enough.
+You can take off any punishment items you have on.
+Well, you can leave your gag in,
+I just want you to moan.
+[As you wish, Miss]
+Did you learn your lesson?
+.pause Yes Miss, I've learned my lesson
+.range 1689
+
+[Action 1688]
+.else
 .playwav whip.mp3
 Okay, slave, that's enough.
 You can take off any punishment items you have on.
 Did you learn your lesson?
 .pause Yes Miss, I've learned my lesson
-.ifset -22 .unset -22 22
-.range 1677
+.range 1689
 
-[Action 1677]
+
+[Action 1689]
 I hope so, slut!
 .range 1699
 
 
-' todo order explicitly to take off punishment items
+' taking off punishment items
 
-' ball pegs, nipple pegs, nipple clamps, wrist restraints, ankle restraints, gag -> 64 actions (ouch)
+' nipple pegs, nipple clamps, gag, ball pegs, wrist restraints, ankle restraints -> 64 actions (ouch)
 
 ' This is like in mine-maid.sbd where we have to take off a couple of "punishment items".
 ' Additionally to mention the items to take off, there are also different phrases to take them off.
@@ -1184,8 +1257,22 @@ I hope so, slut!
 ' But the punishment shower has so many requirements (unset 20, 24, 25, 26, ...),
 ' so it should be very clear what to take off 
 
+'.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
+'.mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
+'.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 
+' -> only mention to keep the gag
+
+' punishment shower complete
 [Action 1699]
+.ifset -20 .unset -20 20 42 43    ' nipples
+.ifset -20 .set 812               ' Done nipple training activity
+.ifset -22 .unset -22 22          ' gag
+.ifset -24 .unset -24 24 38 39    ' ballsack
+'.ifset -24 .set 259               ' Done ball sack pegs or pussy clamps
+'.ifset 153 .set 264                ' Spanking done
+'.ifset 154 .set 264                ' Spanking done
+'.ifset 155 .set 264                ' Spanking done
 .range 9800 9899
 
 
@@ -3230,7 +3317,7 @@ A disobedient slut that's going to be punished.
 .set 9                  ' Intense spanking
 .set 105
 .unset 101 102 103 104
-.set 167
+.set 168
 .range 9000
 
 ' 549 Escaping punishment (quit handler)
