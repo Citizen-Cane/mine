@@ -39,9 +39,10 @@
 ' * 188 2605    2711            2719                    Didn't perform assignment
 ' * 189 2620    2740            2749                    -
 
-'   177 3002   5802 -> 5952     5852   -       1       weight from balls easy
-'   178 3003   5803 -> 5953     5853   -       1       weight from balls medium
-'   179 3004   5804 -> 5954     5854   -       2       weight from balls hard
+'   176 3002   5802 -> 5952     5852   -       1       weight from balls easy
+'   177 3003   5803 -> 5953     5853   -       1       weight from balls medium
+'   178 3004   5804 -> 5954     5854   -       2       weight from balls hard
+'   179 3005   5805 -> 5955     5855   -       2       weight from balls hard
 '   160 3010   5601 -> 5751     5651   -       1       paddle x40
 '   161 3011   5602 -> 5752     5652   -               paddle x60
 '   162 3012   5603 -> 5753     5653   -               paddle x100
@@ -3241,18 +3242,24 @@ A disobedient slut that's going to be punished.
 
  ' Weight drop from balls light
 [Action 3002]
-.set 177
+.set 176
 .range 3050
 
 ' Weight drop from balls medium
 [Action 3003]
-.set 178
+.set 177
 .range 3051
 
 ' Weight drop from balls heavy
 [Action 3004]
-.set 179
+.set 178
 .range 3052
+
+' Weight drop from balls very heavy
+[Action 3005]
+.set 179
+.range 3053
+
 
 
 ' ass-paddling 40-60-100 smacks: activity -> 9100
@@ -3386,6 +3393,8 @@ A disobedient slut that's going to be punished.
 .range 3064 3065
 
 
+' severity
+
 [Action 3061]
 .set 101
 .unset 102 103 104 105
@@ -3412,21 +3421,24 @@ A disobedient slut that's going to be punished.
 .range 3100
 
 
+' introduction and setup
+
 [Action 3100]
 I'm going to punish your slave balls now, My dear.
 Those silly balls are just asking for it.
 But first we must prepare.
 '.ask 11 15
-.range 3101 3104
+.range 3101 3103
+
 
 [Action 3101]
 .mustnot 37             ' something on balls, ball harness
-.mustnot 214 219        ' Neither ball harness nor cock bondage
 .mustnot 385
-I want you to fetch a rope or a chain for your ball sack first, slave.
-Tie it around your balls, and leave about two feet of it dangling or so.
-I want you to make sure that rope isn't coming off
-- make sure it's tight!
+I want you to fetch a rope or a chain for your ball sack, slave.
+Tie it around your balls,
+and leave about two feet of it dangling or so.
+I want you to make sure that rope isn't coming off -
+make sure it's tight!
 If you have a ball stretcher or something similar,
 go ahead and use it, and connect a rope to that instead.
 .pause Done as ordered, Miss
@@ -3434,12 +3446,12 @@ go ahead and use it, and connect a rope to that instead.
 
 [Action 3102]
 .mustnot 37             ' something on balls, ball harness
-.mustnot 214 219        ' Neither ball harness nor cock bondage
 .must 385
 I want you to fetch your ball harness and put it on, slave.
-Also fetch some rope, connect it to your ball harness and leave about two feet of it dangling or so.
-I want you to make sure that rope isn't coming off
-- make sure it's tight!  
+Also fetch some rope,
+and connect it to your ball harness.
+Leave about two feet of it dangling or so.
+And make sure that rope isn't coming off!
 .pause Done as ordered, Miss
 .range 3105 3109
 
@@ -3447,19 +3459,12 @@ I want you to make sure that rope isn't coming off
 .must 37                ' ball harness
 I want you to fetch a rope or a chain about two feet long
 and attach it to your ball harness, My slave,
-Make sure that rope isn't coming off!
+And make sure that rope isn't coming off!
 .pause Attached as ordered, Miss
 .range 3105 3109
 
-[Action 3104]
-.must 214               ' cock bondage
-I want you to add a rope or a chain to your cock bondage, slave.
-Tie it around your balls, and leave about two feet of it dangling or so.
-I want you to make sure that rope isn't coming off
-- make sure it's tight!
-.pause Done as ordered, Miss
-.range 3105 3109
 
+' Weight selection
 
 [Action 3105]
 .mustnot 37             ' ball harness
@@ -3480,6 +3485,8 @@ Make sure that's tight, too!
 .range 3110
 
 
+' Instructions
+
 [Action 3110]
 Stand up now, and turn around.
 You can just listen to My instructions or read them over your shoulder.
@@ -3492,7 +3499,8 @@ The weight is behind your back, My dear.
 
 [Action 3111]
 Now, slave, here's what we're going to do.
-You're going to turn around, and I'm going to wait for a moment, and then crack my whip.
+You're going to turn around, and I'm going to wait for a moment,
+and then crack my whip.
 When I do that, you will take one good step forward
 - away from the weight.
 You will do this such that the weight will be dragged off by the rope and will fall.
@@ -3503,12 +3511,49 @@ We'll keep doing this until I'm satisfied.
 .range 3112
 
 [Action 3112]
-Remember, you're not to interfere with the weight's movement in any way after it's fallen,
+Remember, you're not to interfere with the weight's movement
+in any way after it's fallen,
 and you're not to touch your silly little slut-balls at all.
 Nor are you allowed to watch as the weight falls
 - keep your head turned until it's dragged off.
-As usual, I expect you to keep wanking that slave penis and to keep it hard the whole time.
+As usual, I expect you to keep wanking that slave penis
+and to keep it hard the whole time.
 .pause Of course, Miss
+.range 3120
+
+' number of weight drops
+[Action 3120]
+.set 100
+.range 3121 3125
+
+
+[Action 3121]
+.must 101
+.repeatadd 100 5 5
+.range 3129
+
+[Action 3122]
+.must 102
+.repeatadd 100 6 10
+.range 3129
+
+[Action 3123]
+.must 103
+.repeatadd 100 11 15
+.range 3129
+
+[Action 3124]
+.must 104
+.repeatadd 100 16 20
+.range 3129
+
+[Action 3125]
+.must 105
+.repeatadd 100 21 25
+.range 3129
+
+
+[Action 3129]
 .range 9200
 
 
@@ -4239,6 +4284,7 @@ Put the weight on the desk now, slave, and get ready.
 .unset 9200
 .range 9201 9204
 
+
 [Action 9201]
 .playwav whip1.mp3
 .delay 5
@@ -4256,73 +4302,102 @@ Step forward, slave!
 [Action 9203]
 .playwav whip3.mp3
 .delay 5
-Step forward now, slave!
+Step forward now!
 .unset 9203
 .range 9205
+
+[Action 9204]
+.playwav whip3.mp3
+.delay 5
+Step forward!
+.unset 9204
+.range 9205
+
 
 [Action 9205]
 .delay 15 30
 Let it swing!
 .unset 9205
+.range 9207 9209
+
+
+' time is up? 
+
+[action 9207]
+.timefrom 276 00:00"00       ' Enema timer, holding
+.unset 9207
+.set 100
 .range 9210 9216
 
+[action 9208]
+.timefrom 49 00:00"00        ' something on nipples or balls
+.set 100
+.unset 9208
+.range 9210 9216
+
+[action 9209]
+.else
+.unset 9209
+.range 9210 9216
+
+
+' number of weight drops reached?
+
 [Action 9210]
+Put the weight back on the desk, and get ready.
+.repeatdel 100 1 1
 .unset 9210
-.range 9200
+.range 9201 9204
 
 [Action 9211]
-.must 101
-.numactionsfrom 9200 15
+.must 100
+.mustnot 102 103 104 105
 That's enough for today, slave.
 .range 9219
 
 [Action 9212]
-.must 102
-.numactionsfrom 9200 30
+.must 100
+.mustnot 103 104 105
 That will do, slave.
 .range 9219
 
 [Action 9213]
-.must 103
-.numactionsfrom 9200 45
+.must 100
+.mustnot 101 102 103
 I hope those balls are nice and sore, slave.
 .range 9219
 
 [Action 9214]
-.must 104
-.numactionsfrom 9200 60
+.must 100
+.mustnot 101
+.mustnot 101 102 103
 How did that feel, My dear?
 .range 9219
 
 [Action 9215]
-.must 105
-.numactionsfrom 9200 75
+.must 100
+.mustnot 101 102 103 104
 That slave sack of yours should be nicely stretched out now, slave.
 .range 9219
 
 [Action 9216]
-.numactionsfrom 9200 90
+.must 100
 That's enough for now, slave.
-.range 9220 9222
+.range 9219
 
 
 [Action 9219]
-.range 9220 9222
+.range 9220 9221
+
 
 [Action 9220]
-.mustnot 214 219        ' neither cock bondage or harness
-You may remove your ball bondage now, slave.
+.mustnot 37             ' ball harness
+You may remove the weight and untie the rope from your ball sack.
 .pause Thank you, Miss
 .range 9800 9899
 
 [Action 9221]
-.must 214                ' cock bondage
-You may remove the weight now, slave.
-.pause Thank you, Miss
-.range 9800 9899
-
-[Action 9222]
-.must 219                ' cock harness
+.must 37                 ' ball harness
 You may remove the weight now, slave.
 .pause Thank you, Miss
 .range 9800 9899
@@ -4335,16 +4410,20 @@ You may remove the weight now, slave.
 .loadSbd Mine.sbd 2413
 
 [Action 9801]
-.must 177
+.must 176
 .loadsbd Mine.sbd 5852
 
 [Action 9802]
-.must 178
+.must 177
 .loadsbd Mine.sbd 5853
 
 [Action 9803]
-.must 179
+.must 178
 .loadsbd Mine.sbd 5854
+
+[Action 9804]
+.must 
+.loadsbd Mine.sbd 5855
 
 [Action 9810]
 .must 160

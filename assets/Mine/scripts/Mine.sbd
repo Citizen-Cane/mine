@@ -468,7 +468,7 @@
 '.askcheck      62      714     714: * Punishment acceptance 4 (2415)
 '.askcheck      63      715     715: * Punishment acceptance 5
 '.askcheck      64      716     716: * Nipple tolerance 1 (1046, 1048, 1050, 2511, 2531, 5251, 5253) 
-'.askcheck      65      717     717: * Nipple tolerance 2 (1048, 1050, 2516, 2576, 5855)
+'.askcheck      65      717     717: * Nipple tolerance 2 (1048, 1050, 2516, 2576, 5863)
 '.askcheck      66      718     718: * Nipple tolerance 3 (1050, 5867, [3100])
 '.askcheck      67      719     719: * Nipple tolerance 4 (5866)
 '.askcheck      68      720     720: * Nipple tolerance 5
@@ -504,7 +504,7 @@
 '.askcheck      94      746     746: * CBT 1 (1046, 1048, 1050, 1865, 3143, 3200, 3202, 3208, 3210, 5453, 5852, 7571)
 '.askcheck      95      747     747: * CBT 2 (1048, 1050, 1865, 3119, 3141, 3145, 3204, 3206, 3258, 3261, 3265, 5454, 5853. 7572)
 '.askcheck      96      748     748: * CBT 3 (1050, 1865, [3122], 3221, 3269, 5854)
-'.askcheck      97      749     749: * CBT 4 (3147, 3223) 
+'.askcheck      97      749     749: * CBT 4 (3147, 3223, 5855) 
 '.askcheck      98      750     750: * CBT 5
 
 '.askcheck      91      751     751: * Asswhipping 1 (1046, 1048, 1050, 5651)
@@ -586,7 +586,7 @@
 .menu 26 5201 5201 (shower #1) - 5201
 .menu 27 5202 5202 (shower #2) - 5202
 .menu 28 5203 5203 (shower #3) - 5203
-.menu 29 5805 5805 (light cardio nips) - 5805
+.menu 29 5806 5806 (light cardio nips) - 5806
 .menu 30 5815 5815 (15 pins) - 5815
 .menu 31 5403 5403 (diana sb pictures) - 5403
 .menu 32 6004 6004 (light wanking) - 6004
@@ -608,12 +608,12 @@
 .menu 46  9002 9002 Next-Session-Toy-Check Assignment
 .menu 47  1802 1802 Next-Session-Toy-Check (give assignment before)
 .menu 48  1660 1660 Apply enema
-.menu 90  1890 1890 Extra punishment question
-.menu 91  3000 3000 Extras decision
-.menu 92  4000 4000 Assignment checking
-.menu 93  4900 4900 Main decision point
-.menu 94  4902 4902 Activity Selection menu
-.menu 95  5050 5088 Mistress choice -- 5050-5088
+.menu 49  1890 1890 Extra punishment question
+.menu 50  3000 3000 Extras decision
+.menu 51  4000 4000 Assignment checking
+.menu 52  4900 4900 Main decision point
+.menu 53  4902 4902 Activity Selection menu
+.menu 54  5050 5088 Mistress choice -- 5050-5088
 .menu 55  7600 7600 Judgement cycle
 .menu 56  9700 9719 Positive outcome
 .menu 57  9540 9545 Cum-Slut training
@@ -731,11 +731,10 @@ Would you be so kind and tell me what you've got exactly?
 
 ' The start of the script
 
+' Debug entry from mine.debug.sbd
 [Action 840]
-.txt Welcome to debug my code, but don't try to cheat on me.
-.txt What would you like to do today?
-.unset 840
-.PopUp 40 60
+.set 848				' debug code path, no release checks
+.range 847
 
 
 ' Clean start
@@ -749,11 +748,11 @@ Would you be so kind and tell me what you've got exactly?
 .resetrange 600 685
 .range 845 846 
 
-
-' Debug entry from mine.debug.sbd
 [Action 844]
-.set 848				' debug code path, no release checks
-.range 847
+.txt Welcome to debug my code, but don't try to cheat on me.
+.txt What would you like to do today?
+.unset 840
+.PopUp 40 60
 
 
 ' start normally, init quit check
@@ -802,12 +801,11 @@ Would you be so kind and tell me what you've got exactly?
 [Action 848]
 .range 949 999         ' Attend session
 
-
 ' Debug menus
 [Action 849]
 .unset 847
 .unset 848
-.range 840	            ' debug menu
+.range 844	            ' debug menu
 
 
 ' quit range:
@@ -12288,8 +12286,8 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1 
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
-.timeto 49 -00:15"00
-.timeto 276 -00:15"00        ' holding the enema
+.timeto 49 -00:14"00
+.timeto 276 -00:14"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -12298,18 +12296,24 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
-.timeto 49 -00:20"00
-.timeto 276 -00:20"00        ' holding the enema
+.timeto 49 -00:19"00
+.timeto 276 -00:19"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
-' TODO very heavy weight drop from balls (20-25)
-'.timeto 49 -00:25"00
-'.timeto 276 -00:25"00        ' holding the enema
+' very heavy weight drop from balls (20-25)
+[Action 5805]
+.mustnot 255                 ' Done ball sack pulling activity already
+.must 746 747 748            ' cbt 3
+.mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
+.timeto 49 -00:24"00
+.timeto 276 -00:24"00        ' holding the enema
+.set 255                     ' Done ball sack pulling activity
+.range 5955
 
 
 ' light cardio nips
-[Action 5805]
+[Action 5806]
 .mustnot 20 24 25 26 29      ' something on nipples, something on ball sack, ankles tied, wrists tied, blindfolded 
 .mustnot 31 32 34 35         ' can't sit on chair, can't stand, can't type/use mouse, tethered 
 .mustnot 812                 ' Done nipple training activity already
@@ -12317,7 +12321,7 @@ I will have to punish you later for failing your training.
 .must 716
 '.timeto 276 -00:09"00        ' holding the enema, already checked in 5068
 .set 812                     ' Done nipple training activity
-.range 5955
+.range 5963
 
 ' quick pins
 [Action 5814]
@@ -12397,11 +12401,22 @@ I will have to punish you later for failing your training.
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
+' very heavy weight drop from balls
+[Action 5825]
+.mustnot 255                 ' Done ball sack pulling activity already
+.must 746 747 748            ' cbt 3
+.must 37                     ' ball harness
+.mustnot 25 32               ' ankles tied, can't stand
+.timeto 49 -00:24"00
+.timeto 276 -00:24"00        ' holding the enema
+.set 255                     ' Done ball sack pulling activity
+.range 5955
+
 
 ' Repititions from 5802, 5804, to allow to call those while wearing cock bondage
 
 ' light weight drop from balls
-[Action 5825]
+[Action 5826]
 .mustnot 25 32               ' ankles tied, can't stand
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
@@ -12411,7 +12426,7 @@ I will have to punish you later for failing your training.
 .range 5952
 
 ' medium weight drop from balls
-[Action 5826]
+[Action 5827]
 .mustnot 25 32               ' ankles tied, can't stand
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
@@ -12422,7 +12437,7 @@ I will have to punish you later for failing your training.
 .range 5953
 
 ' heavy weight drop from balls
-[Action 5827]
+[Action 5828]
 .mustnot 25 32               ' ankles tied, can't stand
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
@@ -12432,9 +12447,16 @@ I will have to punish you later for failing your training.
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
-' TODO very heavy weight drop from balls (20-25)
-'.timeto 49 -00:24"00
-'.timeto 276 -00:24"00        ' holding the enema
+' very heavy weight drop from balls
+[Action 5829]
+.mustnot 25 32               ' ankles tied, can't stand
+.must 214                    ' cock bondage
+.mustnot 255                 ' Done ball sack pulling activity already
+.must 746 747 748            ' cbt 3
+.timeto 49 -00:24"00
+.timeto 276 -00:24"00        ' holding the enema
+.set 255                     ' Done ball sack pulling activity
+.range 5955
 
 
 [Action 5849]
@@ -12463,11 +12485,17 @@ You may remove the clamps and weights.
 
 [Action 5854]
 .set 748                ' cbt 3
-.set 805                ' 1 merit
+.set 806                ' 2 merit
 .range 7201
 
-' light cardio nips
 [Action 5855]
+.set 749                ' cbt 4
+.set 806                ' 2 merit
+.range 7201
+
+
+' light cardio nips
+[Action 5863]
 That was a nice little workout, slave.
 .set 717                ' nipple tolerance 2
 .set 805                ' 1 merit
@@ -12544,6 +12572,11 @@ Meanhile, three demerits will do about right.
 .loadsbd mine-paddle.sbd 3004 3004
 
 [Action 5955]
+.save 90 799
+.loadsbd mine-paddle.sbd 3005 3005
+
+
+[Action 5963]
 .save 90 799
 .loadsbd mine-nipt.sbd 1017 1017
 
