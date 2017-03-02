@@ -109,7 +109,7 @@
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
 
-'   49  -   clamps/pegs timer - either set to -00:nn:00, or 00:00"00 to remove on next occasion, and to INF after removal
+'   49  -   clamps/pegs duration - either set to -00:nn:00, or 00:00"00 to remove on next occasion, and to INF after removal
 
 ' Session timers: 1, 12, 24 hours, with two empty slots for 48h and one week
 '
@@ -11279,7 +11279,7 @@ What else can I do to you today, slave?
 
 [Action 5050]
 .mustnot 265            ' Done self bondage activity already 
-.timeto 49 -01:00"00    ' Clamps & pegs
+.timeto 49 -01:00"00    ' clamps/pegs duration
 .timeto 276 -01:00"00   ' holding the enema
 I think you could use some strict self-bondage for today's session.
 .range 5400
@@ -11304,7 +11304,7 @@ I think that ass could use another good tanning.
 .mustnot 254            ' Mouth activity already done              
 .mustnot 260            ' Done dildo worshiping punishment before
 .must 388               ' have dildo
-.timeto 49 -00:07"00    ' Clamps & pegs
+.timeto 49 -00:07"00    ' clamps/pegs duration
 .timeto 276 -00:07"00   ' holding the enema
 I think you're going to worship your dildo.
 .range 5140 5148
@@ -11315,7 +11315,7 @@ I think you're going to worship your dildo.
 .mustnot 254            ' Mouth activity already done              
 .must 260               ' Done dildo worshiping punishment before
 .must 388               ' have dildo
-.timeto 49 -00:07"00    ' Clamps & pegs
+.timeto 49 -00:07"00    ' clamps/pegs duration
 .timeto 276 -00:07"00   ' holding the enema
 I think you're going to worship your dildo some more.
 .range 5140 5148
@@ -11328,7 +11328,7 @@ I think you deserve a teasing session.
 [Action 5066]
 .mustnot 210            ' Done already
 .shouldnot 811          ' magic marker applied
-.timeto 49 -00:11"00    ' Clamps & pegs
+.timeto 49 -00:11"00    ' clamps/pegs duration
 .timeto 276 -00:11"00   ' holding the enema
 I think you're a dirty cunt,
 and you need a shower.
@@ -11337,7 +11337,7 @@ and you need a shower.
 [Action 5067]
 .mustnot 210            ' Done already
 .else                   ' as fallback, even if magic marker applied
-.timeto 49 -00:11"00    ' Clamps & pegs
+.timeto 49 -00:11"00    ' clamps/pegs duration
 .timeto 276 -00:11"00   ' holding the enema
 I think you're a dirty cunt,
 and you need a shower.
@@ -11345,7 +11345,7 @@ and you need a shower.
 
 
 [Action 5068]
-.timeto 49 -00:09"00    ' Clamps & pegs
+.timeto 49 -00:09"00    ' clamps/pegs duration
 .timeto 276 -00:09"00   ' holding the enema
 I think your nipples and nuts could use a working-over.
 .range 5800 5849
@@ -11364,7 +11364,7 @@ I think your nipples and nuts could use a working-over.
 .mustnot 262            ' Done maid training activity already
 .mustnot             29 ' blindfolded
 .mustnot 34             ' can't type/use mouse
-.timeto 49 -00:06"00    ' Clamps & pegs
+.timeto 49 -00:06"00    ' clamps/pegs duration
 .timeto 276 -00:06"00   ' holding the enema
 Let's continue your slave training.
 .set 262                ' Done maid training
@@ -11776,8 +11776,8 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 361               ' Nipple clamps
-'.timeto 49 -00:11"00   ' holding the enema, already checked in 5066
-'.timeto 276 -00:11"00   ' holding the enema
+' 49 clamps/pegs duration, already checked in 5066
+' 276 holding the enema, already checked in 5066
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .set 210                ' shower one-time only
 .range 5351
@@ -11787,8 +11787,8 @@ You seem to get used to getting used very well.
 .mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
-'.timeto 49 -00:11"00   ' holding the enema, already checked in 5066
-'.timeto 276 -00:11"00   ' holding the enema
+' 49 clamps/pegs duration, already checked in 5066
+' 276 holding the enema, already checked in 5066
 .set 210                ' shower one-time only
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .range 5352
@@ -11799,7 +11799,7 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 362               ' clothes pegs
-.timeto 49 -00:16"00   ' holding the enema
+.timeto 49 -00:16"00    ' clamps/pegs duration
 .timeto 276 -00:16"00   ' holding the enema
 .set 210                ' shower one-time only
 .set 716 736 751        ' Nipple tolerance 1, restraint acceptance 1, ass whipping 1
@@ -12023,7 +12023,7 @@ You'll be punished later for failing your training.
 ' paddle x40
 [Action 5601]
 .mustnot 33             ' can't kneel
-.timeto 49 -00:04"00
+.timeto 49 -00:04"00    ' clamps/pegs duration
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12033,7 +12033,7 @@ You'll be punished later for failing your training.
 [Action 5602]
 .mustnot 29 33          ' blindfolded,can't kneel
 .must 751               ' asswhipping 1
-.timeto 49 -00:06"00
+.timeto 49 -00:06"00    ' clamps/pegs duration
 .timeto 276 -00:06"00   ' holding the enema
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
@@ -12044,7 +12044,7 @@ You'll be punished later for failing your training.
 [Action 5603]
 .mustnot 33             ' can't kneel
 .must 751 752           ' asswhipping 2
-.timeto 49 -00:09"00
+.timeto 49 -00:09"00    ' clamps/pegs duration
 .timeto 276 -00:09"00   ' holding the enema
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
@@ -12052,7 +12052,9 @@ You'll be punished later for failing your training.
 .range 5753
 
 
-' spanking marathon is only available if there haven't been any spanking punishments
+' spanking marathon is only available
+' if there hasn't been any spanking done yet
+' also a spanking implement is requireed
 
 ' paddle
 
@@ -12063,8 +12065,8 @@ You'll be punished later for failing your training.
 .mustnot 264            ' Done spanking already
 .must 370               ' paddle
 .must 753               ' asswhipping 3
-.timeto 49 -00:35"00
-.timeto 276 -00:35"00
+.timeto 49 -00:35"00    ' clamps/pegs duration
+.timeto 276 -00:35"00   ' holding the enema
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12077,7 +12079,7 @@ You'll be punished later for failing your training.
 .mustnot 264            ' Done spanking already
 .must 370               ' paddle
 .must 754               ' asswhipping 4
-.timeto 49 -00:65"00
+.timeto 49 -00:65"00    ' clamps/pegs duration
 .timeto 276 -00:65"00   ' holding the enema
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
@@ -12095,7 +12097,7 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 371               ' hair brush
 .must 753               ' asswhipping 3
-.timeto 49 -00:35"00
+.timeto 49 -00:35"00    ' clamps/pegs duration
 .timeto 276 -00:35"00   ' holding the enema
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
@@ -12110,7 +12112,7 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 371               ' hair brush
 .must 754               ' asswhipping 4
-.timeto 49 -00:65"00
+.timeto 49 -00:65"00    ' clamps/pegs duration
 .timeto 276 -00:65"00   ' holding the enema
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
@@ -12128,7 +12130,7 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
 .must 753               ' asswhipping 3
-.timeto 49 -00:35"00
+.timeto 49 -00:35"00    ' clamps/pegs duration
 .timeto 276 -00:35"00   ' holding the enema
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
@@ -12143,7 +12145,7 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
 .must 754               ' asswhipping 4
-.timeto 49 -00:65"00
+.timeto 49 -00:65"00    ' clamps/pegs duration
 .timeto 276 -00:65"00   ' holding the enema
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
@@ -12286,7 +12288,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1 
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
-.timeto 49 -00:14"00
+.timeto 49 -00:14"00         ' clamps/pegs duration
 .timeto 276 -00:14"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
@@ -12296,7 +12298,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
-.timeto 49 -00:19"00
+.timeto 49 -00:19"00         ' clamps/pegs duration
 .timeto 276 -00:19"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
@@ -12306,7 +12308,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
-.timeto 49 -00:24"00
+.timeto 49 -00:24"00         ' clamps/pegs duration
 .timeto 276 -00:24"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5955
@@ -12385,7 +12387,7 @@ I will have to punish you later for failing your training.
 .must 746                    ' cbt 1
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 49 -00:14"00
+.timeto 49 -00:14"00         ' clamps/pegs duration
 .timeto 276 -00:14"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
@@ -12396,7 +12398,7 @@ I will have to punish you later for failing your training.
 .must 746 747                ' cbt 2
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 49 -00:19"00
+.timeto 49 -00:19"00         ' clamps/pegs duration
 .timeto 276 -00:19"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
@@ -12407,7 +12409,7 @@ I will have to punish you later for failing your training.
 .must 746 747 748            ' cbt 3
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 49 -00:24"00
+.timeto 49 -00:24"00         ' clamps/pegs duration
 .timeto 276 -00:24"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5955
@@ -12431,7 +12433,7 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
-.timeto 49 -00:14"00
+.timeto 49 -00:14"00         ' clamps/pegs duration
 .timeto 276 -00:14"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5953
@@ -12442,7 +12444,7 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.timeto 49 -00:19"00
+.timeto 49 -00:19"00         ' clamps/pegs duration
 .timeto 276 -00:19"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5954
@@ -12453,7 +12455,7 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
-.timeto 49 -00:24"00
+.timeto 49 -00:24"00         ' clamps/pegs duration
 .timeto 276 -00:24"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5955
@@ -12615,7 +12617,7 @@ Meanhile, three demerits will do about right.
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 .must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
-.timeto 49 -00:24"00    ' 20 minutes plus preparation
+.timeto 49 -00:24"00    ' clamps/pegs duration, 20 minutes plus preparation
 .timeto 276 -00:24"00   ' holding the enema
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
@@ -20342,7 +20344,7 @@ arranged way in front of me for inspection before you approach me.
 
 ' remove clamps
 [action 11801]
-.timefrom 49 00:00"00
+.timefrom 49 00:00"00        ' clamps/pegs duration
 .range 11810
 
 ' comment when less than 10 minutes left
