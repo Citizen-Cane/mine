@@ -11334,11 +11334,12 @@ I think you're a dirty cunt,
 and you need a shower.
 .range 5200
 
-' TODO if shower not possible, shower range may be entered a second time, causing AllActionsSet
-' but we can't rely on .shouldnot here since there are other .else actions in the range
+' only one punishment shower action may be active,
+' to avoid entering the jumppad range twice (would result in AllActionsSet) 
 [Action 5067]
-.mustnot 210            ' Done already
 .else                   ' as fallback, even if magic marker applied
+.mustnot 210            ' Done already
+.must 811               ' magic marker applied
 .timeto 49 -00:11"00    ' clamps/pegs duration
 .timeto 276 -00:11"00   ' holding the enema
 I think you're a dirty cunt,
