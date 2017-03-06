@@ -11384,6 +11384,7 @@ Let's continue your slave training.
 ' clamps will just get removed later on, so we don't have to handle them here
 [Action 5085]
 .else                        ' Fallback
+.mustanyof 38 39 42 43       ' pegs or clamps on nipples or pussy/ballsack 
 .shouldnot 811               ' magic marker applied
 .settime 49 -INF             ' make sure clamps are going to be removed
 .gosub 11800                 ' remove clamps
@@ -16836,7 +16837,7 @@ You can start your training over with some other Mistress, cunt.
 Goodbye.
 .pause Please, don't leave me, Miss
 ' reset the complete game state
-.resetrange  50 94
+.resetrange  50  94
 .unset 95               ' mapped states must be unset explicitely
 .resetrange  96 266
 .unset 267              ' mapped states must be unset explicitely
@@ -17603,7 +17604,7 @@ if you want to extend your training regimen.
 Would you like to do that?
 .yesno 9726 9726 9700 9719
 .yestext Yes Miss, please
-.notext No Miss, I'd like to cum, please 
+.notext No Miss, please let me cum 
 
 [Action 9712]
 .timefrom 45 00:00"00                  ' Have key for chastity cage
@@ -20342,6 +20343,8 @@ arranged way in front of me for inspection before you approach me.
 ' remove pegs & clamps when time is up
 ' called from various places to ensure clamps/pegs aren't put on too long
 
+' to avoid AllActionsSet, the time 49 may only be set if 20 & 42/43 or 24 & 38/39 is set 
+
 [action 11800]
 .unset 11800
 .range 11801 11805
@@ -20350,18 +20353,21 @@ arranged way in front of me for inspection before you approach me.
 ' remove clamps
 [action 11801]
 .timefrom 49 00:00"00        ' clamps/pegs duration
+.unset 11801
 .range 11810
 
 ' comment when less than 10 minutes left
 [action 11802]
 .timefrom 49 -00:10"00
 .timeto 49 -00:00"00
+.unset 11802
 .range 11810
 
 ' comment when less than 20 minutes left
 [action 11803]
 .timefrom 49 -00:20"00
 .timeto 49 -00:10"00
+.unset 11803
 .range 11810
 
 [action 11804]
