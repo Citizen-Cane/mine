@@ -121,6 +121,20 @@
 '
 ' 95: Wait 1/12/24 hours timer
 
+' How do timers work? It appears mind-boggling at first, but the following table should fill in the blanks
+' Basically settime sets the time to now+offset, and timeto/timefrom compares against this offset
+'    now
+'    .settime n +10                          time(n)
+' ---0-------------------5-------------------10-------------------15-------------------20--------
+'    .timeto n -5      ++|
+'    .timeto n -0                          ++|
+'    .timeto n +5                                               ++|
+'    .timeto n +10                                                                   ++|
+'    .timefrom n -5      |++
+'    .timefrom n +0                          |++
+'    .timefrom n +5                                               |++
+'    .timefrom n +10                                                                   |++
+
 
 ' Toy menu and toy definitions 360-389
 ' There are mappings in Mine.java to link these toys to their TeaseLib toy categories and the host toy management
