@@ -123,9 +123,10 @@
 
 ' How do timers work? It appears mind-boggling at first, but the following table should fill in the blanks
 ' Basically settime sets the time to now+offset, and timeto/timefrom compares against this offset
+
 '    now
 '    .settime n +10                          time(n)
-' ---0-------------------5-------------------10-------------------15-------------------20--------
+'----0-------------------5-------------------10-------------------15-------------------20--------
 '    .timeto n -5      ++|
 '    .timeto n -0                          ++|
 '    .timeto n +5                                               ++|
