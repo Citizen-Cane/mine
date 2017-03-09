@@ -10907,9 +10907,9 @@ Get down on your knees and put on your humbler, slave.
 '[Action 4961]
 
 [Action 4962]
-Go fetch me a long piece of rope, slave.
-.mustnot 214 261        ' not already doing this, not having alreay done it
 .mustnot 23 24          ' something on penis, something on balls
+.mustnot 214 261        ' not already doing this, not having alreay done it
+Go fetch me a long piece of rope, slave.
 .pause Here you are, Miss
 .range 4975 4979
 
@@ -14147,10 +14147,10 @@ but remind me next time to teach you another lesson on how to masturbate correct
 .range 7555 7559
 
 [Action 7552]
-Oh, by the way, you may take the butt plug out now, sweetheart.
-.pause Thank you, Miss
 .must 220
 .mustnot 36             ' harnessed
+Oh, by the way, you may take the butt plug out now, sweetheart.
+.pause Thank you, Miss
 .unset 220
 .unset 21
 .set 251                ' single-event, don't put on again
@@ -14160,8 +14160,8 @@ Oh, by the way, you may take the butt plug out now, sweetheart.
 ' as a result of a self bondage scenario. In that (rare?) case the
 ' buttplug cannot easily be removed and the slave has to keep it in.
 [Action 7553]
-Oh, by the way, that butt plug stays in, sweetheart.
 .must 220 757
+Oh, by the way, that butt plug stays in, sweetheart.
 .unset 7553             ' Might have to repeat this after each activity
 .range 7555 7559
 
@@ -14174,18 +14174,18 @@ Oh, by the way, that butt plug stays in, sweetheart.
 .range 7560 7564
 
 [Action 7556]
+.must 219               ' ball harness temporary
 Oh, before I forget, you may take off your ball harness, sweetheart.
 .pause Thank you, Miss
-.must 219               ' ball harness temporary
 .unset 24 37            ' something on penis, something on balls, ball harness
 .unset 219              ' ball harness temporary
 .set 253                ' one-time per session, don't put ball harness on again
 .range 7560 7564
 
 [Action 7557]
-Just in case, your ball harness stays on, sweetheart.
 .must 219               ' one-time per session
 .mustnot 253            ' ensure this is only called once
+Just in case, your ball harness stays on, sweetheart.
 .set 253                ' set single-event now so that relase after the next activity is ensured
 .range 7560 7564
 
@@ -14217,9 +14217,9 @@ Just in case, your ball harness stays on, sweetheart.
 .range 7575 7579
 
 [Action 7571]
+.must 217               ' humbler temporary
 Oh, before I forget, you may take off your humbler, sweetheart.
 .pause Thank you, Miss
-.must 217               ' humbler temporary
 .unset 24 31 32         ' something on balls, can't sit on chair, can't stand
 .unset 217              ' humbler temporary
 .set 255                ' one-time per session, don't put on again
@@ -14227,9 +14227,9 @@ Oh, before I forget, you may take off your humbler, sweetheart.
 .range 7575 7579
 
 [Action 7572]
-Just in case, those balls stay trapped between those bars, sweetheart.
 .must 217 746           ' Continue to wear humbler at cbt level 1
 .mustnot 255            ' ensure this is only called once
+Just in case, those balls stay trapped between those bars, sweetheart.
 .set 255                ' set one-time per session now so that relase after the next activity is ensured
 .set 747                ' cbt 2
 .range 7575 7579
@@ -14261,9 +14261,9 @@ Just in case, those balls stay trapped between those bars, sweetheart.
 .range 7590 7594
 
 [Action 7586]
+.must 214               ' cock bondage temporary
 Oh, before I forget, you may untie your cock bondage, sweetheart.
 .pause Thank you, Miss
-.must 214               ' cock bondage temporary
 .unset 23 24 30         ' something on penis, something on balls, can't jerk off
 .unset 214              ' Cock bondage temporary
 .set 261                ' one-time per session, don't put cock bondage on again
@@ -14271,10 +14271,10 @@ Oh, before I forget, you may untie your cock bondage, sweetheart.
 .range 7590 7594
 
 [Action 7587]
-Just in case, your cock and balls stay tied up, sweetheart.
-.must 746               ' cbt 1
 .must 214               ' cock bondage temporary
 .mustnot 261            ' ensure this is only called once
+.must 746               ' cbt 1
+Just in case, your cock and balls stay tied up, sweetheart.
 .set 261                ' set single-event now so that relase after the next activity is ensured
 .set 747                ' cbt 2
 .range 7590 7594
@@ -14291,9 +14291,9 @@ Just in case, your cock and balls stay tied up, sweetheart.
 .range 7599
 
 [Action 7596]
+.must 221               ' Gag temporary
 Oh, before I forget, you may take the gag out now, sweetheart.
 .pause Thank you, Miss
-.must 221               ' Gag temporary
 .unset 22               ' something in mouth
 .unset 221              ' Gag temporary
 .set 254                ' one-time per session, don't put gag in again
@@ -14301,9 +14301,9 @@ Oh, before I forget, you may take the gag out now, sweetheart.
 .range 7599
 
 [Action 7597]
-Just in case, that gag stays in, sweetheart.
 .must 221 781           ' one-time per session, additional chance at gag training level 1
 .mustnot 254            ' ensure this is only called once
+Just in case, that gag stays in, sweetheart.
 .set 254                ' set single-event now so that relase after the next activity is ensured
 .set 782                ' gag training level 2
 .range 7599
