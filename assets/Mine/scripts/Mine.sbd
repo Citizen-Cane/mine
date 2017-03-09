@@ -121,6 +121,21 @@
 '
 ' 95: Wait 1/12/24 hours timer
 
+' How do timers work? It appears mind-boggling at first, but the following table should fill in the blanks
+' Basically settime sets the time to now+offset, and timeto/timefrom compares against this offset
+
+'    now
+'    .settime n +10                          time(n)
+'----0-------------------5-------------------10-------------------15-------------------20--------
+'    .timeto n -5      ++|
+'    .timeto n -0                          ++|
+'    .timeto n +5                                               ++|
+'    .timeto n +10                                                                   ++|
+'    .timefrom n -5      |++
+'    .timefrom n +0                          |++
+'    .timefrom n +5                                               |++
+'    .timefrom n +10                                                                   |++
+
 
 ' Toy menu and toy definitions 360-389
 ' There are mappings in Mine.java to link these toys to their TeaseLib toy categories and the host toy management
@@ -7894,7 +7909,7 @@ Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing f
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
 .set -24 24 38          ' something on ball sack, clothes pegs
-.settime 49 -00:10"00
+.settime 49 +00:10"00
 .range 3020 3021        ' Comment pegs on ball sack
 
 [Action 3016]
@@ -7906,7 +7921,7 @@ Maybe some clothes pegs on your slave nipples help the enema flowing faster.
 Snap one on each nipple.
 .pause Done as ordered, Miss
 .set -20 20 42          ' something on nipples, clothes pegs
-.settime 49 -00:15"00
+.settime 49 +00:15"00
 .range 3022 3023        ' Comment pegs
 
 [Action 3017]
@@ -7918,7 +7933,7 @@ Maybe your nipple clamps help the enema flowing faster.
 Snap them on your slave titties and make sure they sit tight.
 .pause Done as ordered, Miss
 .set -20 20 43          ' something on nipples, nipple clamps
-.settime 49 -00:15"00
+.settime 49 +00:15"00
 .range 3024 3025
 
 [Action 3018]
@@ -7930,7 +7945,7 @@ Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing f
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
 .set -24 24 39          ' something on ball sack, pussy clamps
-.settime 49 -00:10"00
+.settime 49 +00:10"00
 .range 3026 3027        ' Comment pegs on ball sack
 
 [Action 3019]
@@ -8258,36 +8273,36 @@ humbly ask for My gracious permission to visit the toilet.
 
 [Action 3081]
 .mustnot 786            ' first time
-.settime 276 -00:10"00
+.settime 276 +00:10"00
 .range 3089
 
 [Action 3082]
 .must 786               ' Enema quantity 1.0l
 .mustnot 787
-.settime 276 -00:12"00
+.settime 276 +00:12"00
 .range 3089
 
 [Action 3083]
 .must 787               ' Enema quantity 1.25l
 .mustnot 788
-.settime 276 -00:15"00
+.settime 276 +00:15"00
 .range 3089
 
 [Action 3084]
 .must 788               ' Enema quantity 1.50l
 .mustnot 789
-.settime 276 -00:18"00
+.settime 276 +00:18"00
 .range 3089
 
 [Action 3085]
 .must 789               ' Enema quantity 1.75l
 .mustnot 790
-.settime 276 -00:22"00
+.settime 276 +00:22"00
 .range 3089
 
 [Action 3086]
 .must 790               ' Enema quantity 2.0l
-.settime 276 -00:25"00
+.settime 276 +00:25"00
 .range 3089
 
 
@@ -20046,7 +20061,7 @@ I want you to pop a clothes peg on each of your nipples.
 .pause Ready, Miss
 .set 20 42              ' Someting on nipples, clothes pegs
 .set 325                ' remember for next session
-.settime 49 00:10"00   ' fixed duration for finale
+.settime 49 +00:10"00  ' fixed duration for finale
 .range 11629
 
 [Action 11611]
@@ -20057,7 +20072,7 @@ I want you to snap on your nipple clamps.
 .pause Ready, Miss
 .set 20 43              ' Something on nipples, nipple clamps
 .set 326                ' remember for next session
-.settime 49 00:10"00   ' fixed duration for finale
+.settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11612]
@@ -20068,9 +20083,9 @@ I want you to snap on your nipple clamps.
 Slave, before we end the session,
 I want you to pop four clothes pegs on your ball sack.
 .pause Ready, Miss
-.set 24 38               ' pins on ball sack
-.set 328                 ' remember for next session
-.settime 49 00:10"00   ' fixed duration for finale
+.set 24 38              ' pins on ball sack
+.set 328                ' remember for next session
+.settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11613]
@@ -20081,9 +20096,9 @@ I want you to pop four clothes pegs on your ball sack.
 Slave, before we end the session,
 I want you to snap your pussy clamps on your slutty ball sack.
 .pause Ready, Miss
-.set 24 39               ' pussy clamps on ball sack
-.set 329                 ' remember for next session
-.settime 49 00:10"00   ' fixed duration for finale
+.set 24 39              ' pussy clamps on ball sack
+.set 329                ' remember for next session
+.settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11614]
