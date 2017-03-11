@@ -151,18 +151,14 @@ public class Mine extends Player {
          * MappedScriptStateValue.ForSession(22, state(Body.SomethingInMouth)));
          */
 
-        // TODO 23 SomethingOnPenis is now local only
-
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptStateValue.Indefinitely(44,
                         state(Body.SomethingOnPenis), Toys.Chastity_Cage));
 
-        state.addScriptValueMapping(MainScript,
-                new MappedScriptStateValue.ForSession(214,
-                        state(Body.SomethingOnPenis), Toys.Rope));
-
         // TODO These Body states have multiple targets,
-        // but we can map to only one toy
+        // but we can map to only one toy - make them reading the state only but
+        // clear state on write?
+
         /*
          * state.addScriptValueMapping(MappedScriptState.Global, new
          * MappedScriptStateValue.ForSession(24, state(Body.SomethingOnBalls)));
@@ -190,39 +186,9 @@ public class Mine extends Player {
          * MappedScriptStateValue.ForSession(35, state(Body.Tethered)));
          */
 
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(42,
-                        state(Body.SomethingOnNipples), Toys.Clothespins));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(43,
-                        state(Body.SomethingOnNipples), Toys.Nipple_clamps));
-
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(38,
-                        state(Body.SomethingOnBalls), Toys.Clothespins));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(39,
-                        state(Body.SomethingOnBalls), Toys.Pussy_Clamps));
-
-        // Timed toy states
-
-        // TODO Buttplug needs extra flag in order to implement assignments
-        // properly
-        // TODO These states aren't timers, so we can't use them to set a
-        // duration
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(21,
-                        state(Body.SomethingInButt), Toys.Buttplug));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(41,
-                        state(Body.SomethingInButt), Toys.Dildo));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(36, state(Body.Harnessed),
-                        Toys.Harness));
-
         // Indefinite states
 
-        // 95 is a timed state and used in conjunction with other flags, but
+        // 95 is a timed state used in conjunction with additional flags, but
         // the state mapping can be used to set the remaining wait duration
         // to zero.
         state.addScriptValueMapping(MainScript,
@@ -232,12 +198,10 @@ public class Mine extends Player {
         state.addScriptValueMapping(MainScript, new MappedScriptBooleanValue(
                 267, persistentBoolean((Assignments.Enema))));
 
+        // TODO Apply state in script
         // state time mappings
-        // TODO Should map to TimeLock device state, or to key for cage - see
-        // Mine.sbd:[action 9255]
-        // TODO Otherwise reduce toy selection in Mine to chastity cage
         state.addStateTimeMapping(MappedScriptState.Global, 45,
-                state(Toys.Chastity_Cage), Toys.Chastity_Device_Lock);
+                state(Toys.Chastity_Device_Lock), Toys.Chastity_Cage);
     }
 
     @Override
