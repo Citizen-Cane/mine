@@ -17,7 +17,6 @@ import pcm.state.persistence.MappedScriptStateValue;
 import teaselib.Actor;
 import teaselib.Body;
 import teaselib.Images;
-import teaselib.State;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
 import teaselib.core.TeaseLib;
@@ -193,7 +192,7 @@ public class Mine extends Player {
         // to zero.
         state.addScriptValueMapping(MainScript,
                 new MappedScriptStateValue.Indefinitely(95,
-                        state(Assignments.NextSession), State.Timed));
+                        state(Assignments.NextSession)));
 
         state.addScriptValueMapping(MainScript, new MappedScriptBooleanValue(
                 267, persistentBoolean((Assignments.Enema))));
