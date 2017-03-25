@@ -45,12 +45,14 @@ public class Mine extends Player {
 
     private static final String[] OptionalAssets = { "Mine Speech.zip" };
 
+    // TODO Map all punishments to state
     public enum Punishment {
         BadIntroduction,
         NotNaked,
         CummingWithoutPermission
     }
 
+    // TODO Map all assignments to state
     public enum Assignments {
         NextSession,
         Enema
@@ -81,7 +83,15 @@ public class Mine extends Player {
                 OptionalAssets), MineMistress, Namespace, mistressPath);
         resources.addAssets(OptionalAssets);
 
-        // Toy categories - multiple items
+        mapToysToMultipleItems();
+        mapToysToSingleItem();
+        mapInGameToysNotInMineToyList();
+        mapSelfReferencingBodyParts();
+        mapAssignments();
+        mapPersistentToys();
+    }
+
+    private void mapToysToMultipleItems() {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(363,
                         items(Toys.Wrist_Restraints)));
@@ -103,8 +113,9 @@ public class Mine extends Player {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(389,
                         items(Toys.Vibrators, Toys.EStim_Devices)));
+    }
 
-        // Toys simple mappings
+    private void mapToysToSingleItem() {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(361, item(Toys.Nipple_clamps)));
         state.addScriptValueMapping(MappedScriptState.Global,
@@ -126,8 +137,9 @@ public class Mine extends Player {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(385,
                         item(Toys.Ball_Stretcher)));
+    }
 
-        // Toy simple mappings - ingame toys (not selectable in toy list)
+    private void mapInGameToysNotInMineToyList() {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(371, item(Toys.Hairbrush)));
         state.addScriptValueMapping(MappedScriptState.Global,
@@ -136,59 +148,65 @@ public class Mine extends Player {
                 new MappedScriptItemValue<Toys>(373, item(Toys.Ruler)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(374, item(Toys.Enema_Bulb)));
+    }
 
-        // session state mappings
-        // TODO These are currently indefinite, but should scope to the session
-
-        // TODO It might not be possible to find a toy relationship for each
-        // mapping -> use None
-        /*
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(20,
-         * state(Body.SomethingOnNipples)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(22, state(Body.SomethingInMouth)));
-         */
-
+    private void mapSelfReferencingBodyParts() {
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(44,
-                        state(Body.SomethingOnPenis), Toys.Chastity_Cage));
+                new MappedScriptStateValue.Indefinitely(20,
+                        state(Body.SomethingOnNipples),
+                        Body.SomethingOnNipples));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.Indefinitely(21,
+                        state(Body.SomethingInButt), Body.SomethingInButt));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.Indefinitely(22,
+                        state(Body.SomethingInMouth), Body.SomethingInMouth));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.Indefinitely(23,
+                        state(Body.SomethingOnPenis), Body.SomethingOnPenis));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(24,
+                        state(Body.SomethingOnBalls), Body.SomethingOnBalls));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(25,
+                        state(Body.AnklesTied), Body.AnklesTied));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(26,
+                        state(Body.WristsTied), Body.WristsTied));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(27,
+                        state(Body.SomethingAroundWaist),
+                        Body.SomethingAroundWaist));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(28, state(Body.Collared),
+                        Body.Collared));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(30,
+                        state(Body.CannotJerkOff), Body.CannotJerkOff));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(31,
+                        state(Body.CantSitOnChair), Body.CantSitOnChair));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(32,
+                        state(Body.CannotStand), Body.CannotStand));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(33,
+                        state(Body.CannotKneel), Body.CannotKneel));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(34,
+                        state(Body.CannotTypeOrUseMouse),
+                        Body.CannotTypeOrUseMouse));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.ForSession(35, state(Body.Tethered),
+                        Body.Tethered));
+    }
 
-        // TODO These Body states have multiple targets,
-        // but we can map to only one toy - make them reading the state only but
-        // clear state on write?
-
-        /*
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(24, state(Body.SomethingOnBalls)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(25, state(Body.AnklesTied)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(26, state(Body.WristsTied)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(27,
-         * state(Body.SomethingAroundWaist)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(28, state(Body.Collared)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(30, state(Body.CannotJerkOff)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(31, state(Body.CantSitOnChair)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(32, state(Body.CannotStand)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(33, state(Body.CannotKneel)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(34,
-         * state(Body.CannotTypeOrUseMouse)));
-         * state.addScriptValueMapping(MappedScriptState.Global, new
-         * MappedScriptStateValue.ForSession(35, state(Body.Tethered)));
-         */
-
+    private void mapAssignments() {
         // Indefinite states
 
         // 95 is a timed state used in conjunction with additional flags, but
-        // the state mapping can be used to set the remaining wait duration
+        // with the mapping the value can be used to set the remaining wait
+        // duration
         // to zero.
         state.addScriptValueMapping(MainScript,
                 new MappedScriptStateValue.Indefinitely(95,
@@ -196,9 +214,13 @@ public class Mine extends Player {
 
         state.addScriptValueMapping(MainScript, new MappedScriptBooleanValue(
                 267, persistentBoolean((Assignments.Enema))));
+    }
 
-        // TODO Apply state in script
-        // state time mappings
+    private void mapPersistentToys() {
+        state.addStateTimeMapping(MappedScriptState.Global, 44,
+                state(Toys.Chastity_Cage), Body.SomethingOnPenis,
+                Body.CannotJerkOff);
+
         state.addStateTimeMapping(MappedScriptState.Global, 45,
                 state(Toys.Chastity_Device_Lock), Toys.Chastity_Cage);
     }
