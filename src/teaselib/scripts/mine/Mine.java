@@ -17,6 +17,7 @@ import pcm.state.persistence.MappedScriptStateValue;
 import teaselib.Actor;
 import teaselib.Body;
 import teaselib.Images;
+import teaselib.State;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
 import teaselib.core.TeaseLib;
@@ -108,9 +109,6 @@ public class Mine extends Player {
                 new MappedScriptItemValue<Toys>(370,
                         items(Toys.Spanking_Implements)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue<Toys>(380,
-                        items(Toys.Chastity_Devices)));
-        state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(389,
                         items(Toys.Vibrators, Toys.EStim_Devices)));
     }
@@ -124,6 +122,8 @@ public class Mine extends Player {
                 new MappedScriptItemValue<Toys>(366, item(Toys.Rope)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(360, item(Toys.Chains)));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptItemValue<Toys>(380, item(Toys.Chastity_Cage)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue<Toys>(382, item(Toys.Blindfold)));
         state.addScriptValueMapping(MappedScriptState.Global,
@@ -202,12 +202,9 @@ public class Mine extends Player {
     }
 
     private void mapAssignments() {
-        // Indefinite states
-
-        // 95 is a timed state used in conjunction with additional flags, but
-        // with the mapping the value can be used to set the remaining wait
-        // duration
-        // to zero.
+        // 95 is a timed state used in conjunction with additional flags,
+        // but with the mapping the value can be used to set the remaining
+        // wait duration to zero.
         state.addScriptValueMapping(MainScript,
                 new MappedScriptStateValue.Indefinitely(95,
                         state(Assignments.NextSession)));
@@ -217,12 +214,17 @@ public class Mine extends Player {
     }
 
     private void mapPersistentToys() {
-        state.addStateTimeMapping(MappedScriptState.Global, 44,
-                state(Toys.Chastity_Cage), Body.SomethingOnPenis,
-                Body.CannotJerkOff);
+        int chastified = 44;
+        int haveKey = 45;
+        State chastityCage = state(Toys.Chastity_Cage);
+        Body[] peers = new Body[] { Body.SomethingOnPenis, Body.CannotJerkOff };
 
-        state.addStateTimeMapping(MappedScriptState.Global, 45,
-                state(Toys.Chastity_Device_Lock), Toys.Chastity_Cage);
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptStateValue.Indefinitely(chastified,
+                        chastityCage, peers));
+
+        state.addStateTimeMapping(MappedScriptState.Global, haveKey,
+                chastityCage, peers);
     }
 
     @Override
