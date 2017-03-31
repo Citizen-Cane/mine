@@ -108,7 +108,7 @@
 '   45  -   Have key for chastity cage timer - also mapped to 23 30, but as a timer
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
-
+'   48  -   ankles tied to chastity cage - to remove 32 "Can't stand" when taking the cage off
 '   49  -   clamps/pegs duration - either set to -00:nn:00, or 00:00"00 to remove on next occasion, and to INF after removal
 
 ' Session timers: 1, 12, 24 hours, with two empty slots for 48h and one week
@@ -6844,7 +6844,7 @@ And don't you dare to leave any play between them -
 I just want you to hump.
 .pause Done, Miss
 .set 25                 ' ankles tied
-.range 2595 2599
+.range 2594 2599
 
 [Action 2592]
 .mustnot 23 24          ' something on penis, something on balls
@@ -6856,7 +6856,7 @@ stretching them taut.
 You'll stay on your knees for the whole session, cunt. 
 .pause Done, Miss
 .set 24 31 32           ' something on balls, can't sit on chair, can't stand
-.range 2595 2599
+.range 2594 2599
 
 [Action 2593]
 .must 25                ' Ankles tied
@@ -6867,19 +6867,25 @@ And don't you dare to leave any play between them -
 I just want you to hump.
 .pause Done, Miss
 .set 25                 ' ankles tied
-.range 2595 2599
+.range 2594 2599
 
 
-'[Action 2594]
+[Action 2594]
+.must 44                ' chastified
+Very good, slave.
+Now fetch some rope or a chain,
+and tie your ankle restraints to your chastity cage. 
+I don't want you to be able to stand, so keep the connecting rope short.
+.pause Done, Miss
+.set 32 48              ' can't stand, ankles tied to chastity cage
+.range 2599
 
-' TODO tying rope to chastity cage is missing,
-' must remove "can't stand" when removing cage
-' or remind to tie to balls instead if "can't stand" is active
-' alternatively could avoid punishment
+// TODO Explicitely tying ankles to ball harness is missing, although handled by  2595-2596
 
 [Action 2595]
 .must 24                ' Something on balls
 .mustnot 38 39          ' pegs or pussy-clips
+.mustnot 44             ' chastified
 .must 2591
 Now get another rope, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
@@ -6890,6 +6896,7 @@ I don't want you to be able to stand, so keep the connecting rope short.
 [Action 2596]
 .must 24                ' Something on balls
 .mustnot 38 39          ' pegs or pussy-clips
+.mustnot 44             ' chastified
 .must 2593
 Now get some rope or a chain, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
@@ -6899,6 +6906,7 @@ I don't want you to be able to stand, so keep the connecting rope short.
 
 [Action 2597]
 .mustnot 24             ' Something on balls
+.mustnot 44             ' chastified
 .must 2591
 Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
@@ -6910,6 +6918,7 @@ I don't want you to be able to stand, so keep the connecting rope short.
 
 [Action 2598]
 .mustnot 24             ' Something on balls
+.mustnot 44             ' chastified
 .must 2593
 Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
@@ -20913,6 +20922,28 @@ what else is there for a slave to do than to concentrate on his Mistress?
 ' so we can just make assumptions for the chastity cage here
 [action 11996]
 .mustnot 44        ' chastified
+.range 11997 11999
+
+
+[action 11997]
+.mustnot 48        ' Ankles tied to chastity cage
+.return
+
+[action 11998]
+.must 48           ' Ankles tied to chastity cage
+Well slave,
+you may also remove the connecting chain between your ankle restraints and the cage.
+I guess I'll have you stand again.
+.pause Thank you, Miss
+.unset 32          ' Can't stand
+.return
+
+[action 11999]
+.must 48           ' Ankles tied to chastity cage
+Well, you haven't earned the privilege to stand today, slave!
+Take the chain between your ankles and tie it to your ball sack.
+.pause Of course, Miss
+.set 32            ' Can't stand
 .return
 
 
