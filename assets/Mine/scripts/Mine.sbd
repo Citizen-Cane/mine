@@ -121,20 +121,63 @@
 '
 ' 95: Wait 1/12/24 hours timer
 
-' How do timers work? It appears mind-boggling at first, but the following table should fill in the blanks
+' How do timers work?
+' It appears mind-boggling at first, but the following tables should fill in the blanks
 ' Basically settime sets the time to now+offset, and timeto/timefrom compares against this offset
+' .timefrom(n,t) is true when now + timeFrom > setTime => "later than t minutes past the time"
+' .timeto(n,t)  is true when now + timeTo < setTime  => "earlier than t minutes past the time"
+'
+' The madness definitely reaches its climax with the introduction of negative time offset values.
+' Just think about the count down when sending a rocket into space, seconds before the start are negative,
+' the start happens at t=0, and during the flight time is counted up.
 
+' Here it's exactly the same:
+' 
 '    now
-'    .settime n +10                          time(n)
-'----0-------------------5-------------------10-------------------15-------------------20--------
-'    .timeto n -5      ++|
-'    .timeto n -0                          ++|
-'    .timeto n +5                                               ++|
-'    .timeto n +10                                                                   ++|
-'    .timefrom n -5      |++
-'    .timefrom n +0                          |++
-'    .timefrom n +5                                               |++
-'    .timefrom n +10                                                                   |++
+'    .settime                                0:10"00
+'----0-------------------5-------------------10-------------------15-------------------20-----------
+'    .timeto t -15"00                                                                          false
+'    .timeto t -05"00  ++|                                                                      true
+'    .timeto t -00"00                      ++|                                                  true
+'    .timeto t +05"00                                           ++|                             true
+'    .timeto t +10"00                                                                ++|        true
+'    .timefrom t -15"00                                                                         true
+'    .timefrom t -05"00  |++                                                                   false
+'    .timefrom t +00"00                      |++                                               false
+'    .timefrom t +05"00                                           |++                          false
+'    .timefrom t +10"00                                                                |++     false
+'
+' After 10 minutes have passed, the conditions evaluate as follows:  
+'    --------------------------------------> now
+'    .settime                                0:10"00
+'----0-------------------5-------------------10-------------------15-------------------20-----------
+'    .timeto t -15"00                                                                          false
+'    .timeto t -05"00  ++|                                                                     false
+'    .timeto t -00"00                      ++|                                                  true
+'    .timeto t +05"00                                           ++|                             true
+'    .timeto t +10"00                                                                ++|        true
+'    .timefrom t -15"00                                                                         true
+'    .timefrom t -05"00  |++                                                                    true
+'    .timefrom t +00"00                      |++                                                true
+'    .timefrom t +05"00                                           |++                          false
+'    .timefrom t +10"00                                                                |++     false
+'
+' After 10 minutes have passed, the conditions evaluate as follows:  
+'    --------------------------------------------------------------------------------> now
+'    .settime                                0:10"00
+'----0-------------------5-------------------10-------------------15-------------------20-----------
+'    .timeto t -15"00                                                                          false
+'    .timeto t -05"00  ++|                                                                     false
+'    .timeto t -00"00                      ++|                                                 false
+'    .timeto t +05"00                                           ++|                            false
+'    .timeto t +10"00                                                                ++|        true
+'    .timefrom t -15"00                                                                         true
+'    .timefrom t -05"00  |++                                                                    true
+'    .timefrom t +00"00                      |++                                                true
+'    .timefrom t +05"00                                           |++                           true
+'    .timefrom t +10"00                                                                |++      true
+'
+' Take a look at the junit test script in the PCMPlayer repository to see how it all works out
 
 
 ' Toy menu and toy definitions 360-389
