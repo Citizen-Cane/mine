@@ -20999,7 +20999,7 @@ what else is there for a slave to do than to concentrate on his Mistress?
 
 
 ' putting on the chastity cage:
-' The cage is mapped, so setting 44 also sets 23 30, if not the script intentionally crashes  
+' The cage is mapped, so setting 44 also sets 23 30, if not the script intentionally run into OnAllSet  
 
 [action 11990]
 .unset 11990
@@ -21012,6 +21012,7 @@ what else is there for a slave to do than to concentrate on his Mistress?
 
 [action 11992]
 .must 44           ' chastified
+.unset 11992
 .return
 
 ' check that action is mapped to peers correctly
