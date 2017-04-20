@@ -120,8 +120,9 @@ public class Mine extends Player {
                 new MappedScriptItemValue(388, dildos));
 
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(389, items(Toys.Cockring).all(Features.Teasing),
-                        items(Toys.VaginalInsert).all(Features.Teasing),
+                new MappedScriptItemValue(389, items(Toys.Cockring).all(Features.Vibrating),
+                        items(Toys.VaginalInsert).all(Features.Vibrating),
+                        items(Toys.Vibrator).all(Toys.Vibrators.HandsFree),
                         items(Toys.EStim_Device)));
     }
 
