@@ -87,8 +87,8 @@
 '  7 - can rub or wank, depends on scenario and restraints
 '  8 - can suck
 '  9 - can ride
-' 10 - wrists tied to back
-' 11 - wrist and ankle on each side tied together
+' 10 - wrists tied on back
+' 11 - Wrist to ankles tied together on each side
 
 ' 12 - rub prick on floor 
 ' 13 - rub prick against wall
@@ -546,7 +546,7 @@ As you might know, the best way for a slave to worship a dildo
 is to give it a decent blow job.
 []
 And to be decent, slave,
-you' will keep teasing that tip at all times until I tell you otherwise.
+you will keep teasing that tip at all times until I tell you otherwise.
 []
 You may also never touch the dildo with your hands during our worshiping sessions.
 The only excuse I'll make is to detach the suction cup,
@@ -588,8 +588,9 @@ delay 10
 [Action 3047]
 .else
 Very good.
-Now that your hands are out of the way, you can fetch your dildo.
-Hurry up and place it here on the desk, you slobby slut!
+Now that your hands are out of the way, you can fetch your dildo -
+just with your mouth of course -
+and place it here on the desk, you slobby slut!
 delay 10
 .pause I'm teasing the tip, Miss
 .return
@@ -597,7 +598,7 @@ delay 10
 [Action 3048]
 .else
 Very good.
-Now get those lips and tongue to work and fetch your dildo.
+Now get those lips and tongue to work and go fetch your dildo.
 Place it here on the desk, you slobby slut!
 delay 10
 .pause I'm teasing the tip, Miss
@@ -653,7 +654,7 @@ delay 10
 
 ' Restraints, remove gag
 
-' TODO more tying is possible if not riding
+' TODO relax conditions when not riding, or relax bondage before
 
 [action 3100]
 .range 3101 3109
@@ -680,9 +681,8 @@ delay 10
 '.mustnot 3237
 '.mustnot 3238
 '.mustnot 3239
-.gosub 3120 3121
+.gosub 3120 3127
 .range 3112 3113        ' keys on floor
-'.range 3119             ' Just tied, no keys
 
 ' wrists to ankles
 [Action 3102]
@@ -706,16 +706,15 @@ delay 10
 '.mustnot 3237
 '.mustnot 3238
 '.mustnot 3239
-.gosub 3124 3125
+.gosub 3128 3133
 .range 3112 3113        ' keys on floor
-'.range 3119             ' Just tied, no keys
 
 ' wrists to ball sack
 [Action 3103]
-.mustnot 23 24          ' Something on penis, something on balls
+.mustnot 38 39          ' pegs or pussy-clips
+.must 170               ' achievement 1, or we might not be able to start the first scenario
 .must 363               ' Wrist restraints
 .must 738               ' Restraints acceptance 2
-.must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 3220           ' Hands next to head
 .mustnot 3221           ' Must lie down, grabbing the shaft
 '.mustnot 3222
@@ -732,13 +731,12 @@ delay 10
 '.mustnot 3237
 '.mustnot 3238
 '.mustnot 3239
-.gosub 3128 3131
+.gosub 3134 3135
 .range 3112 3113        ' keys on floor
-'.range 3119             ' Just tied, no keys
 
 ' wrists to collar
 [Action 3104]
-.must 28                ' collared
+.must 28                ' collared already, dont' want to interrupt the flow too much
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .must 737               ' Restraints acceptance 2
 .must 363 365           ' wrist restraints, collar
@@ -758,16 +756,21 @@ delay 10
 .mustnot 3237           ' Possible but want to keep hands away from clamps 
 '.mustnot 3238
 '.mustnot 3239
-.gosub 3132 3133
+.gosub 3144 3151
 .range 3112 3113        ' keys on floor
-'.range 3119             ' Just tied, no keys
+
+' ???
+'[Action 3105]
+'.gosub 3152 3158        ' just seven slots
+'.range 3112 3113        ' keys on floor
+
 
 ' Defaults
 [Action 3108]
 .else
 .must 22
 You'll need your lips and tongue for this task, so go ahead and remove your gag.
-But keep it handy, because you're going to put it back in after your worshiping service.
+But keep it handy, because you're to put it back in after your worshiping service.
 .set -22                ' something in mouth
 .unset 22               ' something in mouth
 .pause Thank you, Miss
@@ -778,6 +781,7 @@ But keep it handy, because you're going to put it back in after your worshiping 
 .mustnot 22
 .else
 .range 3119
+
 
 ' TODO assignment conflicts with optional key release 
 [Action 3110]
@@ -796,6 +800,7 @@ Leave the keys to your restraints on the floor in front of your desk,
 you may need them later.
 .keyrelease start 3600
 .range 3119
+
 
 [Action 3113]
 .mustnot 140
@@ -818,14 +823,14 @@ you may need them later.
 .must 22                ' something in mouth
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue.
-So after taking your gag out, I want you to pick up your wrist restraints
+So after taking your gag out,
+I want you to pick up your wrist restraints
 and tie your hands on your back.
 delay 10
 .set -22                ' something in mouth
 .unset 22               ' something in mouth
 .pause I'm tied up, Miss
 .set 10                 ' wrists tied to back
-.set 30 34              ' Can't jerk off, can't type/use mouse 
 .return
 
 [action 3121]
@@ -836,13 +841,12 @@ Go get your wrist restraints and tie your hands on your back.
 delay 10
 .pause I'm tied up, Miss
 .set 10                 ' wrists tied to back
-.set 30 34              ' Can't jerk off, can't type/use mouse 
 .return
 
 
 ' wrists to ankles
 
-[action 3124]
+[action 3128]
 .must 22                ' something in mouth
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
@@ -857,11 +861,13 @@ Keep the connecting chains short, my pet.
 .set -22                ' something in mouth
 .unset 22               ' something in mouth
 .pause I'm tied up as ordered, Miss
-.set 11                 ' Wrist and ankle on each side tied together
-.set 30 31 32 34        ' Can't jerk off, Can't sit on chair, can't stand, can't type/use mouse 
+.set 11                 ' Wrist to ankles tied together on each side
+.ifunset 31 .set -31
+.ifunset 32 .set -32
+.set 31 32              ' Can't sit on chair, can't stand 
 .return
 
-[action 3125]
+[action 3129]
 .mustnot 22             ' something in mouth
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
@@ -872,57 +878,102 @@ and your left hand to your left ankle.
 delay 10
 Keep the connecting chains short, my pet.
 .pause I'm tied up as ordered, Miss
-.set 11                 ' Wrist and ankle on each side tied together
-.set 30 31 32 34        ' Can't jerk off, Can't sit on chair, can't stand, can't type/use mouse 
+.set 11                 ' Wrist to ankles tied together on each side
+.ifunset 31 .set -31
+.ifunset 32 .set -32
+.set 31 32              ' Can't sit on chair, can't stand 
 .return
 
 
 ' wrists to ball sack
 
-[action 3128]
+[action 3134]
+.mustnot 26             ' Wrist restraints
+Well, we won't need your hands right now, just your lips and tongue,
+so get your wrist restraints and put them on.
+.set -26 26             ' Wrist restraints
+.range 3138
+
+[action 3135]
+.must 26                ' Wrist restraints
+.range 3138
+
+
+' TODO comment and give instructions regarding the Humbler,
+' but can't check it's there, so the default comment must do
+
+'[action 3136]
+
+'[action 3137]
+
+[action 3138]
 .must 22                ' something in mouth
+.mustnot 37             ' ball harness
 .mustnot 44             ' chastified
 .keyrelease prepare 3600
-Well, we won't need your hands right now, just your lips and tongue,
-so get your wrist restraints and
-- after taking out your gag -
-tie your wrists to your slutty ball sack.
+Now, to actually get them out of the way, tie them - 
+well, after taking out your gag -
+to your slutty ball sack.
 .set -22                ' something in mouth
 .unset 22               ' something in mouth
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
 
-[action 3129]
+[action 3139]
 .mustnot 22             ' something in mouth
+.mustnot 37             ' ball harness
 .mustnot 44             ' chastified
 .keyrelease prepare 3600
-Well, we won't need your hands right now, just your lips and tongue,
-so let's get your wrist restraints and tie your wrists to your slutty ball sack.
+Now, to actually get them out of the way,
+tie them to your slutty ball sack.
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
 
-[action 3130]
+[action 3140]
 .must 22                ' something in mouth
 .must 44                ' chastified
 .keyrelease prepare 3600
-Well, we won't need your hands right now, just your lips and tongue,
-so get your wrist restraints and
-- after taking your gag out -
-tie your wrists to your chastity cage.
+Now, to actually get them out of the way, tie them - 
+well, after taking out your gag -
+tie them to your chastity cage.
 .set -22                ' something in mouth
 .unset 22               ' something in mouth
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
 
-[action 3131]
+[action 3141]
 .mustnot 22             ' something in mouth
 .must 44                ' chastified
 .keyrelease prepare 3600
-Well, we won't need your hands right now, just your lips and tongue,
-so let's get your wrist restraints and tie your wrists to your chastity cage.
+Now, to actually get them out of the way,
+tie them to your chastity cage.
+.pause Done as ordered, Miss
+.set 16                 ' Wrists tied, to ball sack 
+.return
+
+
+[action 3142]
+.must 22                ' something in mouth
+.must 37                ' ball harness
+.keyrelease prepare 3600
+Now, to actually get them out of the way, tie them - 
+well, after taking out your gag -
+tie them to your ball harness.
+.set -22                ' something in mouth
+.unset 22               ' something in mouth
+.pause Done as ordered, Miss
+.set 16                 ' Wrists tied, to ball sack 
+.return
+
+[action 3143]
+.mustnot 22             ' something in mouth
+.must 37                ' ball harness
+.keyrelease prepare 3600
+Now, to actually get them out of the way,
+tie them to your ball harness.
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -930,29 +981,57 @@ so let's get your wrist restraints and tie your wrists to your chastity cage.
 
 ' wrists to collar
 
-[action 3132]
+[action 3144]
 .must 22                ' something in mouth
+.must 26                ' wrists tied
 .keyrelease prepare 3600
-Well, we won't need your hands right now, just your lips and tongue,
-so get your wrist restraints and 
-- after taking your gag out -
-lock your hands to your collar.
+Well, we won't need your hands right now, just your lips and tongue, so -
+well, after taking your gag out -
+go ahead and lock your wrist restraints to your collar.
 .set -22                ' something in mouth
 .unset 22               ' something in mouth
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
-.set 30 34              ' Can't jerk off, can't type/use mouse 
 .return
 
-[action 3133]
+[action 3145]
 .mustnot 22             ' something in mouth
+.must 26                ' wrists tied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
-so get your wrist restraints and lock your hands to your collar.
+so go ahead and lock your wrists to your collar.
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
-.set 30 34              ' Can't jerk off, can't type/use mouse 
 .return
+
+[action 3146]
+.must 22                ' something in mouth
+.mustnot 26             ' wrists tied
+.keyrelease prepare 3600
+Well, we won't need your hands right now, just your lips and tongue,
+so fetch your wrists restraints, snap them on and
+- well, after taking out your gag -
+lock'em to your collar.
+.set -22                ' something in mouth
+.unset 22               ' something in mouth
+.pause Done as ordered, Miss
+.set 17                 ' wrists tied, to collar
+.return
+
+[action 3147]
+.mustnot 22             ' something in mouth
+.mustnot 26             ' wrists tied
+.keyrelease prepare 3600
+Well, we won't need your hands right now, just your lips and tongue,
+so go fetch your wrist restraints, snap them on and lock'em to your collar.
+.pause Done as ordered, Miss
+.set 17                 ' wrists tied, to collar
+.return
+
+
+' room for one more bondage variant, but with only 7 action slots
+
+'[action 3152]
 
 
 ' decide what activities are possible
@@ -2289,13 +2368,13 @@ You have thirty seconds.
 
 [Action 3443]
 .mustnot 7              ' can rub or wank
-.break 3445 3504 STOP 4370
+.break 3445 3504 STOP 4300
 .stoptext The dildo slipped out, Miss
 .range 3445 3459
 
 [Action 3444]
 .must 7                 ' can rub or wank
-.break 3445 3504 STOP 4370 CUM 9990 9991
+.break 3445 3504 STOP 4300 CUM 9990 9991
 .stoptext The dildo slipped out, Miss
 .cumtext I've spurted off, Miss
 .range 3445 3459
@@ -2601,7 +2680,7 @@ Keep to the beat.
 
 [Action 3491]
 A little faster, now.
-Get that dildo hard as a rock.
+Get that dildo hard as rock.
 .playwav 30m.mp3
 .delay 30
 .unset 3491
@@ -2820,7 +2899,7 @@ Carry on teasing, my dirty slut.
 ' End of worshiping
 [Action 3531]
 .mustnot 9              ' can't ride 
-.range 4380             ' end of dildo worshiping, clean up, put away toys
+.range 4320             ' end of dildo worshiping, clean up, put away toys
 
 ' or continue with riding activity
 [Action 3532]
@@ -2886,7 +2965,7 @@ Carry on teasing, my dirty slut.
 '         Lecture:	3600-3799
 '        Scenario:  3650 3819
 '          riding:	3820-4099
-'     riding end:	4100-4299
+'     riding end:	4100-4295
 '         cleanup:	4350-4399
 
 ' Stage 1: Preparation
@@ -2942,7 +3021,7 @@ I'm sure you enjoy being an anal slut for your Mistress.
 [Action 3569]
 Well, maybe another time then.
 .unset 9                ' Can ride, but won't (no demerit)
-.range 4380             ' end of dildo worshiping, clean up, put away toys
+.range 4320             ' end of dildo worshiping, clean up, put away toys
 
 
 ' Dildo worshping 1 introduction
@@ -3937,13 +4016,13 @@ Now slave, get ready!
 ' with cage
 [Action 3930]
 .mustnot 7              ' can rub or wank
-.break 3940 4049 STOP 4370
+.break 3940 4049 STOP 4300
 .stoptext I have enough, Miss
 .range 3940 3959
 
 [Action 3931]
 .must 7                 ' can rub or wank
-.break 3940 4049 STOP 4370 CUM 9990 9991 
+.break 3940 4049 STOP 4300 CUM 9990 9991 
 .stoptext I have enough, Miss
 .cumtext I've spurted off, Miss
 .range 3940 3959
@@ -4488,7 +4567,7 @@ I'll give you a minute to collect yourself.
 .range 4099
 
 
-' Stage 5: riding end, slave should sit on chair or kneel in front of desk before 4299
+' Stage 5: riding end, slave should sit on chair or kneel in front of desk before 4295
 
 [Action 4099]
 .range 4100 4119
@@ -4527,12 +4606,10 @@ I'll give you a minute to collect yourself.
 ' 3226 Dildo yoga
 ' Dildo yoga continuation, ends with sitting on yoga mat
 [Action 4106]
-Well, that was a nice ride, wasn't it?
-delay 2
-I guess we'll finish your workout now.
 .must 3226              ' Dildo yoga
+Well, that was a nice ride, wasn't it?
 .gosub 5310             ' Continue yoga session
-.range 4299             ' On to dildo worshiping finish
+.range 4295             ' On to dildo worshiping finish
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 4107]
@@ -4567,7 +4644,7 @@ delay 5
 Stay on your knees and return to your desk.
 Be careful to keep the dildo's tip inside your slave anus at all times. 
 .pause Here I am, Miss
-.range 4299
+.range 4295
 
 
 ' Sit down on chair when returning to desk
@@ -4593,7 +4670,7 @@ Well, on the floor of course!
 .range 4135
 
 [Action 4135]
-.range 4299
+.range 4295
 
 
 ' Sit down on stool
@@ -4612,7 +4689,7 @@ delay 2
 
 [Action 4142]
 And remember to keep your hands off after detaching the suction cup!
-.range 4299
+.range 4295
 
 
 ' Sit down on chair when already in front of desk
@@ -4627,144 +4704,230 @@ When you have the suction cup detached, just keep squatting and balance on the t
 .range 4155
 
 [Action 4155]
-.range 4299
+.range 4295
 
 
 ' Default, already in front of desk - just stay there 
 
 [Action 4290]
-.range 4291 4298
+.range 4291 4294
 
 
 [Action 4291]
-That was a very nice workout, don't you think?
-.range 4299
+.must 140               ' activity
+That was a very nice worshiping session, don't you think?
+.range 4295
 
 [Action 4292]
 That was very good, my pet.
-.range 4299
+.range 4295
 
 [Action 4293]
 Well, that was a nice ride, wasn't it?
-.range 4299
+.range 4295
+
+'[Action 4294]
 
 
 ' Cleanup end
-[Action 4299]
+[Action 4295]
 .gosub 9379             ' riding achievements
-.range 4380
+.range 4320
 
 
 ' Bad exit: slave cancelled by pressing "Stop" button
-' -> must handle toys before returning to main program
+' - comment and handle toys before returning to main program
 
-[Action 4370]
-.range 4371
+' Cancelled - used as flag later on
+[Action 4300]
+.range 4301
  
-[Action 4371]
+[Action 4301]
 You're a bit of a disappointment tonight, aren't you, slave?
-.range 4380
+.range 4320
 
 
 ' Undo restraints
 
-[Action 4380]
-.range 4381 4388
+[Action 4320]
+.range 4321 4339
 
 
-[Action 4381]
+[Action 4321]
 .mustnot 10 11 16 17
-.range 4390
+.range 4378
 
-[Action 4382]
+
+' wrists behind back
+
+[Action 4322]
+.must 10                ' Wrists tied on back 
 .keyrelease release
 You can untie your wrists, slave.
 .pause Finished, Miss
-.must 10                ' Wrists on back 
 .unset 10
-.range 4390
+.range 4378
 
-[Action 4383]
+
+' wrists to ankles
+
+[Action 4323]
+.must 11                ' Wrist to ankles tied together on each side 
 .keyrelease release
 You can untie your wrists and ankles, slave.
 .pause Finished, Miss
-.must 11                ' Wrists to ankles 
 .unset 10
-.range 4390
+.ifset -31 .unset -31 31' Can't sit on chair
+.ifset -32 .unset -32 32' Can't stand
+.range 4378
 
-[Action 4384]
+
+' wrists to ball sack
+
+[Action 4324]
+.must 16                ' Wrists to ball sack
+.mustnot 26             ' Wrists tied
+.mustnot 37             ' ball harness
+.mustnot 44             ' chastified
 .keyrelease release
 You can untie your wrists from your ball sack, slave.
 .pause Finished, Miss
-.must 16                ' Wrists to ball sack
-.mustnot 26             ' Wrists tied
-.unset 10
-.range 4390
+.unset 16
+.range 4378
 
-[Action 4385]
-.keyrelease release
-You may untie your wrists from your ball sack, slave.
-But keep your wrists tied. 
-.pause Done, Miss
+[Action 4325]
 .must 16                ' Wrists to ball sack
 .must 26                ' Wrists tied
-.unset 10
-.range 4390
+.mustnot 37             ' ball harness
+.mustnot 44             ' chastified
+.keyrelease release
+You may untie your wrists from your ball sack, slave,
+but keep them tied.
+.pause Done, Miss
+.unset 16
+.range 4378
 
-[Action 4386]
+[Action 4326]
+.must 16                ' Wrists to ball sack
+.mustnot 26             ' Wrists tied
+.must 44                ' chastified
+.keyrelease release
+You can untie your wrists from your chastity cage, slave.
+.pause Finished, Miss
+.unset 16
+.range 4378
+
+[Action 4327]
+.must 16                ' Wrists to ball sack
+.must 26                ' Wrists tied
+.must 44                ' chastified
+.keyrelease release
+You may untie your wrists from your chastity cage, slave,
+but keep them tied.
+.pause Done, Miss
+.unset 16
+.range 4378
+
+[Action 4328]
+.must 16                ' Wrists to ball sack
+.mustnot 26             ' Wrists tied
+.must 37                ' ball harness
+.keyrelease release
+You can untie your wrists from your ball harness, slave.
+.pause Finished, Miss
+.unset 16
+.range 4378
+
+[Action 4329]
+.must 16                ' Wrists to ball sack
+.must 26                ' Wrists tied
+.must 37                ' ball harness
+.keyrelease release
+You may untie your wrists from your ball harness, slave,
+but keep them tied.
+.pause Done, Miss
+.unset 16
+.range 4378
+
+' TODO comment and give instructions regarding the Humbler,
+' but can't check it's there, so the default comment must do
+
+'[Action 4330]
+
+'[Action 4331]
+
+
+' wrists to collar
+
+[Action 4332]
+.must 17                ' Wrists to collar, collar
+.must 26                ' Wrists restraints, already on before worshiping
+.mustnot 28             ' collared, put on for worshiping
 .keyrelease release
 You can untie your wrists from your collar and take it off,
 but keep your wrists tied.
 .pause Done, Miss
-.must 17                ' Wrists to collar, collar
-.must 26                ' Wrists restraints, already on before worshiping
-.mustnot 28             ' collared, put on for worshiping
-.unset 10
-.range 4390
+.unset 17
+.range 4378
 
-[Action 4387]
-.keyrelease release
-You can untie your wrists from your collar,
-but keep your wrists tied.
-I also want you to keep wearing your collar, slave. 
-.pause Done, Miss
+[Action 4333]
 .must 17                ' Wrists to collar
 .must 26                ' Wrists restraints
 .must 28                ' collared, already on before worshiping
-.unset 10
-.range 4390
-
-[Action 4388]
 .keyrelease release
-You can untie your wrists from your collar, and take off both. 
-.pause All done, Miss
+You can untie your wrists from your collar,
+but keep your wrists tied.
+I also want you to keep wearing your collar, slave, so leave it on. 
+.pause Done, Miss
+.unset 17
+.range 4378
+
+[Action 4334]
 .must 17                ' Wrists to collar, collar
 .mustnot 26             ' Wrists restraints
 .mustnot 28             ' Collar put on for session
-.unset 10
-.range 4390
+.keyrelease release
+You can untie your wrists from your collar, and take off both. 
+.pause All done, Miss
+.unset 17
+.range 4378
 
-[Action 4389]
+[Action 4335]
+.must 17                ' Wrists to collar
+.mustnot 26             ' Wrists restraints
+.must 28                ' Collar already on before worshiping
 .keyrelease release
 You can untie your wrists from your collar and take them off.
 But I want you to keep wearing your collar, slave. 
 .pause Wrists untied, Miss
-.must 17                ' Wrists to collar
-.mustnot 26             ' Wrists restraints
-.must 28                ' Collar already on before worshiping
-.unset 10
-.range 4390
+.unset 17
+.range 4378
 
 
-' Clean up, remove toys, etc. before ride or punishment end
-[Action 4390]
-.range 4391 4399
+' Clean up scenario, remove special toys, etc.
 
-[Action 4391]
+[Action 4378]
+.range 4379 4399
+
+[Action 4379]
+.else
 .range 4400
 
-' So far there are no special item to remove before handling the dildo
-'  yet, but leave a bit of room, just in case
+' So far there are no special items to remove before handling the dildo  yet,
+' but leaving a bit of room here for that, just in case
+'[Action 4380]
+'[Action 4381]
+'[Action 4382]
+'[Action 4383]
+'[Action 4384]
+'[Action 4385]
+'[Action 4386]
+'[Action 4387]
+'[Action 4388]
+'[Action 4389]
+
+'[Action 4390]
+'[Action 4391]
 '[Action 4392]
 '[Action 4393]
 '[Action 4394]
@@ -4785,12 +4948,12 @@ But I want you to keep wearing your collar, slave.
 ' Successfully sucked dildo
 [Action 4401]
 .must 40                ' Dildo in mouth
-.mustnot 4370           ' Cancelled
+.mustnot 4300           ' Cancelled
 .range 4410 4414
 
 ' Cancelled
 [Action 4402]
-.must 4370              ' Cancelled
+.must 4300              ' Cancelled
 .range 4415 4419
 
 
@@ -4798,14 +4961,14 @@ But I want you to keep wearing your collar, slave.
 [Action 4403]
 .must 41                ' Dildo in ass
 .mustnot 185            ' Slave couldn't fully insert
-.mustnot 4370           ' Cancelled
+.mustnot 4300           ' Cancelled
 .range 4420 4424
 
 ' Successfully finished activity and be able to fully insert dildo
 [Action 4404]
 .must 41                ' Dildo in ass
 .must 185               ' Dildo worshiping 1, set earlier
-.mustnot 4370           ' Cancelled
+.mustnot 4300           ' Cancelled
 .gosub 9300             ' put the gag back in
 .range 4430 4434
 
@@ -5073,13 +5236,13 @@ And it's time to take off your nipple clamps as well.
 
 ' Cancelled
 [Action 4491]
-.must 4370                   ' Cancelled
+.must 4300                   ' Cancelled
 .range 9900 9990
 
 
 ' on to the good exit range
 [Action 4499]
-.mustnot 4370                ' Cancelled
+.mustnot 4300                ' Cancelled
 .range 9850 9899             ' good exit range
 
 
@@ -5419,10 +5582,12 @@ Well, it looks like you've gotten the hang of it.
 .range 5311
 
 [Action 5311]
-.image RebeccaYoga(31).jpg
-.delay 15 25
+I guess we'll finish off your workout.
+delay 2
 You've earned a little twisting to relax your muscles!
+RebeccaYoga(31).jpg
 Do as Rebecca.
+delay 10
 .range 5320
 
 ' Put on the panties, not clearly visible
@@ -5562,13 +5727,13 @@ Wasn't that a nice workout?
 ' with cage
 [Action 5930]
 .mustnot 7              ' can rub or wank
-.break 5940 6049 STOP 4370
+.break 5940 6049 STOP 4300
 .stoptext I have enough, Miss
 .range 5940 5959
 
 [Action 5931]
 .must 7                 ' can rub or wank
-.break 5940 6049 STOP 4370 CUM 9990 9991 
+.break 5940 6049 STOP 4300 CUM 9990 9991 
 .stoptext I have enough, Miss
 .cumtext I've spurted off, Miss
 .range 5940 5959
