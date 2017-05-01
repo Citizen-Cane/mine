@@ -181,7 +181,7 @@ public class Mine extends Player {
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
                 27, state(Body.SomethingAroundWaist), Body.SomethingAroundWaist));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(28, state(Body.Collared), Body.Collared));
+                new MappedScriptStateValue.ForSession(28, state(Body.AroundNeck), Body.AroundNeck));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
                 30, state(Body.CannotJerkOff), Body.CannotJerkOff));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
