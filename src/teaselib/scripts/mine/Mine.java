@@ -128,7 +128,7 @@ public class Mine extends Player {
 
     private void mapToysToSingleItem() {
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(361, item(Toys.Nipple_clamps)));
+                new MappedScriptItemValue(361, item(Toys.Nipple_Clamps)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(362, item(HouseHold.Clothes_Pegs)));
         state.addScriptValueMapping(MappedScriptState.Global,
@@ -161,37 +161,37 @@ public class Mine extends Player {
 
     private void mapSelfReferencingBodyParts() {
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(20, state(Body.SomethingOnNipples),
-                        Body.SomethingOnNipples));
+                new MappedScriptStateValue.Indefinitely(20, state(Body.OnNipples),
+                        Body.OnNipples));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(21, state(Body.SomethingInButt),
-                        Body.SomethingInButt));
+                new MappedScriptStateValue.Indefinitely(21, state(Body.InButt),
+                        Body.InButt));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(22, state(Body.SomethingInMouth),
-                        Body.SomethingInMouth));
+                new MappedScriptStateValue.Indefinitely(22, state(Body.InMouth),
+                        Body.InMouth));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(23, state(Body.SomethingOnPenis),
-                        Body.SomethingOnPenis));
+                new MappedScriptStateValue.Indefinitely(23, state(Body.OnPenis),
+                        Body.OnPenis));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
-                24, state(Body.SomethingOnBalls), Body.SomethingOnBalls));
+                24, state(Body.OnBalls), Body.OnBalls));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptStateValue.ForSession(25, state(Body.AnklesTied), Body.AnklesTied));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptStateValue.ForSession(26, state(Body.WristsTied), Body.WristsTied));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
-                27, state(Body.SomethingAroundWaist), Body.SomethingAroundWaist));
+                27, state(Body.AroundWaist), Body.AroundWaist));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptStateValue.ForSession(28, state(Body.AroundNeck), Body.AroundNeck));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
-                30, state(Body.CannotJerkOff), Body.CannotJerkOff));
+                30, state(Body.CantJerkOff), Body.CantJerkOff));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
                 31, state(Body.CantSitOnChair), Body.CantSitOnChair));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
-                32, state(Body.CannotStand), Body.CannotStand));
+                32, state(Body.CantStand), Body.CantStand));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
-                33, state(Body.CannotKneel), Body.CannotKneel));
+                33, state(Body.CantKneel), Body.CantKneel));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptStateValue.ForSession(
-                34, state(Body.CannotTypeOrUseMouse), Body.CannotTypeOrUseMouse));
+                34, state(Body.CantTypeOrUseMouse), Body.CantTypeOrUseMouse));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptStateValue.ForSession(35, state(Body.Tethered), Body.Tethered));
     }
@@ -211,7 +211,7 @@ public class Mine extends Player {
         int chastified = 44;
         int haveKey = 45;
         State chastityCage = state(Toys.Chastity_Device);
-        Body[] peers = new Body[] { Body.SomethingOnPenis, Body.CannotJerkOff };
+        Body[] peers = new Body[] { Body.OnPenis, Body.CantJerkOff };
 
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptStateValue.Indefinitely(chastified, chastityCage, peers));
