@@ -17,7 +17,7 @@ import pcm.state.persistence.MappedScriptStateValue;
 import teaselib.Actor;
 import teaselib.Body;
 import teaselib.Features;
-import teaselib.HouseHold;
+import teaselib.Household;
 import teaselib.Images;
 import teaselib.Sexuality;
 import teaselib.State;
@@ -130,7 +130,7 @@ public class Mine extends Player {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(361, item(Toys.Nipple_Clamps)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(362, item(HouseHold.Clothes_Pegs)));
+                new MappedScriptItemValue(362, item(Household.Clothes_Pegs)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(366, item(Toys.Rope)));
         state.addScriptValueMapping(MappedScriptState.Global,
@@ -150,11 +150,11 @@ public class Mine extends Player {
     private void mapInGameToysNotInMineToyList() {
         // TODO map as tools
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(371, item(HouseHold.Hairbrush)));
+                new MappedScriptItemValue(371, item(Household.Hairbrush)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(372, item(HouseHold.Wooden_Spoon)));
+                new MappedScriptItemValue(372, item(Household.Wooden_Spoon)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(373, item(HouseHold.Ruler)));
+                new MappedScriptItemValue(373, item(Household.Ruler)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(374, item(Toys.Enema_Bulb)));
     }
