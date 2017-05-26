@@ -2,6 +2,19 @@
 ' Revisited internal version 1.02 (3 DEZ 2011?)
 ' Original RELEASE version 1.01 (07 MAR 2006)
 
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Toys Enum
+.define Household teaselib.Household
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+.declare applied.by String
+.define applied.by.me applied.by.Mine
+
+
 ' This restores range 90 to 799
 .restore
 
@@ -215,7 +228,7 @@
 ' 372 wooden spoon
 ' TODO 373 ruler
 
-' 374 enema bulb (mapped toy)
+' enema bulb
 
 
  ' edit 1500 after expanding toy list
@@ -372,7 +385,7 @@
 '              unset during punishment cycle, set when starting activity loop
 ' 274          Quit without permission check
 ' 275          Spanking done in activity
-' 276          Enema duration timer, used for exit punishment cycle, and to void enema, used with 267 268 269
+' 276          free
 ' 277          semi-safe self bondage features enabled (handcuffs on back & wearing gag, but still able to move) - set at your own risk
 ' .
 ' .
@@ -843,8 +856,7 @@ Would you be so kind and tell me what you've got exactly?
 .unset 810 811 812 813 814 815 816 817 818 819   ' session global variables
 .unset 820 821 822 823 824 825 826 827 828 829   ' session global variables
 .unset 830 831 832 833 834 835 836 837 838 839   ' session global variables
-.settime 49 +INF                                 ' set clamp timer to infinite to ignore clamps duration 
-.settime 276 +INF                                ' set enema timer to infinite to ignore
+.settime 49 +INF                                 ' set clamp timer to infinite to ignore clamps duration
 ' save the "Quick without permission" check
 ' in order to to catch abnormal process termination
 .save 90 799
@@ -4920,9 +4932,9 @@ that doesn't listen to his mistress precise orders.
 ' Carry out the enema
 
 [Action 1729]
-.image enema-nozzle-inflatable.jpg
 .mustnot 120            ' enema bulb lecture heard
-.mustnot 374            ' enema bulb
+.not .item Toys.enema_bulb available
+.image enema-nozzle-inflatable.jpg
 Are you using a nozzle with an inflatable cuff to prevent leakage, slave?
 .yesno 1732 1732 1733 1733
 .yestext Yes Miss, I do
@@ -4930,7 +4942,7 @@ Are you using a nozzle with an inflatable cuff to prevent leakage, slave?
 
 [Action 1730]
 .must 120               ' enema bulb lecture heard
-.mustnot 374            ' enema bulb
+.not .item Toys.enema_bulb available
 Lube up the nozzle good,
 then open the tubing clamp slightly
 to remove any air inside the tube.
@@ -4942,12 +4954,11 @@ delay 10
 ActorImage
 Finally kneel down and open the tubing!
 .pause All done and tubing opened, Miss
-.unset 21               ' Something in butt
 .set 35                 ' Tethered - can't leave computer area
 .range 1736
 
 [Action 1731]
-.must 374               ' enema bulb
+.item Toys.enema_bulb available
 Lube up the nozzle good,
 then open the tubing clamp slightly to remove any air inside the tube.
 delay 10
@@ -4957,8 +4968,8 @@ and carefully insert the nozzle into your back door.
 delay 10
 Inflate the cuff until the nozzle sits tight inside your anus.
 Finally kneel down and open the tubing!
+.item Toys.enema_bulb apply
 .pause All done and tubing opened, Miss
-.set 21                 ' Something in butt, inflatable enema nozzle
 .set 35                 ' Tethered - can't leave computer area
 .range 1736
 
@@ -4966,7 +4977,7 @@ Finally kneel down and open the tubing!
 [Action 1732]
 Very well, my pet.
 I see you're taking this serious.
-.set 374                ' enema bulb
+.item Toys.enema_bulb setAvailable true
 .range 1731
 
 
@@ -4987,7 +4998,6 @@ and carefully insert the nozzle into your back door.
 delay 10
 Finally kneel down and open the tubing!
 .pause All done and tubing opened, Miss
-.unset 21               ' Something in butt
 .set 35                 ' Tethered - can't leave computer area
 .set 120                ' enema bulb lecture heard
 .range 1736
@@ -4997,13 +5007,15 @@ Finally kneel down and open the tubing!
 '[Action 1735]
 
 
+' apply the enema kit
+
 [Action 1736]
 enema-dominant-position.jpg
 Now rest your tummy on your thighs,
 with your chest on the floor.
-delay 15 
+delay 15
 .set 32                 ' Can't stand - not allowed to
-.settime 276 00:00"00   ' Start the enema timer
+.item Toys.enema_kit apply
 []
 enema-ass-play.jpg
 Let's enjoy this situation a bit, don't you think?
@@ -5937,7 +5949,7 @@ and that Mistresses are to be obeyed without question!
 .mustnot 506 513 514 515 516 519 520 525
 .mustnot     787 788 789 790                ' 1L or less
 .mustnot 2150                               ' must have processed at least one punishment
-.timefrom 276 00:10"00                      ' Enema timer, filling up
+.item Toys.enema_kit elapsed greaterThan 00:10"00
 .poss 100                                   ' first priority
 .range 2260
 
@@ -5948,7 +5960,7 @@ and that Mistresses are to be obeyed without question!
 .must 786 787                               ' 1.25L
 .mustnot     789 790                        ' 1.75L-2.0L
 .mustnot 2150                               ' must have processed at least one punishment
-.timefrom 276 00:15"00                      ' Enema timer, filling up
+.item Toys.enema_kit elapsed greaterThan 00:12"00
 .poss 100                                   ' first priority
 .range 2260
 
@@ -5958,7 +5970,7 @@ and that Mistresses are to be obeyed without question!
 .mustnot 506 513 514 515 516 519 520 525
 .must 786 787 788 789                       ' 1.75L-2.0L
 .mustnot 2150                               ' must have processed at least one punishment
-.timefrom 276 00:20"00                      ' Enema timer, filling up
+.item Toys.enema_kit elapsed greaterThan 00:15"00
 .poss 100                                   ' first priority
 .range 2260
 
@@ -7935,30 +7947,29 @@ Three demerits will work for now, I suppose.
 .range 3011 3014
 
 [Action 3011]
-Well slave, is the enema bag already empty?
 .must 267                    ' Enema applied
+Well slave, is the enema bag already empty?
 .yesno 3045 3046 3015 3019
 .yestext Yes, Miss
 .notext No, Miss
 
 [Action 3012]
+.must 267                    ' Enema applied
 Well slave, I wonder whether the enema bag is already empty.
 Do you carry all the liquid inside your bowels by now?
-.must 267                    ' Enema applied
 .yesno 3045 3046 3015 3019
 .yestext Yes, Miss, the bag is empty
 .notext No Miss, the liquid is still flowing
 
 [Action 3013]
-How about your enema, my dear anal slut?
 .must 267                    ' Enema applied
+How about your enema, my dear anal slut?
 .yesno 3045 3046 3015 3019
 .yestext The bag is empty, Miss
 .notext The liquid is still flowing, Miss
 
 [Action 3014]
 .mustnot 267                 ' Enema applied
-.settime 276 +INF            ' enable all activities
 .range 3089
 
 
@@ -8107,7 +8118,7 @@ Well done, my little pet.
 
 ' Inflatable nozzle
 [Action 3035]
-.must 21                ' Something in butt, enema nozzle
+.item Toys.enema_bulb applied
 Before you remove the tubing
 I want you to pump up the cuff once more, slave!
 Just to be sure.
@@ -8121,7 +8132,7 @@ clean it up and come back here.
 
 ' Plain nozzle
 [Action 3036]
-.mustnot 21             ' Something in butt, enema nozzle
+.not .item Toys.enema_bulb applied
 You may now go to the bath room,
 remove the tubing and the nozzle,
 clean it up and  put it all away.
@@ -8144,28 +8155,33 @@ Then come back here.
 
 ' Inflatable nozzle
 [Action 3045]
+.item Toys.enema_bulb applied
 Very good, Slave.
-You may go to the bath room and detach the tubing, and clean it up together with the bag.
-Then come back here.
+You may go to the bath room, detach the tubing from the inflatable cuff,
+and clean it up together with the bag.
+Make sure the cuff sits tight in your anus,
+then come back here.
 .pause I'm back, Miss
-.must 21                ' Something in butt, enema nozzle
 .range 3047
 
 ' Plain nozzle
 [Action 3046]
+.not .item Toys.enema_bulb applied
 Very good, Slave.
 You may go to the bath room, remove the nozzle, and clean it up together with the bag.
 Then come back here.
 .pause I'm back, Miss
-.mustnot 21             ' Something in butt, enema nozzle
 .range 3048 3049
 
 
 [Action 3047]
-Well, let's pump up the cuff once more, slave!
+Have you inflated the cuff good, my dear?
+Does it sit tight in your anus?
+[Yes, Miss]
+I don't think so, slave.
+Pump up the cuff once more!
 Just to be sure.
 .pause Done, Miss
-.must 21                ' Something in butt, enema nozzle
 .range 3048 3049
 
 
@@ -8181,18 +8197,19 @@ Just to be sure.
 
 ' no, using inflated cuff
 [Action 3050]
-.must 21                     ' Something in butt, inflatable enema nozzle, no help needed
+.item Toys.enema_bulb applied
 You certainly won't mind holding your enema for a while, slave, will you?
 .range 3075 3076
 
 [Action 3051]
 Do you need a litte help to hold your enema in, slave?
-.mustnot 21                  ' Something in butt, inflatable enema nozzle
+.not .item Toys.enema_bulb applied
 .yesno 3053 3054 3060 3062
 .yestext Yes Miss, please!
 .notext No Miss, thanks
 
 '[Action 3052]
+' TODO Inflatable buttplug
 
 
 ' Yes
@@ -8316,7 +8333,7 @@ humbly ask for My gracious permission to visit the toilet.
 .pause Thank you, Miss
 .range 3080
 
-' TODO with help on higher levels slave shouldn't go to the toilet early at all - don't mention anymore
+' TODO with the help of the cuff or the "diaper" slave shouldn't go to the toilet early at all - don't mention anymore
 ' Also good for vocabulary
 ' http://www.markusrothkranz.com/enemas101.html
 ' http://www.quickfasting.com/how_to_take_an_enema.html
@@ -8332,41 +8349,43 @@ humbly ask for My gracious permission to visit the toilet.
 .range 3081 3086
 
 
-' choose holding time
+' choose holding time - just set the toy state again
 ' TODO comment holding time
+' TODO holding time should be based on experience
+' -> more experience, longer holding time for smaller enemas
 
 [Action 3081]
 .mustnot 786            ' first time
-.settime 276 +00:10"00
+.item Toys.enema_kit apply over 00:15"00
 .range 3089
 
 [Action 3082]
 .must 786               ' Enema quantity 1.0l
 .mustnot 787
-.settime 276 +00:12"00
+.item Toys.enema_kit apply over 00:15"00
 .range 3089
 
 [Action 3083]
 .must 787               ' Enema quantity 1.25l
 .mustnot 788
-.settime 276 +00:15"00
+.item Toys.enema_kit apply over 00:20"00
 .range 3089
 
 [Action 3084]
 .must 788               ' Enema quantity 1.50l
 .mustnot 789
-.settime 276 +00:18"00
+.item Toys.enema_kit apply over 00:20"00
 .range 3089
 
 [Action 3085]
 .must 789               ' Enema quantity 1.75l
 .mustnot 790
-.settime 276 +00:22"00
+.item Toys.enema_kit apply over 00:25"00
 .range 3089
 
 [Action 3086]
 .must 790               ' Enema quantity 2.0l
-.settime 276 +00:25"00
+.item Toys.enema_kit apply over 00:25"00
 .range 3089
 
 
@@ -11361,7 +11380,7 @@ What else can I do to you today, slave?
 [Action 5050]
 .mustnot 265            ' Done self bondage activity already 
 .timeto 49 -01:00"00    ' clamps/pegs duration
-.timeto 276 -01:00"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 01:00"00
 I think you could use some strict self-bondage for today's session.
 .range 5400
 
@@ -11386,7 +11405,7 @@ I think that ass could use another good tanning.
 .mustnot 260            ' Done dildo worshiping punishment before
 .must 388               ' have dildo
 .timeto 49 -00:07"00    ' clamps/pegs duration
-.timeto 276 -00:07"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:07"00
 I think you're going to worship your dildo.
 .range 5140 5148
 
@@ -11397,7 +11416,7 @@ I think you're going to worship your dildo.
 .must 260               ' Done dildo worshiping punishment before
 .must 388               ' have dildo
 .timeto 49 -00:07"00    ' clamps/pegs duration
-.timeto 276 -00:07"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:07"00
 I think you're going to worship your dildo some more.
 .range 5140 5148
 
@@ -11410,7 +11429,7 @@ I think you deserve a teasing session.
 .mustnot 210            ' Done already
 .shouldnot 811          ' magic marker applied
 .timeto 49 -00:11"00    ' clamps/pegs duration
-.timeto 276 -00:11"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
 I think you're a dirty cunt,
 and you need a shower.
 .range 5200
@@ -11422,7 +11441,7 @@ and you need a shower.
 .mustnot 210            ' Done already
 .must 811               ' magic marker applied
 .timeto 49 -00:11"00    ' clamps/pegs duration
-.timeto 276 -00:11"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
 I think you're a dirty cunt,
 and you need a shower.
 .range 5200
@@ -11430,7 +11449,7 @@ and you need a shower.
 
 [Action 5068]
 .timeto 49 -00:09"00    ' clamps/pegs duration
-.timeto 276 -00:09"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:09"00
 I think your nipples and nuts could use a working-over.
 .range 5800 5849
 
@@ -11449,7 +11468,7 @@ I think your nipples and nuts could use a working-over.
 .mustnot             29 ' blindfolded
 .mustnot 34             ' can't type/use mouse
 .timeto 49 -00:06"00    ' clamps/pegs duration
-.timeto 276 -00:06"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:06"00
 Let's continue your slave training.
 .set 262                ' Done maid training
 .range 5129
@@ -11476,8 +11495,7 @@ Let's continue your slave training.
 .else                        ' Fallback
 .must 268                    ' Holding the enema
 You've been really brave holding your enema this long, slave.
-.set 269                     ' enema voided, ready to be plugged
-.gosub 7365 7372             ' level up and void enema
+.gosub 7365 7372             ' void enema and level up
 .resetrange 5040 5085        ' retry activity selection  
 .range 5087                  ' fast path to plugging, although slave may not have voided the enema completely
 
@@ -11862,7 +11880,7 @@ You seem to get used to getting used very well.
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 361               ' Nipple clamps
 ' 49 clamps/pegs duration, already checked in 5066
-' 276 holding the enema, already checked in 5066
+' holding the enema already checked in 5066
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .set 210                ' shower one-time only
 .range 5351
@@ -11873,7 +11891,7 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 ' 49 clamps/pegs duration, already checked in 5066
-' 276 holding the enema, already checked in 5066
+' holding the enema already checked in 5066
 .set 210                ' shower one-time only
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .range 5352
@@ -11885,7 +11903,7 @@ You seem to get used to getting used very well.
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 362               ' clothes pegs
 .timeto 49 -00:16"00    ' clamps/pegs duration
-.timeto 276 -00:16"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:16"00
 .set 210                ' shower one-time only
 .set 716 736 751        ' Nipple tolerance 1, restraint acceptance 1, ass whipping 1
 .range 5353
@@ -12119,7 +12137,7 @@ You'll be punished later for failing your training.
 .mustnot 29 33          ' blindfolded,can't kneel
 .must 751               ' asswhipping 1
 .timeto 49 -00:06"00    ' clamps/pegs duration
-.timeto 276 -00:06"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:06"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12130,7 +12148,7 @@ You'll be punished later for failing your training.
 .mustnot 33             ' can't kneel
 .must 751 752           ' asswhipping 2
 .timeto 49 -00:09"00    ' clamps/pegs duration
-.timeto 276 -00:09"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:09"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12151,7 +12169,7 @@ You'll be punished later for failing your training.
 .must 370               ' paddle
 .must 753               ' asswhipping 3
 .timeto 49 -00:35"00    ' clamps/pegs duration
-.timeto 276 -00:35"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:35"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12165,7 +12183,7 @@ You'll be punished later for failing your training.
 .must 370               ' paddle
 .must 754               ' asswhipping 4
 .timeto 49 -00:65"00    ' clamps/pegs duration
-.timeto 276 -00:65"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 01:05"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12183,7 +12201,7 @@ You'll be punished later for failing your training.
 .must 371               ' hair brush
 .must 753               ' asswhipping 3
 .timeto 49 -00:35"00    ' clamps/pegs duration
-.timeto 276 -00:35"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:35"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12198,7 +12216,7 @@ You'll be punished later for failing your training.
 .must 371               ' hair brush
 .must 754               ' asswhipping 4
 .timeto 49 -00:65"00    ' clamps/pegs duration
-.timeto 276 -00:65"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 01:05"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12216,7 +12234,7 @@ You'll be punished later for failing your training.
 .must 372               ' wooden spoon
 .must 753               ' asswhipping 3
 .timeto 49 -00:35"00    ' clamps/pegs duration
-.timeto 276 -00:35"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:35"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12231,7 +12249,7 @@ You'll be punished later for failing your training.
 .must 372               ' wooden spoon
 .must 754               ' asswhipping 4
 .timeto 49 -00:65"00    ' clamps/pegs duration
-.timeto 276 -00:65"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 01:05"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12355,7 +12373,7 @@ I will have to punish you later for failing your training.
 .must 361                    ' Nipple clamps
 .must 717                    ' Nipple tolerance 2
 .mustnot 20 29 34            ' something on nipples, blindfolded, can't type
-.timeto 276 -00:15"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5951
 
@@ -12364,7 +12382,6 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 '.timeto 49 -00:09"00         ' already checked in 5068
-'.timeto 276 -00:09"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -12374,7 +12391,7 @@ I will have to punish you later for failing your training.
 .must 746                    ' cbt 1 
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 .timeto 49 -00:14"00         ' clamps/pegs duration
-.timeto 276 -00:14"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:14"00
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -12384,7 +12401,7 @@ I will have to punish you later for failing your training.
 .must 746 747                ' cbt 2
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 .timeto 49 -00:19"00         ' clamps/pegs duration
-.timeto 276 -00:19"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
@@ -12394,7 +12411,7 @@ I will have to punish you later for failing your training.
 .must 746 747 748            ' cbt 3
 .mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 .timeto 49 -00:24"00         ' clamps/pegs duration
-.timeto 276 -00:24"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 255                     ' Done ball sack pulling activity
 .range 5955
 
@@ -12406,7 +12423,7 @@ I will have to punish you later for failing your training.
 .mustnot 812                 ' Done nipple training activity already
 .must 362                    ' Clothes pegs
 .must 716
-'.timeto 276 -00:09"00        ' holding the enema, already checked in 5068
+' holding the enema, already checked in 5068
 .set 812                     ' Done nipple training activity
 .range 5963
 
@@ -12416,7 +12433,7 @@ I will have to punish you later for failing your training.
 .mustnot 812                 ' Done nipple training activity already
 .must 361 362                ' nipple clamps, clothes pegs
 .must 717                    ' Nipple tolerance 2
-.timeto 276 -00:15"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5964
 
@@ -12426,7 +12443,7 @@ I will have to punish you later for failing your training.
 .mustnot 812                 ' Done nipple training activity already
 .must 362                    ' clothes pegs
 .must 717 746                ' Nipple tolerance 2, cbt 1
-.timeto 276 -00:15"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5965
 
@@ -12439,7 +12456,7 @@ I will have to punish you later for failing your training.
 .mustnot 34 35               ' can't type/use mouse, tethered
 .must 361 366                ' Nipple clamps, rope
 .must 718                    ' Nipple tolerance 3
-.timeto 276 -00:25"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:25"00
 .set 812                     ' Done nipple training activity
 .range 5966
 
@@ -12449,7 +12466,7 @@ I will have to punish you later for failing your training.
 .mustnot 20 29 34            ' something on nipples, blindfolded, can't type/use mouse 
 .must 361 362                ' Nipple clamps, clothes pegs
 .must 718                    ' Nipple tolerance 3
-.timeto 276 -00:15"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5967
 
@@ -12462,7 +12479,6 @@ I will have to punish you later for failing your training.
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
 '.timeto 49 -00:09"00         ' already checked in 5068
-'.timeto 276 -00:09"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -12473,7 +12489,7 @@ I will have to punish you later for failing your training.
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
 .timeto 49 -00:14"00         ' clamps/pegs duration
-.timeto 276 -00:14"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:14"00
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -12484,7 +12500,7 @@ I will have to punish you later for failing your training.
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
 .timeto 49 -00:19"00         ' clamps/pegs duration
-.timeto 276 -00:19"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
@@ -12495,7 +12511,7 @@ I will have to punish you later for failing your training.
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
 .timeto 49 -00:24"00         ' clamps/pegs duration
-.timeto 276 -00:24"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 255                     ' Done ball sack pulling activity
 .range 5955
 
@@ -12508,7 +12524,6 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 '.timeto 49 -00:09"00         ' already checked in 5068
-'.timeto 276 -00:09"00        ' holding the enema
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -12519,7 +12534,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
 .timeto 49 -00:14"00         ' clamps/pegs duration
-.timeto 276 -00:14"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:14"00
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -12530,7 +12545,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
 .timeto 49 -00:19"00         ' clamps/pegs duration
-.timeto 276 -00:19"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
@@ -12541,7 +12556,7 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
 .timeto 49 -00:24"00         ' clamps/pegs duration
-.timeto 276 -00:24"00        ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 255                     ' Done ball sack pulling activity
 .range 5955
 
@@ -12703,7 +12718,7 @@ Meanhile, three demerits will do about right.
 .mustnot 269            ' ready to be plugged
 .must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
 .timeto 49 -00:24"00    ' clamps/pegs duration, 20 minutes plus preparation
-.timeto 276 -00:24"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6151
@@ -12747,7 +12762,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1 
 .timeto  49 -00:19"00   ' 15 + 4
-.timeto 276 -00:19"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6155
@@ -12758,7 +12773,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
 .timeto  49 -00:22"00   ' 20 + 2
-.timeto 276 -00:22"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:22"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6156
@@ -12769,7 +12784,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
 .timeto  49 -00:23"00   ' 20 + 3
-.timeto 276 -00:23"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:23"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6157
@@ -12780,7 +12795,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
 .timeto  49 -00:27"00   ' 21 + 6
-.timeto 276 -00:27"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:27"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6158
@@ -12791,7 +12806,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
 .timeto  49 -00:32"00   ' 30 + 2
-.timeto 276 -00:32"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:32"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6159
@@ -12802,7 +12817,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
 .timeto  49 -00:29"00   ' 25 + 4
-.timeto 276 -00:29"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:29"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6160
@@ -12813,7 +12828,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
 .timeto  49 -00:35"00   ' 27 + 8
-.timeto 276 -00:35"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:35"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6161
@@ -12824,7 +12839,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
 .timeto  49 -00:43"00   ' 40 + 3
-.timeto 276 -00:43"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:43"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6162
@@ -12835,7 +12850,7 @@ Meanhile, three demerits will do about right.
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
 .timeto  49 -00:53"00   ' 45 + 8
-.timeto 276 -00:53"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:53"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6163
@@ -12847,7 +12862,7 @@ Meanhile, three demerits will do about right.
 .mustnot 34             ' can't type
 .must 361 362 367       ' Nipple clamps, clothes pegs, gag
 .must 712 717 746       ' punishment acceptance 2, nipple tolerance 2, cbt1
-.timeto 276 -00:15"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 266                ' Done story time activity
 .range 6164
 
@@ -13295,22 +13310,22 @@ Now take your "paddle" and carefully listen to my instructions.
 
 ' duration elapsed - neither help nor inflatable nozzle
 [Action 7302]
-.mustnot 21             ' Something in butt, enema doesn't count
 .mustnot 27             ' something around waist
-.timefrom 276 00:00"00  ' Enema timer, holding
+.ifstate Toys.enema_kit applied AND expired
+.state Toys.enema_bulb free
 .range 7355 7359
 
 ' duration elapsed - crotch rope & towel
 [Action 7303]
-.mustnot 21             ' Something in butt, enema doesn't count
 .must 27                ' Something around waist
-.timefrom 276 +00:05"00 ' Enema timer, holding
+.ifstate Toys.enema_kit applied AND expired AND remaining lessOrEqualThan -00:05"00
+.state Toys.enema_bulb free
 .range 7355 7359
 
 ' duration elapsed - inflatable nozzle
 [Action 7304]
-.must 21                ' Something in butt, inflatable nozzle
-.timefrom 276 +00:05"00 ' Enema timer, holding
+.ifstate Toys.enema_kit applied AND expired AND remaining lessOrEqualThan -00:10"00
+.state Toys.enema_bulb applied
 .range 7355 7359
 
 '[Action 7305]
@@ -13318,21 +13333,21 @@ Now take your "paddle" and carefully listen to my instructions.
 ' still time left - no help
 [Action 7306]
 .else
-.mustnot 21             ' Something in butt, inflatable nozzle
+.state Toys.enema_bulb free
 .mustnot 27             ' Something around waist
 .range 7320 7324
 
 ' still time left - diaper
 [Action 7307]
 .else
-.mustnot 21             ' Something in butt, inflatable nozzle
+.state Toys.enema_bulb free
 .must 27                ' Something around waist
 .range 7320 7324
 
 ' still time left - inflatable nozzle
 [Action 7308]
 .else
-.must 21                ' Something in butt, inflatable nozzle
+.state Toys.enema_bulb applied
 .mustnot 27             ' Something around waist
 .range 7325 7329
 
@@ -13526,64 +13541,61 @@ comfortable with the current amount of liquid inside you.
 
 ' slave is ready to be plugged
 [Action 7364]
-.set 269                ' enema voided, ready to be plugged
-.gosub 7365 7372        ' increase quantity
+.gosub 7365 7372        ' void enema and level up
 .range 7399             ' keep state for one more activity to allow for another toilet visit before inseting a plug
 
 
-' Increase enema quantity for next time (entry point from 5086)
+' Increase enema quantity for next time (entry point from 5086, 7364)
 
 [Action 7365]
-Good boy!
 .mustnot 786
-.poss 100               ' must advance so wwe can say "continue" next time
+.poss 100               ' must advance to say "continue" later on
+Good boy!
 .set 786                ' Enema quantity 1.0l
 .gosub 7373 7379        ' void enema
 .return
 
 [Action 7366]
-Very good, my anal pet!
-.must 21                ' something in butt, require nozzle with inflatable cuff
-.mustnot 41             ' Dildo in ass               
 .must 786               ' Enema quantity 1.0l
 .mustnot 787
 .poss 100
+Very good, my anal pet!
 .set 787                ' Enema quantity 1.25l
 .gosub 7373 7379        ' void enema
 .return
 
-' Not used, set when using the inflatable nozzle
 [Action 7367]
-What a good anal slut you are!
-.must 21                ' something in butt, require nozzle with inflatable cuff
-.mustnot 41             ' Dildo in ass               
 .must 787               ' Enema quantity 1.25l
 .mustnot 788
 .poss 66
+What a good anal slut you are!
 .set 788                ' Enema quantity 1.50l
 .gosub 7373 7379        ' void enema
 .return
 
 [Action 7368]
-Very good, my anal pet!
+.item Toys.enema_bulb available
 .must 788               ' Enema quantity 1.50l
 .mustnot 789
 .poss 33
+Very good, my anal pet!
 .set 789                ' Enema quantity 1.75l
 .gosub 7373 7379        ' void enema
 .return
 
 [Action 7369]
-What a good anal slut you are!
+.item Toys.enema_bulb available
 .must 789               ' Enema quantity 1.75l
 .mustnot 790
 .poss 25
+What a good anal slut you are!
 .set 790                ' Enema quantity 2.0l
 .gosub 7373 7379        ' void enema
 .return
 
 ' Keep enema quantity
 [Action 7370]
+.not .item Toys.enema_bulb available             ' level up faster
 .must 786               ' Enema quantity 1.0l
 What a good anal slut you are!
 .gosub 7373 7379        ' void enema
@@ -13591,6 +13603,7 @@ What a good anal slut you are!
 
 ' Keep enema quantity
 [Action 7371]
+.not .item Toys.enema_bulb available             ' level up faster
 .must 786               ' Enema quantity 1.0l
 Very good, my anal pet!
 .gosub 7373 7379        ' void enema
@@ -13609,7 +13622,7 @@ Good boy!
 
 ' No help
 [Action 7373]
-.mustnot 21             ' Something in butt, enema doesn't count
+.not .item Toys.enema_bulb applied
 .mustnot 27 36          ' Neither crotch rope nor harness
 You may now go to the bath room and relieve yourself.
 .delay 60 60 STOP 7395 7396
@@ -13618,7 +13631,7 @@ You may now go to the bath room and relieve yourself.
 
 ' Crotch rope & towel
 [Action 7374]
-.mustnot 21             ' Something in butt, enema doesn't count
+.not .item Toys.enema_bulb applied
 .must 27                ' Something around waist
 You may now go to the bath room,
 remove the crotch rope and the towel,
@@ -13630,13 +13643,14 @@ and relieve yourself.
 
 ' nozzle with inflatable cuff
 [Action 7375]
-.must 21                ' Something in butt, nozzle with inflatable cuff
-.mustnot 41             ' Dildo in ass
-You may now go to the bath room, deflate and
-remove the enema nozzle, and relieve yourself.
+.item Toys.enema_bulb applied
+You may now go to the bath room,
+deflate the cuff,
+remove the enema nozzle,
+and relieve yourself.
 .delay 60 60 STOP 7395 7396
 .stoptext Thank you Miss
-.unset 21               ' Something in butt
+.item Toys.enema_bulb remove
 .set 786 787 788        ' Advance to enema quantity 1.5l
 .range 7390
 
@@ -13653,7 +13667,7 @@ Tell me when you've finished, my pet.
 ' after answering "Thank you" to acknowlegde orders
 
 [Action 7395]
-.mustnot 21             ' Something in butt, enema doesn't count
+.not .item Toys.enema_bulb applied
 Don't start celebrating just yet, slave.
 And now go, before you make a mess on the floor!
 delay 60
@@ -13663,7 +13677,7 @@ Tell me when you've finished, my pet.
 .range 7398
 
 [Action 7396]
-.must 21                ' Something in butt, enema doesn't count, enema bulb
+.item Toys.enema_bulb applied
 Don't start celebrating just yet, slave.
 And now go!
 delay 60
@@ -13674,8 +13688,9 @@ Tell me when you've finished, my pet.
 
 
 [Action 7398]
+.state Toys.enema_kit remove
 .unset 268              ' Holding the enema
-.settime 276 +INF       ' reset the enema holding timer to re-enable all activites 
+.set 269                ' enema voided, ready to be plugged
 .return
 
 
