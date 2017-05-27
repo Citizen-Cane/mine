@@ -4351,9 +4351,25 @@ We'll talk about this in a minute.
 ' Another slot for toys
 
 [action 1596]
-.range 1599
+.range 1600 1604
 
 [Action 1599]
+.else
+.range 1600 1604
+
+
+' clear ignorance punishment flag when there's no toy assignment outstanding,
+' as in this case the punishment wouldn't result in a lecture
+[Action 1600]
+.range 1618 1619
+
+
+[Action 1618]
+.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
+.unset 510
+.range 1620
+
+[Action 1619]
 .else
 .range 1620
 
@@ -10643,7 +10659,7 @@ delay 5
 ' no lecture
 [Action 4825]
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
-.range 4830
+.return
 
 
 ' re-entry point from mine-equip.sbd 4826-4827
