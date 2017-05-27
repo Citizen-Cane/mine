@@ -657,9 +657,10 @@ delay 10
 ' wrists behind back
 [Action 3101]
 .mustnot 26             ' wrists tied
+.must 170               ' achievement 1, or we might not be able to start the first scenario
+.mustnot 267 268        ' Enema carrying out or holding
 .must 363               ' wrist restraints
 .must 738               ' Restraints acceptance 2
-.must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 3220           ' hands needed next to head for blow job
 .mustnot 3221           ' grabbing the shaft
 '.mustnot 3222
@@ -682,6 +683,7 @@ delay 10
 ' wrists to ankles
 [Action 3102]
 .mustnot 25 26          ' ankles tied, wrists tied
+.mustnot 267 268        ' Enema carrying out or holding
 .must 363 364           ' wrist restraints, ankle restraints
 .must 737               ' Restraints acceptance 2
 .must 170               ' achievement 1, or we might not be able to start the first scenario
@@ -708,6 +710,7 @@ delay 10
 [Action 3103]
 .mustnot 38 39          ' pegs or pussy-clips
 .must 170               ' achievement 1, or we might not be able to start the first scenario
+.mustnot 267 268        ' Enema carrying out or holding
 .must 363               ' Wrist restraints
 .must 738               ' Restraints acceptance 2
 .mustnot 3220           ' Hands next to head
@@ -733,6 +736,7 @@ delay 10
 [Action 3104]
 .must 28                ' collared already, dont' want to interrupt the flow too much
 .must 170               ' achievement 1, or we might not be able to start the first scenario
+.mustnot 267 268        ' Enema carrying out or holding
 .must 737               ' Restraints acceptance 2
 .must 363 365           ' wrist restraints, collar
 '.mustnot 3220          ' Hands next to head possible
@@ -1408,6 +1412,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 [Action 3234]
 .mustnot 26             ' wrists tied
 .mustnot 140            ' Worshiping activity
+.mustnot 267 268        ' Enema carrying out or holding
 .must 382               ' have blindfold
 .must 181               ' achievement 1, because it's a difficult scenario
 .return

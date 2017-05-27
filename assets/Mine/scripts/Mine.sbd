@@ -12691,8 +12691,7 @@ Meanhile, three demerits will do about right.
 .mustnot 23 24 25 29    ' something on penis, something on balls, ankles tied, blindfolded
 .mustnot 30 31 34       ' can't jerk off, can't sit on chair, can't type/use mouse     
 .mustnot 44             ' Chastified
-.mustnot 268            ' Holding the enema
-.mustnot 269            ' ready to be plugged
+.mustnot 267 268 269    ' Enema carrying out or holding
 .must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
 .timeto 49 -00:24"00    ' clamps/pegs duration, 20 minutes plus preparation
 .ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
@@ -12706,6 +12705,7 @@ Meanhile, three demerits will do about right.
 .mustnot 20 22 25 26    ' something on nipples, something in mouth, ankles tied, wrists tied
 .mustnot 29 30 34 35    ' blindfolded, can't jerk off, can't type/use mouse, tethered
 .mustnot 44             ' Chastified
+.mustnot 267 268        ' Enema carrying out or holding
 .must 361 363 364 367   ' nipple clamps, wrist restraints, ankle restraints, gag
 .must 717 736           ' Nipple tolerance 2, Restraint Acceptance 1
 .set 266                ' Done story time activity
@@ -12718,7 +12718,8 @@ Meanhile, three demerits will do about right.
 [Action 6003]
 .mustnot 266            ' Done story time activity already 
 .mustnot 20 24 29 32    ' Something on nipples, something on balls, blindfolded, can't stand
-.mustnot 34 35          ' can't type/use mouse, tethered 
+.mustnot 34 35          ' can't type/use mouse, tethered
+.mustnot 267 268        ' Enema carrying out or holding
 .must 361 362 366       ' nipple clamps, clothes pegs, rope
 .must 719 746           ' Nipple tolerance 4, cbt 1
 .set 266                ' Done story time activity
@@ -13781,6 +13782,7 @@ It seems that you've voided the enema completely.
 .gosub 7430 7439 
 .return
 
+' TODO Handle dildo & crotch-rope after riding the dildo whwn ready to be plugged
 
 ' Plug slave
 
