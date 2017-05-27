@@ -1,3 +1,16 @@
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Toys Enum
+.define Household teaselib.Household
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+.declare applied.by String
+.define applied.by.me applied.by.Mine
+
+
 .backcolor 255 200 200
 .textcolor 0 0 0
 .ssdir td
@@ -179,7 +192,7 @@
 [action 1140]
 .shouldnot 726          ' Denial and self-control 1
 .timeto 49 -00:11"00    ' Clamps & pegs
-.timeto 276 -00:11"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
 .poss 100
 .set 153 160
 .range 2020 2021
@@ -188,7 +201,7 @@
 [action 1141]
 .should 726             ' Denial and self-control 1
 .timeto 49 -00:11"00    ' Clamps & pegs
-.timeto 276 -00:11"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
 .poss 100
 .set 152 161
 .range 2020 2021
@@ -197,7 +210,7 @@
 [action 1142]
 .shouldnot 726          ' Denial and self-control 1
 .timeto 49 -00:07"00    ' Clamps & pegs
-.timeto 276 -00:07"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
 .set 152 160
 .range 2020 2021
 
@@ -205,7 +218,7 @@
 [action 1143]
 .should 726             ' Denial and self-control 1
 .timeto 49 -00:05"00    ' Clamps & pegs
-.timeto 276 -00:05"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
 .set 151 161
 .range 2020 2021
 
@@ -227,7 +240,7 @@
 
 [Action 2011]
 .timeto 49 -00:34"00    ' 30 minutes plus preparation
-.timeto 276 -00:34"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:34"00
 .must 727               ' Denial and self-control 2
 .set 153 162              ' 3 x 10m
 .range 2012

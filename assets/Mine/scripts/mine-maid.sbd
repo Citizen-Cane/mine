@@ -1,5 +1,19 @@
 .restore                ' restores 390 699
 
+
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Toys Enum
+.define Household teaselib.Household
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+.declare applied.by String
+.define applied.by.me applied.by.Mine
+
+
 .backcolor 255 200 200
 .textcolor 0 0 0
 .ssdir maid
@@ -951,7 +965,7 @@ Let's continue your slave training.
 [Action 1204]
 .must 171
 .timeto 49 -00:08"00
-.timeto 276 -00:08"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:08"00
 .set 101 110
 .range 1219
 
@@ -965,7 +979,7 @@ Let's continue your slave training.
 [Action 1206]
 .must 172
 .timeto 49 -00:08"00
-.timeto 276 -00:08"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:08"00
 .set 101 111
 .range 1219
 
@@ -973,7 +987,7 @@ Let's continue your slave training.
 [Action 1207]
 .must 172
 .timeto 49 -00:08"00
-.timeto 276 -00:08"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:08"00
 .set 102 110
 .range 1219
 
@@ -987,7 +1001,7 @@ Let's continue your slave training.
 [Action 1209]
 .must 173
 .timeto 49 -00:10"00
-.timeto 276 -00:10"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 101 112
 .range 1219
 
@@ -995,7 +1009,7 @@ Let's continue your slave training.
 [Action 1210]
 .must 173
 .timeto 49 -00:10"00
-.timeto 276 -00:10"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 102 111
 .range 1219
 
@@ -1003,7 +1017,7 @@ Let's continue your slave training.
 [Action 1211]
 .must 173
 .timeto 49 -00:10"00
-.timeto 276 -00:10"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 103 110
 .range 1219
 
@@ -1018,7 +1032,7 @@ Let's continue your slave training.
 [Action 1213]
 .must 174
 .timeto 49 -00:12"00
-.timeto 276 -00:12"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:12"00
 .set 102 112
 .range 1219
 
@@ -1026,7 +1040,7 @@ Let's continue your slave training.
 [Action 1214]
 .must 174
 .timeto 49 -00:12"00
-.timeto 276 -00:12"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:12"00
 .set 103 111
 .range 1219
 
@@ -1034,7 +1048,7 @@ Let's continue your slave training.
 [Action 1215]
 .must 175
 .timeto 49 -00:15"00
-.timeto 276 -00:15"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 102 113
 .range 1219
 
@@ -1042,7 +1056,7 @@ Let's continue your slave training.
 [Action 1216]
 .must 175
 .timeto 49 -00:15"00
-.timeto 276 -00:15"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 103 112
 .range 1219
 
@@ -1050,7 +1064,7 @@ Let's continue your slave training.
 [Action 1217]
 .must 176
 .timeto 49 -00:18"00
-.timeto 276 -00:18"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:18"00
 .set 103 113
 .range 1219
 

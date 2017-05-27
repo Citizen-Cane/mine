@@ -2,6 +2,20 @@
 ' Revisited RELEASE version 1.02 (3 DEZ 2011?)
 ' this is a new activity not present in the original version 
 
+
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Toys Enum
+.define Household teaselib.Household
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+.declare applied.by String
+.define applied.by.me applied.by.mine-dildo
+
+
 ' This restores range 180 to 199
 .restore
 
@@ -2394,7 +2408,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .must 140               ' Dildo worshping activity
 .must 182               ' Dildo worshiping 3
 .timeto 49 -00:10"00    ' 8 + 4*0.5m
-.timeto 276 -00:10"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 154 160
 .range 3460 3469
 
@@ -2402,7 +2416,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .must 140               ' Dildo worshping activity
 .must 183               ' Dildo worshiping 4
 .timeto 49 -00:10"30    ' 9 + 3*0.5m
-.timeto 276 -00:10"30   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:10"30
 .set 153 161
 .range 3460 3469
 
@@ -2410,7 +2424,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .must 140               ' Dildo worshiping activity
 .must 184               ' Dildo worshiping 5
 .timeto 49 -00:11"00    ' 10 + 2*0.5m
-.timeto 276 -00:11"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
 .set 152 162
 .range 3460 3469
 
@@ -2418,7 +2432,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .must 140               ' Dildo worshping activity
 .must 184               ' Dildo worshiping 5
 .timeto 49 -00:15"00    ' 12 + 6*0.5m
-.timeto 276 -00:15"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 156 160
 .range 3460 3469
 
@@ -2436,7 +2450,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .mustnot 140            ' Dildo worshping activity
 .shouldnot 713 714 715  ' Punishment acceptance 3-5
 .timeto 49 -00:05"00    ' 5 + 0*0.5m
-.timeto 276 -00:05"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:05"00
 .set 151 162
 .range 3460 3469
 
@@ -2445,7 +2459,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .must 711               ' Punishment acceptance 1
 .shouldnot 713 714 715  ' Punishment acceptance 3-5
 .timeto 49 -00:07"00    ' 6 + 2*0.5m
-.timeto 276 -00:07"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:07"00
 .set 152 161
 .range 3460 3469
 
@@ -2454,7 +2468,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .must 712               ' Punishment acceptance 2
 .shouldnot 714 715      ' Punishment acceptance 4-5
 .timeto 49 -00:10"00    ' 8 + 4*0.5m
-.timeto 276 -00:10"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 154 160
 .range 3460 3469
 
@@ -2463,7 +2477,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .must 713               ' Punishment acceptance 3
 .shouldnot 715          ' Punishment acceptance 5
 .timeto 49 -00:10"30    ' 9 + 3*0.5m
-.timeto 276 -00:10"30   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:10"30
 .set 153 161
 .range 3460 3469
 
@@ -2471,7 +2485,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .mustnot 140            ' Dildo worshping activity
 .must 714               ' Punishment acceptance 4
 .timeto 49 -00:11"00    ' 10 + 2*0.5m
-.timeto 276 -00:11"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
 .set 152 162
 .range 3460 3469
 
@@ -2479,7 +2493,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .mustnot 140            ' Dildo worshping activity
 .must 714               ' Punishment acceptance 4
 .timeto 49 -00:15"00    ' 12 + 6*0.5m
-.timeto 276 -00:15"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 156 160
 .range 3460 3469
 
@@ -2487,7 +2501,7 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .mustnot 140            ' Dildo worshping activity
 .must 715               ' Punishment acceptance 5
 .timeto 49 -00:16"00    ' 15 + 3*0.5m
-.timeto 276 -00:16"00   ' holding the enema
+.ifstate Toys.enema_kit free or remaining greaterThan 00:16"00
 .set 153 162
 .range 3460 3469
 

@@ -1,3 +1,16 @@
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Toys Enum
+.define Household teaselib.Household
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+.declare applied.by String
+.define applied.by.me applied.by.Mine
+
+
 .backcolor 255 200 200
 .textcolor 0 0 0
 .ssdir paddle
@@ -4327,7 +4340,7 @@ Let it swing!
 ' time is up? 
 
 [action 9207]
-.timefrom 276 00:00"00       ' Enema timer, holding
+.state Toys.enema_kit expired
 .unset 9207
 .set 100
 .range 9210 9216
