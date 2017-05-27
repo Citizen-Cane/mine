@@ -6911,7 +6911,6 @@ Unfortunately there is no punishment yet for time-wasting slave boys.
 
 [Action 2591]
 .mustnot 25             ' Ankles tied
-.shouldnot 267 268      ' Enema carrying out or holding
 Get some rope or shoelace and tie up your ankles.
 And don't you dare to leave any play between them -
 I just want you to hump.
@@ -6929,11 +6928,10 @@ stretching them taut.
 You'll stay on your knees for the whole session, cunt. 
 .pause Done, Miss
 .set 24 31 32           ' something on balls, can't sit on chair, can't stand
-.range 2594 2599
+.range 2599
 
 [Action 2593]
-.must 25                ' Ankles tied
-.shouldnot 267 268      ' Enema carrying out or holding
+.mustnot 25              ' Ankles tied
 .must 364               ' Ankle restraints
 Get your ankle restraints and tie up your ankles.
 And don't you dare to leave any play between them -
@@ -6945,6 +6943,7 @@ I just want you to hump.
 
 [Action 2594]
 .must 44                ' chastified
+.mustnot 267 268        ' Enema carrying out or holding
 Very good, slave.
 Now fetch some rope or a chain,
 and tie your ankle restraints to your chastity cage. 
@@ -6953,12 +6952,13 @@ I don't want you to be able to stand, so keep the connecting rope short.
 .set 32 48              ' can't stand, ankles tied to chastity cage
 .range 2599
 
-// TODO Explicitely tying ankles to ball harness is missing, although handled by  2595-2596
+// TODO Explicitely tying ankles to ball harness is missing, although handled by 2595-2596
 
 [Action 2595]
 .must 24                ' Something on balls
 .mustnot 38 39          ' pegs or pussy-clips
 .mustnot 44             ' chastified
+.mustnot 267 268        ' Enema carrying out or holding
 .must 2591
 Now get another rope, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
@@ -6970,6 +6970,7 @@ I don't want you to be able to stand, so keep the connecting rope short.
 .must 24                ' Something on balls
 .mustnot 38 39          ' pegs or pussy-clips
 .mustnot 44             ' chastified
+.mustnot 267 268        ' Enema carrying out or holding
 .must 2593
 Now get some rope or a chain, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
@@ -6980,6 +6981,7 @@ I don't want you to be able to stand, so keep the connecting rope short.
 [Action 2597]
 .mustnot 24             ' Something on balls
 .mustnot 44             ' chastified
+.mustnot 267 268        ' Enema carrying out or holding
 .must 2591
 Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
@@ -6992,6 +6994,7 @@ I don't want you to be able to stand, so keep the connecting rope short.
 [Action 2598]
 .mustnot 24             ' Something on balls
 .mustnot 44             ' chastified
+.mustnot 267 268        ' Enema carrying out or holding
 .must 2593
 Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
@@ -7964,14 +7967,14 @@ Three demerits will work for now, I suppose.
 
 [Action 3011]
 .must 267                    ' Enema applied
-Well slave, is the enema bag already empty?
+Is the enema bag already empty?
 .yesno 3045 3046 3015 3019
 .yestext Yes, Miss
 .notext No, Miss
 
 [Action 3012]
 .must 267                    ' Enema applied
-Well slave, I wonder whether the enema bag is already empty.
+I wonder whether the enema bag is already empty.
 Do you carry all the liquid inside your bowels by now?
 .yesno 3045 3046 3015 3019
 .yestext Yes, Miss, the bag is empty
@@ -8606,7 +8609,7 @@ I suggest you'll tie yourself with a nice rope harness as you have done before.
 .must 3118
 .image babc-alt.jpg
 Go ahead and put on the harness now,
-and don't remove it until the end of the sesion.
+and don't remove it until the end of the session.
 .pause I'm tied up, Miss
 .set 36                 ' Harnessed
 .return
@@ -8615,14 +8618,11 @@ and don't remove it until the end of the sesion.
 [Action 3120]
 .mustnot 21             ' Something in butt
 .mustnot 25 26 29 31 32 33 34 35 626 627
+.mustnot 267 268        ' Enema carrying out or holding
 .must 366 426 737
 I don't doubt that you remember sleeping in your bondage harness.
 I hope you enjoyed it because you're doing it again tonight.
-.range 3121
-
-[Action 3121]
-.must 3120
-.image babc-alt.jpg
+babc-alt.jpg
 Go ahead and put on the harness now, and don't remove it until morning.
 I know you like it, you bondage slut!
 .pause I'm tied up, Miss
@@ -8633,14 +8633,11 @@ I know you like it, you bondage slut!
 [Action 3122]
 .must 21                ' Something in butt
 .mustnot 25 26 29 31 32 33 34 35 626 627
+.mustnot 267 268        ' Enema carrying out or holding
 .must 366 426 737
 I don't doubt that you remember wearing your bondage harness.
 I hope you enjoyed it because you're doing it again.
-.range 3123
-
-[Action 3123]
-.must 3122
-.image babc-alt.jpg
+babc-alt.jpg
 Go ahead and put on the harness now.
 I know you like it, you bondage slut!
 .pause I'm tied up, Miss
@@ -8748,6 +8745,7 @@ Put it on now, slave.
 
 [Action 3140]
 .mustnot 24             ' something on balls
+.mustnot 267 268        ' Enema carrying out or holding
 .must 360 363 364       ' chains, wrist & ankle restraints
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
@@ -8755,6 +8753,7 @@ and I want you suffer for me.
 
 [Action 3141]
 .must 24 37             ' something on balls, ball harness
+.mustnot 267 268        ' Enema carrying out or holding
 .must 360 363 364       ' chains, wrist & ankle restraints
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
@@ -8804,9 +8803,9 @@ Hurry up, slave!
 
 ' no ball harness
 [Action 3145]
+.must 3140
 .must 25 26             ' ankles tied, wrists tied
 .mustnot 385            ' ball harness
-.must 3140
 Go fetch your slave chains and chain your wrists and ankles together.
 Then chain the connecting chain to your slutty ball sack.
 You should have just enough play so that you can kneel straight
@@ -8819,10 +8818,10 @@ but no more.
 
 ' put on ball harness
 [Action 3146]
+.must 3140
 .must 25 26             ' ankles tied, wrists tied
 .mustnot 37             ' wearing ball harness
 .must 385               ' have ball harness
-.must 3140
 I also want you to wear your ball harness for todays session.
 Go ahead and put it on.
 .pause I'm wearing it, Miss
@@ -8831,9 +8830,9 @@ Go ahead and put it on.
 
 ' wearing ball harness on already
 [Action 3147]
+.must 3140
 .must 25 26             ' ankles tied, wrists tied
 .must 37                ' wearing ball harness
-.must 3140
 .range 3148
 
 
@@ -8975,96 +8974,88 @@ I want you to keep it there for the entire session.
 ' 3160-3179 just cuffs and chains
 
 [Action 3160]
+.mustnot 25
+.must 366
 Just so you remember your place, slave, I want you to get
 some rope and tie your ankles together for today's session.
 .pause Tied up, Miss
-.mustnot 25
-.must 366
 .set 25                 ' ankles tied
 .set 736                ' restraint acceptance 1
 .return
 
 [Action 3162]
+.mustnot 25             ' ankles tied
+.mustnot 267 268        ' Enema carrying out or holding
+.must 364               ' ankle restraints
 I don't want you running off, slave, so snap on
 those ankle restraints for today's session.
 .pause Tied up, Miss
-.mustnot 25             ' ankles tied
-.must 364               ' ankle restraints
 .set 25                 ' ankles tied
 .set 736                ' restraint acceptance 1
 .return
 
 [Action 3164]
+.mustnot 26
+.mustnot 267 268        ' Enema carrying out or holding
+.must 363
 Today I want you to pop those handcuffs on your wrists, My pet,
 just as a bit of a reminder.
 Leave them on for today's session.
 .pause Done, Miss
-.mustnot 26
-.must 363
 .set 26                 ' wrists tied
 .set 736                ' restraint acceptance 1
 .return
 
 
 [Action 3166]
-One thing I like is a slutty little slave boy wearing his slave chains.
+.mustnot 25 26
+.mustnot 267 268        ' Enema carrying out or holding
 .must 363 364 360
 .must 736
-.mustnot 25 26
-.range 3167
-
-[Action 3167]
+One thing I like is a slutty little slave boy wearing his slave chains.
+[]
 For today's session I want you to put on your wrist and ankle restraints and chain them together.
 Give yourself enough play so that you can kneel comfortably,
 but not enough so that you can stand up straight.
 Leave your chains on for the whole session, slave.
 .pause I'm chained up, Miss
-.must 3166
 .set 25 26 32
 .set 737	            ' restraint acceptance 2
 .return
 
 
 [Action 3168]
-One thing I like is a slutty little slave boy wearing his collar and chains.
+.mustnot 25 26 28
+.mustnot 267 268        ' Enema carrying out or holding
 .must 363 364 365 360   ' Wrist restraints, Ankle restraints, collar, chains
 .must 737
-.mustnot 25 26 28
-.range 3169
-
-[Action 3169]
+One thing I like is a slutty little slave boy wearing his collar and chains.
+[]
 For today's session I want you to put on your collar, wrist and ankle restraints.
 Start chaining your ankles and wrists together. 
 Give yourself enough play so that you can kneel comfortably, 
 but not enough so that you can stand up straight.
-.pause I'm chained and collared, Miss
-.must 3168
-.set 25 26 28 32        'Ankle and wrist restraints, collar, can't stand
-.set 738	            ' restraint acceptance 3
-.range 3170
-
-[Action 3170]
+[I'm chained and collared, Miss]
 Now chain your wrists to your collar.
 You should just be able to wank, but no more.
 .pause All chained up, Miss
-.must 3169
+.set 25 26 28 32        'Ankle and wrist restraints, collar, can't stand
+.set 738	            ' restraint acceptance 3
 .range 3290
 
 
 [Action 3172]
-One thing I like is a slutty little slave boy wearing his slave chains.
+.mustnot 25 26
+.mustnot 267 268        ' Enema carrying out or holding
 .must 363 364 360
 .must 736
-.mustnot 25 26
-.range 3173
-
-[Action 3173]
+One thing I like is a slutty little slave boy wearing his slave chains.
+[]
 For today's session I want you to put on your wrist and ankle restraints and chain them together.
 Give yourself enough play so that you can stand straight with your hands on your dick,
 but no more.
 Leave your chains on for the whole session, slave.
 .pause I'm chained up, Miss
-.must 3172
 .set 25 26
 .set 737	            ' restraint acceptance 2
 .return
@@ -9089,53 +9080,49 @@ Leave your chains on for the whole session, slave.
 ' 3200-3249 rope cbt
 
 [Action 3200]
-.mustnot 23           ' something on penis
+.mustnot 23             ' something on penis
 .mustnot 24 25 32
-' .must 366           ' some rope, but for this shoelace or a short string is enough
+.mustnot 267 268        ' Enema carrying out or holding
+' .must 366              ' some rope, but for this shoelace or a short string is enough
 .must 736
 Today, slave, I want you to grab some rope or shoe lace.
 Start by tying your ankles together, nice and snug.
-.delay 30
-.range 3201
-
-[Action 3201]
-.must 3200
+delay 20
+[]
 When you've finished, tie another rope around that slutty ballsack,
 and tie that to your ankles as well.
 You should have enough play to kneel, but not enough to stand, 
 at least not comfortably!
 .pause Tied up, Miss
 .set 24 25 32
-.set 746              ' cbt 1
+.set 746                ' cbt 1
 .range 3290
 
 
 [Action 3202]
-.mustnot 23           ' something on penis
+.mustnot 23             ' something on penis
 .mustnot 24 25 31 32
-' .must 366           ' some rope, but for this shoelace or a short string is enough
-.must 736             ' restraint acceptance 1
+.mustnot 267 268        ' Enema carrying out or holding
+' .must 366             ' some rope, but for this shoelace or a short string is enough
+.must 736               ' restraint acceptance 1
 For today's session, My dear, I want you to take some rope or shoelace,
 to tie your ankles together, and then tie them to your slave balls.
 You should have just enough so that your balls are
 pulled down when you kneel straight, and no more!
 .pause Tied up, Miss
 .set 24 25 31 32
-.set 737 746          ' restraint acceptance 2, cbt 1
+.set 737 746            ' restraint acceptance 2, cbt 1
 .range 3290
 
 
 [Action 3206]
-For today's session, My dear, I want you to fetch some rope or shoe lace.
-.pause I have it, Miss
-' .must 366           ' some rope, but could also use shoelace instead
-.must 736 746         ' restraints acceptance 1, cbt 1
+.mustnot 23             ' something on penis
 .mustnot 24 25 31 32
-.mustnot 23           ' something on penis
-.range 3207
-
-[Action 3207]
-.must 3206
+.mustnot 267 268        ' Enema carrying out or holding
+' .must 366             ' some rope, but could also use shoelace instead
+.must 736 746           ' restraints acceptance 1, cbt 1
+For today's session, My dear, I want you to fetch some rope or shoe lace.
+[I have it, Miss]
 Very good.
 Now tie your ankles together,
 and then tie them to your slave balls.
@@ -9143,30 +9130,31 @@ You should have just enough play so that you can comfortably rest on your heels,
 but no more, slave!
 .pause Tied up, Miss
 .set 24 25 31 32
-.set 737 747          ' restraint acceptance 2, cbt 2
+.set 737 747            ' restraint acceptance 2, cbt 2
 .range 3290
 
 
 [Action 3208]
-.mustnot 23 24        ' something on penis, something on balls
-' .must 366           ' some rope, but could also use shoelace instead
+.mustnot 23 24          ' something on penis, something on balls
+' .must 366             ' some rope, but could also use shoelace instead
 For today's session, My dear, I want you to tie up your balls,
 so that they are separated from your silly penis.
 Go get some rope or shoe lace, and tie those balls up, until they're firmly bound.
 .pause Tied up, Miss
-.set 24               ' something on balls
-.set 746              ' cbt 1
+.set 24                 ' something on balls
+.set 746                ' cbt 1
 .range 3290
 
 
 [Action 3210]
-.must 746             ' cbt 1
-For today's session, My dear, I want you to tie up your balls, so that they are separated from your silly penis.
+.must 746               ' cbt 1
+For today's session, My dear, I want you to tie up your balls,
+so that they are separated from your silly penis.
 Furthermore, you're going to separate your balls too.
 Tighten those balls first, then continue with your ball sack.
 .pause Tied up, Miss
-.mustnot 23 24        ' something on penis, something on balls
-.set 24               ' something on balls
+.mustnot 23 24          ' something on penis, something on balls
+.set 24                 ' something on balls
 .range 3290
 
 
@@ -9174,10 +9162,6 @@ Tighten those balls first, then continue with your ball sack.
 .mustnot 23 24          ' something on penis, something on balls
 .must 746               ' cbt 1
 Today, slave, I want to see your slave cock and balls nice and firmly bound.
-.range 3215
-
-[Action 3215]
-.must 3214
 Go fetch a long piece of rope or shoelace and tie up your slutty ball sack.
 Tie the rope in a spiral to force the ball sack away from the shaft.
 .pause Tied up as ordered, Miss
@@ -9187,16 +9171,13 @@ Tie the rope in a spiral to force the ball sack away from the shaft.
 
 [Action 3218]
 .mustnot 23 24           ' something on penis, something on balls
+.mustnot 267 268        ' Enema carrying out or holding
 .mustnot 385             ' Ball harness, favor this over rope
 .must 746                ' cbt 1
 Today, slave, we're going to tie up that silly slave ball sack.
 I want you to fetch some rope or shoelace to tie around the base of your balls,
 leaving a length of rope about a foot long dangling down as a left-over.
-.pause Done as ordered, Miss
-.range 3219
-
-[Action 3219]
-.must 3218
+[Done as ordered, Miss]
 Now, grab a convenient weight of about half a pound.
 Tie that to the rope and leave it there for the whole session.
 You are not allowed to rest the weight on the ground, My pet, so don't leave too much rope.
@@ -9208,16 +9189,13 @@ You are not allowed to rest the weight on the ground, My pet, so don't leave too
 
 [Action 3220]
 .mustnot 23 24           ' something on penis, something on balls
+.mustnot 267 268        ' Enema carrying out or holding
 .mustnot 385             ' Ball harness, favor this over rope
 .must 747                ' cbt 2
 Today, slave, we're going to tie up that silly slave ball sack.
 I want you to fetch some rope or shoelace to tie around the base of your balls,
 leaving a length of rope about a foot long dangling down as a left-over.
-.pause Done as ordered, Miss
-.range 3221
-
-[Action 3221]
-.must 3220
+[Done as ordered, Miss]
 Now, grab a good weight of about one pound.
 Tie that to the rope and leave it there for the whole session.
 You are not allowed to rest the weight on the ground, My pet, so don't leave too much rope.
@@ -9229,16 +9207,13 @@ You are not allowed to rest the weight on the ground, My pet, so don't leave too
 
 [Action 3222]
 .mustnot 23 24           ' something on penis, something on balls
+.mustnot 267 268        ' Enema carrying out or holding
 .mustnot 385             ' Ball harness, favor this over rope
 .must 748                ' cbt 3
 Today, slave, we're going to tie up that silly slave ball sack.
 I want you to fetch some rope or shoelace to tie around the base of your balls,
 leaving a length of rope about a foot long dangling down as a left-over.
-.pause Done as ordered, Miss
-.range 3223
-
-[Action 3223]
-.must 3222
+[Done as ordered, Miss]
 Now, grab a good weight of one or two pounds.
 Tie that to the rope and leave it there for the whole session.
 You are not allowed to rest the weight on the ground, My pet, so don't leave too much rope.
@@ -9255,7 +9230,6 @@ You are not allowed to rest the weight on the ground, My pet, so don't leave too
 .range 3100 3107
 
 
-
 ' 3250-3299 ball harness
 
 [Action 3250]
@@ -9270,21 +9244,16 @@ Put it on now, slave.
 [Action 3252]
 .mustnot 22 25 26 32    ' something in mouth, wrist and ankle retraints, can't stand
 .mustnot 23 24          ' something on penis, something on balls, ball
+.mustnot 267 268        ' Enema carrying out or holding
 .must 363 364 360       ' wrist, ankle restraints, chains
 You know one thing I like is a slutty little slave boy wearing his slave chains.
-.range 3253
-
-[Action 3253]
-.must 3252
+[]
 For today's session I want you to put on your
 wrist and ankle restraints and chain them together.
 [I'm chained up, Miss]
 Almost, my pet, almost.
 .set 25 26 32           ' ankles tied, wrists tied, can't stand
-.range 3254
-
-[Action 3254]
-.must 3253
+[]
 Now put on your ball harness and attach it to your slave chains.
 Give yourself enough play so that you can comfortably kneel
 or grab your little slave titties,
@@ -9297,70 +9266,62 @@ but not enough to stand up straight or reach your neck.
 
 
 [Action 3264]
-.must 747               ' cbt 2
 .mustnot 23 24          ' something on penis, something on balls
+.mustnot 267 268        ' Enema carrying out or holding
+.must 747               ' cbt 2
 .mustnot 748            ' cbt 3, favour heavier weight
 One thing I like is a slutty little slave boy wearing his tight ball harness.
 Put it on now, slave!
-.pause I'm wearing it, Miss
-.set 24 37
-.range 3265
-
-[Action 3265]
-.must 3264
+[I'm wearing it, Miss]
 Very good, slave.
 Go grab a convenient weight - about a pound or so - and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
 .pause Weight attached, Miss
+.set 24 37
 .set 748                ' cbt 3
 .range 3290
 
 
 [Action 3266]
 .mustnot 23 24 37       ' something on penis, something on balls, ball harness
+.mustnot 267 268        ' Enema carrying out or holding
 .must 748               ' cbt 3
 One thing I like is a slutty little slave boy wearing his tight ball harness.
 Put it on now, slave.
-.pause I'm wearing it, Miss
-.set 24 37              ' ball harness
-.range 3267
-
-[Action 3267]
-.must 3266
+[I'm wearing it, Miss]
 Now slave, grab a convenient weight - about two pound or so - and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
 .pause Weight attached, Miss
+.set 24 37              ' ball harness
 .set 749                ' cbt 4
 .range 3290
 
 
 [Action 3268]
 .mustnot 23 24          ' something on penis, something on balls
+.mustnot 267 268        ' Enema carrying out or holding
 .must 749               ' cbt 4
 One thing I like is a slutty little slave boy wearing his tight ball harness.
 Put it on now, slave.
-.pause I'm wearing it, Miss
-.set 24 37              ' ball harness
-.range 3269
-
-[Action 3269]
-.must 3268
+[I'm wearing it, Miss]
 Now grab a good weight of three to four pounds and attach it to the harness.
 Leave it there for the whole session.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
 .pause Weight attached, Miss
+.set 24 37              ' ball harness
 .set 750                ' cbt 5
 .range 3290
 
 
 [Action 3270]
-.must 747                    ' cbt 2
-.must 364 360 385            ' ankle restraints, chains, ball harness
-.mustnot 23 24 25 32 37      ' something on penis, balls, ankles tied, can't stand, ball harness
+.mustnot 23 24 25 32 37 ' something on penis, balls, ankles tied, can't stand, ball harness
+.mustnot 267 268        ' Enema carrying out or holding
+.must 747               ' cbt 2
+.must 364 360 385       ' ankle restraints, chains, ball harness
 Get your ankle restraints, your slave chains, and your ball harness.
 Chain each ankle to your slutty ball sack so that you can just kneel straight.
 .pause Ankles tied to balls, Miss
-.set 24 25 32 37             ' Something on balls, ankles tied, wrists tied, can't stand, ball harness
+.set 24 25 32 37        ' Something on balls, ankles tied, wrists tied, can't stand, ball harness
 .range 3290
 
 
@@ -19931,7 +19892,7 @@ Especically if he's chained and shackled so well.
 .range 11324
 
 
-' set duration according to nipple tolerance
+' dispatch loop until all assignments have been translated to toys
 
 [action 11324]
 .unset 11324
