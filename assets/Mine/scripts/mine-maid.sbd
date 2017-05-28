@@ -1332,6 +1332,7 @@ Let's continue your slave training.
 .shouldnot 20           ' something on nipples
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
+.mustnot 26             ' wrists tied
 .mustnot 33             ' Can't kneel
 .shouldnot 39           ' pussy clamps
 .shouldnot 414          ' prefer a position that hasn't been done before
@@ -5634,7 +5635,7 @@ delay 15
 .mustnot 26                  ' Wrists tied
 .mustnot 28                  ' collared
 This is a very simple submissive position.
-You will need your wrist restraints and your collar.
+You will need your wristlets and your collar.
 You do have these items handy, don't you, slave?
 .yesno 4144 4144 7700 7707
 
@@ -5642,31 +5643,17 @@ You do have these items handy, don't you, slave?
 .mustnot 26                  ' Wrists tied
 .must 28                     ' collared
 This is going to be a very simple submissive position.
-You will need your collar.
-You do have a collar handy, don't you, slave?
+You will need your wristlets.
+You do have wristlets handy, don't you, slave?
 .yesno 4145 4145 7700 7707
-
-[Action 4142]
-.must 26                     ' Wrists tied
-.mustnot 28                  ' collared
-This is going to be a very simple submissive position.
-bd066_20.jpg
-You will need your wrist restraints.
-You do have wrist restraints handy, don't you, slave?
-.yesno 4146 4146 7700 7707
-
-[Action 4143]
-.must 26                     ' Wrists tied
-.must 28                     ' collared
-bd066_23.jpg
-This is going to be a very simple submissive position.
-.range 4147
 
 
 [Action 4144]
 .keyrelease prepare 1800
 bd066_21.jpg
-Then go ahead and put them on.
+Then go ahead,
+snap on the wristlets,
+and put the collar around your neck.
 delay 15
 bd066_23.jpg
 Tell me when you're ready.
@@ -5676,26 +5663,13 @@ Tell me when you're ready.
 .range 4148
 
 [Action 4145]
-Then go ahead and put it on.
+.keyrelease prepare 1800
+Then go ahead and snap them on.
 delay 15
 bd066_23.jpg
 Tell me when you're ready.
-.pause I'm collared, Miss
+.pause I'm ready, Miss
 .set -28 28                  ' collared
-.range 4148
-
-[Action 4146]
-.keyrelease prepare 1800
-bd066_21.jpg
-Then go ahead and put them on!
-delay 10
-bd066_23.jpg
-Tell me when you're ready.
-.pause My wrists are cuffed, Miss
-.set -26 26                  ' wrists tied
-.range 4148
-
-[Action 4147]
 .range 4148
 
 
