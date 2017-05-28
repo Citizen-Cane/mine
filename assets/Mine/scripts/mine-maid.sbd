@@ -195,7 +195,7 @@
 ' 415 bd066_41.jpg   4pt kneel, 2x knees, ankles together, arms folded behind back, heels collar (bd066_42.jpg)
 	' 416 bd048_52.jpg   2pt kneel, heels, wristlets, knees 1x, presenting the crop in hands palms up
 	' 417 bd037_23.jpg   2pt sitting on heels, knuckles on ground in front, ank/wrst/collar/heels, knees wide
-	' 418 bd037_16.jpg   kneeling prostrate, wristlets, collar, heels, hands forward and crossed, head down
+	' 418 bd037_16.jpg   kneeling prostrate, wristlets, anklets, collar, heels, hands forward and crossed, head down
 	' 419 bd023_24.jpg   5pt kneel-over, ass up, face to side, heels, ankles tied to wrists, collar
 
 ' bd066_48.jpg   crouch on toes, knees together, hands on knees, heels wristlets, collar
@@ -559,7 +559,7 @@
 .menu 415 1415 1415 415 4pt kneel, 2x knees, ankles together, arms folded behind back, heels collar
 .menu 416 1416 1416 416 2pt kneel, heels, wristlets, knees 1x, presenting the crop in hands palms up
 .menu 417 1417 1417 417 2pt sitting on heels, knuckles on ground in front, ank/wrst/collar/heels, knees wide
-.menu 418 1418 1418 418 kneeling prostrate, wristlets, collar, heels, hands forward and crossed, head down
+.menu 418 1418 1418 418 kneeling prostrate, wristlets, anklets, collar, heels, hands forward and crossed, head down
 .menu 419 1419 1419 419 5pt kneel-over, ass up, face to side, heels, ankles tied to wrists, collar
 
 ' moderate
@@ -1380,11 +1380,11 @@ Let's continue your slave training.
 .set 181                ' convenient
 .range 4170 4171
 
-' 418 kneeling prostrate, wristlets, collar, heels, hands forward and crossed, head down
+' 418 kneeling prostrate, wristlets, anklets, collar, heels, hands forward and crossed, head down
 [Action 1418]
 .shouldnot 20           ' something on nipples
 .shouldnot 22           ' something in mouth
-.shouldnot 25           ' ankles tied
+.mustnot 26             ' wrists tied
 .mustnot 33             ' Can't kneel
 .shouldnot 39           ' pussy clamps
 .shouldnot 418          ' prefer a position that hasn't been done before
@@ -5865,96 +5865,123 @@ Now bend a bit forward and rest your knuckles on the ground.
 .range 1700
 
 
-' 418 kneeling prostrate, wristlets, collar, heels, hands forward and crossed, head down
+' 418 kneeling prostrate, wristlets, anklets, collar, heels, hands forward and crossed, head down
 
 [Action 4180]
-.mustnot 26                  ' Wrists tied
+.mustnot 25                  ' Ankles tied
 .mustnot 28                  ' collared
 This is a very submissive position, slave.
-You'll need to fetch your collar and wrist restraints.
+You'll need to fetch your collar as well as your wrist and ankle restraints.
 You do have these items, don't you, slave?
 .yesno 4184 4184 7700 7707
 
 [Action 4181]
-.mustnot 26                  ' Wrists tied
+.mustnot 25                  ' Ankles tied
 .must 28                     ' collared
 This is a very submissive position, slave,
-for which you'll just need to put on your wrist restraints.
+for which you'll just need to put on your wrist and ankle restraints.
 You do have wrist restraints, don't you, slave?
 .yesno 4185 4185 7700 7707
-.yestext Yes, Miss, and my wrists are cuffed
+.yestext Yes, Miss, I do
 
 [Action 4182]
-.mustnot -26                     ' Wrists tied
+.must 25                     ' Ankles tied
 .mustnot 28                  ' collared
 This is a very submissive position, slave,
-for which you'll just need to put on your collar.
-You do have a collar, don't you, slave?
+for which you'll just need to put on your collar and your wrists restraints.
+You do have a collar and wrist restraints, don't you, slave?
 .yesno 4186 4186 7700 7707
 
 [Action 4183]
-.must 26                     ' Wrists tied
+.must 25                     ' Ankles tied
 .must 28                     ' collared
-This is a very submissive position, slave.
-.range 4187
+This is going to be a very submissive position, slave.
+You'll just need to put on your wrist restraints.
+You do have wrist restraints, don't you, slave?
+.yesno 4187 4187 7700 7707
+.yestext Yes, Miss, I do
 
 
 [Action 4184]
 .keyrelease prepare 1800
-Very good, slave.
+Very good.
+bd037_06.jpg
+Start with the collar.
+delay 10
 bd037_13.jpg
-Go ahead and put them on.
+Then go ahead and put on the restraints.
 ShowChoices
-delay 15
-bd037_14.jpg
+delay 12
+ActorImage
 Tell me when you're finished, my pet!
 .pause I'm cuffed and collared, Miss
+.set -25 25                  ' ankles tied
 .set -26 26                  ' wrists tied
 .set -28 28                  ' collared
-.range 4187
+.range 4188
 
 [Action 4185]
 .keyrelease prepare 1800
-Very good, slave.
+Very good.
 bd037_13.jpg
-Go ahead and put them on.
+Then go ahead and put on the restraints.
 ShowChoices
-delay 10
-bd037_14.jpg
+delay 15
+ActorImage
 Tell me when you're finished, my pet!
 .pause I'm cuffed, Miss
+.set -25 25                  ' ankles tied
 .set -26 26                  ' wrists tied
-.range 4187
-
-[Action 4186]
-Very good, slave.
-bd037_13.jpg
-Go ahead and put it on.
-ShowChoices
-delay 10
-bd037_14.jpg
-Tell me when you're finished, my pet!
-.pause I'm collared, Miss
-.set -28 28                  ' collared
-.range 4187
-
-[Action 4187]
-.gosub 1820                  ' setup break buttons and vibrator
 .range 4188
 
-[Action 4188]
-bd037_18.jpg
-Kneel on the ground.
-Sit on your heels, point your toes behind you.
+[Action 4186]
+.keyrelease prepare 1800
+Very good.
+bd037_06.jpg
+Start with the collar.
+delay 10
+bd037_13.jpg
+Then go ahead and put on the wrist restraints.
+ShowChoices
+delay 10
+ActorImage
+Tell me when you're finished, my pet!
+.pause I'm cuffed and collared, Miss
+.set -28 28                  ' collared
+.range 4188
+
+[Action 4187]
+.keyrelease prepare 1800
+Very good.
+bd037_13.jpg
+Go ahead and snap them on your wrists.
+ShowChoices
 delay 15
+ActorImage
+Tell me when you're finished, my pet!
+.pause I'm cuffed, Miss
+.set -25 25                  ' ankles tied
+.set -26 26                  ' wrists tied
+.range 4188
+
+
+
+[Action 4188]
+.gosub 1820                  ' setup break buttons and vibrator
+.range 4189
+
+[Action 4189]
+bd037_40.jpg
+Kneel on the ground.
+delay 8
+bd037_41.jpg
+Sit on your heels, point your toes behind you.
+delay 7
 bd037_17.jpg
 Bow and cross your arms on the floor in front,
 then slide forward until your torso rests on your thighs.
 delay 15
-.range 4189
-
-[Action 4189]
-Very good, slave.
+[]
 bd037_16.jpg
 Keep your face down.
 delay 5
@@ -9631,7 +9658,7 @@ Since you are such a disobedient and incompetent slave it is especially importan
 .must 1417
 .range 9700             ' do another position or generic toy removal
 
-' 418 kneeling prostrate, wristlets, collar, heels, hands forward and crossed, head down
+' 418 kneeling prostrate, wristlets, anklets, collar, heels, hands forward and crossed, head down
 [Action 7418]
 .must 1418
 .range 9700             ' do another position or generic toy removal
@@ -10837,7 +10864,7 @@ delay 5
 .set 417
 .range 9700             ' do another position or generic toy removal
 
-' 418 kneeling prostrate, wristlets, collar, heels, hands forward and crossed, head down
+' 418 kneeling prostrate, wristlets, anklets, collar, heels, hands forward and crossed, head down
 [Action 8418]
 .must 1418
 .set 418
