@@ -3,10 +3,12 @@
 ' Original RELEASE version 1.01 (07 MAR 2006)
 
 
+' basic defines and declarations
+
 .declare teaselib.Body Enum
 .define Body teaselib.Body
 
-.declare teaselib.Toys Enum
+.declare teaselib.Household Enum
 .define Household teaselib.Household
 
 .declare teaselib.Toys Enum
@@ -14,6 +16,12 @@
 
 .declare applied.by String
 .define applied.by.me applied.by.Mine
+
+
+' shortcuts
+
+.define .painToysOnBalls .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnNipples .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 
 
 ' This restores range 90 to 799
@@ -2673,8 +2681,9 @@ so remind me later on to give you a little extra reminder on masturbating correc
 [Action 1252]
 .poss 20
 .mustnot 267            ' Carry out enema
-.mustnot 20 24 32       ' something on nipples, something on balls, can't stand
-.mustnot 26 35 36       ' wrists tied, harnessed, tethered
+.not .painToysOnNipples
+.not .painToysOnBalls
+.mustnot 26 35          ' wrists tied, harnessed
 .must 366               ' Some rope
 .range 1255 1259
 
@@ -6446,7 +6455,8 @@ I guess I'll have to turn the other cheek this time.
 ' slavesinlove 186 pictures
 [Action 2511]
 .poss 100
-.mustnot 20 22 33 34         ' something on nipples, something in mouth, can't kneel, can't type
+.state Body.OnNipples free
+.mustnot 22 33 34            ' something in mouth, can't kneel, can't type
 .must 361 362 367
 .must 712 717 746 
 .save 90 799
@@ -6555,7 +6565,8 @@ You may have escaped me this time, but don't make a habit of it!
 
 ' shower 10m, wet, wrists, nips
 [Action 2521]
-.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
+.state Body.OnNipples free
+.mustnot 24 25          ' something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .mustnot 210            ' shower one-time only
@@ -6599,7 +6610,8 @@ I guess we'll have to skip it today.
 
 ' shower 15m, wet, ankles, 200 paddles, clamps
 [Action 2531]
-.mustnot 20 24 25                 ' something on nipples, something on balls, ankles tied
+.state Body.OnNipples free
+.mustnot 24 25                    ' something on balls, ankles tied
 .mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
 .mustnot 210                      ' shower one time only
@@ -6658,7 +6670,8 @@ I guess you're off the hook, you lucky slave boy.
 
 ' Shake those titties punishment
 [Action 2541]
-.mustnot 20 29 34       ' something on nipples, blindfolded, can't type/use mouse 
+.state Body.OnNipples free
+.mustnot 29 34          ' blindfolded, can't type/use mouse 
 .mustnot 812            ' Done nipple training activity already
 .must 361 362           ' clamps, pins
 .must 717               ' nipple tolerance 2, gives 3.
@@ -6728,7 +6741,8 @@ suitable for a lying degenerate cunt slave.
 
 ' shower 15m, wet, ankles, nips/balls, 100 paddles, gag
 [Action 2561]
-.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
+.state Body.OnNipples free
+.mustnot 24 25          ' something on balls, ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .mustnot 210            ' shower one-time only
@@ -6762,14 +6776,14 @@ You can leave it in there for our entire session, slave.
 .range 2406
 
 [Action 2564]
-.mustnot 20
-.must 361               ' have nipple clamps
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
 Instead of beating you raw,
 I'm going to have you wear your nipple clamps today.
 Snap them on your poor slave nipples now, slut!
 I'll tell you when you may take them off.
 .pause I have them on, Miss
-.set 20 43              ' something on nipples, nipple clamps
+.item Toys.Nipple_Clamps apply
 .range 2569
 
 
@@ -6838,13 +6852,13 @@ Maybe wearing them during the session helps you to focus on the job.
 .range 2407
 
 [Action 2574]
-.mustnot 20
-.must 361               ' have nipple clamps
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
 Maybe wearing your nipple clamps helps you to focus on the job.
 Snap them on your poor slave nipples now, slut!
 I'll tell you when you may take them off.
 .pause I have them on, Miss
-.set 20 43              ' something on nipples, nipple clamps
+.item Toys.Nipple_Clamps apply
 .range 2579
 
 
@@ -7314,7 +7328,8 @@ Now keep that cock tall and proud or we'll have to go again.
 
 ' shower 15m, 200 paddles, clamps
 [Action 2651]
-.mustnot 20 24 25                 ' something on nipples, something on balls, ankles tied
+.state Body.OnNipples free
+.mustnot 24 25                    ' something on balls, ankles tied
 .mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
 .mustnot 210                      ' punishment shower, already done
@@ -7409,7 +7424,8 @@ I'll get you next time, you dirty slave!
 
 ' shower 10m, 50 paddles, clamps, kneeling
 [Action 2682]
-.mustnot 20 24 25                 ' something on nipples, something on balls, ankles tied
+.state Body.OnNipples free
+.mustnot 24 25                    ' something on nipples, something on balls, ankles tied
 .mustnot 26 29 32                 ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
 .mustnot 210                      ' punishment shower, already done
@@ -7450,7 +7466,8 @@ I'll get you next time, you dirty slave!
 ' TODO disable taking the cage off, since if the slave came without permission, he should be kept locked up 
 [Action 2690]
 .else                   ' Fallback in case slave wears chastity device
-.mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
+.not .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.not .painToysOnBalls
 .must 44                ' Chastified
 .timefrom 45 00:00"00   ' have key for chastity cage
 .must 810               ' Corner time already given
@@ -7462,7 +7479,8 @@ I'll get you next time, you dirty slave!
 ' TODO re-enable this and add more comments while wanking
 '[Action 2691]
 '.else                   ' Fallback in case slave wears chastity device
-'.mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
+'.not .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+'.not .painToysOnBalls
 '.must 44                ' Chastified
 '.timeto 45 00:00"00     ' have key for chastity cage
 '.must 810               ' Corner time already given
@@ -7472,7 +7490,8 @@ I'll get you next time, you dirty slave!
 ' 1hr punishment wanking
 [Action 2692]
 ' TODO implement taking the clamps off during wanking, and relax timing conditions in activities
-.mustnot 20 38 39       ' something on nipples, clamps or pegs on balls
+.not .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.not .painToysOnBalls
 .mustnot 30 44          ' Can't jerk off
 .save 90 799
 .loadsbd mine-td.sbd 1104 1104
@@ -7508,70 +7527,86 @@ I'll get you next time, you dirty slave!
 ' Corner time + marker
 [Action 2700]
 .else
-.unset -20 -24          ' don't remove clamps or pegs in activity
 .save 90 799
 .loadsbd mine-paddle.sbd 2600 2600
 
-' complete the clamps / complete the pegs
-' if the slave wears one pain toy, complete punishment getup with the other
+' if the slave wears one pain toy already, complete punishment getup with the other
+' -> complete the clamps or complete the pegs (if possible)
+' if not wearing any pain toys, this defaults to corner time plus marker 
+' if adding more pegs or clamps isn't possibe, applied pain toys are commented
 
-[Action 2702]
-.must 20                ' something on nipples
-.mustnot 24
-'.mustnot 38 39
-.should 42              ' prefer clothes pegs
+' Fallback nipple clamps -> clothes pegs on balls
+[Action 2701]
+.state Body.OnNipples is Toys.Nipple_Clamps
+.not .item Toys.Pussy_Clamps available
+.item Household.Clothes_Pegs available
+.state Body.OnBalls is free
 A couple of clothes pegs seem about right.
 Go fetch four of them and snap'em on your slutty ball sack!
 Do it now, slave.
 .pause Done, Miss
-.set 24 38              ' something on balls, clothes pegs
+.state Household.Clothes_Pegs apply to Body.OnBalls
 .range 2708
 
-[Action 2703]
-.must 20                ' something on nipples
-.mustnot 24
-'.mustnot 38 39
-.should 43              ' prefer nipple clamps
-Go fetch your pussy clamps and snap them on your slutty ball sack!
+' Fallback clothes pegs on balls-> nipple clamps
+[Action 2702]
+.state Body.OnBalls is Household.Clothes_Pegs
+.item Toys.Nipple_Clamps available
+.item Toys.Nipple_Clamps canApply
+Go fetch your nipple clamps and snap them on your poor slave nipples!
 .pause Done, Miss
-.set 24 39              ' something on balls, pussy clamps
+.item Toys.Nipple_Clamps apply
+
+[Action 2703]
+.state Body.OnNipples is Household.Clothes_Pegs
+.item Household.Clothes_Pegs available
+.state Body.OnBalls is free
+.poss 100
+A couple of clothes pegs seem about right.
+Go fetch four of them and snap'em on your slutty ball sack!
+Do it now, slave.
+.pause Done, Miss
+.state Household.Clothes_Pegs apply to Body.OnBalls
 .range 2708
 
 [Action 2704]
-.mustnot 20
-.must 24 38             ' something on ball sack
-.should 38              ' prefer clothes pegs
-Some clothes pegs on your slave nipples will do this time.
-Put them on now, slave!
+.state Body.OnNipples is Toys.Nipple_Clamps
+.item Toys.Pussy_Clamps available
+.state Body.OnBalls is free
+.poss 100
+Go fetch your pussy clamps and snap them on your slutty ball sack!
 .pause Done, Miss
-.set 20 42              ' something on nipples, clothess pegs
+.item Toys.Pussy_Clamps apply
 .range 2708
 
 [Action 2705]
-.mustnot 20
-.must 24                ' something on nipples
-.should 39              ' prefer pussy clamps
-Go fetch your nipple clamps and snap them on your poor slave nipples!
+.state Body.OnBalls is Household.Clothes_Pegs
+.state Body.OnNipples free
+.item Household.Clothes_Pegs available
+.poss 100
+Some clothes pegs on your slave nipples will do this time.
+Put them on now, slave!
 .pause Done, Miss
-.set 20 43              ' something on nipples, nipple clamps
+.state Household.Clothes_Pegs apply to Body.OnNipples
 .range 2708
 
 [Action 2706]
-.must 20 38             ' something on nipples, something on balls, clothes pegs
-I sincerely hope that the pain in your nipples and nuts
-will help you remember my orders in the future.
-.pause Thank you, Miss
-.unset -20 -24          ' don't remove clamps or pegs in activity
-.unset 520
-.set -520               ' complete punishment later
-.range 2151
+.item Toys.Nipple_Clamps available
+.state Body.OnNipples free
+.state Body.OnBalls is Toys.Pussy_Clamps
+.poss 100
+Go fetch your nipple clamps and snap them on your poor slave nipples!
+.pause Done, Miss
+.item Toys.Nipple_Clamps apply
+.range 2708
 
+' all applied already
 [Action 2707]
-.must 20 39             ' something on nipples, something on balls, clamps
+.painToysOnNipples
+.painToysOnBalls
 I sincerely hope that the pain in your nipples and nuts
 will help you remember my orders in the future.
 .pause Thank you, Miss
-.unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520              ' Don't repeat
 .set -520               ' complete punishment later
 .range 2151
@@ -7582,11 +7617,10 @@ will help you remember my orders in the future.
 [Action 2708]
 I sincerely hope that the pain in your nipples and nuts
 will make you change your attitude about My assignments, for your sake.
-.unset -20 -24          ' don't remove clamps or pegs in activity
 .unset 520
 .set -520               ' complete punishment later
 ' clamps time already set when applying the other clamps/pegs,
-' so we should reset the timer here or the wearing time will be longer than expected
+' if we would set the timer here again the overall wearing time would be longer than expected
 .range 2151
 
 
@@ -7996,50 +8030,50 @@ How about your enema, my dear anal slut?
 ' Punish bag not empty
  
 [Action 3015]
-.mustnot 24             ' Something on balls
-.must 362               ' Clothes pegs
+.state Body.OnBalls is free
+.item Household.Clothes_Pegs available
 Well, slave, I expected you to have it all in by now.
 []
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
-.set -24 24 38          ' something on ball sack, clothes pegs
+.state Household.Clothes_Pegs apply to Body.OnNipples
 .settime 49 +00:10"00
 .range 3020 3021        ' Comment pegs on ball sack
 
 [Action 3016]
-.mustnot 20             ' Something on nipples
-.must 362               ' Clothes pegs
+.state Body.OnNipples free
+.item Household.Clothes_Pegs available
 Well, slave, I expected you to have it all in by now.
 []
 Maybe some clothes pegs on your slave nipples help the enema flowing faster.
 Snap one on each nipple.
 .pause Done as ordered, Miss
-.set -20 20 42          ' something on nipples, clothes pegs
+.state Household.Clothes_Pegs apply to Body.OnNipples
 .settime 49 +00:15"00
 .range 3022 3023        ' Comment pegs
 
 [Action 3017]
-.mustnot 20             ' Something on nipples
-.must 361               'completely empty.
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
 Well, slave, I expected you to have it all in by now.
 []
 Maybe your nipple clamps help the enema flowing faster.
 Snap them on your slave titties and make sure they sit tight.
 .pause Done as ordered, Miss
-.set -20 20 43          ' something on nipples, nipple clamps
+.item Toys.Nipple_Clamps apply
 .settime 49 +00:15"00
 .range 3024 3025
 
 [Action 3018]
-.mustnot 24             ' Something on balls
-.must 772               ' pussy clamps
+.item Toys.Pussy_Clamps canApply
+.item Toys.Pussy_Clamps available
 Well, slave, I expected you to have it all in by now.
 []
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
 Snap four of them on your balls, slave.
 .pause Done as ordered, Miss
-.set -24 24 39          ' something on ball sack, pussy clamps
+.item Toys.Pussy_Clamps apply
 .settime 49 +00:10"00
 .range 3026 3027        ' Comment pegs on ball sack
 
@@ -11435,10 +11469,10 @@ I think your nipples and nuts could use a working-over.
 ' Maid training: some toys are handled flexbibly so we don't have to check those
 ' 23 something on penis, 30 can't jerk off and 37 ball harness can be ignored
 ' 21 butt plug and 32 can't stand are handled in each position
-' 20 something on nipples,
+' something on nipples,
 ' 22 something in mouth are handled in each position
 ' 28 collared handled in each position
-' 24 something on balls is ignored
+' something on balls is ignored
 ' since pegs on are an explicit part of some of the scenarios in level 2 
 ' TODO check enema and pegs/clamps actual time left in mine-maid.sbd
 [Action 5070]
@@ -11707,7 +11741,9 @@ Make sure you have one until next time, baby.
 
 ' tighter restrictions for introduction and beginner scenario
 [Action 5140]
-.mustnot 20 29               ' Something on nipples, blindfolded
+.state Body.OnNipples free
+.not .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.mustnot 29                  ' blindfolded
 .mustnot 31                  ' can't sit on chair
 .mustnot 34                  ' Can't type/use mouse
 .mustnot 221                 ' Gag temporary
@@ -11853,7 +11889,9 @@ You seem to get used to getting used very well.
 
 ' shower 10m 100 paddles nips
 [Action 5201]
-.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.mustnot 25            ' ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 361               ' Nipple clamps
@@ -11865,7 +11903,9 @@ You seem to get used to getting used very well.
 
 ' shower 10m 100 paddles
 [Action 5202]
-.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.mustnot 25            ' ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 ' 49 clamps/pegs duration, already checked in 5066
@@ -11876,7 +11916,9 @@ You seem to get used to getting used very well.
 
 ' shower 15m 200 paddles nips ankles 
 [Action 5203]
-.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.mustnot 25            ' ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 362               ' clothes pegs
@@ -11955,7 +11997,9 @@ I like a clean slave.
 
 ' simple hogtie
 [Action 5401]
-.mustnot 20 22 24       ' something on nipples, something in mouth, something on balls
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.mustnot 22             ' something in mouth
 .mustnot 26 28 31 32    ' wrists tied, collared, can't sit on chair, can't stand 
 '.mustnot 26 31 32       ' wrists tied, can't sit on chair, can't stand 
 .mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
@@ -11968,7 +12012,9 @@ I like a clean slave.
 
 ' indefinate hogtie
 [Action 5402]
-.mustnot 20 22 24 25    ' something on nipples, something on mouth, something on balls, ankles tied
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.mustnot 22 25          ' something on mouth, ankles tied
 .mustnot 26 28 31 32    ' wrists tied, collared, can't sit on chair, can't stand  
 '.mustnot 26 31 32       ' wrists tied, can't sit on chair, can't stand  
 .mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
@@ -11980,7 +12026,9 @@ I like a clean slave.
 
 ' diana pictures complete
 [Action 5403]
-.mustnot 20 22 24 25    ' something on nipples, something in mouth, something on balls, ankles tied
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.mustnot 22 25          ' something on mouth, ankles tied
 .mustnot 26 28 33 34    ' wrists tied, collared, can't kneel, can't type 
 '.mustnot 26 33 34       ' wrists tied, can't kneel, can't type 
 .mustnot 268            ' Holding the enema
@@ -11992,7 +12040,9 @@ I like a clean slave.
 
 ' diana pictures simple
 [Action 5404]
-.mustnot 20 22 24 25    ' something on nipples, something in mouth, something on balls, ankles tied
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.mustnot 22 25          ' something on mouth, ankles tied
 .mustnot 26 28 33 34    ' wrists tied, collared, can't kneel, can't type 
 '.mustnot 26 33 34       ' wrists tied, can't kneel, can't type 
 .mustnot 268            ' Holding the enema
@@ -12347,27 +12397,31 @@ I will have to punish you later for failing your training.
 
 ' nipple-torture game
 [Action 5801]
+.state Body.OnNipples free
+.item Toys.Nipple_Clamps available
 .mustnot 812                 ' Done nipple training activity already
-.must 361                    ' Nipple clamps
 .must 717                    ' Nipple tolerance 2
-.mustnot 20 29 34            ' something on nipples, blindfolded, can't type
+.mustnot 29 34               ' something on nipples, blindfolded, can't type
+.timeto 49 -00:15"00         ' clamps/pegs duration on balls
 .ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5951
 
 ' light weight drop from balls (5-10)
 [Action 5802]
+.state Body.OnBalls is free
 .mustnot 255                 ' Done ball sack pulling activity already
-.mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
+.mustnot 23 25 32            ' something on penis, ankles tied, can't stand
 '.timeto 49 -00:09"00         ' already checked in 5068
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
 ' medium weight drop from balls (10-15)
 [Action 5803]
+.state Body.OnBalls is free
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1 
-.mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
+.mustnot 23 25 32            ' something on penis, ankles tied, can't stand
 .timeto 49 -00:14"00         ' clamps/pegs duration
 .ifstate Toys.enema_kit free or remaining greaterThan 00:14"00
 .set 255                     ' Done ball sack pulling activity
@@ -12375,9 +12429,10 @@ I will have to punish you later for failing your training.
 
 ' heavy weight drop from balls (15-20)
 [Action 5804]
+.state Body.OnBalls is free
+.mustnot 23 25 32            ' something on penis, ankles tied, can't stand
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 .timeto 49 -00:19"00         ' clamps/pegs duration
 .ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 255                     ' Done ball sack pulling activity
@@ -12385,9 +12440,10 @@ I will have to punish you later for failing your training.
 
 ' very heavy weight drop from balls (20-25)
 [Action 5805]
+.state Body.OnBalls is free
+.mustnot 23 25 32            ' something on penis, ankles tied, can't stand
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
-.mustnot 23 24 25 32         ' something on penis, something on balls, ankles tied, can't stand
 .timeto 49 -00:24"00         ' clamps/pegs duration
 .ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 255                     ' Done ball sack pulling activity
@@ -12396,10 +12452,12 @@ I will have to punish you later for failing your training.
 
 ' light cardio nips
 [Action 5806]
-.mustnot 20 24 25 26 29      ' something on nipples, something on ball sack, ankles tied, wrists tied, blindfolded 
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.item Household.Clothes_Pegs available
+.mustnot 25 26 29            ' ankles tied, wrists tied, blindfolded 
 .mustnot 31 32 34 35         ' can't sit on chair, can't stand, can't type/use mouse, tethered 
 .mustnot 812                 ' Done nipple training activity already
-.must 362                    ' Clothes pegs
 .must 716
 ' holding the enema, already checked in 5068
 .set 812                     ' Done nipple training activity
@@ -12407,9 +12465,11 @@ I will have to punish you later for failing your training.
 
 ' quick pins
 [Action 5814]
-.mustnot 20 25 29 34         ' something on nipples, ankles tied, blindfolded, can't type/use mouse
+.state Body.OnNipples free
+.item Household.Clothes_Pegs available
+.item Toys.Nipple_Clamps available
+.mustnot 25 29 34            ' ankles tied, blindfolded, can't type/use mouse
 .mustnot 812                 ' Done nipple training activity already
-.must 361 362                ' nipple clamps, clothes pegs
 .must 717                    ' Nipple tolerance 2
 .ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
@@ -12417,7 +12477,11 @@ I will have to punish you later for failing your training.
 
 ' quick pins 16
 [Action 5815]
-.mustnot 20 24 29 34         ' something on nipples, something on balls, blindfolded, can't type/use mouse
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.item Household.Clothes_Pegs available
+.item Toys.Nipple_Clamps available
+.mustnot 29 34               ' blindfolded, can't type/use mouse
 .mustnot 812                 ' Done nipple training activity already
 .must 362                    ' clothes pegs
 .must 717 746                ' Nipple tolerance 2, cbt 1
@@ -12427,22 +12491,26 @@ I will have to punish you later for failing your training.
 
 ' nipple clamp weight lifting
 [Action 5818]
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
+.not .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
 .mustnot 812                 ' Done nipple training activity already
-.mustnot 20 38 39            ' something on nipples, pegs or pussy clamps on ball sack
 .mustnot 25 29 32            ' ankles tied, blindfolded, can't stand
 .mustnot 30                  ' can't jerk off: Wanking is required to ease the pain on the nipples
 .mustnot 34 35               ' can't type/use mouse, tethered
-.must 361 366                ' Nipple clamps, rope
+.must 366                    ' Nipple clamps, rope
 .must 718                    ' Nipple tolerance 3
 .ifstate Toys.enema_kit free or remaining greaterThan 00:25"00
 .set 812                     ' Done nipple training activity
 .range 5966
 
 ' shake those titties
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
+.item Household.Clothes_Pegs available
 [Action 5819]
 .mustnot 812                 ' Done nipple training activity already
-.mustnot 20 29 34            ' something on nipples, blindfolded, can't type/use mouse 
-.must 361 362                ' Nipple clamps, clothes pegs
+.mustnot 29 34               ' blindfolded, can't type/use mouse
 .must 718                    ' Nipple tolerance 3
 .ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
@@ -12688,8 +12756,9 @@ Meanhile, three demerits will do about right.
 ' todo 20 minutes with clamps possible
 ' 2-3 * 10min
 [Action 6001]
+.state Body.OnBalls is free
 .mustnot 263            ' Done wanking activity already
-.mustnot 23 24 25 29    ' something on penis, something on balls, ankles tied, blindfolded
+.mustnot 23  25 29      ' something on penis, ankles tied, blindfolded
 .mustnot 30 31 34       ' can't jerk off, can't sit on chair, can't type/use mouse     
 .mustnot 44             ' Chastified
 .mustnot 267 268 269    ' Enema carrying out or holding
@@ -12702,12 +12771,16 @@ Meanhile, three demerits will do about right.
 
 ' Terri and Jennifer #16-21
 [Action 6002]
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
+.not .painToysOnBalls
 .mustnot 266            ' Done story time activity already 
-.mustnot 20 22 25 26    ' something on nipples, something in mouth, ankles tied, wrists tied
-.mustnot 29 30 34 35    ' blindfolded, can't jerk off, can't type/use mouse, tethered
+.mustnot 22 25 26       ' something on nipples, something in mouth, ankles tied, wrists tied
+.not .state Body.Blindfolded applied
+.mustnot 30 34 35       ' blindfolded, can't jerk off, can't type/use mouse, tethered
 .mustnot 44             ' Chastified
 .mustnot 267 268        ' Enema carrying out or holding
-.must 361 363 364 367   ' nipple clamps, wrist restraints, ankle restraints, gag
+.must 363 364 367       ' nipple clamps, wrist restraints, ankle restraints, gag
 .must 717 736           ' Nipple tolerance 2, Restraint Acceptance 1
 .set 266                ' Done story time activity
 .range 6152
@@ -12715,13 +12788,18 @@ Meanhile, three demerits will do about right.
 ' Diary of Carolyn Ch. 1 excerpt
 ' needs to "walk", nipples free
 ' clamps, weights, clothes pegs, rope
-'need 4th level nipples, 2nd cbt
+' need 4th level nipples, 2nd cbt
 [Action 6003]
-.mustnot 266            ' Done story time activity already 
-.mustnot 20 24 29 32    ' Something on nipples, something on balls, blindfolded, can't stand
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
+.item Household.Clothes_Pegs available
+.not .painToysOnBalls
+.not .state Body.CantStand applied
+.not .state Body.Blindfolded applied
+.mustnot 266            ' Done story time activity already
 .mustnot 34 35          ' can't type/use mouse, tethered
 .mustnot 267 268        ' Enema carrying out or holding
-.must 361 362 366       ' nipple clamps, clothes pegs, rope
+.must 366               ' rope
 .must 719 746           ' Nipple tolerance 4, cbt 1
 .set 266                ' Done story time activity
 .range 6153
@@ -12836,10 +12914,13 @@ Meanhile, three demerits will do about right.
 
 ' slavesinlove 186 pictures
 [Action 6014]
+.state Body.OnNipples free
+.item Toys.Nipple_Clamps available
+.item Household.Clothes_Pegs available
 .mustnot 266            ' Done story time activity already 
-.mustnot 20 22 26 33    ' something on nipples, something in mouth, wrists tied, can't kneel
+.mustnot 22 26 33       ' something in mouth, wrists tied, can't kneel
 .mustnot 34             ' can't type
-.must 361 362 367       ' Nipple clamps, clothes pegs, gag
+.must 367               ' gag
 .must 712 717 746       ' punishment acceptance 2, nipple tolerance 2, cbt1
 .ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 266                ' Done story time activity
@@ -15708,51 +15789,54 @@ Wait for my command...
 .range 8090
 
 [Action 8133]
-Put two clothes pegs on each nipple, slave. Now, stay
-as close to the edge as you can and wait for My say-so...
-.delay 30
-.mustnot 20                       ' Something on nipples
 .mustnot 30                       ' Can't jerk off
-.must 362
-.set 20 42                        ' Something on nipples, Clothes pegs
+.state Body.OnNipples free
+.item Household.Clothes_Pegs available
+.delay 30
+Put a clothes peg on each nipple, slave.
+delay 5
+Stay as close to the edge as you can and wait for My say-so...
 .settime 49 00:10"00             ' fixed duration for finale
+.state Household.Clothes_Pegs apply to Body.OnNipples
 .range 8090
 
 [Action 8134]
-Put four clothes pegs on your enslaved ball sack
-before we go on, slave. Now, wait for My command...
-.delay 30
-.mustnot 24                       ' Something on balls
 .mustnot 30                       ' Can't jerk off
-.must 362
-.set 24 38                        ' Something on balls, Clothes pegs
+.state Body.OnBalls is free
+.item Household.Clothes_Pegs available
+.delay 30
+Put four clothes pegs on your enslaved ball sack
+before we go on, slave.
+delay 10
+Now, wait for My command...
 .settime 49 00:10"00             ' fixed duration for finale
+.state Household.Clothes_Pegs apply to Body.OnBalls
 .range 8090
 
 [Action 8135]
-Take four clothes pegs - put two on your slave nipples
-and two on your slave balls.
-Keep yourself on the edge
-and wait for my command...
-.delay 30
-.mustnot 20 24                    ' Something on nipples, something on balls
 .mustnot 30                       ' Can't jerk off
-.must 362                         ' Clothes pegs
-.set 20 24                        ' Something on nipples, something on balls
-.set 38                           ' Clothes pegs on ball sack
-.set 42                           ' Clothes pegs on nipples
+.state Body.OnNipples free
+.state Body.OnBalls is free
+.item Household.Clothes_Pegs available
+.delay 30
+Take four clothes pegs -
+put two on your slave nipples and two on your slave balls.
+delay 13
+Keep yourself on the edge and wait for my command...
 .settime 49 00:10"00             ' fixed duration for finale
+.state Household.Clothes_Pegs apply to Body.OnNipples Body.OnBalls
 .range 8090
 
 [Action 8136]
-Snap those clamps on your nipples before we continue, slave.
-Now wait for My command as you stay on the edge...
-.delay 30
-.mustnot 20                       ' Something on nipples
 .mustnot 30                       ' Can't jerk off
-.must 361                         ' Nipple clamps
-.set 20 43                        ' Something on nipples, nipple clamps
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
+.delay 30
+Snap those clamps on your nipples before we continue, slave.
+delay 5
+Now wait for My command as you stay on the edge...
 .settime 49 00:10"00             ' fixed duration for finale
+.item Toys.Nipple_Clamps apply
 .range 8090
 
 ' TODO combine nipple and pussy clamps
@@ -19901,7 +19985,7 @@ Especically if he's chained and shackled so well.
 [action 11325]
 .must 225
 .mustnot 228 229 230    ' favour smaller cbt duration
-.set -20 20 42
+.state Household.Clothes_Pegs apply to Body.OnNipples
 .unset 225
 .gosub 11355            ' set duration according to nipple tolerance
 .range  11324
@@ -19909,7 +19993,7 @@ Especically if he's chained and shackled so well.
 [action 11326]
 .must 226
 .mustnot 228 229 230    ' favour smaller cbt duration
-.set -20 20 43
+.item Toys.Nipple_Clamps apply
 .unset 226
 .gosub 11355            ' set duration according to nipple tolerance
 .range  11324
@@ -19917,28 +20001,28 @@ Especically if he's chained and shackled so well.
 [action 11327]
 .must 227
 .mustnot 228 229 230    ' favour smaller cbt duration
-.set -20 20 43
+.item Toys.Nipple_Clamps apply to Household.Weight
 .unset 227
 .gosub 11355            ' set duration according to nipple tolerance
 .range  11324
 
 [action 11328]
 .must 228
-.set -24 24 38
+.state Household.Clothes_Pegs apply to Body.OnBalls
 .unset 228
 .gosub 11365            ' set duration according to cbt
 .range  11324
 
 [action 11329]
 .must 229
-.set -24 24 39
+.item Toys.Pussy_Clamps apply
 .unset 229
 .gosub 11365            ' set duration according to cbt
 .range  11324
 
 [action 11330]
 .must 230
-.set -24 24 39
+.item Toys.Pussy_Clamps apply to Household.Weight
 .unset 230
 .gosub 11365            ' set duration according to cbt
 .range  11324
@@ -20155,50 +20239,54 @@ Especically if he's chained and shackled so well.
 
 ' range 11610-11627 is evaluated in 9004 to check whether the assignemnt can be performed
 
+' TODO weight assignments missing
+' TODO split ball harness into "bound to ankles", and "attach weight" - seems natural and consequent
+
 [Action 11610]
-.mustnot 20             ' something on nipples
-.must 362               ' clothes pegs
+.state Body.OnNipples free
+.item Household.Clothes_Pegs available
 Slave, before we end the session,
 I want you to pop a clothes peg on each of your nipples.
+.state Household.Clothes_Pegs apply to Body.OnNipples
 .pause Ready, Miss
-.set 20 42              ' Someting on nipples, clothes pegs
 .set 325                ' remember for next session
 .settime 49 +00:10"00  ' fixed duration for finale
 .range 11629
 
 [Action 11611]
-.mustnot 20             ' something on nipples
-.must 361               ' nipple clamps
+.item Toys.Nipple_Clamps canApply
+.item Toys.Nipple_Clamps available
 Slave, before we end the session,
 I want you to snap on your nipple clamps.
+.item Toys.Nipple_Clamps apply
 .pause Ready, Miss
-.set 20 43              ' Something on nipples, nipple clamps
 .set 326                ' remember for next session
 .settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11612]
-.must 362               ' clothes pegs
+.state Body.OnBalls is free
+.item Household.Clothes_Pegs available
 .mustnot 24             ' something on penis, something on ball sack
 '.mustnot 624 625        ' any chastity device assignment open
 '.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session,
 I want you to pop four clothes pegs on your ball sack.
+.state Household.Clothes_Pegs apply to Body.OnBalls
 .pause Ready, Miss
-.set 24 38              ' pins on ball sack
 .set 328                ' remember for next session
 .settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11613]
-.must 387               ' pussy clamps
-.mustnot 24             ' something on penis, something on ball sack
+.item Toys.Pussy_Clamps canApply
+.item Toys.Pussy_Clamps available
 '.mustnot 624 625        ' any chastity device assignment open
 '.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session,
 I want you to snap your pussy clamps on your slutty ball sack.
+.item Toys.Pussy_Clamps apply
 .pause Ready, Miss
-.set 24 39              ' pussy clamps on ball sack
 .set 329                ' remember for next session
 .settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
@@ -20305,7 +20393,7 @@ you will put them back on your ball sack.
 .must 331
 When the session is over, you will tidy up the room and clean yourself.
 Only as the last thing after taking off all other toys and before putting on
-your clothes you may take off your humbler as well and put them away.
+your clothes you may take off your humbler as well and put it away.
 .pause Yes Miss
 .range 11718
 
@@ -20441,7 +20529,8 @@ arranged way in front of me for inspection before you approach me.
 ' remove pegs & clamps when time is up
 ' called from various places to ensure clamps/pegs aren't put on too long
 
-' to avoid AllActionsSet, the time 49 may only be set if 20 & 42/43 or 24 & 38/39 is set 
+' to avoid AllActionsSet, the time 49 may only be set to smaller than +INF
+' if clamps or pegs are actually attached
 
 [action 11800]
 .unset 11800
@@ -20486,60 +20575,65 @@ arranged way in front of me for inspection before you approach me.
 ' then this action may throw AllActionsSet to protect nipples and nuts tissue
 [action 11811]
 .timefrom 49 00:00"00
-.mustnot 20 24 42 43 38 39
+.not .painToysOnBalls
+.not .painToysOnNipples
 .unset 11811
 .settime 49 +INF        ' disable pain toy duration restrictions
 .return
 
 ' nipple pegs
 [action 11812]
-.must 20 42
-.mustnot -24 39
+.state Body.OnNipples is Household.Clothes_Pegs
+.not .painToysOnBalls
 .unset 11812
 .range 11820 11824
 
 ' nipple clamps
 [action 11813]
-.must 20 43
-.mustnot -24 39
+.item Toys.Nipple_Clamps applied
+.not .painToysOnBalls
 .unset 11813
 .range 11830 11834
 
 ' pussy pegs
 [action 11814]
-.mustnot 20 39
-.must -24 38
+.state Body.OnBalls is Household.Clothes_Pegs
+.not .painToysOnNipples
 .unset 11814
 .range 11840 11844
 
 ' pussy clamps
 [action 11815]
-.mustnot 20
-.must 24 39
+.item Toys.Pussy_Clamps applied
+.not .painToysOnNipples
 .unset 11815
 .range 11850 11854
 
 ' nipple and pussy pegs
 [action 11816]
-.must 20 24 42 38
+.state Body.OnNipples is Household.Clothes_Pegs
+.state Body.OnBalls is Household.Clothes_Pegs
 .unset 11816
 .range 11860 11864
 
 ' nipple and pussy clamps
 [action 11817]
-.must 20 24 43 39
+.item Toys.Nipple_Clamps applied
+.item Toys.Pussy_Clamps applied
 .unset 11817
 .range 11870 11874
 
 ' nipple clamps, pussy pegs
 [action 11818]
-.must 20 24 43 38
+.item Toys.Nipple_Clamps applied
+.state Body.OnBalls is Household.Clothes_Pegs
 .unset 11818
 .range 11880 11884
 
 ' nipple pegs, pussy clamps
 [action 11819]
-.must 20 24 42 39
+.state Body.OnNipples is Household.Clothes_Pegs
+.item Toys.Pussy_Clamps applied
 .unset 11819
 .range 11890 11894
 
@@ -20581,7 +20675,7 @@ Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
-.unset -20 20 42        ' something on nipples, clothes pegs
+.state Household.Clothes_Pegs remove from Body.OnBalls
 .set 812                ' Done nipple training activity
 .settime 49 +INF
 .range 11910 
@@ -20632,7 +20726,7 @@ Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
-.unset -20 20 43        ' something on nipples, nipple clamps
+.item Toys.Nipple_Clamps remove
 .set 812                ' Done nipple training activity
 .settime 49 +INF
 .range 11910 
@@ -20683,7 +20777,7 @@ Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
-.unset -24 24 38        ' something on ball sack, clothes pegs
+.state Household.Clothes_Pegs remove from Body.OnBalls
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
 .range 11910 
@@ -20734,7 +20828,7 @@ Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
-.unset -24 24 39        ' something on nipples, pussy clamps
+.item Toys.Pussy_Clamps remove
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
 .range 11910 
@@ -20785,8 +20879,7 @@ Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
-.unset -20 20 42        ' something on nipples, clothes pegs
-.unset -24 24 38        ' something on ball sack, clothes pegs
+.state Household.Clothes_Pegs remove
 .set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
@@ -20838,8 +20931,8 @@ Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
-.unset -20 20 43        ' something on nipples, nipple clamps
-.unset -24 24 39        ' something on ball sack, pussy clamps
+.item Toys.Nipple_Clamps remove
+.item Toys.Pussy_Clamps remove
 .set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
@@ -20891,8 +20984,8 @@ Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
-.unset -20 20 43        ' something on nipples, nipple clamps
-.unset -24 24 38        ' something on ball sack, clothes pegs
+.item Toys.Nipple_Clamps remove
+.state Household.Clothes_Pegs remove from Body.OnBalls
 .set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF
@@ -20944,8 +21037,8 @@ Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
 .pause Yes, Miss
-.unset -20 20 43        ' something on nipples, nipple clamps
-.unset -24 24 38        ' something on ball sack, clothes pegs
+.state Household.Clothes_Pegs remove from Body.OnNipples
+.item Toys.Pussy_Clamps remove
 .set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
 .settime 49 +INF

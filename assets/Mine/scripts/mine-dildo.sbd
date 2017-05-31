@@ -2,11 +2,10 @@
 ' Revisited RELEASE version 1.02 (3 DEZ 2011?)
 ' this is a new activity not present in the original version 
 
-
 .declare teaselib.Body Enum
 .define Body teaselib.Body
 
-.declare teaselib.Toys Enum
+.declare teaselib.Household Enum
 .define Household teaselib.Household
 
 .declare teaselib.Toys Enum
@@ -1272,7 +1271,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' 3220 lie down on the floor, riding fully penetrated on the floor
 ' The scenario requires just to sit down, so 32 33 could be relaxed once 180 is set
 [Action 3200]
-.mustnot 20             ' Something on nipples
+.state Body.OnNipples free
 .mustnot 32 33          ' Can't stand, can't kneel
 .set 3220
 .return
@@ -1280,7 +1279,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
 ' The scenario requires just to kneel, so 32 33 could be relaxed once 180 is set
 [Action 3201]
-.mustnot 20             ' Something on nipples
+.state Body.OnNipples free
 .mustnot 32 33          ' Can't stand, can't kneel
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model), and 3220 should be the introduction scenario
 .set 3221
@@ -1360,13 +1359,13 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3220 lie down on the floor, riding fully penetrated on the floor
 [Action 3220]
-.mustnot 20             ' Something on nipples
+.state Body.OnNipples free
 ' would be 32 Can't stand, assume standing and lying have the same restrictions, but lower legs can point upwards (as the model does)
 .return
 
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
 [Action 3221]
-.mustnot 20             ' Something on nipples
+.state Body.OnNipples free
 ' would be 32 Can't stand, assume standing and lying have the same restrictions, but lower legs can point upwards (as the model does)
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model)
 .return
@@ -1807,19 +1806,19 @@ Have you figured out a place, slave?
 ' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 
 [Action 3325]
-.mustnot 20             ' Something on nipples
+.state Body.OnNipples free
 It's so much more fun to watch a slave worshiping his precious dildo
 with clothes pegs on his nipples!
 So go fetch some
 - with the dildo in your mouth of course -
 and snap them on your nipples, one per.
 .pause Done, Miss
-.set -20 20 42          ' something on nipples, clothes pegs
+.state Household.Clothes_Pegs apply to Body.OnNipples
 .settime 49 00:00"00    ' remove in or after activity
 .range 3327
 
 [Action 3326]
-.must 20                ' Something on nipples
+.state Body.OnNipples applied
 .range 3327
 
 
@@ -2007,7 +2006,7 @@ you won't need your hands and are to keep them behind your head at all times, sl
 ' 3237 Mount dildo on a mirror or window pane, sit on heels, nipple clamps
 
 [Action 3380]
-.mustnot 20             ' something on nipples
+.state Body.OnNipples free
 Pick up your dildo and keep it in your mouth while you fetch your nipple clamps.
 delay 10
 When you have them, go ahead and snap them on your poor little slave titties.
@@ -2015,12 +2014,12 @@ delay 10
 Report back to me when the clamps sit tight on your nipples
 and you're back at the desk teasing the dildo.
 .pause I'm back, Miss
-.set -20 20 43          ' something on nipples, nipple clamps
+.item Toys.Nipple_Clamps apply
 .settime 49 00:00"00    ' remove in or after activity
 .range 3382
 
 [Action 3381]
-.must 20                ' Nipple clamps
+.state Body.OnNipples applied
 .range 3382
 
 [Action 3382]
@@ -2081,7 +2080,7 @@ to prevent you from doing anything naughty.
 ' 3239 wall mounted, nipple clamps attached to dildo 
 
 [Action 3390]
-.mustnot 20                  ' something on nipples
+.state Body.OnNipples free
 Go fetch your nipple clamps -
 with the dildo in your mouth of course -
 and loop the connecting chain around the dildo's shaft.
@@ -2090,12 +2089,12 @@ I want you to carry out a persistent pull on your nipples,
 so keep the chain short!
 Tell me when you're ready for your punishment.
 .pause I'm ready, Miss
-.set -20 20 43          ' something on nipples, nipple clamps
+.item Toys.Nipple_Clamps apply
 .settime 49 00:00"00    ' remove in or after activity
 .range 3391
 
 [Action 3391]
-.must 20                     ' something on nipples
+.state Body.OnNipples applied
 I want you to take the the connecting chain of your nipple clamps,
 and loop them around the dildo's shaft.
 I want you to carry out a persistent pull on your nipples,
@@ -5196,22 +5195,34 @@ Yes, that's much better, slave!
 
 
 ' 3229  Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
+[Action 4461]
+.state Body.OnNipples applied
+.state Body.OnNipples is Household.CLothes_Pegs
+.state Body.OnNipples is applied.by.me
+You may take the clothes pegs off.
+.pause Thank you, Miss
+.item Household.Clothes_Pegs remove from Body.Nipples
+.set 812                ' Done nipple training activity
+.range 4490
+
 ' 3237 Mount dildo on a mirror or window pane, sit on heels, nipple clamps
 ' 3239 wall mounted, nipple clamps attached to dildo
-[Action 4461]
-.must -20               ' something on nipples
+[Action 4462]
+.state Body.OnNipples applied
+.state Body.OnNipples is Toys.Nipple_Clamps
+.state Body.OnNipples is applied.by.me
 You may take your nipple clamps off now.
 .pause Thank you, Miss
-.unset -20 20 43        ' something on nipples
+.item Toys.Nipple_Clamps remove
 .set 812                ' Done nipple training activity
 .range 4490
 
 ' 3229  Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs already on
 ' 3237 Mount dildo on a mirror or window pane, sit on heels, nipple clamps
 ' 3239 wall mounted, nipple clamps attached to dildo, nipple clamps already on
-[Action 4462]
-.must 3239
-.mustnot -20
+[Action 4468]
+.state Body.OnNipples applied
+.not .state Body.OnNipples is applied.by.me
 .range 4490
 
 ' Default
