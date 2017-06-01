@@ -1,14 +1,20 @@
 .declare teaselib.Body Enum
 .define Body teaselib.Body
 
-.declare teaselib.Toys Enum
+.declare teaselib.Household Enum
 .define Household teaselib.Household
 
 .declare teaselib.Toys Enum
 .define Toys teaselib.Toys
 
 .declare applied.by String
-.define applied.by.me applied.by.Mine
+.define applied.by.me applied.by.mine-paddle
+
+
+' shortcuts
+
+.define .painToysOnBalls .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnNipples .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 
 
 .backcolor 255 200 200
@@ -533,7 +539,7 @@ Give that red butt a good rubdown now.
 ' Upgrade to nipple clamps
 [Action 1561]
 .must 150               ' Pegs in shower 
-.must 361               ' Nipple clamps
+.item Toys.Nipple_Clamps available
 .unset 150
 .set 151                ' Clamps in shower
 .range 1565
@@ -541,15 +547,16 @@ Give that red butt a good rubdown now.
 ' Clothes pegs, no upgrade to clamps
 [Action 1562]
 .must 150               ' Pegs in shower
-.mustnot 361            ' Nipple clamps
-.must 362               ' clothes pegs
+.not .item Toys.Nipple_Clamps available
+.item Household.Clothes_Pegs available
 .unset 151
 .range 1565
  
 ' No clamps, no pegs
 [Action 1563]
 .must 150               ' Pegs in shower
-.mustnot 361 362        ' Nipple clamps, clothes pegs
+.not .item Toys.Nipple_Clamps available
+.not .item Household.Clothes_Pegs available
 .unset 150 151
 .range 1565
 
@@ -642,12 +649,12 @@ Give that red butt a good rubdown now.
 
 [Action 1581]
 .must 152               ' Balls pegged in shower 
-.must 362               ' clothes pegs
+.item Household.Clothes_Pegs available
 .range 1585
 
 [Action 1582]
 .must 152               ' Balls pegged in shower
-.mustnot 362            ' clothes pegs
+.not .item Household.Clothes_Pegs available
 .unset 152              ' No clothes pegs
 .set 158                ' Balls tied up in shower  
 .range 1585
@@ -868,7 +875,7 @@ Tie your wrists and ankles now.
 You will wear two clothes pegs on your nipples in the shower, slave.
 Put them on now.
 .pause Done, Miss
-.set -20 20 42          ' something on nipples, clothes pegs
+.state Household.Clothes_Pegs apply to Body.OnNipples
 .settime 49 00:15"00    ' remove in or after activity
 .range 1634 1635
 
@@ -876,9 +883,9 @@ Put them on now.
 .must 151
 You will wear your nipple clamps in the shower today, cunt.
 Put them on now.
-.pause Done, Miss
-.set -20 20 43          ' something on nipples, nipple clamps
+.item Toys.Nipple_Clamps apply
 .settime 49 00:00"00    ' remove in or after activity
+.pause Done, Miss
 .range 1634 1635
 
 
@@ -890,9 +897,9 @@ Put them on now.
 .must 152
 Put two clothes pegs on your slave balls now, bitch.
 You'll wear those in the shower, too.
-.pause Done, Miss
-.set -24 24 38          ' something on balls, pussy clips
+.state Household.Clothes_Pegs apply to Body.OnBalls
 .settime 49 00:00"00    ' remove in or after activity
+.pause Done, Miss
 .range 1636 1637
 
 
@@ -1257,36 +1264,48 @@ Did you learn your lesson?
 
 [Action 1689]
 I hope so, slut!
-.range 1699
+.range 1690 1699
 
 
 ' taking off punishment items
 
-' nipple pegs, nipple clamps, gag, ball pegs, wrist restraints, ankle restraints -> 64 actions (ouch)
+' remove items without comments, since they've all been put on for the shower
+' - ensured by jump-pads in mine.sbd
 
-' This is like in mine-maid.sbd where we have to take off a couple of "punishment items".
-' Additionally to mention the items to take off, there are also different phrases to take them off.
-' Friendly: "You may ... now", Neutral: "You can ..."
-' Implementing this would result in an enormous amount of actions and cannot be done here
-' But the punishment shower has so many requirements (unset 20, 24, 25, 26, ...),
-' so it should be very clear what to take off 
+[Action 1690]
+.item Toys.Nipple_Clamps is applied.by.me 
+.item Toys.Nipple_Clamps remove
+.set 812
+.range 1690 1699
+ 
+[Action 1691]
+.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
+.item Household.Clothes_Pegs remove from Body.OnBalls
+.set 259
+.range 1690 1699
 
-'.mustnot 20 24 25       ' something on nipples, something on balls, ankles tied
-'.mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
-'.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
+[Action 1692]
+.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
+.item Household.Clothes_Pegs remove from Body.OnNipples
+.set 812
+.range 1690 1699
 
-' -> only mention to keep the gag
+[Action 1694]
+.item Toys.Gag is applied.by.me 
+.item Toys.Gag remove
+.range 1690 1699
 
-' punishment shower complete
+'[Action 1695]
+'.range 1690 1699
+'[Action 1696]
+'.range 1690 1699
+'[Action 1697]
+'.range 1690 1699
+'[Action 1698]
+'.range 1690 1699
+ 
 [Action 1699]
-.ifset -20 .unset -20 20 42 43    ' nipples
-.ifset -20 .set 812               ' Done nipple training activity
-.ifset -22 .unset -22 22          ' gag
-.ifset -24 .unset -24 24 38 39    ' ballsack
-'.ifset -24 .set 259               ' Done ball sack pegs or pussy clamps
-'.ifset 153 .set 264                ' Spanking done
-'.ifset 154 .set 264                ' Spanking done
-'.ifset 155 .set 264                ' Spanking done
+.else
 .range 9800 9899
 
 
@@ -2251,6 +2270,8 @@ Now tiptoe over to that corner, you naughty boy, and think about the error of yo
 .keyrelease release
 Very good, slave.
 You may now take off your handcuffs and nipple clamps.
+.item Toys.Wrist_Restraints remove
+.item Toys.Nipple_Clamps remove
 .pause Thank you, Miss
 .set 812                ' Done nipple training activity
 .range 2140
@@ -2261,6 +2282,7 @@ You may now take off your handcuffs and nipple clamps.
 .playwav whip.mp3
 Good boy.
 You may take off those nipple clamps now.
+.item Toys.Nipple_Clamps remove
 .pause Thank you, Miss
 .set 812                ' Done nipple training activity
 .range 2140
@@ -2272,6 +2294,7 @@ You may take off those nipple clamps now.
 .keyrelease release
 Good boy.
 You may take off the handcuffs.
+.item Toys.Wrist_Restraints remove
 .pause Thank you, Miss
 .range 2140
 
@@ -2342,13 +2365,13 @@ Good boy, slave.
 
 
 [Action 2191]
-.mustnot 361                      ' Nipple clamps
+.not .item Toys.Nipple_Clamps available
 .set 127                          ' no clamps
 .unset 128 129                    ' 50%, 100% clamps
 .return
 
 [Action 2192]
-.must 20                          ' something on nipples
+.state Body.OnNipples applied
 .set 127                          ' no clamps
 .unset 128 129                    ' 50%, 100% clamps
 .return
@@ -2366,8 +2389,8 @@ Good boy, slave.
 '[Action 2198]
 
 [Action 2199]
-.must 361                         ' Nipple clamps
-.mustnot 20                       ' something on nipples
+.item Toys.Nipple_Clamps available
+.state Body.OnNipples free
 .mustnot 812                      ' Done nipple training activity
 .return
 
@@ -2879,10 +2902,17 @@ Now tell me what you are!
 ' one of the "before session" assignments is to
 ' wear pegs on balls, so we have to account for it
 
-[Action 2318]
-.must 24 38        ' Something on balls, pegs
+[Action 2317]
+.painToysOnNipples
 Indeed you are!
-.unset 724 725     ' Limit corner time because pegs on ball sack are severe
+.unset 725         ' Limit corner time 25m
+.set 811           ' Magic marker applied
+.range 1700        ' Light punishment
+
+[Action 2318]
+.painToysOnBalls
+Indeed you are!
+.unset 724 725     ' Limit corner time to 20m
 .set 811           ' Magic marker applied
 .range 1700        ' Light punishment
 

@@ -1,3 +1,16 @@
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Household Enum
+.define Household teaselib.Household
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+.declare applied.by String
+.define applied.by.me applied.by.mine-sb
+
+
 .backcolor 0 0 0
 .textcolor 255 255 255
 .ssdir sb
@@ -238,11 +251,12 @@ except for the tits.
 .range 2019
 
 [Action 2019]
-.keyrelease prepare 1800
+.keyrelease start 1800
+.delay 20
 Mmm, I like that.
 I think I'll leave you there for a half hour or so, My slave.
 I hope you enjoy your bondage as much as I like watching it!
-.delay 20
+.item Toys.Wrist_Restraints apply to Body.WristsTiedBehindBack
 .range 8100
 
 
@@ -282,6 +296,7 @@ Okay, slave, I'll give you two minutes to make your final preparations.
 .keyrelease start 2400
 You should be locked in now, slave!
 lock.mp3
+.item Toys.Wrist_Restraints apply to Body.WristsTiedBehindBack
 delay 10
 Now you'll just have to wait it out.
 .range 8800
@@ -343,6 +358,7 @@ Then get the ropes I mentioned, clear a space on the floor and tie your ankles t
 
 [Action 2048]
 Now put the nipple clamps on and attach the weight.
+.item Toys.Nipple_Clamps apply to Household.Weight
 .pause Clamps and weight attached, Miss 
 .range 2050
 
@@ -360,6 +376,7 @@ Lock your wrists together behind your back!
 delay 10
 lock.mp3
 delay 5
+.item Toys.Wrist_Restraints apply to Body.WristsTiedBehindBack
 .range 2052
 
 [Action 2052]
@@ -367,6 +384,7 @@ delay 5
 Now you're my prisoner, slave.
 I hope those nipple clamps are feeling good,
 because you will be wearing them for about twenty minutes.
+.settime 49 +00:20"00
 Have fun!
 .range 8000
 
@@ -411,7 +429,9 @@ Tell me when you have them all handy.
 ' .range 2106 2107
 .range 2110
 
+
 ' Ring gag - disabled
+' TODO model item queries -> query ring gag and use it
 
 [Action 2106]
 .must 367               ' gag
@@ -455,7 +475,7 @@ don't let it melt too far, now.
 You'll need to have some way to connect it to your nipple clamp chain, too.
 .pause I have everything ready, Miss
 .set 210      ' ice cube
-.unset 211
+.unset 211    ' Key nearby
 .range 2117
 
 [Action 2116]
@@ -466,6 +486,7 @@ If you have another, go freeze it right now, so we have it for next time!
 In the meantime, you'll need a good heavy weight you can hang from those nips of yours for now.
 .pause I have the weight, Miss
 .unset 210
+.unset 210    ' ice cube
 .set 211      ' key nearby
 .range 2117
 
@@ -480,38 +501,44 @@ Now clear a space, kneel down, and get ready.
 .image isb2b.jpg
 Take your clothes pegs, and stick them on your enslaved balls.
 Quickly!
+.state Household.Clothes_Pegs apply to Body.OnBalls
 .delay 20
 .range 2119
 
 [Action 2119]
 .image isb2c.jpg
-Tie your legs in the squatting position, as our model is demonstrating.
+Tie your legs in the squatting position,
+as our model is demonstrating.
 I'll give you one minute, slave, so hurry up.
 .delay 90
 .range 2120
 
 [Action 2120]
 .image isb2d.jpg
+.delay 30
 Put those nipple clamps on, slave.
 Make them nice and tight!
-.delay 30
+.item Toys.Nipple_Clamps apply
 .range 2121 2122
 
+
 [Action 2121]
+.must 210          ' frozen ice
 .image isb2e.jpg
 Now, get the ice cube, and attach it to the nipple clamp chain,
 as our model is doing.
 And smile when you do!
+.item Toys.Nipple_Clamps apply to Household.IceCube
 .delay 20
-.must 20            ' frozen ice
 .range 2123 2124 
 
 [Action 2122]
+.must 211          ' key nearby
 Unfortunately, you're too stupid to have an ice cube, so we'll have to make do.
 .image isb2e.jpg
 Go ahead and put the nice weight on those nipple clamps for now.
 .delay 20
-.must 11            ' key nearby
+.item Toys.Nipple_Clamps apply to Household.Weight
 '.range 2123 2124
 .range 2125 2126
 
@@ -548,11 +575,13 @@ Get those handcuffs ready and make sure you can get to the key when I tell you t
 .delay 30
 .range 2127
 
+
 [Action 2127]
 .image isb2i.jpg
 Hands behind your back, slave, and lock'em up!
 delay 10
 lock.mp3
+.item Toys.Wrist_Restraints apply to Body.WristsTiedBehindBack
 delay 10
 .range 2129 2130
 
@@ -568,7 +597,7 @@ and tell me to let Me know you've finished freeing yourself.
 
 [Action 2130]
 .must 211           ' key nearby
-.keyrelease start 3600
+.keyrelease start 1800
 Just lay back and enjoy yourself, slave.
 I think you're good for a half hour or so.
 .image isb2k.jpg
@@ -594,6 +623,9 @@ I think you're good for a half hour or so.
 
 
 ' key nearby, wait for mistress' order
+
+' TODO Timing not 100% correct because of the looping -> use timer
+
 
 ' 20 minutes or so
 [Action 8000]
@@ -681,6 +713,7 @@ I think you're good for a half hour or so.
 Very good, slave.
 You may use the knife to release yourself.
 .pause I'm free, Miss
+.item Toys.Wrist_Restraints remove
 .range 9106 9109
 
 [Action 9002]
@@ -688,6 +721,7 @@ You may use the knife to release yourself.
 .keyrelease release
 That's a good slave.
 .pause I'm free, Miss
+.item Toys.Wrist_Restraints remove
 .range 9107 9109
 
 [Action 9003]
@@ -697,6 +731,9 @@ Good boy, slave.
 You may take off the nipple clamps, ropes, and clothes pegs,
 but you'll keep on the rope harness,
 which you may wear or the rest of the session.
+.item Toys.Nipple_Clamps remove
+.state Household.Clothes_Pegs remove from Body.OnBalls
+.item Toys.Wrist_Restraints remove
 .pause I'm free, Miss
 .set 812                ' Done nipple training activity
 .range 9107 9109
@@ -708,6 +745,8 @@ That's a good boy, slave.
 You may free yourself and remove the nipple clamps and ropes,
 with the exception of the rope harness.
 You may wear that for the rest of the session.
+.item Toys.Nipple_Clamps remove
+.item Toys.Wrist_Restraints remove
 .pause I'm free, Miss
 .set 812                ' Done nipple training activity
 .range 9105
