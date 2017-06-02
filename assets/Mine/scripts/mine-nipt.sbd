@@ -1,3 +1,22 @@
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Household Enum
+.define Household teaselib.Household
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+.declare applied.by String
+.define applied.by.me applied.by.mine-nipt
+
+
+' shortcuts
+
+.define .painToysOnBalls .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnNipples .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+
+
 .backcolor 255 80 80
 .textcolor 0 0 0
 .ssdir nipt
@@ -141,25 +160,43 @@ delay 5
 .mustnot 30             ' can't jerk off
 And remember to keep that cock nice and hard during the workout, however you can.
 We'll start up with some jumping jacks, and I want to see good extension.
-.range 5010
+.range 5008 5010
 
 [Action 5005]
 .must 44                ' Chastifed
 We'll start up with some jumping jacks,
 and I'd like to see that cage bouncing up and down too.
-.range 5010
+.range 5008 5010
 
 [Action 5006]
 .must 30                ' can't jerk off
 .mustnot 44             ' Chastified
-We'll start up with some jumping jacks.
-.range 5010
+We'll start up with some jumping jacks,
+and I'd like to see that cock bouncing up and down too.
+.range 5008 5010
 
+
+[Action 5008]
+.state Body.OnNipples is Toys.Nipple_Clamps
+Make sure your nipple clamps sit tight,
+and hold the pegs in your hands.
+delay 5
+.range 5011 5015
+
+[Action 5009]
+.state Body.OnNipples is Household.Clothes_Pegs
+Make sure the pegs on your nipples sit tight,
+and hold the other pegs in your hands.
+delay 5
+.range 5011 5015
 
 [Action 5010]
-First, put one clothes peg on each nipple.
+.else
+First, put a clothes peg on each nipple.
 Hold the remaining pegs in your hands.
-delay 15
+delay 10
+.state Household.Clothes_Pegs apply to Body.OnNipples
+.settime 49 00:00"00    ' remove in or after activity
 .range 5011 5015
 
 ' TODO Add repeating slap sounds, with timing according to the workout
@@ -191,89 +228,105 @@ Jump, slave!
 
 [Action 5015]
 .numactionsfrom 5010 10
+.delay 20
 Okay, slave, put two clothes pegs on your ball sack.
 We're going to try some running in place now.
-.delay 20
+.state Household.Clothes_Pegs apply to Body.OnBalls
+.settime 49 00:00"00    ' remove in or after activity
 .range 5016
 
 
 [Action 5016]
+.delay 20 40
 Start running, slave.
 Get those knees up!
-.delay 20 40
 .range 5017
 
 [Action 5017]
+.delay 20 40
 Knees up, slave!
 Keep those legs pumping!
-.delay 20 40
 .range 5018 5019
+
 
 [Action 5018]
 .mustnot 30             ' can't jerk off
-That cock better be hard, slave, and that heart better be beating good!
 .delay 20 40
-.range 5020
+That cock better be hard, slave, and that heart better be beating good!
+.range 5020 5021
 
 [Action 5019]
 .must 30                ' can't jerk off
-And that heart better be beating good!
 .delay 20 40
-.range 5020
+And that heart better be beating good!
+.range 5020 5021
+
 
 [Action 5020]
-Keep running, slave, and put two more clothes pegs on your slave titties.
 .delay 20 40
-.range 5021
-
-[Action 5021]
-Keep those knees up, slave!
-.delay 20 40
+.state Body.OnNipples is Toys.Nipple_Clamps
+Keep running, slave,
+and put two clothes pegs on your slave titties next to the nipple clamps.
 .range 5022
 
+[Action 5021]
+.state Body.OnNipples is Household.Clothes_Pegs
+.delay 20 40
+Keep running, slave, and put two more clothes pegs on your slave titties.
+.state Household.Clothes_Pegs apply to Body.OnNipples
+.range 5022
+
+
 [Action 5022]
+Keep those knees up, slave!
+delay 15 30
+[]
 Okay, slave, you can stop running.
 delay 2
 Let's rest for a second.
-.delay 20
+delay 10 25
 .range 5023
 
 [Action 5023]
+.delay 30
 Start shaking those titties for Me, slave.
 Back and forth!
-.delay 30
 .range 5024
 
 [Action 5024]
+.delay 30
 Keep shaking those nipples!
 Side to side!
-.delay 30
 .range 5025
 
 [Action 5025]
 Now get down on your belly, slave, and give me some push-ups.
+delay 5
 .range 5026
 
+
 [Action 5026]
+.delay 5
 Give me a push-up!
 .playwav slap_2.mp3
-.delay 5
 .unset 5026
 .range 5026 5029
 
-
 [Action 5028]
 .numactionsfrom 5025 10
+.state Body.OnNipples is Toys.Nipple_Clamps
+.delay 25
 Very good, slave.
-Put the last two clothes pegs on your slave titties.
-.delay 15
+Put two more clothes pegs on your slave titties,
+and the last two pegs on your slutty ball sack.
 .range 5030
 
 [Action 5029]
-.numactionsfrom 5025 6
+.else
+.numactionsfrom 5025 10
+.delay 15
 Very good, slave.
-Put the last four clothes pegs on your slave titties, two on each side.
-.delay 20
+Put the last two clothes pegs on your slave titties.
 .range 5030
 
 
@@ -283,18 +336,18 @@ We'll finish off with some bunny hops.
 .range 5031
 
 [Action 5031]
-Start hopping in place!
 .delay 20 40
+Start hopping in place!
 .range 5032
 
 [Action 5032]
-Keep hopping!
 .delay 20 40
+Keep hopping!
 .range 5033
 
 [Action 5033]
-Hop, bunny, hop!
 .delay 20 40
+Hop, bunny, hop!
 .range 5034
 
 [Action 5034]
@@ -302,25 +355,78 @@ Okay, slave, that's enough.
 Come back and kneel back down.
 .range 5035 5036
 
+
 [Action 5035]
-.must 216               ' Clamps or pegs temporary (favors clamps)
-.must 361               ' nipple clamps
+.item Toys.Nipple_Clamps applied
 I'll give you a minute to cool down and to feel those clamps and pegs a little better.
 .delay 60 120
-.range 5044 5046
+.range 5042 5044
 
 [Action 5036]
-.else
+.state Body.OnNipples is Household.Clothes_Pegs
 I'll give you a minute to cool down and to feel those clothes pegs a little better.
 .delay 60 120
-.range 5044
+.range 5042 5044
 
 
-[Action 5044]
+[Action 5042]
+.state Body.OnNipples is Toys.Nipple_Clamps
+.not .item Toys.Nipple_Clamps is applied.by.me 
 Okay, slave, that was a good little workout.
 You may take off the clothes pegs now.
+.state Household.Clothes_Pegs remove from Body.OnBalls
+.state Household.Clothes_Pegs remove from Body.OnNipples
+delay 5
+I see that you really seem to enjoy your nipple clamps,
+so keep them on.
+delay 2
+I'll tell you to take them off a little later.
 .pause Thank you, Miss
+.range 5045 5049
+
+[Action 5043]
+.state Body.OnNipples is Toys.Nipple_Clamps
+.item Toys.Nipple_Clamps is applied.by.me 
+Okay, slave, that was a good little workout.
+You may take off the clamps and pegs now.
+.pause Thank you, Miss
+.range 5045 5049
+
+[Action 5044]
+.not .state Body.OnNipples is Toys.Nipple_Clamps
+.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
+.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
+Okay, slave, that was a good little workout.
+You may take off the clothes pegs now.
+.state Household.Clothes_Pegs remove from Body.OnBalls
+.state Household.Clothes_Pegs remove from Body.OnNipples
+.pause Thank you, Miss
+.range 5045 5049
+
+
+[Action 5045]
+.item Toys.Nipple_Clamps is applied.by.me 
+.item Toys.Nipple_Clamps remove
+.set 812                '  Nipple training done
+.range 5045 5049
+ 
+[Action 5046]
+.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
+.state Household.Clothes_Pegs remove from Body.OnBalls
+.set 259                ' Done ball sack pegs or pussy clamps
+.range 5045 5049
+
+[Action 5047]
+.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
+.state Household.Clothes_Pegs remove from Body.OnNipples
+.set 812                '  Nipple training done
+.range 5045 5049
+
+[Action 5049]
+.else
 .range 9000 9099
+
+
 
 
 ' 200 -- plain pins (1) on nips
@@ -349,6 +455,7 @@ Put two clothes pegs on each nipple to get you started.
 .set 201                ' plain pins on nips (1 each) -> make 2 on each nipple
 .unset 202 203 204
 .range 6502
+
 
 [Action 6502]
 You will also need to get some small weights and some string, or thin rope,  or something like that.

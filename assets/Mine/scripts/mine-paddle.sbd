@@ -876,7 +876,7 @@ You will wear two clothes pegs on your nipples in the shower, slave.
 Put them on now.
 .pause Done, Miss
 .state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:15"00    ' remove in or after activity
+.settime 49 00:00"00    ' remove in or after activity
 .range 1634 1635
 
 [Action 1633]
@@ -1275,19 +1275,19 @@ I hope so, slut!
 [Action 1690]
 .item Toys.Nipple_Clamps is applied.by.me 
 .item Toys.Nipple_Clamps remove
-.set 812
+.set 812                '  Nipple training done
 .range 1690 1699
  
 [Action 1691]
 .ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
-.item Household.Clothes_Pegs remove from Body.OnBalls
-.set 259
+.state Household.Clothes_Pegs remove from Body.OnBalls
+.set 259                ' Done ball sack pegs or pussy clamps
 .range 1690 1699
 
 [Action 1692]
 .ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
-.item Household.Clothes_Pegs remove from Body.OnNipples
-.set 812
+.state Household.Clothes_Pegs remove from Body.OnNipples
+.set 812                '  Nipple training done
 .range 1690 1699
 
 [Action 1694]

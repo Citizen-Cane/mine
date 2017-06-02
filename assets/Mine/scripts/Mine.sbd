@@ -12452,7 +12452,7 @@ I will have to punish you later for failing your training.
 
 ' light cardio nips
 [Action 5806]
-.state Body.OnNipples free
+.not .state Body.OnNipples is Household.Clothes_Pegs
 .state Body.OnBalls is free
 .item Household.Clothes_Pegs available
 .mustnot 25 26 29            ' ankles tied, wrists tied, blindfolded 
@@ -12491,9 +12491,10 @@ I will have to punish you later for failing your training.
 
 ' nipple clamp weight lifting
 [Action 5818]
+.state Body.OnNipples free
 .item Toys.Nipple_Clamps canApply
 .item Toys.Nipple_Clamps available
-.not .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.not .painToysOnBalls
 .mustnot 812                 ' Done nipple training activity already
 .mustnot 25 29 32            ' ankles tied, blindfolded, can't stand
 .mustnot 30                  ' can't jerk off: Wanking is required to ease the pain on the nipples
@@ -12505,6 +12506,7 @@ I will have to punish you later for failing your training.
 .range 5966
 
 ' shake those titties
+.state Body.OnNipples free
 .item Toys.Nipple_Clamps canApply
 .item Toys.Nipple_Clamps available
 .item Household.Clothes_Pegs available
