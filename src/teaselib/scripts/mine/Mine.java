@@ -48,6 +48,8 @@ public class Mine extends Player {
 
     private static final String[] OptionalAssets = { "Mine Speech.zip" };
 
+    private static final String MistressVanaImageResources = "mistress/Vana/";
+
     // TODO Map all punishments to state
     public enum Punishment {
         BadIntroduction,
@@ -77,13 +79,21 @@ public class Mine extends Player {
     }
 
     public Mine(TeaseLib teaseLib) {
-        this(teaseLib, "mistress/Vana/");
+        this(teaseLib, MistressVanaImageResources);
+    }
+
+    public Mine(TeaseLib teaseLib, File basePath) {
+        this(teaseLib, basePath, MistressVanaImageResources);
     }
 
     public Mine(TeaseLib teaseLib, String mistressPath) {
-        super(teaseLib, new ResourceLoader(Mine.class, ResourcesRoot, Assets, OptionalAssets), MineMistress, Namespace,
+        this(teaseLib, ResourceLoader.getProjectPath(Mine.class), mistressPath);
+    }
+
+    public Mine(TeaseLib teaseLib, File basePath, String mistressPath) {
+        super(teaseLib, new ResourceLoader(basePath, ResourcesRoot, Assets, OptionalAssets), MineMistress, Namespace,
                 mistressPath);
-        resources.addAssets(OptionalAssets);
+        // resources.addAssets(OptionalAssets);
 
         mapToysToMultipleItems();
         mapToysToSingleItem();
