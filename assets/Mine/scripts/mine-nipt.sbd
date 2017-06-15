@@ -195,7 +195,7 @@ delay 5
 First, put a clothes peg on each nipple.
 Hold the remaining pegs in your hands.
 delay 10
-.state Household.Clothes_Pegs apply to Body.OnNipples
+.item Household.Clothes_Pegs apply to Body.OnNipples
 .range 5011 5015
 
 ' TODO Add repeating slap sounds, with timing according to the workout
@@ -230,7 +230,7 @@ Jump, slave!
 .delay 20
 Okay, slave, put two clothes pegs on your ball sack.
 We're going to try some running in place now.
-.state Household.Clothes_Pegs apply to Body.OnBalls
+.item Household.Clothes_Pegs apply to Body.OnBalls
 .range 5016
 
 
@@ -271,7 +271,7 @@ and put two clothes pegs on your slave titties next to the nipple clamps.
 .state Body.OnNipples is Household.Clothes_Pegs
 .delay 20 40
 Keep running, slave, and put two more clothes pegs on your slave titties.
-.state Household.Clothes_Pegs apply to Body.OnNipples
+.item Household.Clothes_Pegs apply to Body.OnNipples
 .range 5022
 
 
@@ -372,8 +372,8 @@ I'll give you a minute to cool down and to feel those clothes pegs a little bett
 .not .item Toys.Nipple_Clamps is applied.by.me 
 Okay, slave, that was a good little workout.
 You may take off the clothes pegs now.
-.state Household.Clothes_Pegs remove from Body.OnBalls
-.state Household.Clothes_Pegs remove from Body.OnNipples
+.item Household.Clothes_Pegs remove from Body.OnBalls
+.item Household.Clothes_Pegs remove from Body.OnNipples
 delay 5
 I see that you really seem to enjoy your nipple clamps,
 so keep them on.
@@ -396,8 +396,8 @@ You may take off the clamps and pegs now.
 .item Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
 Okay, slave, that was a good little workout.
 You may take off the clothes pegs now.
-.state Household.Clothes_Pegs remove from Body.OnBalls
-.state Household.Clothes_Pegs remove from Body.OnNipples
+.item Household.Clothes_Pegs remove from Body.OnBalls
+.item Household.Clothes_Pegs remove from Body.OnNipples
 .pause Thank you, Miss
 .range 5045 5049
 
@@ -410,13 +410,13 @@ You may take off the clothes pegs now.
  
 [Action 5046]
 .item Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
-.state Household.Clothes_Pegs remove from Body.OnBalls
+.item Household.Clothes_Pegs remove from Body.OnBalls
 .set 259                ' Done ball sack pegs or pussy clamps
 .range 5045 5049
 
 [Action 5047]
 .item Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
-.state Household.Clothes_Pegs remove from Body.OnNipples
+.item Household.Clothes_Pegs remove from Body.OnNipples
 .set 812                '  Nipple training done
 .range 5045 5049
 
