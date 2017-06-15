@@ -13,9 +13,9 @@
 
 ' shortcuts
 
-.define .painToysOnBalls .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
-.define .painToysOnNipples .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
-
+.define .painToysOnBalls .state Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnNipples .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.define durationForAllowingAnotherPosition 00:10"00
 
 .restore                ' restores 390 699
 
@@ -366,6 +366,10 @@
 '   -> such toys are avoided, but still used if there wouldn't be a position available otherwise
 ' - avoid toys that are handled statically in the position setup by using ".mustnot x"
 '
+' clamps & pegs usage:
+' always apply new toys over 00:10"00 (defined as durationForAllowingAnotherPosition),
+'  to allow for another position (checks remaining duration to take off externally paintoys in time) 
+' this is checked in 9711, with remaining time of 00:08"00 (10"00 with some head room)
 ' 
 ' key release handling:
 ' - key release statements are ignored when there's no key release device present,
@@ -971,8 +975,10 @@ Let's continue your slave training.
 ' Medium, easy
 [Action 1204]
 .must 171
-.timeto 49 -00:08"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:08"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:08"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:08"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:08"00
+.item Toys.enema_kit free or remaining greaterThan 00:08"00
 .set 101 110
 .range 1219
 
@@ -985,16 +991,20 @@ Let's continue your slave training.
 ' Medium, moderate
 [Action 1206]
 .must 172
-.timeto 49 -00:08"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:08"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:08"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:08"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:08"00
+.item Toys.enema_kit free or remaining greaterThan 00:08"00
 .set 101 111
 .range 1219
 
 ' Long, easy
 [Action 1207]
 .must 172
-.timeto 49 -00:08"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:08"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:08"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:08"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:08"00
+.item Toys.enema_kit free or remaining greaterThan 00:08"00
 .set 102 110
 .range 1219
 
@@ -1007,71 +1017,90 @@ Let's continue your slave training.
 ' Medium, hard
 [Action 1209]
 .must 173
-.timeto 49 -00:10"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:10"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:10"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:10"00
+.item Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 101 112
 .range 1219
 
 ' Long, moderate
 [Action 1210]
 .must 173
-.timeto 49 -00:10"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:10"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:10"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:10"00
+.item Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 102 111
 .range 1219
 
 ' Very long, easy
 [Action 1211]
 .must 173
-.timeto 49 -00:10"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:10"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:10"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:10"00
+.item Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 103 110
 .range 1219
 
 ' Medium, extreme
 [Action 1212]
 .must 174
-.timeto 49 -00:12"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:12"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:12"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:12"00
+.item Toys.enema_kit free or remaining greaterThan 00:12"00
 .set 101 113
 .range 1219
 
 ' Long, hard
 [Action 1213]
 .must 174
-.timeto 49 -00:12"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:12"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:12"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:12"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:12"00
+.item Toys.enema_kit free or remaining greaterThan 00:12"00
 .set 102 112
 .range 1219
 
 ' Very long, moderate
 [Action 1214]
 .must 174
-.timeto 49 -00:12"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:12"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:12"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:12"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:12"00
+.item Toys.enema_kit free or remaining greaterThan 00:12"00
 .set 103 111
 .range 1219
 
 ' Long, extreme
 [Action 1215]
 .must 175
-.timeto 49 -00:15"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:12"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:12"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:12"00
+.item Toys.enema_kit free or remaining greaterThan 00:12"00
 .set 102 113
 .range 1219
 
 ' Very long, hard
 [Action 1216]
 .must 175
-.timeto 49 -00:15"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:15"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:15"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:15"00
+.item Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 103 112
 .range 1219
 
 ' Very long, extreme
 [Action 1217]
 .must 176
-.timeto 49 -00:18"00
-.ifstate Toys.enema_kit free or remaining greaterThan 00:18"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:18"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:18"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:18"00
+.item Toys.enema_kit free or remaining greaterThan 00:18"00
 .set 103 113
 .range 1219
 
@@ -1449,7 +1478,7 @@ Let's continue your slave training.
 
 ' 502 4pt kneel, nipple clips, collar, hands behind butt, knees 1x
 [Action 1502]
-.ifstate Body.OnNipples is Household.Clothes_Pegs OR free
+.state Body.OnNipples is Household.Clothes_Pegs OR free
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' wrists tied, as hands are behind butt
@@ -1489,7 +1518,7 @@ Let's continue your slave training.
 
 ' 505 4pt kneel 1x, hands behind back, nipple clamps, gag, heels
 [Action 1505]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' wrists tied
 .shouldnot 28           ' collared
@@ -1533,7 +1562,7 @@ Let's continue your slave training.
 
 ' 508 2pt sit on knees, hands on knees, knees wide, nipple clamps, collar, leash
 [Action 1508]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' wrists tied
@@ -1547,7 +1576,7 @@ Let's continue your slave training.
 
 ' 509 2pt sit on knees, hands behind head, knees wide, nipple clamps, collar, leash
 [Action 1509]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .shouldnot 26           ' wrists tied
@@ -1561,7 +1590,7 @@ Let's continue your slave training.
 
 ' 510 4pt kneel, knees 1.5x, hands on thighs, collar, leash, nipple clamps
 [Action 1510]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .shouldnot 26           ' wrists tied
@@ -1628,7 +1657,7 @@ Let's continue your slave training.
 
 ' 515 6pt kneelover on knuckles, knees 1.5x/hands 2x, nipple clamps, head up, wrist restraints, heels
 [Action 1515]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .mustnot 25             ' ankles tied
@@ -1642,7 +1671,7 @@ Let's continue your slave training.
 
 ' 516 standing, nipple clamps, hands behind head, legs 2x, heels
 [Action 1516]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .mustnot 25             ' ankles tied
 .shouldnot 26           ' wrists tied
@@ -1656,7 +1685,7 @@ Let's continue your slave training.
 
 ' 517 standing, nipple clamps, hands folded behind back, legs 2x, heels
 [Action 1517]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .mustnot 25             ' ankles tied
 .mustnot 26             ' wrists tied, tied on back
@@ -1670,7 +1699,7 @@ Let's continue your slave training.
 
 ' 518 standing, nipple clamps, collar, wrist restraints, legs wide, heels, hands behind butt, elbows out
 [Action 1518]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .mustnot 25             ' ankles tied
 .mustnot 26             ' wrists tied
@@ -1684,7 +1713,7 @@ Let's continue your slave training.
 
 ' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
 [Action 1519]
-.ifstate Body.OnNipples free OR is Household.Clothes_Pegs
+.state Body.OnNipples free OR is Household.Clothes_Pegs
 .shouldnot 22           ' something in mouth
 .state Body.OnBalls is free
 .shouldnot 25           ' ankles tied
@@ -1699,7 +1728,7 @@ Let's continue your slave training.
 
 ' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
 [Action 1520]
-.ifstate Body.OnNipples free OR is Household.Clothes_Pegs
+.state Body.OnNipples free OR is Household.Clothes_Pegs
 .shouldnot 22           ' something in mouth
 .state Body.OnBalls is free
 .mustnot 25             ' ankles tied
@@ -1735,7 +1764,7 @@ Let's continue your slave training.
 
 ' 576 On table, crouch on toes, hands behind butt, legs wide, nipple clamps, collar, heels, big smile, crotch rope
 [Action 1576]
-.ifitem Toys.Pussy_Clamps canApply OR applied
+.item Toys.Pussy_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .mustnot 25             ' ankles tied
 .mustnot 26             ' Wrists tied, as hands are hold on back
@@ -1768,7 +1797,7 @@ Let's continue your slave training.
 
 ' 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
 [Action 1578]
-.ifitem Toys.Pussy_Clamps canApply OR applied
+.item Toys.Pussy_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .shouldnot 28           ' collared
@@ -1780,13 +1809,13 @@ Let's continue your slave training.
 
 ' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
 [Action 1579]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .mustnot 25             ' ankles tied
 .shouldnot 26           ' wrists tied
 .shouldnot 28           ' collared
 .mustnot 32             ' Can't stand
-.ifitem Toys.Pussy_Clamps canApply OR applied
+.item Toys.Pussy_Clamps canApply OR applied
 .mustnot 179            ' not suitable as punishment, since we decided to threat pussy clamps as a surprise
 .shouldnot 579          ' prefer a position that hasn't been done before
 .mustnot 5790 5791 5792 5793     ' just once
@@ -1813,7 +1842,7 @@ Let's continue your slave training.
 
 ' 581 standing, heels, hands behind butt, legs together, nipple clamps w/ chain in mouth, collar
 [Action 1581]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .mustnot 22             ' something in mouth
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' Wrists tied, as hands are hold on back
@@ -1826,7 +1855,7 @@ Let's continue your slave training.
 
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
 [Action 1582]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' Wrists tied, as hands are hold on back
@@ -1985,7 +2014,7 @@ Let's continue your slave training.
 
 ' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
 [Action 1642]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .mustnot 25             ' ankles tied
 .shouldnot 26           ' wrists tied
@@ -2002,7 +2031,7 @@ Let's continue your slave training.
 
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
 [Action 1643]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .shouldnot 25           ' ankles tied
 .mustnot 26             ' Wrists tied, as hands are hold on back
@@ -2069,7 +2098,7 @@ Let's continue your slave training.
 
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
 [Action 1647]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' something in mouth
 .mustnot 25             ' ankles tied
 .mustnot 26             ' wrists tied
@@ -2090,7 +2119,7 @@ Let's continue your slave training.
 
 ' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
 [Action 1648]
-.ifstate Body.OnNipples free OR is Household.Clothes_Pegs
+.state Body.OnNipples free OR is Household.Clothes_Pegs
 .shouldnot 22           ' something in mouth
 .state Body.OnBalls is free
 .shouldnot 25           ' ankles tied
@@ -2105,7 +2134,7 @@ Let's continue your slave training.
 
 ' 520 standing, legs wide, hands on hips, nipple & pussy clips, heels
 [Action 1649]
-.ifstate Body.OnNipples free OR is Household.Clothes_Pegs
+.state Body.OnNipples free OR is Household.Clothes_Pegs
 .shouldnot 22           ' something in mouth
 .state Body.OnBalls is free
 .mustnot 25             ' ankles tied
@@ -2154,7 +2183,7 @@ Let's continue your slave training.
 
 ' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
 [Action 1652]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .shouldnot 22           ' Something in mouth
 .mustnot 25 26          ' Ankles tied, wrists tied
 .mustnot 32             ' Because the slave has to fetch tray and a glass from the kitchen
@@ -2167,7 +2196,7 @@ Let's continue your slave training.
 
 ' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
 [Action 1653]
-.ifitem Toys.Nipple_Clamps canApply OR applied
+.item Toys.Nipple_Clamps canApply OR applied
 .mustnot 22             ' something in mouth
 .item Toys.Pussy_Clamps canApply
 .mustnot 25 26          ' Ankles tied, wrists tied
@@ -6252,8 +6281,7 @@ I bet you'll enjoy this position as much as I do.
 .delay 30
 .image bd228_04.jpg
 Go ahead, put on your collar and pop a clothes peg on each nipple, slave.
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:00"00         ' remove in or after activity
+.item Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5028
 
@@ -6268,8 +6296,7 @@ Go ahead and put on your collar, slave.
 .delay 20
 .image bd228_04.jpg
 Go ahead and pop a clothes peg on each nipple, slave.
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:00"00         ' remove in or after activity
+.item Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
 .range 5028
 
 [Action 5027]
@@ -6313,8 +6340,7 @@ Now, pop two on each nipple.
 delay 1
 Make sure that they're nice and tight,
 and that they're right on the end of the nipple.
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
 .range 5032
 
 [Action 5032]
@@ -6521,8 +6547,7 @@ delay 15
 bd180_23.jpg
 Make sure they sit tight.
 delay 15
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5059 5060
 
 
@@ -6641,8 +6666,7 @@ bd178_10.jpg
 Put the collar around your neck and snap the clamps on your poor little titties.
 .pause I'm prepared to serve, Miss
 .set -28 28                  ' collared
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5076
 
 [Action 5075]
@@ -6651,8 +6675,7 @@ Let's start with the clamps.
 bd178_10.jpg
 Snap them on your poor little titties.
 .pause I'm prepared to serve, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5076
 
 
@@ -6745,8 +6768,7 @@ You do have a leash, don't you, slave?
 bd069_15.jpg
 .delay 40
 Go ahead, put on your collar, atttach the leash and pop those nipple clamps on your nipples, slave.
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5089
 
@@ -6763,8 +6785,7 @@ Go ahead and put on your collar and attach the leash, slave.
 bd069_15.jpg
 .delay 30
 Go ahead, pop those nipple clamps on your nipples and attach the leash to your collar, slave.
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5089
 
 [Action 5088]
@@ -6836,8 +6857,7 @@ You do have a leash, don't you, slave?
 bd069_15.jpg
 Go ahead, put on your collar, atttach the leash and pop those clamps on your nipples, slave.
 .delay 40
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5098
 
@@ -6854,8 +6874,7 @@ Go ahead and put on your collar and attach the leash, slave.
 bd069_15.jpg
 Go ahead, pop those clamps on your nipples and attach the leash to your collar, slave.
 .delay 30
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5098
 
 [Action 5097]
@@ -6927,8 +6946,7 @@ You do have a leash, don't you, slave?
 .delay 40
 bd069_15.jpg
 Go ahead, put on your collar, atttach the leash and pop those nipple clamps on your nipples, slave.
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5108
 
@@ -6945,8 +6963,7 @@ Go ahead and put on your collar and attach the leash, slave.
 .delay 30
 bd069_15.jpg
 Go ahead, pop those nipple clamps on your nipples and attach the leash to your collar, slave.
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5108
 
 [Action 5107]
@@ -7213,8 +7230,7 @@ You do have nipple clamps, don't you, slave?
 .keyrelease prepare 1800
 bd022_46.jpg
 Go ahead, put on the restraints, and pop those clamps on your nipples, slave.
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -26 26                  ' wrists tied
 [All done, Miss]
 .range 5159
@@ -7233,8 +7249,7 @@ Go ahead and put on your restraints, slave.
 .delay 20
 bd022_46.jpg
 Go ahead, pop those nipple clamps on your nipples, slave.
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5159
 
 [Action 5158]
@@ -7280,8 +7295,7 @@ I bet you'll enjoy this position as much as I do.
 .delay 20
 .image bd028_18.jpg
 Go ahead and pop the clamps on your nipples, slave.
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5169
 
 [Action 5166]
@@ -7331,8 +7345,7 @@ I bet you'll enjoy this position as much as I do.
 .delay 30
 .image bd028_18.jpg
 Go ahead and pop those clamps on your nipples, slave.
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5179
 
 [Action 5176]
@@ -7396,8 +7409,7 @@ You do have wrist restraints, don't you, slave?
 bd028_31.jpg
 Go ahead, pop those clamps on your nipples and put on your collar, slave.
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5187
 
@@ -7412,8 +7424,7 @@ Go ahead and put on your collar, slave.
 bd028_39.jpg
 Go ahead and pop those clamps on your nipples, slave.
 .pause Done, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5187
 
 
@@ -7494,9 +7505,8 @@ delay 10
 bd068_26.jpg
 Snap the remaining pegs on your poor ball sack.
 delay 10
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.state Household.Clothes_Pegs apply to Body.OnBalls
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
+.state Household.Clothes_Pegs apply to Body.OnBalls over durationForAllowingAnotherPosition
 .range 5197
 
 [Action 5196]
@@ -7507,8 +7517,7 @@ delay 8
 bd068_26.jpg
 Then snap the remaining pegs on your poor ball sack.
 .delay 30
-.state Household.Clothes_Pegs apply to Body.OnBalls
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnBalls over durationForAllowingAnotherPosition
 .range 5197
 
 
@@ -7576,9 +7585,8 @@ delay 10
 bd068_26.jpg
 Snap the remaining pegs on your poor ball sack.
 delay 10
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.state Household.Clothes_Pegs apply to Body.OnBalls
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
+.state Household.Clothes_Pegs apply to Body.OnBalls over durationForAllowingAnotherPosition
 .range 5209
 
 [Action 5206]
@@ -7589,8 +7597,7 @@ First add two more pegs to your nipples, one per.
 delay 8
 bd068_26.jpg
 Then snap the remaining pegs on your poor ball sack.
-.state Household.Clothes_Pegs apply to Body.OnBalls
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnBalls over durationForAllowingAnotherPosition
 .range 5209
 
 
@@ -7760,8 +7767,7 @@ Spread your legs as wide as you can.
 Put your hands together behind your bottom.
 Give Me a nice big smile, just like the model.
 delay 15
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 1700
 
 [Action 5769]
@@ -7827,8 +7833,7 @@ First, put the collar around your neck and attach the leash to it.
 You may put the other end of the leash anywhere convenient.
 Tie it to the desk if you're so minded.
 Then pop the clothes pegs on your nipples, two per.
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5776
 
@@ -7840,8 +7845,7 @@ First, attach the leash to your collar.
 You may put the other end of the leash anywhere convenient.
 Tie it to the desk if you're so minded.
 Then pop the clothes pegs on your nipples, two per.
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
 .range 5776
 
 
@@ -7943,8 +7947,7 @@ bd159_20.jpg
 Put your nipple clamps on first, and hang the weight from them.
 Then place the rug or towel on the ground.
 .delay 40
-.item Toys.Nipple_Clamps apply to Household.Weight
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply to Household.Weight over durationForAllowingAnotherPosition
 .range 5786
 
 [Action 5785]
@@ -7954,8 +7957,7 @@ Excellent.
 bd159_20.jpg
 Make sure your clamps are squeezing your nipples tightly,
 and hang the weight from them.
-.item Toys.Nipple_Clamps apply to Household.Weight
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply to Household.Weight over durationForAllowingAnotherPosition
 Then place the rug or towel on the ground. 
 .range 5786
 
@@ -8040,9 +8042,8 @@ bd041_25.jpg
 Slip into your heels, put on your nipple clamps 
 and snap the other pair of clamps on your "pussy".
 .pause I have all clamps on, Miss
-.item Toys.Nipple_Clamps apply
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 5798
 
 [Action 5795]
@@ -8051,8 +8052,7 @@ you're going to snap them on your slutty ball sack instead.
 bd041_25.jpg
 Slip into your heels, and snap on your "pussy" clamps.
 .pause I have the pussy clamps on, Miss
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 5798
 
 [Action 5796]
@@ -8060,8 +8060,7 @@ Very well, slave.
 bd041_25.jpg
 Go ahead and snap them on your poor slave titties.
 .pause I have them on, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5798
 
 [Action 5797]
@@ -8168,8 +8167,7 @@ Do your nipple clamps have a connecting chain, as per my orders?
 bd250_35.jpg
 Go ahead, put on your collar and snap the clamps on your poor slave titties.
 delay 15
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set 28                      ' collared
 That reminds me, slave:
 Do your nipple clamps have a connecting chain, as per my orders? 
@@ -8192,8 +8190,7 @@ Do your nipple clamps have a connecting chain, as per my orders?
 bd250_35.jpg
 Go ahead and snap the clamps on your poor slave titties.
 delay 15
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 That reminds me, slave:
 Do your nipple clamps have a connecting chain, as per my orders? 
 .yesno 5818 5818 7798 7798
@@ -8277,9 +8274,8 @@ Go ahead, put on your nipple clamps and snap the other pair of clamps on your "p
 delay 15
 And don't forget about your slave collar!
 .pause All clamps attached and I'm collared, Miss
-.item Toys.Nipple_Clamps apply
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5828
 
@@ -8293,9 +8289,8 @@ delay 15
 bd069_29.jpg
 Tell me, slave, when you have all clamps on!
 .pause Ready, Miss I have all clamps on
-.item Toys.Nipple_Clamps apply
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 5828
 
 [Action 5826]
@@ -8307,8 +8302,7 @@ And don't forget about your slave collar!
 bd069_29.jpg
 Tell me, slave, when you have them on!
 .pause I'm collared an have my pussy clamps on, Miss
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5828
 
@@ -8321,8 +8315,7 @@ Make sure they sit tight!
 delay 10
 Tell me when you have them on!
 .pause Ready, Miss
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 5828
 
 
@@ -8393,10 +8386,9 @@ bd021_36.jpg
 Then insert your gag, and snap the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -26 26                  ' wrists tied
 .set -28 28                  ' collared
 .range 5838
@@ -8411,10 +8403,9 @@ bd021_36.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 20
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5838
 
@@ -8429,10 +8420,9 @@ bd021_36.jpg
 Then insert your gag, and snap the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -26 26                  ' wrists tied
 .range 5838
 
@@ -8446,10 +8436,9 @@ bd021_36.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 5838
 
 
@@ -8511,10 +8500,9 @@ delay 20
 bd021_33.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 20
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5848
 
@@ -8525,9 +8513,8 @@ delay 10
 bd021_33.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 20
-.item Toys.Nipple_Clamps apply
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5848
 
@@ -8538,10 +8525,9 @@ delay 10
 bd021_33.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 20
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 5848
 
 [Action 5847]
@@ -8549,9 +8535,8 @@ Excellent!
 bd021_33.jpg
 Pop the clamps on your nipples and your "pussy".
 delay 20
-.item Toys.Nipple_Clamps apply
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5848
 
@@ -8625,10 +8610,9 @@ delay 30
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -26 26                  ' wrists tied
 .set -28 28                  ' collared
 .range 5858
@@ -8640,10 +8624,9 @@ delay 10
 Then pop the clamps on your nipples and your "pussy".
 delay 20
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 5858
 
@@ -8655,10 +8638,9 @@ delay 20
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .set -26 26                  ' wrists tied
 .range 5858
 
@@ -8669,10 +8651,9 @@ delay 15
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .pause All done, Miss
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 5858
 
 
@@ -8786,8 +8767,7 @@ bd381_16.jpg
 When you have them on, pull the chain to make sure they sit tight and won't fall off!  
 delay 10
 .pause My clamps sit tight, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 5865
 
 [Action 5865]
@@ -8797,8 +8777,7 @@ delay 10
 bd381_18.jpg
 Again make sure they sit tight and won't fall off.
 delay 15
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 5866
 
 
@@ -8981,9 +8960,8 @@ delay 40
 bd186_36.jpg
 Now add the clothes pegs and nipple clamps, three pegs per slave tit.
 delay 45
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
 .set -28 28                  ' collared
 .range 6519
@@ -8998,9 +8976,8 @@ delay 20
 bd186_36.jpg
 Now add the clothes pegs and nipple clamps, three pegs per slave tit.
 delay 45
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 6519
 
@@ -9014,9 +8991,8 @@ delay 20
 bd186_36.jpg
 Now add the clothes pegs and nipple clamps, three pegs per slave tit.
 delay 45
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -22 22                  ' something in mouth
 .range 6519
 
@@ -9026,9 +9002,8 @@ delay 45
 Start with the clamps and pegs, three pegs per slave tit.
 .image bd186_36.jpg
 .delay 45
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 6519
 
 [Action 6519]
@@ -9104,8 +9079,7 @@ Let's start with your collar and nipple clamps.
 bd178_10.jpg
 Put the collar around your neck and snap the clamps on your poor little titties.
 .pause I'm prepared to serve, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .set -28 28                  ' collared
 .range 6526
 
@@ -9115,8 +9089,7 @@ Let's start with the clamps:
 bd178_10.jpg
 Snap them on your poor little titties.
 .pause I'm prepared to serve, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 6526
 
 
@@ -9228,8 +9201,7 @@ Let's start with those nipple clamps.
 bd645_005.jpg
 Snap them on your poor little slave titties and make sure they sit tight.
 .pause My tits are clamped, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .range 6535
 
 [Action 6535]
@@ -9253,8 +9225,7 @@ you may just entwine the connecting chains.
 Report back to be when you have all items on, slave!
 .pause I'm ready, Miss
 .set -25 25                  ' ankles tied
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .range 6536 6537
 
 
@@ -11600,12 +11571,11 @@ You may detach the leash, slave.
 
 ' test debug
 [action 9399]
-'.state Household.Clothes_Pegs apply to Body.OnNipples
-.item Toys.Nipple_Clamps apply
+'.state Household.Clothes_Pegs apply to Body.OnNipples over durationForAllowingAnotherPosition
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 '.set -22 22                  ' something in mouth
-'.state Household.Clothes_Pegs apply to Body.OnBalls
-.item Toys.Pussy_Clamps apply
-.settime 49 00:00"00         ' remove in or after activity
+'.state Household.Clothes_Pegs apply to Body.OnBalls over durationForAllowingAnotherPosition
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 '.set -25 25                  ' ankles tied
 '.set -26 26                  ' wrists tied
 .set -28 28                  ' collared
@@ -12511,14 +12481,11 @@ That's enough for now.
 ' Another one?
 [Action 9711]
 .must 148               ' decision to do another position
-' TODO Not if paintoy timer runs out, but wouldn't work for paintoys at all,
-' because we set the time to 00:00"00 in order to remove the toys after the activity
-' -> replace timer with expiration()
-.timeto 49 -00:10"00    ' allow for a short to medium duration on all levels
 ' test duration remaining
-.not .item Toys.Nipple_Clamps expired
-.not .item Toys.Pussy_Clamps expired
-.not .item Household.CLothes_Pegs expired
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:08"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:08"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:08"00
+.item Toys.enema_kit free or remaining greaterThan 00:08"00
 That was so good, slave,
 I think we should do another.
 .unset 9711

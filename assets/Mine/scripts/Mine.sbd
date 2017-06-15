@@ -20,8 +20,8 @@
 
 ' shortcuts
 
-.define .painToysOnBalls .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
-.define .painToysOnNipples .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnBalls .state Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnNipples .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 
 
 ' This restores range 90 to 799
@@ -131,7 +131,7 @@
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
 '   48  -   ankles tied to chastity cage - to remove 32 "Can't stand" when taking the cage off
-'   49  -   clamps/pegs duration - either set to -00:nn:00, or 00:00"00 to remove on next occasion, and to INF after removal
+'   49  -   free
 
 ' Session timers: 1, 12, 24 hours, with two empty slots for 48h and one week
 '
@@ -865,7 +865,6 @@ Would you be so kind and tell me what you've got exactly?
 .unset 810 811 812 813 814 815 816 817 818 819   ' session global variables
 .unset 820 821 822 823 824 825 826 827 828 829   ' session global variables
 .unset 830 831 832 833 834 835 836 837 838 839   ' session global variables
-.settime 49 +INF                                 ' set clamp timer to infinite to ignore clamps duration
 ' save the "Quick without permission" check
 ' in order to to catch abnormal process termination
 .save 90 799
@@ -5630,11 +5629,19 @@ Let's see if I can remember what punishments you've earned.
 
 
 [action 2155]
-.timefrom 49 00:00"00
+.painToysOnNipples
+.state Body.OnNipples expired
 .gosub 11800            ' pegs/clamps tracking, comment and removal
 .range 2159
 
 [action 2156]
+.painToysOnBalls
+.state Body.OnBalls expired
+.gosub 11800            ' pegs/clamps tracking, comment and removal
+.range 2159
+
+
+[action 2157]
 .else
 .range 2159
 
@@ -7466,7 +7473,7 @@ I'll get you next time, you dirty slave!
 ' TODO disable taking the cage off, since if the slave came without permission, he should be kept locked up 
 [Action 2690]
 .else                   ' Fallback in case slave wears chastity device
-.not .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.not .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 .not .painToysOnBalls
 .must 44                ' Chastified
 .timefrom 45 00:00"00   ' have key for chastity cage
@@ -7479,7 +7486,7 @@ I'll get you next time, you dirty slave!
 ' TODO re-enable this and add more comments while wanking
 '[Action 2691]
 '.else                   ' Fallback in case slave wears chastity device
-'.not .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+'.not .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 '.not .painToysOnBalls
 '.must 44                ' Chastified
 '.timeto 45 00:00"00     ' have key for chastity cage
@@ -7490,7 +7497,7 @@ I'll get you next time, you dirty slave!
 ' 1hr punishment wanking
 [Action 2692]
 ' TODO implement taking the clamps off during wanking, and relax timing conditions in activities
-.not .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.not .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 .not .painToysOnBalls
 .mustnot 30 44          ' Can't jerk off
 .save 90 799
@@ -8036,9 +8043,8 @@ Well, slave, I expected you to have it all in by now.
 []
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
 Snap four of them on your balls, slave.
-.pause Done as ordered, Miss
 .state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 +00:10"00
+.pause Done as ordered, Miss
 .range 3020 3021        ' Comment pegs on ball sack
 
 [Action 3016]
@@ -8048,9 +8054,8 @@ Well, slave, I expected you to have it all in by now.
 []
 Maybe some clothes pegs on your slave nipples help the enema flowing faster.
 Snap one on each nipple.
-.pause Done as ordered, Miss
 .state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 +00:15"00
+.pause Done as ordered, Miss
 .range 3022 3023        ' Comment pegs
 
 [Action 3017]
@@ -8060,9 +8065,8 @@ Well, slave, I expected you to have it all in by now.
 []
 Maybe your nipple clamps help the enema flowing faster.
 Snap them on your slave titties and make sure they sit tight.
-.pause Done as ordered, Miss
 .item Toys.Nipple_Clamps apply
-.settime 49 +00:15"00
+.pause Done as ordered, Miss
 .range 3024 3025
 
 [Action 3018]
@@ -8072,9 +8076,8 @@ Well, slave, I expected you to have it all in by now.
 []
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
 Snap four of them on your balls, slave.
-.pause Done as ordered, Miss
 .item Toys.Pussy_Clamps apply
-.settime 49 +00:10"00
+.pause Done as ordered, Miss
 .range 3026 3027        ' Comment pegs on ball sack
 
 [Action 3019]
@@ -11390,9 +11393,11 @@ What else can I do to you today, slave?
 '   ACTIVITY GROUPS --------------------------------------------------
 
 [Action 5050]
-.mustnot 265            ' Done self bondage activity already 
-.timeto 49 -01:00"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 01:00"00
+.mustnot 265            ' Done self bondage activity already
+.state Toys.Nipple_Clamps free or remaining greaterThan 01:00"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 01:00"00
+.state Household.Clothes_Pegs free or remaining greaterThan 01:00"00
+.state Toys.enema_kit free or remaining greaterThan 01:00"00
 I think you could use some strict self-bondage for today's session.
 .range 5400
 
@@ -11416,8 +11421,10 @@ I think that ass could use another good tanning.
 .mustnot 254            ' Mouth activity already done              
 .mustnot 260            ' Done dildo worshiping punishment before
 .must 388               ' have dildo
-.timeto 49 -00:07"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:07"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:07"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:07"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:07"00
+.state Toys.enema_kit free or remaining greaterThan 00:07"00
 I think you're going to worship your dildo.
 .range 5140 5148
 
@@ -11427,8 +11434,10 @@ I think you're going to worship your dildo.
 .mustnot 254            ' Mouth activity already done              
 .must 260               ' Done dildo worshiping punishment before
 .must 388               ' have dildo
-.timeto 49 -00:07"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:07"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:07"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:07"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:07"00
+.state Toys.enema_kit free or remaining greaterThan 00:07"00
 I think you're going to worship your dildo some more.
 .range 5140 5148
 
@@ -11440,8 +11449,10 @@ I think you deserve a teasing session.
 [Action 5066]
 .mustnot 210            ' Done already
 .shouldnot 811          ' magic marker applied
-.timeto 49 -00:11"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:11"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:11"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:11"00
+.state Toys.enema_kit free or remaining greaterThan 00:11"00
 I think you're a dirty cunt,
 and you need a shower.
 .range 5200
@@ -11452,16 +11463,20 @@ and you need a shower.
 .else                   ' as fallback, even if magic marker applied
 .mustnot 210            ' Done already
 .must 811               ' magic marker applied
-.timeto 49 -00:11"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:11"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:11"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:11"00
+.state Toys.enema_kit free or remaining greaterThan 00:11"00
 I think you're a dirty cunt,
 and you need a shower.
 .range 5200
 
 
 [Action 5068]
-.timeto 49 -00:09"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:09"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:09"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:09"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:09"00
+.state Toys.enema_kit free or remaining greaterThan 00:09"00
 I think your nipples and nuts could use a working-over.
 .range 5800 5849
 
@@ -11479,8 +11494,10 @@ I think your nipples and nuts could use a working-over.
 .mustnot 262            ' Done maid training activity already
 .mustnot             29 ' blindfolded
 .mustnot 34             ' can't type/use mouse
-.timeto 49 -00:06"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:06"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:06"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:06"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:06"00
+.state Toys.enema_kit free or remaining greaterThan 00:06"00
 Let's continue your slave training.
 .set 262                ' Done maid training
 .range 5129
@@ -11493,13 +11510,12 @@ Let's continue your slave training.
 ' Also, without interaction, the script would loop until the enema holding duration was over
 ' -> void enema and plug the slave to advance to plug assignment
 
-' clamps will just get removed later on, so we don't have to handle them here
+' remove clamps & pegs
 [Action 5085]
 .else                        ' Fallback
 .mustanyof 38 39 42 43       ' pegs or clamps on nipples or pussy/ballsack 
 .shouldnot 811               ' magic marker applied
-.settime 49 00:00"00         ' make sure clamps are going to be removed
-.gosub 11800                 ' remove clamps
+.gosub 11960                 ' remove clamps & pegs immediately
 .range 5040                  ' retry
  
 ' retry after voiding enema
@@ -11742,7 +11758,7 @@ Make sure you have one until next time, baby.
 ' tighter restrictions for introduction and beginner scenario
 [Action 5140]
 .state Body.OnNipples free
-.not .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.not .state Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
 .mustnot 29                  ' blindfolded
 .mustnot 31                  ' can't sit on chair
 .mustnot 34                  ' Can't type/use mouse
@@ -11883,8 +11899,7 @@ You seem to get used to getting used very well.
 .range 5201 5249
 
 
-' TODO shower possible with clothes pegs 42 38
-' .timeto 49 -00:15"00
+' TODO shower possible with clothes pegs 
 ' TODO check actual time left in mine-paddle.sbd
 
 ' shower 10m 100 paddles nips
@@ -11895,7 +11910,7 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 361               ' Nipple clamps
-' 49 clamps/pegs duration, already checked in 5066
+' clamps/pegs duration, already checked in 5066
 ' holding the enema already checked in 5066
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
 .set 210                ' shower one-time only
@@ -11908,7 +11923,7 @@ You seem to get used to getting used very well.
 .mustnot 25            ' ankles tied
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
-' 49 clamps/pegs duration, already checked in 5066
+' clamps/pegs duration, already checked in 5066
 ' holding the enema already checked in 5066
 .set 210                ' shower one-time only
 .set 716 751            ' Nipple tolerance 1, ass whipping 1
@@ -11922,8 +11937,7 @@ You seem to get used to getting used very well.
 .mustnot 26 29 32       ' wrists tied, blindfolded, can't stand
 .mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
 .must 362               ' clothes pegs
-.timeto 49 -00:16"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:16"00
+.state Toys.enema_kit free or remaining greaterThan 00:16"00
 .set 210                ' shower one-time only
 .set 716 736 751        ' Nipple tolerance 1, restraint acceptance 1, ass whipping 1
 .range 5353
@@ -12154,7 +12168,6 @@ You'll be punished later for failing your training.
 ' paddle x40
 [Action 5601]
 .mustnot 33             ' can't kneel
-.timeto 49 -00:04"00    ' clamps/pegs duration
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12164,8 +12177,10 @@ You'll be punished later for failing your training.
 [Action 5602]
 .mustnot 29 33          ' blindfolded,can't kneel
 .must 751               ' asswhipping 1
-.timeto 49 -00:06"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:06"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:06"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:06"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:06"00
+.state Toys.enema_kit free or remaining greaterThan 00:06"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12175,8 +12190,10 @@ You'll be punished later for failing your training.
 [Action 5603]
 .mustnot 33             ' can't kneel
 .must 751 752           ' asswhipping 2
-.timeto 49 -00:09"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:09"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:09"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:09"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:09"00
+.state Toys.enema_kit free or remaining greaterThan 00:09"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12196,8 +12213,10 @@ You'll be punished later for failing your training.
 .mustnot 264            ' Done spanking already
 .must 370               ' paddle
 .must 753               ' asswhipping 3
-.timeto 49 -00:35"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:35"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:35"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:35"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:35"00
+.state Toys.enema_kit free or remaining greaterThan 00:35"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12210,8 +12229,10 @@ You'll be punished later for failing your training.
 .mustnot 264            ' Done spanking already
 .must 370               ' paddle
 .must 754               ' asswhipping 4
-.timeto 49 -00:65"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 01:05"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 01:05"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 01:05"00
+.state Household.Clothes_Pegs free or remaining greaterThan 01:05"00
+.state Toys.enema_kit free or remaining greaterThan 01:05"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12228,8 +12249,10 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 371               ' hair brush
 .must 753               ' asswhipping 3
-.timeto 49 -00:35"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:35"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:35"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:35"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:35"00
+.state Toys.enema_kit free or remaining greaterThan 00:35"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12243,8 +12266,10 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 371               ' hair brush
 .must 754               ' asswhipping 4
-.timeto 49 -00:65"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 01:05"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 01:05"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 01:05"00
+.state Household.Clothes_Pegs free or remaining greaterThan 01:05"00
+.state Toys.enema_kit free or remaining greaterThan 01:05"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12261,8 +12286,10 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
 .must 753               ' asswhipping 3
-.timeto 49 -00:35"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:35"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:35"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:35"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:35"00
+.state Toys.enema_kit free or remaining greaterThan 00:35"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12276,8 +12303,10 @@ You'll be punished later for failing your training.
 .mustnot 370            ' paddle
 .must 372               ' wooden spoon
 .must 754               ' asswhipping 4
-.timeto 49 -00:65"00    ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 01:05"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 01:05"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 01:05"00
+.state Household.Clothes_Pegs free or remaining greaterThan 01:05"00
+.state Toys.enema_kit free or remaining greaterThan 01:05"00
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12402,8 +12431,10 @@ I will have to punish you later for failing your training.
 .mustnot 812                 ' Done nipple training activity already
 .must 717                    ' Nipple tolerance 2
 .mustnot 29 34               ' something on nipples, blindfolded, can't type
-.timeto 49 -00:15"00         ' clamps/pegs duration on balls
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:15"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:15"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:15"00
+.state Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5951
 
@@ -12412,7 +12443,6 @@ I will have to punish you later for failing your training.
 .state Body.OnBalls is free
 .mustnot 255                 ' Done ball sack pulling activity already
 .mustnot 23 25 32            ' something on penis, ankles tied, can't stand
-'.timeto 49 -00:09"00         ' already checked in 5068
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -12422,8 +12452,10 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1 
 .mustnot 23 25 32            ' something on penis, ankles tied, can't stand
-.timeto 49 -00:14"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:14"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:14"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:14"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:14"00
+.state Toys.enema_kit free or remaining greaterThan 00:14"00
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -12433,8 +12465,10 @@ I will have to punish you later for failing your training.
 .mustnot 23 25 32            ' something on penis, ankles tied, can't stand
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.timeto 49 -00:19"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:19"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:19"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:19"00
+.state Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
@@ -12444,8 +12478,10 @@ I will have to punish you later for failing your training.
 .mustnot 23 25 32            ' something on penis, ankles tied, can't stand
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
-.timeto 49 -00:24"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:24"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:24"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:24"00
+.state Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 255                     ' Done ball sack pulling activity
 .range 5955
 
@@ -12471,7 +12507,7 @@ I will have to punish you later for failing your training.
 .mustnot 25 29 34            ' ankles tied, blindfolded, can't type/use mouse
 .mustnot 812                 ' Done nipple training activity already
 .must 717                    ' Nipple tolerance 2
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.state Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5964
 
@@ -12485,7 +12521,7 @@ I will have to punish you later for failing your training.
 .mustnot 812                 ' Done nipple training activity already
 .must 362                    ' clothes pegs
 .must 717 746                ' Nipple tolerance 2, cbt 1
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.state Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5965
 
@@ -12501,7 +12537,7 @@ I will have to punish you later for failing your training.
 .mustnot 34 35               ' can't type/use mouse, tethered
 .must 366                    ' Nipple clamps, rope
 .must 718                    ' Nipple tolerance 3
-.ifstate Toys.enema_kit free or remaining greaterThan 00:25"00
+.state Toys.enema_kit free or remaining greaterThan 00:25"00
 .set 812                     ' Done nipple training activity
 .range 5966
 
@@ -12514,7 +12550,7 @@ I will have to punish you later for failing your training.
 .mustnot 812                 ' Done nipple training activity already
 .mustnot 29 34               ' blindfolded, can't type/use mouse
 .must 718                    ' Nipple tolerance 3
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.state Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
 .range 5967
 
@@ -12526,7 +12562,6 @@ I will have to punish you later for failing your training.
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-'.timeto 49 -00:09"00         ' already checked in 5068
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -12536,8 +12571,10 @@ I will have to punish you later for failing your training.
 .must 746                    ' cbt 1
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 49 -00:14"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:14"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:14"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:14"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:14"00
+.state Toys.enema_kit free or remaining greaterThan 00:14"00
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -12547,8 +12584,10 @@ I will have to punish you later for failing your training.
 .must 746 747                ' cbt 2
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 49 -00:19"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:19"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:19"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:19"00
+.state Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
@@ -12558,8 +12597,10 @@ I will have to punish you later for failing your training.
 .must 746 747 748            ' cbt 3
 .must 37                     ' ball harness
 .mustnot 25 32               ' ankles tied, can't stand
-.timeto 49 -00:24"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:24"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:24"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:24"00
+.state Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 255                     ' Done ball sack pulling activity
 .range 5955
 
@@ -12571,7 +12612,6 @@ I will have to punish you later for failing your training.
 .mustnot 25 32               ' ankles tied, can't stand
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
-'.timeto 49 -00:09"00         ' already checked in 5068
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -12581,8 +12621,10 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
-.timeto 49 -00:14"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:14"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:14"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:14"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:14"00
+.state Toys.enema_kit free or remaining greaterThan 00:14"00
 .set 255                     ' Done ball sack pulling activity
 .range 5953
 
@@ -12592,8 +12634,10 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.timeto 49 -00:19"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:19"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:19"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:19"00
+.state Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 255                     ' Done ball sack pulling activity
 .range 5954
 
@@ -12603,8 +12647,10 @@ I will have to punish you later for failing your training.
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
-.timeto 49 -00:24"00         ' clamps/pegs duration
-.ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:24"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:24"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:24"00
+.state Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 255                     ' Done ball sack pulling activity
 .range 5955
 
@@ -12765,8 +12811,10 @@ Meanhile, three demerits will do about right.
 .mustnot 44             ' Chastified
 .mustnot 267 268 269    ' Enema carrying out or holding
 .must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
-.timeto 49 -00:24"00    ' clamps/pegs duration, 20 minutes plus preparation
-.ifstate Toys.enema_kit free or remaining greaterThan 00:24"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:24"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:24"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:24"00
+.state Toys.enema_kit free or remaining greaterThan 00:24"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6151
@@ -12820,8 +12868,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1 
-.timeto  49 -00:19"00   ' 15 + 4
-.ifstate Toys.enema_kit free or remaining greaterThan 00:19"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:19"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:19"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:19"00
+.state Toys.enema_kit free or remaining greaterThan 00:19"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6155
@@ -12831,8 +12881,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto  49 -00:22"00   ' 20 + 2
-.ifstate Toys.enema_kit free or remaining greaterThan 00:22"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:22"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:22"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:22"00
+.state Toys.enema_kit free or remaining greaterThan 00:22"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6156
@@ -12842,8 +12894,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto  49 -00:23"00   ' 20 + 3
-.ifstate Toys.enema_kit free or remaining greaterThan 00:23"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:23"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:23"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:23"00
+.state Toys.enema_kit free or remaining greaterThan 00:23"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6157
@@ -12853,8 +12907,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
-.timeto  49 -00:27"00   ' 21 + 6
-.ifstate Toys.enema_kit free or remaining greaterThan 00:27"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:27"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:27"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:27"00
+.state Toys.enema_kit free or remaining greaterThan 00:27"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6158
@@ -12864,8 +12920,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto  49 -00:32"00   ' 30 + 2
-.ifstate Toys.enema_kit free or remaining greaterThan 00:32"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:32"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:32"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:32"00
+.state Toys.enema_kit free or remaining greaterThan 00:32"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6159
@@ -12875,8 +12933,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto  49 -00:29"00   ' 25 + 4
-.ifstate Toys.enema_kit free or remaining greaterThan 00:29"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:29"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:29"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:29"00
+.state Toys.enema_kit free or remaining greaterThan 00:29"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6160
@@ -12886,8 +12946,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
-.timeto  49 -00:35"00   ' 27 + 8
-.ifstate Toys.enema_kit free or remaining greaterThan 00:35"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:35"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:35"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:35"00
+.state Toys.enema_kit free or remaining greaterThan 00:35"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6161
@@ -12897,8 +12959,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
-.timeto  49 -00:43"00   ' 40 + 3
-.ifstate Toys.enema_kit free or remaining greaterThan 00:43"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:43"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:43"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:43"00
+.state Toys.enema_kit free or remaining greaterThan 00:43"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6162
@@ -12908,8 +12972,10 @@ Meanhile, three demerits will do about right.
 .mustnot 30 44          ' can't jerk off, chastified
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
-.timeto  49 -00:53"00   ' 45 + 8
-.ifstate Toys.enema_kit free or remaining greaterThan 00:53"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:53"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:53"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:53"00
+.state Toys.enema_kit free or remaining greaterThan 00:53"00
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
 .range 6163
@@ -12924,7 +12990,7 @@ Meanhile, three demerits will do about right.
 .mustnot 34             ' can't type
 .must 367               ' gag
 .must 712 717 746       ' punishment acceptance 2, nipple tolerance 2, cbt1
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.state Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 266                ' Done story time activity
 .range 6164
 
@@ -13373,20 +13439,20 @@ Now take your "paddle" and carefully listen to my instructions.
 ' duration elapsed - neither help nor inflatable nozzle
 [Action 7302]
 .mustnot 27             ' something around waist
-.ifstate Toys.enema_kit applied AND expired
+.state Toys.enema_kit applied AND expired
 .state Toys.enema_bulb free
 .range 7355 7359
 
 ' duration elapsed - crotch rope & towel
 [Action 7303]
 .must 27                ' Something around waist
-.ifstate Toys.enema_kit applied AND expired AND remaining lessOrEqualThan -00:05"00
+.state Toys.enema_kit applied AND expired AND remaining lessOrEqualThan -00:05"00
 .state Toys.enema_bulb free
 .range 7355 7359
 
 ' duration elapsed - inflatable nozzle
 [Action 7304]
-.ifstate Toys.enema_kit applied AND expired AND remaining lessOrEqualThan -00:10"00
+.state Toys.enema_kit applied AND expired AND remaining lessOrEqualThan -00:10"00
 .state Toys.enema_bulb applied
 .range 7355 7359
 
@@ -15798,7 +15864,6 @@ Wait for my command...
 Put a clothes peg on each nipple, slave.
 delay 5
 Stay as close to the edge as you can and wait for My say-so...
-.settime 49 00:10"00             ' fixed duration for finale
 .state Household.Clothes_Pegs apply to Body.OnNipples
 .range 8090
 
@@ -15811,7 +15876,6 @@ Put four clothes pegs on your enslaved ball sack
 before we go on, slave.
 delay 10
 Now, wait for My command...
-.settime 49 00:10"00             ' fixed duration for finale
 .state Household.Clothes_Pegs apply to Body.OnBalls
 .range 8090
 
@@ -15825,7 +15889,6 @@ Take four clothes pegs -
 put two on your slave nipples and two on your slave balls.
 delay 13
 Keep yourself on the edge and wait for my command...
-.settime 49 00:10"00             ' fixed duration for finale
 .state Household.Clothes_Pegs apply to Body.OnNipples Body.OnBalls
 .range 8090
 
@@ -15837,7 +15900,6 @@ Keep yourself on the edge and wait for my command...
 Snap those clamps on your nipples before we continue, slave.
 delay 5
 Now wait for My command as you stay on the edge...
-.settime 49 00:10"00             ' fixed duration for finale
 .item Toys.Nipple_Clamps apply
 .range 8090
 
@@ -20012,21 +20074,21 @@ Especically if he's chained and shackled so well.
 .must 228
 .state Household.Clothes_Pegs apply to Body.OnBalls
 .unset 228
-.gosub 11365            ' set duration according to cbt
+.gosub 11375            ' set duration according to cbt
 .range  11324
 
 [action 11329]
 .must 229
 .item Toys.Pussy_Clamps apply
 .unset 229
-.gosub 11365            ' set duration according to cbt
+.gosub 11375            ' set duration according to cbt
 .range  11324
 
 [action 11330]
 .must 230
 .item Toys.Pussy_Clamps apply to Household.Weight
 .unset 230
-.gosub 11365            ' set duration according to cbt
+.gosub 11375            ' set duration according to cbt
 .range  11324
 
 [action 11331]
@@ -20138,97 +20200,198 @@ Especically if he's chained and shackled so well.
 ' set duration according to nipple tolerance
 
 [action 11355]
-.range 11356 11362
+.range 11356 11372
 
 
 [action 11356]
-.mustnot 716
+.item Toys.Nipple_Clamps applied AND limit equals 00:00"00
+mustnot 716
 .set 716
-.settime 49 +00:10"00
+.item Toys.Nipple_Clamps apply over 00:10"00
 .return
 
 [action 11357]
-.must 716
+.item Toys.Nipple_Clamps applied AND limit equals 00:00"00
+must 716
 .mustnot 717
 .set 717
-.settime 49 +00:15"00
+.item Toys.Nipple_Clamps apply over 00:15"00
 .return
 
 [action 11358]
+.item Toys.Nipple_Clamps applied AND limit equals 00:00"00
 .must 717
 .mustnot 718
 .set 718
-.settime 49 +00:20"00
+.item Toys.Nipple_Clamps apply over 00:20"00
 .return
 
 [action 11359]
+.item Toys.Nipple_Clamps applied AND limit equals 00:00"00
 .must 718
 .mustnot 719
-.settime 49 +00:25"00
+.item Toys.Nipple_Clamps apply over 00:25"00
 .return
 
 [action 11360]
+.item Toys.Nipple_Clamps applied AND limit equals 00:00"00
 .must 719
 .mustnot 720
-.settime 49 +00:30"00
+.item Toys.Nipple_Clamps apply over 00:30"00
 .return
 
 [action 11361]
+.item Toys.Nipple_Clamps applied AND limit equals 00:00"00
 .must 720
-.settime 49 +00:35"00
+.item Toys.Nipple_Clamps apply over 00:35"00
 .return
 
+
+[action 11366]
+.item Household.Clothes_Pegs is Body.OnNipples AND limit equals 00:00"00
+mustnot 716
+.set 716
+.state Body.OnNipples apply over 00:10"00
+.return
+
+[action 11367]
+.item Household.Clothes_Pegs is Body.OnNipples AND limit equals 00:00"00
+must 716
+.mustnot 717
+.set 717
+.item Household.Clothes_Pegs apply over 00:15"00
+.return
+
+[action 11368]
+.item Household.Clothes_Pegs is Body.OnNipples AND limit equals 00:00"00
+.must 717
+.mustnot 718
+.set 718
+.item Household.Clothes_Pegs apply over 00:20"00
+.return
+
+[action 11369]
+.item Household.Clothes_Pegs is Body.OnNipples AND limit equals 00:00"00
+.must 718
+.mustnot 719
+.item Household.Clothes_Pegs apply over 00:25"00
+.return
+
+[action 11370]
+.item Household.Clothes_Pegs is Body.OnNipples AND limit equals 00:00"00
+.must 719
+.mustnot 720
+.item Household.Clothes_Pegs apply over 00:30"00
+.return
+
+[action 11371]
+.item Household.Clothes_Pegs is Body.OnNipples AND limit equals 00:00"00
+.must 720
+.item Household.Clothes_Pegs apply over 00:35"00
+.return
+
+
 ' fallback, already set
-[action 11362]
+[action 11372]
 .else
 .unset 11362
 .return
 
 
-' set duration according to cbt
+' set duration according to cbt level
 
-[action 11365]
-.range 11366 11372
+[action 11375]
+.range 11376 11392
 
 
-[action 11366]
+[action 11376]
+.item Toys.Pussy_Clamps applied AND limit equals 00:00"00
 .mustnot 746
 .set 746
-.settime 49 +00:10"00
+.item Toys.Pussy_Clamps apply over 00:10"00
 .return
 
-[action 11367]
+[action 11377]
+.item Toys.Pussy_Clamps applied AND limit equals 00:00"00
 .must 746
 .mustnot 747
 .set 747
-.settime 49 +00:13"00
+.item Toys.Pussy_Clamps apply over 00:13"00
 .return
 
-[action 11368]
+[action 11378]
+.item Toys.Pussy_Clamps applied AND limit equals 00:00"00
 .must 747
 .mustnot 748
-.settime 49 +00:16"00
+.item Toys.Pussy_Clamps apply over 00:16"00
 .return
 
-[action 11369]
+[action 11379]
+.item Toys.Pussy_Clamps applied AND limit equals 00:00"00
 .must 748
 .mustnot 749
-.settime 49 +00:19"00
+.item Toys.Pussy_Clamps apply over 00:19"00
 .return
 
-[action 11370]
+[action 11380]
+.item Toys.Pussy_Clamps applied AND limit equals 00:00"00
 .must 749
 .mustnot 750
-.settime 49 +00:21"00
+.item Toys.Pussy_Clamps apply over 00:21"00
 .return
 
-[action 11371]
+[action 11381]
+.item Toys.Pussy_Clamps applied AND limit equals 00:00"00
 .must 750
-.settime 49 +00:22"00
+.item Toys.Pussy_Clamps apply over 00:22"00
 .return
+
+
+[action 11386]
+.item Household.Clothes_Pegs is Body.OnBalls AND limit equals 00:00"00
+.mustnot 746
+.set 746
+.item Household.Clothes_Pegs apply over 00:10"00
+.return
+
+[action 11387]
+.item Household.Clothes_Pegs is Body.OnBalls AND limit equals 00:00"00
+.must 746
+.mustnot 747
+.set 747
+.item Household.Clothes_Pegs apply over 00:13"00
+.return
+
+[action 11388]
+.item Household.Clothes_Pegs is Body.OnBalls AND limit equals 00:00"00
+.must 747
+.mustnot 748
+.item Household.Clothes_Pegs apply over 00:16"00
+.return
+
+[action 11389]
+.item Household.Clothes_Pegs is Body.OnBalls AND limit equals 00:00"00
+.must 748
+.mustnot 749
+.item Household.Clothes_Pegs apply over 00:19"00
+.return
+
+[action 11390]
+.item Household.Clothes_Pegs is Body.OnBalls AND limit equals 00:00"00
+.must 749
+.mustnot 750
+.item Household.Clothes_Pegs apply over 00:21"00
+.return
+
+[action 11391]
+.item Household.Clothes_Pegs is Body.OnBalls AND limit equals 00:00"00
+.must 750
+.item Household.Clothes_Pegs apply over 00:22"00
+.return
+
 
 ' fallback, already set
-[action 11372]
+[action 11392]
 .else
 .unset 11372
 .return
@@ -20249,10 +20412,9 @@ Especically if he's chained and shackled so well.
 .item Household.Clothes_Pegs available
 Slave, before we end the session,
 I want you to pop a clothes peg on each of your nipples.
-.state Household.Clothes_Pegs apply to Body.OnNipples
+.state Household.Clothes_Pegs apply to Body.OnNipples over 00:10"00  ' fixed duration for finale
 .pause Ready, Miss
 .set 325                ' remember for next session
-.settime 49 +00:10"00  ' fixed duration for finale
 .range 11629
 
 [Action 11611]
@@ -20260,10 +20422,9 @@ I want you to pop a clothes peg on each of your nipples.
 .item Toys.Nipple_Clamps available
 Slave, before we end the session,
 I want you to snap on your nipple clamps.
-.item Toys.Nipple_Clamps apply
+.item Toys.Nipple_Clamps apply over 00:10"00   ' fixed duration for finale
 .pause Ready, Miss
 .set 326                ' remember for next session
-.settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11612]
@@ -20274,10 +20435,9 @@ I want you to snap on your nipple clamps.
 '.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session,
 I want you to pop four clothes pegs on your ball sack.
-.state Household.Clothes_Pegs apply to Body.OnBalls
+.state Household.Clothes_Pegs apply to Body.OnBalls over 00:10"00   ' fixed duration for finale
 .pause Ready, Miss
 .set 328                ' remember for next session
-.settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11613]
@@ -20287,10 +20447,9 @@ I want you to pop four clothes pegs on your ball sack.
 '.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session,
 I want you to snap your pussy clamps on your slutty ball sack.
-.item Toys.Pussy_Clamps apply
+.item Toys.Pussy_Clamps apply over 00:10"00   ' fixed duration for finale
 .pause Ready, Miss
 .set 329                ' remember for next session
-.settime 49 +00:10"00   ' fixed duration for finale
 .range 11629
 
 [Action 11614]
@@ -20522,65 +20681,48 @@ arranged way in front of me for inspection before you approach me.
 ' harness, balls bound to ankles, etc.
 
 
-' todo take clamps off when there's no activity to choose from
-'[action ...]
-'.numactionsavailable 5401 5448 1
-'.gosub 11800
-
-
 ' remove pegs & clamps when time is up
 ' called from various places to ensure clamps/pegs aren't put on too long
 
-' to avoid AllActionsSet, the time 49 may only be set to smaller than +INF
-' if clamps or pegs are actually attached
-
 [action 11800]
 .unset 11800
-.range 11801 11805
+.range 11801 11809
 
 
-' remove clamps
 [action 11801]
-.timefrom 49 00:00"00        ' clamps/pegs duration
+.state Toys.Nipple_Clamps applied
 .unset 11801
 .range 11810
 
-' comment when less than 10 minutes left
 [action 11802]
-.timefrom 49 -00:10"00
-.timeto 49 -00:00"00
+.state Toys.Pussy_Clamps applied
 .unset 11802
 .range 11810
 
-' comment when less than 20 minutes left
 [action 11803]
-.timefrom 49 -00:20"00
-.timeto 49 -00:10"00
+.state Household.Clothes_Pegs applied
 .unset 11803
 .range 11810
 
-[action 11804]
+'[action 11804]
+
+[action 11809]
 .else
 .unset 11804
 .return
 
 
+' comment and eventually remove clamps & pegs
+
 [action 11810]
 .unset 11810
 .range 11811 11819
 
-' disable duration restrictions after clamps/pegs have been removed
-' Don't reset the timer when removing clamps/pegs you've put on,
-' because the slave may wear additional pain toys
-'
-' if the flags haven't been properly set when adding/removing clamsp/pegs
-' then this action may throw AllActionsSet to protect nipples and nuts tissue
+
 [action 11811]
-.timefrom 49 00:00"00
 .not .painToysOnBalls
 .not .painToysOnNipples
 .unset 11811
-.settime 49 +INF        ' disable pain toy duration restrictions
 .return
 
 ' nipple pegs
@@ -20670,16 +20812,15 @@ Are they in pain yet?
 
 
 [action 11825]
-.timefrom 49 00:00"00
+.state Household.Clothes_Pegs expired
 .poss 100
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
-.pause Yes, Miss
 .state Household.Clothes_Pegs remove from Body.OnBalls
+.pause Yes, Miss
 .set 812                ' Done nipple training activity
-.settime 49 +INF
 .range 11910 
 
 [action 11826]
@@ -20721,16 +20862,15 @@ Are they in pain yet?
 
 
 [action 11835]
-.timefrom 49 00:00"00
+.item Toys.Nipple_Clamps expired
 .poss 100
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
-.pause Yes, Miss
 .item Toys.Nipple_Clamps remove
+.pause Yes, Miss
 .set 812                ' Done nipple training activity
-.settime 49 +INF
 .range 11910 
 
 [action 11836]
@@ -20772,16 +20912,15 @@ Are they in pain yet?
 
 
 [action 11845]
-.timefrom 49 00:00"00
+.state Household.Clothes_Pegs expired
 .poss 100
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
-.pause Yes, Miss
 .state Household.Clothes_Pegs remove from Body.OnBalls
+.pause Yes, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 49 +INF
 .range 11910 
 
 [action 11846]
@@ -20823,16 +20962,15 @@ Are they in pain yet?
 
 
 [action 11855]
-.timefrom 49 00:00"00
+.item Toys.Pussy_Clamps expired
 .poss 100
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
-.pause Yes, Miss
 .item Toys.Pussy_Clamps remove
+.pause Yes, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 49 +INF
 .range 11910 
 
 [action 11856]
@@ -20874,17 +21012,16 @@ Are they in pain yet?
 
 
 [action 11865]
-.timefrom 49 00:00"00
+.state Household.Clothes_Pegs expired
 .poss 100
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
-.pause Yes, Miss
 .state Household.Clothes_Pegs remove
+.pause Yes, Miss
 .set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 49 +INF
 .range 11910 
 
 [action 11866]
@@ -20926,18 +21063,18 @@ Are they in pain yet?
 
 
 [action 11875]
-.timefrom 49 00:00"00
+.item Toys.Nipple_Clamps expired
+.item Toys.Pussy_Clamps expired
 .poss 100
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
-.pause Yes, Miss
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
+.pause Yes, Miss
 .set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 49 +INF
 .range 11910 
 
 [action 11876]
@@ -20979,18 +21116,18 @@ Are they in pain yet?
 
 
 [action 11885]
-.timefrom 49 00:00"00
+.item Toys.Nipple_Clamps expired
+.item Household.Clothes_Pegs expired
 .poss 100
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
-.pause Yes, Miss
 .item Toys.Nipple_Clamps remove
 .state Household.Clothes_Pegs remove from Body.OnBalls
+.pause Yes, Miss
 .set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 49 +INF
 .range 11910 
 
 [action 11886]
@@ -21032,18 +21169,18 @@ Are they in pain yet?
 
 
 [action 11895]
-.timefrom 49 00:00"00
+.state Household.Clothes_Pegs expired
+.item Toys.Pussy_Clamps expired
 .poss 100
 Well, I think you've suffered long enough.
 Go ahead and take them off, my little pain slut.
 delay 5
 That hurts good, doesn't it?
-.pause Yes, Miss
 .state Household.Clothes_Pegs remove from Body.OnNipples
 .item Toys.Pussy_Clamps remove
+.pause Yes, Miss
 .set 812                ' Done nipple training activity
 .set 259                ' Done ball sack pegs or pussy clamps
-.settime 49 +INF
 .range 11910 
 
 [action 11896]
@@ -21117,6 +21254,32 @@ what else is there for a slave to do than to concentrate on his Mistress?
 .else
 .unset 11919
 .return
+
+
+' remove pain toys - remove duration limit first - remove expired items as usual
+
+[action 11960]
+.range 11961 11969
+
+
+[action 11961]
+.item Toys.Nipple_Clamps applied
+.item Toys.Nipple_Clamps apply over 00:00"00 
+.range 11961 11969
+
+[action 11962]
+.item Toys.Pussy_Clamps applied
+.item Toys.Pussy_Clamps apply over 00:00"00 
+.range 11961 11969
+
+[action 11963]
+.item Household.Clothes_Pegs applied
+.item Household.Clothes_Pegs apply over 00:00"00 
+.range 11961 11969
+
+[action 11969]
+.else
+.range 11800       ' remove all pain toys
 
 
 ' set chastity cage lock up timer - just if not set already to avoid setting a shorter time

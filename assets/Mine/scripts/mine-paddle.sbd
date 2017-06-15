@@ -13,8 +13,8 @@
 
 ' shortcuts
 
-.define .painToysOnBalls .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
-.define .painToysOnNipples .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnBalls .state Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnNipples .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 
 
 .backcolor 255 200 200
@@ -876,7 +876,6 @@ You will wear two clothes pegs on your nipples in the shower, slave.
 Put them on now.
 .pause Done, Miss
 .state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:00"00    ' remove in or after activity
 .range 1634 1635
 
 [Action 1633]
@@ -884,7 +883,6 @@ Put them on now.
 You will wear your nipple clamps in the shower today, cunt.
 Put them on now.
 .item Toys.Nipple_Clamps apply
-.settime 49 00:00"00    ' remove in or after activity
 .pause Done, Miss
 .range 1634 1635
 
@@ -898,7 +896,6 @@ Put them on now.
 Put two clothes pegs on your slave balls now, bitch.
 You'll wear those in the shower, too.
 .state Household.Clothes_Pegs apply to Body.OnBalls
-.settime 49 00:00"00    ' remove in or after activity
 .pause Done, Miss
 .range 1636 1637
 
@@ -1279,13 +1276,13 @@ I hope so, slut!
 .range 1690 1699
  
 [Action 1691]
-.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
+.item Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
 .state Household.Clothes_Pegs remove from Body.OnBalls
 .set 259                ' Done ball sack pegs or pussy clamps
 .range 1690 1699
 
 [Action 1692]
-.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
+.item Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
 .state Household.Clothes_Pegs remove from Body.OnNipples
 .set 812                '  Nipple training done
 .range 1690 1699
@@ -4364,85 +4361,88 @@ Step forward!
 .delay 15 30
 Let it swing!
 .unset 9205
-.range 9207 9209
+.range 9210 9219
 
 
 ' time is up? 
 
-[action 9207]
-.state Toys.enema_kit expired
-.unset 9207
+[action 9210]
+.item Toys.enema_kit expired
 .set 100
-.range 9210 9216
+.range 9220 9226
 
-[action 9208]
-.timefrom 49 00:00"00        ' something on nipples or balls
+[action 9211]
+.item Toys.Nipple_Clamps expired
 .set 100
-.unset 9208
-.range 9210 9216
+.range 9220 9226
 
-[action 9209]
+[action 9212]
+.item Household.Clothes_Pegs expired
+.set 100
+.range 9220 9226
+
+[action 9213]
+.item Household.Clothes_Pegs expired
+.set 100
+.range 9220 9226
+
+[action 9219]
 .else
 .unset 9209
-.range 9210 9216
+.range 9220 9226
 
 
 ' number of weight drops reached?
 
-[Action 9210]
+[Action 9220]
+.mustnot 100
 Put the weight back on the desk, and get ready.
 .repeatdel 100 1 1
-.unset 9210
+.unset 9220
 .range 9201 9204
 
-[Action 9211]
+[Action 9221]
 .must 100
-.mustnot 102 103 104 105
+.mustnot     102 103 104 105
 That's enough for today, slave.
-.range 9219
+.range 9229
 
-[Action 9212]
+[Action 9222]
 .must 100
-.mustnot 103 104 105
+.mustnot         103 104 105
 That will do, slave.
-.range 9219
+.range 9229
 
-[Action 9213]
+[Action 9223]
 .must 100
-.mustnot 101 102 103
+.mustnot 101 102 103     105
 I hope those balls are nice and sore, slave.
-.range 9219
+.range 9229
 
-[Action 9214]
+[Action 9224]
 .must 100
-.mustnot 101
-.mustnot 101 102 103
+.mustnot 101 102 103     105
 How did that feel, My dear?
-.range 9219
+.range 9229
 
-[Action 9215]
+[Action 9225]
 .must 100
 .mustnot 101 102 103 104
 That slave sack of yours should be nicely stretched out now, slave.
-.range 9219
-
-[Action 9216]
-.must 100
-That's enough for now, slave.
-.range 9219
+.range 9229
 
 
-[Action 9219]
-.range 9220 9221
+[Action 9229]
+.range 9230 9231
 
 
-[Action 9220]
+[Action 9230]
 .mustnot 37             ' ball harness
 You may remove the weight and untie the rope from your ball sack.
 .pause Thank you, Miss
 .range 9800 9899
 
-[Action 9221]
+[Action 9231]
 .must 37                 ' ball harness
 You may remove the weight now, slave.
 .pause Thank you, Miss

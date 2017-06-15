@@ -13,8 +13,8 @@
 
 ' shortcuts
 
-.define .painToysOnBalls .ifstate Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
-.define .painToysOnNipples .ifstate Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnBalls .state Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
+.define .painToysOnNipples .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 
 
 .backcolor 255 80 80
@@ -196,7 +196,6 @@ First, put a clothes peg on each nipple.
 Hold the remaining pegs in your hands.
 delay 10
 .state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:00"00    ' remove in or after activity
 .range 5011 5015
 
 ' TODO Add repeating slap sounds, with timing according to the workout
@@ -232,7 +231,6 @@ Jump, slave!
 Okay, slave, put two clothes pegs on your ball sack.
 We're going to try some running in place now.
 .state Household.Clothes_Pegs apply to Body.OnBalls
-.settime 49 00:00"00    ' remove in or after activity
 .range 5016
 
 
@@ -394,8 +392,8 @@ You may take off the clamps and pegs now.
 
 [Action 5044]
 .not .state Body.OnNipples is Toys.Nipple_Clamps
-.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
-.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
+.item Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
+.item Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
 Okay, slave, that was a good little workout.
 You may take off the clothes pegs now.
 .state Household.Clothes_Pegs remove from Body.OnBalls
@@ -411,13 +409,13 @@ You may take off the clothes pegs now.
 .range 5045 5049
  
 [Action 5046]
-.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
+.item Household.Clothes_Pegs is applied.by.me AND is Body.OnBalls
 .state Household.Clothes_Pegs remove from Body.OnBalls
 .set 259                ' Done ball sack pegs or pussy clamps
 .range 5045 5049
 
 [Action 5047]
-.ifstate Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
+.item Household.Clothes_Pegs is applied.by.me AND is Body.OnNipples
 .state Household.Clothes_Pegs remove from Body.OnNipples
 .set 812                '  Nipple training done
 .range 5045 5049

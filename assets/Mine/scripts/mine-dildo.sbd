@@ -1813,8 +1813,7 @@ So go fetch some
 - with the dildo in your mouth of course -
 and snap them on your nipples, one per.
 .pause Done, Miss
-.state Household.Clothes_Pegs apply to Body.OnNipples
-.settime 49 00:00"00    ' remove in or after activity
+.state Household.Clothes_Pegs apply to Body.OnNipples over 00:30"00  ' to choose an activity duration later
 .range 3327
 
 [Action 3326]
@@ -2014,8 +2013,7 @@ delay 10
 Report back to me when the clamps sit tight on your nipples
 and you're back at the desk teasing the dildo.
 .pause I'm back, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00    ' remove in or after activity
+.item Toys.Nipple_Clamps apply over 00:30"00     ' to choose an activity duration later
 .range 3382
 
 [Action 3381]
@@ -2089,8 +2087,7 @@ I want you to carry out a persistent pull on your nipples,
 so keep the chain short!
 Tell me when you're ready for your punishment.
 .pause I'm ready, Miss
-.item Toys.Nipple_Clamps apply
-.settime 49 00:00"00    ' remove in or after activity
+.item Toys.Nipple_Clamps apply over 00:30"00     ' to choose an activity duration later
 .range 3391
 
 [Action 3391]
@@ -2406,32 +2403,40 @@ Now grab the dildo with your mouth and get into your worshiping position.
 [Action 3448]           ' 4 x 2 minutes
 .must 140               ' Dildo worshping activity
 .must 182               ' Dildo worshiping 3
-.timeto 49 -00:10"00    ' 8 + 4*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:+10"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:10"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:10"00
+.item Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 154 160
 .range 3460 3469
 
 [Action 3449]           ' 3 x 3 minutes
 .must 140               ' Dildo worshping activity
 .must 183               ' Dildo worshiping 4
-.timeto 49 -00:10"30    ' 9 + 3*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:10"30
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:+10"30
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:10"30
+.state Household.Clothes_Pegs free or remaining greaterThan 00:10"30
+.item Toys.enema_kit free or remaining greaterThan 00:10"30
 .set 153 161
 .range 3460 3469
 
 [Action 3450]           ' 2 x 5 minutes
 .must 140               ' Dildo worshiping activity
 .must 184               ' Dildo worshiping 5
-.timeto 49 -00:11"00    ' 10 + 2*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:+11"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:11"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:11"00
+.item Toys.enema_kit free or remaining greaterThan 00:11"00
 .set 152 162
 .range 3460 3469
 
 [Action 3451]           ' 6 x 2 minutes
 .must 140               ' Dildo worshping activity
 .must 184               ' Dildo worshiping 5
-.timeto 49 -00:15"00    ' 12 + 6*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:15"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:15"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:15"00
+.item Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 156 160
 .range 3460 3469
 
@@ -2448,8 +2453,10 @@ Now grab the dildo with your mouth and get into your worshiping position.
 [Action 3453]           ' 1 x 5 minutes
 .mustnot 140            ' Dildo worshping activity
 .shouldnot 713 714 715  ' Punishment acceptance 3-5
-.timeto 49 -00:05"00    ' 5 + 0*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:05"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:05"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:05"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:05"00
+.item Toys.enema_kit free or remaining greaterThan 00:05"00
 .set 151 162
 .range 3460 3469
 
@@ -2457,8 +2464,10 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .mustnot 140            ' Dildo worshping activity
 .must 711               ' Punishment acceptance 1
 .shouldnot 713 714 715  ' Punishment acceptance 3-5
-.timeto 49 -00:07"00    ' 6 + 2*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:07"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:07"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:07"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:07"00
+.item Toys.enema_kit free or remaining greaterThan 00:07"00
 .set 152 161
 .range 3460 3469
 
@@ -2466,8 +2475,10 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .mustnot 140            ' Dildo worshping activity
 .must 712               ' Punishment acceptance 2
 .shouldnot 714 715      ' Punishment acceptance 4-5
-.timeto 49 -00:10"00    ' 8 + 4*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:10"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:10"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:10"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:10"00
+.item Toys.enema_kit free or remaining greaterThan 00:10"00
 .set 154 160
 .range 3460 3469
 
@@ -2475,32 +2486,40 @@ Now grab the dildo with your mouth and get into your worshiping position.
 .mustnot 140            ' Dildo worshping activity
 .must 713               ' Punishment acceptance 3
 .shouldnot 715          ' Punishment acceptance 5
-.timeto 49 -00:10"30    ' 9 + 3*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:10"30
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:10"30
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:10"30
+.state Household.Clothes_Pegs free or remaining greaterThan 00:10"30
+.item Toys.enema_kit free or remaining greaterThan 00:10"30
 .set 153 161
 .range 3460 3469
 
 [Action 3457]           ' 2 x 5 minutes
 .mustnot 140            ' Dildo worshping activity
 .must 714               ' Punishment acceptance 4
-.timeto 49 -00:11"00    ' 10 + 2*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:11"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:11"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:11"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:11"00
+.item Toys.enema_kit free or remaining greaterThan 00:11"00
 .set 152 162
 .range 3460 3469
 
 [Action 3458]           ' 6 x 2 minutes
 .mustnot 140            ' Dildo worshping activity
 .must 714               ' Punishment acceptance 4
-.timeto 49 -00:15"00    ' 12 + 6*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:15"00
+.state Toys.Nipple_Clamps free or remaining greaterThan 00:15"00
+.state Toys.Pussy_Clamps free or remaining greaterThan 00:15"00
+.state Household.Clothes_Pegs free or remaining greaterThan 00:15"00
+.item Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 156 160
 .range 3460 3469
 
 [Action 3459]           ' 3 x 5 minutes
 .mustnot 140            ' Dildo worshping activity
 .must 715               ' Punishment acceptance 5
-.timeto 49 -00:16"00    ' 15 + 3*0.5m
-.ifstate Toys.enema_kit free or remaining greaterThan 00:16"00
+.item Toys.Nipple_Clamps free or remaining greaterThan 00:16"00
+.item Toys.Pussy_Clamps free or remaining greaterThan 00:16"00
+.item Household.Clothes_Pegs free or remaining greaterThan 00:16"00
+.item Toys.enema_kit free or remaining greaterThan 00:16"00
 .set 153 162
 .range 3460 3469
 
