@@ -54,7 +54,7 @@
 .ConditionRange 26           ' wrist cuffs may affect assuming the exact posture
 
 
-.range 1000
+.range 989
 
 'All maids will sooner or later spend some time in the punishment corner.
 'You must learn to do it properly, standing to attention with the nose in the corner.
@@ -628,6 +628,7 @@
 .txt What would you like to do today?
 .resetrange 990 997     ' debug entries
 .resetrange 1811 1818   ' complete position
+.resetrange 1000 9999   ' reset script in order to repeat all
 .set 121                ' Debug, quit afterwards
 .set 130                ' comment holding position
 .unset 131 132          ' Don't comment dildo sucking, shoe licking 
@@ -12475,25 +12476,32 @@ You may remove the clothes pegs now.
 .mustnot 179            ' punishment flag
 That's enough for now.
 .gosub 9400             ' generic toy removal - none if toys have been removed already
-.unset 9710
 .range 9800 9801        ' advancement attempt
 
 ' Another one?
 [Action 9711]
 .must 148               ' decision to do another position
-' test duration remaining
+.mustnot 179            ' punishment flag
 .item Toys.Nipple_Clamps free or remaining greaterThan 00:08"00
 .item Toys.Pussy_Clamps free or remaining greaterThan 00:08"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:08"00
 .item Toys.enema_kit free or remaining greaterThan 00:08"00
 That was so good, slave,
 I think we should do another.
-.unset 9711
 .range 1219
 
-[Action 9719]
+[Action 9712]
 .must 179               ' punishment flag
-.range 9951 9959
+.range 9950
+
+' Another one but not possible
+[Action 9719]
+.else
+.must 148               ' decision to do another position
+.mustnot 179            ' punishment flag
+That's enough for now.
+.gosub 9400             ' generic toy removal - none if toys have been removed already
+.range 9800 9801        ' advancement attempt
 
 
 ' Haven't got items 9730-9749, entry 9730-9739
@@ -12770,7 +12778,7 @@ Good boy!
 .mustnot 121            ' Debug entry, to avoid continuing in main script 
 .unset 390
 .set 391
-.range 9901             ' results in vibrator assignment
+.range 9911             ' results in vibrator assignment
 
 [Action 9803]
 .must 390
@@ -12787,7 +12795,7 @@ Expect more difficult training next time.
 .poss 20
 .unset 390 391
 .set 392
-.range 9902             ' results in pussy clamps assignment
+.range 9912             ' results in pussy clamps assignment
 
 [Action 9805]
 .must 391
@@ -12804,7 +12812,7 @@ Very good boy!
 .poss 20
 .unset 390 391 392
 .set 393
-.range 9903             ' results in dildo assignment
+.range 9913             ' results in dildo assignment
 
 [Action 9807]
 .must 392
@@ -12820,7 +12828,7 @@ Next time I'm going to ramp the difficulty up a notch, because you've earned it.
 .poss 20
 .unset 390 391 392 393
 .set 394
-.range 9904
+.range 9914
 
 [Action 9809]
 .must 393
@@ -12836,7 +12844,7 @@ I'm going to have to test your endurance in the future.
 .poss 12
 .unset 390 391 392 393 394
 .set 395
-.range 9905
+.range 9915
 
 [Action 9811]
 .must 394
@@ -12853,7 +12861,7 @@ Good job!
 .poss 12
 .unset 390 391 392 393 394 395
 .set 396
-.range 9906
+.range 9916
 
 [Action 9813]
 .must 395
@@ -12875,36 +12883,48 @@ Good job!
 ' No achivement this time
 [Action 9900]
 .must 120               ' Regular training session
+.range 9901 9902
+
+
+[Action 9901]
+.mustnot 121            ' debug
 .save 390 699
 .loadsbd Mine.sbd 5100 5100
 
+[Action 9902]
+.must 121            ' debug
+.save 390 699
+.noimage
+.quit
+
+
 ' Announce achivement 391 to Mine.sbd
-[Action 9901]
+[Action 9911]
 .save 390 699
 .loadsbd Mine.sbd 5111 5111
 
 ' Announce achivement 392 to Mine.sbd
-[Action 9902]
+[Action 9912]
 .save 390 699
 .loadsbd Mine.sbd 5112 5112
 
 ' Announce achivement 393 to Mine.sbd
-[Action 9903]
+[Action 9913]
 .save 390 699
 .loadsbd Mine.sbd 5113 5113
 
 ' Announce achivement 394 to Mine.sbd
-[Action 9904]
+[Action 9914]
 .save 390 699
 .loadsbd Mine.sbd 5114 5114
 
 ' Announce achivement 395 to Mine.sbd
-[Action 9905]
+[Action 9915]
 .save 390 699
 .loadsbd Mine.sbd 5115 5115
 
 ' Announce achivement 396 to Mine.sbd
-[Action 9906]
+[Action 9916]
 .save 390 699
 .loadsbd Mine.sbd 5116 5116
 
@@ -12965,13 +12985,13 @@ Good job!
 '   VERY BAD ENDINGS - Slave came without permission --------------------------
 
 [Action 9990]
-.must 100               ' debug
+.must 121               ' debug
 .noimage
 Came, did you, you disobedient slut!
 .quit
 
 [Action 9991]
-.mustnot 100            ' debug
+.mustnot 121            ' debug
 .loadsbd Mine.sbd 6140  ' The same code path as in mine-td
 
 
