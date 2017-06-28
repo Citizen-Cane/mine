@@ -961,6 +961,7 @@ Let's continue your slave training.
 .set 170
 .range 1202 1217
 
+
 ' Short, easy
 [Action 1202]
 .must 170
@@ -1199,7 +1200,7 @@ Let's continue your slave training.
 .mustnot 26             ' wrists tied
 .mustnot 33             ' Can't kneel
 .should .state Body.OnBalls free
-.must 401               ' Lecture mentions "another", so another kneeling position has to be completed before
+.mustanyof 400          ' Lecture mentions "another", so another kneeling position has to be completed before
 .mustnot 179            ' Not for punishments, to avoid not having items
 .shouldnot 402          ' prefer a position that hasn't been done before
 .mustnot 4020           ' just once
@@ -1257,7 +1258,7 @@ Let's continue your slave training.
 .mustnot 32             ' Can't stand
 .should .state Body.OnBalls free
 .mustnot 179            ' Not for punishments, to avoid not having items
-.must 410               ' Lecture mentions "another", so the prequel position has to be completed before
+.mustanyof 400 402 403 404 ' Lecture mentions "another", so this may not be the first position to be performed
 .shouldnot 406          ' prefer a position that hasn't been done before
 .mustnot 4060 4061      ' just once
 .set 146                ' position is not continueable
@@ -1499,7 +1500,7 @@ Let's continue your slave training.
 .shouldnot 28           ' collared
 .mustnot 33             ' Can't kneel
 .should .state Body.OnBalls free
-.must 502               ' Lecture mentions "another", so similar positionn 502 has to be completed before
+.must 502               ' Lecture mentions "another", so similar position 502 has to be completed before
 .shouldnot 503          ' prefer a position that hasn't been done before
 .mustnot 5030           ' just once
 .set 180                ' Comfortable
