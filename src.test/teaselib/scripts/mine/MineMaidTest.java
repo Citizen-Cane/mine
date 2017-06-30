@@ -99,7 +99,7 @@ public class MineMaidTest {
         Assume.assumeFalse("Position not available" + position, positionAction.isEmpty());
         assertEquals(1, positionAction.size());
 
-        playPosition(mine, positionAction.get(0));
+        playPosition(positionAction.get(0));
 
         // Expect a good ending
         assertEquals("Script not ended as expected:", ScriptState.SET, mine.state.get(9950));
@@ -108,8 +108,14 @@ public class MineMaidTest {
         assertEquals("Position not completed:", ScriptState.SET, mine.state.get(position));
     }
 
-    private static void playPosition(Mine mine, Action positionAction)
-            throws ScriptExecutionException, AllActionsSetException {
+    private static void playPosition(Action positionAction) throws ScriptExecutionException, AllActionsSetException {
+        selectSinglePosition(positionAction);
+        mine.playRange(new ActionRange(1, 9950));
+        assertThatAllActionsSetDidntOccur(mine);
+    }
+
+    private static void selectSinglePosition(Action positionAction)
+            throws AllActionsSetException, ScriptExecutionException {
         mine.state.overwrite(148, ScriptState.UNSET);
 
         ActionRange allPositionsRange = new ActionRange(1400, 1699);
@@ -136,8 +142,9 @@ public class MineMaidTest {
             }
         }
         assertEquals(0, mine.range(new ActionRange(positionAction.number)).size());
+    }
 
-        mine.playRange(new ActionRange(1, 9950));
-        return;
+    private static void assertThatAllActionsSetDidntOccur(Mine mine) {
+        assertNotEquals("All actions set handler invoked", new ActionRange(9999), mine.range);
     }
 }
