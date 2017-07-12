@@ -63,6 +63,7 @@ public class MineMaidTest {
 
         debugger.addResponse("*spurted*", Debugger.Response.Ignore);
         debugger.addResponse("*give*", Debugger.Response.Ignore);
+        debugger.addResponse("*gmvm*", Debugger.Response.Ignore);
         debugger.addResponse("Of course*", Debugger.Response.Choose);
         debugger.addResponse("Exit", Debugger.Response.Choose);
 
