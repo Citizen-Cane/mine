@@ -24,9 +24,6 @@
 ' reset all temp variables from main script but keep slave state, toys and achievements
 .resetrange 100 199
 
-' The action number to indicate that the slave is wearing a gag
-.gag 22
-
 .range 1000 1000
 
 
@@ -433,7 +430,9 @@ Tell me when you have them all handy.
 ' TODO model item queries -> query ring gag and use it
 
 [Action 2106]
-.must 367               ' gag
+// TODO explicitly check for ring gag 
+// TODO explicitly remove ring gag at 9000- 
+.item Toys.Gag available
 I also see that you own a gag, is it by any chance a ring gag, my dear?
 You know, the kind you can stick your tongue through?
 .yestext Yes, Miss, I have
@@ -441,7 +440,7 @@ You know, the kind you can stick your tongue through?
 .yesno 2108 2108 2109 2109
 
 [Action 2107]
-.mustnot 367            ' gag
+.not .item Toys.Gag available
 .unset 212              ' ring gag not available
 .range 2110
 
@@ -550,7 +549,7 @@ I love gagging my slaves, because if there's
 one thing I hate it's a lot of sass out of a stupid cunt like you.
 Stick that ring gag in your cake-hole, dear!
 .delay 45
-.set -22 22        ' something in mouth
+.item Toys.Gag apply
 .range 2125 2126
 
 [Action 2124]

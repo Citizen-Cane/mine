@@ -33,10 +33,6 @@
 
 ' reset all temp variables from main script but keep slave state, toys and achievements
 
-' local slave state
-' -20 something on nipples
-' -22 something in mouth
-
 ' 150-159 counter for wanking
 ' 160-162 wanking duration
 
@@ -47,9 +43,6 @@
 
 .resetrange 100 179
  
-' The action number to indicate that the slave is wearing a gag
-.gag 22
-
 .range 1000
 
 .askcheck 50 150 150: 0 repetitions: finished.
@@ -772,7 +765,7 @@ Well slave, I don't want you to choke yourself to death.
 Leave the straps of the gag loose or open, just in case,
 and spit it out in case of trouble.
 .pause All right, Miss, I'm gagged
-.set -22 22             ' something in mouth
+.item Toys.Gag apply
 .range 2092
 
 [Action 2091]
@@ -783,7 +776,7 @@ delay 2
 I don't have to tell you avoid choking yourself
 and be extra cautious while you are wearing your gag , slave! 
 .pause All right, Miss, I'm gagged
-.set -22 22             ' something in mouth
+.item Toys.Gag apply
 .range 2092
 
 
@@ -1228,7 +1221,7 @@ We then settled down for a much deserved drink for the both of us and a cigarett
 Okay, slave, you too may remove your gag and ankle restraints,
 and then we'll finish the story.
 .pause Thank you, Miss
-.unset -22 22           ' something in mouth
+.item Toys.Gag remove
 .unset -25 25           ' ankles tied
 .range 2136
 
@@ -1832,13 +1825,14 @@ Go fetch your blindfold, and make sure you can hear my voice.
 ' teasing - blindfolded and chained ankles/wrists, can't remove without keys
 [Action 2214]
 .poss 10
-.mustnot 22 25 26 29 31 32   ' something in mouth, ankles tied, wrists tied, blindfold on, can't sit on chair 
+.item Toys.Gag applied
+.mustnot 25 26 29 31 32      ' ankles tied, wrists tied, blindfold on, can't sit on chair 
 .mustnot 104                 ' Punishment wank
 .mustnot 267 268             ' Enema carrying out or holding
 .must 363 364 360 382        ' have wrist restraints, ankle restraints, chains, blindfold
 .must 727                    ' Denial and self-control 2
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
-I want to be sure you'll totally focussed on the job, slave. 
+I want you completely focussed, slave! 
 .set 171                     ' search key
 .unset 2212
 .range 2220
@@ -1972,7 +1966,7 @@ Get your gag ready.
 [Action 2306]
 And put your gag in.
 .image bd186_15.jpg
-.set -22 22             ' something in mouth
+.item Toys.Gag apply
 .delay 20
 .range 2307
 
@@ -2238,10 +2232,10 @@ I want you to pick up the beads first.
 Very good.
 You may get up and take all the equipment off now.
 Begin with removing the pegs, then the clamps, and finish with your gag.
-.pause Thank you very much, Miss
 .image bd186_71.jpg
 .item Toys.Nipple_Clamps remove
-.unset -22 22           ' something in mouth
+.item Toys.Gag remove
+.pause Thank you very much, Miss
 .set 812                ' Done nipple training activity
 .range 8969             ' Good ending
 
@@ -2250,7 +2244,7 @@ Begin with removing the pegs, then the clamps, and finish with your gag.
 [Action 2349]
 You're such a pussy!
 .item Toys.Nipple_Clamps remove
-.unset -22 22           ' something in mouth
+.item Toys.Gag remove
 .set 812                ' Done nipple training activity
 .range 9400 9499
 

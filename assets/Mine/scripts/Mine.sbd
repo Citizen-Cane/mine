@@ -70,9 +70,6 @@
 ' clear actions that have been set in another script, critical as these aren't cleared automatically
 .resetrange 840 99999
 
-' The action number to indicate that the slave is wearing a gag
-.gag 22
-
 .range 845 846          ' normal start range
 
 
@@ -101,9 +98,9 @@
 
 ' There are mappings in Mine.java to link these states to their TeaseLib equivalent
 
-'	20	-	something on nipples
-'	21	-	something in butt
-'	22	-	something in mouth
+'	20	-	free
+'	21	-	free
+'	22	-	free
 '	23	-	something on penis
 '	24	-	something on balls
 '	25	-	ankles tied
@@ -119,12 +116,12 @@
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
 '   37  -	ball harness (includes 24)
-'   38  -   pussy pegs - additional to 24 something on balls
-'   39  -   Pussy clamps - additional to 24 something on balls 
-'   40  -   Dildo in mouth, along with 22 something in mouth
-'   41  -   Dildo in ass, along with 21 something in ass
-'   42  -   Clothes pegs on nipples, along with 20 something on nipples
-'   43  -   Nipple clamps on nipples, along with 20 something on nipples
+'   38  -   free
+'   39  -   free 
+'   40  -   free
+'   41  -   free
+'   42  -   free
+'   43  -   free
 '
 '   44  -   Chastified (Encaged slave penis) - mapped to Toys.Chastity_Cage with peers 23 30
 '   45  -   Have key for chastity cage timer - also mapped to 23 30, but as a timer
@@ -3868,34 +3865,34 @@ We will talk of this a little later.
 
 ' Gag
 [Action 1536]
-.must 367
+.item Toys.Gag available
 .mustnot 674
 .range 1541 1545
 
 [Action 1537]
+.item Toys.Gag available
 I'm glad to see you were able to get a gag, slave.
-.must 367
 .must 674
 .unset 674
 .range 1541 1545
 
 [Action 1538]
+.not .item Toys.Gag available
 The gag you were supposed to get, but didn't,
 will cost you some punishment, slave.
-.mustnot 367
 .must 674
 .set 510
 .range 1541 1545
 
 [Action 1539]
-.mustnot 367
+.not .item Toys.Gag available
 .mustnot 674
 .range 1541 1545
 
 [Action 1540]
+.not .item Toys.Gag available
 Okay, slave, you'll need to get or make a gag before you come back next time.
 We'll talk about this more in a minute.
-.mustnot 367
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 .poss 10
@@ -6463,8 +6460,10 @@ I guess I'll have to turn the other cheek this time.
 [Action 2511]
 .poss 100
 .state Body.OnNipples free
-.mustnot 22 33 34            ' something in mouth, can't kneel, can't type
-.must 361 362 367
+.state Body.InMouth free
+.item Toys.Gag available
+.mustnot 33 34               ' can't kneel, can't type
+.must 361 362
 .must 712 717 746 
 .save 90 799
 .loadsbd mine-td.sbd 1116 1116
@@ -6472,7 +6471,8 @@ I guess I'll have to turn the other cheek this time.
 ' dildo punishment
 [Action 2512]
 .must 388
-.mustnot 22 29 34 41         ' something in mouth, blindfolded, can't type/use mouse, dildo in ass
+.state Body.InMouth free
+.mustnot 29 34 41            ' blindfolded, can't type/use mouse, dildo in ass
 .mustnot 260                 ' Dildo worshiping already done
 .set 260
 .save 90 799
@@ -6688,7 +6688,8 @@ I guess you're off the hook, you lucky slave boy.
 
 ' dildo punishment
 [Action 2542]
-.mustnot 22 29 34 41    ' something in mouth, blindfolded, can't type/use mouse, dildo in ass
+.state Body.InMouth free
+.mustnot 29 34 41       ' blindfolded, can't type/use mouse, dildo in ass
 .mustnot 260            ' Dildo worshiping already done
 .must 388               ' have dildo
 .set 260
@@ -6698,14 +6699,14 @@ I guess you're off the hook, you lucky slave boy.
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2543]
-.mustnot 21             ' Something in ass
+.item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368               ' Buttplug
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
-.set 21                 ' Something in ass
+.item Toys.Buttplug apply
 .set 756 757            ' Anal training 2
 .range 2549
 
@@ -6759,26 +6760,26 @@ suitable for a lying degenerate cunt slave.
 .range 2565 2566
 
 [Action 2562]
-.mustnot 22
-.must 367
+.item Toys.Gag available
+.item Toys.Gag canApply
 I'd much rather hear nothing at all than a bunch of lies from a filthy and ill-mannered slave.
 Go get your gag and stuff it in your mouth
 - you can leave it in there for the rest of our session, cunt.
+.item Toys.Gag apply
 .pause I'm gagged, Miss
-.set 22
 .range 2406
 
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2563]
-.mustnot 21             ' Something in ass
+.item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368               ' Buttplug
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
-.set 21                 ' Something in ass
+.item Toys.Buttplug apply
 .set 756 757            ' Anal training 2
 .range 2406
 
@@ -6827,8 +6828,9 @@ Unfortunately your attention deficit disorder must go unavenged today.
 ' dildo punishment
 [Action 2571]
 .poss 5
+.state Body.InMouth free
 .must 388                    ' dildo
-.mustnot 22 29 34 41         ' something in mouth, blindfolded, can't type/use mouse, dildo in ass
+.mustnot 29 34 41            '  blindfolded, can't type/use mouse, dildo in ass
 .mustnot 260                 ' Dildo worshiping already done
 .set 260
 .save 90 799
@@ -6890,14 +6892,14 @@ I'll get you next time, you dirty slave!
 .range 2151
 
 [Action 2581]
-.mustnot 21             ' Something in ass
+.item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368               ' Buttplug
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause In plugged, Miss
-.set 21                 ' Something in ass
+.item Toys.Buttplug Apply
 .set 756 757            ' Anal training 2
 .range 2589
 
@@ -7042,7 +7044,7 @@ I don't want you to be able to stand, so keep the connecting rope short.
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2601]
-.mustnot 21             ' Something in ass
+.item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368               ' Buttplug
 In order to increase your attention span regarding my assignments,
@@ -7051,8 +7053,8 @@ Fetch your largest butt plug and stuff it up into your naughty slave ass.
 ShowChoices
 delay 30
 You can leave it in there for the entire session, slave!
+.item Toys.Buttplug apply
 .pause I'm plugged, Miss
-.set 21                 ' Something in ass
 .set 756 757            ' Anal training 2
 .range 2605
 
@@ -7854,15 +7856,15 @@ I'll get you next time, you dirty slave!
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with most activities
 [Action 2981]
-.mustnot 21             ' Something in ass
+.item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368               ' Buttplug
 .must 757               ' Anal training 2
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
+.item Toys.Buttplug apply
 .pause I'm plugged, Miss
-.set 21                 ' Something in ass
 .set 758                ' Anal training 3
 .range 2448
 
@@ -7907,15 +7909,15 @@ I'll get you next time, you dirty slave!
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with most activities
 [Action 2991]
-.mustnot 21             ' Something in ass
+.item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 368               ' Buttplug
 .must 757               ' Anal training 2
 Instead of beating you raw, I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
+.item Toys.Buttplug apply
 .pause I'm plugged, Miss
-.set 21                 ' Something in ass
 .set 758                ' Anal training 3
 .range 2449
 
@@ -8567,34 +8569,25 @@ I don't think I'll add anything more to today's session.
 ' 3110-3139 unique add-ons
 
 [Action 3110]
-.mustnot 21 27 36       ' something in butt, something around waist, harnessed
+.item Toys.Dildo canApply to Body.InButt
+.mustnot 27 36          ' something in butt, something around waist, harnessed
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 366 388           ' Rope, dildo
 .must 757               ' anal training 2
 .must 776               ' Dildo worshiping 1
 I feel like filling that slutty little butthole
 of yours up today, My dear little ass slave.
-.range 3111
-
-[Action 3111]
-.must 3110
+[]
 I want you to fetch your dildo, lube it up good, and slide it gently
 into your back door, where you will keep it for today's session.
-.delay 60
-.set 21 41
+delay 30
+.item Toys.Dildo apply to Body.InButt
 .set 758	            ' anal training 3
-.range 3112
-
-[Action 3112]
-.must 3111
-.image bd227_18.jpg     ' crotch rope close-up
+[]
+image bd227_18.jpg     ' crotch rope close-up
 Since you're certainly aren't going to be able to hold that dildo all
 through the session you're going to tie yourself with a crotch rope. 
-.delay 60
-.range 3113
-
-[Action 3113]
-.must 3112
+[]
 Double the rope through your crotch before looping it around
 your waist and through your crotch, to ensure the dildo doesn't slip out.
 delay 20
@@ -8906,17 +8899,19 @@ go a long way in teaching you not to irritate me!
 
 
 [Action 3150]
+.item Toys.Gag available
+.item Toys.Gag canApply
 '.must 366                   ' some rope, but don't insist on having it in the list
-.must 367 385                ' gag, ball harness
+.must  385                   ' gag, ball harness
 .must 736 737 746 782        ' restraint acceptance 1 & 2, cbt 1, gag training 1  
 .mustnot 23 24 37            ' already wearing ball harness
-.mustnot 22                  ' something in mouth
 Now, slave, go get Me some rope and your gag.
 I want you to put the gag in, to begin with -
 you'll be wearing it throughout the session.
 Then, tie a rope to your gag, leaving some left over.
+.item Toys.Gag apply
 .pause I'm gagged, Miss
-.set 22 783                  ' something in mouth, gag training level 3
+.set 783                     ' something in mouth, gag training level 3
 .range 3151
 
 [Action 3151]
@@ -8937,14 +8932,16 @@ You can stare at that silly penis for the rest of the session.
 
 
 [Action 3153]
-.mustnot 22 24          ' something in mouth, something on balls
+.item Toys.Gag available
+.item Toys.Gag canApply
+.mustnot 24             ' something on balls
 .mustnot 23             ' something on penis
-.must 366 367           ' rope, gag
+.must 366               ' rope, gag
 .must 736 737 746 782   ' restraint acceptance 1,2, cbt 1, gag training 2
 Now, slave, go get Me some rope and your gag.
 I want you to put the gag in, to begin with -
 you'll be wearing it throughout the session.
-.set 22                  ' something in mouth
+.item Toys.Gag apply
 .pause I'm gagged, Miss
 .range 3154
 
@@ -8991,14 +8988,15 @@ You can stare at that silly penis for the rest of the session.
 
 
 [Action 3158]
-.mustnot 22             ' something in mouth
-.must 367               ' have gag
+.item Toys.Gag available
+.item Toys.Gag canApply
 .must 782               ' gag training 2
 Now, slave, I'm not in the mood for a lot of bitching and
 moaning today, so get your gag and put it in right now.
 I want you to keep it there for the entire session.
+.item Toys.Gag apply
 .pause I'm gagged, Miss
-.set 22 783	            ' something in mouth, gag training 3
+.set 783                ' something in mouth, gag training 3
 .return
 
 
@@ -9280,7 +9278,8 @@ Put it on now, slave.
 
 
 [Action 3252]
-.mustnot 22 25 26 32    ' something in mouth, wrist and ankle retraints, can't stand
+.state Body.InMouth free
+.mustnot 25 26 32       ' something in mouth, wrist and ankle retraints, can't stand
 .mustnot 23 24          ' something on penis, something on balls, ball
 .mustnot 267 268        ' Enema carrying out or holding
 .must 363 364 360       ' wrist, ankle restraints, chains
@@ -10975,13 +10974,14 @@ my dear slave, so let's put on your ball harness.
 .range 4985
 
 [Action 4956]
+.item Toys.Gag available
+.item Toys.Gag canApply
 .mustnot 221 254        ' not already doing this, not having already done it
-.mustnot 22             ' nothing in mouth
-.must 367               ' have a gag
 I want you to be quiet for our next activity.
 Open your mouth and insert your gag now, slave.
 .pause I'm gagged, Miss
-.set 22 221             ' something in mouth
+.item Toys.Gag apply
+.set 221                ' something in mouth, single activity
 .range 4985
 
 [Action 4957]
@@ -11484,12 +11484,10 @@ I think your nipples and nuts could use a working-over.
 ' Maid training: some toys are handled flexbibly so we don't have to check those
 ' 23 something on penis, 30 can't jerk off and 37 ball harness can be ignored
 ' 21 butt plug and 32 can't stand are handled in each position
-' something on nipples,
-' 22 something in mouth are handled in each position
+' something on nipples, something in mouth are handled in each position
 ' 28 collared handled in each position
 ' something on balls is ignored
 ' since pegs on are an explicit part of some of the scenarios in level 2 
-' TODO check enema and pegs/clamps actual time left in mine-maid.sbd
 [Action 5070]
 .mustnot 262            ' Done maid training activity already
 .mustnot             29 ' blindfolded
@@ -12013,7 +12011,7 @@ I like a clean slave.
 [Action 5401]
 .state Body.OnNipples free
 .state Body.OnBalls is free
-.mustnot 22             ' something in mouth
+.state Body.InMouth free
 .mustnot 26 28 31 32    ' wrists tied, collared, can't sit on chair, can't stand 
 '.mustnot 26 31 32       ' wrists tied, can't sit on chair, can't stand 
 .mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
@@ -12028,7 +12026,8 @@ I like a clean slave.
 [Action 5402]
 .state Body.OnNipples free
 .state Body.OnBalls is free
-.mustnot 22 25          ' something on mouth, ankles tied
+.state Body.InMouth free
+.mustnot 25             ' something on mouth, ankles tied
 .mustnot 26 28 31 32    ' wrists tied, collared, can't sit on chair, can't stand  
 '.mustnot 26 31 32       ' wrists tied, can't sit on chair, can't stand  
 .mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
@@ -12042,7 +12041,8 @@ I like a clean slave.
 [Action 5403]
 .state Body.OnNipples free
 .state Body.OnBalls is free
-.mustnot 22 25          ' something on mouth, ankles tied
+.state Body.InMouth free
+.mustnot 25             ' something on mouth, ankles tied
 .mustnot 26 28 33 34    ' wrists tied, collared, can't kneel, can't type 
 '.mustnot 26 33 34       ' wrists tied, can't kneel, can't type 
 .mustnot 268            ' Holding the enema
@@ -12056,7 +12056,8 @@ I like a clean slave.
 [Action 5404]
 .state Body.OnNipples free
 .state Body.OnBalls is free
-.mustnot 22 25          ' something on mouth, ankles tied
+.state Body.InMouth free
+.mustnot 25             ' something on mouth, ankles tied
 .mustnot 26 28 33 34    ' wrists tied, collared, can't kneel, can't type 
 '.mustnot 26 33 34       ' wrists tied, can't kneel, can't type 
 .mustnot 268            ' Holding the enema
@@ -12821,16 +12822,18 @@ Meanhile, three demerits will do about right.
 
 ' Terri and Jennifer #16-21
 [Action 6002]
-.item Toys.Nipple_Clamps canApply
 .item Toys.Nipple_Clamps available
+.item Toys.Nipple_Clamps canApply
+.item Toys.Gag available
+.item Toys.Gag canApply
 .not .painToysOnBalls
 .mustnot 266            ' Done story time activity already 
-.mustnot 22 25 26       ' something on nipples, something in mouth, ankles tied, wrists tied
+.mustnot 25 26          ' something on nipples, something in mouth, ankles tied, wrists tied
 .not .state Body.Blindfolded applied
 .mustnot 30 34 35       ' blindfolded, can't jerk off, can't type/use mouse, tethered
 .mustnot 44             ' Chastified
 .mustnot 267 268        ' Enema carrying out or holding
-.must 363 364 367       ' nipple clamps, wrist restraints, ankle restraints, gag
+.must 363 364           ' nipple clamps, wrist restraints, ankle restraints
 .must 717 736           ' Nipple tolerance 2, Restraint Acceptance 1
 .set 266                ' Done story time activity
 .range 6152
@@ -12984,11 +12987,13 @@ Meanhile, three demerits will do about right.
 [Action 6014]
 .state Body.OnNipples free
 .item Toys.Nipple_Clamps available
+.item Toys.Nipple_Clamps canApply
 .item Household.Clothes_Pegs available
+.item Toys.Gag available
+.item Toys.Gag canApply
 .mustnot 266            ' Done story time activity already 
-.mustnot 22 26 33       ' something in mouth, wrists tied, can't kneel
+.mustnot 26 33          ' wrists tied, can't kneel
 .mustnot 34             ' can't type
-.must 367               ' gag
 .must 712 717 746       ' punishment acceptance 2, nipple tolerance 2, cbt1
 .state Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 266                ' Done story time activity
@@ -14501,7 +14506,7 @@ Just in case, your cock and balls stay tied up, sweetheart.
 .must 221               ' Gag temporary
 Oh, before I forget, you may take the gag out now, sweetheart.
 .pause Thank you, Miss
-.unset 22               ' something in mouth
+.item Toys.Gag remove
 .unset 221              ' Gag temporary
 .set 254                ' one-time per session, don't put gag in again
 .set 781                ' gag training level 1
@@ -17896,9 +17901,9 @@ I'll let you cum, but you have to eat it up.
 
 ' start cum slut training
 [Action 9720]
+.state Body.InMouth free
 Because of your bad behavior in our session though, I can't just  let you cum.
 If I do, will you agree to eat it all up?
-.mustnot 22	                 ' something in mouth
 .yesno 9540 9545 9722 9722
 .yestext Okay Miss, I'll eat up my cum
 .notext No thanks, Miss
@@ -19446,9 +19451,9 @@ I'm waiting!
 .must 343
 Slave, you were supposed to stuff your dirty mouth with a gag.
 But you didn't!
-Well, get your gag and put it in now, you disobedient cunt!
+Get your gag and put it in now, you disobedient cunt!
+.item Toys.Gag apply
 .pause I'm gagged now, Miss
-.set 22            ' something in mouth, necessary to support gagged replies
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 243
 .unset 11053
@@ -20151,7 +20156,7 @@ Especically if he's chained and shackled so well.
 
 [action 11343]
 .must 243
-.set 22                 ' something in mouth
+.item Toys.Gag apply
 .unset 243
 .range  11324
 
@@ -20633,7 +20638,7 @@ don't you think, slave?
 .range 11759
 
 [Action 11742]
-.must 367               ' must have gag
+.item Toys.Gag available
 Also you're also going to stuff your dirty slave mouth with a nice gag.
 .pause Of course, Miss
 .set 343

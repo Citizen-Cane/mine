@@ -31,9 +31,6 @@
 ' reset all temp variables from main script but keep slave state, toys and achievements
 .resetrange 100 149
 
-' The action number to indicate that the slave is wearing a gag
-.gag 22
- ' 22 is not set when having the dildo in the mouth since we also have to remember the gag state
 
 .range 1000
 
@@ -65,9 +62,9 @@
 .askcheck 63 163 163: 7 minutes
 
 ' Toys
-.askcheck 75 20	20	-	something on nipples
+.askcheck 75 20	20	-	free
 .askcheck 76 20	21	-	something in butt
-.askcheck 77 22	22	-	something in mouth
+.askcheck 77 22	22	-	free
 .askcheck 78 23	23	-	something on penis
 .askcheck 79 24	24	-	something on balls
 .askcheck 80 25	25	-	ankles tied
@@ -83,12 +80,12 @@
 .askcheck 90 35	35	-	tethered - can't leave computer area
 .askcheck 91 36 36  -   harnessed
 .askcheck 92 37 37  -	ball harness (includes 24)
-.askcheck 93 38 38  -   
-'   39  -   Pussy clamps  - additional to 24 something on balls 
-'   40  -   Dildo in mouth, along with 22 something in mouth
-'   41  -   Dildo in ass, along with 21 something in ass
-.askcheck 94 42 42  -   Clothes pegs on nipples, along with 20 something on nipples
-.askcheck 95 42 43  -   Nipple clamps on nipples, along with 20 something on nipples
+.askcheck 93 38 38  -   free
+'   39  -   free 
+'   40  -   free
+'   41  -   free
+.askcheck 94 42 42  -   free
+.askcheck 95 42 43  -   free
 
 
 ' local slave state
@@ -109,8 +106,7 @@
 ' 19 - -
 
 ' local slave state
-' -20 something on nipples
-' -22 is set if the gag(22) must be put back in, so it's reverse
+' -22 is set if the gag(22) must be put back in
 
 ' 180-199 persistent slave advancement
 
@@ -150,7 +146,7 @@
 .menu 56 926 926 Dildo yoga
 .menu 57 927 927 Suck Kneeling on all four, ride sitting on the floor
 .menu 58 928 928 Suck standing, ride on all four
-.menu 59 929 929 Suck on wall/door frame kneeling on all four, ride on all four 
+.menu 59 929 929 Suck on wall/door frame kneeling on all four, ride on all four - test gag handling 
 .menu 60 930 930 Empty  
 .menu 61 931 931 Empty
 .menu 62 932 932 Empty
@@ -265,7 +261,7 @@
 
 ' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs
 [action 929]
-.set 22                 ' something in mouth
+.item Toys.Gag apply
 .set 3229
 .range 940
 
@@ -780,18 +776,18 @@ delay 10
 ' Defaults
 [Action 3108]
 .else
-.must 22
+.item Toys.Gag applied
 You'll need your lips and tongue for this task, so go ahead and remove your gag.
-But keep it handy, because you're to put it back in after your worshiping service.
-.set -22                ' something in mouth
-.unset 22               ' something in mouth
+But keep it handy, because you're to put it back in right after you've finished your worshiping service.
+.set -22                ' something in mouth, remember
+.item Toys.Gag remove
 .pause Thank you, Miss
 .range 3119
 
 ' Default
 [Action 3109]
-.mustnot 22
 .else
+.not .item Toys.Gag applied
 .range 3119
 
 
@@ -832,21 +828,21 @@ you may need them later.
 ' hands tied on back
 
 [action 3120]
-.must 22                ' something in mouth
+.item Toys.Gag applied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue.
 So after taking your gag out,
 I want you to pick up your wrist restraints
 and tie your hands on your back.
 delay 10
-.set -22                ' something in mouth
-.unset 22               ' something in mouth
+.item Toys.Gag remove
+.set -22                ' something in mouth, remember
 .pause I'm tied up, Miss
 .set 10                 ' wrists tied to back
 .return
 
 [action 3121]
-.mustnot 22             ' something in mouth
+.not .item Toys.Gag applied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue.
 Go get your wrist restraints and tie your hands on your back.
@@ -859,7 +855,7 @@ delay 10
 ' wrists to ankles
 
 [action 3128]
-.must 22                ' something in mouth
+.item Toys.Gag applied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go get your wrist and ankle restraints, and
@@ -870,8 +866,8 @@ Lock your right hand to your right ankle,
 and your left hand to your left ankle.
 delay 10
 Keep the connecting chains short, my pet.
-.set -22                ' something in mouth
-.unset 22               ' something in mouth
+.set -22                ' something in mouth, remember
+.item Toys.Gag remove
 .pause I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
 .ifunset 31 .set -31
@@ -880,7 +876,7 @@ Keep the connecting chains short, my pet.
 .return
 
 [action 3129]
-.mustnot 22             ' something in mouth
+.not .item Toys.Gag applied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go get your wrist and ankle restraints and tie each wrist to the corresponding ankle.
@@ -919,21 +915,21 @@ so get your wrist restraints and put them on.
 '[action 3137]
 
 [action 3138]
-.must 22                ' something in mouth
+.item Toys.Gag applied
 .mustnot 37             ' ball harness
 .mustnot 44             ' chastified
 .keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
 to your slutty ball sack.
-.set -22                ' something in mouth
-.unset 22               ' something in mouth
+.set -22                ' something in mouth, remember
+.item Toys.Gag remove
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
 
 [action 3139]
-.mustnot 22             ' something in mouth
+.not .item Toys.Gag applied
 .mustnot 37             ' ball harness
 .mustnot 44             ' chastified
 .keyrelease prepare 3600
@@ -944,20 +940,20 @@ tie them to your slutty ball sack.
 .return
 
 [action 3140]
-.must 22                ' something in mouth
+.item Toys.Gag applied
 .must 44                ' chastified
 .keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
 tie them to your chastity cage.
-.set -22                ' something in mouth
-.unset 22               ' something in mouth
+.set -22                ' something in mouth, remember
+.item Toys.Gag remove
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
 
 [action 3141]
-.mustnot 22             ' something in mouth
+.not .item Toys.Gag applied
 .must 44                ' chastified
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
@@ -968,20 +964,20 @@ tie them to your chastity cage.
 
 
 [action 3142]
-.must 22                ' something in mouth
+.item Toys.Gag applied
 .must 37                ' ball harness
 .keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
-tie them to your ball harness.
-.set -22                ' something in mouth
-.unset 22               ' something in mouth
+to your ball harness.
+.set -22                ' something in mouth, remember
+.item Toys.Gag remove
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
 
 [action 3143]
-.mustnot 22             ' something in mouth
+.not .item Toys.Gag applied
 .must 37                ' ball harness
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
@@ -994,20 +990,20 @@ tie them to your ball harness.
 ' wrists to collar
 
 [action 3144]
-.must 22                ' something in mouth
+.item Toys.Gag applied
 .must 26                ' wrists tied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue, so -
 well, after taking your gag out -
 go ahead and lock your wrist restraints to your collar.
-.set -22                ' something in mouth
-.unset 22               ' something in mouth
+.set -22                ' something in mouth, remember
+.item Toys.Gag remove
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
 
 [action 3145]
-.mustnot 22             ' something in mouth
+.not .item Toys.Gag applied
 .must 26                ' wrists tied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
@@ -1017,21 +1013,21 @@ so go ahead and lock your wrists to your collar.
 .return
 
 [action 3146]
-.must 22                ' something in mouth
+.item Toys.Gag applied
 .mustnot 26             ' wrists tied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so fetch your wrists restraints, snap them on and
 - well, after taking out your gag -
 lock'em to your collar.
-.set -22                ' something in mouth
-.unset 22               ' something in mouth
+.set -22                ' something in mouth, remember
+.item Toys.Gag remove
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
 
 [action 3147]
-.mustnot 22             ' something in mouth
+.not .item Toys.Gag applied
 .mustnot 26             ' wrists tied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
@@ -1072,7 +1068,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 [Action 3161]
 .poss 10
 .mustnot 21                       ' something in butt
-.mustnot 22                       ' something in mouth
+.state Body.InMouth free
 .mustnot 36                       ' Harnessed
 .must 140                         ' Only ride in activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
@@ -1471,7 +1467,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' Referenced in 3850-3889 to continue scenarios with appropriate images
 
 [Action 3249]
-.set 40                 ' Dildo in mouth
+.item Toys.Dildo apply to Body.InMouth
 .range 3250 3269
 
 
@@ -3209,7 +3205,7 @@ ShowChoices
 delay 10
 Use plenty, because in a minute, you're going to have a tough ride.
 .unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.item Toys.Gag apply
 .pause Alright Miss, I'm gagged again and the dildo is lubed up
 .range 3636
 
@@ -3325,7 +3321,7 @@ I'll have you assume a riding position that avoids full penetration.
 ' Stage 3: Scenario selection
 
 [Action 3649]
-.unset 40               ' Dildo in mouth
+.item Toys.Dildo remove      ' Ready to ride
 .range 3650 3679
 
 ' Riding position selection 3650-3679
@@ -3335,7 +3331,7 @@ I'll have you assume a riding position that avoids full penetration.
 
 ' 3220 lie down on the floor, riding fully penetrated on the floor
 [Action 3650]
-.must 3220             ' Match blow job scenario selection
+.must 3220              ' Match blow job scenario selection
 .range 3680 3681
 
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
@@ -3432,10 +3428,10 @@ Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
 delay 10 
 dildo_worshiping_suck_lying_ride_sitting_ride.jpg
-When you're gagged and settled on the dildo,
+Once you're gagged and settled on the dildo,
 lean back, support your torso with your arms, and spread your legs.
 .unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.item Toys.Gag apply
 .delay 30 30 confirm yes 3769 3769 
 .yestext I'm gagged and fully penetrated, Miss
 .range 3769
@@ -3446,7 +3442,8 @@ Finally sit down on on the dildo to let it gently slide into your back door.
 dildo_worshiping_suck_lying_ride_sitting_ride.jpg
 When you've settled, lean back, support your
 torso with your arms, and spread your legs out.
-.pause I'm fully penetrated, Miss
+.delay 30 30 confirm yes 3769 3769 
+.yestext I'm fully penetrated, Miss
 .range 3769
 
 
@@ -3494,8 +3491,8 @@ Very good, my anal pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
 delay 10 
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remmeber
+.item Toys.Gag apply
 Are you ready to ride your dildo, slave?
 .delay 30 30 confirm yes 3769 3769 
 .yestext Yes Miss, I'm gagged and ready
@@ -3541,16 +3538,16 @@ delay 15
 dildo_worshiping_suck_stool_ride_stool_ride.jpg
 Then slowly sit down on the dildo to pleasantly fill your ass.
 delay 10
-.pause I'm fully penetrated, Mistress
+.pause I'm fully penetrated, Miss
 .range 3769
 
 
 [action 3693]
-.delay 30 30 confirm yes 3769 3769 
 Are you sitting comfortably, slave?
-.yestext Yes Miss, I'm fully penetrated
+.delay 30 30 confirm yes 3769 3769 
+.yestext Yes Miss, I'm gagged and  fully penetrated
 .unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.item Toys.Gag apply
 .range 3769
 
 
@@ -3572,8 +3569,8 @@ delay 10
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
 delay 15
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remember
+.item Toys.Gag apply
 When you are properly gagged,
 place yourself over the dildo and aim the tip towards your backdoor,
 then grab the edge of the desk.
@@ -3625,8 +3622,8 @@ Return to me at the desk when you have it all ready, slave.
 .mustnot 10 11 16 17    ' hands tied
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remember
+.item Toys.Gag apply
 .pause Alright Miss, I'm gagged again
 .range 3703
 
@@ -3669,8 +3666,8 @@ Report back to me when the dildo is ready to ride!
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so let's put the gag back in.
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remember
+.item Toys.Gag apply
 .pause Alright Miss, I'm gagged again
 .range 3703
 
@@ -3700,8 +3697,8 @@ delay 15
 When you're properly gagged again, you may lube up the dildo as well. 
 delay 15
 Tell me when you're ready to continue your workout, my pet.
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remember
+.item Toys.Gag apply
 I'm gagged and ready, Miss
 .range 3712
 
@@ -3758,8 +3755,8 @@ Now mount your dildo on the floor, and lube it up good.
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so hurry up and put the gag back in.
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remember
+.item Toys.Gag apply
 delay 20
 dildo_worshiping_suck_lying_ride_sitting_ride.jpg
 Then sit down on the dildo.
@@ -3803,8 +3800,8 @@ Make it all good and slippery and report back to me.
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so hurry up and put the gag back in.
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remember
+.item Toys.Gag apply
 delay 15
 .range 3723
 
@@ -3849,8 +3846,8 @@ delay 15
 Very good, my little pet.
 Well, I don't think you'll need your lips and tongue anytime soon,
 so hurry up and put the gag back in.
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remember
+.item Toys.Gag apply
 delay 15
 dildo_worshiping_sucking_on_all_four_riding_on_all_four_ride.jpg
 Then crawl backwards towards the wall and mount your dildo.
@@ -3873,7 +3870,7 @@ delay 15
  
 ' End of preparation: Dildo lubed up, or mounted and inserted
 [action 3769]
-.set 21 41              ' something in ass, Dildo
+.item Toys.Dildo apply to Body.InButt
 .range 3800
 
 
@@ -4986,7 +4983,7 @@ But I want you to keep wearing your collar, slave.
 
 ' Successfully sucked dildo
 [Action 4401]
-.must 40                ' Dildo in mouth
+.item Toys.Dildo is Body.InMouth
 .mustnot 4300           ' Cancelled
 .range 4410 4414
 
@@ -4997,14 +4994,14 @@ But I want you to keep wearing your collar, slave.
 
 ' Successfully finished activity but unable to fully insert dildo
 [Action 4403]
-.must 41                ' Dildo in ass
+.item Toys.Dildo is Body.InButt
 .mustnot 185            ' Slave couldn't fully insert
 .mustnot 4300           ' Cancelled
 .range 4420 4424
 
 ' Successfully finished activity and be able to fully insert dildo
 [Action 4404]
-.must 41                ' Dildo in ass
+.item Toys.Dildo is Body.InButt
 .must 185               ' Dildo worshiping 1, set earlier
 .mustnot 4300           ' Cancelled
 .gosub 9300             ' put the gag back in
@@ -5018,8 +5015,8 @@ That's enough for now, slave.
 You may clean up the dildo and put it away,
 again just using your mouth, of course.
 delay 5
+.item Toys.Dildo remove
 .pause Done as ordered, Miss
-.unset 40               ' Dildo in mouth
 .range 4460
 
 
@@ -5029,8 +5026,7 @@ delay 5
 You can put the dildo away, you lazy slut.
 .pause Done, Miss
 .unset 21                ' something in butt
-.unset 40                ' Dildo in mouth
-.unset 41                ' Dildo in ass
+.item Toys.Dildo remove
 .range 4460
 
 ' Just put dildo away after canceling
@@ -5039,8 +5035,7 @@ You can put the dildo away, you lazy slut.
 Crawl off and put the dildo away, cunt.
 .pause Done, Miss
 .unset 21                ' something in butt
-.unset 40                ' Dildo in mouth
-.unset 41                ' Dildo in ass
+.item Toys.Dildo remove
 .range 4460
 
 
@@ -5072,15 +5067,15 @@ as you're supposed to.
 delay 10
 .pause Done as ordered, Miss
 .unset 21               ' Something in butt
-.set 40                 ' Dildo in mouth
-.unset 41               ' Dildo in ass
+.item Toys.Dildo remove
+.item Toys.Dildo apply to Body.InMouth
 .range 4426
 
 [Action 4426]
 Well done, my little pet.
 Now crawl off and put the dildo away. 
 .pause Done, Miss
-.unset 40               ' Dildo in mouth
+.item Toys.Dildo remove
 .range 4460
 
 
@@ -5479,7 +5474,7 @@ Bend your back back up, and place the dildo under your naughty backdoor.
 .image RebeccaYoga(22).jpg
 .delay 30
 Now sink down to let it gently slide into your back door.
-.set 21 41                   ' Something in butt, dildo
+.item Toys.Dildo apply to Body.InButt
 .range 5220
 
 [Action 5220]
@@ -6322,8 +6317,8 @@ I'll give you a minute to collect yourself.
 .mustnot 10 11 16 17    ' hands tied 
 Well, I don't think you'll need your lips and tongue anytime soon,
 my dear anal pet, so let's put the gag back in.
-.unset -22              ' something in mouth
-.set 22                 ' something in mouth
+.unset -22              ' something in mouth, remember
+.item Toys.Gag apply
 .pause I'm gagged again, Miss
 .return
 

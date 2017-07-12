@@ -31,9 +31,6 @@
                         ' range 131-139 is used to access lectures flags given in mine-paddle but stored by the main script  
 .resetrange 140 199     ' reset all temp variables from main script but keep slave state, toys and achievements  
 
-' The action number to indicate that the slave is wearing a gag
-.gag 22
-
 .range 1000
 
 
@@ -139,9 +136,9 @@
 .askcheck   47  158 Balls tied up in shower
 
 ' Toys
-.askcheck 75 20	20	-	something on nipples
+.askcheck 75 20	20	-	free
 .askcheck 76 20	21	-	something in butt
-.askcheck 77 22	22	-	something in mouth
+.askcheck 77 22	22	-	free
 .askcheck 78 23	23	-	something on penis
 .askcheck 79 24	24	-	something on balls
 .askcheck 80 25	25	-	ankles tied
@@ -158,11 +155,11 @@
 .askcheck 91 36 36  -   harnessed
 .askcheck 92 37 37  -	ball harness (includes 24)
 .askcheck 93 38 38  -   
-'   39  -   Pussy clamps  - additional to 24 something on balls 
-'   40  -   Dildo in mouth, along with 22 something in mouth
-'   41  -   Dildo in ass, along with 21 something in ass
-.askcheck 94 42 42  -   Clothes pegs on nipples, along with 20 something on nipples
-.askcheck 95 42 43  -   Nipple clamps on nipples, along with 20 something on nipples
+'   39  -   free 
+'   40  -   free
+'   41  -   free
+.askcheck 94 42 42  -   free
+.askcheck 95 42 43  -   free
 
 ' Debug
 
@@ -674,14 +671,13 @@ Give that red butt a good rubdown now.
 ' Gag requested
 [Action 1586]
 .must 157               ' Gagged in shower 
-.must 367               ' Have gag
+.item Toys.Gag available
 .range 1590
 
 ' Gag requested, doesn't have one
 [Action 1587]
 .must 157               ' Gagged in shower
-.mustnot 22             ' something in mouth
-.mustnot 367            ' Have gag
+.not .item Toys.Gag available
 .unset 157              ' No gag
 .range 1590
 
@@ -909,7 +905,7 @@ You'll wear those in the shower, too.
 You will wear your gag in the shower.
 I don't want to hear any more complaints from your filthy mouth, so put it in now.
 .pause I'm gagged, Miss
-.set -22 22                  ' something in mouth
+.item Toys.Gag apply
 .range 1638 1640
 
 
@@ -1089,7 +1085,7 @@ Tell me when you're done.
 
 
 [Action 1661]
-.mustnot 22                            ' something in mouth
+.item Toys.Gag canApply
 .mustnot 147                           ' No drying afterwards
 .mustnot 148 149 150 151 152 157 158   ' all punishment items
 I hope you're nice and clean,
@@ -1098,8 +1094,8 @@ my pretty little slave boy.
 .range 1699
 
 [Action 1662]
-.mustnot -22                           ' something in mouth, applied in sub-script
-.must 22                               ' something in mouth
+.item Toys.Gag applied
+.not .item Toys.Gag is applied.by.me
 .mustnot 147                           ' No drying afterwards
 I hope you're nice and clean,
 my pretty little slave boy.
@@ -1129,7 +1125,7 @@ Are you still wet, slave?
 
 
 [Action 1670]
-.mustnot 22                            ' something in mouth
+.not .item Toys.Gag applied 
 .mustnot 148 149 150 151 152 157 158   ' all punishment items
 Very good!
 I hope you're nice and clean too,
@@ -1139,14 +1135,14 @@ You may place your towel on the floor to drip on.
 .range 1699
 
 [Action 1671]
-.mustnot -22                           ' something in mouth, applied in sub-script
-.must 22                               ' something in mouth
+Toys.Gag applied 
+.not .item Toys.Gag is applied.by.me 
 Very good!
 I hope you're nice and clean too,
 my pretty little slave boy.
 You may place your towel on the floor to drip on
 and take off any punishment items you have on now.
-Well, you can leave your gag in,
+And you can leave your gag in,
 I just want you to moan.
 .pause As you wish, Miss
 .range 1699
@@ -1228,7 +1224,7 @@ Put your hands on your head and cross your ankles while you're over there.
 
 
 [Action 1686]
-.mustnot 22                            ' something in mouth
+.not .item Toys.Gag applied
 .mustnot 148 149 150 151 152 157 158   ' all punishment items
 .playwav whip.mp3
 Okay, slave, that's enough.
@@ -1237,8 +1233,8 @@ Did you learn your lesson?
 .range 1689
 
 [Action 1687]
-.mustnot -22                           ' something in mouth, applied in sub-script
-.must 22                               ' something in mouth
+.not .item Toys.Gag is applied.by.me
+.item Toys.Gag applied
 .playwav whip.mp3
 Okay, slave, that's enough.
 You can take off any punishment items you have on.
@@ -2330,7 +2326,7 @@ Good boy, slave.
 .range 2190
 
 [Action 2183]
-.must 22                          ' something in mouth
+.item Toys.Gag applied
 .mustnot 277                      ' semi-safe self bondage features enabled
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
