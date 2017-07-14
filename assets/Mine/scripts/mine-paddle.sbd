@@ -137,14 +137,14 @@
 
 ' Toys
 .askcheck 75 20	20	-	free
-.askcheck 76 20	21	-	something in butt
+.askcheck 76 20	21	-	free
 .askcheck 77 22	22	-	free
 .askcheck 78 23	23	-	something on penis
 .askcheck 79 24	24	-	something on balls
 .askcheck 80 25	25	-	ankles tied
-.askcheck 81 26 26	-	wrists tied
+.askcheck 81 26 26	-	free
 .askcheck 82 27	27	-	something around waist
-.askcheck 83 28	28	-	collared
+.askcheck 83 28	28	-	free
 .askcheck 84 29	29	-	blindfold on
 .askcheck 85 30	30	-	can't jerk off
 .askcheck 86 31	31	-	can't sit on chair
@@ -776,7 +776,7 @@ You may want to put some towels here on the floor now to drip on.
 [Action 1623]
 .must 148
 .mustnot 149
-.mustnot 363            ' Wrist restraints
+.item Toys.Wrist_Restraints not available
 .must 366               ' Some rope
 You must shower with your wrists tied together with rope.
 Tie them together now.
@@ -786,7 +786,7 @@ Tie them together now.
 [Action 1624]
 .must 148
 .mustnot 149
-.must 363               ' Wrist restraints
+.item Toys.Wrist_Restraints available
 .must 366               ' Some rope
 You must shower with your wrists tied together.
 Use rope, not something that will rust (like your handcuffs, stupid bitch).
@@ -820,7 +820,7 @@ Tie your wrists and ankles now.
 [Action 1627]
 .must 148
 .mustnot 149
-.mustnot 363            ' Wrist restraints
+.item Toys.Wrist_Restraints not available
 .mustnot 366            ' Some rope
 You must shower with your wrists tied together.
 Get some rope or shoelace and tie them together now.
@@ -830,7 +830,7 @@ Get some rope or shoelace and tie them together now.
 [Action 1628]
 .must 148
 .mustnot 149
-.must 363               ' Wrist restraints
+.item Toys.Wrist_Restraints available
 .mustnot 366            ' Some rope
 You must shower with your wrists tied together.
 Use rope or shoelace, not something that will rust (like your handcuffs, stupid bitch).
@@ -2333,13 +2333,13 @@ Good boy, slave.
 .range 2190
 
 [Action 2184]
-.must 26                          ' wrists tied
+.state Body.WristsTied applied
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
 .range 2190
 
 [Action 2185]
-.mustnot 363                      ' wrist restraints
+.item Toys.Wrist_Restraints not available
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
 .range 2190

@@ -722,8 +722,8 @@ Okay, slave, it's time to put your ankle restraints on, just like in the story.
 Make sure that you don't have any more than four inches of play in the line.
 Unfortunately I don't have a slavegirl handy to tie you to,
 so you'll just have to use your filthy imagination for that part.
+.item Toys.Ankle_Restraints apply
 .pause I've tied my ankles, Miss
-.set -25 25             ' ankles tied
 .range 2089
 
 [Action 2089]
@@ -849,7 +849,7 @@ We both looked at each other, smiled behind our gags and locked them."
 [Action 2100]
 Okay, slave, your turn now - cuff'em behind your back.
 delay 10
-.set -26 26             ' wrists tied
+.item Toys.Wrist_Restraints apply to Body.WristsTiedBehindBack
 .keyrelease start 1800
 .range 2101
 
@@ -1035,8 +1035,8 @@ delay 7
 .keyrelease release
 You've been very good, so I think I'll let you be Terri.
 Go ahead and remove your handcuffs.
+.item Toys.Wrist_Restraints remove
 .pause My hands are free, Miss
-.unset -26 26           ' wrists tied
 .range 2119
 
 [Action 2118]
@@ -1152,7 +1152,7 @@ delay 10
 Okay, Jenny, you can take your handcuffs and nipple clamps off now.
 .pause Thank you, Miss
 .item Toys.Nipple_Clamps remove
-.unset -26 26           ' wrists tied
+.item Toys.Wrist_Restraints remove
 .set 812                ' Done nipple training activity
 .range 2130
 
@@ -1222,7 +1222,7 @@ Okay, slave, you too may remove your gag and ankle restraints,
 and then we'll finish the story.
 .pause Thank you, Miss
 .item Toys.Gag remove
-.unset -25 25           ' ankles tied
+.item Toys.Ankle_Restraints remove
 .range 2136
 
 [Action 2136]
@@ -1799,10 +1799,15 @@ Go fetch your blindfold, and make sure you can hear my voice.
 ' punishment wank - blindfolded and chained ankles/wrists, can't remove without keys
 [Action 2212]
 .poss 100
-.mustnot 25 26 29 31 32      ' ankles tied, wrists tied, blindfold on, can't sit on chair 
+.item Toys.Ankle_Restraints available
+.item Toys.Ankle_Restraints canApply
+.item Toys.Wrist_Restraints available
+.item Toys.Wrist_Restraints canApply
+.item Toys.Chains available
+.mustnot 29 31 32            ' ankles tied, wrists tied, blindfold on, can't sit on chair 
 .must 104                    ' Punishment wank
 .mustnot 267 268             ' Enema carrying out or holding
-.must 363 364 360 382        ' have wrist restraints, ankle restraints, chains, blindfold
+.must 382                    ' have wrist blindfold
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
 I want to be sure you're totally helpless for your punishment, slave. 
 .set 171                     ' addons, remember to remove
@@ -1826,10 +1831,15 @@ Go fetch your blindfold, and make sure you can hear my voice.
 [Action 2214]
 .poss 10
 .item Toys.Gag applied
-.mustnot 25 26 29 31 32      ' ankles tied, wrists tied, blindfold on, can't sit on chair 
+.item Toys.Ankle_Restraints available
+.item Toys.Ankle_Restraints canApply
+.item Toys.Wrist_Restraints available
+.item Toys.Wrist_Restraints canApply
+.item Toys.Chains available
+.mustnot 29 31 32            ' blindfold on, can't sit on chair 
 .mustnot 104                 ' Punishment wank
 .mustnot 267 268             ' Enema carrying out or holding
-.must 363 364 360 382        ' have wrist restraints, ankle restraints, chains, blindfold
+.must 382                    ' have blindfold
 .must 727                    ' Denial and self-control 2
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
 I want you completely focussed, slave! 

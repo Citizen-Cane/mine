@@ -63,14 +63,14 @@
 
 ' Toys
 .askcheck 75 20	20	-	free
-.askcheck 76 20	21	-	something in butt
+.askcheck 76 20	21	-	free
 .askcheck 77 22	22	-	free
 .askcheck 78 23	23	-	something on penis
 .askcheck 79 24	24	-	something on balls
-.askcheck 80 25	25	-	ankles tied
-.askcheck 81 26 26	-	wrists tied
+.askcheck 80 25	25	-	free
+.askcheck 81 26 26	-	free
 .askcheck 82 27	27	-	something around waist
-.askcheck 83 28	28	-	collared
+.askcheck 83 28	28	-	free
 .askcheck 84 29	29	-	blindfold on
 .askcheck 85 30	30	-	can't jerk off
 .askcheck 86 31	31	-	can't sit on chair
@@ -86,6 +86,11 @@
 '   41  -   free
 .askcheck 94 42 42  -   free
 .askcheck 95 42 43  -   free
+
+
+' TODO toy state is not handled correctly by "is applied.by.me"
+' - instead the script keeps the state and queries "free" or "applied"
+' -> change to use "is applied.by.me" for all toys
 
 
 ' local slave state
@@ -268,8 +273,9 @@
 
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 [action 934]
-'.set 363 364            ' have restraints
-.set 382                ' have blindfold
+' .item Toys.Ankle_Restraints setAvailable
+' .item Toys.Wrist_Restraints setAvailable
+' .item Toys.Blindfold setAvailable
 .set 3234
 .range 941
 
@@ -665,10 +671,10 @@ delay 10
 
 ' wrists behind back
 [Action 3101]
-.mustnot 26             ' wrists tied
+.item Toys.Wrist_Restraints canApply
+.item Toys.Wrist_Restraints available
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 267 268        ' Enema carrying out or holding
-.must 363               ' wrist restraints
 .must 738               ' Restraints acceptance 2
 .mustnot 3220           ' hands needed next to head for blow job
 .mustnot 3221           ' grabbing the shaft
@@ -691,9 +697,11 @@ delay 10
 
 ' wrists to ankles
 [Action 3102]
-.mustnot 25 26          ' ankles tied, wrists tied
+.item Toys.Ankle_Restraints canApply
+.item Toys.Ankle_Restraints available
+.item Toys.Wrist_Restraints canApply
+.item Toys.Wrist_Restraints available
 .mustnot 267 268        ' Enema carrying out or holding
-.must 363 364           ' wrist restraints, ankle restraints
 .must 737               ' Restraints acceptance 2
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 3220           ' Can't kneel, must lie down
@@ -717,10 +725,11 @@ delay 10
 
 ' wrists to ball sack
 [Action 3103]
-.mustnot 38 39          ' pegs or pussy-clips
+.item Toys.Wrist_Restraints canApply
+.item Toys.Wrist_Restraints available
+.state Body.OnBalls free
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 267 268        ' Enema carrying out or holding
-.must 363               ' Wrist restraints
 .must 738               ' Restraints acceptance 2
 .mustnot 3220           ' Hands next to head
 .mustnot 3221           ' Must lie down, grabbing the shaft
@@ -743,11 +752,12 @@ delay 10
 
 ' wrists to collar
 [Action 3104]
-.must 28                ' collared already, dont' want to interrupt the flow too much
+.item Toys.Collar applied
+.item Toys.Wrist_Restraints canApply
+.item Toys.Wrist_Restraints available
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 267 268        ' Enema carrying out or holding
 .must 737               ' Restraints acceptance 2
-.must 363 365           ' wrist restraints, collar
 '.mustnot 3220          ' Hands next to head possible
 '.mustnot 3221          ' Must lie down, grabbing the shaft possible
 '.mustnot 3222
@@ -896,14 +906,14 @@ Keep the connecting chains short, my pet.
 ' wrists to ball sack
 
 [action 3134]
-.mustnot 26             ' Wrist restraints
+.not .item Toys.Wrist_Restraints applied
 Well, we won't need your hands right now, just your lips and tongue,
 so get your wrist restraints and put them on.
-.set -26 26             ' Wrist restraints
+.item Toys.Wrist_Restraints apply
 .range 3138
 
 [action 3135]
-.must 26                ' Wrist restraints
+.item Toys.Wrist_Restraints applied
 .range 3138
 
 
@@ -991,7 +1001,7 @@ tie them to your ball harness.
 
 [action 3144]
 .item Toys.Gag applied
-.must 26                ' wrists tied
+.item Toys.Wrist_Restraints applied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue, so -
 well, after taking your gag out -
@@ -1004,7 +1014,7 @@ go ahead and lock your wrist restraints to your collar.
 
 [action 3145]
 .not .item Toys.Gag applied
-.must 26                ' wrists tied
+.item Toys.Wrist_Restraints applied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go ahead and lock your wrists to your collar.
@@ -1014,7 +1024,7 @@ so go ahead and lock your wrists to your collar.
 
 [action 3146]
 .item Toys.Gag applied
-.mustnot 26             ' wrists tied
+.not .item Toys.Wrist_Restraints applied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so fetch your wrists restraints, snap them on and
@@ -1028,7 +1038,7 @@ lock'em to your collar.
 
 [action 3147]
 .not .item Toys.Gag applied
-.mustnot 26             ' wrists tied
+.not .item Toys.Wrist_Restraints applied
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go fetch your wrist restraints, snap them on and lock'em to your collar.
@@ -1054,7 +1064,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' no restrictions - suck and ride
 [Action 3160]
-.mustnot 21                       ' something in butt
+.item Toys.Dildo canApply to Body.InButt
 .mustnot 36                       ' Harnessed
 .must 140                         ' Only ride in activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
@@ -1067,8 +1077,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' no restrictions - Not interested in anal training (yet)
 [Action 3161]
 .poss 10
-.mustnot 21                       ' something in butt
-.state Body.InMouth free
+.item Toys.Dildo canApply to Body.InButt
 .mustnot 36                       ' Harnessed
 .must 140                         ' Only ride in activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
@@ -1312,7 +1321,8 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3226 Dildo yoga
 [Action 3206]
-.mustnot 25 26          ' Ankles, wrists tied
+.state Body.AnklesTied free
+.state Body.WristsTied free
 .mustnot 32 33          ' Can't stand, Can't kneel 
 .must 172               ' achievement 3, full penetration
 .set 3226
@@ -1419,7 +1429,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 [Action 3234]
-.mustnot 26             ' wrists tied
+.state Body.WristsTied free
 .mustnot 140            ' Worshiping activity
 .mustnot 267 268        ' Enema carrying out or holding
 .must 382               ' have blindfold
@@ -1678,10 +1688,10 @@ delay 5
 .range 3399
 
 [Action 3304]
-.mustnot 23 30          ' Something on penis, can't jerk off
-.must 26                ' Wrists tied, otherwise jerk off
+.mustnot 23 30                    ' Something on penis, can't jerk off
+.state Body.WristsTied applied    ' otherwise jerk off
 Keep your member stiff by rubbing it against the wall.
-.set 13                 ' Rub against wall
+.set 13                           ' Rub against wall
 .range 3399
 
 
@@ -1850,7 +1860,8 @@ Have you figured out a place, slave?
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 
 [Action 3365]
-.must 363 364           ' wrist restraints, ankle restraints
+.item Toys.Ankle_Restraints available
+.item Toys.Wrist_Restraints available
 .must 742               ' Strict self-bondage 2
 .keyrelease prepare 3600
 This time I want to make absolutely sure you're attaining full focus while carrying out your ordeal, slave.
@@ -1894,8 +1905,10 @@ Then go ahead, and attach the dildo to the wall.
 
 
 [Action 3367]
-.mustnot 25 26          ' Ankles tied, wrists tied
-.must 363 364           ' wrist restraints, ankle restraints
+.item Toys.Wrist_Restraints available
+.item Toys.Wrist_Restraints canApply
+.item Toys.Ankle_Restraints available
+.item Toys.Ankle_Restraints canApply
 .must 742               ' Strict self-bondage 2
 .keyrelease start 3600
 Before we start, I want you to take care of the keys to your cuffs.
@@ -4821,7 +4834,7 @@ You can untie your wrists and ankles, slave.
 
 [Action 4324]
 .must 16                ' Wrists to ball sack
-.mustnot 26             ' Wrists tied
+.state Body.WristsTied free
 .mustnot 37             ' ball harness
 .mustnot 44             ' chastified
 .keyrelease release
@@ -4832,55 +4845,55 @@ You can untie your wrists from your ball sack, slave.
 
 [Action 4325]
 .must 16                ' Wrists to ball sack
-.must 26                ' Wrists tied
+.state Body.WristsTied applied
 .mustnot 37             ' ball harness
 .mustnot 44             ' chastified
 .keyrelease release
 You may untie your wrists from your ball sack, slave,
-but keep them tied.
+but keep the restraints on.
 .pause Done, Miss
 .unset 16
 .range 4378
 
 [Action 4326]
 .must 16                ' Wrists to ball sack
-.mustnot 26             ' Wrists tied
+.state Body.WristsTied free
 .must 44                ' chastified
 .keyrelease release
-You can untie your wrists from your chastity cage, slave.
+You can detach your wrists from your chastity cage, slave.
 .pause Thank you, Miss
 .unset 16
 .range 4378
 
 [Action 4327]
 .must 16                ' Wrists to ball sack
-.must 26                ' Wrists tied
+.state Body.WristsTied applied
 .must 44                ' chastified
 .keyrelease release
-You may untie your wrists from your chastity cage, slave,
+You may detach your wrists from your chastity cage, slave,
 but keep them tied.
-.pause Done, Miss
+.pause Thank you, Miss
 .unset 16
 .range 4378
 
 [Action 4328]
 .must 16                ' Wrists to ball sack
-.mustnot 26             ' Wrists tied
+.state Body.WristsTied free
 .must 37                ' ball harness
 .keyrelease release
-You can untie your wrists from your ball harness, slave.
+You can untie your wrists from the ball harness, slave.
 .pause Thank you, Miss
 .unset 16
 .range 4378
 
 [Action 4329]
 .must 16                ' Wrists to ball sack
-.must 26                ' Wrists tied
+.state Body.WristsTied applied
 .must 37                ' ball harness
 .keyrelease release
-You may untie your wrists from your ball harness, slave,
+You may detach your wrists restraints from the ball harness, slave,
 but keep them tied.
-.pause Done, Miss
+.pause Thank you, Miss
 .unset 16
 .range 4378
 
@@ -4896,8 +4909,8 @@ but keep them tied.
 
 [Action 4332]
 .must 17                ' Wrists to collar, collar
-.must 26                ' Wrists restraints, already on before worshiping
-.mustnot 28             ' collared, put on for worshiping
+.state Body.WristsTied applied
+.state Body.AroundNeck free
 .keyrelease release
 You can untie your wrists from your collar and take it off,
 but keep your wrists tied.
@@ -4907,8 +4920,8 @@ but keep your wrists tied.
 
 [Action 4333]
 .must 17                ' Wrists to collar
-.must 26                ' Wrists restraints
-.must 28                ' collared, already on before worshiping
+.state Body.WristsTied applied
+.state Body.AroundNeck applied
 .keyrelease release
 You can untie your wrists from your collar,
 but keep your wrists tied.
@@ -4919,20 +4932,20 @@ I also want you to keep wearing your collar, slave, so leave it on.
 
 [Action 4334]
 .must 17                ' Wrists to collar, collar
-.mustnot 26             ' Wrists restraints
-.mustnot 28             ' Collar put on for session
+.state Body.WristsTied free
+.state Body.AroundNeck free
 .keyrelease release
-You can untie your wrists from your collar, and take off both. 
+You can untie your wrist restraints from your collar, and take off both. 
 .pause Thank you, Miss
 .unset 17
 .range 4378
 
 [Action 4335]
 .must 17                ' Wrists to collar
-.mustnot 26             ' Wrists restraints
-.must 28                ' Collar already on before worshiping
+.state Body.WristsTied free
+.state Body.AroundNeck applied
 .keyrelease release
-You can untie your wrists from your collar and take them off.
+You can untie your wrists from your collar and take the restraints off.
 But I want you to keep wearing your collar, slave. 
 .pause Thank you, Miss
 .unset 17
@@ -4943,6 +4956,7 @@ But I want you to keep wearing your collar, slave.
 
 [Action 4378]
 .range 4379 4399
+
 
 [Action 4379]
 .else
@@ -4987,8 +5001,9 @@ But I want you to keep wearing your collar, slave.
 .mustnot 4300           ' Cancelled
 .range 4410 4414
 
-' Cancelled
+' Cancelled after sucking or riding
 [Action 4402]
+.item Toys.Dildo is Body.InButt OR is Body.InMouth
 .must 4300              ' Cancelled
 .range 4415 4419
 
@@ -5008,25 +5023,24 @@ But I want you to keep wearing your collar, slave.
 .range 4430 4434
 
 
-' Just put dildo away
+' just put dildo away after sucking
 
 [Action 4410]
 That's enough for now, slave.
 You may clean up the dildo and put it away,
 again just using your mouth, of course.
 delay 5
-.item Toys.Dildo remove
+.item Toys.Dildo remove from Body.InMouth
 .pause Done as ordered, Miss
 .range 4460
 
 
-' Just put dildo away after canceling
+' Just put dildo away after canceling sucking or riding
 
 [Action 4415]
 You can put the dildo away, you lazy slut.
-.pause Done, Miss
-.unset 21                ' something in butt
 .item Toys.Dildo remove
+.pause Done, Miss
 .range 4460
 
 ' Just put dildo away after canceling
@@ -5034,7 +5048,6 @@ You can put the dildo away, you lazy slut.
 [Action 4416]
 Crawl off and put the dildo away, cunt.
 .pause Done, Miss
-.unset 21                ' something in butt
 .item Toys.Dildo remove
 .range 4460
 
@@ -5046,6 +5059,7 @@ Crawl off and put the dildo away, cunt.
 You did a good job, my dear.
 But you'll need either a little more training or a shorter dildo.
 Sort it out til next time.
+.item Toys.Dildo remove from Body.InButt
 .pause Alright, Miss
 .range 4425
 
@@ -5065,17 +5079,16 @@ Keep this in mind when you clean up your dildo,
 because you're to come back with it in your mouth,
 as you're supposed to.
 delay 10
-.pause Done as ordered, Miss
-.unset 21               ' Something in butt
-.item Toys.Dildo remove
+.item Toys.Dildo remove from Body.InButt
 .item Toys.Dildo apply to Body.InMouth
+.pause Done as ordered, Miss
 .range 4426
 
 [Action 4426]
 Well done, my little pet.
 Now crawl off and put the dildo away. 
+.item Toys.Dildo remove from Body.InButt
 .pause Done, Miss
-.item Toys.Dildo remove
 .range 4460
 
 
