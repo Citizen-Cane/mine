@@ -23,6 +23,7 @@
 .define .painToysOnBalls .state Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
 .define .painToysOnNipples .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 .define .canWorshipDildo .item Toys.Dildo available AND canApply to Body.InMouth AND not applied to Body.InButt 
+.define .begKeyHolderForRelease .item Toys.Chastity_Device remaining greaterThan 03:00"00
 
 
 ' This restores range 90 to 799
@@ -102,8 +103,8 @@
 '	20	-	free
 '	21	-	free
 '	22	-	free
-'	23	-	something on penis
-'	24	-	something on balls
+'	23	-	free
+'	24	-	free
 '	25	-	free
 '	26	-	free
 '	27	-	something around waist
@@ -116,7 +117,7 @@
 '	34	-	can't type/use mouse  (this is also the case when blindfolded)
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
-'   37  -	ball harness (includes 24)
+'   37  -	free
 '   38  -   free
 '   39  -   free 
 '   40  -   free
@@ -124,8 +125,8 @@
 '   42  -   free
 '   43  -   free
 '
-'   44  -   Chastified (Encaged slave penis) - mapped to Toys.Chastity_Cage with peers 23 30
-'   45  -   Have key for chastity cage timer - also mapped to 23 30, but as a timer
+'   44  -   free
+'   45  -   free
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
 '   48  -   ankles tied to chastity cage - to remove 32 "Can't stand" when taking the cage off
@@ -3219,15 +3220,15 @@ and I'm very, very displeased that you have disobeyed Me in this.
 [Action 1360]
 .range 1361 1362
 
-' If the slave owns a chastity cage, he has to wear itr
-' (but we haven't asked yet and therefore can't query 44 chastified)
+' If the slave owns a chastity cage, he has to wear it
+' (but we haven't asked yet and therefore can't query)
 [Action 1361]
-.must 380               ' Chastity cage
+.item Toys.Chastity_Device available
 .range 1400
 
-' If the slave doesn't own a chastity cage, he'll be able to wank
+' If the slave doesn't own a chastity cage, he's definitely able to wank
 [Action 1362]
-.mustnot 380            ' Chastity cagr
+.item Toys.Chastity_Device not available
 Start wanking for me and rub that slave penis hard, my little cock toy.
 .range 1363 1365
 
@@ -3268,10 +3269,9 @@ I want you horny, but not to cum.
 ' if the slave owns a chastity device we're skipping this tease altogether
 
 [Action 1369]
-.mustnot 23 24          ' something on penis, something on balls
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device available
+.item Toys.Chastity_Device canApply
 .mustnot 304 305 306    ' pegs on ball sack, humbler, ball harness on session start
-.must 380               ' Have chastity device
 .mustnot 519            ' Don't put on belt if punishment for cumming without permission outstanding - would limit punishments too much
 .range 1370 1374
 
@@ -4393,29 +4393,29 @@ We'll talk about this in a minute.
 
 ' Not on toy list and not persisted from previous session
 [Action 1621]
-.mustnot 44
-.mustnot 380
+.item Toys.Chastity_Device not available
+.item Toys.Chastity_Device not applied
 .unset 112	                 ' repeat chastity device lecture if toy is selected again 
 .range 1651
 
 ' Not on toy list (anymore) - remove any persisted state
 [Action 1622]
-.must 44
-.mustnot 380
+.item Toys.Chastity_Device not available
+.item Toys.Chastity_Device applied
 .gosub 11995                 ' remove Something on penis, chastified
 .unset 112	                 ' repeat chastity device lecture if toy is selected again 
 .range 1651
 
 ' Have it, lecture heard, query state
 [Action 1623]
-.must 380
+.item Toys.Chastity_Device available
 .must 112
-.gosub 9291 9294             ' Check whether slave wears it regardless of the value of 44
+.gosub 9291 9294             ' Ask whether slave wears it regardless of the current state
 .range 1651
 
 ' Have it, lecture not heard yet
 [Action 1624]
-.must 380                    ' have chastity device?
+.item Toys.Chastity_Device available
 .mustnot 112                 ' lecture already heard?
 Good job getting that chastity device, sweetie.
 You'll be frustrated by it in no time!
@@ -4424,8 +4424,6 @@ Are you already wearing it?
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I'm not
 .yesno 1635 1635 1634 1634
-
-' todo handle something on penis other than cage set in external code  -> .must 23 .mustnot 44
 
 ' todo repeat stiff nipple lecture from time to time
 
@@ -6448,7 +6446,6 @@ You'll be wearing that get-up for the whole session,
 which will hopefully go a long way in teaching you not to irritate me!
 .pause Done as ordered, Miss
 .mustnot 267 268             ' Enema carrying out or holding
-.set 24 31 32                ' something on balls, can't sit on chair, can't stand
 .range 2401
 
 
@@ -6483,8 +6480,8 @@ I guess I'll have to turn the other cheek this time.
 .loadsbd mine-dildo.sbd 905
 
 [Action 2513]
-.must 44                     ' chastified
-.timefrom 45 00:00"00        ' have key for chastity cage
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
 .mustnot 267 268             ' Enema carrying out or holding
 I'm feeling a little bitchy today, slave, and I think I'll take it out on those poor nuts of yours.
 For this ordeal you have to take off your chastity cage, slave.
@@ -6494,40 +6491,42 @@ Do it now!
 .range 2515 2519
 
 [Action 2514]
-.mustnot 24                  ' something on balls
-.mustnot 44                  ' chastified
+.state Body.OnPenis free
+.state Body.OnBalls free
 .mustnot 267 268             ' Enema carrying out or holding
 I'm feeling a little bitchy today, slave,
 and I think I'll take it out on those poor nuts of yours.
 .range 2515 2519
 
+
 [Action 2515]
-.must 24 37                  ' Something on balls, ball harness 
+.item Toys.Ball_Stretcher applied
 I'm feeling a little bitchy today, slave,
 and I think I'll take it out on those poor nuts of yours.
 []
 Crawl over, fetch a piece of rope or shoe lace and tie it to your ball harness,
 leaving two equal lengths of rope dangling down,
 each about a foot long.
+.item Toys.Rope apply to Body.OnBalls Body.CantSitOnChair Body.CantStand
 .pause Done, Miss
 .set 746 747                 ' CBT 2
 .range 2509
 
-
 [Action 2516]
-.mustnot 23                  ' something on penis
-.must 384                    ' humbler
+.item Toys.Humbler available
+.item Toys.Humbler canApply
+.state Body.OnPenis free
 .should 746 747              ' CBT 2
 I want you to get on your knees, fetch your humbler, and put it on.
 You'll be wearing it for the whole session,
 which will hopefully go a long way in teaching you not to irritate me!
 .pause I'm wearing it, Miss
-.set 24 31 32                ' something on balls, can't sit on chair, can't stand
+.item Toys.Humbler apply
 .set 746 747 748             ' CBT 3
 .range 2401
 
 [Action 2517]
-.mustnot 385                 ' Ball harness, favor this over rope
+.item Toys.Ball_Stretcher not available
 .should 746 747              ' CBT 2
 I want you to get on your knees and fetch
 a long piece of rope or shoe lace to tie up
@@ -6535,20 +6534,21 @@ your ball sack and to separate your slutty balls.
 Make it tight enough, so the rope doesn't slip off.
 When finished, you should have two pieces of rope as a left-over,
 each about one foot long!
+.item Toys.Rope apply to Body.OnBalls Body.CantSitOnChair Body.CantStand
 .pause My balls are tied up tightly, Miss
 .set 746 747 748             ' CBT 3
 .range 2509
 
 [Action 2518]
-.mustnot 37                  ' something on balls, ball harness
-.must 385                    ' ball harness
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
 I want you to get on your knees, fetch your ball harness and put it on in order to enslave your slutty balls.
 This time, you're going to make the straps extra tight.
 Then crawl over and fetch a piece of rope or shoe lace and connect it to your ball harness,
 leaving two equal lengths of rope dangling down,
 each about a foot long.
+.item Toys.Ball_Stretcher apply to Body.CantSitOnChair Body.CantStand
 .pause My balls are tied up tightly, Miss
-.set 24 37
 .set 746 747                 ' CBT 2
 .range 2509
 
@@ -6559,6 +6559,7 @@ to tie up your slutty ball sack.
 Make it tight enough so that the rope doesn't slip off.
 When finished, you should have two  pieces of left-over,
 each about one foot long.
+.item Toys.Rope apply to Body.OnBalls Body.CantSitOnChair Body.CantStand
 .pause My balls are tied up tightly, Miss
 .set 746 747                 ' CBT 2
 .range 2509
@@ -6579,9 +6580,9 @@ You may have escaped me this time, but don't make a habit of it!
 .state Body.OnNipples free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 24             ' something on balls
-.mustnot 29 32          ' wrists tied, blindfolded, can't stand
-.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
+.state Body.OnBalls free
+.mustnot 29 32          ' blindfolded, can't stand
+.mustnot 34 35          ' can't type/use mouse, tethered
 .mustnot 210            ' shower one-time only
 .shouldnot 811          ' magic marker applied
 .set 210
@@ -6626,9 +6627,9 @@ I guess we'll have to skip it today.
 .state Body.OnNipples free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 24                       ' something on balls
+.state Body.OnBalls free
 .mustnot 29 32                    ' blindfolded, can't stand
-.mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
+.mustnot 34 35                    ' can't type/use mouse, tethered
 .mustnot 210                      ' shower one time only
 .shouldnot 811                    ' magic marker applied
 .set 210                          ' shower one-time only
@@ -6759,9 +6760,9 @@ suitable for a lying degenerate cunt slave.
 .state Body.OnNipples free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 24             ' something on balls
+.state Body.OnBalls free
 .mustnot 29 32          ' blindfolded, can't stand
-.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
+.mustnot 34 35          ' can't type/use mouse, tethered
 .mustnot 210            ' shower one-time only
 .shouldnot 811          ' magic marker applied
 .set 210                ' shower one-time only
@@ -6952,15 +6953,16 @@ I just want you to hump.
 .range 2594 2599
 
 [Action 2592]
-.mustnot 23 24          ' something on penis, something on balls
+.item Toys.Humbler available
+.item Toys.Humbler canApply
+.state Body.OnPenis free
 .mustnot 267 268        ' Enema carrying out or holding
-.must 384               ' humbler
 Go fetch your humbler,
 trap your slutty balls in it and place it behind your thighs,
 stretching them taut.
 You'll stay on your knees for the whole session, cunt. 
+.item Toys.Humbler apply
 .pause Done, Miss
-.set 24 31 32           ' something on balls, can't sit on chair, can't stand
 .range 2599
 
 [Action 2593]
@@ -6975,66 +6977,68 @@ I just want you to hump.
 
 
 [Action 2594]
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .mustnot 267 268        ' Enema carrying out or holding
 Very good, slave.
 Now fetch some rope or a chain,
 and tie your ankle restraints to your chastity cage. 
 I don't want you to be able to stand, so keep the connecting rope short.
+.item Toys.Chain apply to Toys.Chastity_Cage Toys.Ankle_Restraints
 .pause Done, Miss
-.set 32 48              ' can't stand, ankles tied to chastity cage
 .range 2599
 
 // TODO Explicitely tying ankles to ball harness is missing, although handled by 2595-2596
 
+' ankles tied with rope - balls tied already
 [Action 2595]
-.must 24                ' Something on balls
-.mustnot 38 39          ' pegs or pussy-clips
-.mustnot 44             ' chastified
+.state Body.OnBalls is Toys.Rope OR Toys.Chains OR Toys.Ball_Stretcher
+.item Body.OnPenis not applied 
 .mustnot 267 268        ' Enema carrying out or holding
 .must 2591
 Now get another rope, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
+.items Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.CantStand
 .pause Done, Miss
-.set 32                 ' can't stand
 .range 2599
 
+' ankles tied with ankle restraints - balls tied already
 [Action 2596]
-.must 24                ' Something on balls
-.mustnot 38 39          ' pegs or pussy-clips
-.mustnot 44             ' chastified
+.state Body.OnBalls is Toys.Rope OR Toys.Chains OR Toys.Ball_Stretcher
+.item Body.OnPenis not applied 
 .mustnot 267 268        ' Enema carrying out or holding
 .must 2593
 Now get some rope or a chain, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
+.items Toys.Rope apply to Toys.Ankle_Restraints Body.OnBalls Body.CantStand
 .pause Done, Miss
-.set 32                 ' can't stand
 .range 2599
 
+' ankles tied with rope
 [Action 2597]
-.mustnot 24             ' Something on balls
-.mustnot 44             ' chastified
+.state Body.OnBalls free
+.item Body.OnPenis not applied 
 .mustnot 267 268        ' Enema carrying out or holding
 .must 2591
 Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
 When you're finished, connect the left-over of that rope to the rope between your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
+.items Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.AnklesTied Body.CantStand
 .pause Done, Miss
-.set 24 32              ' balls tied, can't stand
 .range 2599
 
+' ankles tied with ankle restraints
 [Action 2598]
-.mustnot 24             ' Something on balls
-.mustnot 44             ' chastified
+.state Body.OnBalls free
+.item Body.OnPenis not applied 
 .mustnot 267 268        ' Enema carrying out or holding
 .must 2593
 Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
 When you're finished, connect the left-over of that rope to your ankle restraints.
 I don't want you to be able to stand, so keep the connecting rope short.
+.items Toys.Rope apply to Toys.Ankle_Restraints Body.OnBalls Body.CantStand
 .pause Done, Miss
-.set 24 32              ' balls tied, can't stand
 .range 2599
 
 [Action 2599]
@@ -7130,8 +7134,8 @@ for pity's sake.
 .range 2151
 
 [Action 2613]
-.mustnot 24                  ' something on balls
-.mustnot 44                  ' Chastified
+.item Toys.Rope canApply to Body.OnBalls
+.item Toys.Chastity_Device applied
 .shouldnot 385               ' have ball harness
 .shouldnot 706               ' entitled for lighter punishment
 You surely have some rope at hand, my dear.
@@ -7139,32 +7143,32 @@ Otherwise some shoe laces will also do.
 Tie up your slutty ball sack until your balls stand out nicely
 and there's only a short length of rope left.
 Make sure the rope won't slip off.
+.item Toys.Rope apply to Body.OnBalls
 .pause Done it, Miss
-.set 24                      ' Something on balls
 .gosub 2620 2623             ' weight to rope
 .range 2628 2629
 
 [Action 2614]
-.must 37                     ' ball harness
+.item Toys.Ball_Stretcher applied
 .shouldnot 706               ' entitled for lighter punishment
 .gosub 2624 2627             ' weight to ball harness
 .range 2628 2629
 
 [Action 2615]
-.mustnot 23 24 37            ' Something on penis, something on balls, ball harness
-.must 385                    ' have ball harness
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
 .shouldnot 706               ' entitled for lighter punishment
 You certainly don't mind putting on your ball harness, do you?
 Put it on now, and make sure it sits tight.
+.item Toys.Ball_Stretcher apply
 .pause Done, Miss
-.set 24 37                   ' something on balls, ball harness
 .gosub 2624 2627             ' weight to ball harness
 .range 2628 2629
 
 ' Fallback if there's something on balls already
 ' Lighter punishment for having been obedient for a longer time
 [Action 2616]
-.mustnot 44                  ' Chastified
+.item Toys.Chastity_Device applied
 .should 706                  ' entitled for lighter punishment
 On the other hand,
 just feeling the flush of humiliation will suit you good enough this time.
@@ -7192,7 +7196,8 @@ just feeling the flush of humiliation will suit you good enough this time.
 
 
 ' weight to rope punishments sub
- 
+' called from 2613, 7522
+
 [Action 2620]
 .shouldnot 512
 .shouldnot 747
@@ -7200,6 +7205,7 @@ Good.
 Now attach a heavy weight of at least half a pound to the end of the rope.
 Keep the rope short, slave -
 you're not allowed to rest the weight on the ground!
+.item Toys.Rope apply to Body.OnBalls Household.Weight
 .pause Weight attached, Miss
 .set 746                    ' CBT 1
 .return
@@ -7211,6 +7217,7 @@ Good.
 Now attach a heavy weight of at least one pound to the end of the rope.
 Keep the rope short, slave -
 you're not allowed to rest the weight on the ground!
+.item Toys.Rope apply to Body.OnBalls Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748             ' CBT 3
 .return
@@ -7222,6 +7229,7 @@ Good.
 Now attach a heavy weight of at least one and a half pound to the end of the rope.
 Keep the rope short, slave -
 you're not allowed to rest the weight on the ground!
+.item Toys.Rope apply to Body.OnBalls Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748 749         ' CBT 4
 .return
@@ -7233,13 +7241,15 @@ Good.
 Now attach a heavy weight of at least two pounds to the end of the rope.
 Keep the rope short, slave -
 you're not allowed to rest the weight on the ground!
+.item Toys.Rope apply to Body.OnBalls Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748 749 750     ' CBT 5
 .return
 
 
 ' weight to ball stretcher punishments sub
-
+' called from 2614, 2615, 7523, 7524
+ 
 [Action 2624]
 .shouldnot 512
 .shouldnot 747
@@ -7247,6 +7257,7 @@ Good.
 Now get a good weight of at least a pound and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
+.item Toys.Ball_Harness apply Household.Weight
 .pause Weight attached, Miss
 .set 746                    ' CBT 1
 .return
@@ -7258,6 +7269,7 @@ Good.
 Now get a good weight of at least a pound and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
+.item Toys.Ball_Harness apply Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748             ' CBT 3
 .return
@@ -7269,6 +7281,7 @@ Good.
 Now get a good weight of at least two pounds and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
+.item Toys.Ball_Harness apply Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748 749         ' CBT 4
 .return
@@ -7280,6 +7293,7 @@ Good.
 Now get a good weight of at least two pounds and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
+.item Toys.Ball_Harness apply Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748 749 750     ' CBT 5
 .return
@@ -7348,10 +7362,10 @@ Now keep that cock tall and proud or we'll have to go again.
 [Action 2651]
 .state Body.OnNipples free
 .state Body.AnklesTied free
-.mustnot 24                       ' something on balls
+.state Body.OnBalls free
 .state Body.WristsTied free
 .mustnot 29 32                    ' blindfolded, can't stand
-.mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
+.mustnot 34 35                    ' can't type/use mouse, tethered
 .mustnot 210                      ' punishment shower, already done
 .shouldnot 811                    ' magic marker applied
 .set 210                          ' shower one-time only
@@ -7446,10 +7460,10 @@ I'll get you next time, you dirty slave!
 [Action 2682]
 .state Body.OnNipples free
 .state Body.AnklesTied free
-.mustnot 24                       ' something on nipples, something on balls
+.state Body.OnBalls free
 .state Body.WristsTied free
 .mustnot 29 32                    ' blindfolded, can't stand
-.mustnot 34 35 37                 ' can't type/use mouse, tethered, ball harness
+.mustnot 34 35                    ' can't type/use mouse, tethered
 .mustnot 210                      ' punishment shower, already done
 .shouldnot 811                    ' magic marker applied
 .set 210                          ' shower one-time only
@@ -7485,26 +7499,27 @@ I'll get you next time, you dirty slave!
 ' but remove if necessary (if corner time has been given before)
 
 ' 1hr punishment wanking fallback only when wearing chastity device and having key
-' TODO disable taking the cage off, since if the slave came without permission, he should be kept locked up 
+' TODO disable taking the cage off, since if the slave came without permission,
+' he should be kept locked up 
 [Action 2690]
 .else                   ' Fallback in case slave wears chastity device
 .not .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 .not .painToysOnBalls
-.must 44                ' Chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
 .must 810               ' Corner time already given
 .gosub 11995            ' remove something on penis, chastified
 .save 90 799
 .loadsbd mine-td.sbd 1104 1104
 
 '' 1hr punishment wanking fallback only when wearing chastity device and not having key
-' TODO re-enable this and add more comments while wanking
+' TODO re-enable this and add appropriate comments while wanking
 '[Action 2691]
 '.else                   ' Fallback in case slave wears chastity device
 '.not .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 '.not .painToysOnBalls
-'.must 44                ' Chastified
-'.timeto 45 00:00"00     ' have key for chastity cage
+'.item Toys.Chastity_Device applied
+'.item Toys.Chastity_Device expired
 '.must 810               ' Corner time already given
 '.save 90 799
 '.loadsbd mine-td.sbd 1104 1104
@@ -7514,13 +7529,15 @@ I'll get you next time, you dirty slave!
 ' TODO implement taking the clamps off during wanking, and relax timing conditions in activities
 .not .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 .not .painToysOnBalls
-.mustnot 30 44          ' Can't jerk off
+.state Body.SomethingOnPenis free
+.state Body.CantJerkOff free
 .save 90 799
 .loadsbd mine-td.sbd 1104 1104
 
 ' 35-45m kneeling + marker, clamps and cuffs are preferred, but this works without any toys as well
 ' shorter corner time is used when wearing clamps, so this can safely be called
 [Action 2693]
+' TODO check if check against 505 is still necessary - may skip 505 later in order to preserve all opportunities here 
 .shouldnot 505          ' premature retry to attend session has just corner time, so avoid here if possible
 .mustnot 810            ' Corner time already given - essential for punishing "cumming without permission"
 .save 90 799
@@ -7727,34 +7744,36 @@ Hopefully this will get through to you!
 ' Jingle balls
 
 [Action 2960]
-.mustnot 37             ' ball harness
-.must 360               ' some chains
+.item Toys.Ball_Stretcher available
+.item Toys.Chains available
 Fetch a chain, loop it tightly around the base of your flacid penis and lock it up.
 But be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
+.item Toys.Chains apply to Body.AroundCockBase
 .pause Finished, Miss
 .range 2964
 
 [Action 2961]
-.mustnot 37             ' ball harness
-.mustnot 360            ' some chains
+.item Toys.Ball_Stretcher not available
+.item Toys.Chains nott available
 Let's get some rope, and tie it around the base of your flacid penis.
 Be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
+.item Toys.Rope apply to Body.AroundCockBase
 .pause Finished, Miss
 .range 2964
 
 [Action 2962]
-.mustnot 24 37         ' Something on balls, ball harness
-.must 385              ' Ball harness
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
 Go fetch your ball harness, and put it on.
 Pull the straps tight, slave!
+.item Toys.Ball_Stretcher apply
 .pause Done, Miss
-.set 24 37
-.range 2964
+.range 2963
 
 [Action 2963]
-.must 24 37            ' Something on balls, ball harness
+.item Toys.Ball_Stretcher applied
 Tonight, we're using your sweet ball harness
 to teach you to masturbate correctly!
 .range 2964
@@ -7776,31 +7795,36 @@ Very good, slave!
 .range 2966 2969
 
 
+' chains
 [Action 2966]
 .must 2960
-Now connect all those jingling items to your cock ring.
+Now connect all those jingling items to your "cock collar".
+.item Toys.Rope apply Household.Bell
 .pause Done, Miss
 .range 2970
 
+' rope
 [Action 2967]
 .must 2961
-Now tie all those jingling items to the loose end of the rope.
-.pause Done, Miss
 .mustnot 2962
+Now tie all those jingling items to the loose end of the rope.
+.item Toys.Rope apply Household.Bell Toys.Chains
+.pause Done, Miss
 .range 2970
 
+' ball harness
 [Action 2968]
-.must 2962
+.mustanyof 2962 2963    ' bells on balls
 Now connect all those jingling items to your ball harness.
+.item Toys.Ball_Stretcher apply Household.Bell Toys.Chains
 .pause Done, Miss
-.must 2962              ' bells on balls
 .range 2970
 
 [Action 2969]
-.must 2963
+.mustanyof 2962 2963    ' bells on balls
 Now go ahead and connect all those jingling items to your ball harness.
+.item Toys.Ball_Stretcher apply Household.Bell Toys.Chains
 .pause Done, Miss
-.must 2962              ' bells on balls
 .range 2970
 
 
@@ -8549,14 +8573,15 @@ humbly ask for My gracious permission to visit the toilet.
 
 ' 3200-3249 cbt with rope
 [Action 3104]
-.mustnot 23 24 30 37    ' Something on penis, something on balls, can't jerk off, ball harness
-.mustnot 385            ' Ball harness - I think once the slave own one, we should prefer it over rope cbt  
+.item Toys.Ball_Stretcher not available
+.state Body.OnPenis free
 .range 3200 3249
 
 ' 3250-3299 cbt with ball harness
 [Action 3105]
-.mustnot 23 24 30 37    ' Something on penis, something on balls, can't jerk off, ball harness 
-.must 385               ' Ball harness - I think once the slave own one, we should prefer it over rope cbt  
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
+.state Body.OnPenis free
 .range 3250 3289
 
 ' fallback if no session extra can be applied
@@ -8729,9 +8754,10 @@ Put it on now, slave.
 '.must 366 501
 '.must 736 737 746 747
 '.state Body.AnklesTied free
-'.mustnot 24 32 33 35
-'.item Toys.Rope apply to Body.AnklesTied
-'.set 24 32 33 35
+'.state Body.OnBalls free
+'.mustnot 32 33 35
+'.item Toys.Rope apply to Body.AnklesTied .state Body.OnBalls
+'.set 32 33 35
 '.set 738 748
 
 '[Action 3136]
@@ -8792,7 +8818,7 @@ Put it on now, slave.
 ' slave chains tied to balls
 
 [Action 3140]
-.mustnot 24             ' something on balls
+.state Body.OnBalls free
 .mustnot 267 268        ' Enema carrying out or holding
 .item Toys.Chains available
 .item Toys.Ankle_Restraints available
@@ -8806,7 +8832,7 @@ and I want you suffer for me.
 .item Toys.Ankle_Restraints available
 .item Toys.Wrist_Restraints available
 .item Toys.Ankle_Restraints canApply OR Toys.Wrist_Restraints canApply OR Toys.Chains canApply  
-.must 24 37             ' something on balls, ball harness
+.item Toys.Ball_Stretcher applied
 .mustnot 267 268        ' Enema carrying out or holding
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
@@ -8863,14 +8889,15 @@ Hurry up, slave!
 .must 3140
 .item Toys.Ankle_Restraints applied
 .item Toys.Wrist_Restraints applied
-.mustnot 385            ' ball harness
+.item Toys.Ball_Stretcher not available
 Go fetch your slave chains and chain your wrists and ankles together.
 Then chain the connecting chain to your slutty ball sack.
 You should have just enough play so that you can kneel straight
 and rub your little slave titties,
 but no more.
+.item Toys.Chains apply to Body.OnBalls Body.CantSitOnChair Body.CantStand
 .pause I'm chained up, Miss
-.set 24 31 32
+.set 31 32
 .set 736 737 746 747    ' Restraint acceptance 2, CBT 2
 .range 3290
 
@@ -8879,12 +8906,12 @@ but no more.
 .must 3140
 .item Toys.Ankle_Restraints applied
 .item Toys.Wrist_Restraints applied
-.mustnot 37             ' wearing ball harness
-.must 385               ' have ball harness
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
 I also want you to wear your ball harness for todays session.
 Go ahead and put it on.
+.item Toys.Ball_Stretcher apply
 .pause I'm wearing it, Miss
-.set 24 37              ' wearing all harness 
 .range 3148
 
 ' wearing ball harness on already
@@ -8892,7 +8919,7 @@ Go ahead and put it on.
 .must 3140
 .item Toys.Ankle_Restraints applied
 .item Toys.Wrist_Restraints applied
-.must 37                ' wearing ball harness
+.item Toys.Ball_Stretcher applied
 .range 3148
 
 
@@ -8912,8 +8939,9 @@ but no more.
 
 ' humbler
 [Action 3149]
-.mustnot 23 24          ' something on penis, something on balls
-.must 384               ' humbler
+.item Toys.Humbler available
+.item Toys.Humbler canApply
+.state Body.OnPenis free
 .must 748               ' CBT 3
 I'm feeling a little bitchy today, slave,
 and I think I'll take it out on those poor nuts of yours.
@@ -8922,7 +8950,7 @@ I want you to get on your knees, fetch your humbler, and put it on.
 You'll be wearing it for the whole session, which will hopefully
 go a long way in teaching you not to irritate me!
 .pause I'm wearing it, Miss
-.set 24 31 32           ' something on balls, can't sit on chair, can't kneel
+.item Toys.Humbler apply
 .set 749                ' CBT 4
 .return
 
@@ -8930,10 +8958,10 @@ go a long way in teaching you not to irritate me!
 [Action 3150]
 .item Toys.Gag available
 .item Toys.Gag canApply
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
 '.must 366                   ' some rope, but don't insist on having it in the list
-.must  385                   ' gag, ball harness
-.must 736 737 746 782        ' restraint acceptance 1 & 2, cbt 1, gag training 1  
-.mustnot 23 24 37            ' already wearing ball harness
+.must 736 737 746 782        ' restraint acceptance 1 & 2, cbt 1, gag training 1
 Now, slave, go get Me some rope and your gag.
 I want you to put the gag in, to begin with -
 you'll be wearing it throughout the session.
@@ -8947,25 +8975,22 @@ Then, tie a rope to your gag, leaving some left over.
 .must 3150
 Now that you're unable to complain, you may put on your ball harness.
 And you better pull the straps tight, slave.
-.pause Finished, Miss
-.set 24 37              ' something on balls, ball harness
-.range 3152
-
-[Action 3152]
+.item Toys.Ball_Stretcher apply
+[Finished, Miss]
 Bend over as far as you can and fasten your gag to your ball harness.
 Don't leave yourself more than 18 inches or so of rope, you dirty cunt.
 You can stare at that silly penis for the rest of the session.
+.item Toys.Rope apply to Toys.Gag Toys.Ball_Stretcher
 .pause I'm fastened up, Miss
-.must 3151
 .return
 
 
 [Action 3153]
 .item Toys.Gag available
 .item Toys.Gag canApply
-.mustnot 24             ' something on balls
-.mustnot 23             ' something on penis
-.must 366               ' rope, gag
+.state Body.OnBalls free
+.item Toys.Rope available
+.state Body.OnPenis free
 .must 736 737 746 782   ' restraint acceptance 1,2, cbt 1, gag training 2
 Now, slave, go get Me some rope and your gag.
 I want you to put the gag in, to begin with -
@@ -8980,27 +9005,28 @@ Now, tie a rope around your balls, leaving some left over.
 Bend over as far as you can and fasten your gag to the rope on your balls.
 Don't leave yourself more than eigthteen inches or so of rope, you dirty slut.
 You can stare at that silly penis for the rest of the session.
+.item Toys.Rope apply to Body.OnBalls Toys.Gag Body.CantStand
 .pause I'm fastened up, Miss
-.set 24 32 747 783	    ' somethng on balls, can't stand, cbt2, gag training 3
+.set 747 783	        ' somethng on balls, can't stand, cbt2, gag training 3
 .return
 
 
 [Action 3155]
 .item Toys.Collar available
 .item Toys.Collar canApply
-.must 385               ' collar, ball harness
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
+.state Body.OnPenis free
 .must 736 737 746       ' restraint acceptance 1 & 2, cbt 1
-.mustnot 23 24 37       ' already wearing ball harness
 Now, slave, go put on your ball harness.
 Pull the straps extra tight, just to make sure the harness won't slip off.
+.item Toys.Ball_Stretcher apply
 .pause I've put it on, Miss
-.set 24 37              ' ball harness
 .range 3156
 
 [Action 3156]
 .must 3155
-Nice.
-Now put on your collar and get yourself some rope.
+Put on your collar and get yourself some rope.
 Tie it to your collar to make a leash,
 and let the end dangle down in front of your belly.
 .item Toys.Collar apply
@@ -9013,6 +9039,7 @@ Very good.
 Now bend over as far as you can and fasten the leash to the ball harness.
 Don't leave yourself more than eighteen inches or so of rope, you dirty cunt.
 You can stare at that silly penis for the rest of the session.
+.item Toys.Rope apply to Toys.Collar Toys.Ball_Stretcher
 .pause I'm fastened up, Miss
 .return
 
@@ -9170,11 +9197,10 @@ Leave your chains on for the whole session, slave.
 ' 3200-3249 rope cbt
 
 [Action 3200]
-.mustnot 23             ' something on penis
-.item Toys.Ankle_Restraints canApply
-.mustnot 24 32
+.item Toys.Rope canApply to Body.AnklesTied
+.state Body.OnPenis free
+.state Body.OnBalls free
 .mustnot 267 268        ' Enema carrying out or holding
-' .must 366              ' some rope, but for this shoelace or a short string is enough
 .must 736
 Today, slave, I want you to grab some rope or shoe lace.
 Start by tying your ankles together, nice and snug.
@@ -9184,17 +9210,16 @@ When you've finished, tie another rope around that slutty ballsack,
 and tie that to your ankles as well.
 You should have enough play to kneel, but not enough to stand, 
 at least not comfortably!
-.item Toys.Rope apply to Body.AnklesTied
-.pause Tied up, Miss
-.set 24 32
+.item Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.CantStand
+.pause I'm tied up, Miss
 .set 746                ' cbt 1
 .range 3290
 
 
 [Action 3202]
-.mustnot 23             ' something on penis
-.item Toys.Ankle_Restraints canApply
-.mustnot 24 31 32
+.state Body.AnklesTied free
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
 .mustnot 267 268        ' Enema carrying out or holding
 ' .must 366             ' some rope, but for this shoelace or a short string is enough
 .must 736               ' restraint acceptance 1
@@ -9202,17 +9227,16 @@ For today's session, My dear, I want you to take some rope or shoelace,
 to tie your ankles together, and then tie them to your slave balls.
 You should have just enough so that your balls are
 pulled down when you kneel straight, and no more!
-.item Toys.Rope apply to Body.AnklesTied
+.item Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.CantStand Body.CantSitOnChair
 .pause Tied up, Miss
-.set 24 31 32
 .set 737 746            ' restraint acceptance 2, cbt 1
 .range 3290
 
 
 [Action 3206]
-.mustnot 23             ' something on penis
-.item Toys.Ankle_Restraints canApply
-.mustnot 24 31 32
+.state Body.AnklesTied free
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
 .mustnot 267 268        ' Enema carrying out or holding
 ' .must 366             ' some rope, but could also use shoelace instead
 .must 736 746           ' restraints acceptance 1, cbt 1
@@ -9223,52 +9247,54 @@ Now tie your ankles together,
 and then tie them to your slave balls.
 You should have just enough play so that you can comfortably rest on your heels,
 but no more, slave!
-.item Toys.Rope apply to Body.AnklesTied
+.item Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.CantStand Body.CantSitOnChair
 .pause Tied up, Miss
-.set 24 31 32
 .set 737 747            ' restraint acceptance 2, cbt 2
 .range 3290
 
 
 [Action 3208]
-.mustnot 23 24          ' something on penis, something on balls
-' .must 366             ' some rope, but could also use shoelace instead
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
 For today's session, My dear, I want you to tie up your balls,
 so that they are separated from your silly penis.
 Go get some rope or shoe lace, and tie those balls up, until they're firmly bound.
+.item Toys.Rope apply to Body.OnBalls
 .pause Tied up, Miss
-.set 24                 ' something on balls
 .set 746                ' cbt 1
 .range 3290
 
 
 [Action 3210]
 .must 746               ' cbt 1
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
 For today's session, My dear, I want you to tie up your balls,
 so that they are separated from your silly penis.
 Furthermore, you're going to separate your balls too.
 Tighten those balls first, then continue with your ball sack.
+.item Toys.Rope apply to Body.OnBalls
 .pause Tied up, Miss
-.mustnot 23 24          ' something on penis, something on balls
-.set 24                 ' something on balls
 .range 3290
 
 
 [Action 3214]
-.mustnot 23 24          ' something on penis, something on balls
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
 .must 746               ' cbt 1
 Today, slave, I want to see your slave cock and balls nice and firmly bound.
 Go fetch a long piece of rope or shoelace and tie up your slutty ball sack.
 Tie the rope in a spiral to force the ball sack away from the shaft.
+.item Toys.Rope apply to Body.OnBalls
 .pause Tied up as ordered, Miss
-.set 24                 ' something on balls
 .range 3290
 
 
 [Action 3218]
-.mustnot 23 24           ' something on penis, something on balls
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
+.item Toys.Ball_Stretcher not available
 .mustnot 267 268        ' Enema carrying out or holding
-.mustnot 385             ' Ball harness, favor this over rope
 .must 746                ' cbt 1
 Today, slave, we're going to tie up that silly slave ball sack.
 I want you to fetch some rope or shoelace to tie around the base of your balls,
@@ -9276,17 +9302,19 @@ leaving a length of rope about a foot long dangling down as a left-over.
 [Done as ordered, Miss]
 Now, grab a convenient weight of about half a pound.
 Tie that to the rope and leave it there for the whole session.
-You are not allowed to rest the weight on the ground, My pet, so don't leave too much rope.
+You are not allowed to rest the weight on the ground, My pet,
+so don't leave too much rope.
+.item Toys.Rope apply to Body.OnBalls Household.Weight
 .pause Weight attached, Miss
-.set 24                  ' something on balls
 .set 747                 ' cbt 2
 .range 3290
 
 
 [Action 3220]
-.mustnot 23 24           ' something on penis, something on balls
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
+.item Toys.Ball_Stretcher not available
 .mustnot 267 268        ' Enema carrying out or holding
-.mustnot 385             ' Ball harness, favor this over rope
 .must 747                ' cbt 2
 Today, slave, we're going to tie up that silly slave ball sack.
 I want you to fetch some rope or shoelace to tie around the base of your balls,
@@ -9295,16 +9323,17 @@ leaving a length of rope about a foot long dangling down as a left-over.
 Now, grab a good weight of about one pound.
 Tie that to the rope and leave it there for the whole session.
 You are not allowed to rest the weight on the ground, My pet, so don't leave too much rope.
+.item Toys.Rope apply to Body.OnBalls Household.Weight
 .pause Weight attached, Miss
-.set 24                  ' something on balls
 .set 748                 ' cbt 3
 .range 3290
 
 
 [Action 3222]
-.mustnot 23 24           ' something on penis, something on balls
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
+.item Toys.Ball_Stretcher not available
 .mustnot 267 268        ' Enema carrying out or holding
-.mustnot 385             ' Ball harness, favor this over rope
 .must 748                ' cbt 3
 Today, slave, we're going to tie up that silly slave ball sack.
 I want you to fetch some rope or shoelace to tie around the base of your balls,
@@ -9313,8 +9342,8 @@ leaving a length of rope about a foot long dangling down as a left-over.
 Now, grab a good weight of one or two pounds.
 Tie that to the rope and leave it there for the whole session.
 You are not allowed to rest the weight on the ground, My pet, so don't leave too much rope.
+.item Toys.Rope apply to Body.OnBalls Household.Weight
 .pause Weight attached, Miss
-.set 24                  ' something on balls
 .set 749                 ' cbt 4
 .range 3290
 
@@ -9329,11 +9358,10 @@ You are not allowed to rest the weight on the ground, My pet, so don't leave too
 ' 3250-3299 ball harness
 
 [Action 3250]
-.mustnot 23 24          ' something on penis, something on balls
 One thing I like is a slutty little slave boy wearing his tight ball harness.
 Put it on now, slave.
+.item Toys.Ball_Stretcher apply
 .pause I'm wearing it, Miss
-.set 24 37              ' something on balls, ball harness
 .range 3290
 
 
@@ -9345,16 +9373,13 @@ Put it on now, slave.
 .item Toys.Wrist_Restraints canApply
 .item Toys.Chains available
 .item Toys.Chains canApply
-.mustnot  32            ' something in mouth, wrist and ankle retraints, can't stand
-.mustnot 23 24          ' something on penis, something on balls, ball
 .mustnot 267 268        ' Enema carrying out or holding
 You know one thing I like is a slutty little slave boy wearing his slave chains.
 []
 For today's session I want you to put on your
 wrist and ankle restraints and chain them together.
-.item Toys.Ankle_Restraints apply to Toys.Chains Body.CantStand
+.item Toys.Ankle_Restraints apply to Toys.Chains
 .item Toys.Wrist_Restraints apply to Toys.Chains
-.set 32                 ' ankles tied, wrists tied, can't stand
 [I'm chained up, Miss]
 Almost, my pet, almost.
 []
@@ -9362,15 +9387,13 @@ Now put on your ball harness and attach it to your slave chains.
 Give yourself enough play so that you can comfortably kneel
 or grab your little slave titties,
 but not enough to stand up straight or reach your neck.
+.item Toys.Ball_Stretcher apply to Body.CantStand Body.CantSitOnChair
 .pause Finished, Miss
-.set 31                 ' can't sit on chair
-.set 24 37              ' something on balls, ball harness
 .set 3124               ' Can't put on slave collar anymore 
 .range 3290
 
 
 [Action 3264]
-.mustnot 23 24          ' something on penis, something on balls
 .mustnot 267 268        ' Enema carrying out or holding
 .must 747               ' cbt 2
 .mustnot 748            ' cbt 3, favour heavier weight
@@ -9380,14 +9403,13 @@ Put it on now, slave!
 Very good, slave.
 Go grab a convenient weight - about a pound or so - and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
+.item Toys.Ball_Stretcher apply to HouseHold.Weight
 .pause Weight attached, Miss
-.set 24 37
 .set 748                ' cbt 3
 .range 3290
 
 
 [Action 3266]
-.mustnot 23 24 37       ' something on penis, something on balls, ball harness
 .mustnot 267 268        ' Enema carrying out or holding
 .must 748               ' cbt 3
 One thing I like is a slutty little slave boy wearing his tight ball harness.
@@ -9395,14 +9417,13 @@ Put it on now, slave.
 [I'm wearing it, Miss]
 Now slave, grab a convenient weight - about two pound or so - and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
+.item Toys.Ball_Stretcher apply to HouseHold.Weight
 .pause Weight attached, Miss
-.set 24 37              ' ball harness
 .set 749                ' cbt 4
 .range 3290
 
 
 [Action 3268]
-.mustnot 23 24          ' something on penis, something on balls
 .mustnot 267 268        ' Enema carrying out or holding
 .must 749               ' cbt 4
 One thing I like is a slutty little slave boy wearing his tight ball harness.
@@ -9411,8 +9432,8 @@ Put it on now, slave.
 Now grab a good weight of three to four pounds and attach it to the harness.
 Leave it there for the whole session.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
+.item Toys.Ball_Stretcher apply to HouseHold.Weight
 .pause Weight attached, Miss
-.set 24 37              ' ball harness
 .set 750                ' cbt 5
 .range 3290
 
@@ -9422,15 +9443,14 @@ When you kneel, you are not allowed to rest the weight on the ground, My pet.
 .item Toys.Ankle_Restraints canApply
 .item Toys.Chains available
 .item Toys.Chains canApply
-.mustnot 23 24 32 37    ' something on penis, balls, can't stand, ball harness
 .mustnot 267 268        ' Enema carrying out or holding
 .must 747               ' cbt 2
-.must 385               ' ball harness
 Get your ankle restraints, slave chains, and your ball harness.
 Chain each ankle to your slutty ball sack so that you can just kneel straight.
 .item Toys.Ankle_Restraints apply
-.pause Ankles tied to balls, Miss
-.set 24 32 37           ' Something on balls, ankles tied, wrists tied, can't stand, ball harness
+.item Toys.Ball_Strectcher apply
+.item Toys.Chains apply Body.AnklesTied Body.OnBalls Body.CantStand 
+.pause Ankles chained to balls, Miss
 .range 3290
 
 
@@ -10354,7 +10374,7 @@ and strip off immediately each time you walk in the door.
 ' punishments for not performing assignment
 
 [Action 4080]
-.timefrom 45 00:00"00   ' Must have key for chastity cage (set by default)
+.item Toys.Chastity_Device expired
 .mustnot 698 699
 As a little motivation to take your naked week assignment a little graver,
 you're also going to skip your next cumming opportunity.
@@ -10365,7 +10385,7 @@ and I might let you cum again.
 .range 4085 4086
 
 [Action 4081]
-.timefrom 45 00:00"00   ' Must have key for chastity cage (set by default)
+.item Toys.Chastity_Device expired
 .must 698
 .mustnot 699
 As my little negligent slut seems to need some additional motivation to perform his assignment,
@@ -11006,12 +11026,12 @@ Lube up that plug and insert it into your bottom now.
 ' no toy
 [Action 4950]
 .unset 4950
+.unset 4951             ' checked in 4986-4999 commenting and removing chastity cage
 .range 4985
 
 ' choose toy
 [Action 4951]
 .poss 10                ' 1/10 of putting on a toy before an activity
-.unset 4951
 .range 4955 4969
 
 '[Action 4952]
@@ -11031,14 +11051,13 @@ Lube up that plug and insert it into your bottom now.
 
 [Action 4955]
 .mustnot 219 253        ' not already doing this, not having alreay done it
-.mustnot 37             ' already wearing ball harness
-.mustnot 23 24          ' something on penis, something on balls
-.must 385               ' have ball harness
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
 I want your balls stand out nicely for out next activity,
 my dear slave, so let's put on your ball harness.
+.item Toys.Ball_Stretcher apply
 .pause Done as ordered, Miss
 .set 219                ' Let's do this
-.set 24 37              ' something on balls, ball harness
 .range 4985
 
 [Action 4956]
@@ -11055,13 +11074,14 @@ Open your mouth and insert your gag now, slave.
 [Action 4957]
 .mustnot 217 255        ' not already doing this, done ball sack pulling already
 .mustnot 268            ' Holding the enema
-.mustnot 23 24          ' something on penis, something on balls
-.must 384               ' have a humbler
+.item Toys.Humbler available
+.item Toys.Humbler canApply
 .must 746               ' cbt level 1
 I want you to assume the right position for our next activity.
 Get down on your knees and put on your humbler, slave.
+.item Toys.Humbler apply
 .pause I'm wearing it, Miss
-.set 24 31 32 217       ' something on balls, can't sit on chair, can't stand, humbler
+.set 217                ' humbler
 .range 4985
 
 '[Action 4958]
@@ -11073,7 +11093,8 @@ Get down on your knees and put on your humbler, slave.
 '[Action 4961]
 
 [Action 4962]
-.mustnot 23 24          ' something on penis, something on balls
+.state Body.OnPenis free
+.state Body.OnBalls free
 .mustnot 214 261        ' not already doing this, not having alreay done it
 Go fetch me a long piece of rope, slave.
 .pause Here you are, Miss
@@ -11099,8 +11120,8 @@ Now tie up the base of your cock, followed by your slutty ball sack.
 Don't forget to separate your balls on the way.
 When done, complete your cock bondage with a couple of tight loops around the shaft.
 When done, you shouldn't be able to wank anymore, slut.
+.item Toys.Rope apply to Body.OnBalls Body.OnPenis Body.AroundCockBase
 .pause My cock is tied up, Miss
-.set 23 24              ' something on penis, something on balls
 .set 214                ' Cock bondage temporary
 .range 4985
 
@@ -11109,13 +11130,13 @@ Good.
 Now wrap the rope once around your slutty ball sack, separate your balls,
 and continue wrapping up your ball sack until there's only a short lenght of rope left.
 Tie the left-over around the base and fix it up with a good knot.
+.item Toys.Rope apply to Body.OnBalls Body.OnPenis Body.AroundCockBase
 .pause My cock is tied up, Miss
-.set 24                 ' something on balls 
 .set 214                ' Cock bondage temporary
 .range 4985
 
 
-' Take off chastity device?
+' Take off chastity device with 32% when having key (expired)
 [Action 4985]
 .unset 4985
 .range 4986 4999
@@ -11123,95 +11144,102 @@ Tie the left-over around the base and fix it up with a good knot.
 
 ' not wearing chastity cage
 [Action 4986]
-.mustnot 44             ' Chastified
+.item Toys.Chastity_Device not applied
 .unset 4986
 .range 5005
 
+' keep locked up
 [Action 4987]
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity cage
-.mustnot 4951           ' Toy selecttion
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
+.item Toys.Chastity_Device available
+.mustnot 4951           ' Toy selection
 It looks like your cock is well placed inside that cage.
 Let's leave there a little while and we see later whether
 that shriveled old prick of yours deserves to be released.
 .unset 4987
 .range 5005
 
+' keep locked up
 [Action 4988]
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity cage
-.mustnot 4951           ' Toy selecttion
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
+.item Toys.Chastity_Device available
+.mustnot 4951           ' Toy selection
 As it looks, your silly slave penis is locked up well -
 let's leave it that way.
 .unset 4988
 .range 5005
 
+' take cage off, after adding toy
 [Action 4989]
 .poss 16
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity device
-.mustnot 4951           ' Toy selecttion
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
+.item Toys.Chastity_Device available
+.mustnot 4951           ' Toy selection
 I want you your cock hard and wet for our next activity,
-so let's take off the chastity cage.
+so let's remove your chastity cage.
 .pause Thank you, Miss
 .gosub 11995            ' remove something on penis, chastified
 .range 4995
 
+' take cage off
 [Action 4990]
 .poss 16
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity device
-.mustnot 4951           ' Toy selecttion
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
+.item Toys.Chastity_Device available
+.mustnot 4951           ' Toy selection
 I want you your cock hard and wet,
 so let's take the cage off.
 .pause Thank you, Miss
 .gosub 11995            ' remove something on penis, chastified
 .range 4995
 
-
+' keep locked up
 [Action 4991]
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity device
-.must 4951              ' Toy selecttion
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
+.item Toys.Chastity_Device available
+.must 4951              ' Toy selection
 It looks like your cock is well placed inside that cage.
 Let's leave it there a little while and we see later whether
 that shriveled old prick of yours deserves to be released.
 .unset 4991
 .range 5005
 
+' keep locked up
 [Action 4992]
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity device
-.must 4951              ' Toy selecttion
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
+.item Toys.Chastity_Device available
+.must 4951              ' Toy selection
 As it looks, your silly slave penis is well placed,
 so let's leave that shriveld old prick locked up.
 .unset 4992
 .range 5005
 
 
+' take cage off, after adding toy
 [Action 4993]
 .poss 16
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity device
-.must 4951              ' Toy selecttion
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
+.item Toys.Chastity_Device available
+.must 4951              ' Toy selection
 And I also want you your cock hard and wet for our next activity,
 so let's remove the chastity cage.
 .pause Thank you, Miss
 .gosub 11995            ' remove something on penis, chastified
 .range 5000
 
+' take cage off, after adding toy
 [Action 4994]
 .poss 16
-.must 44                ' chastified
-.timefrom 45 00:00"00   ' have key for chastity cage
-.must 380               ' chastity device
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
+.item Toys.Chastity_Device available
 .must 4951              ' Toy selection
 And I want you your cock hard and wet,
 so let's take the cage off.
@@ -11221,31 +11249,33 @@ so let's take the cage off.
 
 ' No key
 [Action 4995]
-.must 44                ' chastified
-.timeto 45 00:00"00     ' have key for chastity cage
-.must 380               ' chastity cage
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device not expired
+.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 You'd surely like to wank your cock, won't you slave?
 Too sad you're going to stay locked up tonight.
 .unset 4995
 .range 5005
 
+' No key
 [Action 4996]
-.must 44                ' chastified
-.timeto 45 00:00"00     ' have key for chastity cage
-.must 380               ' chastity cage
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device not expired
+.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 You'd surely like to yonk your hard wet cock, won't you slave?
-I'm very sorry for you - well, not really
-- but you know that you're going to stay locked up tonight.
+I'm very sorry for you - well, not really -
+but you're going to stay locked up tonight.
 .unset 4996
 .range 5005
 
+' No key
 [Action 4997]
-.must 44                ' chastified
-.timeto 45 00:00"00     ' have key for chastity cage
-.must 380               ' chastity cage
-.mustnot 4951           ' Toy selecttion
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device not expired
+.item Toys.Chastity_Device available
+.mustnot 4951           ' Toy selection
 It looks like your cock is well placed inside that cage.
 And you know, that you are not going to get unlocked.
 .unset 4997
@@ -11253,11 +11283,11 @@ And you know, that you are not going to get unlocked.
 
 '[Action 4998]
 
-' wearing cage, but haven't key
+' No key
 [Action 4999]
 .else
-.must 44                ' Chastified
-.timeto 45 00:00"00     ' have key for chastity cage
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device not expired
 .unset 4999
 .range 5005
 
@@ -11549,7 +11579,7 @@ I think your nipples and nuts could use a working-over.
 
 
 ' Maid training: some toys are handled flexbibly so we don't have to check those
-' 23 something on penis, 30 can't jerk off and 37 ball harness can be ignored
+' Body.OnPenis, Body.CantJerkOff and Toys.Ball_Harness can be ignored
 ' Body.InButt and Body.CantStand are handled in each position
 ' something on nipples, something in mouth are handled in each position
 ' collar handled in each position
@@ -11973,8 +12003,9 @@ You seem to get used to getting used very well.
 .state Body.OnBalls is free
 .state Body.AnklesTied free
 .state Body.WristsTied free
+.state Body.OnBalls free
 .mustnot 29 32          ' blindfolded, can't stand
-.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
+.mustnot 34 35          ' can't type/use mouse, tethered
 .must 361               ' Nipple clamps
 ' clamps/pegs duration, already checked in 5066
 ' holding the enema already checked in 5066
@@ -11988,8 +12019,9 @@ You seem to get used to getting used very well.
 .state Body.OnBalls is free
 .state Body.AnklesTied free
 .state Body.WristsTied free
+.state Body.OnBalls free
 .mustnot 29 32          ' wrists tied, blindfolded, can't stand
-.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
+.mustnot 34 35          ' can't type/use mouse, tethered
 ' clamps/pegs duration, already checked in 5066
 ' holding the enema already checked in 5066
 .set 210                ' shower one-time only
@@ -12002,8 +12034,9 @@ You seem to get used to getting used very well.
 .state Body.OnBalls is free
 .state Body.AnklesTied free
 .state Body.WristsTied free
+.state Body.OnBalls free
 .mustnot 29 32          ' wrists tied, blindfolded, can't stand
-.mustnot 34 35 37       ' can't type/use mouse, tethered, ball harness
+.mustnot 34 35          ' can't type/use mouse, tethered
 .must 362               ' clothes pegs
 .state Toys.enema_kit free or remaining greaterThan 00:16"00
 .set 210                ' shower one-time only
@@ -12516,8 +12549,9 @@ I will have to punish you later for failing your training.
 [Action 5802]
 .state Body.OnBalls is free
 .state Body.AnklesTied free
+.state Body.OnPenis free
+.state Body.CantStand free
 .mustnot 255                 ' Done ball sack pulling activity already
-.mustnot 23 32               ' something on penis, can't stand
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
@@ -12525,9 +12559,10 @@ I will have to punish you later for failing your training.
 [Action 5803]
 .state Body.OnBalls is free
 .state Body.AnklesTied free
+.state Body.OnPenis free
+.state Body.CantStand free
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1 
-.mustnot 23 32               ' something on penis can't stand
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:14"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:14"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:14"00
@@ -12539,7 +12574,8 @@ I will have to punish you later for failing your training.
 [Action 5804]
 .state Body.OnBalls is free
 .state Body.AnklesTied free
-.mustnot 23 32               ' something on penis, can't stand
+.state Body.OnPenis free
+.state Body.CantStand free
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:19"00
@@ -12553,7 +12589,8 @@ I will have to punish you later for failing your training.
 [Action 5805]
 .state Body.OnBalls is free
 .state Body.AnklesTied free
-.mustnot 23 32               ' something on penis, can't stand
+.state Body.OnPenis free
+.state Body.CantStand free
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:24"00
@@ -12642,8 +12679,8 @@ I will have to punish you later for failing your training.
 ' light weight drop from balls
 [Action 5822]
 .state Body.AnklesTied free
+.item Toys.Ball_Stretcher applied
 .mustnot 255                 ' Done ball sack pulling activity already
-.must 37                     ' ball harness
 .mustnot 32                  ' ankles tied, can't stand
 .set 255                     ' Done ball sack pulling activity
 .range 5952
@@ -12651,9 +12688,9 @@ I will have to punish you later for failing your training.
 ' medium weight drop from balls
 [Action 5823]
 .state Body.AnklesTied free
+.item Toys.Ball_Stretcher applied
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
-.must 37                     ' ball harness
 .mustnot 32                  ' ankles tied, can't stand
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:14"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:14"00
@@ -12665,9 +12702,9 @@ I will have to punish you later for failing your training.
 ' heavy weight drop from balls
 [Action 5824]
 .state Body.AnklesTied free
+.item Toys.Ball_Stretcher applied
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.must 37                     ' ball harness
 .mustnot 32                  ' can't stand
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:19"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:19"00
@@ -12679,9 +12716,9 @@ I will have to punish you later for failing your training.
 ' very heavy weight drop from balls
 [Action 5825]
 .state Body.AnklesTied free
+.item Toys.Ball_Stretcher applied
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
-.must 37                     ' ball harness
 .mustnot 32                  ' can't stand
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:24"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:24"00
@@ -12896,9 +12933,12 @@ Meanhile, three demerits will do about right.
 .state Body.OnBalls is free
 .state Body.AnklesTied free
 .mustnot 263            ' Done wanking activity already
-.mustnot 23  29         ' something on penis, blindfolded
-.mustnot 30 31 34       ' can't jerk off, can't sit on chair, can't type/use mouse     
-.mustnot 44             ' Chastified
+.state Body.OnPenis free
+.state Body.Blindfolded free
+.state Body.CantJerkOff free
+.state Body.CantSitOnChair free
+.mustnot 34             ' can't type/use mouse     
+.item Toys.Chastity_Device not applied
 .mustnot 267 268 269    ' Enema carrying out or holding
 .must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:24"00
@@ -12922,8 +12962,10 @@ Meanhile, three demerits will do about right.
 .item Toys.Wrist_Restraints canApply
 .mustnot 266            ' Done story time activity already 
 .not .state Body.Blindfolded applied
-.mustnot 30 34 35       ' blindfolded, can't jerk off, can't type/use mouse, tethered
-.mustnot 44             ' Chastified
+.state Body.CantJerkOff free
+.state Body.CantSitOnChair free
+.mustnot 34 35          ' can't type/use mouse, tethered
+.item Toys.Chastity_Device not applied
 .mustnot 267 268        ' Enema carrying out or holding
 .must 717 736           ' Nipple tolerance 2, Restraint Acceptance 1
 .set 266                ' Done story time activity
@@ -12951,7 +12993,7 @@ Meanhile, three demerits will do about right.
 ' Light wanking 3x3m, gives 726, 2x5m
 ' if timers active, also 2x3m, 1x5m, 1x3m
 [Action 6004]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .set 263                ' Done wanking activity
 .gosub 9520             ' comment wanking while chastified
@@ -12959,7 +13001,7 @@ Meanhile, three demerits will do about right.
 
 ' Medium wanking 5x3m
 [Action 6005]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1 
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:19"00
@@ -12972,7 +13014,7 @@ Meanhile, three demerits will do about right.
 
 ' ... 2x10m, gives 727
 [Action 6006]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:22"00
@@ -12985,7 +13027,7 @@ Meanhile, three demerits will do about right.
 
 ' 4x5m
 [Action 6007]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:23"00
@@ -12998,7 +13040,7 @@ Meanhile, three demerits will do about right.
 
 ' 7x3m, gives 727
 [Action 6008]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 726               ' Denial and self-control 1
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:27"00
@@ -13011,7 +13053,7 @@ Meanhile, three demerits will do about right.
 
 ' 3x10 gives 728
 [Action 6009]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:32"00
@@ -13024,7 +13066,7 @@ Meanhile, three demerits will do about right.
 
 ' 5x5m
 [Action 6010]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:29"00
@@ -13037,7 +13079,7 @@ Meanhile, three demerits will do about right.
 
 ' 9x3m
 [Action 6011]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 727               ' Denial and self-control 2
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:35"00
@@ -13050,7 +13092,7 @@ Meanhile, three demerits will do about right.
 
 ' 4x10m
 [Action 6012]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:43"00
@@ -13063,7 +13105,7 @@ Meanhile, three demerits will do about right.
 
 ' 9x5m, gives 729
 [Action 6013]
-.mustnot 30 44          ' can't jerk off, chastified
+.item Toys.Chastity_Device not applied
 .mustnot 263            ' Done wanking activity already
 .must 728               ' Denial and self-control 3
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:53"00
@@ -13096,7 +13138,7 @@ Meanhile, three demerits will do about right.
 ' if timers active, also 2x3m, 1x5m, 1x3m
 ' with encaged cock
 [Action 6044]
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .mustnot 116            ' Not with urethra tube
 .mustnot 263            ' Done wanking activity already
 .set 263                ' Done wanking activity
@@ -14387,34 +14429,35 @@ Well, was your slave penis properly hard and stiff when I asked?
 .return
 
 [Action 7522]
-.mustnot 24                  ' something on balls
-.mustnot 44                  ' Chastified
-.shouldnot 385               ' have ball harness
+.state Body.OnBalls free
+.item Toys.Chastity_Device not applied
+.should .item Toys.Ball_Stretcher not available
 .shouldnot 706               ' entitled for lighter punishment
 You surely have some rope at hand, my dear.
 Otherwise some shoe laces will also do.
 Tie up your slutty ball sack until your balls stand out nicely
 and there's only a short length of rope left.
 Make sure the rope won't slip off.
+.item Toys.Rope apply to Body.OnBalls
 .pause Done it, Miss
-.set 24                      ' Something on balls
 .gosub 2620 2623             ' weight to rope
 .range 7528 7529
 
 [Action 7523]
-.must 37                     ' ball harness
+.item Toys.Ball_Stretcher applied
 .shouldnot 706               ' entitled for lighter punishment
 .gosub 2624 2627             ' weight to ball harness
 .range 7528 7529
 
 [Action 7524]
-.mustnot 23 24 37            ' Something on penis, something on balls, ball harness
-.must 385                    ' have ball harness
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
+.item Toys.Chastity_Device not applied
 .shouldnot 706               ' entitled for lighter punishment
 You certainly don't mind putting on your ball harness, do you?
 Put it on now, and make sure it sits tight.
+.item Toys.Ball_Stretcher apply
 .pause Done, Miss
-.set 24 37                   ' something on balls, ball harness
 .gosub 2624 2627             ' weight to ball harness
 .range 7528 7529
 
@@ -14485,8 +14528,8 @@ Oh, by the way, that butt plug stays in, sweetheart.
 [Action 7556]
 .must 219               ' ball harness temporary
 Oh, before I forget, you may take off your ball harness, sweetheart.
+.item Toys.Ball_Stretcher remove
 .pause Thank you, Miss
-.unset 24 37            ' something on penis, something on balls, ball harness
 .unset 219              ' ball harness temporary
 .set 253                ' one-time per session, don't put ball harness on again
 .range 7560 7564
@@ -14528,8 +14571,8 @@ Just in case, your ball harness stays on, sweetheart.
 [Action 7571]
 .must 217               ' humbler temporary
 Oh, before I forget, you may take off your humbler, sweetheart.
+.item Toys.Humbler remove
 .pause Thank you, Miss
-.unset 24 31 32         ' something on balls, can't sit on chair, can't stand
 .unset 217              ' humbler temporary
 .set 255                ' one-time per session, don't put on again
 .set 746                ' cbt 1
@@ -14572,8 +14615,8 @@ Just in case, those balls stay trapped between those bars, sweetheart.
 [Action 7586]
 .must 214               ' cock bondage temporary
 Oh, before I forget, you may untie your cock bondage, sweetheart.
+.item Rope remove from Body.OnBalls Body.AroundCockBase Body.OnPenis
 .pause Thank you, Miss
-.unset 23 24 30         ' something on penis, something on balls, can't jerk off
 .unset 214              ' Cock bondage temporary
 .set 261                ' one-time per session, don't put cock bondage on again
 .set 746                ' cbt 1
@@ -15330,22 +15373,22 @@ Let's continue the session.
 ' check 268 & 269 to complete enema, to be able to give plug assignment later
 
 [Action 7750]
+.item Toys.Chastity_Device not applied
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 You've been a very good slave.
 I think I'll let you cum for your Mistress today.
 Won't that be nice?
-.mustnot 44             ' Chastified
 .unset 103
 .range 9700 9719
 
 [Action 7751]
+.item Toys.Chastity_Device applied
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 You've been a very good slave.
 Wouldn't it be nice to remove your cage and cum for your Mistress tonight?
-.pause Yes Miss, that would be very nice
-.must 44                ' Chastified
+.pause Yes Miss, that would be wonderful
 .unset 103
 .range 9700 9719
 
@@ -15689,7 +15732,9 @@ And stay on the edge, slave.
 When I give you the command to cum,
 you have to spurt your load before I tell you to stop.
 '.poss 10
-.mustnot 23 30 44            ' Something on penis, can't jerk off, chastified
+.state Body.OnPenis free
+.state Body.CantJerkOff free
+.item Toys.Chastity_Device not applied
 .mustnot 9540 9541 9542 9543 9544 9545 9546 9547 9548 9549 ' not if having to eat cum
 .range 8099
 
@@ -15708,7 +15753,7 @@ Understood, slave?
 .range 8100 8119
 
 
-' Denial before allwoing to cum
+' Denial before allowed to cum
 
 [Action 8100]
 I bet you can't wait to just spew hot cum everywhere.
@@ -15717,32 +15762,32 @@ I bet you can't wait to just spew hot cum everywhere.
 .range 8101 8119
 
 [Action 8101]
+.item Toys.Chastity_Device not applied
 It won't be long now, slave, for your reward.
 .delay 10
-.mustnot 44                  ' Chastified
 .unset 8101
 .range 8101 8119
 
 [Action 8102]
+.item Toys.Chastity_Device not applied
 It'll feel so good to blow that load of slave cum.
 .delay 10
-.mustnot 44                  ' Chastified
 .unset 8102
 .range 8101 8119
 
 [Action 8103]
+.item Toys.Chastity_Device not applied
 Keep on the edge, slave.
 You're going to explode, I can tell.
 .delay 10
-.mustnot 44                  ' Chastified
 .unset 8103
 .range 8101 8119
 
 [Action 8104]
+.item Toys.Chastity_Device not applied
 You love it, slave.
 You love to hold that cum in.
 .delay 10
-.mustnot 44                  ' Chastified
 .unset 8104
 .range 8101 8119
 
@@ -15754,69 +15799,69 @@ It won't be long now.
 .range 8101 8119
 
 [Action 8106]
+.item Toys.Chastity_Device not applied
 Oh, slave, you're so close now.
 It's going to be such a release.
 .delay 10
-.mustnot 44                  ' Chastified
 .unset 8106
 .range 8101 8119
 
 [Action 8107]
+.item Toys.Chastity_Device not applied
 Such a good slave.
 Your reward is coming very soon.
 .delay 10
-.mustnot 44                  ' Chastified
 .unset 8107
 .range 8101 8119
 
 [Action 8108]
+.item Toys.Chastity_Device not applied
 Don't cum yet, slave.
 Hold it all in for Mistress.
 .delay 10
-.mustnot 44                  ' Chastified
 .unset 8108
 .range 8101 8119
 
 [Action 8109]
+.item Toys.Chastity_Device not applied
 Stay on the edge, and keep your hot cock hard as rock.
 .delay 10
-.mustnot 44                  ' Chastified
 .unset 8109
 .range 8101 8119
 
 [Action 8110]
+.item Toys.Chastity_Device applied
 You'll love to wank that cage, slave.
 .delay 10
-.must 44                     ' Chastified
 .unset 8110
 .range 8101 8119
 
 [Action 8111]
+.item Toys.Chastity_Device applied
 Keep wanking that cage, slave.
 .delay 10
-.must 44                     ' Chastified
 .unset 8111
 .range 8101 8119
 
 [Action 8112]
-Make that cage burst, slave.
+.item Toys.Chastity_Device applied
+Make that penis burst inside that cage, slave.
 .delay 10
-.must 44                     ' Chastified
 .unset 8112
 .range 8101 8119
 
 [Action 8113]
+.item Toys.Chastity_Device applied
 Keep it up.
-You'll really make it to cum in your cage, slave!
+You're to cum in your cage, slave!
 .delay 10
-.must 44                     ' Chastified
 .unset 8111
 .range 8101 8119
 
 [Action 8114]
+.item Toys.Chastity_Device applied
 You're going to explode in that cage, I can tell.
 .delay 10
-.must 44                     ' Chastified
 .unset 8111
 .range 8101 8119
 
@@ -16038,44 +16083,43 @@ Get your paddle ready, slave, and put on your blindfold.
 .range 8120
 
 [Action 8140]
-.must 44                          ' chastified
-.timefrom 45 00:00"00             ' Have key for chastity cage
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device expired
 You need it so badly, slave, don't you?
 Remove that cage and get your member stiff!
-.pause I'm wanking my cock stiff, Miss
+.pause I'm wanking my stiff cock, Miss
 .gosub 11995                      ' remove something on penis, chastified
 .range 8130 8149                  ' choose how to cum range again
 
 [Action 8141]
-.must 44                          ' chastified
+.item Toys.Chastity_Device applied
 .mustnot 116                      ' Don't test anymore after all suggestions have been made
 .mustnot 119                      ' Not until safety measures are implemented
 Let's see how safe your chastity cage really is.
 You're going to keep your slave penis locked up and will wank your cage, slut.
-.must 380                         ' chastity device
 .range 8090                       ' choose how to cum range again
 
 ' Scheduled to cum, but doesn't have key -> deny
 [Action 8142]
-.must 44                          ' chastified
-.timeto 45 00:00"00               ' Must have key
+.item Toys.Chastity_Device applied
+.item Toys.Chastity_Device not expired
 Well slave, this would be your scheduled cumming opportunity,
 but without having the key,
- I recommend crawling to your key holder to beg for an release.
+I recommend you'll crawl to your key holder and beg for a release.
 Good luck with that!
 .pause Thank you, Miss
 .range 9000
 
 [Action 8143]
 .delay 30
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .canWorshipDildo
 Place your dildo on the floor and suck it deep into your mouth.
 .range 8090
 
 [Action 8144]
 .delay 20
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .mustnot 370                      ' Paddle
 .must 371                         ' Hairbrush
 Take your hairbrush and spank yourself to the beat with one
@@ -16084,7 +16128,7 @@ hand while you keep yourself on the edge with the other, slut.
 
 [Action 8145]
 .delay 20
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .mustnot 370                      ' Paddle
 .must 372                         ' Wooden spoon
 Take your wooden spoon and spank yourself to the beat with one
@@ -16095,7 +16139,6 @@ hand while you keep yourself on the edge with the other, slut.
 
 [Action 8149]
 .else
-.mustnot 30                       ' Can't jerk off
 Keep yourself fully aroused, slave, and wait for my command...
 .range 8090
 
@@ -16112,38 +16155,38 @@ Keep yourself fully aroused, slave, and wait for my command...
 
 ' Bail out after a while when slave can't cum in cage
 [Action 8191]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .poss 100
 .numactionsfrom 8190 20 ' 20 * 15 seconds = 5 minutes
 .range 8240
 
 [Action 8192]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
+.delay 10 15
 Cum, my dear slave!
 delay 3
 You'll need it so badly.
-.delay 15 15
 .unset 8192
 .range 8191 8207
 
 [Action 8193]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
+.delay 10 15
 Cum in your cage, my slave!
-.delay 15 15
 .unset 8193
 .range 8191 8207
 
 [Action 8194]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
+.delay 10 15
 Wank that cage and cum, slave!
-.delay 15 15
 .unset 8194
 .range 8191 8207
 
 [Action 8195]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
+.delay 10 15
 Tease those nipples and wank that cage, slave!
-.delay 15 15
 .unset 8195
 .numactionsfrom 8190 4  ' 1 minute
 .range 8191 8207
@@ -16151,16 +16194,16 @@ Tease those nipples and wank that cage, slave!
 
 [Action 8200]
 .must 29
-.mustnot 44             ' Chastified
-You may take your blindfold off now.
 .delay 45 90
+.item Toys.Chastity_Device not applied
+You may take your blindfold off now.
 .unset 8200
 .range 8191 8207
 
 [Action 8201]
-.mustnot 44             ' Chastified
-Tell me when you've finished, My pet.
+.item Toys.Chastity_Device not applied
 .delay 45 90
+Tell me when you've finished, My pet.
 .unset 8201
 .range 8191 8207
 
@@ -16345,14 +16388,14 @@ It's good to know your silly slave penis is safely locked up.
 
 
 [action 8245]
-.timefrom 45 00:00"00   ' have key for chastity cage 
+.item Toys.Chastity_Device expired
 .range 8249
 
 [action 8246]
+.item Toys.Chastity_Device not expired
 Well, on my part you can beg your key holder for a release.
 Maybe she's generous tonight and gives you a nice milking.
 Hihi. 
-.timeto 45 00:00"00     ' have key for chastity cage 
 .range 8249
 
 
@@ -16367,11 +16410,11 @@ Hihi.
 
 
 [action 8981]
-.mustnot 44        ' chastified
+.item Toys.Chastity_Device not applied
 .range 9000
 
 [action 8982]
-.must 44           ' chastified
+.item Toys.Chastity_Device applied
 .range 8985 8986
 
 
@@ -16684,21 +16727,21 @@ Are you wearing your chastity cage right now?
 
 ' Chastity cage check when having toy, called after toy setup
 ' all paths return with wearing the cage
-' additional entry 9291-9294 because 44 is now mapped and might be set already 
+' additional entries 9291-9294 because chastity device might be set already 
 
 [Action 9200]
-.must 44                     ' Chastified
+.item Toys.Chastity_Device applied
 .return
 
 [Action 9201]
-.mustnot 44                  ' Chastified
+.item Toys.Chastity_Device not applied
 .range 9291 9294             ' ask slave
 
 
 ' slave is fine with being locked up
 
 [Action 9205]
-.timefrom 45 -00:00"00  ' Have key for chastity cage
+.item Toys.Chastity_Device expired
 Well, as you wish slave.
 I will keep your prick locked up.
 .set 686 687 688        ' Chastity belt rules apply 3
@@ -16712,7 +16755,7 @@ That swollen hot cock will stay in that cage until further notice.
 .range 9250             ' Chastified
 
 [Action 9207]
-.timeto 45 -INF         ' Have key for chastity cage never
+.begKeyHolderForRelease
 Well, you don't have the key anyway, my poor pet.
 Don't mind, slave.
 I'm going to work you up as high as possible,
@@ -16726,22 +16769,23 @@ and after the session you can crawl to your key holder and beg for a release.
 ' Tease and denial: have key now or soon - ask but don't actually release
 
 [Action 9210]
-.timefrom 45 -00:00"00   ' Have key for chastity cage now
+.item Toys.Chastity_Device expired
 You surely want to be allowed to take that chastity cage off, don't you, slave?
 .yestext Yes Miss, please take it off
 .notext Thanks Miss, I'm fine
 .yesno 9230 9239 9205 9209
 
+' Have key for chastity cage now or soon
 [Action 9211]
 .mustnot 103
-.timefrom 45 -02:00"00   ' Have key for chastity cage now or soon
+.item Toys.Chastity_Device remaining less_than 02:00"00
 Your swollen hot cock surely bursts inside that tight cage, doesn't it?
 .yestext Yes, please let me take it off, Miss
 .notext Thanks Miss, I'm fine
 .yesno 9240 9249 9205 9209
 
 [Action 9212]
-.timefrom 45 -02:00"00   ' Have key for chastity cage now
+.item Toys.Chastity_Device remaining less_than 02:00"00
 .must 103
 And you've been such a bitch recently that I don't see a reason to
 grand you any satisfaction right now.
@@ -16749,14 +16793,14 @@ You'll stay locked up.
 .range 9250             ' Chastified
 
 [Action 9213]
-.timefrom 45 -00:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device expired
 You don't mind staying locked up for the time being, do you, slave?
 Well,
 maybe I'll allow you to wank for me a little later.
 .range 9250             ' Chastified
 
 [Action 9214]
-.timefrom 45 -00:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device expired
 .mustnot 103
 .poss 100
 .numberofactionsset 500 549 1     ' if there is any punishment outstanding
@@ -16902,7 +16946,7 @@ And prepare yourself for a though session to make up for your impudent ignorance
 ' time must go back to the maximum time in 9255
 
 [Action 9230]
-.timefrom 45 -00:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device expired
 .must 103
 .poss 15
 Well, I don't think you have earned the privilege to touch yourself yet.
@@ -16910,14 +16954,14 @@ We'll see later, if you make up a good enough slave to be allwowed to wank for m
 .range 9250             ' Chastified
 
 [Action 9231]
-.timefrom 45 -00:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device expired
 .poss 10
 Slave, I know you want to be relased from that tight cage,
 but for the time being, we gonna leave your little shriveled up prick locked up.
 .range 9250             ' Chastified
 
 [Action 9232]
-.timefrom 45 -02:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device remaining less_than 02:00"00 
 .mustnot 103
 .poss 10
 It looks like it is in good hands in there, hihi.
@@ -16925,14 +16969,14 @@ Let's leave that little shriveled up prick of yours locked up.
 .range 9250             ' Chastified
 
 [Action 9233]
-.timefrom 45 -01:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device remaining less_than 01:00"00 
 .poss 10
 As it looks, your piece of meat is well placed inside that cage,
 so let's leave that little shriveled up prick of yours locked up until later.
 .range 9250             ' Chastified
 
 [Action 9234]
-.timefrom 45 -02:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device remaining less_than 02:00"00 
 .must 103
 .poss 15
 Slave, you've been such a bitch recently that I don't see
@@ -16950,7 +16994,7 @@ Let'see if you can earn a release later on.
 ' ... bursts inside that tight cage 
 
 [Action 9240]
-.timefrom 45 -00:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device expired 
 .mustnot 103
 .poss 15
 Well, I don't think you have earned the privilege to touch yourself yet.
@@ -16959,7 +17003,7 @@ We'll see later whether you will be allwowed to wank for me.
 
 ' TODO Not appropriate for "bursts"
 '[Action 9241]
-'.timefrom 45 -00:00"00   ' Have key for chastity cage 
+'.item Toys.Chastity_Device expired  
 '.poss 10
 'Slave, I know you want to be released from that tight cage,
 'but for the time being, we gonna keep your little shriveled up prick locked up.
@@ -16967,7 +17011,7 @@ We'll see later whether you will be allwowed to wank for me.
 '
 '' TODO Not appropriate for "bursts"
 '[Action 9242]
-'.timefrom 45 -00:00"00   ' Have key for chastity cage 
+'.item Toys.Chastity_Device expired  
 '.mustnot 103
 '.poss 10
 'It looks like it is in good hands in there, hihi.
@@ -16975,7 +17019,7 @@ We'll see later whether you will be allwowed to wank for me.
 '.range 9250             ' Chastified
 '
 [Action 9243]
-.timefrom 45 -02:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device remaining less_than 02:00"00 
 .mustnot 103
 .poss 10
 Don't be frustrated, slave,
@@ -16984,7 +17028,7 @@ into that tight cage until you deserve it to be released.
 .range 9250             ' Chastified
 
 [Action 9244]
-.timefrom 45 -02:00"00   ' Have key for chastity cage 
+.item Toys.Chastity_Device remaining less_than 02:00"00 
 .must 103
 .poss 15
 Slave, you've been so bitchy recently that I don't see why I should grand you
@@ -17027,7 +17071,7 @@ That's a good chastity slave.
 ' Slave has the key - soon in the next two hours
 ' Continue with asking whether slave likes to be released
 [action 9255]
-.timefrom 45 -02:00"00   ' Have key for chastity cage
+.item Toys.Chastity_Device remaining less_than 02:00"00 
 .range 9210 9214
 
 ' TODO comment different duration lengths (> 3h means non release in this session)
@@ -17073,7 +17117,7 @@ What a poor slut you are.
 ' No key, denial
 
 [Action 9270]
-.timeto 45 -INF         ' Have key for chastity cage never
+.begKeyHolderForRelease
 Unfortunately you don't have the key, my poor pet.
 Well, don't mind, slave.
 I'm going to work you up as high as possible, and after the session
@@ -17093,11 +17137,12 @@ What a poor slut you are.
 
 
 [Action 9275]
-.timeto 45 -INF         ' Have key for chastity cage never
+.begKeyHolderForRelease
 You don't have the key anyway, my poor pet.
 Well, don't mind.
-I'm going to work you up as high as possible, and after the session
-you can crawl to your key holder and beg for a release.
+I'm going to work you up as high as possible,
+and after the session you can
+crawl to your key holder and beg for a release.
 .pause Thank you, Miss
 .range 9250
 
@@ -17140,8 +17185,7 @@ Are you wearing it?
 .range 9196 9198
 
 [Action 9294]
-.mustnot 44                  ' Chastified
-Are you wearing your chastity cage right now?
+Right now, slave, are you wearing your chastity cage?
 .delay 15 15 confirm yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
@@ -17182,12 +17226,12 @@ Goodbye.
 
 ' Not wearing cage
 [Action 9521]
-.mustnot 44             ' chastified
+.item Toys.Chastity_Device not applied
 .return
 
 ' Explain encaged wanking 
 [Action 9522]
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .range 9523 9529
 
 
@@ -17811,13 +17855,13 @@ You may lick your hands and the floor clean.
 
 ' Enter cumming section with cage only if allowed to cum - Remove cage in 8141
 [Action 9700]
-.must 44                               ' chastified
+.item Toys.Chastity_Device applied
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
 .range 8130 8149                       ' choose how to cum range
 
 [Action 9701]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 691
 .mustnot 698 699
 Okay, slave.
@@ -17830,7 +17874,7 @@ Next time, if you're a good boy, maybe you can finally get some release!
 .range 9000
 
 [Action 9702]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 692
 .mustnot 698 699
 Well, slave, as we agreed you're scheduled to
@@ -17843,7 +17887,7 @@ No release for you today!
 .range 9000
 
 [Action 9703]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 693
 .mustnot 698 699
 Sorry to rain on your parade, slave, but as you know you're 
@@ -17854,7 +17898,7 @@ scheduled to miss your next three cums, and this is one of them.
 .range 9000
 
 [Action 9704]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 694
 .mustnot 698 699
 I hope you didn't need it so badly, slave,
@@ -17866,7 +17910,7 @@ It's three now.
 .range 9000
 
 [Action 9705]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 695
 .mustnot 698 699
 Well, slave.
@@ -17879,7 +17923,7 @@ Four more to go!
 .range 9000
 
 [Action 9706]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 696
 .mustnot 698 699
 Sorry, slave.
@@ -17891,7 +17935,7 @@ since you're scheduled for six missed cums - well, five, now.
 .range 9000
 
 [Action 9707]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 697
 .mustnot 698 699
 Oh, slave, you're not scheduled to cum for seven solid opportunities, 
@@ -17902,7 +17946,7 @@ so there won't be any release for that hot slave cum today.
 .range 9000
 
 [Action 9708]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 698
 Unfortunately for you, slave, part of your punishment is
 that you lost the privilege to cum one time.
@@ -17913,7 +17957,7 @@ Isn't that terrible, slave?
 .range 9000
 
 [Action 9709]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .must 699
 Unfortunately, you're not allowed to cum until further notice, My poor little slut.
 .pause As you wish, Miss
@@ -17929,7 +17973,7 @@ Would you like to do that?
 .notext No Miss, please let me cum 
 
 [Action 9712]
-.timefrom 45 00:00"00                  ' Have key for chastity cage
+.item Toys.Chastity_Device expired
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot     699                       ' Not scheduled to cum as a punishment 
 Of course, you don't have to cum if you don't want to.
@@ -17942,7 +17986,7 @@ Are you sure you'd like to cum, sweetie?
 ' punishments for permission to cum
 
 [Action 9713]
-.timefrom 45 00:00"00                  ' Have key for chastity cage
+.item Toys.Chastity_Device expired
 .mustnot 201 202 203 204               ' 1 demerit
 .must 713                              ' punishment acceptance 3
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
@@ -17950,7 +17994,7 @@ Are you sure you'd like to cum, sweetie?
 .range 9720 9721
 
 [Action 9714]
-.timefrom 45 00:00"00                  ' Have key for chastity cage
+.item Toys.Chastity_Device expired
 .mustnot 202 203 204                   ' 2 demerits
 .must 712                              ' punishment acceptance 2
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
@@ -17958,7 +18002,7 @@ Are you sure you'd like to cum, sweetie?
 .range 9720 9721
 
 [Action 9715]
-.timefrom 45 00:00"00                  ' Have key for chastity cage
+.item Toys.Chastity_Device expired
 .mustnot 203 204                       ' 3 demerits
 .must 711                              ' punishment acceptance 1
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
@@ -17966,7 +18010,7 @@ Are you sure you'd like to cum, sweetie?
 .range 9720 9721
 
 [Action 9716]
-.timefrom 45 00:00"00                  ' Have key for chastity cage
+.item Toys.Chastity_Device expired
 .mustnot 204                           ' 4 demerits
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
@@ -17975,7 +18019,7 @@ Are you sure you'd like to cum, sweetie?
 ' slave is already a cum-slut
 [Action 9717]
 .poss 10
-.timefrom 45 00:00"00                  ' Have key for chastity cage
+.item Toys.Chastity_Device expired
 .must 731                              ' Cumslut training 1                            
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
@@ -17987,7 +18031,7 @@ I'll let you cum, but you have to eat it up.
 
 ' Regular cumming
 [Action 9718]
-.mustnot 44                            ' Chastified
+.item Toys.Chastity_Device not applied
 .mustnot 200 201 202 203 204           ' No demerits 
 .range 8130 8149
 
@@ -18825,11 +18869,11 @@ I give you permission to tie yourself with a nice crotch rope.
 [Action 9941]
 .poss 100
 .must 686                         ' chastity belt rules apply 1
-.must 380                         ' chastity device
-.mustnot 44                       ' chastified
+.item Toys.Chastity_Device available
+.item Toys.Chastity_Device canApply
 .mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
 It's time to lock up your silly slave penis, slave.
-' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9953-9955
+' no penis/balls check here, cock toys are ordered to be removed in 9953-9955
 ' next-session-toys assignment test for chastity belt rules, because they are to be worn after the session
 .mustnot 304 305 306    ' 4 pins on ball sack, humbler, ball harness as next-session-toy
 .range 9953 9955
@@ -18837,9 +18881,9 @@ It's time to lock up your silly slave penis, slave.
 ' Yes, put on
 [Action 9942]
 .must 686               ' chastity belt rules apply 1
-.must 380               ' chastity device
-.mustnot 44             ' chastified
-' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9953-9955
+.item Toys.Chastity_Device available
+.item Toys.Chastity_Device canApply
+' penis/balls check here, cock toys are ordered to be removed in 9953-9955
 ' next-session-toys assignment test for chastity belt rules, because they are to be worn after the session
 .mustnot 304 305 306    ' 4 pins on ball sack, humbler, ball harness as next-session-toy
 Meanwhile,
@@ -18849,9 +18893,9 @@ your useless peace of meat will be secured well.
 ' Yes, put on
 [Action 9943]
 .must 686               ' chastity belt rules apply 1
-.must 380               ' chastity device
-.mustnot 44             ' chastified
-' no 24 something on penis/balls check here, cock toys are ordered to be removed in 9953-9955
+.item Toys.Chastity_Device available
+.item Toys.Chastity_Device canApply
+' no penis/balls check here, cock toys are ordered to be removed in 9953-9955
 ' next-session-toys assignment test for chastity belt rules, because they are to be worn after the session
 .mustnot 304 305 306    ' 4 pins on ball sack, humbler, ball harness as next-session-toy
 For the time being,
@@ -18861,8 +18905,8 @@ your filthy cock is going to be shut away.
 ' Yes, already on, just decide how long to wear 
 [Action 9944]
 .must 686               ' chastity belt rules apply 1
-.must 380               ' chastity device
-.must 44                ' chastified
+.item Toys.Chastity_Device available
+.item Toys.Chastity_Device applied
 For your notice, slave,
 that filthy little prick of yours is going to stay locked up.
 .range 9947 9949
@@ -18870,8 +18914,8 @@ that filthy little prick of yours is going to stay locked up.
 ' Yes, already on, just decide how long to wear 
 [Action 9945]
 .must 686               ' chastity belt rules apply 1
-.must 380               ' chastity device
-.must 44                ' chastified
+.item Toys.Chastity_Device available
+.item Toys.Chastity_Device applied
 Just to remind you, slave,
 that silly slave penis will stay locked up.
 .range 9947 9949
@@ -18898,26 +18942,31 @@ That way you're not playing with yourself while you're alone.
 ' Good outcome
 [Action 9953]
 .mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
-.mustnot 23 24 30 37              ' Any toys on cock
+.state Body.OnBalls free
+.state Body.OnPenis free
+.state Body.CantJerkOff free
 .delay 60
 This is a good moment to clean that dirty cock by
 giving it a thorough wash with ice cold water.
-I want you to adjust the water as cold as possible,
-And I want you come back with a cold shrivelled prick!
-Now head off into the bathroom, slut. 
+I want you to adjust the water as cold as possible -
+I want you return with a cooled down shrivelled prick!
+Head off into the bathroom, slut. 
 .range 9956 9957 
 
 ' Good outcome
 [Action 9954]
 .else                             ' Fallback
 .mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
-.unset 23 24 30 37                ' Any toys on cock
 .delay 60
-This is a good moment to remove any toys from your cock
-and give it a thorough wash with ice cold water.
-I want you to adjust the water as cold as possible,
-And I want you come back with a cold shrivelled prick!
-Now head off into the bathroom, slut. 
+This is a good moment to remove any toys from your cock and balls
+and give your enslaved penis a thorough wash with ice cold water.
+Make the water as cold as possible -
+When you return I want to see just a small shrivelled prick!
+And now head off into the bathroom, slut.
+' TODO explicitely mention the toys to remove
+.item Toys.Ball_Harness remove 
+.item Toys.Humbler remove 
+.item Toys.Rope Toys.Chains remove from Body.Balls Body.CantStand Body.CantSitOnChair Toys.Ankle_Restraints Toys.Ball_Stretcher 
 .range 9956 9957
 
 ' Bad outcome, different tone
@@ -18925,29 +18974,31 @@ Now head off into the bathroom, slut.
 .else                             ' Fallback
 Squeeze your filthy cock into the chastity cage and lock it up.
 delay 15
+.item Toys.Chastity_Device apply
 .pause I'm locked up, Miss
-.unset 24 37                      ' Any toys on cock
-.gosub 11990                      ' something on penis, can't jerk off, chastified
+.gosub 11990                      ' apply chastity device
 .range 9958 9959                  ' No cleaning for failed slaves
 
 
 ' Lock up 9956 9957
 
 [Action 9956]
-When you've finished,
-squeeze it back in your chastity cage and lock it up.
+Squeeze your piece of meat back into the chastity cage and lock it up.
 delay 15
+.item Toys.Chastity_Device apply
 .pause I'm locked up, Miss
-.gosub 11990                      ' something on penis, can't jerk off, chastified
+.gosub 11990                      ' apply chastity device
 .range 9958 9959 
 
 [Action 9957]
 After you have finished,
 put that flacid dick back into your chastity cage and lock it up.
 delay 15
+.item Toys.Chastity_Device apply
 .pause I'm locked up, Miss
-.gosub 11990                      ' something on penis, can't jerk off, chastified
+.gosub 11990                      ' apply chastity device
 .range 9958 9959 
+
 
 ' 9958-9959 comments about being locked up
 
@@ -19476,7 +19527,7 @@ And keep the chains short, I want to see you on your knees tonight.
 [Action 11048]
 .mustnot 235
 .must 335
-Slave, for this session your ass was supposed
+Slave, for this session you were supposed
 to chain your ball sack to your ankles.
 But you didn't, you disobedient cunt!
 Well, you can chain up your enslaved ball sack now. 
@@ -19490,8 +19541,8 @@ And keep the chains short, I want to see you on your bare knees tonight!
 ' .askcheck2 236 236 380 I'm wearing my chastity cage
 [Action 11049]
 .mustnot 236
-.mustnot 44        ' chastified
-.must 380          ' have chastity cage
+.item Toys.Chastity_Device not applied
+.item Toys.Chastity_Device available
 Slave, I see that you didn't lock up yourself up properly.
 .gosub 9215 9216   ' forgot to put on chastity cage
 .set 213           ' slave forgot to put on non-clamp/pegs toy
@@ -20194,13 +20245,13 @@ Especically if he's chained and shackled so well.
 
 [action 11331]
 .must 231
-.set 24 32              ' something on balls, can't stand
+.item Toys.Humbler apply
 .unset 231
 .range  11324
 
 [action 11332]
 .must 232
-.set 24 37              ' something on balls, ball harness
+.item Toys.Ball_Stretcher apply
 .unset 232
 .range  11324
 
@@ -20222,7 +20273,7 @@ Especically if he's chained and shackled so well.
 [action 11335]
 .must 235
 .item Toys.Ankle_Restraints apply
-.set 24 32              ' something on balls, can't stand
+.item Toys.Chains apply to Body.OnBalls Toys.Ankle_Restraints Body.CantStand
 .unset 235
 .range  11324
 
@@ -20535,7 +20586,6 @@ I want you to snap on your nipple clamps.
 [Action 11612]
 .state Body.OnBalls is free
 .item Household.Clothes_Pegs available
-.mustnot 24             ' something on penis, something on ball sack
 '.mustnot 624 625        ' any chastity device assignment open
 '.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session,
@@ -20558,24 +20608,25 @@ I want you to snap your pussy clamps on your slutty ball sack.
 .range 11629
 
 [Action 11614]
-.mustnot 686            ' Chastity belt rules apply
-.must 385               ' ball harness
-.mustnot 23 24 37       ' something on penis, balls, ball harness
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
 .mustnot 624 625        ' any chastity device assignment open
+.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session, I want you to put on your ball harness.
 .pause Ready, Miss
-.set 24 37              ' ball harness
+.item Toys.Ball_Stretcher apply
 .set 332                ' remember for next session
 .range 11629
 
 [Action 11615]
 .mustnot 686            ' Chastity belt rules apply
-.must 384               ' humbler
-.mustnot 23 24          ' someting on penis, something on balls
+.item Toys.Humbler available
+.item Toys.Humbler canApply
+.state Body.OnPenis free
 .mustnot 624 625        ' any chastity device assignment open
 Slave, before we end the session, I want you to put on your humbler.
+.item Toys.Humbler apply
 .pause Ready, Miss
-.set 24 31 32           ' humbler, can't sit on chair, can't stand
 .set 331                ' remember for next session
 .range 11629
 
@@ -20769,6 +20820,18 @@ And I also want you to put on your wrist and ankle restraints for next time.
 And I also want you to be bound and shackled next time.
 .pause Of course, Miss
 .set 333 334
+.range 11759
+
+' [Action 11746]
+' chasttiy cage is handled via "chastity rules apply" flag
+
+[Action 11747]
+.item Toys.Ankle_Restraints available
+.item Toys.Chains available
+.must 737               ' restraint acceptance 1
+And I also want you to chain your ball sack to your ankles next time.
+.pause Of course, Miss
+.set 335
 .range 11759
 
 
@@ -21396,16 +21459,16 @@ what else is there for a slave to do than to concentrate on his Mistress?
 
 [action 11970]
 .gosub 11990
-.range 11971 11987
+.range 11971 11972
 
 
 [action 11971]
-.timeto 45 -01:00"00
+.item Toys.Chastity_Device remaining greaterThan 01:00"00
 .return
 
 [action 11972]
 .else
-.settime 45 01:00"00
+.item Toys.Chastity_Device apply over 01:00"00
 .return
 
 
@@ -21417,12 +21480,12 @@ what else is there for a slave to do than to concentrate on his Mistress?
 
 
 [action 11974]
-.timeto 45 -12:00"00
+.item Toys.Chastity_Device remaining greaterThan 12:00"00
 .return
 
 [action 11975]
 .else
-.settime 45 12:00"00
+.item Toys.Chastity_Device apply over 12:00"00
 .return
 
 
@@ -21434,72 +21497,62 @@ what else is there for a slave to do than to concentrate on his Mistress?
 
 
 [action 11977]
-.timeto 45 -24:00"00
+.item Toys.Chastity_Device remaining greaterThan 24:00"00
 .return
 
 [action 11978]
 .else
-.settime 45 24:00"00
+.item Toys.Chastity_Device apply over 24:00"00
 .return
 
 
 
-' putting on the chastity cage:
-' The cage is mapped, so setting 44 also sets 23 30, if not the script intentionally run into OnAllSet  
+' putting on the chastity cage without changing the time
 
 [action 11990]
 .unset 11990
 .range 11991 11992
 
 [action 11991]
-.mustnot 44        ' chastified
-.set 44
-.range 11993
+.item Toys.Chastity_Device not applied
+.item Toys.Chastity_Device apply
+.return
 
 [action 11992]
-.must 44           ' chastified
+.item Toys.Chastity_Device applied
 .unset 11992
 .return
 
-' check that action is mapped to peers correctly
-[action 11993]
-.must 23 30 44     ' Something on penis, can't jerk off, chastified
-.return
 
-
-' removing the chastity cage:
+' remove the chastity cage and handle Body.CantStand
 
 [action 11995]
-.must 44           ' chastified
-.unset 44
-.range 11996
-
-' we have no control over any peers of the mapped body parts,
-' so we can just make assumptions for the chastity cage here
-[action 11996]
-.mustnot 44        ' chastified
+.item Toys.Chastity_Device applied
 .range 11997 11999
 
 
 [action 11997]
-.mustnot 48        ' Ankles tied to chastity cage
+.item Toys.Chain not is Toys.ChastityCage Toys.Ankle_Restraints
 .return
 
 [action 11998]
-.must 48           ' Ankles tied to chastity cage
+.item Toys.Chain is Toys.ChastityCage Toys.Ankle_Restraints
 Well slave,
 you may also remove the connecting chain between your ankle restraints and the cage.
 I guess I'll have you stand again.
+.item Toys.Chastity_Device remove
+.item Toys.Chains remove Toys.Chastity_Device Body.CantStand 
 .pause Thank you, Miss
-.unset 32          ' Can't stand
 .return
 
 [action 11999]
-.must 48           ' Ankles tied to chastity cage
+.item Toys.Chain is Toys.ChastityCage Toys.Ankle_Restraints
 Well, you haven't earned the privilege to stand today, slave!
 Take the chain between your ankles and tie it to your ball sack.
+.item Toys.Chains remove Toys.Chastity_Device 
+.item Toys.Chastity_Device remove
+.item Toys.Chains apply Body.OnBalls Body.CantStand
 .pause Of course, Miss
-.set 32            ' Can't stand
 .return
 
 
