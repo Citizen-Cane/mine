@@ -154,20 +154,20 @@ delay 5
 
 
 [Action 5004]
-.mustnot 30             ' can't jerk off
+.state Body.CantJerkOff free
 And remember to keep that cock nice and hard during the workout, however you can.
 We'll start up with some jumping jacks, and I want to see good extension.
 .range 5008 5010
 
 [Action 5005]
-.must 44                ' Chastifed
+.item Toys.Chastity_Device applied
 We'll start up with some jumping jacks,
-and I'd like to see that cage bouncing up and down too.
+and I'd like to see that chastity cage bouncing up and down too.
 .range 5008 5010
 
 [Action 5006]
-.must 30                ' can't jerk off
-.mustnot 44             ' Chastified
+.state Body.CantJerkOff applied
+.item Toys.Chastity_Device not applied
 We'll start up with some jumping jacks,
 and I'd like to see that cock bouncing up and down too.
 .range 5008 5010
@@ -206,7 +206,7 @@ Spread those arms and legs!
 .range 5011 5015
 
 [Action 5012]
-.mustnot 30             ' can't jerk off
+.state Body.CantJerkOff free
 .playwav slap_2.mp3
 Jump, slave!
 Keep that cock hard!
@@ -215,7 +215,7 @@ Keep that cock hard!
 .range 5011 5015
 
 [Action 5013]
-.must 30                ' can't jerk off
+.state Body.CantJerkOff applied
 .playwav slap_2.mp3
 Jump, slave!
 .unset 5013
@@ -245,13 +245,13 @@ Keep those legs pumping!
 
 
 [Action 5018]
-.mustnot 30             ' can't jerk off
+.state Body.CantJerkOff free
 .delay 20 40
 That cock better be hard, slave, and that heart better be beating good!
 .range 5020 5021
 
 [Action 5019]
-.must 30                ' can't jerk off
+.state Body.CantJerkOff applied
 .delay 20 40
 And that heart better be beating good!
 .range 5020 5021
@@ -728,13 +728,13 @@ Fit those plain clothes pegs in too, slave, two per nipple!
 
 
 [Action 6548]
-.mustnot 30             ' Can't jerk off 
+.state Body.CantJerkOff free
 Of course you're to keep that slave cock hard the whole time.
 Ready, slave?
 .range 6550 6553
 
 [Action 6549]
-.must 30                ' Can't jerk off 
+.state Body.CantJerkOff applied
 Ready, slave? 
 .range 6550 6553
 
@@ -3170,7 +3170,6 @@ This is a cake-walk compared to the pain those little nipples will be in later o
 
 [Action 7516]
 The nice thing about nipple clamps is that they torture a slave with very little effort.
-delay 2
 delay 2
 Waiting is the best punishment, but I think it's time to move on now, slave.
 .delay 30

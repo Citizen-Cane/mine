@@ -139,21 +139,21 @@
 .askcheck 75 20	20	-	free
 .askcheck 76 20	21	-	free
 .askcheck 77 22	22	-	free
-.askcheck 78 23	23	-	something on penis
-.askcheck 79 24	24	-	something on balls
+.askcheck 78 23	23	-	free
+.askcheck 79 24	24	-	free
 .askcheck 80 25	25	-	ankles tied
 .askcheck 81 26 26	-	free
 .askcheck 82 27	27	-	something around waist
 .askcheck 83 28	28	-	free
 .askcheck 84 29	29	-	blindfold on
-.askcheck 85 30	30	-	can't jerk off
+.askcheck 85 30	30	-	free
 .askcheck 86 31	31	-	can't sit on chair
 .askcheck 87 32	32	-	can't stand
 .askcheck 88 33	33	-	can't kneel
 .askcheck 89 34	34	-	can't type/use mouse  (this is also the case when blindfolded)
 .askcheck 90 35	35	-	tethered - can't leave computer area
 .askcheck 91 36 36  -   harnessed
-.askcheck 92 37 37  -	ball harness (includes 24)
+.askcheck 92 37 37  -	free
 .askcheck 93 38 38  -   
 '   39  -   free 
 '   40  -   free
@@ -252,13 +252,13 @@ but you'll just be drawing more punishment and delaying your advancement.
 
 
 [Action 1506]
+.item Toys.Chastity_Device not applied
 Oh, and keep that cock hard the whole time.
-.mustnot 44             ' Chastified
 .range 1509
 
 [Action 1507]
+.item Toys.Chastity_Device applied
 Oh, and keep that cock hard inside that cage the whole time.
-.must 44                ' Chastified
 .range 1509
 
 
@@ -379,13 +379,13 @@ but you'll just be drawing more punishment and delaying your advancement.
 
 
 [Action 1526]
+.item Toys.Chastity_Device not applied
 Oh, and keep that cock hard the whole time.
-.mustnot 44             ' Chastified
 .range 1531 1535
 
 [Action 1527]
+.item Toys.Chastity_Device applied
 Oh, and keep that cock hard inside that cage the whole time.
-.must 44                ' Chastified
 .range 1531 1535
 
 [Action 1529]
@@ -701,14 +701,14 @@ but of course you must obey My special rules.
 
 
 [Action 1601]
-.mustnot 44             ' Chastified
+.item Toys.Chastity_Device not applied
 The first rule is that you must remain hard in the shower,
 but you are not allowed to cum,
 as I'm sure you're well aware.
 .range 1612 1617
 
 [Action 1602]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 The first rule is that you must keep your encaged slave penis 
 squeezing against its cage at all times whilst in the shower,
 but you are not allowed to cum,
@@ -1855,7 +1855,7 @@ especially since you'll have to stay very still in order to keep from pulling yo
 .range 1891 1899
 
 [Action 1891]
-.mustnot 30             ' Can't jerk off
+.state Body.CantJerkOff free
 .mustnot 123            ' Handcuffed
 Since your hands will be free,
 I'll generously allow you to play with your slave penis while you're in the corner.
@@ -1870,7 +1870,7 @@ That should keep them out of trouble.
 .range 1900
 
 [Action 1893]
-.mustnot 30             ' Can't jerk off
+.state Body.CantJerkOff free
 .mustnot 123
 While you're in the corner, I want you to grasp your balls with both hands.
 You aren't allowed to play with yourself
@@ -1878,15 +1878,16 @@ You aren't allowed to play with yourself
 .range 1900
 
 [Action 1894]
-.must 30                ' Can't jerk off
+.state Body.CantJerkOff applied
 .mustnot 123
 While you're in the corner, I want you to grasp your balls with both hands.
-You aren't allowed to play with yourself - well not that you could
-- I just want you to hold your pathetic slave nuts while you wait there.
+You aren't allowed to play with yourself -
+well not that you could -
+I just want you to hold your pathetic slave nuts while you wait there.
 .range 1900
 
 [Action 1895]
-.mustnot 30             ' Can't jerk off
+.state Body.CantJerkOff free
 .mustnot 123
 I don't want you playing with yourself in the corner,
 so while you're there I want you to firmly grasp one of your slave buns in each hand, spread them open,
@@ -1896,11 +1897,11 @@ being punished in the corner.
 .range 1900
 
 [Action 1896]
-.must 30                ' Can't jerk off
+.state Body.CantJerkOff applied
 .mustnot 123
-I don't want you playing with yourself in the corner at all,
-- well not that you could
-- but while you're there I want you to firmly grasp one of your slave buns in each hand, spread them open,
+I don't want you playing with yourself in the corner at all -
+well not that you could -
+but while you're there I want you to firmly grasp one of your slave buns in each hand, spread them open,
 and keep them spread the whole time.
 That cool breeze on your asshole should remind you that you are a pathetic slave boy,
 being punished in the corner.
@@ -2654,7 +2655,7 @@ What else but stupid is a slave that can't keep his meat hard for his mistress!
 .range 2284             ' light punishment
 
 [Action 2282]
-.mustnot 23 30 44       ' something on penis, can't jerk off
+.state Body.OnPenis free
 I want you to wank your silly slave penis hard and erect.
 Then take your marker, and write "STUPID" on the right side of your cock,
 and "CUNT" on the left side.
@@ -2710,7 +2711,7 @@ You've been a bad girl for not keeping your member stiff for me when you absolut
 .range 2294
 
 [Action 2292]
-.mustnot 23 30 44       ' something on penis, can't jerk off
+.state Body.OnPenis free
 I want you to wank your silly slave penis hard and erect.
 Then take your marker, and write the word "BAD" on the right side of your cock,
 and the word "SLAVE" on the left side.
@@ -2775,7 +2776,7 @@ You've been a very disobedient slave when you came without my permission.
 
 
 [Action 2303]
-.mustnot 23 30 44
+.state Body.OnPenis free
 Now go ahead and write the word "CUNT" on your cock,
 vertically in large bold letters.
 Understand, slave?
@@ -3468,34 +3469,36 @@ But first we must prepare.
 
 
 [Action 3101]
-.mustnot 37             ' something on balls, ball harness
-.mustnot 385
+.item Toys.Ball_Stretcher not available
+.item Body.OnBalls free
 I want you to fetch a rope or a chain for your ball sack, slave.
 Tie it around your balls,
 and leave about two feet of it dangling or so.
 I want you to make sure that rope isn't coming off -
 make sure it's tight!
-If you have a ball stretcher or something similar,
-go ahead and use it, and connect a rope to that instead.
+.item Toys.Rope apply to Body.OnBalls
 .pause Done as ordered, Miss
 .range 3105 3109
 
 [Action 3102]
-.mustnot 37             ' something on balls, ball harness
-.must 385
+.item Toys.Ball_Stretcher available
+.item Toys.Ball_Stretcher canApply
 I want you to fetch your ball harness and put it on, slave.
 Also fetch some rope,
 and connect it to your ball harness.
 Leave about two feet of it dangling or so.
 And make sure that rope isn't coming off!
+.item Toys.Ball_Stretcher apply
+.item Toys.Rope apply to Toys.Ball_Stretcher
 .pause Done as ordered, Miss
 .range 3105 3109
 
 [Action 3103]
-.must 37                ' ball harness
+.item Toys.Ball_Stretcher applied
 I want you to fetch a rope or a chain about two feet long
 and attach it to your ball harness, My slave,
 And make sure that rope isn't coming off!
+.item Toys.Rope apply to Toys.Ball_Stretcher
 .pause Attached as ordered, Miss
 .range 3105 3109
 
@@ -3503,20 +3506,22 @@ And make sure that rope isn't coming off!
 ' Weight selection
 
 [Action 3105]
-.mustnot 37             ' ball harness
+.item Toys.Ball_Stretcher not applied
 Now I want you to find a good weight of one or two pounds.
 A coffee cup or a tennis shoe would be fine.
 Tie that to the end of the rope you left before, My slave.
 Make sure that's tight, too!
+.item Toys.Rope apply to Household.Weight
 .pause It's hanging from my balls, Miss
 .range 3110
 
 [Action 3106]
-.must 37                ' ball harness
+.item Toys.Ball_Stretcher applied
 Now I want you to find a good weight of one or two pounds.
 A coffee cup or a tennis shoe would be fine.
 Tie that to the end of the rope you left before, My slave.
 Make sure that's tight, too!
+.item Toys.Rope apply to Household.Weight
 .pause It's hanging from my balls, Miss
 .range 3110
 
@@ -3701,77 +3706,77 @@ You'll be getting a good hundred paddles on that naughty bum.
 ' Sort out paddle, hair brush, wooden spoon, hand and chastification comments 
 
 [Action 9020]
+.item Toys.Chastity_Device not applied
 Now get down on your knees.
 Take that paddle in your dominant hand,
 and make sure to keep that other hand on your little cock there.
-.mustnot 44             ' Chastified
 .must 370               ' Paddle
 .range 9030 9031
 
 [Action 9021]
+.item Toys.Chastity_Device not applied
 Now get down on your knees.
 Take that hair brush in your dominant hand,
 and make sure to keep that other hand on your little cock there.
-.mustnot 44             ' Chastified
 .mustnot 370            ' Prefer paddle
 .must 371               ' Hairbrush
 .range 9030 9031
 
 [Action 9022]
+.item Toys.Chastity_Device not applied
 Now get down on your knees.
 Take that wooden spoon in your dominant hand,
 and make sure to keep that other hand on your little cock there.
-.mustnot 44             ' Chastified
 .mustnot 370            ' Prefer paddle
 .must 372               ' Wooden spoon
 .range 9030 9031
 
 [Action 9023]
+.item Toys.Chastity_Device not applied
 Now get down on your knees.
 Use your dominant hand to spank yourself,
 and make sure to keep that other hand on your little cock there.
-.mustnot 44             ' Chastified
 .mustnot 370            ' Prefer paddle
 .mustnot 370 371 372    ' Hand
 .range 9030 9031
 
 [Action 9024]
+.item Toys.Chastity_Device applied
 Now get down on your knees.
 Take that paddle in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
-.must 44                ' Chastified
 .must 370               ' Paddle
 .range 9030 9031
 
 [Action 9025]
+.item Toys.Chastity_Device applied
 Now get down on your knees.
 Take that hair brush in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
-.must 44                ' Chastified
 .mustnot 370            ' Prefer paddle
 .must 371               ' Hairbrush
 .range 9030 9031
 
 [Action 9026]
+.item Toys.Chastity_Device applied
 Now get down on your knees.
 Take that wooden spoon in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
-.must 44                ' Chastified
 .mustnot 370            ' Prefer paddle
 .must 372               ' Wooden spoon
 .range 9030 9031
 
 [Action 9027]
+.item Toys.Chastity_Device applied
 Now get down on your knees.
 Use your dominant hand to spank yourself,
 and make sure to keep that other hand on your chastity cage there.
-.must 44                ' Chastified
 .mustnot 370 371 372    ' bare hand
 .range 9030 9031
 
 
 [Action 9030]
-.mustnot 44             ' Chastified
+.item Toys.Chastity_Device not applied
 I expect you to be nice and hard for your Mistress while you take all your whacks.
 When I say "smack", you SMACK those buns, good and hard, alternate cheeks.
 And don't forget to keep that slave-dick at attention!
@@ -3779,7 +3784,7 @@ And don't forget to keep that slave-dick at attention!
 .range 9100
 
 [Action 9031]
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 I expect you to keep your silly slave penis be nice and hard
 inside its cage for your Mistress while you take all your whacks.
 When I say "smack", you SMACK those buns, good and hard, alternate cheeks.
@@ -4429,18 +4434,30 @@ That slave sack of yours should be nicely stretched out now, slave.
 
 
 [Action 9229]
-.range 9230 9231
+.range 9230 9232
 
 
 [Action 9230]
-.mustnot 37             ' ball harness
+.item Toys.Ball_Stretcher not applied
 You may remove the weight and untie the rope from your ball sack.
+.item Toys.Rope remove from Body.OnBalls Hosehold.Weight
 .pause Thank you, Miss
 .range 9800 9899
 
 [Action 9231]
-.must 37                 ' ball harness
+.item Toys.Ball_Stretcher applied
+.item Toys.Ball_Stretcher is not applied.by.me
 You may remove the weight now, slave.
+.item Toys.Rope remove from Toys.BallStretcher Hosehold.Weight
+.pause Thank you, Miss
+.range 9800 9899
+
+[Action 9232]
+.item Toys.Ball_Stretcher applied
+.item Toys.Ball_Stretcher is applied.by.me
+You may remove the weight, the rope, and the ball harness, slave.
+.item Toys.Rope remove from Toys.BallStretcher Hosehold.Weight
+.item Toys.Ball_Stretcher remove
 .pause Thank you, Miss
 .range 9800 9899
 

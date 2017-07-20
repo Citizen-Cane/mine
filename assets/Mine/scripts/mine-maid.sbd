@@ -330,21 +330,21 @@
 '	20	-	free
 '	21	-	free
 '	22	-	free
-'	23	-	something on penis
-'	24	-	something on balls
+'	23	-	free
+'	24	-	free
 '	25	-	free
 '	26	-	free
 '	27	-	something around waist
 '	28	-	free
 '	29	-	blindfolded
-'	30	-	can't jerk off
+'	30	-	free
 '	31	-	can't sit on chair
 '	32	-	can't stand
 '	33	-	can't kneel
 '	34	-	can't type/use mouse  (this is also the case when blindfolded)
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
-'   37  -	ball harness (includes 24)
+'   37  -	free
 '   38  -   free
 '   39  -   free 
 '   40  -   free
@@ -352,8 +352,8 @@
 '   42  -   free
 '   43  -   free
 '
-'   44  -   Chastified (Encaged slave penis)
-'   45  -   Have key for chastity cage timer
+'   44  -   free
+'   45  -   free
 '   46  -   free
 '   47  -   Vibrator or E-EStim device attached
 
@@ -490,28 +490,28 @@
 .askcheck       51     	21	21 -	free
 .askcheck       52     	22	22 -	free
 .askcheck       53     	23	23 -	something on penis
-.askcheck       54     	24	24 -	something on balls
+.askcheck       54     	24	24 -	free
 .askcheck       55     	25	25 -	free
 .askcheck       56     	26	26 -	free
 .askcheck       57      27	27 -	something around waist
 .askcheck       58      28	28 -	free
 .askcheck       59      29	29 -	blindfolded
-.askcheck       60      30	30 -	can't jerk off
+.askcheck       60      30	30 -	free
 .askcheck       61      31	31 -	can't sit on chair
 .askcheck       62     	32	32 -	can't stand
 .askcheck       63      33	33 -	can't kneel
 .askcheck       64     	34	34 -	can't type/use mouse  (this is also the case when blindfolded)
 .askcheck       65      35	35 -	tethered - can't leave computer area
 .askcheck       66      36  36 -	harnessed
-.askcheck       67      37  37 -	ball harness (24)
+.askcheck       67      37  37 -	free
 .askcheck       68      38  38 -	free
 .askcheck       69      39  39 -	free 
 .askcheck       70      40  40 -	free
 .askcheck       71      41  41 -	free
 .askcheck       72      42  42 -	free
 .askcheck       73      43  43 -	free
-.askcheck       74      44  44 -	Chastified (Encaged slave penis)
-.askcheck       75      45  45 -	Have key for chastity cage timer
+.askcheck       74      44  44 -	free
+.askcheck       75      45  45 -	free
 .askcheck       76      46  46 -	free
 .askcheck       77      47  47 -	Vibrator or E-EStim device attached
 
@@ -2785,7 +2785,7 @@ Let's continue your slave training.
 ' TODO Putting on the vibrator needs more variation
  
 [Action 1821]
-.mustnot 44             ' chastified
+.item Toys.Chastity_Device not applied
 .mustnot 47             ' Vibrator attached
 .mustnot 179            ' punishment
 .must 389               ' A vibrator
@@ -2799,7 +2799,7 @@ Then set it up to a teasing, tantalizing rythm!
 .range 1880
 
 [Action 1822]
-.mustnot 44             ' chastified
+.item Toys.Chastity_Device not applied
 .mustnot 47             ' Vibrator attached
 .mustnot 179            ' punishment
 .must 389               ' A vibrator
@@ -2816,7 +2816,7 @@ and set it up to a teasing, tantalizing rythm!
 '[Action 1824]
 
 [Action 1825]
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .mustnot 47             ' Vibrator attached
 .mustnot 179            ' punishment
 .must 389               ' A vibrator
@@ -2829,7 +2829,7 @@ and set it up to a teasing, tantalizing rythm!
 .range 1880
 
 [Action 1826]
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .mustnot 47             ' Vibrator attached
 .mustnot 179            ' punishment
 .must 389               ' A vibrator

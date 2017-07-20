@@ -65,14 +65,14 @@
 .askcheck 75 20	20	-	free
 .askcheck 76 20	21	-	free
 .askcheck 77 22	22	-	free
-.askcheck 78 23	23	-	something on penis
-.askcheck 79 24	24	-	something on balls
+.askcheck 78 23	23	-	free
+.askcheck 79 24	24	-	free
 .askcheck 80 25	25	-	free
 .askcheck 81 26 26	-	free
 .askcheck 82 27	27	-	something around waist
 .askcheck 83 28	28	-	free
 .askcheck 84 29	29	-	blindfold on
-.askcheck 85 30	30	-	can't jerk off
+.askcheck 85 30	30	-	free
 .askcheck 86 31	31	-	can't sit on chair
 .askcheck 87 32	32	-	can't stand
 .askcheck 88 33	33	-	can't kneel
@@ -927,7 +927,7 @@ so get your wrist restraints and put them on.
 [action 3138]
 .item Toys.Gag applied
 .mustnot 37             ' ball harness
-.mustnot 44             ' chastified
+.item Toys.Chastity_Device not applied
 .keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
@@ -941,7 +941,7 @@ to your slutty ball sack.
 [action 3139]
 .not .item Toys.Gag applied
 .mustnot 37             ' ball harness
-.mustnot 44             ' chastified
+.item Toys.Chastity_Device not applied
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your slutty ball sack.
@@ -951,7 +951,7 @@ tie them to your slutty ball sack.
 
 [action 3140]
 .item Toys.Gag applied
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
@@ -964,7 +964,7 @@ tie them to your chastity cage.
 
 [action 3141]
 .not .item Toys.Gag applied
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your chastity cage.
@@ -1652,7 +1652,7 @@ delay 5
 
 [Action 3297]
 .mustnot 10 11 16 17    ' Wrists bound on back or to ankles
-.must 30                ' Can't jerk off
+.state Body.CantJerkOff applied
 ' TODO .image kneeling upright 
 Since your silly slave penis is safely locked up,
 you won't need your hands at all and are to keep them on the desk's edge at all times.
@@ -1661,7 +1661,7 @@ delay 5
 
 [Action 3298]
 .mustnot 10 11 16 17    ' Wrists bound on back or to ankles
-.mustnot 30             ' Can't jerk off
+.state Body.CantJerkOff not applied
 Keep your hands on the desk at all times, my pet,
 to prevent you from doing anything naughty.
 .range 3399
@@ -1684,14 +1684,16 @@ delay 5
 
 
 [Action 3303]
-.else
-.range 3399
-
-[Action 3304]
-.mustnot 23 30                    ' Something on penis, can't jerk off
-.state Body.WristsTied applied    ' otherwise jerk off
+.state Body.OnPenis not applied
+.state Body.CantJerkOff not applied
+.state Body.WristsTied applied
 Keep your member stiff by rubbing it against the wall.
 .set 13                           ' Rub against wall
+.range 3399
+
+' otherwise jerk off
+[Action 3304]
+.else
 .range 3399
 
 
@@ -1990,12 +1992,11 @@ Tilt forward to worship your dildo.
 .delay 10
 .image Charlies-AMATEUR-Potpourri-2009-Un-1.jpg
 This time, you will mount your dildo at a wall or cupboard and kneel straight in front.
-.set 30                 ' Can't jerk off
 .range 3376 3377
 
 
 [Action 3376]
-.mustnot 44             ' chastified
+.item Toys.Chastity_Device not applied
 .delay 10
 .image Charlies-AMATEUR-Potpourri-2009-Un-1.jpg
 You are to keep your arms behind your head.
@@ -2003,7 +2004,7 @@ I don't want you to touch your dick.
 .range 3399
 
 [Action 3377]
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .delay 10
 .image Charlies-AMATEUR-Potpourri-2009-Un-1.jpg
 Since your silly slave penis is locked up,
@@ -2064,7 +2065,7 @@ delay 5
 
 [Action 3387]
 .mustnot 10 11 16 17    ' Wrists tied to back, to ankles, to ball sack
-.must 44                ' Chastified
+.item Toys.Chastity_Device applied
 .delay 15
 Since your silly slave penis is safely locked up,
 you won't need your hands and are to keep them on the desk's edge at all times.
@@ -2072,7 +2073,7 @@ you won't need your hands and are to keep them on the desk's edge at all times.
 
 [Action 3388]
 .mustnot 10 11 16 17    ' Wrists tied to back, to ankles, to ball sack
-.mustnot 44             ' Chastified
+.item Toys.Chastity_Device not applied
 .delay 15
 Of course you are to keep your hands on the desk at all times, my pet,
 to prevent you from doing anything naughty.
@@ -2142,7 +2143,8 @@ delay 3
 
 ' rub or wank to the beat
 [Action 3405]
-.mustnot 23 30 44       ' something on penis, can't wank, chastified
+.state Body.OnPenis not applied
+.state Body.CantJerkOff not applied
 .range 3407 3409
 
 ' something on penis, can't wank, chastified
@@ -4836,7 +4838,7 @@ You can untie your wrists and ankles, slave.
 .must 16                ' Wrists to ball sack
 .state Body.WristsTied free
 .mustnot 37             ' ball harness
-.mustnot 44             ' chastified
+.item Toys.Chastity_Device applied
 .keyrelease release
 You can untie your wrists from your ball sack, slave.
 .pause Thank you, Miss
@@ -4847,7 +4849,7 @@ You can untie your wrists from your ball sack, slave.
 .must 16                ' Wrists to ball sack
 .state Body.WristsTied applied
 .mustnot 37             ' ball harness
-.mustnot 44             ' chastified
+.item Toys.Chastity_Device not applied
 .keyrelease release
 You may untie your wrists from your ball sack, slave,
 but keep the restraints on.
@@ -4858,7 +4860,7 @@ but keep the restraints on.
 [Action 4326]
 .must 16                ' Wrists to ball sack
 .state Body.WristsTied free
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .keyrelease release
 You can detach your wrists from your chastity cage, slave.
 .pause Thank you, Miss
@@ -4868,7 +4870,7 @@ You can detach your wrists from your chastity cage, slave.
 [Action 4327]
 .must 16                ' Wrists to ball sack
 .state Body.WristsTied applied
-.must 44                ' chastified
+.item Toys.Chastity_Device applied
 .keyrelease release
 You may detach your wrists from your chastity cage, slave,
 but keep them tied.
