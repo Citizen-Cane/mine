@@ -18,7 +18,6 @@ import teaselib.Body;
 import teaselib.Features;
 import teaselib.Household;
 import teaselib.Images;
-import teaselib.ScriptFunction;
 import teaselib.Sexuality;
 import teaselib.State;
 import teaselib.Toys;
@@ -171,7 +170,7 @@ public class Mine extends Player {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptStateValue.ForSession(26, state(Body.WristsTied), Body.WristsTied));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(27, state(Body.AroundWaist), Body.AroundWaist));
+                new MappedScriptStateValue.ForSession(27, state(Body.CrotchRoped), Body.CrotchRoped));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptStateValue.ForSession(28, state(Body.AroundNeck), Body.AroundNeck));
         state.addScriptValueMapping(MappedScriptState.Global,

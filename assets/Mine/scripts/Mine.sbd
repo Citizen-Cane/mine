@@ -107,14 +107,14 @@
 '	24	-	free
 '	25	-	free
 '	26	-	free
-'	27	-	something around waist
+'	27	-	free
 '	28	-	free
-'	29	-	blindfolded
-'	30	-	can't jerk off
-'	31	-	can't sit on chair
-'	32	-	can't stand
-'	33	-	can't kneel
-'	34	-	can't type/use mouse  (this is also the case when blindfolded)
+'	29	-	free
+'	30	-	free
+'	31	-	free
+'	32	-	free
+'	33	-	free
+'	34	-	free
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
 '   37  -	free
@@ -2907,8 +2907,8 @@ Now, when you're going to bed, I want you to make certain that
 there is absolutely no way you can catch your harness on anything
 and hang yourself like a fool of a slave.
 Sleep on the floor just to be safe, and keep away from anything you might snag.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped Body.Harnessed
 [Alright, Miss]
-.set 27 36              ' something around waist, harnessed
 .unset 104              ' Return with enough rope for harness
 .set 598 626            ' skip assignment check this time,  sleep in harness assignment
 .range 1299 1301
@@ -2959,8 +2959,8 @@ After we're done, don't come back until your assignment has been completed.
 And of course, take care that you don't strangle yourself in the night -
 sleep on the floor just to be safe, and well away
 from anything that could catch on that harness.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped Body.Harnessed
 .pause Okay, Miss
-.set 27 36              ' something around waist, harnessed
 .set 598 627            ' skip assignment check this time,  harness under clothes for day assignment
 .range 1299 1301
 
@@ -5039,8 +5039,8 @@ enema-dominant-position.jpg
 Now rest your tummy on your thighs,
 with your chest on the floor.
 delay 15
-.set 32                 ' Can't stand - not allowed to
 .item Toys.enema_kit apply
+.item Toys.enema_kit apply to Body.CantStand
 []
 enema-ass-play.jpg
 Let's enjoy this situation a bit, don't you think?
@@ -6464,7 +6464,7 @@ I guess I'll have to turn the other cheek this time.
 .state Body.OnNipples free
 .state Body.InMouth free
 .item Toys.Gag available
-.mustnot 33 34               ' can't kneel, can't type
+.state Body.CantKneel free
 .must 361 362
 .must 712 717 746 
 .save 90 799
@@ -6473,7 +6473,7 @@ I guess I'll have to turn the other cheek this time.
 ' dildo punishment
 [Action 2512]
 .canWorshipDildo
-.mustnot 29 34               ' blindfolded, can't type/use mouse
+.state Body.Blindfolded free
 .mustnot 260                 ' Dildo worshiping already done
 .set 260
 .save 90 799
@@ -6581,8 +6581,9 @@ You may have escaped me this time, but don't make a habit of it!
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.OnBalls free
-.mustnot 29 32          ' blindfolded, can't stand
-.mustnot 34 35          ' can't type/use mouse, tethered
+.state Body.Blindfolded free
+.state Body.CantStand free
+.mustnot 35          ' can't type/use mouse, tethered
 .mustnot 210            ' shower one-time only
 .shouldnot 811          ' magic marker applied
 .set 210
@@ -6628,8 +6629,9 @@ I guess we'll have to skip it today.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.OnBalls free
-.mustnot 29 32                    ' blindfolded, can't stand
-.mustnot 34 35                    ' can't type/use mouse, tethered
+.state Body.Blindfolded free
+.state Body.CantStand free
+.mustnot  35                    ' can't type/use mouse, tethered
 .mustnot 210                      ' shower one time only
 .shouldnot 811                    ' magic marker applied
 .set 210                          ' shower one-time only
@@ -6687,7 +6689,7 @@ I guess you're off the hook, you lucky slave boy.
 ' Shake those titties punishment
 [Action 2541]
 .state Body.OnNipples free
-.mustnot 29 34          ' blindfolded, can't type/use mouse 
+.state Body.Blindfolded free
 .mustnot 812            ' Done nipple training activity already
 .must 361 362           ' clamps, pins
 .must 717               ' nipple tolerance 2, gives 3.
@@ -6698,7 +6700,7 @@ I guess you're off the hook, you lucky slave boy.
 ' dildo punishment
 [Action 2542]
 .canWorshipDildo
-.mustnot 29 34          ' blindfolded, can't type/use mouse
+.state Body.Blindfolded free
 .mustnot 260            ' Dildo worshiping already done
 .set 260
 .save 90 799
@@ -6761,8 +6763,9 @@ suitable for a lying degenerate cunt slave.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.OnBalls free
-.mustnot 29 32          ' blindfolded, can't stand
-.mustnot 34 35          ' can't type/use mouse, tethered
+.state Body.Blindfolded free
+.state Body.CantStand free
+.mustnot 35          ' can't type/use mouse, tethered
 .mustnot 210            ' shower one-time only
 .shouldnot 811          ' magic marker applied
 .set 210                ' shower one-time only
@@ -6839,7 +6842,7 @@ Unfortunately your attention deficit disorder must go unavenged today.
 [Action 2571]
 .poss 5
 .canWorshipDildo
-.mustnot 29 34               '  blindfolded, can't type/use mouse
+.state Body.Blindfolded free
 .mustnot 260                 ' Dildo worshiping already done
 .set 260
 .save 90 799
@@ -6914,7 +6917,8 @@ You can leave it in there for our entire session, slave.
 
 ' paddle x160
 [Action 2582]
-.mustnot 29 33          ' Blindfolded, can't kneel
+.state Body.Blindfolded free
+.state Body.CantKneel free
 .shouldnot 264          ' spanking already done
 .should 751             ' asswhipping 1
 .gosub 7100             ' Ensure paddle or replacement
@@ -7364,8 +7368,9 @@ Now keep that cock tall and proud or we'll have to go again.
 .state Body.AnklesTied free
 .state Body.OnBalls free
 .state Body.WristsTied free
-.mustnot 29 32                    ' blindfolded, can't stand
-.mustnot 34 35                    ' can't type/use mouse, tethered
+.state Body.Blindfolded free
+.state Body.CantStand free
+.mustnot  35                    ' can't type/use mouse, tethered
 .mustnot 210                      ' punishment shower, already done
 .shouldnot 811                    ' magic marker applied
 .set 210                          ' shower one-time only
@@ -7399,9 +7404,9 @@ Now keep that cock tall and proud or we'll have to go again.
 
 ' Maid training
 [Action 2661]
+' TODO there are a lot of positions that can be done blindfolded
+.state Body.Blindfolded free
 .mustnot 271                      ' Maid training punishment once per session
-.mustnot             29           ' something around waist, blindfolded
-.mustnot 34                       ' can't type/use mouse
 .set 271
 .save 90 799
 .loadsbd mine-maid.sbd 1003       ' Medium punishment (according to punishment acceptance)
@@ -7429,9 +7434,8 @@ I'll get you next time, you dirty slave!
 [Action 2672]
 .poss 100                         ' Prefer this since his punishment is about failing training
 .mustnot 271                      ' Maid training punishment once per session
-.mustnot             29           ' blindfolded
-.mustnot    31                    ' can't sit on chair
-.mustnot 34                       ' can't type/use mouse
+.state Body.Blindfolded free
+.state Body.CantSitOnChair free
 .set 271
 .save 90 799
 .loadsbd mine-maid.sbd 1002       ' Light punishment (according to punishment acceptance)
@@ -7449,9 +7453,8 @@ I'll get you next time, you dirty slave!
 [Action 2681]
 .poss 100                         ' Prefer this since his punishment is about failing training
 .mustnot 271                      ' Maid training punishment one-time per session
-.mustnot             29           ' blindfolded
-.mustnot    31                    ' can't sit on chair
-.mustnot 34                       ' can't type/use mouse
+.state Body.Blindfolded free
+.state Body.CantSitOnChair free
 .set 271
 .save 90 799
 .loadsbd mine-maid.sbd 1005 1005  ' Severe punishment (according to punishment acceptance)
@@ -7462,8 +7465,9 @@ I'll get you next time, you dirty slave!
 .state Body.AnklesTied free
 .state Body.OnBalls free
 .state Body.WristsTied free
-.mustnot 29 32                    ' blindfolded, can't stand
-.mustnot 34 35                    ' can't type/use mouse, tethered
+.state Body.Blindfolded free
+.state Body.CantStand free
+.mustnot 35                    ' can't type/use mouse, tethered
 .mustnot 210                      ' punishment shower, already done
 .shouldnot 811                    ' magic marker applied
 .set 210                          ' shower one-time only
@@ -8320,22 +8324,22 @@ Very well my little pet.
 
 
 [Action 3055]
+.mustnot 366            ' Some rope
 Get some rope and a belt and make yourself a nice crotch rope.
 Then take the towel you were supposed to bring along for this session,
 place it in your ass crack,
 and pull the crotch rope tight.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause My diaper is ready, Miss
-.mustnot 366            ' Some rope
-.set 27                 ' Something around waist
 .range 3070 3072
 
 [Action 3056]
+.must 366               ' Some rope
 Take the towel you were supposed to bring along for this session,
 place it in your ass crack,
 and fix it up with a good and tight crotch rope.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause My diaper is ready, Miss
-.must 366               ' Some rope
-.set 27                 ' Something around waist
 .range 3070 3072
 
 
@@ -8438,7 +8442,7 @@ humbly ask for My gracious permission to visit the toilet.
 ' enema tube detach complete
 
 [Action 3080]
-.unset 32               ' Allowed to stand
+.item Toys.Enema_Kit remove Body.CantStand
 .unset 35               ' Tethered
 .unset 267              ' taking the enema 
 .set 268                ' holding the enema
@@ -8608,7 +8612,7 @@ I don't think I'll add anything more to today's session.
 
 [Action 3110]
 .item Toys.Dildo canApply to Body.InButt
-.mustnot 27 36          ' something in butt, something around waist, harnessed
+.state Body.CrotchRoped free
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 366 388           ' Rope, dildo
 .must 757               ' anal training 2
@@ -8630,8 +8634,8 @@ Double the rope through your crotch before looping it around
 your waist and through your crotch, to ensure the dildo doesn't slip out.
 delay 20
 Let me know when you've finished, my pet.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause I'm plugged and bound up, Miss
-.set 27                 ' something around waist
 .range 3290
 
 
@@ -8660,8 +8664,8 @@ into your back door, where you will keep it for today's session.
 .image bd227_18.jpg     ' crotch rope close-up
 To make sure the plug stays inside your anus all through the session,
 you are going to tie yourself with a nice and tight crotch rope.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause I'm tied up, Miss
-.set 27                 ' Something around waist
 .return
 
 [Action 3118]
@@ -8684,7 +8688,11 @@ and don't remove it until the end of the session.
 [Action 3120]
 .item Body.InButt free
 .state Body.WristsTied free
-.mustnot 29 31 32 33 34 35 626 627
+.state Body.CantSitOnChair free
+.state Body.Blindfolded free
+.state Body.CantStand free
+.state Body.CantKneel free
+.mustnot  35 626 627
 .mustnot 267 268        ' Enema carrying out or holding
 .must 366 426 737
 I don't doubt that you remember sleeping in your bondage harness.
@@ -8700,7 +8708,11 @@ I know you like it, you bondage slut!
 [Action 3122]
 .item Body.InButt applied
 .state Body.WristsTied free
-.mustnot 29 31 32 33 34 35 626 627
+.state Body.CantSitOnChair free
+.state Body.Blindfolded free
+.state Body.CantStand free
+.state Body.CantKneel free
+.mustnot  35 626 627
 .mustnot 267 268        ' Enema carrying out or holding
 .must 366 426 737
 I don't doubt that you remember wearing your bondage harness.
@@ -8735,8 +8747,8 @@ Put it on now, slave.
 '.pause
 '.return
 '.must 360
-'.mustnot 27 35
-'.set 27 35
+'.state Body.AroundWaist Body.Tethered free
+'.item Toys.Rope apply to Body.AroundWaist Body.Tethered
 '.set 736
 
 '[Action 3135]
@@ -8755,9 +8767,11 @@ Put it on now, slave.
 '.must 736 737 746 747
 '.state Body.AnklesTied free
 '.state Body.OnBalls free
-'.mustnot 32 33 35
-'.item Toys.Rope apply to Body.AnklesTied .state Body.OnBalls
-'.set 32 33 35
+'.state Body.CantStand free
+'.state Body.CantKneel free
+'.mustnot  35
+'.item Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.CantStand Body.CantKneel
+'.set 35
 '.set 738 748
 
 '[Action 3136]
@@ -8792,10 +8806,10 @@ Put it on now, slave.
 '.range 3300
 '.item Toys.Ankle_Restraints available
 '.item Toys.Ankle_Restraints canApply
-'.mustnot 33 35
+'.state Body.CantKneel free
+'.mustnot 35
 '.must 366
-'.set 33 35
-'.item Toys.Rope apply to Body.AnklesTied Body.Tethered
+'.item Toys.Rope apply to Body.AnklesTied Body.Tethered Body.CantStand
 '.set 736
 
 
@@ -8897,7 +8911,6 @@ and rub your little slave titties,
 but no more.
 .item Toys.Chains apply to Body.OnBalls Body.CantSitOnChair Body.CantStand
 .pause I'm chained up, Miss
-.set 31 32
 .set 736 737 746 747    ' Restraint acceptance 2, CBT 2
 .range 3290
 
@@ -8931,8 +8944,8 @@ Then attach the connecting chain to your ball harness.
 You should have just enough play so that you can kneel straight
 and rub your little slave titties,
 but no more.
+.item Toys.Chains apply to Toys.Wrist_Restraints Toys.Ankle_Restraints Toys.Ball_Stretcher Body.CantStand
 .pause I'm chained up, Miss
-.set 32                 ' Can't stand
 .set 737 747            ' Restraint acceptance 2, CBT 2
 .range 3290
 
@@ -9119,8 +9132,8 @@ but not enough so that you can stand up straight.
 Leave your chains on for the whole session, slave.
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
+.item Toys.Chains apply Toys.Ankle_Restraints Toys.Wrist_Restraints Body.CantStand
 .pause I'm chained up, Miss
-.set 32
 .set 737	            ' restraint acceptance 2
 .return
 
@@ -9149,7 +9162,8 @@ You should just be able to wank, but no more.
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .item Toys.Collar apply
-.set 32                 ' can't stand
+.item Toys.Chains apply Toys.Ankle_Restraints Toys.Wrist_Restraints Body.CantStand
+.item Toys.Chains apply Toys.Collar
 .set 738	            ' restraint acceptance 3
 .range 3290
 
@@ -11587,8 +11601,7 @@ I think your nipples and nuts could use a working-over.
 ' since pegs on are an explicit part of some of the scenarios in level 2 
 [Action 5070]
 .mustnot 262            ' Done maid training activity already
-.mustnot             29 ' blindfolded
-.mustnot 34             ' can't type/use mouse
+.state Body.Blindfolded free
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:06"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:06"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:06"00
@@ -11854,16 +11867,15 @@ Make sure you have one until next time, baby.
 [Action 5140]
 .state Body.OnNipples free
 .not .state Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
-.mustnot 29                  ' blindfolded
-.mustnot 31                  ' can't sit on chair
-.mustnot 34                  ' Can't type/use mouse
+.state Body.Blindfolded free
+.state Body.CantSitOnChair free
 .mustnot 221                 ' Gag temporary
 .mustnot 776                 ' Dildo worshiping 1
 .range 5149
 
 ' less restrictions after introduction as more scenarios are available
 [Action 5141]
-.mustnot 29 34               ' blindfolded, can't type/use mouse
+.state Body.Blindfolded free
 .mustnot 221                 ' Gag temporary
 .must 776                    ' Dildo worshiping 1
 .range 5149
@@ -12004,8 +12016,9 @@ You seem to get used to getting used very well.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.OnBalls free
-.mustnot 29 32          ' blindfolded, can't stand
-.mustnot 34 35          ' can't type/use mouse, tethered
+.state Body.Blindfolded free
+.state Body.CantStand free
+.mustnot  35          ' can't type/use mouse, tethered
 .must 361               ' Nipple clamps
 ' clamps/pegs duration, already checked in 5066
 ' holding the enema already checked in 5066
@@ -12020,8 +12033,9 @@ You seem to get used to getting used very well.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.OnBalls free
-.mustnot 29 32          ' wrists tied, blindfolded, can't stand
-.mustnot 34 35          ' can't type/use mouse, tethered
+.state Body.Blindfolded free
+.state Body.CantStand free
+.mustnot 35          ' can't type/use mouse, tethered
 ' clamps/pegs duration, already checked in 5066
 ' holding the enema already checked in 5066
 .set 210                ' shower one-time only
@@ -12035,8 +12049,9 @@ You seem to get used to getting used very well.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.OnBalls free
-.mustnot 29 32          ' wrists tied, blindfolded, can't stand
-.mustnot 34 35          ' can't type/use mouse, tethered
+.state Body.Blindfolded free
+.state Body.CantStand free
+.mustnot  35          ' can't type/use mouse, tethered
 .must 362               ' clothes pegs
 .state Toys.enema_kit free or remaining greaterThan 00:16"00
 .set 210                ' shower one-time only
@@ -12114,8 +12129,10 @@ I like a clean slave.
 .state Body.InMouth free
 .state Body.WristsTied free
 .state Body.AroundNeck free
-.mustnot 31 32          ' can't sit on chair, can't stand 
-.mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
+.state Body.CantSitOnChair free
+.state Body.Blindfolded free
+.state Body.CantStand free
+.state Body.CantKneel free
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 .must 366               ' Rope
@@ -12131,8 +12148,10 @@ I like a clean slave.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.AroundNeck free
-.mustnot 31 32          ' can't sit on chair, can't stand  
-.mustnot 33 34 29       ' can't kneel, can't type / use mouse, blindfolded
+.state Body.CantSitOnChair free
+.state Body.Blindfolded free
+.state Body.CantStand free
+.state Body.CantKneel free
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 .must 743               ' strict self bondage 3
@@ -12147,7 +12166,7 @@ I like a clean slave.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.AroundNeck free
-.mustnot 33 34          ' can't kneel, can't type 
+.state Body.CantKneel free
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 .item Toys.Wrist_Restraints available
@@ -12164,7 +12183,7 @@ I like a clean slave.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Body.AroundNeck free
-.mustnot 33 34          ' can't kneel, can't type 
+.state Body.CantKneel free
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
 .item Toys.Wrist_Restraints available
@@ -12274,7 +12293,7 @@ You'll be punished later for failing your training.
 
 ' paddle x40
 [Action 5601]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .gosub 7100             ' get spanking implement
 .set 264                ' Spanking done
 .set 275                ' spanking done in activity
@@ -12282,7 +12301,8 @@ You'll be punished later for failing your training.
 
 ' paddle x60
 [Action 5602]
-.mustnot 29 33          ' blindfolded,can't kneel
+.state Body.Blindfolded free
+.state Body.CantKneel free
 .must 751               ' asswhipping 1
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:06"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:06"00
@@ -12295,7 +12315,7 @@ You'll be punished later for failing your training.
 
 ' paddle x100
 [Action 5603]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .must 751 752           ' asswhipping 2
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:09"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:09"00
@@ -12315,7 +12335,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5604]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking already
 .must 370               ' paddle
@@ -12331,7 +12351,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5605]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking already
 .must 370               ' paddle
@@ -12350,7 +12370,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5606]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking already
 .mustnot 370            ' paddle
@@ -12367,7 +12387,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5607]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking already
 .mustnot 370            ' paddle
@@ -12387,7 +12407,7 @@ You'll be punished later for failing your training.
 
 ' marathon 30m
 [Action 5608]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking already
 .mustnot 370            ' paddle
@@ -12404,7 +12424,7 @@ You'll be punished later for failing your training.
 
 ' marathon 60m
 [Action 5609]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .must 117               ' Spanking lecture heard
 .mustnot 264            ' Done spanking already
 .mustnot 370            ' paddle
@@ -12535,9 +12555,9 @@ I will have to punish you later for failing your training.
 [Action 5801]
 .state Body.OnNipples free
 .item Toys.Nipple_Clamps available
-.mustnot 812                 ' Done nipple training activity already
+.state Body.Blindfolded free
 .must 717                    ' Nipple tolerance 2
-.mustnot 29 34               ' something on nipples, blindfolded, can't type
+.mustnot 812                 ' Done nipple training activity already
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:15"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:15"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:15"00
@@ -12608,8 +12628,10 @@ I will have to punish you later for failing your training.
 .item Household.Clothes_Pegs available
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 29                  ' wrists tied, blindfolded 
-.mustnot 31 32 34 35         ' can't sit on chair, can't stand, can't type/use mouse, tethered 
+.state Body.Blindfolded free
+.state Body.CantSitOnChair free
+.state Body.CantStand free
+.mustnot  35         ' can't sit on chair, can't stand, can't type/use mouse, tethered 
 .mustnot 812                 ' Done nipple training activity already
 .must 716
 ' holding the enema, already checked in 5068
@@ -12622,7 +12644,7 @@ I will have to punish you later for failing your training.
 .item Household.Clothes_Pegs available
 .item Toys.Nipple_Clamps available
 .state Body.AnklesTied free
-.mustnot 29 34               ' blindfolded, can't type/use mouse
+.state Body.Blindfolded free
 .mustnot 812                 ' Done nipple training activity already
 .must 717                    ' Nipple tolerance 2
 .state Toys.enema_kit free or remaining greaterThan 00:15"00
@@ -12635,7 +12657,7 @@ I will have to punish you later for failing your training.
 .state Body.OnBalls is free
 .item Household.Clothes_Pegs available
 .item Toys.Nipple_Clamps available
-.mustnot 29 34               ' blindfolded, can't type/use mouse
+.state Body.Blindfolded free
 .mustnot 812                 ' Done nipple training activity already
 .must 362                    ' clothes pegs
 .must 717 746                ' Nipple tolerance 2, cbt 1
@@ -12650,10 +12672,11 @@ I will have to punish you later for failing your training.
 .item Toys.Nipple_Clamps available
 .not .painToysOnBalls
 .state Body.AnklesTied free
+.state Body.Blindfolded free
+.state Body.CantStand free
+.state Body.CantJerkOff free
 .mustnot 812                 ' Done nipple training activity already
-.mustnot 29 32               ' blindfolded, can't stand
-.mustnot 30                  ' can't jerk off: Wanking is required to ease the pain on the nipples
-.mustnot 34 35               ' can't type/use mouse, tethered
+.mustnot  35               ' can't type/use mouse, tethered
 .must 366                    ' Nipple clamps, rope
 .must 718                    ' Nipple tolerance 3
 .state Toys.enema_kit free or remaining greaterThan 00:25"00
@@ -12661,13 +12684,13 @@ I will have to punish you later for failing your training.
 .range 5966
 
 ' shake those titties
+[Action 5819]
 .state Body.OnNipples free
 .item Toys.Nipple_Clamps canApply
 .item Toys.Nipple_Clamps available
 .item Household.Clothes_Pegs available
-[Action 5819]
+.state Body.Blindfolded free
 .mustnot 812                 ' Done nipple training activity already
-.mustnot 29 34               ' blindfolded, can't type/use mouse
 .must 718                    ' Nipple tolerance 3
 .state Toys.enema_kit free or remaining greaterThan 00:15"00
 .set 812                     ' Done nipple training activity
@@ -12680,18 +12703,18 @@ I will have to punish you later for failing your training.
 [Action 5822]
 .state Body.AnklesTied free
 .item Toys.Ball_Stretcher applied
+.state Body.CantStand free
 .mustnot 255                 ' Done ball sack pulling activity already
-.mustnot 32                  ' ankles tied, can't stand
 .set 255                     ' Done ball sack pulling activity
 .range 5952
 
 ' medium weight drop from balls
 [Action 5823]
 .state Body.AnklesTied free
+.state Body.CantStand free
 .item Toys.Ball_Stretcher applied
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
-.mustnot 32                  ' ankles tied, can't stand
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:14"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:14"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:14"00
@@ -12705,7 +12728,7 @@ I will have to punish you later for failing your training.
 .item Toys.Ball_Stretcher applied
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
-.mustnot 32                  ' can't stand
+.state Body.CantStand free
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:19"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:19"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:19"00
@@ -12719,7 +12742,7 @@ I will have to punish you later for failing your training.
 .item Toys.Ball_Stretcher applied
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
-.mustnot 32                  ' can't stand
+.state Body.CantStand free
 .state Toys.Nipple_Clamps free or remaining greaterThan 00:24"00
 .state Toys.Pussy_Clamps free or remaining greaterThan 00:24"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:24"00
@@ -12733,7 +12756,7 @@ I will have to punish you later for failing your training.
 ' light weight drop from balls
 [Action 5826]
 .state Body.AnklesTied free
-.mustnot 32                  ' ankles tied, can't stand
+.state Body.CantStand free
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .set 255                     ' Done ball sack pulling activity
@@ -12742,7 +12765,7 @@ I will have to punish you later for failing your training.
 ' medium weight drop from balls
 [Action 5827]
 .state Body.AnklesTied free
-.mustnot 32                  ' ankles tied, can't stand
+.state Body.CantStand free
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746                    ' cbt 1
@@ -12755,7 +12778,7 @@ I will have to punish you later for failing your training.
 
 ' heavy weight drop from balls
 [Action 5828]
-.mustnot 32                  ' can't stand
+.state Body.CantStand free
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747                ' cbt 2
@@ -12769,7 +12792,7 @@ I will have to punish you later for failing your training.
 ' very heavy weight drop from balls
 [Action 5829]
 .state Body.AnklesTied free
-.mustnot 32                  ' can't stand
+.state Body.CantStand free
 .must 214                    ' cock bondage
 .mustnot 255                 ' Done ball sack pulling activity already
 .must 746 747 748            ' cbt 3
@@ -12937,7 +12960,6 @@ Meanhile, three demerits will do about right.
 .state Body.Blindfolded free
 .state Body.CantJerkOff free
 .state Body.CantSitOnChair free
-.mustnot 34             ' can't type/use mouse     
 .item Toys.Chastity_Device not applied
 .mustnot 267 268 269    ' Enema carrying out or holding
 .must 726 736 747       ' Denial and self-control 1, Restraint acceptance 1, cbt 2
@@ -12964,7 +12986,7 @@ Meanhile, three demerits will do about right.
 .not .state Body.Blindfolded applied
 .state Body.CantJerkOff free
 .state Body.CantSitOnChair free
-.mustnot 34 35          ' can't type/use mouse, tethered
+.mustnot  35          ' can't type/use mouse, tethered
 .item Toys.Chastity_Device not applied
 .mustnot 267 268        ' Enema carrying out or holding
 .must 717 736           ' Nipple tolerance 2, Restraint Acceptance 1
@@ -12983,7 +13005,7 @@ Meanhile, three demerits will do about right.
 .not .state Body.CantStand applied
 .not .state Body.Blindfolded applied
 .mustnot 266            ' Done story time activity already
-.mustnot 34 35          ' can't type/use mouse, tethered
+.mustnot  35          ' can't type/use mouse, tethered
 .mustnot 267 268        ' Enema carrying out or holding
 .must 366               ' rope
 .must 719 746           ' Nipple tolerance 4, cbt 1
@@ -13125,8 +13147,7 @@ Meanhile, three demerits will do about right.
 .item Toys.Gag available
 .item Toys.Gag canApply
 .state Body.WristsTied free            ' TODO may be possible
-.mustnot 33             ' can't kneel
-.mustnot 34             ' can't type
+.state Body.CantKneel free
 .mustnot 266            ' Done story time activity already 
 .must 712 717 746       ' punishment acceptance 2, nipple tolerance 2, cbt1
 .state Toys.enema_kit free or remaining greaterThan 00:15"00
@@ -13577,14 +13598,14 @@ Now take your "paddle" and carefully listen to my instructions.
 
 ' duration elapsed - neither help nor inflatable nozzle
 [Action 7302]
-.mustnot 27             ' something around waist
+.state Body.CrotchRoped free
 .state Toys.enema_kit applied AND expired
 .state Toys.enema_bulb free
 .range 7355 7359
 
 ' duration elapsed - crotch rope & towel
 [Action 7303]
-.must 27                ' Something around waist
+.state Body.CrotchRoped applied
 .state Toys.enema_kit applied AND expired AND remaining lessOrEqualThan -00:05"00
 .state Toys.enema_bulb free
 .range 7355 7359
@@ -13601,21 +13622,21 @@ Now take your "paddle" and carefully listen to my instructions.
 [Action 7306]
 .else
 .state Toys.enema_bulb free
-.mustnot 27             ' Something around waist
+.state Body.CrotchRoped free
 .range 7320 7324
 
 ' still time left - diaper
 [Action 7307]
 .else
 .state Toys.enema_bulb free
-.must 27                ' Something around waist
+.state Body.CrotchRoped applied
 .range 7320 7324
 
 ' still time left - inflatable nozzle
 [Action 7308]
 .else
 .state Toys.enema_bulb applied
-.mustnot 27             ' Something around waist
+.state Body.CrotchRoped free
 .range 7325 7329
 
 '[Action 7309]
@@ -13890,7 +13911,7 @@ Good boy!
 ' No help
 [Action 7373]
 .not .item Toys.enema_bulb applied
-.mustnot 27 36          ' Neither crotch rope nor harness
+.state Body.CrotchRoped free
 You may now go to the bath room and relieve yourself.
 .delay 60 60 STOP 7395 7396
 .stoptext Thank you Miss
@@ -13899,13 +13920,13 @@ You may now go to the bath room and relieve yourself.
 ' Crotch rope & towel
 [Action 7374]
 .not .item Toys.enema_bulb applied
-.must 27                ' Something around waist
+.state Body.CrotchRoped applied
 You may now go to the bath room,
 remove the crotch rope and the towel,
 and relieve yourself.
 .delay 60 60 STOP 7395 7396
+.item Toys.Rope remove from Body.AroundWaist Body.CrotchRoped
 .stoptext Thank you Miss
-.unset 27               ' Something around waist
 .range 7390
 
 ' nozzle with inflatable cuff
@@ -14174,8 +14195,8 @@ For that reason you may tie yourself a nice rope harness now, slave.
 As usual, tie a knot in such a way that, when the rope is taut,
 it rests directly on your anus -
 or as of now - on your butt plug.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause I'm tied up, Miss
-.set 27                 ' Something around waist
 .range 7478
 
 [Action 7461]
@@ -14184,8 +14205,8 @@ You know the drill, slave, so get on it.
 As usual, tie a knot in such a way that, when the rope is taut,
 it rests directly on your anus -
 or as of now - on your butt plug.  
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped Body.Harnessed
 .pause I'm all tied up, Miss
-.set 36                 ' Harnessed
 .range 7478
 
 '[Action 7462]
@@ -14198,8 +14219,8 @@ or as of now - on your butt plug.
 As usual, tie a knot in such a way that, when the rope is taut,
 it rests directly on your anus -
 or as of now - on your dildo.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause I'm tied up, Miss
-.set 27                 ' Something around waist
 .range 7478
 
 [Action 7466]
@@ -14208,8 +14229,8 @@ You know the drill, slave, so get on it.
 As usual, tie a knot in such a way that, when the rope is taut,
 it rests directly on your anus -
 or as of now - on your dildo.  
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped Body.Harnessed
 .pause I'm all tied up, Miss
-.set 36                 ' Harnessed
 .range 7478
 
 '[Action 7467]
@@ -14238,7 +14259,7 @@ or as of now - on your dildo.
 
 ' 33% if not asked yet (adds up during multiple activities)
 [Action 7495]
-.mustnot 30                  ' can't jerk off
+.state Body.CantJerkOff free
 .mustnot 6051           6054 ' check returns from t&d wanking actvities,
 .mustnot 6055 6056 6057 6058 ' since wanking is just the topics we're going to ask about
 .mustnot 6059 6060 6061 6062 ' and the slave has just wanked a lot
@@ -14249,7 +14270,7 @@ or as of now - on your dildo.
 
 ' 10% if already asked (element of surprise)
 [Action 7496]
-.mustnot 30                  ' can't jerk off
+.state Body.CantJerkOff free
 .mustnot 6051           6054 ' check returns from t&d wanking actvities,
 .mustnot 6055 6056 6057 6058 ' since wanking is just the topics we're going to ask about
 .mustnot 6059 6060 6061 6062 ' and the slave has just wanked a lot
@@ -15985,26 +16006,27 @@ Get ready, slave... and keep smacking that ass...
 [Action 8130]
 Sit in your chair, slave, and bring yourself to the edge.
 Wait for my command...
-.mustnot 30                       ' Can't jerk off
-.mustnot 31                       ' Can't sit on chair
+.state Body.CantJerkOff free
+.state Body.CantJerkOff free
+.state Body.CantSitOnChair free
 .range 8090
 
 [Action 8131]
+.state Body.CantJerkOff free
+.state Body.CantKneel free
 Get on your knees.
 I want you to bring yourself to the edge, slave, and wait for My command...
-.mustnot 30                       ' Can't jerk off
-.mustnot 33                       ' Can't kneel
 .range 8090
 
 [Action 8132]
 This time you'll be standing up, slave.
 Wait for my command...
-.mustnot 30                       ' Can't jerk off
-.mustnot 32                       ' Can't stand
+.state Body.CantJerkOff free
+.state Body.CantStand free
 .range 8090
 
 [Action 8133]
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .state Body.OnNipples free
 .item Household.Clothes_Pegs available
 .delay 30
@@ -16015,7 +16037,7 @@ Stay as close to the edge as you can and wait for My say-so...
 .range 8090
 
 [Action 8134]
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .state Body.OnBalls is free
 .item Household.Clothes_Pegs available
 .delay 30
@@ -16027,7 +16049,7 @@ Now, wait for My command...
 .range 8090
 
 [Action 8135]
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .state Body.OnNipples free
 .state Body.OnBalls is free
 .item Household.Clothes_Pegs available
@@ -16040,7 +16062,7 @@ Keep yourself on the edge and wait for my command...
 .range 8090
 
 [Action 8136]
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .item Toys.Nipple_Clamps canApply
 .item Toys.Nipple_Clamps available
 .delay 30
@@ -16054,7 +16076,7 @@ Now wait for My command as you stay on the edge...
 
 [Action 8137]
 .delay 20
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .must 370                         ' Paddle
 Take your paddle and spank yourself to the beat with one
 hand while you keep yourself on the edge with the other, slut.
@@ -16062,24 +16084,24 @@ hand while you keep yourself on the edge with the other, slut.
 
 [Action 8138]
 .delay 30
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .must 382                         ' have blindfold
 .mustnot 8118                     ' no cum-on-command (set in 8114)
 .mustnot 9540 9541 9542 9543 9544 9545 9546 9547 9548 9549 ' not if having to eat cum
 Put on your blindfold, slave, and keep yourself fully aroused.
-.set 29                           ' blindfold on 
+.item Toys.Blindfold apply
 .range 8090
 
 [Action 8139]
 .delay 45
-.mustnot 30                       ' Can't jerk off
+.state Body.CantJerkOff free
 .must 370                         ' Paddle
 .must 382                         ' have blindfold
 .must 753                         ' Ass paddling 3
 .mustnot 8118                     ' no cum-on-command (set in 8114)
 Get your paddle ready, slave, and put on your blindfold.
 .mustnot 9540 9541 9542 9543 9544 9545 9546 9547 9548 9549 ' not if having to eat cum
-.set 29                           ' blindfold on 
+.item Toys.Blindfold apply
 .range 8120
 
 [Action 8140]
@@ -16193,17 +16215,19 @@ Tease those nipples and wank that cage, slave!
 
 
 [Action 8200]
-.must 29
+.poss 100
+.item Toys.Blindfold applied
 .delay 45 90
 .item Toys.Chastity_Device not applied
 You may take your blindfold off now.
-.unset 8200
+.item Toys.Blindfold remove
 .range 8191 8207
 
 [Action 8201]
 .item Toys.Chastity_Device not applied
 .delay 45 90
 Tell me when you've finished, My pet.
+.unset 8200
 .unset 8201
 .range 8191 8207
 
@@ -18760,34 +18784,39 @@ But don't come back until you've finished your assignment.
 ' Hold it in assist
 
 [Action 9842]
-.must 27                ' Something around waist
+.state Body.CrotchRoped applied
+.state Body.Harnessed free
 .item Toys.Buttplug applied
 .must 623 
 The crotch rope will surely help you keep the plug in.
 .range 9849
 
 [Action 9843]
-.must 27                ' Something around waist
+.state Body.CrotchRoped applied
+.state Body.Harnessed free
 .item Toys.Dildo applied to Body.InButt
 .must 622 
 The crotch rope will surely help you to keep the dildo in.
 .range 9849
 
 [Action 9844]
-.must 36                ' Harnessed
+.state Body.CrotchRoped free
+.state Body.Harnessed applied
 .item Toys.Dildo applied to Body.InButt
 .must 623 
 The rope harness will surely help you to keep the dildo in.
 .range 9849
 
 [Action 9845]
-.must 36                ' Harnessed
+.state Body.CrotchRoped free
+.state Body.Harnessed applied
 .item Toys.Buttplug applied
 The rope harness will surely help you to keep the plug in.
 .range 9849
 
 [Action 9846]
-.mustnot 27 36          ' Something around waist, harnessed
+.state Body.CrotchRoped free
+.state Body.Harnessed free
 And as usual, if you aren't going to be able to hold it in,
 I give you permission to tie yourself with a nice crotch rope.
 .range 9849
@@ -20266,7 +20295,7 @@ Especically if he's chained and shackled so well.
 .must 234
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
-.set 32                 ' can't stand
+.state Body.CantStand free
 .unset 234
 .range  11324
 

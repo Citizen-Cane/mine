@@ -143,14 +143,14 @@
 .askcheck 79 24	24	-	free
 .askcheck 80 25	25	-	ankles tied
 .askcheck 81 26 26	-	free
-.askcheck 82 27	27	-	something around waist
+.askcheck 82 27	27	-	free
 .askcheck 83 28	28	-	free
-.askcheck 84 29	29	-	blindfold on
+.askcheck 84 29	29	-	free
 .askcheck 85 30	30	-	free
-.askcheck 86 31	31	-	can't sit on chair
-.askcheck 87 32	32	-	can't stand
-.askcheck 88 33	33	-	can't kneel
-.askcheck 89 34	34	-	can't type/use mouse  (this is also the case when blindfolded)
+.askcheck 86 31	31	-	free
+.askcheck 87 32	32	-	free
+.askcheck 88 33	33	-	free
+.askcheck 89 34	34	-	free
 .askcheck 90 35	35	-	tethered - can't leave computer area
 .askcheck 91 36 36  -   harnessed
 .askcheck 92 37 37  -	free
@@ -1556,7 +1556,7 @@ I hope so, slut!
 
 ' Kneeling
 [Action 1752]
-.mustnot 33             ' Can't kneel 
+.state Body.CantKneel free
 .set 121                ' Kneeling 
 .unset 122              ' Tip toes
 .range 1755 1759
@@ -1569,7 +1569,7 @@ I hope so, slut!
 
 ' On tiptoes
 [Action 1754]
-.must 32                               ' Can't stand 
+.state Body.CantStand free
 .mustnot 114 115 116 117 118 119 120   ' less than 15m  - how long can one do this?
 .must 721                              ' Not the first time (at beginner level)
 .set 122                               ' Tip toes

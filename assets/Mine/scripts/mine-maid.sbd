@@ -334,14 +334,14 @@
 '	24	-	free
 '	25	-	free
 '	26	-	free
-'	27	-	something around waist
+'	27	-	free
 '	28	-	free
-'	29	-	blindfolded
+'	29	-	free
 '	30	-	free
-'	31	-	can't sit on chair
-'	32	-	can't stand
-'	33	-	can't kneel
-'	34	-	can't type/use mouse  (this is also the case when blindfolded)
+'	31	-	free
+'	32	-	free
+'	33	-	free
+'	34	-	free
 '	35	-	tethered - can't leave computer area
 '   36  -   harnessed
 '   37  -	free
@@ -493,14 +493,14 @@
 .askcheck       54     	24	24 -	free
 .askcheck       55     	25	25 -	free
 .askcheck       56     	26	26 -	free
-.askcheck       57      27	27 -	something around waist
+.askcheck       57      27	27 -	free
 .askcheck       58      28	28 -	free
-.askcheck       59      29	29 -	blindfolded
+.askcheck       59      29	29 -	free
 .askcheck       60      30	30 -	free
-.askcheck       61      31	31 -	can't sit on chair
-.askcheck       62     	32	32 -	can't stand
-.askcheck       63      33	33 -	can't kneel
-.askcheck       64     	34	34 -	can't type/use mouse  (this is also the case when blindfolded)
+.askcheck       61      31	31 -	free
+.askcheck       62     	32	32 -	free
+.askcheck       63      33	33 -	free
+.askcheck       64     	34	34 -	free
 .askcheck       65      35	35 -	tethered - can't leave computer area
 .askcheck       66      36  36 -	harnessed
 .askcheck       67      37  37 -	free
@@ -1153,6 +1153,10 @@ Let's continue your slave training.
 ' but for the actual position (4000-6999) being set. This is because 1400-1699 is reset before each run,
 ' as it is used to determine what toys to remove at the end of the activity
 
+
+' TODO a lot of these positions can be done blindfolded -> add tests as preparation to put on blindfold in main script
+
+
 ' Easy positions 400-499
 
 ' 400 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
@@ -1160,7 +1164,7 @@ Let's continue your slave training.
 .should .state Body.OnNipples free
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .mustnot 179            ' Not for punishments, to avoid not having items
 .shouldnot 400          ' prefer a position that hasn't been done before
@@ -1175,7 +1179,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 401          ' prefer a position that hasn't been done before
 .mustnot 4010           ' just once
@@ -1188,7 +1192,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free  ' TODO may work without
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .mustanyof 400          ' Lecture mentions "another", so another kneeling position has to be completed before
 .mustnot 179            ' Not for punishments, to avoid not having items
@@ -1202,7 +1206,7 @@ Let's continue your slave training.
 .should .state Body.OnNipples free
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .mustnot 179            ' Not for punishments, to avoid not having items
 .shouldnot 403          ' prefer a position that hasn't been done before
@@ -1217,7 +1221,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 404          ' prefer a position that hasn't been done before
 .mustnot 4040           ' just once
@@ -1245,7 +1249,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .mustnot 179            ' Not for punishments, to avoid not having items
 .mustanyof 400 402 403 404 ' Lecture mentions "another", so this may not be the first position to be performed
@@ -1261,7 +1265,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .mustnot 141            ' position with book already done
 .mustnot 179            ' Punishment, slave should only fail on his own
@@ -1277,7 +1281,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 408          ' prefer a position that hasn't been done before
 .mustnot 4080 4081 4082 ' just once
@@ -1292,7 +1296,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 409          ' prefer a position that hasn't been done before
 .mustnot 4090           ' just once
@@ -1306,7 +1310,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free				' TODO may work with .should
 .state Body.WristsTied free				' TODO may work with .should
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 410          ' prefer a position that hasn't been done before
 .mustnot 4100           ' just once
@@ -1333,7 +1337,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 412          ' prefer a position that hasn't been done before
 .mustnot 4120           ' just once
@@ -1347,7 +1351,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 413          ' prefer a position that hasn't been done before
 .mustnot 4130           ' just once
@@ -1360,7 +1364,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 414          ' prefer a position that hasn't been done before
 .mustnot 4140 4141 4142 4143 ' just once
@@ -1373,7 +1377,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 415          ' prefer a position that hasn't been done before
 .mustnot 4150 4151      ' just once
@@ -1387,7 +1391,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 416          ' prefer a position that hasn't been done before
 .mustnot 4160 4161      ' just once
@@ -1400,7 +1404,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 417          ' prefer a position that hasn't been done before
 .mustnot 4170 4171      ' just once
@@ -1412,7 +1416,7 @@ Let's continue your slave training.
 .should .state Body.OnNipples free
 .should .state Body.InMouth free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 418          ' prefer a position that hasn't been done before
 .mustnot 4180 4181 4182 4183 ' just once
@@ -1425,7 +1429,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 267 268      ' Enema carrying out or holding
 .shouldnot 419          ' prefer a position that hasn't been done before
@@ -1443,7 +1447,8 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AroundNeck free
 .should .state Body.OnBalls free
-.mustnot 32 33          ' Can't stand, can't kneel
+.state Body.CantStand free
+.state Body.CantKneel free
 .mustnot 143            ' position with tray already done
 .shouldnot 500          ' prefer a position that hasn't been done before
 .mustnot 5000 5001 5002 5003 ' just once
@@ -1457,7 +1462,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .mustnot 142            ' position with shoe already done
 .shouldnot 501          ' prefer a position that hasn't been done before
@@ -1473,7 +1478,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 502          ' prefer a position that hasn't been done before
 .mustnot 5020 5021 5022 5023 ' just once
@@ -1487,7 +1492,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .must 502               ' Lecture mentions "another", so similar position 502 has to be completed before
 .shouldnot 503          ' prefer a position that hasn't been done before
@@ -1500,7 +1505,7 @@ Let's continue your slave training.
 .should .state Body.OnNipples free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 504          ' prefer a position that hasn't been done before
 .mustnot 5040 5041 5042 5043 ' just once
@@ -1513,7 +1518,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 505          ' prefer a position that hasn't been done before
 .mustnot 5050 5051 5052 5053 ' just once
@@ -1527,7 +1532,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .mustnot 142            ' position with shoe already done
 .must 501               ' Show licking prequel
@@ -1557,7 +1562,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 508          ' prefer a position that hasn't been done before
 .mustnot 5080 5081 5082 5083 ' just once
@@ -1571,7 +1576,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 509          ' prefer a position that hasn't been done before
 .mustnot 5090 5091 5092 5093 ' just once
@@ -1585,7 +1590,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 510          ' prefer a position that hasn't been done before
 .mustnot 5100 5101 5102 5103 ' just once
@@ -1601,7 +1606,7 @@ Let's continue your slave training.
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
 .should .state Body.OnBalls free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .shouldnot 511          ' prefer a position that hasn't been done before
 .mustnot 5110           ' just once
 .set 182                ' Demanding
@@ -1614,7 +1619,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.OnBalls free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .mustnot 5120 5121      ' just once
 .shouldnot 512          ' prefer a position that hasn't been done before
 .set 182                ' Demanding
@@ -1626,7 +1631,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 513          ' prefer a position that hasn't been done before
 .mustnot 5130 5131      ' just once
@@ -1639,7 +1644,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 514          ' prefer a position that hasn't been done before
 .mustnot 5140 5141      ' just once
@@ -1652,7 +1657,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .shouldnot 515          ' prefer a position that hasn't been done before
 .mustnot 5150 5151 5152 5153 ' just once
@@ -1666,7 +1671,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 516          ' prefer a position that hasn't been done before
 .mustnot 5160 5161      ' just once
@@ -1680,7 +1685,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 517          ' prefer a position that hasn't been done before
 .mustnot 5160 5161      ' just once
@@ -1693,7 +1698,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .item Toys.Wrist_Restraints canApply
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 518          ' prefer a position that hasn't been done before
 .mustnot 5180 5181 5182 5183 ' just once
@@ -1709,7 +1714,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .shouldnot 519          ' prefer a position that hasn't been done before
 .mustnot 5190 5191      ' just once
 .set 146                ' position is not continueable, because more than two pegs are added on tits/ball sack/pussy
@@ -1724,7 +1729,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .shouldnot 520          ' prefer a position that hasn't been done before
 .mustnot 5200 5201      ' just once
 .set 146                ' position is not continueable, because mor than two pegs are added on tits/ball sack/pussy
@@ -1740,9 +1745,9 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 27             ' something around waist
+.state Body.CrotchRoped free
 .should .state Body.AroundNeck free
-.mustnot 32             ' can't stand
+.state Body.CantStand free
 .mustnot 36             ' harnessed
 .should .state Body.OnBalls free
 .mustnot 148            ' another position, requires generic toy removal
@@ -1758,8 +1763,8 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 27             ' something around waist
-.mustnot 32             ' can't stand
+.state Body.CrotchRoped free
+.state Body.CantStand free
 .mustnot 36             ' harnessed
 .state Body.OnBalls free
 .mustnot 148            ' another position, requires generic toy removal
@@ -1775,7 +1780,7 @@ Let's continue your slave training.
 .state Body.OnNipples free        ' 2 pegs per nipple are used in this position
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 32             ' can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .must 277               ' semi-safe self bondage features enabled
 .shouldnot 577          ' prefer a position that hasn't been done before
@@ -1804,7 +1809,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .item Toys.Pussy_Clamps canApply OR applied
 .mustnot 179            ' not suitable as punishment, since we decided to threat pussy clamps as a surprise
 .shouldnot 579          ' prefer a position that hasn't been done before
@@ -1819,7 +1824,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .should .state Body.OnBalls free
 .mustnot 142            ' position with shoe already done
 .must 506               ' Show licking prequel
@@ -1836,7 +1841,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 581          ' prefer a position that hasn't been done before
 .mustnot 5810           ' just once
@@ -1849,7 +1854,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -1863,7 +1868,7 @@ Let's continue your slave training.
 .item Toys.Nipple_Clamps canApply
 .item Toys.Gag canApply
 .should .state Body.AnklesTied free
-.mustnot 33             ' Can't stand
+.state Body.CantKneel free
 .item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -1877,7 +1882,7 @@ Let's continue your slave training.
 .item Toys.Nipple_Clamps canApply
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -1894,7 +1899,7 @@ Let's continue your slave training.
 .item Toys.Gag canApply
 .state Body.AnklesTied free
 .item Toys.Wrist_Restraints applied OR canApply
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .shouldnot 585          ' prefer a position that hasn't been done before
@@ -1910,7 +1915,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .shouldnot 586          ' prefer a position that hasn't been done before
@@ -1930,7 +1935,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .item Toys.Collar applied
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .shouldnot 582          ' prefer a position that hasn't been done before
@@ -1948,7 +1953,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .item Toys.Wrist_Restraints applied
 .item Toys.Collar applied
-.mustnot 33             ' Can't stand
+.state Body.CantKneel free
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .shouldnot 583          ' prefer a position that hasn't been done before
@@ -1966,7 +1971,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .state Body.WristsTied free            ' cuffed behind back
 .item Toys.Collar applied
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .shouldnot 584          ' prefer a position that hasn't been done before
@@ -1985,7 +1990,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .item Toys.Wrist_Restraints applied
 .item Toys.Collar applied
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .shouldnot 585          ' prefer a position that hasn't been done before
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -2012,7 +2017,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .item Toys.Pussy_Clamps available
 .item Toys.Pussy_Clamps canApply OR applied
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
@@ -2028,7 +2033,7 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .item Toys.Pussy_Clamps available
 .item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
@@ -2044,7 +2049,7 @@ Let's continue your slave training.
 .item Toys.Nipple_Clamps canApply
 .item Toys.Gag canApply
 .should .state Body.AnklesTied free
-.mustnot 33             ' Can't stand
+.state Body.CantKneel free
 .item Toys.Pussy_Clamps available
 .item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
@@ -2060,7 +2065,7 @@ Let's continue your slave training.
 .item Toys.Nipple_Clamps canApply
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .item Toys.Pussy_Clamps available
 .item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
@@ -2078,7 +2083,7 @@ Let's continue your slave training.
 .item Toys.Gag canApply
 .state Body.OnBalls free
 .state Body.AnklesTied free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .item Toys.Pussy_Clamps available
 .item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
@@ -2096,7 +2101,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .item Toys.Pussy_Clamps available
 .item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
@@ -2118,7 +2123,7 @@ Let's continue your slave training.
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .shouldnot 519          ' prefer a position that hasn't been done before
 .must 179               ' exclusively as a punishment on this level, to workaround the fact that pussy clamps should be a surprise
 .mustnot 5190 5191      ' just once
@@ -2133,7 +2138,7 @@ Let's continue your slave training.
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
-.mustnot 32             ' Can't stand
+.state Body.CantStand free
 .shouldnot 520          ' prefer a position that hasn't been done before
 .must 179               ' exclusively as a punishment on this level, to workaround the fact that pussy clamps should be a surprise
 .mustnot 5200 5201      ' just once
@@ -2180,7 +2185,6 @@ Let's continue your slave training.
 .should .state Body.InMouth free
 .item Toys.Ankle_Restraints canApply
 .item Toys.Wrist_Restraints canApply
-.mustnot 32             ' Because the slave has to fetch tray and a glass from the kitchen
 .should .state Body.OnBalls free
 .mustnot 143            ' position with tray already done
 .shouldnot 652          ' prefer a position that hasn't been done before
@@ -2195,7 +2199,7 @@ Let's continue your slave training.
 .item Toys.Pussy_Clamps canApply
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 ' valid as another position, since
 ' the custom removal actions removes all generic toys that can be worn in this position
@@ -5456,14 +5460,14 @@ bd218_19.jpg
 ' 408 standing, legs together, hands behind head, blindfolded
 
 [Action 4080]
-.mustnot 29                  ' blindfolded
+.state Body.Blindfolded free
 This is a fairly easy position, slave.
 All you need is a blindfold.
 You do have a blindfold, don't you, slave?
 .yesno 4084 4084 7780 7783
 
 [Action 4081]
-.mustnot 29                  ' blindfolded
+.state Body.Blindfolded free
 .must 382                    ' have blindfold
 This is a fairly easy position, slave.
 You'll just need your blindfold.
@@ -5472,7 +5476,7 @@ Go get it!
 .range 4084
 
 [Action 4082]
-.must 29                     ' blindfolded
+.state Body.Blindfolded applied
 .delay 15
 Stand straight, legs together!
 .range 4084
@@ -5484,18 +5488,18 @@ Stand straight, legs together!
 
 
 [Action 4085]
+.delay 30
 Stand straight, legs together!
 petr lewis - slave - 0004 - stu poradne.jpg 
 Put on your blindfold and hold your hands behind your head.
-.delay 30
-.set -29 29                  ' blindfolded
+.item Toys.Blindfold apply
 .range 4086
 
 [Action 4086]
+.delay 15
 Very good, slave.
 petr lewis - slave - 0004 - stu poradne.jpg 
 Now keep your head up and your legs straight.
-.delay 15
 .range 1700
 
 
@@ -11122,8 +11126,8 @@ I hope your mouth is feeling well-used.
 
 [Action 8840]
 Return to your seat after removing all the ropes.
+.item Toys.Rope remove Body.AroundWaist Body.CrotchRoped
 .pause All ropes undone, Miss
-.unset -27 27           ' something around waist
 .range 9700
 
 
@@ -11188,10 +11192,10 @@ and sit back down for the rest of the session.
 .item Toys.Nipple_Clamps is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your crotch rope first, then your collar and nipple clamps.
-.pause All removed, Miss
-.item Toys.Nipple_Clamps remove
-.unset -27 27           ' something around waist
+.item Toys.Rope remove Body.AroundWaist Body.CrotchRoped
 .item Toys.Collar remove
+.item Toys.Nipple_Clamps remove
+.pause All removed, Miss
 .set 812                ' Done nipple training activity
 .range 9700
 
@@ -11199,18 +11203,18 @@ Remove your crotch rope first, then your collar and nipple clamps.
 .not .item Toys.Nipple_Clamps is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your crotch rope first, then your collar.
-.pause All done, Miss
-.unset -27 27           ' something around waist
+.item Toys.Rope remove Body.AroundWaist Body.CrotchRoped
 .item Toys.Collar remove
+.pause All done, Miss
 .range 9700
 
 [Action 8882]
 .item Toys.Nipple_Clamps is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Remove your crotch rope first, then your nipple clamps.
-.pause Ready, Miss
+.item Toys.Rope remove Body.AroundWaist Body.CrotchRoped
 .item Toys.Nipple_Clamps remove
-.unset -27 27           ' something around waist
+.pause Ready, Miss
 .set 812                ' Done nipple training activity
 .range 9700
 
@@ -11218,8 +11222,8 @@ Remove your crotch rope first, then your nipple clamps.
 .not .item Toys.Nipple_Clamps is applied.by.me
 .not .item Toys.Collar is applied.by.me
 You may remove the crotch rope, slave.
+.item Toys.Rope remove Body.AroundWaist Body.CrotchRoped
 .pause Finished, Miss
-.unset -27 27           ' something around waist
 .range 9700
 
 
@@ -11504,21 +11508,21 @@ Go ahead and detach the leash, slave.
 ' Remove blindfold
 
 [Action 9076]
-.must -29               ' blindfolded 
+.item Toys.Blindfold is applied.by.me
 You may remove the blindfold, slave.
+.item Toys.Blindfold remove
 .pause Thank you, Miss
-.unset -29 29           ' blindfolded
 .range 9700
 
 [Action 9077]
-.must -29               ' blindfolded 
+.item Toys.Blindfold is applied.by.me
 Go ahead and remove the blindfold.
+.item Toys.Blindfold remove
 .pause Thank you, Miss
-.unset -29 29           ' blindfolded
 .range 9700
 
 [Action 9078]
-.mustnot -29            ' blindfolded 
+.item Toys.Blindfold not is applied.by.me
 .range 9700
 
 

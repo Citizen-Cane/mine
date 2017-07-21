@@ -69,14 +69,14 @@
 .askcheck 79 24	24	-	free
 .askcheck 80 25	25	-	free
 .askcheck 81 26 26	-	free
-.askcheck 82 27	27	-	something around waist
+.askcheck 82 27	27	-	free
 .askcheck 83 28	28	-	free
-.askcheck 84 29	29	-	blindfold on
+.askcheck 84 29	29	-	free
 .askcheck 85 30	30	-	free
-.askcheck 86 31	31	-	can't sit on chair
-.askcheck 87 32	32	-	can't stand
-.askcheck 88 33	33	-	can't kneel
-.askcheck 89 34	34	-	can't type/use mouse  (this is also the case when blindfolded)
+.askcheck 86 31	31	-	free
+.askcheck 87 32	32	-	free
+.askcheck 88 33	33	-	free
+.askcheck 89 34	34	-	free
 .askcheck 90 35	35	-	tethered - can't leave computer area
 .askcheck 91 36 36  -   harnessed
 .askcheck 92 37 37  -	ball harness (includes 24)
@@ -847,6 +847,7 @@ and tie your hands on your back.
 delay 10
 .item Toys.Gag remove
 .set -22                ' something in mouth, remember
+.item Toys.Wrist_Restraints apply to Body.WristsTiedOnBack Body.CantJerkOff
 .pause I'm tied up, Miss
 .set 10                 ' wrists tied to back
 .return
@@ -857,6 +858,7 @@ delay 10
 Well, we won't need your hands right now, just your lips and tongue.
 Go get your wrist restraints and tie your hands on your back.
 delay 10
+.item Toys.Wrist_Restraints apply to Body.WristsTiedOnBack Body.CantJerkOff
 .pause I'm tied up, Miss
 .set 10                 ' wrists tied to back
 .return
@@ -878,11 +880,10 @@ delay 10
 Keep the connecting chains short, my pet.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Body.WristsTied Body.CantStand
 .pause I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
-.ifunset 31 .set -31
-.ifunset 32 .set -32
-.set 31 32              ' Can't sit on chair, can't stand 
 .return
 
 [action 3129]
@@ -895,11 +896,10 @@ Lock your right hand to your right ankle,
 and your left hand to your left ankle.
 delay 10
 Keep the connecting chains short, my pet.
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Body.WristsTied Body.CantStand
 .pause I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
-.ifunset 31 .set -31
-.ifunset 32 .set -32
-.set 31 32              ' Can't sit on chair, can't stand 
 .return
 
 
@@ -909,7 +909,7 @@ Keep the connecting chains short, my pet.
 .not .item Toys.Wrist_Restraints applied
 Well, we won't need your hands right now, just your lips and tongue,
 so get your wrist restraints and put them on.
-.item Toys.Wrist_Restraints apply
+.item Toys.Wrist_Restraints apply 
 .range 3138
 
 [action 3135]
@@ -934,6 +934,7 @@ well, after taking out your gag -
 to your slutty ball sack.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
+.item Toys.Wrist_Restraints apply to Body.OnBalls
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -945,6 +946,7 @@ to your slutty ball sack.
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your slutty ball sack.
+.item Toys.Wrist_Restraints apply to Body.OnBalls
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -958,6 +960,7 @@ well, after taking out your gag -
 tie them to your chastity cage.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
+.item Toys.Wrist_Restraints apply to Toys.Chastity_Device
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -968,6 +971,7 @@ tie them to your chastity cage.
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your chastity cage.
+.item Toys.Wrist_Restraints apply to Toys.Chastity_Device
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -982,6 +986,7 @@ well, after taking out your gag -
 to your ball harness.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
+.item Toys.Wrist_Restraints apply to Toys.Ball_Stretcher
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -992,6 +997,7 @@ to your ball harness.
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your ball harness.
+.item Toys.Wrist_Restraints apply to Toys.Ball_Stretcher
 .pause Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -1008,6 +1014,7 @@ well, after taking your gag out -
 go ahead and lock your wrist restraints to your collar.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
+.item WristRestraints apply to Toys.Collar
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1018,6 +1025,7 @@ go ahead and lock your wrist restraints to your collar.
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go ahead and lock your wrists to your collar.
+.item WristRestraints apply to Toys.Collar
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1032,6 +1040,8 @@ so fetch your wrists restraints, snap them on and
 lock'em to your collar.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
+.item WristRestraints apply
+.item WristRestraints apply to Toys.Collar
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1042,9 +1052,18 @@ lock'em to your collar.
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go fetch your wrist restraints, snap them on and lock'em to your collar.
+.item WristRestraints apply
+.item WristRestraints apply to Toys.Collar
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
+
+' TODO 4 actions to put on collar as well - remove already done
+
+'[action 3148]
+'[action 3149]
+'[action 3150]
+'[action 3151]
 
 
 ' room for one more bondage variant, but with only 7 action slots
@@ -1274,47 +1293,50 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' are used for scenario selection throughout the activity
 
 ' 3220 lie down on the floor, riding fully penetrated on the floor
-' The scenario requires just to sit down, so 32 33 could be relaxed once 180 is set
+' The scenario requires just to sit down, so Body.CantStand & Body.CantKneel can be relaxed once 180 is set
 [Action 3200]
 .state Body.OnNipples free
-.mustnot 32 33          ' Can't stand, can't kneel
+.state Body.CantStand free
+.state Body.CantKneel free
 .set 3220
 .return
 
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
-' The scenario requires just to kneel, so 32 33 could be relaxed once 180 is set
+' The scenario requires just to kneel, so Body.CantStand & Body.CantKneel can be relaxed once 180 is set
 [Action 3201]
 .state Body.OnNipples free
-.mustnot 32 33          ' Can't stand, can't kneel
+.state Body.CantStand free
+.state Body.CantKneel free
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model), and 3220 should be the introduction scenario
 .set 3221
 .return
 
 ' 3222 On stool, kneeling, riding on stool
 [Action 3202]
-.mustnot 31 33          ' Can't sit on chair, can't stand
+.state Body.CantSitOnChair free
+.state Body.CantKneel free
 .must 170               ' achievement 1, full penetration
 .set 3222
 .return
 
 ' 3223 Kneeling upright in front of desk, squatting down to ride, worshiping version
 [Action 3203]
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .must 171               ' achievement 2, full penetration, nice exercise
 .set 3223
 .return
 
 ' 3224 Mount dildo on wall or cupboard, suck kneeling upright, ride standing, bending forward, supported by chair or opposite wall
 [Action 3204]
-.mustnot 32             ' Can't stand 
-.mustnot 33             ' Can't kneel
+.state Body.CantStand free
+.state Body.CantKneel free
 .must 171               ' achievement 2, full penetration
 .set 3224
 .return
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
 [Action 3205]
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .must 172               ' achievement 3, full penetration
 .set 3225
 .return
@@ -1323,29 +1345,32 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 [Action 3206]
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.mustnot 32 33          ' Can't stand, Can't kneel 
+.state Body.CantStand free
+.state Body.CantKneel free
 .must 172               ' achievement 3, full penetration
 .set 3226
 .return
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 3207]
-.mustnot 32 33          ' Can't stand, can't kneel
+.state Body.CantStand free
+.state Body.CantKneel free
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model), and 3220 should be the introduction scenario
 .set 3227
 .return
 
 ' 3228 Suck standing, ride on all four
 [Action 3208]
-.mustnot 32             ' Can't stand 
-.mustnot 33             ' can't kneel
+.state Body.CantStand free
+.state Body.CantKneel free
 .must 174               ' achievement 5
 .set 3228
 .return
 
 ' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs 
 [Action 3209]
-.mustnot 32 33          ' Can't stand, can't kneel
+.state Body.CantStand free
+.state Body.CantKneel free
 .mustnot 43             ' nipple clamps on nipples
 .must 173               ' achievement 4, full penetration
 .must 362               ' Clothes pegs
@@ -1366,37 +1391,39 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' 3220 lie down on the floor, riding fully penetrated on the floor
 [Action 3220]
 .state Body.OnNipples free
-' would be 32 Can't stand, assume standing and lying have the same restrictions, but lower legs can point upwards (as the model does)
+' restriction would be Body.CantStand, assuming standing and lying have the same restrictions,
+' but since lower legs can point upwards (as the model does) we are good to go
 .return
 
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
 [Action 3221]
 .state Body.OnNipples free
-' would be 32 Can't stand, assume standing and lying have the same restrictions, but lower legs can point upwards (as the model does)
+' restriction would be Body.CantStand, assuming standing and lying have the same restrictions,
+' but since lower legs can point upwards (as the model does) we are good to go
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model)
 .return
 
 ' 3222 On stool, kneeling, riding on stool
 [Action 3222]
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .must 170               ' advancement 1, full penetration
 .return
 
 ' 3223 Kneeling upright in front of desk, squatting down to ride, worshiping version
 [Action 3223]
-.mustnot 33             ' Can't kneel 
+.state Body.CantKneel free
 .must 171               ' advancement 2, full penetration, nice exercise
 .return
 
 ' 3224 Mount dildo on wall or cupboard, suck kneeling upright, ride standing, bending forward, supported by chair or opposite wall
 [Action 3224]
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .must 171               ' advancement 2, full penetration
 .return
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
 [Action 3225]
-.mustnot 33             ' Can't kneel
+.state Body.CantKneel free
 .must 172               ' advancement 3, full penetration
 .return
 
@@ -1406,20 +1433,20 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 3227]
-.mustnot 33             ' can't kneel
+.state Body.CantKneel free
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model)
 .return
 
 ' 3228 Suck standing, ride on all four
 [Action 3228]
-.mustnot 32             ' can't stand
+.state Body.CantStand free
 .must 174               ' advancement 5, full penetration
 .return
 
 ' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs 
 [Action 3229]
-.mustnot 32             ' can't stand
-.mustnot 43             ' nipple clamps on nipples
+.item Toys.Nipple_Clamps not applied
+.state Body.CantStand free
 .must 173               ' advancement 4, full penetration
 .must 362               ' Clothes pegs
 .return
@@ -1439,19 +1466,19 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' 3235 Mount dildo on floor, kneel down, arms straight on the floor
 [Action 3235]
 .must 103               ' Mistress impatient
-.mustnot 33             ' Can't kneel 
+.state Body.CantKneel free
 .mustnot 140            ' Worshiping activity
 .return
 
 ' 3236 Mount dildo on a wall or cupboard, kneel upright, arms behind head
 [Action 3236]
-.mustnot 33             ' Can't kneel 
+.state Body.CantKneel free
 .mustnot 140            ' Worshiping activity
 .return
 
 ' 3237 Mount dildo on a window pane or mirror, sit on heels, nipple clamps
 [Action 3237]
-.mustnot 33             ' Can't kneel 
+.state Body.CantKneel free
 .mustnot 42             ' clothes pegs on nipples
 .mustnot 140            ' Worshiping activity
 .must 361               ' have nipple clamps
@@ -1459,7 +1486,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3238 Kneeling upright in front of desk - punishment version
 [Action 3238]
-.mustnot 33             ' Can't kneel 
+.state Body.CantKneel free
 .mustnot 140            ' Worshiping activity
 .return
 
@@ -1932,6 +1959,7 @@ and lock your wrists behind you.
 Then grab your ankles as shown,
 and wait for my command!
 I give you a minute to sort it all out.
+.item Toys.Blindfold apply
 delay 15
 .unset 3367
 .range 3369
@@ -1945,6 +1973,7 @@ put on the blindfold,
 grab your ankles as shown,
 then wait for my command!
 I give you a minute to sort it all out.
+.item Toys.Blindfold apply
 delay 15
 .unset 3368
 .range 3369
@@ -4814,6 +4843,7 @@ You're a bit of a disappointment tonight, aren't you, slave?
 .must 10                ' Wrists tied on back 
 .keyrelease release
 You can untie your wrists, slave.
+.item Toys.Wrist_Restraints remove
 .pause Thank you, Miss
 .unset 10
 .range 4378
@@ -4825,63 +4855,69 @@ You can untie your wrists, slave.
 .must 11                ' Wrist to ankles tied together on each side 
 .keyrelease release
 You can untie your wrists and ankles, slave.
+.item Toys.Ankle_Restraints remove
+.item Toys.Wrist_Restraints remove
 .pause Thank you, Miss
-.unset 10
-.ifset -31 .unset -31 31' Can't sit on chair
-.ifset -32 .unset -32 32' Can't stand
+.unset 11
 .range 4378
 
 
 ' wrists to ball sack
 
+' ball sack directly
 [Action 4324]
 .must 16                ' Wrists to ball sack
-.state Body.WristsTied free
-.mustnot 37             ' ball harness
-.item Toys.Chastity_Device applied
+.item Toys.Wrist_Restraints applied.by.me
+.item Toys.Wrist_Restraints applied to Body.OnBalls
 .keyrelease release
 You can untie your wrists from your ball sack, slave.
+.item Toys.Wrist_Restraints remove
 .pause Thank you, Miss
 .unset 16
 .range 4378
 
+' ball sack directly
 [Action 4325]
 .must 16                ' Wrists to ball sack
-.state Body.WristsTied applied
-.mustnot 37             ' ball harness
-.item Toys.Chastity_Device not applied
+.item Toys.Wrist_Restraints not applied.by.me
+.item Toys.Wrist_Restraints applied to Body.OnBalls
 .keyrelease release
 You may untie your wrists from your ball sack, slave,
 but keep the restraints on.
+.item Toys.Wrist_Restraints remove from Body.OnBalls
 .pause Done, Miss
 .unset 16
 .range 4378
 
+' chastity cage
 [Action 4326]
 .must 16                ' Wrists to ball sack
-.state Body.WristsTied free
-.item Toys.Chastity_Device applied
+.item Toys.Wrist_Restraints applied.by.me
+.item Toys.Wrist_Restraints applied to Toys.Chastity_Device
 .keyrelease release
 You can detach your wrists from your chastity cage, slave.
+.item Toys.Wrist_Restraints remove
 .pause Thank you, Miss
 .unset 16
 .range 4378
 
+' chastity cage
 [Action 4327]
 .must 16                ' Wrists to ball sack
-.state Body.WristsTied applied
-.item Toys.Chastity_Device applied
+.item Toys.Wrist_Restraints not applied.by.me
+.item Toys.Wrist_Restraints applied to Toys.Chastity_Device
 .keyrelease release
 You may detach your wrists from your chastity cage, slave,
 but keep them tied.
+.item Toys.Wrist_Restraints remove from Toys.Chastity_Device
 .pause Thank you, Miss
 .unset 16
 .range 4378
 
 [Action 4328]
 .must 16                ' Wrists to ball sack
-.state Body.WristsTied free
-.must 37                ' ball harness
+.item Toys.Wrist_Restraints applied.by.me
+.item Toys.Wrist_Restraints applied to Toys.Ball_Stretcher
 .keyrelease release
 You can untie your wrists from the ball harness, slave.
 .pause Thank you, Miss
@@ -4890,8 +4926,9 @@ You can untie your wrists from the ball harness, slave.
 
 [Action 4329]
 .must 16                ' Wrists to ball sack
-.state Body.WristsTied applied
-.must 37                ' ball harness
+.item Toys.Wrist_Restraints not applied.by.me
+.item Toys.Wrist_Restraints applied to Toys.Ball_Stretcher
+.item Toys.Ball_Stretcher applied
 .keyrelease release
 You may detach your wrists restraints from the ball harness, slave,
 but keep them tied.
@@ -4911,8 +4948,9 @@ but keep them tied.
 
 [Action 4332]
 .must 17                ' Wrists to collar, collar
-.state Body.WristsTied applied
-.state Body.AroundNeck free
+.item Toys.Wrist_Restraints applied to Toys.Collar
+.item Toys.Wrist_Restraints not is applied.by.me
+.item Toys.Collar is applied.by.me
 .keyrelease release
 You can untie your wrists from your collar and take it off,
 but keep your wrists tied.
@@ -4922,20 +4960,22 @@ but keep your wrists tied.
 
 [Action 4333]
 .must 17                ' Wrists to collar
-.state Body.WristsTied applied
-.state Body.AroundNeck applied
+.item Toys.Wrist_Restraints applied to Toys.Collar
+.item Toys.Wrist_Restraints not is applied.by.me
+.item Toys.Collar not is applied.by.me
 .keyrelease release
 You can untie your wrists from your collar,
 but keep your wrists tied.
-I also want you to keep wearing your collar, slave, so leave it on. 
+I also want you to keep wearing your slave collar, so leave it on. 
 .pause Done, Miss
 .unset 17
 .range 4378
 
 [Action 4334]
 .must 17                ' Wrists to collar, collar
-.state Body.WristsTied free
-.state Body.AroundNeck free
+.item Toys.Wrist_Restraints applied to Toys.Collar 
+.item Toys.Wrist_Restraints is applied.by.me
+.item Toys.Collar is applied.by.me
 .keyrelease release
 You can untie your wrist restraints from your collar, and take off both. 
 .pause Thank you, Miss
@@ -4944,11 +4984,12 @@ You can untie your wrist restraints from your collar, and take off both.
 
 [Action 4335]
 .must 17                ' Wrists to collar
-.state Body.WristsTied free
-.state Body.AroundNeck applied
+.item Toys.Wrist_Restraints applied to Toys.Collar
+.item Toys.Wrist_Restraints is applied.by.me
+.item Toys.Collar not is applied.by.me
 .keyrelease release
 You can untie your wrists from your collar and take the restraints off.
-But I want you to keep wearing your collar, slave. 
+But I want you to keep wearing your slave collar. 
 .pause Thank you, Miss
 .unset 17
 .range 4378
@@ -4982,7 +5023,17 @@ But I want you to keep wearing your collar, slave.
 '[Action 4391]
 '[Action 4392]
 '[Action 4393]
-'[Action 4394]
+
+[Action 4394]
+You may take the blindfold off now.
+ShowChoices
+delay 30
+Did you hear me, slave?
+Take the blindfold off!
+.item Toys.Blindfold remove
+.pause Done, Miss
+.range 4400
+
 '[Action 4395]
 '[Action 4396]
 '[Action 4397]
@@ -5107,30 +5158,31 @@ Now crawl off and put the dildo away.
 
 
 [Action 4435]
-.mustnot 27                  ' Something around waist, crotch rope
+.state Body.CrotchRoped free
 Well, I feel like keeping you impaled for the rest of the session. 
 .gosub 4440
 .range 4460
 
 [Action 4436]
-.mustnot 27                  ' Something around waist, crotch rope
+.state Body.CrotchRoped free
 Before we continue, we have to take care of your dildo as you're going to
 keep your little friend buried inside your slave anus until the end of the session.
 .gosub 4440
 .range 4460
 
 [Action 4437]
-.mustnot 27                  ' Something around waist, crotch rope
+.state Body.CrotchRoped free
 By the way, your little friend will stay
 inside your slave anus for the rest of the session.
 .gosub 4440
 .range 4460
 
 [Action 4438]
-.must 27                     ' Something around waist, crotch rope
+.state Body.CrotchRoped applied
 You will keep your little friend buried in your slave anus for the rest of the session.
-By the way, slave, your crotch rope appears to be a bit loose.
-Tigthen it up to achieve a stronger pull on the crotch -
+By the way, slave,
+your crotch rope appears to be a bit loose.
+Tighten it up to achieve a stronger pull on the crotch -
 I don't want your little friend to accidently slip out.
 delay 7
 .pause Is it tight enough now, Miss?
@@ -5165,16 +5217,16 @@ to hold the dildo firmly in place.
 Wrap the rope tightly around yor waist and tie it off,
 then fed it down through your crotch, pull back up,
 loop it around your waist wrap, and tie it up.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause I'm crotch-roped, Miss
-.set 27                 ' something around waist, crotch rope 
 .range 4450 4454
 
 ' belts, shoe lace etc.
 [Action 4446]
 Strap a belt around your waist, attach some rope or shoe lace to the belt,
 fed it down through your crotch to the other side  and tie it up.
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause I'm crotch-roped, Miss
-.set 27                 ' something around waist, crotch rope 
 .range 4450 4454
 
 '[Action 4447]
@@ -5242,7 +5294,7 @@ You may take the clothes pegs off.
 .state Body.OnNipples is applied.by.me
 You may take your nipple clamps off now.
 .pause Thank you, Miss
-.item Toys.Nipple_Clamps remove
+.item Toys.Nipple_Clamps 
 .set 812                ' Done nipple training activity
 .range 4490
 
@@ -5648,8 +5700,8 @@ Hurry up, slave!
 delay 10
 RebeccaYoga(35).jpg
 Are you ready to continue your workout?
+.item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .pause Yes, Miss, the crotch rope sits tight!
-.set 27                      ' Something around waist
 .range 5350
 
 [Action 5350]
