@@ -6987,7 +6987,7 @@ Very good, slave.
 Now fetch some rope or a chain,
 and tie your ankle restraints to your chastity cage. 
 I don't want you to be able to stand, so keep the connecting rope short.
-.item Toys.Chain apply to Toys.Chastity_Cage Toys.Ankle_Restraints
+.item Toys.Chains apply to Toys.Chastity_Device Toys.Ankle_Restraints
 .pause Done, Miss
 .range 2599
 
@@ -6995,25 +6995,25 @@ I don't want you to be able to stand, so keep the connecting rope short.
 
 ' ankles tied with rope - balls tied already
 [Action 2595]
-.state Body.OnBalls is Toys.Rope OR Toys.Chains OR Toys.Ball_Stretcher
+.state Body.OnBalls is Toys.Rope OR is Toys.Chains OR is Toys.Ball_Stretcher
 .item Body.OnPenis not applied 
 .mustnot 267 268        ' Enema carrying out or holding
 .must 2591
 Now get another rope, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
-.items Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.CantStand
+.item Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.CantStand
 .pause Done, Miss
 .range 2599
 
 ' ankles tied with ankle restraints - balls tied already
 [Action 2596]
-.state Body.OnBalls is Toys.Rope OR Toys.Chains OR Toys.Ball_Stretcher
+.state Body.OnBalls is Toys.Rope OR is Toys.Chains OR is Toys.Ball_Stretcher
 .item Body.OnPenis not applied 
 .mustnot 267 268        ' Enema carrying out or holding
 .must 2593
 Now get some rope or a chain, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
-.items Toys.Rope apply to Toys.Ankle_Restraints Body.OnBalls Body.CantStand
+.item Toys.Rope apply to Toys.Ankle_Restraints Body.OnBalls Body.CantStand
 .pause Done, Miss
 .range 2599
 
@@ -7027,7 +7027,7 @@ Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
 When you're finished, connect the left-over of that rope to the rope between your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
-.items Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.AnklesTied Body.CantStand
+.item Toys.Rope apply to Body.AnklesTied Body.OnBalls Body.AnklesTied Body.CantStand
 .pause Done, Miss
 .range 2599
 
@@ -7041,7 +7041,7 @@ Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
 When you're finished, connect the left-over of that rope to your ankle restraints.
 I don't want you to be able to stand, so keep the connecting rope short.
-.items Toys.Rope apply to Toys.Ankle_Restraints Body.OnBalls Body.CantStand
+.item Toys.Rope apply to Toys.Ankle_Restraints Body.OnBalls Body.CantStand
 .pause Done, Miss
 .range 2599
 
@@ -7261,7 +7261,7 @@ Good.
 Now get a good weight of at least a pound and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
-.item Toys.Ball_Harness apply Household.Weight
+.item Toys.Ball_Stretcher apply to Household.Weight
 .pause Weight attached, Miss
 .set 746                    ' CBT 1
 .return
@@ -7273,7 +7273,7 @@ Good.
 Now get a good weight of at least a pound and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
-.item Toys.Ball_Harness apply Household.Weight
+.item Toys.Ball_Stretcher apply to Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748             ' CBT 3
 .return
@@ -7285,7 +7285,7 @@ Good.
 Now get a good weight of at least two pounds and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
-.item Toys.Ball_Harness apply Household.Weight
+.item Toys.Ball_Stretcher apply to Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748 749         ' CBT 4
 .return
@@ -7297,7 +7297,7 @@ Good.
 Now get a good weight of at least two pounds and attach it to the ball harness.
 Keep the connection short, slave -
 you're not allowed to rest the weight on the ground, my pet.
-.item Toys.Ball_Harness apply Household.Weight
+.item Toys.Ball_Stretcher apply to Household.Weight
 .pause Weight attached, Miss
 .set 746 747 748 749 750     ' CBT 5
 .return
@@ -7533,7 +7533,7 @@ I'll get you next time, you dirty slave!
 ' TODO implement taking the clamps off during wanking, and relax timing conditions in activities
 .not .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 .not .painToysOnBalls
-.state Body.SomethingOnPenis free
+.state Body.OnPenis free
 .state Body.CantJerkOff free
 .save 90 799
 .loadsbd mine-td.sbd 1104 1104
@@ -7759,7 +7759,7 @@ I still want you to work hard to stay hard, slave.
 
 [Action 2961]
 .item Toys.Ball_Stretcher not available
-.item Toys.Chains nott available
+.item Toys.Chains not available
 Let's get some rope, and tie it around the base of your flacid penis.
 Be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
@@ -7803,7 +7803,7 @@ Very good, slave!
 [Action 2966]
 .must 2960
 Now connect all those jingling items to your "cock collar".
-.item Toys.Rope apply Household.Bell
+.item Toys.Rope apply to Household.Bell
 .pause Done, Miss
 .range 2970
 
@@ -7812,7 +7812,7 @@ Now connect all those jingling items to your "cock collar".
 .must 2961
 .mustnot 2962
 Now tie all those jingling items to the loose end of the rope.
-.item Toys.Rope apply Household.Bell Toys.Chains
+.item Toys.Rope apply to Household.Bell Toys.Chains
 .pause Done, Miss
 .range 2970
 
@@ -7820,14 +7820,14 @@ Now tie all those jingling items to the loose end of the rope.
 [Action 2968]
 .mustanyof 2962 2963    ' bells on balls
 Now connect all those jingling items to your ball harness.
-.item Toys.Ball_Stretcher apply Household.Bell Toys.Chains
+.item Toys.Ball_Stretcher apply to Household.Bell Toys.Chains
 .pause Done, Miss
 .range 2970
 
 [Action 2969]
 .mustanyof 2962 2963    ' bells on balls
 Now go ahead and connect all those jingling items to your ball harness.
-.item Toys.Ball_Stretcher apply Household.Bell Toys.Chains
+.item Toys.Ball_Stretcher apply to Household.Bell Toys.Chains
 .pause Done, Miss
 .range 2970
 
@@ -8442,7 +8442,7 @@ humbly ask for My gracious permission to visit the toilet.
 ' enema tube detach complete
 
 [Action 3080]
-.item Toys.Enema_Kit remove Body.CantStand
+.item Toys.Enema_Kit remove from Body.CantStand
 .unset 35               ' Tethered
 .unset 267              ' taking the enema 
 .set 268                ' holding the enema
@@ -9132,7 +9132,7 @@ but not enough so that you can stand up straight.
 Leave your chains on for the whole session, slave.
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
-.item Toys.Chains apply Toys.Ankle_Restraints Toys.Wrist_Restraints Body.CantStand
+.item Toys.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Body.CantStand
 .pause I'm chained up, Miss
 .set 737	            ' restraint acceptance 2
 .return
@@ -9162,8 +9162,8 @@ You should just be able to wank, but no more.
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .item Toys.Collar apply
-.item Toys.Chains apply Toys.Ankle_Restraints Toys.Wrist_Restraints Body.CantStand
-.item Toys.Chains apply Toys.Collar
+.item Toys.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Body.CantStand
+.item Toys.Chains apply to Toys.Collar
 .set 738	            ' restraint acceptance 3
 .range 3290
 
@@ -9417,7 +9417,7 @@ Put it on now, slave!
 Very good, slave.
 Go grab a convenient weight - about a pound or so - and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
-.item Toys.Ball_Stretcher apply to HouseHold.Weight
+.item Toys.Ball_Stretcher apply to Household.Weight
 .pause Weight attached, Miss
 .set 748                ' cbt 3
 .range 3290
@@ -9431,7 +9431,7 @@ Put it on now, slave.
 [I'm wearing it, Miss]
 Now slave, grab a convenient weight - about two pound or so - and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
-.item Toys.Ball_Stretcher apply to HouseHold.Weight
+.item Toys.Ball_Stretcher apply to Household.Weight
 .pause Weight attached, Miss
 .set 749                ' cbt 4
 .range 3290
@@ -9446,7 +9446,7 @@ Put it on now, slave.
 Now grab a good weight of three to four pounds and attach it to the harness.
 Leave it there for the whole session.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
-.item Toys.Ball_Stretcher apply to HouseHold.Weight
+.item Toys.Ball_Stretcher apply to Household.Weight
 .pause Weight attached, Miss
 .set 750                ' cbt 5
 .range 3290
@@ -9462,8 +9462,8 @@ When you kneel, you are not allowed to rest the weight on the ground, My pet.
 Get your ankle restraints, slave chains, and your ball harness.
 Chain each ankle to your slutty ball sack so that you can just kneel straight.
 .item Toys.Ankle_Restraints apply
-.item Toys.Ball_Strectcher apply
-.item Toys.Chains apply Body.AnklesTied Body.OnBalls Body.CantStand 
+.item Toys.Ball_Stretcher apply
+.item Toys.Chains apply to Body.AnklesTied Body.OnBalls Body.CantStand 
 .pause Ankles chained to balls, Miss
 .range 3290
 
@@ -14636,7 +14636,7 @@ Just in case, those balls stay trapped between those bars, sweetheart.
 [Action 7586]
 .must 214               ' cock bondage temporary
 Oh, before I forget, you may untie your cock bondage, sweetheart.
-.item Rope remove from Body.OnBalls Body.AroundCockBase Body.OnPenis
+.item Toys.Rope remove from Body.OnBalls Body.AroundCockBase Body.OnPenis
 .pause Thank you, Miss
 .unset 214              ' Cock bondage temporary
 .set 261                ' one-time per session, don't put cock bondage on again
@@ -16802,14 +16802,14 @@ You surely want to be allowed to take that chastity cage off, don't you, slave?
 ' Have key for chastity cage now or soon
 [Action 9211]
 .mustnot 103
-.item Toys.Chastity_Device remaining less_than 02:00"00
+.item Toys.Chastity_Device remaining LessOrEqualThan 02:00"00
 Your swollen hot cock surely bursts inside that tight cage, doesn't it?
 .yestext Yes, please let me take it off, Miss
 .notext Thanks Miss, I'm fine
 .yesno 9240 9249 9205 9209
 
 [Action 9212]
-.item Toys.Chastity_Device remaining less_than 02:00"00
+.item Toys.Chastity_Device remaining LessOrEqualThan 02:00"00
 .must 103
 And you've been such a bitch recently that I don't see a reason to
 grand you any satisfaction right now.
@@ -16985,7 +16985,7 @@ but for the time being, we gonna leave your little shriveled up prick locked up.
 .range 9250             ' Chastified
 
 [Action 9232]
-.item Toys.Chastity_Device remaining less_than 02:00"00 
+.item Toys.Chastity_Device remaining LessOrEqualThan 02:00"00 
 .mustnot 103
 .poss 10
 It looks like it is in good hands in there, hihi.
@@ -16993,14 +16993,14 @@ Let's leave that little shriveled up prick of yours locked up.
 .range 9250             ' Chastified
 
 [Action 9233]
-.item Toys.Chastity_Device remaining less_than 01:00"00 
+.item Toys.Chastity_Device remaining LessOrEqualThan 01:00"00 
 .poss 10
 As it looks, your piece of meat is well placed inside that cage,
 so let's leave that little shriveled up prick of yours locked up until later.
 .range 9250             ' Chastified
 
 [Action 9234]
-.item Toys.Chastity_Device remaining less_than 02:00"00 
+.item Toys.Chastity_Device remaining LessOrEqualThan 02:00"00 
 .must 103
 .poss 15
 Slave, you've been such a bitch recently that I don't see
@@ -17043,7 +17043,7 @@ We'll see later whether you will be allwowed to wank for me.
 '.range 9250             ' Chastified
 '
 [Action 9243]
-.item Toys.Chastity_Device remaining less_than 02:00"00 
+.item Toys.Chastity_Device remaining LessOrEqualThan 02:00"00 
 .mustnot 103
 .poss 10
 Don't be frustrated, slave,
@@ -17052,7 +17052,7 @@ into that tight cage until you deserve it to be released.
 .range 9250             ' Chastified
 
 [Action 9244]
-.item Toys.Chastity_Device remaining less_than 02:00"00 
+.item Toys.Chastity_Device remaining LessOrEqualThan 02:00"00 
 .must 103
 .poss 15
 Slave, you've been so bitchy recently that I don't see why I should grand you
@@ -17095,7 +17095,7 @@ That's a good chastity slave.
 ' Slave has the key - soon in the next two hours
 ' Continue with asking whether slave likes to be released
 [action 9255]
-.item Toys.Chastity_Device remaining less_than 02:00"00 
+.item Toys.Chastity_Device remaining LessOrEqualThan 02:00"00 
 .range 9210 9214
 
 ' TODO comment different duration lengths (> 3h means non release in this session)
@@ -18993,7 +18993,7 @@ Make the water as cold as possible -
 When you return I want to see just a small shrivelled prick!
 And now head off into the bathroom, slut.
 ' TODO explicitely mention the toys to remove
-.item Toys.Ball_Harness remove 
+.item Toys.Ball_Stretcher remove 
 .item Toys.Humbler remove 
 .item Toys.Rope Toys.Chains remove from Body.Balls Body.CantStand Body.CantSitOnChair Toys.Ankle_Restraints Toys.Ball_Stretcher 
 .range 9956 9957
@@ -21561,26 +21561,26 @@ what else is there for a slave to do than to concentrate on his Mistress?
 
 
 [action 11997]
-.item Toys.Chain not is Toys.ChastityCage Toys.Ankle_Restraints
+.item Toys.Chains not is Toys.Chastity_Device Toys.Ankle_Restraints
 .return
 
 [action 11998]
-.item Toys.Chain is Toys.ChastityCage Toys.Ankle_Restraints
+.item Toys.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
 Well slave,
 you may also remove the connecting chain between your ankle restraints and the cage.
 I guess I'll have you stand again.
 .item Toys.Chastity_Device remove
-.item Toys.Chains remove Toys.Chastity_Device Body.CantStand 
+.item Toys.Chains remove from Toys.Chastity_Device Body.CantStand 
 .pause Thank you, Miss
 .return
 
 [action 11999]
-.item Toys.Chain is Toys.ChastityCage Toys.Ankle_Restraints
+.item Toys.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
 Well, you haven't earned the privilege to stand today, slave!
 Take the chain between your ankles and tie it to your ball sack.
-.item Toys.Chains remove Toys.Chastity_Device 
+.item Toys.Chains remove from Toys.Chastity_Device 
 .item Toys.Chastity_Device remove
-.item Toys.Chains apply Body.OnBalls Body.CantStand
+.item Toys.Chains apply to Body.OnBalls Body.CantStand
 .pause Of course, Miss
 .return
 
