@@ -1,3 +1,12 @@
+' basic defines and declarations
+
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+
 .backcolor 255 80 80
 .textcolor 0 0 0
 .ssdir mine             ' using the main image directory here since there are only a few images of mistress shown here
@@ -1385,12 +1394,15 @@ The connecting chain adds weight, thus increasing sensation.
 Especially when supported by an extra weight, which you are also to procure.
 delay 5
 []
-The skin of the ball sack is very sensitive, but you may as well attach the clamps at the base of the sack, where the skin is a bit thicker and is underlaid with a bit more flesh than the sack itself.
+The skin of the ball sack is very sensitive, but you may as well attach the clamps at the base of the sack,
+where the skin is a bit thicker and is underlaid with a bit more flesh than the sack itself.
 .pause That's very gracious of you, Miss
 .range 3913 3914
 
+
 [Action 3913]
-.must 362
+.item Toys.Nipple_Clamps available
+.item Toys.Nipple_Clamps not applied
 Is it?
 1370169984.jpg
 Well, that way there's more weight to hang from them!
@@ -1398,15 +1410,17 @@ Well, that way there's more weight to hang from them!
 By the way:
 Most types of nipple clamps can also be used as pussy clamps.
 Try out yours!
-Go fetch them, add a good weight to the clamps, for instance one of your shoes, and clamp them to your poor ball sack.
+Go fetch them, add a good weight to the clamps,
+for instance one of your shoes, and clamp them to your poor ball sack.
 delay 20
 Let me know when the shoe is swinging freely, slave.
 delay 10
+.item Toys.Nipple_Clamps apply to Body.OnBalls
 .pause It's very uncomfortable, Miss
 .range 3915
 
 [Action 3914]
-.mustnot 362
+.else
 Is it?
 Well, that way there's more weight to hang from them.
 []
@@ -1417,6 +1431,7 @@ delay 20
 Let me know when it's hanging from your ball sack and swinging freely, slave.
 .pause It's very uncomfortable, Miss
 .range 3915
+
 
 [Action 3915]
 Yes, slave - that's intended.
@@ -1434,23 +1449,27 @@ Let it swing!
 delay 15
 .range 3916 3917
 
+
 [Action 3916]
+.item Toys.Nipple_Clamps applied to Body.OnBalls
 Very good, slave.
 delay 10
 You may remove the pussy clamps - for now!
+.item Toys.Nipple_Clamps remove
 .pause Thank you, Miss
 .range 3918 3919
 
 [Action 3917]
+.else
 Very good, slave.
 delay 10
-.mustnot 362
 You may remove the clothes pegs - for now!
 .pause Thank you, Miss
 .range 3918 3919
 
+
 [Action 3918]
-.must 362
+.must 3916
 I expect you to have an distinct pair of pussy clamps together with a good weight by or next visit together.
 And make sure you'll have a pair of each, since I like to torture your nipples and your pussy at the same time.
 Can you make this happen, slave?
@@ -1458,11 +1477,12 @@ Can you make this happen, slave?
 .range 3920
 
 [Action 3919]
-.mustnot 362
+.must 3917
 I expect you to have a pair of pussy clamps together with a good weight by our next visit together.
 Can you make this happen, slave?
 .pause Yes, Miss!
 .range 3920
+
 
 [action 3920]
 .range 9000 9001	' common exit point for equipment classes

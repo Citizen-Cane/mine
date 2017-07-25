@@ -342,8 +342,8 @@
 '	32	-	free
 '	33	-	free
 '	34	-	free
-'	35	-	tethered - can't leave computer area
-'   36  -   harnessed
+'	35	-	free
+'   36  -   free
 '   37  -	free
 '   38  -   free
 '   39  -   free 
@@ -489,7 +489,7 @@
 .askcheck       50     	20	20 -	free
 .askcheck       51     	21	21 -	free
 .askcheck       52     	22	22 -	free
-.askcheck       53     	23	23 -	something on penis
+.askcheck       53     	23	23 -	free
 .askcheck       54     	24	24 -	free
 .askcheck       55     	25	25 -	free
 .askcheck       56     	26	26 -	free
@@ -501,8 +501,8 @@
 .askcheck       62     	32	32 -	free
 .askcheck       63      33	33 -	free
 .askcheck       64     	34	34 -	free
-.askcheck       65      35	35 -	tethered - can't leave computer area
-.askcheck       66      36  36 -	harnessed
+.askcheck       65      35	35 -	free
+.askcheck       66      36  36 -	free
 .askcheck       67      37  37 -	free
 .askcheck       68      38  38 -	free
 .askcheck       69      39  39 -	free 
@@ -513,7 +513,7 @@
 .askcheck       74      44  44 -	free
 .askcheck       75      45  45 -	free
 .askcheck       76      46  46 -	free
-.askcheck       77      47  47 -	Vibrator or E-EStim device attached
+.askcheck       77      47  47 -	free
 
 
 ' Debug
@@ -1748,7 +1748,8 @@ Let's continue your slave training.
 .state Body.CrotchRoped free
 .should .state Body.AroundNeck free
 .state Body.CantStand free
-.mustnot 36             ' harnessed
+.state Body.CrotchRoped free
+.state Body.Harnessed free
 .should .state Body.OnBalls free
 .mustnot 148            ' another position, requires generic toy removal
 .shouldnot 575          ' prefer a position that hasn't been done before
@@ -1765,8 +1766,9 @@ Let's continue your slave training.
 .state Body.WristsTied free
 .state Body.CrotchRoped free
 .state Body.CantStand free
-.mustnot 36             ' harnessed
 .state Body.OnBalls free
+.state Body.CrotchRoped free
+.should .state Body.Harnessed free
 .mustnot 148            ' another position, requires generic toy removal
 .must 575               ' Crotch rope referenced  "as usual" -> do 575 first
 .shouldnot 576          ' prefer a position that hasn't been done before
@@ -2790,30 +2792,30 @@ Let's continue your slave training.
  
 [Action 1821]
 .item Toys.Chastity_Device not applied
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator available
+.item Toys.Vibrator not applied
 .mustnot 179            ' punishment
-.must 389               ' A vibrator
 Now lazy little sluts such as yourself often need a little
 extra incentive to keep it up during their training.
 So go fetch your vibrator, E-Stim device or whatever you've got,
 and attach it to your silly slave penis.
-Then set it up to a teasing, tantalizing rythm!
+Then set it up to a teasing, tantalizing rhythm!
+.item Toys.Vibrator apply
 .pause Vibrator attached and running, Miss 
-.set -47 47             ' Vibrator attached
 .range 1880
 
 [Action 1822]
 .item Toys.Chastity_Device not applied
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator available
+.item Toys.Vibrator not applied
 .mustnot 179            ' punishment
-.must 389               ' A vibrator
 Now lazy little sluts such as yourself often need a little
 extra incentive to keep it up during their training.
 So go fetch your vibrator, E-Stim device or whatever you've got,
 attach it to your silly slave penis,
-and set it up to a teasing, tantalizing rythm!
+and set it up to a teasing, tantalizing rhythm!
+.item Toys.Vibrator apply
 .pause Vibrator attached and running, Miss 
-.set -47 47             ' Vibrator attached
 .range 1880
 
 '[Action 1823]
@@ -2821,28 +2823,28 @@ and set it up to a teasing, tantalizing rythm!
 
 [Action 1825]
 .item Toys.Chastity_Device applied
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator available
+.item Toys.Vibrator not applied
 .mustnot 179            ' punishment
-.must 389               ' A vibrator
 Well, I guess my dear maid in training deserves a little extra excitement today:
 Fetch your vibrator, E-Stim device or whatever you've got,
 attach it to your chastity cage,
-and set it up to a teasing, tantalizing rythm!
+and set it up to a teasing, tantalizing rhythm!
+.item Toys.Vibrator apply
 .pause Vibrator attached and running, Miss 
-.set -47 47             ' Vibrator attached
 .range 1880
 
 [Action 1826]
 .item Toys.Chastity_Device applied
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator available
+.item Toys.Vibrator not applied
 .mustnot 179            ' punishment
-.must 389               ' A vibrator
 Well, I guess my dear maid in training deserves a little extra excitement today:
 Fetch your vibrator, E-Stim device or whatever you've got,
 attach it to your chastity cage,
-and set it up to a teasing, tantalizing rythm!
+and set it up to a teasing, tantalizing rhythm!
+.item Toys.Vibrator apply
 .pause Vibrator attached and running, Miss 
-.set -47 47             ' Vibrator attached
 .range 1880
 
 '[Action 1827]
@@ -2852,13 +2854,13 @@ and set it up to a teasing, tantalizing rythm!
 ' do another position - increase intensity of teasing device when wearing vibrator already
 
 [Action 1831]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .mustnot 179            ' punishment
 Well, I think you can ramp up the intensity of your teasing toy a couple of notches
-or choose a more tantalizing rythm.
+or choose a more tantalizing rhythm.
 What do you choose, slave?
-.yestext Increased intensity , Miss 
-.notext A more tantalizing rythm, Miss
+.yestext Increased intensity, Miss 
+.notext A more tantalizing rhythm, Miss
 .yesno 1880 1880 1880 1880
 
 
@@ -2868,8 +2870,7 @@ What do you choose, slave?
 .range 1899
 
 [Action 1839]
-.else
-.mustnot 389            ' A vibrator
+.item Toys.Vibrator not available
 .unset 1839
 .range 1899
 
@@ -5468,7 +5469,7 @@ You do have a blindfold, don't you, slave?
 
 [Action 4081]
 .state Body.Blindfolded free
-.must 382                    ' have blindfold
+.item Toys.Blindfold available
 This is a fairly easy position, slave.
 You'll just need your blindfold.
 Go get it!
@@ -8856,7 +8857,7 @@ This will be a particularly uncomfortable position for you to endure.
 
 [Action 6501]
 '.else
-.must 368                    ' Butt plug
+.item Toys.Buttplug available
 .poss 100                    ' favour plug since the image set shows a plug
 First fetch a buttplug for your ass.
 Better get a towel, too!
@@ -8866,7 +8867,6 @@ You do have these items, I hope?
 
 [Action 6502]
 .else
-'.must 388                    ' dildo
 First fetch a dildo for your ass.
 Better get a towel, too!
 And we also need a snap hook.
@@ -9392,14 +9392,14 @@ then you've failed this position!
 
 
 [Action 7301]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 Well, at least you didn't spurt off, you lazy cunt.
-.unset 47
+.item Toys.Vibrator remove
 .unset 7301
 .range 7308 7309
 
 [Action 7302]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .unset 7302
 .range 7308 7309
 
@@ -10131,8 +10131,8 @@ Are you kidding me?
 ' Butt plug/dildo
 
 [Action 7760]
-.mustnot 368            ' Butt plug 
-.mustnot 388            ' Dildo 
+.item Toys.Buttplug not available
+.item Toys.Dildo not available
 No butt plug?
 No dildo?
 At this point, slave, these failures are hard to understand,
@@ -10398,7 +10398,7 @@ That's pathetic, slave, and I'm just fed up with you.
 
 
 [Action 8301]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .mustnot 113
 .playwav bell1.mp3
 Very good, slave.
@@ -10406,7 +10406,7 @@ Very good, slave.
 .range 8399
 
 [Action 8302]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .mustnot 110 111
 .playwav bell1.mp3
 Very good, slave.
@@ -10415,7 +10415,7 @@ That was a difficult position.
 .range 8399
 
 [Action 8303]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .mustnot 110 111
 .playwav bell1.mp3
 Excellent, slave.
@@ -10423,7 +10423,7 @@ Excellent, slave.
 .range 8399
 
 [Action 8304]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .mustnot 110 111
 .playwav bell1.mp3
 Excellent performance, slave,
@@ -10432,7 +10432,7 @@ in a good solid position.
 .range 8399
 
 [Action 8305]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .mustnot 110 111
 .playwav bell1.mp3
 That's very good, My pet.
@@ -10440,7 +10440,7 @@ That's very good, My pet.
 .range 8399
 
 [Action 8306]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .mustnot 110 111
 .playwav bell1.mp3
 That's a very good slut.
@@ -10448,7 +10448,7 @@ That's a very good slut.
 .range 8399
 
 [Action 8307]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .mustnot 112 113
 .playwav bell1.mp3
 Easy as pie.
@@ -10456,7 +10456,7 @@ Easy as pie.
 .range 8399
 
 [Action 8308]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .mustnot 110
 .playwav bell1.mp3
 Very good, slave.
@@ -10465,7 +10465,7 @@ I do believe you're starting to catch on.
 .range 8399
 
 [Action 8309]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .playwav bell1.mp3
 Very good, slave.
 I'm quite pleased with you.
@@ -10473,14 +10473,14 @@ I'm quite pleased with you.
 .range 8399
 
 [Action 8310]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .playwav bell1.mp3
 Good job, slave.
 .delay 5
 .range 8399
 
 [Action 8311]
-.mustnot 47             ' Vibrator attached
+.item Toys.Vibrator not applied
 .playwav bell1.mp3
 Very good.
 I begin to think you're shaping up, slave.
@@ -10491,18 +10491,17 @@ I begin to think you're shaping up, slave.
 ' same comments, but also turn off vibrator for the moment
 
 [Action 8321]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .mustnot 113
 .playwav bell1.mp3
 Very good, slave.
 You may turn your vibrator off for the moment.
 .delay 5
-.unset 47
 .range 8399
 
 [Action 8322]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -10513,7 +10512,7 @@ delay 5
 .range 8399
 
 [Action 8323]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -10523,7 +10522,7 @@ delay 5
 .range 8399
 
 [Action 8324]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -10533,7 +10532,7 @@ delay 5
 .range 8399
 
 [Action 8325]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -10543,7 +10542,7 @@ delay 5
 .range 8399
 
 [Action 8326]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -10553,7 +10552,7 @@ delay 5
 .range 8399
 
 [Action 8327]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .mustnot 112 113
 .playwav bell1.mp3
@@ -10563,7 +10562,7 @@ delay 5
 .range 8399
 
 [Action 8328]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .mustnot 110
 .playwav bell1.mp3
@@ -10574,7 +10573,7 @@ delay 5
 .range 8399
 
 [Action 8329]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .playwav bell1.mp3
 Very good, slave.
@@ -10584,7 +10583,7 @@ delay 5
 .range 8399
 
 [Action 8330]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 .playwav bell1.mp3
 Good job, slave.
@@ -10593,7 +10592,7 @@ delay 5
 .range 8399
 
 [Action 8331]
-.must 47                ' Vibrator attached
+.item Toys.Vibrator applied
 .must 148               ' do another position
 Very good.
 .playwav bell1.mp3
@@ -10606,18 +10605,18 @@ delay 5
 ' same comments, but also remove vibrator
 
 [Action 8341]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .mustnot 113
 .playwav bell1.mp3
 Very good, slave.
 You may take your vibrator off.
 .delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8342]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
@@ -10625,66 +10624,66 @@ Very good, slave.
 You may take your vibrator off.
 That was a difficult position.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8343]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 Excellent, slave.
 You may take your vibrator off.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8344]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 Excellent performance, slave, in a good solid position. 
 You may take your vibrator off.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8345]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 That's very good, My pet.
 You may turn your vibrator off.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8346]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .mustnot 110 111
 .playwav bell1.mp3
 That's a very good slut.
 You may take your vibrator off.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8347]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .mustnot 112 113
 .playwav bell1.mp3
 Easy as pie.
 You may take your vibrator off.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8348]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .mustnot 110
 .playwav bell1.mp3
@@ -10692,39 +10691,39 @@ Very good, slave.
 You may take your vibrator off.
 I do believe you're starting to catch on.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8349]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .playwav bell1.mp3
 Very good, slave.
 You may take your vibrator off.
 I'm quite pleased with you.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8350]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 .playwav bell1.mp3
 Good job, slave.
 You may take your vibrator off.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 [Action 8351]
-.must -47               ' Vibrator attached
+.item Toys.Vibrator is applied.by.me
 .mustnot 148            ' do another position
 Very good.
 .playwav bell1.mp3
 You may take your vibrator off.
 I begin to think you're shaping up, slave.
 delay 5
-.unset 47
+.item Toys.Vibrator remove
 .range 8399
 
 
@@ -11151,35 +11150,39 @@ Go ahead, return the book and detach the leash.
 
 [Action 8860]
 .item Toys.Wrist_Restraints is applied.by.me
-.mustnot 388
+.item Toys.Buttplug applied
 Go ahead and remove the butt plug and your wrist restraints,
 clean up, and sit back down for the rest of the session.
-.pause All removed and cleaned up, Miss
+.item Toys.Buttplug remove
 .item Toys.Wrist_Restraints remove
+.pause All removed and cleaned up, Miss
 .range 9700
 
 [Action 8861]
 .item Toys.Wrist_Restraints is applied.by.me
-.must 388               ' Dildo
+.item Toys.Dildo applied to Body.InButt
 Go ahead and remove the dildo and your wrist restraints,
 clean up, and sit back down for the rest of the session.
-.pause All removed and cleaned up, Miss
 .item Toys.Wrist_Restraints remove
+.item Toys.Dildo remove from Body.InButt
+.pause All removed and cleaned up, Miss
 .range 9700
 
 [Action 8862]
 .not .item Toys.Wrist_Restraints is applied.by.me
-.mustnot 388
+.item Toys.Buttplug applied
 Go ahead and remove the butt plug, clean up,
 and sit back down for the rest of the session.
+.item Toys.Buttplug remove
 .pause All done, Miss
 .range 9700
 
 [Action 8863]
 .not .item Toys.Wrist_Restraints is applied.by.me
-.must 388               ' Dildo
+.item Toys.Dildo applied to Body.InButt
 Go ahead and remove the dildo, clean up,
 and sit back down for the rest of the session.
+.item Toys.Dildo remove from Body.InButt
 .pause All done, Miss
 .range 9700
 

@@ -141,7 +141,7 @@
 .askcheck 77 22	22	-	free
 .askcheck 78 23	23	-	free
 .askcheck 79 24	24	-	free
-.askcheck 80 25	25	-	ankles tied
+.askcheck 80 25	25	-	free
 .askcheck 81 26 26	-	free
 .askcheck 82 27	27	-	free
 .askcheck 83 28	28	-	free
@@ -151,8 +151,8 @@
 .askcheck 87 32	32	-	free
 .askcheck 88 33	33	-	free
 .askcheck 89 34	34	-	free
-.askcheck 90 35	35	-	tethered - can't leave computer area
-.askcheck 91 36 36  -   harnessed
+.askcheck 90 35	35	-	free
+.askcheck 91 36 36  -   free
 .askcheck 92 37 37  -	free
 .askcheck 93 38 38  -   
 '   39  -   free 
@@ -219,21 +219,22 @@ you're going to have to endure a marathon spanking session.
 
 
 [Action 1501]
+.item Toys.Spanking_Implement available
 You'll need your crop or paddle, of course.
 .pause I have it, Miss
-.must 370               ' Paddle
 .range 1504
 
 [Action 1502]
+.item Household.Hairbrush available
+.item Household.Hairbrush available
 You'll need your hair brush, of course.
 .pause I have it, Miss
-.must 371               ' Hair brush
 .range 1504
 
 [Action 1503]
+.item Household.Wooden_Spoon available
 You'll need your wooden spoon, of course.
 .pause I have it, Miss
-.must 372               ' Wooden spoon
 .range 1504
 
 
@@ -345,21 +346,21 @@ For a full hour you'll be beating that naughty enslaved bottom.
 .range 1521 1523
 
 [Action 1521]
+.item Toys.Spanking_Implement available
 You'll need your crop or paddle, of course.
 .pause I have it, Miss
-.must 370               ' Paddle
 .range 1524
 
 [Action 1522]
+.item Household.Hairbrush available
 You'll need your hair brush, of course.
 .pause I have it, Miss
-.must 371               ' Hair brush
 .range 1524
 
 [Action 1523]
+.item Household.Wooden_Spoon available
 You'll need your wooden spoon, of course.
 .pause I have it, Miss
-.must 372               ' Wooden spoon
 .range 1524
 
 [Action 1524]
@@ -777,9 +778,10 @@ You may want to put some towels here on the floor now to drip on.
 .must 148
 .mustnot 149
 .item Toys.Wrist_Restraints not available
-.must 366               ' Some rope
+.item Toys.Rope available
 You must shower with your wrists tied together with rope.
 Tie them together now.
+.item Toys.Rope apply to Body.WristsTied
 .pause Wrists tied, Miss
 .range 1631 1633
 
@@ -787,33 +789,37 @@ Tie them together now.
 .must 148
 .mustnot 149
 .item Toys.Wrist_Restraints available
-.must 366               ' Some rope
+.item Toys.Rope available
 You must shower with your wrists tied together.
 Use rope, not something that will rust (like your handcuffs, stupid bitch).
 Tie them together now.
+.item Toys.Rope apply to Body.WristsTied
 .pause Wrists tied, Miss
 .range 1631 1633
 
 [Action 1625]
 .mustnot 148
 .must 149
-.must 366               ' Some rope
+.item Toys.Ankle_Restraints available
+.item Toys.Rope available
 You must shower with your ankles tied together with rope.
 Don't use metal or it will corrode.
 Also, be very careful getting into and out of the shower, slave.
 I don't want you knocking your pretty head on the floor!
 Tie your ankles up now.
+.item Toys.Rope apply to Body.AnklesTied
 .pause Ankles tied, Miss
 .range 1631 1633
 
 [Action 1626]
 .must 148 149
-.must 366               ' Some rope
+.item Toys.Rope available
 You will bind your hands and ankles together with rope for this shower.
-Be especially careful you don't fall
-- you may kneel in the shower if you don't feel safe.
+Be especially careful you don't fall -
+you may kneel in the shower if you don't feel safe.
 I want my little slave fresh and clean, not all beat up, yet.
 Tie your wrists and ankles now.
+.item Toys.Rope apply to Body.AnklesTied Body.WristsTied
 .pause All tied up, Miss
 .range 1631 1633
 
@@ -821,9 +827,10 @@ Tie your wrists and ankles now.
 .must 148
 .mustnot 149
 .item Toys.Wrist_Restraints not available
-.mustnot 366            ' Some rope
+.item Toys.Rope not available
 You must shower with your wrists tied together.
 Get some rope or shoelace and tie them together now.
+.item Toys.Rope apply to Body.WristsTied
 .pause Wrists tied, Miss
 .range 1631 1633
 
@@ -831,33 +838,37 @@ Get some rope or shoelace and tie them together now.
 .must 148
 .mustnot 149
 .item Toys.Wrist_Restraints available
-.mustnot 366            ' Some rope
+.item Toys.Rope not available
 You must shower with your wrists tied together.
 Use rope or shoelace, not something that will rust (like your handcuffs, stupid bitch).
 Tie them together now.
+.item Toys.Rope apply to Body.WristsTied
 .pause Wrists tied, Miss
 .range 1631 1633
 
 [Action 1629]
 .mustnot 148
 .must 149
-.mustnot 366            ' Some rope
+.item Toys.Ankle_Restraints available
+.item Toys.Rope not available
 You must shower with your ankles tied together with rope or shoe lace.
 Don't use metal or it will corrode.
 Also, be very careful getting into and out of the shower, slave.
 I don't want you knocking your pretty head on the floor!
 Tie your ankles up now.
+.item Toys.Rope apply to Body.AnklesTied
 .pause Ankles tied, Miss
 .range 1631 1633
 
 [Action 1630]
 .must 148 149
-.mustnot 366            ' Some rope
+.item Toys.Rope not available
 You will bind your hands and ankles together with rope or shoe lace for this shower.
 Be especially careful you don't fall
 - you may kneel in the shower if you don't feel safe.
 I want my little slave fresh and clean, not all beat up, yet.
 Tie your wrists and ankles now.
+.item Toys.Rope apply to Body.AnklesTied Body.WristsTied
 .pause All tied up, Miss
 .range 1631 1633
 
@@ -938,60 +949,64 @@ And tie them tight, I want to see those balls stand out and all bound up.
 
 [Action 1642]
 .must 153
-.must 370               ' Have paddle
+.item Toys.Spanking_Implement available
 You will give yourself 50 smacks with the paddle when you are in the shower.
 Make sure you get your buns nice and wet before you do!
 .range 1652 1653
 
 [Action 1643]
 .must 153
-.mustnot 370            ' Have paddle
-.must 371               ' Have hair brush
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush available
 You will give yourself 50 smacks with your hairbrush when you are in the shower.
 Make sure you get your buns nice and wet before you do!
 .range 1652 1653
 
 [Action 1644]
 .must 153
-.mustnot 370            ' Have paddle
-.must 372               ' Have wooden sppoon
+.item Toys.Spanking_Implement not available
+.item Household.Wooden_Spoon available
 You will give yourself 50 smacks with your wooden spoon when you are in the shower.
 Make sure you get your buns nice and wet before you do!
 .range 1652 1653
 
 [Action 1645]
 .must 153
-.mustnot 370 371 372    ' Have paddle, hair brush, wooden spoon
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 You will give yourself 50 smacks with your bare hand when you are in the shower.
 Make sure you get your buns nice and wet before you do!
 .range 1652 1653
 
 [Action 1646]
 .must 154
-.must 370               ' Have paddle
-Take your paddle in with you and give yourself 100 whacks
+.item Toys.Spanking_Implement available
+Take your paddle with you and give yourself 100 whacks
 on the butt during the course of the shower, slut.
 .range 1652 1653
 
 [Action 1647]
 .must 154
-.mustnot 370            ' Have paddle
-.must 371               ' Have hair brush
-Take your hairbrush in with you and give yourself 100 whacks
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush available
+Take your hairbrush with you and give yourself 100 whacks
 on the butt during the course of the shower, slut.
 .range 1652 1653
 
 [Action 1648]
 .must 154
-.mustnot 370            ' Have paddle
-.must 372               ' Have wooden sppoon
-Take your wooden spoon in with you and give yourself 100 whacks
+.item Toys.Spanking_Implement not available
+.item Household.Wooden_Spoon available
+Take your wooden spoon with you and give yourself 100 whacks
 on the butt during the course of the shower, slut.
 .range 1652 1653
 
 [Action 1649]
 .must 154
-.mustnot 370 371 372    ' Have paddle, hair brush, wooden spoon
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 You will give yourself 100 whacks on the butt with
 your bare hand during the course of the shower, slut.
 Make sure your bottom is red and glowing when you return!
@@ -999,16 +1014,16 @@ Make sure your bottom is red and glowing when you return!
 
 [Action 1650]
 .must 155
-.must 370
+.item Toys.Spanking_Implement available
 While you're in the shower, you're going to give yourself
 a full 200 paddles on your bare, wet, slave-butt, cunt.
 .range 1652 1653
 
 [Action 1651]
 .must 155
+.item Toys.Spanking_Implement not available
 While you're in the shower, you're going to give yourself
 a full 200 firm smacks on your bare, wet, slave-butt, cunt.
-.mustnot 370
 .range 1652 1653
 
 
@@ -1288,12 +1303,19 @@ I hope so, slut!
 .item Toys.Gag remove
 .range 1690 1699
 
-'[Action 1695]
-'.range 1690 1699
-'[Action 1696]
-'.range 1690 1699
+[Action 1695]
+.item Toys.Rope applied to Body.AnklesTied AND is applied.by.me 
+.item Toys.Rope Remove from Body.AnklesTied
+.range 1690 1699
+
+[Action 1696]
+.item Toys.Rope applied to Body.WristsTied AND is applied.by.me 
+.item Toys.Rope Remove from Body.WristsTied
+.range 1690 1699
+
 '[Action 1697]
 '.range 1690 1699
+
 '[Action 1698]
 '.range 1690 1699
  
@@ -3652,7 +3674,7 @@ A good twenty smacks or so should be good enough for this special session, don't
 
 ' Forty whacks
 [Action 9013]
-.must 370               ' Paddle
+.item Toys.Spanking_Implement available
 Forty whacks with the paddle sounds about right.
 .set 103
 .unset 101 102 104 105
@@ -3660,8 +3682,8 @@ Forty whacks with the paddle sounds about right.
 
 ' Forty whacks
 [Action 9014]
-.mustnot 370            ' Paddle
-.must 371               ' Hairbrush
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush available
 Forty whacks with the hair brush sounds about right.
 .set 103
 .unset 101 102 104 105
@@ -3669,8 +3691,8 @@ Forty whacks with the hair brush sounds about right.
 
 ' Forty whacks
 [Action 9015]
-.mustnot 370            ' Paddle
-.must 372               ' Wooden spoon
+.item Toys.Spanking_Implement not available
+.item Household.Wooden_Spoon available
 Forty whacks with the wooden spoon sounds about right.
 .set 103
 .unset 101 102 104 105
@@ -3678,7 +3700,9 @@ Forty whacks with the wooden spoon sounds about right.
 
 ' Forty whacks
 [Action 9016]
-.mustnot 370 371 372    ' Paddle, hair brush, wooden spoon
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 Forty whacks with the bare hand sounds about right.
 .set 103
 .unset 101 102 104 105
@@ -3707,71 +3731,74 @@ You'll be getting a good hundred paddles on that naughty bum.
 
 [Action 9020]
 .item Toys.Chastity_Device not applied
+.item Toys.Spanking_Implement available
 Now get down on your knees.
 Take that paddle in your dominant hand,
 and make sure to keep that other hand on your little cock there.
-.must 370               ' Paddle
 .range 9030 9031
 
 [Action 9021]
 .item Toys.Chastity_Device not applied
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush available
 Now get down on your knees.
 Take that hair brush in your dominant hand,
 and make sure to keep that other hand on your little cock there.
-.mustnot 370            ' Prefer paddle
-.must 371               ' Hairbrush
 .range 9030 9031
 
 [Action 9022]
 .item Toys.Chastity_Device not applied
+.item Toys.Spanking_Implement not available
+.item Household.Wooden_Spoon available
 Now get down on your knees.
 Take that wooden spoon in your dominant hand,
 and make sure to keep that other hand on your little cock there.
-.mustnot 370            ' Prefer paddle
-.must 372               ' Wooden spoon
 .range 9030 9031
 
 [Action 9023]
 .item Toys.Chastity_Device not applied
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 Now get down on your knees.
 Use your dominant hand to spank yourself,
 and make sure to keep that other hand on your little cock there.
-.mustnot 370            ' Prefer paddle
-.mustnot 370 371 372    ' Hand
 .range 9030 9031
 
 [Action 9024]
 .item Toys.Chastity_Device applied
+.item Toys.Spanking_Implement available
 Now get down on your knees.
 Take that paddle in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
-.must 370               ' Paddle
 .range 9030 9031
 
 [Action 9025]
 .item Toys.Chastity_Device applied
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush available
 Now get down on your knees.
 Take that hair brush in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
-.mustnot 370            ' Prefer paddle
-.must 371               ' Hairbrush
 .range 9030 9031
 
 [Action 9026]
 .item Toys.Chastity_Device applied
+.item Toys.Spanking_Implement not available
+.item Household.Wooden_Spoon available
 Now get down on your knees.
 Take that wooden spoon in your dominant hand,
 and make sure to keep that other hand on your chastity cage there.
-.mustnot 370            ' Prefer paddle
-.must 372               ' Wooden spoon
 .range 9030 9031
 
 [Action 9027]
 .item Toys.Chastity_Device applied
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 Now get down on your knees.
 Use your dominant hand to spank yourself,
 and make sure to keep that other hand on your chastity cage there.
-.mustnot 370 371 372    ' bare hand
 .range 9030 9031
 
 
@@ -3817,7 +3844,9 @@ Your misbehavior is worth two hundered and forty quick smacks on the ass, slut.
 
 [Action 9043]
 .must 104
-.mustnot 370 371 372    ' bare hand
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 Your misbehavior is worth two hundred and forty
 quick smacks on the ass with the bare hand.
 .pause As you wish, Miss
@@ -3836,7 +3865,7 @@ And I expect them to be good and hard.
 [Action 9045]
 .must 103
 .must 166               ' 514 special comment
-.must 370               ' Paddle
+.item Toys.Spanking_Implement available
 I'm giving you one hundred and sixty fast strokes with the paddle today,
 My dear punishment slut.
 I hope you aren't having second thoughts,
@@ -3847,8 +3876,8 @@ because it's too late for that now.
 [Action 9046]
 .must 103
 .must 166               ' 514 special comment
-.mustnot 370            ' Prefer paddle
-.must 371               ' Hairbrush
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush available
 I'm giving you one hundred and sixty fast strokes with the hairbrush today,
 My dear punishment slut.
 I hope you aren't having second thoughts,
@@ -3859,8 +3888,8 @@ because it's too late for that now.
 [Action 9047]
 .must 103
 .must 166               ' 514 special comment
-.mustnot 370            ' Prefer paddle
-.must 372               ' Wooden spoon
+.item Toys.Spanking_Implement not available
+.item Household.Wooden_Spoon available
 I'm giving you one hundred and sixty fast strokes with the wooden spoon today,
 My dear punishment slut.
 I hope you aren't having second thoughts,
@@ -3871,7 +3900,9 @@ because it's too late for that now.
 [Action 9048]
 .must 103
 .must 166               ' 514 special comment
-.mustnot 370 371 372    ' bare hand
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 I'm giving you one hundred and sixty fast strokes with the bare hand today,
 My dear punishment slut.
 I hope you aren't having second thoughts,
@@ -3883,7 +3914,7 @@ because it's too late for that now.
 [Action 9049]
 .must 105
 .must 167
-.must 370               ' Paddle
+.item Toys.Spanking_Implement available
 You'll be given four hundred smacks with the paddle today, slave,
 for your volunteer punishment.
 I know you'll enjoy it, you good boy.
@@ -3893,8 +3924,8 @@ I know you'll enjoy it, you good boy.
 [Action 9050]
 .must 105
 .must 167
-.mustnot 370            ' Prefer paddle
-.must 371               ' Hairbrush
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush available
 You'll be given four hundred smacks with the hair brush today, slave,
 for your volunteer punishment.
 I know you'll enjoy it, you good boy.
@@ -3904,8 +3935,8 @@ I know you'll enjoy it, you good boy.
 [Action 9051]
 .must 105
 .must 167
-.mustnot 370            ' Prefer paddle
-.must 372               ' Wooden spoon
+.item Toys.Spanking_Implement not available
+.item Household.Wooden_Spoon available
 You'll be given four hundred smacks with the wooden spoon today, slave,
 for your volunteer punishment.
 I know you'll enjoy it, you good boy.
@@ -3915,7 +3946,9 @@ I know you'll enjoy it, you good boy.
 [Action 9052]
 .must 105
 .must 167
-.mustnot 370 371 372    ' bare hand
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 You'll be given four hundred smacks with the bare hand today, slave,
 for your volunteer punishment.
 I know you'll enjoy it, you good boy.
@@ -3932,7 +3965,9 @@ Your misbehavior is worth one hundred and sixty quick smacks on the ass, slut.
 
 [Action 9054]
 .must 103
-.mustnot 370 371 372    ' bare hand
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 Your misbehavior is worth one hundred and sixty
 quick smacks on the ass with the bare hand.
 .pause As you wish, Miss
@@ -3962,7 +3997,9 @@ These will be quick strokes, so keep up!
 
 [Action 9062]
 .mustnot 105            ' 400 strokes intense
-.mustnot 370 371 372    ' bare handd
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush not available
+.item Household.Wooden_Spoon not available
 I hope you learn something from this.
 Get on your knees!
 .pause I'm ready, Miss
@@ -3970,7 +4007,7 @@ Get on your knees!
 
 [Action 9063]
 .mustnot 105            ' 400 strokes intense
-.must 370               ' Paddle
+.item Toys.Spanking_Implement available
 I hope you learn something from this.
 Get on your knees and get the paddle ready.
 .pause I'm ready, Miss
@@ -3978,8 +4015,8 @@ Get on your knees and get the paddle ready.
 
 [Action 9064]
 .mustnot 105            ' 400 strokes intense
-.mustnot 370            ' Prefer paddle
-.must 371               ' Hairbrush
+.item Toys.Spanking_Implement not available
+.item Household.Hairbrush available
 I hope you learn something from this.
 Fetch your hair brush and get on your knees.
 .pause I'm ready, Miss
@@ -3987,8 +4024,8 @@ Fetch your hair brush and get on your knees.
 
 [Action 9065]
 .mustnot 105            ' 400 strokes intense
-.mustnot 370            ' Prefer paddle
-.must 372               ' Wooden spoon
+.item Toys.Spanking_Implement not available
+.item Household.Wooden_Spoon available
 I hope you learn something from this.
 Fetch your wooden spoon and get on your knees.
 .pause I'm ready, Miss

@@ -77,9 +77,9 @@
 .askcheck 87 32	32	-	free
 .askcheck 88 33	33	-	free
 .askcheck 89 34	34	-	free
-.askcheck 90 35	35	-	tethered - can't leave computer area
-.askcheck 91 36 36  -   harnessed
-.askcheck 92 37 37  -	ball harness (includes 24)
+.askcheck 90 35	35	-	free
+.askcheck 91 36 36  -   free
+.askcheck 92 37 37  -	free
 .askcheck 93 38 38  -   free
 '   39  -   free 
 '   40  -   free
@@ -273,9 +273,9 @@
 
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 [action 934]
-' .item Toys.Ankle_Restraints setAvailable
-' .item Toys.Wrist_Restraints setAvailable
-' .item Toys.Blindfold setAvailable
+' .item Toys.Ankle_Restraints setAvailable true
+' .item Toys.Wrist_Restraints setAvailable true
+' .item Toys.Blindfold setAvailable true
 .set 3234
 .range 941
 
@@ -926,7 +926,7 @@ so get your wrist restraints and put them on.
 
 [action 3138]
 .item Toys.Gag applied
-.mustnot 37             ' ball harness
+.state Body.OnBalls free
 .item Toys.Chastity_Device not applied
 .keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
@@ -941,7 +941,7 @@ to your slutty ball sack.
 
 [action 3139]
 .not .item Toys.Gag applied
-.mustnot 37             ' ball harness
+.state Body.OnBalls free
 .item Toys.Chastity_Device not applied
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
@@ -979,7 +979,7 @@ tie them to your chastity cage.
 
 [action 3142]
 .item Toys.Gag applied
-.must 37                ' ball harness
+.item Toys.Ball_Stretcher applied
 .keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
@@ -993,7 +993,7 @@ to your ball harness.
 
 [action 3143]
 .not .item Toys.Gag applied
-.must 37                ' ball harness
+.item Toys.Ball_Stretcher applied
 .keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your ball harness.
@@ -1084,7 +1084,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' no restrictions - suck and ride
 [Action 3160]
 .item Toys.Dildo canApply to Body.InButt
-.mustnot 36                       ' Harnessed
+.state Body.CrotchRoped free
 .must 140                         ' Only ride in activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
 .must 756                         ' Anal training 1
@@ -1097,7 +1097,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 [Action 3161]
 .poss 10
 .item Toys.Dildo canApply to Body.InButt
-.mustnot 36                       ' Harnessed
+.state Body.CrotchRoped free
 .must 140                         ' Only ride in activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
 .mustnot 756                      ' Anal training 1 
@@ -1369,11 +1369,11 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs 
 [Action 3209]
+.item Household.Clothes_Pegs available
+.state Body.OnNipples free
 .state Body.CantStand free
 .state Body.CantKneel free
-.mustnot 43             ' nipple clamps on nipples
 .must 173               ' achievement 4, full penetration
-.must 362               ' Clothes pegs
 .set 3229
 .return
 
@@ -1445,10 +1445,10 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3229 Suck on wall/door frame kneeling on all four, ride on all four, clothes pegs 
 [Action 3229]
-.item Toys.Nipple_Clamps not applied
+.item Household.Clothes_Pegs available
+.state Body.OnNipples free
 .state Body.CantStand free
 .must 173               ' advancement 4, full penetration
-.must 362               ' Clothes pegs
 .return
 
 
@@ -1456,10 +1456,10 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 [Action 3234]
+.item Toys.Blindfold available
 .state Body.WristsTied free
 .mustnot 140            ' Worshiping activity
 .mustnot 267 268        ' Enema carrying out or holding
-.must 382               ' have blindfold
 .must 181               ' achievement 1, because it's a difficult scenario
 .return
 
@@ -1481,7 +1481,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 .state Body.CantKneel free
 .mustnot 42             ' clothes pegs on nipples
 .mustnot 140            ' Worshiping activity
-.must 361               ' have nipple clamps
+.item Toys.Nipple_Clamps available
 .return
 
 ' 3238 Kneeling upright in front of desk - punishment version
@@ -1494,7 +1494,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 [Action 3239]
 .mustnot 42             ' clothes pegs on nipples
 .mustnot 140            ' Worshping activity
-.must 361               ' have nipple clamps
+.item Toys.Nipple_Clamps available
 .return
 
 
@@ -5213,7 +5213,7 @@ to hold the dildo firmly in place.
 ' tie crotch rope
 
 [Action 4445]
-.must 366               ' some rope
+.item Toys.Rope available
 Wrap the rope tightly around yor waist and tie it off,
 then fed it down through your crotch, pull back up,
 loop it around your waist wrap, and tie it up.
