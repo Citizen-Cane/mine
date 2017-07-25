@@ -12,14 +12,11 @@ import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.MappedScriptItemValue;
 import pcm.state.persistence.MappedScriptState;
-import pcm.state.persistence.MappedScriptStateValue;
 import teaselib.Actor;
-import teaselib.Body;
 import teaselib.Features;
 import teaselib.Household;
 import teaselib.Images;
 import teaselib.Sexuality;
-import teaselib.State;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
 import teaselib.core.TeaseLib;
@@ -93,14 +90,10 @@ public class Mine extends Player {
     public Mine(TeaseLib teaseLib, File basePath, String mistressPath) {
         super(teaseLib, new ResourceLoader(basePath, ResourcesRoot, Assets, OptionalAssets), MineMistress, Namespace,
                 mistressPath);
-        // resources.addAssets(OptionalAssets);
 
         mapToysToMultipleItems();
         mapToysToSingleItem();
-        mapInGameToysNotInMineToyList();
-        mapSelfReferencingBodyParts();
         mapAssignments();
-        mapPersistentToys();
     }
 
     private void mapToysToMultipleItems() {
@@ -144,49 +137,6 @@ public class Mine extends Player {
                 new MappedScriptItemValue(385, item(Toys.Ball_Stretcher)));
     }
 
-    private void mapInGameToysNotInMineToyList() {
-        // TODO map as tools
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(371, item(Household.Hairbrush)));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(372, item(Household.Wooden_Spoon)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(373, item(Household.Ruler)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(374, item(Toys.Enema_Bulb)));
-    }
-
-    private void mapSelfReferencingBodyParts() {
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(20, state(Body.OnNipples), Body.OnNipples));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(21, state(Body.InButt), Body.InButt));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(22, state(Body.InMouth), Body.InMouth));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(23, state(Body.OnPenis), Body.OnPenis));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(24, state(Body.OnBalls), Body.OnBalls));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(25, state(Body.AnklesTied), Body.AnklesTied));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(26, state(Body.WristsTied), Body.WristsTied));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(27, state(Body.CrotchRoped), Body.CrotchRoped));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(28, state(Body.AroundNeck), Body.AroundNeck));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(30, state(Body.CantJerkOff), Body.CantJerkOff));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(31, state(Body.CantSitOnChair), Body.CantSitOnChair));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(32, state(Body.CantStand), Body.CantStand));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(33, state(Body.CantKneel), Body.CantKneel));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(34, state(Body.CantTypeOrUseMouse), Body.CantTypeOrUseMouse));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.ForSession(35, state(Body.Tethered), Body.Tethered));
-    }
-
     private void mapAssignments() {
         triggerCarryOutEnema();
         clearSessionTimerCheck();
@@ -206,18 +156,6 @@ public class Mine extends Player {
             setScriptState(MainScript, 267, 1);
             triggerCarryOutEnema.clear();
         }
-    }
-
-    private void mapPersistentToys() {
-        int chastified = 44;
-        int haveKey = 45;
-        State chastityCage = state(Toys.Chastity_Device);
-        Body[] peers = new Body[] { Body.OnPenis, Body.CantJerkOff };
-
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptStateValue.Indefinitely(chastified, chastityCage, peers));
-
-        state.addStateTimeMapping(MappedScriptState.Global, haveKey, chastityCage, peers);
     }
 
     @Override
