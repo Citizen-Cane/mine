@@ -400,7 +400,7 @@
 
 ' Punishments flags 500-549
 '
-' Punishment cycle loop start at 2150, continuations at 2152
+' Punishment cycle loop start at 2150, continuations at 2151-
 ' Entries:   	2200-2249
 ' Choices:  	2500-2999,	Each entry jumps to first 5 slots of action range
 ' Completions:	2400-2449
@@ -5610,16 +5610,16 @@ It would please your Mistress very much, and it would do you a world of good.
 
 ' Punishment dispatcher
 
-' First punishment
+' First punishment entry point
 [Action 2150]
 Let's see if I can remember what punishments you've earned.
 .range 2200 2259
 
-' second and other punishments
+' second and other punishments entry point
 [Action 2151]
-.unset 2150             ' 2150 is checked in 2250+ to avoid bailing out without actually giving at least one punishment
+.unset 2150             ' 2150 is checked in 2250+ to avoid bailing out before performing at least one punishment
 .resetrange 2151 2159
-.range 2155 2156
+.range 2155 2157
 
 
 [action 2155]
@@ -5634,15 +5634,21 @@ Let's see if I can remember what punishments you've earned.
 .gosub 11800            ' pegs/clamps tracking, comment and removal
 .range 2159
 
-
 [action 2157]
 .else
 .range 2159
 
 
 [action 2159]
+.resetrange 2170 2179
+.range 2170 2179
+
+
+[action 2170]
 Let's see if I can recall any other punishments you've earned.
 .range 2200 2259
+
+'[action 2179]
 
 
 '	Punishment exit points. Use 2200 - 2249 to explain which
