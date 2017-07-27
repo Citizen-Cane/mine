@@ -890,6 +890,7 @@ Would you be so kind and tell me what you've got exactly?
 [Action 850]
 .gosub 895              ' reset quit check
 .unset 850
+.unset 851
 .range 851 859
 
 
@@ -897,7 +898,6 @@ Would you be so kind and tell me what you've got exactly?
 Goodbye, slave...
 .pause Goodbye, Miss
 .noimage
-.unset 881
 .range 899              ' final quit
 
 '[Action 859]
@@ -908,6 +908,7 @@ Goodbye, slave...
 [Action 860]
 .gosub 895              ' reset quit check
 .unset 860
+.unset 861
 .range 861
 
 [Action 861]
@@ -916,7 +917,6 @@ We'll be forced to stop today.
 .noimage
 .pause Oh dear!
 .noimage
-.unset 861
 .range 899              ' final quit
 
 
@@ -925,6 +925,7 @@ We'll be forced to stop today.
 [Action 870]
 .gosub 895              ' reset quit check
 .unset 870
+.unset 871
 .range 871 879
 
 
@@ -932,7 +933,6 @@ We'll be forced to stop today.
 Now get out of My sight!
 .pause As you wish, Miss
 .noimage
-.unset 881
 .range 899              ' final quit
 
 '[Action 879]
@@ -943,6 +943,7 @@ Now get out of My sight!
 [Action 880]
 .gosub 895              ' don't reset quit check
 .unset 880
+.unset 881
 .range 881 889
 
 
@@ -950,7 +951,6 @@ Now get out of My sight!
 Goodbye, you stupid slut.
 .delay 5
 .noimage
-.unset 881
 .range 899              ' final quit
 
 '[Action 889]
@@ -962,6 +962,7 @@ Goodbye, you stupid slut.
 .set 102 274            ' left without permission, quit check
 .gosub 896              ' Don't reset quit check
 .unset 890
+.unset 891 892 893 894
 .range 891 894
 
 [Action 891]
@@ -969,7 +970,6 @@ You will regret this,
 you stupid cunt.
 .pause I'm so sorry, Miss
 .noimage
-.unset 891
 .range 899              ' final quit
 
 '[Action 892]
@@ -982,17 +982,17 @@ you stupid cunt.
 [Action 895]
 .unset 102 274          ' reset quit check
 .unset 895
+.unset 896
+.unset 898
 .range 896
 
 [Action 896]
 .set 100                ' Now you've run the script
-.unset 896
 .range 898
 
 ' Save
 [Action 898]
 .save 90 799
-.unset 898
 .return
 
 
@@ -20925,7 +20925,7 @@ arranged way in front of me for inspection before you approach me.
 
 [action 11809]
 .else
-.unset 11804
+.unset 11809
 .return
 
 
