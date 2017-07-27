@@ -27,9 +27,6 @@ import teaselib.hosts.DummyPersistence;
 
 @RunWith(Parameterized.class)
 public class MineMaidTest {
-    /**
-     * 
-     */
     private static final int POSITION_TO_SELECT_OFFSET = 1000;
 
     @Parameters(name = "Position {0} @ difficulty={1}")
@@ -64,7 +61,16 @@ public class MineMaidTest {
         debugger.addResponse("*spurted*", Debugger.Response.Ignore);
         debugger.addResponse("*give*", Debugger.Response.Ignore);
         debugger.addResponse("*gmvm*", Debugger.Response.Ignore);
+
         debugger.addResponse("Of course*", Debugger.Response.Choose);
+
+        // 420
+        debugger.addResponse("Yes Miss, I've just put it on", Debugger.Response.Choose);
+        // 575
+        debugger.addResponse("*crotch-roped*", Debugger.Response.Choose);
+        debugger.addResponse("*Breasts bound*", Debugger.Response.Choose);
+        debugger.addResponse("*Thighs tied*", Debugger.Response.Choose);
+
         debugger.addResponse("Exit", Debugger.Response.Choose);
 
         mine = new Mine(teaseLib, new File("../SexScripts/scripts/"));
