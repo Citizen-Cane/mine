@@ -1697,7 +1697,7 @@ Let's continue your slave training.
 .item Toys.Nipple_Clamps canApply OR applied
 .should .state Body.InMouth free
 .state Body.AnklesTied free
-.item Toys.Wrist_Restraints canApply
+.item Toys.Wrist_Restraints canApply to Body.WristsTied
 .state Body.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 518          ' prefer a position that hasn't been done before
@@ -2186,7 +2186,7 @@ Let's continue your slave training.
 .item Toys.Nipple_Clamps canApply OR applied
 .should .state Body.InMouth free
 .item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Toys.Wrist_Restraints canApply to Body.WristsTied
 .should .state Body.OnBalls free
 .mustnot 143            ' position with tray already done
 .shouldnot 652          ' prefer a position that hasn't been done before
