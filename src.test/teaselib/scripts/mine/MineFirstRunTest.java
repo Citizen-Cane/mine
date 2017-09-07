@@ -18,12 +18,13 @@ import teaselib.core.Debugger;
 import teaselib.core.TeaseLib;
 import teaselib.hosts.DummyHost;
 import teaselib.hosts.DummyPersistence;
+import teaselib.test.DebugSetup;
 
 public class MineFirstRunTest {
 
     @Before
     public void init() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Debugger debugger = new Debugger(new DummyHost(), new DummyPersistence());
+        Debugger debugger = new Debugger(new DummyHost(), new DummyPersistence(), new DebugSetup());
 
         TeaseLib teaseLib = debugger.teaseLib;
 

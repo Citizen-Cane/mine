@@ -24,6 +24,7 @@ import teaselib.core.Debugger;
 import teaselib.core.TeaseLib;
 import teaselib.hosts.DummyHost;
 import teaselib.hosts.DummyPersistence;
+import teaselib.test.DebugSetup;
 
 @RunWith(Parameterized.class)
 public class MineMaidTest {
@@ -52,7 +53,7 @@ public class MineMaidTest {
     }
 
     static void init() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Debugger debugger = new Debugger(new DummyHost(), new DummyPersistence());
+        Debugger debugger = new Debugger(new DummyHost(), new DummyPersistence(), new DebugSetup());
 
         TeaseLib teaseLib = debugger.teaseLib;
 
@@ -61,7 +62,6 @@ public class MineMaidTest {
         debugger.addResponse("*spurted*", Debugger.Response.Ignore);
         debugger.addResponse("*give*", Debugger.Response.Ignore);
         debugger.addResponse("*gmvm*", Debugger.Response.Ignore);
-
         debugger.addResponse("Of course*", Debugger.Response.Choose);
 
         // 420
