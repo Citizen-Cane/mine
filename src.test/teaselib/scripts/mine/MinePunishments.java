@@ -4,9 +4,14 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import pcm.controller.AllActionsSetException;
 import pcm.model.ActionRange;
@@ -20,7 +25,20 @@ import teaselib.hosts.DummyHost;
 import teaselib.hosts.DummyPersistence;
 import teaselib.test.DebugSetup;
 
-public class MineFirstRunTest {
+@RunWith(Parameterized.class)
+public class MinePunishments {
+    @Parameters(name = "Punishment {0}")
+    public static Iterable<Integer> data() {
+        List<Integer> punishments = Arrays.asList(500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513,
+                514, 515, 516, 517, 518, 519, 520, 521, 525, 548, 549);
+        return punishments;
+    }
+
+    final int punishment;
+
+    public MinePunishments(int punishment) {
+        this.punishment = punishment;
+    }
 
     @Before
     public void init() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
@@ -37,16 +55,9 @@ public class MineFirstRunTest {
     private Mine mine;
 
     @Test
-    public void testFirstTime() throws AllActionsSetException, ScriptExecutionException {
-        mine.playFrom(new ActionRange(845, 846));
+    public void testPunishments() throws AllActionsSetException, ScriptExecutionException {
+        new Preset(mine).submitted().set(punishment);
 
-        assertScriptEndedGracefully();
-        assertEquals("Good end", ScriptState.SET, mine.state.get(851));
-    }
-
-    @Test
-    public void testSubmitted() throws AllActionsSetException, ScriptExecutionException {
-        new Preset(mine).submitted();
         mine.playFrom(new ActionRange(845, 846));
 
         assertScriptEndedGracefully();
