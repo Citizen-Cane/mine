@@ -27,49 +27,8 @@ public class MineFirstRunTest {
         Debugger debugger = new Debugger(new DummyHost(), new DummyPersistence(), new DebugSetup());
 
         TeaseLib teaseLib = debugger.teaseLib;
-
         debugger.freezeTime();
-
-        // Introduction
-        debugger.addResponse("Yes Miss, I am", Debugger.Response.Choose);
-        debugger.addResponse("Yes, I'm ready, Miss", Debugger.Response.Choose);
-
-        // Questionaire
-        debugger.addResponse("Yes Miss, please train my ass", Debugger.Response.Choose);
-        debugger.addResponse("Yes Miss, please keep me chaste", Debugger.Response.Choose);
-        debugger.addResponse("Yes, I'm prepared, Miss", Debugger.Response.Choose);
-        debugger.addResponse("Yes Miss, I'm aware of the risk", Debugger.Response.Choose);
-
-        // Level
-        debugger.addResponse("Yes, Miss, I have some tolerance already", Debugger.Response.Choose);
-        debugger.addResponse("Quite a bit harsher, please", Debugger.Response.Choose);
-        debugger.addResponse("Harshly, please", Debugger.Response.Choose);
-
-        debugger.addResponse("Yes Miss, I'm naked right now", Debugger.Response.Choose);
-        debugger.addResponse("Yes Miss, I was properly naked", Debugger.Response.Choose);
-
-        debugger.addResponse("Yes Miss, I have", Debugger.Response.Choose);
-
-        debugger.addResponse("Yes Miss, I've been naughty", Debugger.Response.Choose);
-        debugger.addResponse("Please Miss, Punish me!", Debugger.Response.Choose);
-
-        debugger.addResponse("Yes, Miss, I do", Debugger.Response.Choose);
-
-        // TODO sub script responses - better define them elsewhere to avoid
-        // code duplication
-
-        // mine-td
-        // TODO leads to cum question - shouldn't
-        debugger.addResponse("I've spurted off, Miss", Debugger.Response.Choose);
-
-        debugger.addResponse("Yes, please let me cum, Miss", Debugger.Response.Choose);
-
-        debugger.addResponse("Yes Miss, I obeyed you all the time", Debugger.Response.Choose);
-
-        // Defaults
-        debugger.addResponse("Yes, Miss", Debugger.Response.Choose);
-
-        debugger.addResponse("Exit", Debugger.Response.Choose);
+        debugger.addResponses(MinePrompts.all());
 
         mine = new Mine(teaseLib, new File("../SexScripts/scripts/"));
         mine.loadScript("Mine");
@@ -81,10 +40,39 @@ public class MineFirstRunTest {
     public void testFirstTime() throws AllActionsSetException, ScriptExecutionException {
         mine.playFrom(new ActionRange(845, 846));
 
-        assertEquals("All actions set", ScriptState.UNSET, mine.state.get(861));
-
+        assertScriptEndedGracefully();
         assertEquals("Good end", ScriptState.SET, mine.state.get(851));
+    }
 
+    @Test
+    public void testSubmitted() throws AllActionsSetException, ScriptExecutionException {
+        new Preset(mine).submitted();
+        mine.playFrom(new ActionRange(845, 846));
+
+        assertScriptEndedGracefully();
+        assertEquals("Good end", ScriptState.SET, mine.state.get(851));
+    }
+
+    @Test
+    public void testPunishments() throws AllActionsSetException, ScriptExecutionException, ScriptParsingException,
+            ValidationIssue, IOException {
+        int[] punishments = { 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517,
+                518, 519, 520, 521, 525, 548, 549 };
+
+        for (int i : punishments) {
+            init();
+            new Preset(mine).submitted().set(i);
+
+            mine.playFrom(new ActionRange(845, 846));
+
+            assertScriptEndedGracefully();
+            assertEquals("Good end", ScriptState.SET, mine.state.get(851));
+        }
+    }
+
+    protected void assertScriptEndedGracefully() {
+        assertEquals("All actions set - see console output for offending action", ScriptState.UNSET,
+                mine.state.get(861));
         assertEquals("Save and quit", ScriptState.SET, mine.state.get(898));
     }
 }

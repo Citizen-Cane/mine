@@ -58,20 +58,7 @@ public class MineMaidTest {
         TeaseLib teaseLib = debugger.teaseLib;
 
         debugger.freezeTime();
-
-        debugger.addResponse("*spurted*", Debugger.Response.Ignore);
-        debugger.addResponse("*give*", Debugger.Response.Ignore);
-        debugger.addResponse("*gmvm*", Debugger.Response.Ignore);
-        debugger.addResponse("Of course*", Debugger.Response.Choose);
-
-        // 420
-        debugger.addResponse("Yes Miss, I've just put it on", Debugger.Response.Choose);
-        // 575
-        debugger.addResponse("*crotch-roped*", Debugger.Response.Choose);
-        debugger.addResponse("*Breasts bound*", Debugger.Response.Choose);
-        debugger.addResponse("*Thighs tied*", Debugger.Response.Choose);
-
-        debugger.addResponse("Exit", Debugger.Response.Choose);
+        debugger.addResponses(MinePrompts.maid());
 
         mine = new Mine(teaseLib, new File("../SexScripts/scripts/"));
         mine.loadScript("mine-maid");
