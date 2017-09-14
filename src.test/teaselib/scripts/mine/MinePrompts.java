@@ -83,8 +83,8 @@ public class MinePrompts {
         all.addAll(defaults());
 
         all.add(new ResponseAction("*spurted*", Debugger.Response.Ignore));
-        all.add(new ResponseAction("*give*", Debugger.Response.Ignore));
-        all.add(new ResponseAction("*gmvm*", Debugger.Response.Ignore));
+        all.add(new ResponseAction("I'm giving up, Miss", Debugger.Response.Ignore));
+        all.add(new ResponseAction("M'm gmvm*", Debugger.Response.Ignore));
         all.add(new ResponseAction("Of course*", Debugger.Response.Choose));
 
         // 420
