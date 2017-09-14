@@ -22,6 +22,8 @@
 
 .define .painToysOnBalls .state Body.OnBalls is Toys.Pussy_Clamps OR is Household.Clothes_Pegs
 .define .painToysOnNipples .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
+.define .anyPainToy .state Body.OnBalls is Toys.Pussy_Clamps OR Body.OnBalls is Household.Clothes_Pegs OR Body.OnNipples is Toys.Nipple_Clamps OR Body.OnNipples is Household.Clothes_Pegs
+
 .define .canWorshipDildo .item Toys.Dildo available AND canApply to Body.InMouth AND not applied to Body.InButt 
 .define .begKeyHolderForRelease .item Toys.Chastity_Device remaining greaterThan 03:00"00
 
@@ -39,9 +41,13 @@
 ' extras section
 '  9 set if an extra has been applied, unset if no additional extra could be applied
 
+' activity section
+'  9 set if another activity can be executed
+
 ' merit accumulation section
-' 1- 5 demerits
-' 6-10 merits
+'  1- 5 demerits
+'  6-10 merits
+
 
 ' local variables - cleared whenever the script is restored
 .resetrange 0 19        ' script local temp variables
@@ -10921,12 +10927,14 @@ you've earned for ignoring your Mistress orders.
 
 ' Activity loop
 
+' first activity
 [Action 4900]
 Well, My dear slave, what shall we do today?
 .unset 4900
 .set 273                ' Starting activities 
-.range 5005             ' Skip toy selection, since we just went through session add-ons
+.range 5005             ' Skip toy selection before first activity, since we just went through session add-ons
 
+' subsequent activities
 [Action 4901]
 What else can I do to you today, slave?
 .unset 4901
@@ -11569,7 +11577,7 @@ I think you're going to worship your dildo some more.
 I think you deserve a teasing session.
 .range 6000
 
-
+' TODO magic marker check is surprising here - corner time? -> review
 [Action 5066]
 .mustnot 210            ' Done already
 .shouldnot 811          ' magic marker applied
@@ -11628,24 +11636,23 @@ Let's continue your slave training.
 
 ' can't just let the slave cum when still holding or voiding the enema,
 ' plus the slave must be plugged in order to receive a plug assignment. 
-' Also, without interaction, the script would loop until the enema holding duration was over
+' Also, without interaction, the script would loop until the enema holding duration is over
 ' -> void enema and plug the slave to advance to plug assignment
 
 ' remove clamps & pegs
 [Action 5085]
 .else                        ' Fallback
-.mustanyof 38 39 42 43       ' pegs or clamps on nipples or pussy/ballsack 
-.shouldnot 811               ' magic marker applied
+.anyPainToy
+.resetrange 5040 7099        ' reset activity selection ranges  
 .gosub 11960                 ' remove clamps & pegs immediately
 .range 5040                  ' retry
  
-' retry after voiding enema
+' void enema and finish
 [Action 5086]
 .else                        ' Fallback
 .must 268                    ' Holding the enema
 You've been really brave holding your enema this long, slave.
 .gosub 7365 7372             ' void enema and level up
-.resetrange 5040 5085        ' retry activity selection  
 .range 5087                  ' fast path to plugging, although slave may not have voided the enema completely
 
 ' retry after plugging slave
@@ -11653,16 +11660,15 @@ You've been really brave holding your enema this long, slave.
 .else                        ' Fallback
 .must 269                    ' ready to be plugged
 .gosub 7430 7439             ' plug slave
-.resetrange 5040 5085        ' retry activity selection  
-.range 5040                  ' retry
+.range 5089 5099
 
 ' Fallback if we're out of options
 [Action 5088]
 .else                        ' Fallback
 .mustnot 268                 ' Holding the enema
 .mustnot 269                 ' ready to be plugged
-I can't think of anything I want you to do, My dear.
 .range 5089 5099
+
 
 ' End session early depending on how many (de)merits the slave got
 ' neutral (but not 5) is mapped to positive outcome
@@ -11671,36 +11677,36 @@ I can't think of anything I want you to do, My dear.
 [Action 5089]
 .mustnot 200 200 202 203 204 ' no demerits
 .mustnot 205 206 207 208 209 ' no merits
-.range 7750 7759
+.range 7750
 
 ' Bad (-5)
 [Action 5090]
 .must 204                    ' 5 demerits
-.range 7730 7739
+.range 7730
 
 ' Bad (-4)
 [Action 5091]
 .must 203                    ' 4 demerits
 .mustnot 208 209             ' Not 4 merits
-.range 7730 7739
+.range 7730
 
 ' Bad (-3)
 [Action 5092]
 .must 202                    ' 3 demerits
 .mustnot 207 208 209         ' Not 3 merits
-.range 7730 7739
+.range 7730
 
 ' Bad (-2)
 [Action 5093]
 .must 201                    ' 2 demerits
 .mustnot 206 207 208 209     ' Not 2 merits
-.range 7730 7739
+.range 7730
 
 ' Bad (-1)
 [Action 5094]
 .must 200                    ' 1 demerit
 .mustnot 205 206 207 208 209 ' Not 1 merit
-.range 7730 7739
+.range 7730
 
 ' Good (+1)
 [Action 5095]
@@ -11708,7 +11714,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 201 202 203 204     ' 2 or more demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7750 7759
+.range 7750
 
 ' Good (+2)
 [Action 5096]
@@ -11716,7 +11722,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 202 203 204         ' 3 or more demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7750 7759
+.range 7750
 
 ' Good (+3)
 [Action 5097]
@@ -11724,7 +11730,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 203 204             ' 4 or more demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7750 7759
+.range 7750
 
 ' Good (+4)
 [Action 5098]
@@ -11732,7 +11738,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 204                 ' 5 demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7750 7759
+.range 7750
 
 ' Good (+5)
 [Action 5099]
@@ -11740,7 +11746,7 @@ I can't think of anything I want you to do, My dear.
 .mustnot 204                 ' 5 demerits
 .unset 205 206 207 208       ' Give 5 merits to avoid the session to be continued
 .set 209
-.range 7750 7759
+.range 7750
 
 
 '   -------------------------------------------------------------------------
@@ -15250,27 +15256,27 @@ Now I'll judge your performance...
 ' Bad (-5)
 [Action 7700]
 .must 5
-.range 7730 7739
+.range 7730
 
 ' Bad (-4)
 [Action 7701]
 .must 4
-.range 7730 7739
+.range 7730
 
 ' Bad (-3)
 [Action 7702]
 .must 3
-.range 7730 7739
+.range 7730
 
 ' Bad (-2)
 [Action 7703]
 .must 2
-.range 7730 7739
+.range 7730
 
 ' Bad (-1)
 [Action 7704]
 .must 1
-.range 7730 7739
+.range 7730
 
 ' Continue session
 
@@ -15279,35 +15285,35 @@ Now I'll judge your performance...
 .unset 7705
 .mustnot 6 7 8 9 10
 .mustnot 1 2 3 4 5
-.range 7740 7749
+.range 7740
 
 ' Neutral (Not +2)
 [Action 7706]
 .unset 7706
 .mustnot 7 8 9 10
 .mustnot 2 3 4 5
-.range 7740 7749
+.range 7740
 
 ' Neutral (Not +3)
 [Action 7707]
 .unset 7707
 .mustnot 8 9 10
 .mustnot 3 4 5
-.range 7740 7749
+.range 7740
 
 ' Neutral (Not +4)
 [Action 7708]
 .unset 7708
 .mustnot 9 10
 .mustnot 4 5
-.range 7740 7749
+.range 7740
 
 ' Neutral (Not +5)
 [Action 7709]
 .unset 7709
 .mustnot 10
 .mustnot 5
-.range 7740 7749
+.range 7740
 
 ' Must have more merits than demerits for a good ending
 
@@ -15315,31 +15321,31 @@ Now I'll judge your performance...
 [Action 7710]
 .must 10
 .mustnot 5            ' No cumming with five demerits 
-.range 7750 7759
+.range 7750
 
 ' Good (+2)
 [Action 7711]
 .must 9
 .mustnot 5            ' No cumming with five demerits 
-.range 7750 7759
+.range 7750
 
 ' Good (+3)
 [Action 7712]
 .must 8
 .mustnot 5            ' No cumming with five demerits 
-.range 7750 7759
+.range 7750
 
 ' Good (+4)
 [Action 7713]
 .must 7
 .mustnot 5            ' No cumming with five demerits 
-.range 7750 7759
+.range 7750
 
 ' Good (+5)
 [Action 7714]
 .must 6
 .mustnot 5            ' No cumming with five demerits 
-.range 7750 7759
+.range 7750
 
 
 ' Mistress may grow tired because of earlier demerits
@@ -15351,11 +15357,16 @@ Now I'll judge your performance...
 ' (Five demerits can be earned by cumming illigally during a wanking session)
 ' In this case cumming makes no sense, therefore .mustnot 204.
 
+
 ' Negative outcome
-' check 268 & 269 to complete enema, to be able to give plug assignment later
-' todo during enema quest, continue until 5 demerits
+' check 268 & 269 to complete enema, to give plug assignment in subsequent activity
 
 [Action 7730]
+.gosub 11950            ' check whether another activity is possible -> 9 set
+.range 7731 7739
+
+
+[Action 7731]
 .else
 I'm grown tired of you, slave.
 You don't seem to be in the mood to obey orders today,
@@ -15364,7 +15375,7 @@ Shame on you for displeasing your Mistress in this disrespectful way!
 .set 103
 .range 7790 7799
 
-[Action 7731]
+[Action 7732]
 .else
 Well, I've had enough, even if you haven't.
 Maybe next time you'll do enough to earn a reward,
@@ -15374,7 +15385,6 @@ I don't want to see it!
 .set 103
 .range 7790 7799
 
-'[Action 7732]
 '[Action 7733]
 '[Action 7734]
 '[Action 7735]
@@ -15383,37 +15393,49 @@ I don't want to see it!
 [Action 7737]
 .mustnot 204            ' 5 demerits
 .must 268               ' Holding the enema
-.range 7740 7749        ' continue the session
+.range 7741 7749        ' continue the session
 
 [Action 7738]
 .mustnot 204            ' 5 demerits
 .must 269               ' ready to be plugged
-.range 7740 7749        ' continue the session
+.gosub 7430 7439        ' plug slave
+.range 7731 7739        ' continue the session
 
-[Action 7739]
-.mustnot 204            ' 5 demerits
-.mustnot 270            ' plugged, ready for assignment
-.range 7740 7749        ' continue the session
+'[Action 7739]
 
 
 ' Undecided
 
 [Action 7740]
+.gosub 11950            ' check whether another activity is possible -> 9 set
+.range 7741 7749
+
+
+[Action 7741]
+.else
 I don't think you've had enough yet.
 Let's continue the session.
 .gosub 7495 7499        ' Query hardness, then remove toys and continue with next activity
 .range 7550             ' Remove toys
 
-'[Action 7741]
 '[Action 7742]
 '[Action 7743]
 '[Action 7744]
+
+[Action 7749]
+.mustnot 9
+.range 7751 7759        ' In dubio pro reo 
 
 
 ' Positive outcome
 ' check 268 & 269 to complete enema, to be able to give plug assignment later
 
 [Action 7750]
+.gosub 11950            ' check whether another activity is possible -> 9 set
+.range 7751 7759
+
+
+[Action 7751]
 .item Toys.Chastity_Device not applied
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
@@ -15423,7 +15445,7 @@ Won't that be nice?
 .unset 103
 .range 9700 9719
 
-[Action 7751]
+[Action 7752]
 .item Toys.Chastity_Device applied
 .mustnot 268            ' Holding the enema
 .mustnot 269            ' ready to be plugged
@@ -15433,7 +15455,6 @@ Wouldn't it be nice to remove your cage and cum for your Mistress tonight?
 .unset 103
 .range 9700 9719
 
-'[Action 7752]
 '[Action 7753]
 '[Action 7754]
 
@@ -18004,12 +18025,13 @@ Unfortunately, you're not allowed to cum until further notice, My poor little sl
 .range 9000
 
 [Action 9711]
+.must 9                                ' another activity is possible  
 .mustnot 209                           ' 5 merits already
 Of course, we could continue the session
 if you want to extend your training regimen.
 Would you like to do that?
 .yesno 9726 9726 9700 9719
-.yestext Yes Miss, please
+.yestext Yes Miss, please keep training me
 .notext No Miss, please let me cum 
 
 [Action 9712]
@@ -18019,7 +18041,7 @@ Would you like to do that?
 Of course, you don't have to cum if you don't want to.
 Are you sure you'd like to cum, sweetie?
 .yesno 9700 9719 9724 9725
-.yestext Yes, please let me cum, Miss
+.yestext Please let me cum, Miss
 .notext No, I want to stay chaste for your pleasure, Miss
 
 
@@ -18031,7 +18053,7 @@ Are you sure you'd like to cum, sweetie?
 .must 713                              ' punishment acceptance 3
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
-.range 9720 9721
+.range 9720 9721                       ' eat cum or pay off with voluntary punishment
 
 [Action 9714]
 .item Toys.Chastity_Device expired
@@ -18039,7 +18061,7 @@ Are you sure you'd like to cum, sweetie?
 .must 712                              ' punishment acceptance 2
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
-.range 9720 9721
+.range 9720 9721                       ' eat cum or pay off with voluntary punishment
 
 [Action 9715]
 .item Toys.Chastity_Device expired
@@ -18047,14 +18069,14 @@ Are you sure you'd like to cum, sweetie?
 .must 711                              ' punishment acceptance 1
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
-.range 9720 9721
+.range 9720 9721                       ' eat cum or pay off with voluntary punishment
 
 [Action 9716]
 .item Toys.Chastity_Device expired
 .mustnot 204                           ' 4 demerits
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
-.range 9720 9721
+.range 9720 9721                       ' eat cum or pay off with voluntary punishment
 
 ' slave is already a cum-slut
 [Action 9717]
@@ -18064,9 +18086,9 @@ Are you sure you'd like to cum, sweetie?
 .mustnot 691 692 693 694 695 696 697   ' Not scheduled to miss cum opportunity
 .mustnot 698 699                       ' Not scheduled to cum as a punishment 
 You seem to have liked it the last time, slave.
-I'll let you cum, but you have to eat it up.
+I'll let you cum, and you're going to lick it all up.
 .yesno 9540 9549 9729 9729
-.yestext Okay Miss, I'll eat up my cum
+.yestext Yes Miss, I'll lick it all up
 .notext No thanks, Miss
 
 ' Regular cumming
@@ -18085,18 +18107,21 @@ I'll let you cum, but you have to eat it up.
 [Action 9720]
 .state Body.InMouth free
 Because of your bad behavior in our session though, I can't just  let you cum.
-If I do, will you agree to eat it all up?
+If I do, will you agree to lick up your cum after you've spurted your load?
 .yesno 9540 9545 9722 9722
-.yestext Okay Miss, I'll eat up my cum
+.yestext Yes Miss, I'll lick up my cum
 .notext No thanks, Miss
 
 ' Get punished for demerits
 [Action 9721]
-Because of your bad behavior in our session, though, I can't just let you cum.
-If I do let you, will you agree to be punished for it next time we meet?
-I won't go easy on you - you'll have to earn this pleasure, slave.
+Because of your bad behavior in our session, though,
+I can't just let you cum.
+If I do let you,
+will you agree to be punished for it next time we meet?
+I won't go easy on you -
+you'll have to earn this pleasure, slave.
 .yesno 9727 9729 9723 9723
-.yestext Okay Miss, please punish me
+.yestext Right Miss, please punish me
 .notext No thanks, Miss
 
 
@@ -21470,6 +21495,60 @@ what else is there for a slave to do than to concentrate on his Mistress?
 [action 11919]
 .else
 .unset 11919
+.return
+
+
+' find out whether it's possible to perform an activity
+'  9 set if possible, unset if not
+
+[action 11950]
+.unset 9
+.range 11951 11959
+
+
+[action 11951]
+.numactionsavailable 5050 5050 1  ' self-bondage scenario
+.numactionsavailable 5401 5447 1  ' self-bondage scenario
+.set 9
+.return
+
+[action 11952]
+.numactionsavailable 5052 5053 1  ' spanking
+.numactionsavailable 5601 5647 1  ' spanking
+.set 9
+.return
+
+[action 11953]
+.numactionsavailable 5054 5056 1  ' dildo worshiping
+.numactionsavailable 5140 5146 1  ' dildo worshiping
+.set 9
+.return
+
+[action 11954]
+.numactionsavailable 5060 5060 1  ' tease & denial
+.numactionsavailable 6001 6047 1  ' tease & denial
+.set 9
+.return
+
+[action 11955]
+.numactionsavailable 5066 5067 1  ' punishment shower
+.numactionsavailable 5201 5247 1  ' punishment shower
+.set 9
+.return
+
+[action 11956]
+.numactionsavailable 5068 5068 1  ' nipples & nuts
+.numactionsavailable 5801 5847 1  ' nipples & nuts
+.set 9
+.return
+
+[action 11957]
+.numactionsavailable 5070 5070 1  ' maid training
+.set 9
+.return
+
+[action 11959]
+.else
 .return
 
 
