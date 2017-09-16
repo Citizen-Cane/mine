@@ -14,6 +14,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import pcm.controller.AllActionsSetException;
+import pcm.controller.BreakPoint;
 import pcm.model.ActionRange;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
@@ -58,11 +59,13 @@ public class MinePunishments {
     public void testPunishments() throws AllActionsSetException, ScriptExecutionException {
         new Preset(mine).submitted().set(punishment);
 
+        assertEquals("Punishment pending", ScriptState.SET, mine.state.get(punishment));
+        mine.breakPoints.add(mine.script.name, 3000, BreakPoint.STOP);
         mine.playFrom(new ActionRange(845, 846));
-
-        assertScriptEndedGracefully();
-        assertEquals("Good end", ScriptState.SET, mine.state.get(851));
+        assertEquals("Punishment executed", ScriptState.UNSET, mine.state.get(punishment));
     }
+
+    // TODO Tests fail sporadicly because the timed answers in Mine behave erratic when time is frozen by the debugger
 
     protected void assertScriptEndedGracefully() {
         assertEquals("All actions set - see console output for offending action", ScriptState.UNSET,
