@@ -77,7 +77,7 @@ public class MineMaidTest {
     }
 
     @Test
-    public void testPosition() throws AllActionsSetException, ScriptExecutionException {
+    public void testActivityPosition() throws AllActionsSetException, ScriptExecutionException {
         // Exclude save range
         mine.state.resetRange(new ActionRange(0, 389));
         mine.state.resetRange(new ActionRange(700, 9999));
@@ -101,6 +101,11 @@ public class MineMaidTest {
         // Expect position to be completed
         assertEquals("Position not completed:", ScriptState.SET, mine.state.get(position));
     }
+
+    // TODO Test punishment position
+
+    // TODO Test punishment position failing -> leads to retry with an easier but longer position, eventually leads to
+    // AllActionsSet
 
     private static void playPosition(Action positionAction) throws ScriptExecutionException, AllActionsSetException {
         selectSinglePosition(positionAction);
