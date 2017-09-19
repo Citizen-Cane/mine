@@ -2,12 +2,10 @@ package teaselib.scripts.mine;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -20,11 +18,6 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
-import teaselib.core.Debugger;
-import teaselib.core.TeaseLib;
-import teaselib.hosts.DummyHost;
-import teaselib.hosts.DummyPersistence;
-import teaselib.test.DebugSetup;
 
 @RunWith(Parameterized.class)
 public class MinePunishments {
@@ -41,31 +34,18 @@ public class MinePunishments {
         this.punishment = punishment;
     }
 
-    @Before
-    public void init() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Debugger debugger = new Debugger(new DummyHost(), new DummyPersistence(), new DebugSetup());
-
-        TeaseLib teaseLib = debugger.teaseLib;
-        debugger.freezeTime();
-        debugger.addResponses(MinePrompts.all());
-
-        mine = new Mine(teaseLib, new File("../SexScripts/scripts/"));
-        mine.loadScript("Mine");
-    }
-
     private Mine mine;
 
     @Test
-    public void testPunishments() throws AllActionsSetException, ScriptExecutionException {
-        new Preset(mine).submitted().set(punishment);
+    public void testPunishments() throws AllActionsSetException, ScriptExecutionException, ScriptParsingException,
+            ValidationIssue, IOException {
+        mine = new Preset().submitted().set(punishment).responses(MinePrompts.all()).mine(Mine.MAIN);
 
         assertEquals("Punishment pending", ScriptState.SET, mine.state.get(punishment));
         mine.breakPoints.add(mine.script.name, 3000, BreakPoint.STOP);
         mine.playFrom(new ActionRange(845, 846));
         assertEquals("Punishment executed", ScriptState.UNSET, mine.state.get(punishment));
     }
-
-    // TODO Tests fail sporadicly because the timed answers in Mine behave erratic when time is frozen by the debugger
 
     protected void assertScriptEndedGracefully() {
         assertEquals("All actions set - see console output for offending action", ScriptState.UNSET,

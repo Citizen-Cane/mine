@@ -2,10 +2,8 @@ package teaselib.scripts.mine;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.io.IOException;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import pcm.controller.AllActionsSetException;
@@ -14,30 +12,14 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
-import teaselib.core.Debugger;
-import teaselib.core.TeaseLib;
-import teaselib.hosts.DummyHost;
-import teaselib.hosts.DummyPersistence;
-import teaselib.test.DebugSetup;
 
 public class MineFirstRunTest {
-
-    @Before
-    public void init() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Debugger debugger = new Debugger(new DummyHost(), new DummyPersistence(), new DebugSetup());
-
-        TeaseLib teaseLib = debugger.teaseLib;
-        debugger.freezeTime();
-        debugger.addResponses(MinePrompts.all());
-
-        mine = new Mine(teaseLib, new File("../SexScripts/scripts/"));
-        mine.loadScript("Mine");
-    }
-
     private Mine mine;
 
     @Test
-    public void testFirstTime() throws AllActionsSetException, ScriptExecutionException {
+    public void testFirstTime() throws AllActionsSetException, ScriptExecutionException, IOException,
+            ScriptParsingException, ValidationIssue {
+        mine = new Preset().responses(MinePrompts.all()).mine(Mine.MAIN);
         mine.playFrom(new ActionRange(845, 846));
 
         assertScriptEndedGracefully();
@@ -45,8 +27,9 @@ public class MineFirstRunTest {
     }
 
     @Test
-    public void testSubmitted() throws AllActionsSetException, ScriptExecutionException {
-        new Preset(mine).submitted();
+    public void testSubmitted() throws AllActionsSetException, ScriptExecutionException, ScriptParsingException,
+            ValidationIssue, IOException {
+        mine = new Preset().submitted().responses(MinePrompts.all()).mine(Mine.MAIN);
         mine.playFrom(new ActionRange(845, 846));
 
         assertScriptEndedGracefully();

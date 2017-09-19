@@ -34,27 +34,30 @@ import teaselib.util.Items;
 public class Mine extends Player {
     private static final Logger logger = LoggerFactory.getLogger(Mine.class);
 
+    public static final String MAIN = "Mine";
+
+    public static final String MAID = "mine-maid";
+    public static final String PADDLE = "mine-paddle";
+    public static final String NIPT = "mine-nipt";
+    public static final String TD = "mine-td";
+    public static final String SB = "mine-sb";
+    public static final String DILDO = "mine-dildo";
+
     private static final String Namespace = "Mine";
     private static final String ResourcesRoot = "Mine";
-    private static final String MainScript = "Mine";
 
     private static final Actor MineMistress = new Actor("Mistress", "Miss,", Voice.Gender.Female, Locale.UK,
             Actor.Key.DominantFemale, Images.None);
-
     private static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip", "Mine Mistress.zip" };
-
     private static final String[] OptionalAssets = { "Mine Speech.zip" };
-
     private static final String MistressVanaImageResources = "mistress/Vana/";
 
-    // TODO Map all punishments to state
     public enum Punishment {
         BadIntroduction,
         NotNaked,
         CummingWithoutPermission
     }
 
-    // TODO Map all assignments to state
     public enum Assignments {
         ClearSessionTimerCheck,
         CarryOutEnema
@@ -62,7 +65,7 @@ public class Mine extends Player {
 
     public static void main(String argv[]) {
         try {
-            recordVoices(MineMistress, MainScript, new File(argv[0]), ResourcesRoot, Assets);
+            recordVoices(MineMistress, MAIN, new File(argv[0]), ResourcesRoot, Assets);
         } catch (ScriptParsingException e) {
             logger.error(e.getMessage(), e);
         } catch (ValidationIssue e) {
@@ -145,7 +148,7 @@ public class Mine extends Player {
     private void clearSessionTimerCheck() {
         PersistentBoolean clearTimeCheck = persistentBoolean(Assignments.ClearSessionTimerCheck);
         if (clearTimeCheck.isTrue()) {
-            setScriptState(MainScript, 95, 0);
+            setScriptState(MAIN, 95, 0);
             clearTimeCheck.clear();
         }
     }
@@ -153,30 +156,30 @@ public class Mine extends Player {
     private void triggerCarryOutEnema() {
         PersistentBoolean triggerCarryOutEnema = persistentBoolean(Assignments.CarryOutEnema);
         if (triggerCarryOutEnema.isTrue()) {
-            setScriptState(MainScript, 267, 1);
+            setScriptState(MAIN, 267, 1);
             triggerCarryOutEnema.clear();
         }
     }
 
     @Override
     public void run() {
-        play(MainScript);
+        play(MAIN);
     }
 
     public void punish(Punishment punishment) {
         switch (punishment) {
         case BadIntroduction:
-            setScriptState(MainScript, 500, 1);
+            setScriptState(MAIN, 500, 1);
             break;
         case NotNaked:
-            if (getScriptState(MainScript, 502) == 1) {
-                setScriptState(MainScript, 503, 1);
+            if (getScriptState(MAIN, 502) == 1) {
+                setScriptState(MAIN, 503, 1);
             } else {
-                setScriptState(MainScript, 502, 1);
+                setScriptState(MAIN, 502, 1);
             }
             break;
         case CummingWithoutPermission:
-            setScriptState(MainScript, 519, 1);
+            setScriptState(MAIN, 519, 1);
             break;
         default:
             break;

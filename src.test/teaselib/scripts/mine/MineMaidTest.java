@@ -2,7 +2,6 @@ package teaselib.scripts.mine;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +19,6 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
-import teaselib.core.Debugger;
-import teaselib.core.TeaseLib;
-import teaselib.hosts.DummyHost;
-import teaselib.hosts.DummyPersistence;
-import teaselib.test.DebugSetup;
 
 @RunWith(Parameterized.class)
 public class MineMaidTest {
@@ -33,14 +27,14 @@ public class MineMaidTest {
     @Parameters(name = "Position {0} @ difficulty={1}")
     public static Iterable<Integer[]> data()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        init();
+        mine = new Preset().submitted().responses(MinePrompts.all()).mine(Mine.MAID);
 
         List<Integer[]> positions = new ArrayList<Integer[]>();
         add(positions, new ActionRange(400, 499), 0);
         add(positions, new ActionRange(500, 574), 1);
         add(positions, new ActionRange(575, 649), 2);
         add(positions, new ActionRange(650, 699), 3);
-        // TODO Query available here
+
         return positions;
     }
 
@@ -50,18 +44,6 @@ public class MineMaidTest {
         for (Action action : actions) {
             positions.add(new Integer[] { action.number - POSITION_TO_SELECT_OFFSET, difficulty });
         }
-    }
-
-    static void init() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Debugger debugger = new Debugger(new DummyHost(), new DummyPersistence(), new DebugSetup());
-
-        TeaseLib teaseLib = debugger.teaseLib;
-
-        debugger.freezeTime();
-        debugger.addResponses(MinePrompts.maid());
-
-        mine = new Mine(teaseLib, new File("../SexScripts/scripts/"));
-        mine.loadScript("mine-maid");
     }
 
     static final int ENABLE_MINE_MAID_DEBUGGING = 121;
@@ -86,11 +68,11 @@ public class MineMaidTest {
         mine.state.set(110 + difficulty);
         mine.state.set(ENABLE_MINE_MAID_DEBUGGING);
 
-        Action action = mine.script.actions.get(position + 1000);
-        Assume.assumeFalse("Position not implemented yet" + position, action == null);
+        Action startAction = mine.script.actions.get(position + 1000);
+        Assume.assumeFalse("Position " + position + " not implemented yet", startAction == null);
 
         List<Action> positionAction = mine.range(new ActionRange(position + POSITION_TO_SELECT_OFFSET));
-        Assume.assumeFalse("Position not available" + position, positionAction.isEmpty());
+        Assume.assumeFalse("Position " + position + " not available", positionAction.isEmpty());
         assertEquals(1, positionAction.size());
 
         playPosition(positionAction.get(0));
@@ -103,6 +85,7 @@ public class MineMaidTest {
     }
 
     // TODO Test punishment position
+    // TODO Test positions that require a lot of toys - analyze action for items?
 
     // TODO Test punishment position failing -> leads to retry with an easier but longer position, eventually leads to
     // AllActionsSet
@@ -121,9 +104,15 @@ public class MineMaidTest {
         List<Action> allPositions = mine.script.actions.getAll(allPositionsRange);
 
         mine.play(new ActionRange(1219), new ActionRange(1000, 1219));
+        selectPositionsBydisablingllUnwanted(positionAction, allPositionsRange, allPositions);
+        mine.playRange(new ActionRange(1000, 3999));
+        undoDisableUnwantedPositions(positionAction, allPositions);
 
-        // Select position by setting all non-wanted
-        // - only positionAction is selectable
+        assertEquals(0, mine.range(new ActionRange(positionAction.number)).size());
+    }
+
+    public static void selectPositionsBydisablingllUnwanted(Action positionAction, ActionRange allPositionsRange,
+            List<Action> allPositions) throws ScriptExecutionException {
         for (Action action : allPositions) {
             if (action.number != positionAction.number) {
                 mine.state.set(action);
@@ -131,16 +120,14 @@ public class MineMaidTest {
         }
         assertEquals(1, mine.range(allPositionsRange).size());
         assertEquals(1, mine.range(new ActionRange(positionAction.number)).size());
+    }
 
-        mine.playRange(new ActionRange(1000, 3999));
-
-        // Undo previous hack to restore the original script state
+    public static void undoDisableUnwantedPositions(Action positionAction, List<Action> allPositions) {
         for (Action action : allPositions) {
             if (action.number != positionAction.number) {
                 mine.state.unset(action.number);
             }
         }
-        assertEquals(0, mine.range(new ActionRange(positionAction.number)).size());
     }
 
     private static void assertThatAllActionsSetDidntOccur(Mine mine) {
