@@ -18,6 +18,8 @@ import pcm.model.ActionRange;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
+import pcm.state.Condition;
+import pcm.state.conditions.Must;
 import pcm.state.persistence.ScriptState;
 
 @RunWith(Parameterized.class)
@@ -27,9 +29,9 @@ public class MineMaidTest {
     @Parameters(name = "Position {0} @ difficulty={1}")
     public static Iterable<Integer[]> data()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        mine = new Preset().submitted().responses(MinePrompts.all()).mine(Mine.MAID);
+        mine = new Preset().script(Mine.MAID).responses(MinePrompts.all()).mine();
 
-        List<Integer[]> positions = new ArrayList<Integer[]>();
+        List<Integer[]> positions = new ArrayList<>();
         add(positions, new ActionRange(400, 499), 0);
         add(positions, new ActionRange(500, 574), 1);
         add(positions, new ActionRange(575, 649), 2);
@@ -71,20 +73,30 @@ public class MineMaidTest {
         Action startAction = mine.script.actions.get(position + 1000);
         Assume.assumeFalse("Position " + position + " not implemented yet", startAction == null);
 
-        List<Action> positionAction = mine.range(new ActionRange(position + POSITION_TO_SELECT_OFFSET));
-        Assume.assumeFalse("Position " + position + " not available", positionAction.isEmpty());
-        assertEquals(1, positionAction.size());
+        Action action = mine.script.actions.get(position + POSITION_TO_SELECT_OFFSET);
 
-        playPosition(positionAction.get(0));
+        if (action.conditions.contains(new Must(179))) {
+            mine.state.set(179);
+        }
 
-        // Expect a good ending
+        List<Action> positionActions = mine.range(new ActionRange(position + POSITION_TO_SELECT_OFFSET));
+        if (positionActions.isEmpty()) {
+            List<Condition> unmatchedconditions = pcm.util.TestUtils.umatchedConditions(action, mine.state);
+            Assume.assumeFalse(
+                    "Position " + position + " not available: " + pcm.util.TestUtils.toString(unmatchedconditions),
+                    positionActions.isEmpty());
+        } else {
+            assertEquals(1, positionActions.size());
+        }
+
+        playPosition(positionActions.get(0));
+
         assertEquals("Script not ended as expected:", ScriptState.SET, mine.state.get(9950));
 
         // Expect position to be completed
         assertEquals("Position not completed:", ScriptState.SET, mine.state.get(position));
     }
 
-    // TODO Test punishment position
     // TODO Test positions that require a lot of toys - analyze action for items?
 
     // TODO Test punishment position failing -> leads to retry with an easier but longer position, eventually leads to
@@ -106,9 +118,19 @@ public class MineMaidTest {
         mine.play(new ActionRange(1219), new ActionRange(1000, 1219));
         selectPositionsBydisablingllUnwanted(positionAction, allPositionsRange, allPositions);
         mine.playRange(new ActionRange(1000, 3999));
+
         undoDisableUnwantedPositions(positionAction, allPositions);
 
         assertEquals(0, mine.range(new ActionRange(positionAction.number)).size());
+    }
+
+    static int forward(int n) {
+        if (n == 648)
+            return 519;
+        else if (n == 649)
+            return 520;
+        else
+            return n;
     }
 
     public static void selectPositionsBydisablingllUnwanted(Action positionAction, ActionRange allPositionsRange,
