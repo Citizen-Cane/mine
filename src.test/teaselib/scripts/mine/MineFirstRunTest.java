@@ -19,7 +19,7 @@ public class MineFirstRunTest {
     @Test
     public void testFirstTime() throws AllActionsSetException, ScriptExecutionException, IOException,
             ScriptParsingException, ValidationIssue {
-        mine = new Preset().responses(MinePrompts.all()).mine(Mine.MAIN);
+        mine = new Preset().script(Mine.MAIN).responses(MinePrompts.all()).mine();
         mine.playFrom(new ActionRange(845, 846));
 
         assertScriptEndedGracefully();
@@ -29,7 +29,7 @@ public class MineFirstRunTest {
     @Test
     public void testSubmitted() throws AllActionsSetException, ScriptExecutionException, ScriptParsingException,
             ValidationIssue, IOException {
-        mine = new Preset().submitted().responses(MinePrompts.all()).mine(Mine.MAIN);
+        mine = new Preset().script(Mine.MAIN).submitted().responses(MinePrompts.all()).mine();
         mine.playFrom(new ActionRange(845, 846));
 
         assertScriptEndedGracefully();

@@ -49,6 +49,9 @@ public class Preset {
     }
 
     public Preset submitted() {
+        if (mine.script.name != "Mine") {
+            throw new IllegalStateException("Wrong script");
+        }
         set(100, 101);
         return this;
     }
@@ -58,10 +61,7 @@ public class Preset {
         return this;
     }
 
-    public Mine mine(String script)
-            throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        script(script);
+    public Mine mine() {
         return mine;
     }
-
 }

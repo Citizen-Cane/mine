@@ -39,7 +39,7 @@ public class MinePunishments {
     @Test
     public void testPunishments() throws AllActionsSetException, ScriptExecutionException, ScriptParsingException,
             ValidationIssue, IOException {
-        mine = new Preset().submitted().set(punishment).responses(MinePrompts.all()).mine(Mine.MAIN);
+        mine = new Preset().script(Mine.MAIN).submitted().set(punishment).responses(MinePrompts.all()).mine();
 
         assertEquals("Punishment pending", ScriptState.SET, mine.state.get(punishment));
         mine.breakPoints.add(mine.script.name, 3000, BreakPoint.STOP);
