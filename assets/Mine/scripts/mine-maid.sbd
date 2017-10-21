@@ -7327,11 +7327,11 @@ I bet you'll enjoy this position as much as I do.
 .image bd028_18.jpg
 Go ahead and pop the clamps on your nipples, slave.
 .item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
-.range 5169
+.range 5168
 
 [Action 5166]
 .must 5161
-.range 5169
+.range 5168
 
 
 [Action 5168]
@@ -9409,17 +9409,17 @@ Well, at least you didn't spurt off, you lazy cunt.
 
 ' skip generic comment, just proceed to position specific
 [Action 7308]
-.unset 7301
+.unset 7308
 .range 7399             ' Jump to position specific comments range
 
-' Issue generic comment before specific one
+' say generic comment before specific one
 [Action 7309]
-.unset 7302
 .poss 100
 .mustnot 1400 1401      ' Positions to be commented with a position specific comment
 .mustnot 1500           ' Positions to be commented with a position specific comment
 .mustnot 1575           ' Positions to be commented with a position specific comment
 .mustnot 1650 1652      ' Positions to be commented with a position specific comment
+.unset 7309
 .range 7310 7398        ' Jump to generic comments range
 
 
@@ -9431,6 +9431,7 @@ Well, at least you didn't spurt off, you lazy cunt.
 I'm very disappointed that you couldn't hold such a simple basic position, slave.
 If that's too much for you, I don't have very high hopes for your slave training.
 .pause Yes, Miss
+.set 399
 .range 7399
 
 [Action 7311]
@@ -9440,6 +9441,7 @@ If that's too much for you, I don't have very high hopes for your slave training
 I wish I had a decent slave, that wasn't such a lazy cunt.
 You're just useless, you know that?
 .pause Yes, Miss
+.set 399
 .range 7399
 
 [Action 7312]
@@ -9448,6 +9450,7 @@ You're just useless, you know that?
 That's very poor, slave.
 I'm amazed you aren't able to keep up with such a basic position.
 .pause I'm sorry, Miss
+.set 399
 .range 7399
 
 [Action 7313]
@@ -9458,6 +9461,7 @@ You don't seem to have much talent for being a slave.
 I wonder if this is really the right path for you to take.
 I suppose I have no alternative but to punish you for your failure.
 .pause Thank you, Miss
+.set 399
 .range 7399
 
 '[Action 7314]
@@ -9466,6 +9470,7 @@ I suppose I have no alternative but to punish you for your failure.
 'I wish I had a decent slave, that wasn't such a lazy cunt.
 'You're just useless, you know that?
 '.pause Yes, Miss
+'.set 399
 '.range 7399
 
 [Action 7315]
@@ -9474,6 +9479,7 @@ I suppose I have no alternative but to punish you for your failure.
 I'm amazed you aren't able to do such an easy one! 
 You'd better shape up in a hurry, you wimp.
 .pause I promise, Miss
+.set 399
 .range 7399
 
 [Action 7316]
@@ -9482,6 +9488,7 @@ You'd better shape up in a hurry, you wimp.
 It's a difficult position, but you're such a pussy about it.
 I just can't stand a little wimpy slave.
 .pause I'm sorry, Miss
+.set 399
 .range 7399
 
 
@@ -9543,6 +9550,7 @@ I suppose I'll have to punish you for failing again, slave.
 [Action 7399]
 .else
 .unset 7399
+.resetrange 8800 9699   ' clear toy removal range
 .range 7400 7699        ' Position dependent comment
 
 
@@ -10747,8 +10755,8 @@ delay 5
 
 [Action 8399]
 .unset 8399
-.resetrange 8800 9699   ' clear toy removal
-.range 8400 8699
+.resetrange 8800 9699   ' clear toy removal range
+.range 8400 8699        ' Position dependent comment
 
 
 ' Easy positions 400-499
@@ -11656,6 +11664,7 @@ You may detach the leash, slave.
 ' remove toys
 [Action 9402]
 .else
+.unset 9402
 .range 9405 9409
 
 
@@ -12745,14 +12754,13 @@ necessary items for your punishment and let you suffer a little longer instead.
 
 ' Final failure for punishment
 [Action 9751]
-.else
-.must 110               ' Decrease to easy level first, then increase duration up to three chances
-.must 113               ' Increase duration
-.must 179
+.must 103               ' maximum duration
+.must 110               ' lowest level
+.must 179               ' punishment
 I've had it, you disobedient cunt.
 You are obviously not in the mood to accept a well deserved punishment,
 and I'm not going to waste any more time on you, bitch. 
-.range 9769             ' Exit to main script 2499, but can't siaplay message and .loadbsd in the same action
+.range 9769             ' Exit to main script 2499, but can't dislay message and .loadbsd in the same action
 
 ' Easy level contains poses that can be done entirely without toys,
 ' just household may be needed (such things like a shoe)
@@ -12841,8 +12849,10 @@ and let you suffer a little longer instead.
 .set 103                ' Very long duration
 .range 9768
 
+' Maximum prolongation
 [Action 9763]
 .must 103
+.unset 9763
 .range 9768
 
 '[Action 9764]
@@ -13066,7 +13076,7 @@ Good job!
 '.save 390 699
 '.loadsbd Mine.sbd 2424 2424
 
-[Action 9954]
+[Action 9955]
 .must 125               ' punishment (training failure 2)
 .save 390 699
 .loadsbd Mine.sbd 2418 2418

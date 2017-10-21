@@ -64,4 +64,14 @@ public class Preset {
     public Mine mine() {
         return mine;
     }
+
+    public Preset punishmentAcceptance(int punishmentAcceptance) {
+        if (punishmentAcceptance < 0 || punishmentAcceptance > 5)
+            throw new IllegalArgumentException("Out of range: " + punishmentAcceptance);
+
+        for (int i = 0; i < punishmentAcceptance; i++) {
+            mine.state.set(711 + i);
+        }
+        return this;
+    }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import teaselib.core.Debugger;
+import teaselib.core.Debugger.Response;
 import teaselib.core.Debugger.ResponseAction;
 
 /**
@@ -13,17 +14,17 @@ import teaselib.core.Debugger.ResponseAction;
 public class MinePrompts {
 
     static Collection<ResponseAction> all() {
-        ArrayList<ResponseAction> all = new ArrayList<ResponseAction>();
+        ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
         all.addAll(mine());
-        all.addAll(maid());
+        all.addAll(maidGood());
         all.addAll(td());
         all.addAll(paddle());
         return all;
     }
 
     static Collection<ResponseAction> defaults() {
-        ArrayList<ResponseAction> all = new ArrayList<ResponseAction>();
+        ArrayList<ResponseAction> all = new ArrayList<>();
 
         all.add(new ResponseAction("Yes, Miss", Debugger.Response.Choose));
         all.add(new ResponseAction("Exit", Debugger.Response.Choose));
@@ -32,7 +33,7 @@ public class MinePrompts {
     }
 
     static Collection<ResponseAction> mine() {
-        ArrayList<ResponseAction> all = new ArrayList<ResponseAction>();
+        ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 
         // Introduction
@@ -78,16 +79,31 @@ public class MinePrompts {
         return all;
     }
 
-    static Collection<ResponseAction> maid() {
-        ArrayList<ResponseAction> all = new ArrayList<ResponseAction>();
+    static Collection<ResponseAction> maidGood() {
+        return maid(Debugger.Response.Ignore, Debugger.Response.Ignore);
+    }
+
+    static Collection<ResponseAction> maidGivingUp() {
+        return maid(Debugger.Response.Choose, Debugger.Response.Ignore);
+    }
+
+    static Collection<ResponseAction> maidSpurtedOff() {
+        return maid(Debugger.Response.Ignore, Debugger.Response.Choose);
+    }
+
+    private static Collection<ResponseAction> maid(Response giveUpResponse, Response spurtedOffResponse) {
+        ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 
-        all.add(new ResponseAction("*spurted*", Debugger.Response.Ignore));
-        all.add(new ResponseAction("I give up, Miss", Debugger.Response.Ignore));
+        all.add(new ResponseAction("*spurted*", spurtedOffResponse));
+        all.add(new ResponseAction("I give up, Miss", giveUpResponse));
+
         all.add(new ResponseAction("Of course*", Debugger.Response.Choose));
 
         // Gagged
-        all.add(new ResponseAction("I gmvm mp, Mmss", Debugger.Response.Ignore));
+        all.add(new ResponseAction("*spmrtmd*", spurtedOffResponse));
+        all.add(new ResponseAction("I gmvm mp, Mmss", giveUpResponse));
+
         all.add(new ResponseAction("Of cmmrsm, Mmss", Debugger.Response.Choose));
 
         // 420
@@ -102,7 +118,7 @@ public class MinePrompts {
     }
 
     static Collection<ResponseAction> td() {
-        ArrayList<ResponseAction> all = new ArrayList<ResponseAction>();
+        ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 
         all.add(new ResponseAction("I've spurted off, Miss", Debugger.Response.Ignore));
@@ -112,7 +128,7 @@ public class MinePrompts {
     }
 
     static Collection<? extends ResponseAction> paddle() {
-        ArrayList<ResponseAction> all = new ArrayList<ResponseAction>();
+        ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 
         all.add(new ResponseAction("Yes Miss, soaking wet", Debugger.Response.Choose));

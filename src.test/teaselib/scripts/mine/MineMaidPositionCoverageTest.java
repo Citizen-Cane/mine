@@ -23,7 +23,7 @@ import pcm.state.conditions.Must;
 import pcm.state.persistence.ScriptState;
 
 @RunWith(Parameterized.class)
-public class MineMaidTest {
+public class MineMaidPositionCoverageTest {
     private static final int POSITION_TO_SELECT_OFFSET = 1000;
 
     @Parameters(name = "Position {0} @ difficulty={1}")
@@ -55,7 +55,7 @@ public class MineMaidTest {
 
     private static Mine mine;
 
-    public MineMaidTest(int position, int difficulty) {
+    public MineMaidPositionCoverageTest(int position, int difficulty) {
         this.position = position;
         this.difficulty = difficulty;
     }
