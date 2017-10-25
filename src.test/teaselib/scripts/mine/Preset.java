@@ -12,9 +12,9 @@ import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import teaselib.core.Debugger;
 import teaselib.core.Debugger.ResponseAction;
+import teaselib.core.TeaseLib;
 import teaselib.core.debug.DebugHost;
 import teaselib.core.debug.DebugPersistence;
-import teaselib.core.TeaseLib;
 import teaselib.test.DebugSetup;
 
 /**
@@ -26,11 +26,15 @@ public class Preset {
     final Debugger debugger;
 
     public Preset() throws IOException {
-        this(new Mine(new TeaseLib(new DebugHost(), new DebugPersistence(), new DebugSetup()),
+        this(new DebugPersistence.Storage());
+    }
+
+    public Preset(DebugPersistence.Storage storage) throws IOException {
+        this(new Mine(new TeaseLib(new DebugHost(), new DebugPersistence(storage), new DebugSetup()),
                 new File("../SexScripts/scripts/")));
     }
 
-    public Preset(Mine mine) {
+    private Preset(Mine mine) {
         this.mine = mine;
         debugger = new Debugger(mine.teaseLib);
     }

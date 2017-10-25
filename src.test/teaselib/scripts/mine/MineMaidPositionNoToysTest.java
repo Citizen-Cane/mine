@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assume;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -20,9 +19,11 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.Condition;
+import pcm.state.conditions.Must;
 import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
+import teaselib.core.debug.DebugPersistence;
 
 /**
  * @author Citizen-Cane
@@ -40,33 +41,35 @@ public class MineMaidPositionNoToysTest {
     private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Toys.Wrist_Restraints, Toys.Ankle_Restraints,
             Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Blindfold };
 
-    private static Mine mine;
+    private static DebugPersistence.Storage storage = new DebugPersistence.Storage();
 
     @Parameters(name = "Position {0} @ difficulty={1}")
     public static Iterable<Integer[]> data()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
 
-        initScriptPlayer();
+        Mine mine = createPlayer(new Preset());
 
         List<Integer[]> positions = new ArrayList<>();
-        add(positions, new ActionRange(400, 499), 0);
-        add(positions, new ActionRange(500, 574), 1);
-        add(positions, new ActionRange(575, 649), 2);
-        add(positions, new ActionRange(650, 699), 3);
+        add(mine, positions, new ActionRange(400, 499), 0);
+        add(mine, positions, new ActionRange(500, 574), 1);
+        add(mine, positions, new ActionRange(575, 649), 2);
+        add(mine, positions, new ActionRange(650, 699), 3);
 
         return positions;
     }
 
-    public static void initScriptPlayer()
+    public static Mine createPlayer(Preset preset)
             throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
-        mine = new Preset().script(Mine.MAID).clearHandlers().responses(MinePrompts.maidNoToys()).mine();
+        Mine mine = preset.script(Mine.MAID).clearHandlers().responses(MinePrompts.maidNoToys()).mine();
 
         for (Enum<?> toy : TOYS) {
             mine.item(toy).setAvailable(true);
         }
+
+        return mine;
     }
 
-    private static void add(List<Integer[]> positions, ActionRange range, int difficulty) {
+    private static void add(Mine mine, List<Integer[]> positions, ActionRange range, int difficulty) {
         List<Action> actions = mine.script.actions.getAll(
                 new ActionRange(range.start + POSITION_TO_SELECT_OFFSET, range.end + POSITION_TO_SELECT_OFFSET));
         for (Action action : actions) {
@@ -79,7 +82,14 @@ public class MineMaidPositionNoToysTest {
     final int position;
     final int difficulty;
 
-    public MineMaidPositionNoToysTest(int position, int difficulty) {
+    Preset preset;
+    Mine mine;
+
+    public MineMaidPositionNoToysTest(int position, int difficulty)
+            throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
+        this.preset = new Preset(storage);
+        this.mine = createPlayer(preset);
+
         this.position = position;
         this.difficulty = difficulty;
     }
@@ -88,6 +98,8 @@ public class MineMaidPositionNoToysTest {
     public void testActivityPositionNoToys() throws AllActionsSetException, ScriptExecutionException {
         mine.state.resetRange(new ActionRange(0, 389));
         mine.state.resetRange(new ActionRange(700, 9999));
+
+        mine.state.setRange(new ActionRange(400, 699));
 
         mine.state.set(100);
         mine.state.set(110 + difficulty);
@@ -98,21 +110,29 @@ public class MineMaidPositionNoToysTest {
         mine.breakPoints.add(Mine.MAID, MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT);
         mine.breakPoints.add(Mine.MAID, 9981);
 
-        playPosition(positionActions.get(0));
+        selectSinglePosition(positionActions.get(0));
+        mine.playRange(new ActionRange(1, 3999));
+        mine.playRange(new ActionRange(4000, 6999));
 
-        assertTrue(mine.range.equals(new ActionRange(MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT)));
-
-        assertTrue(mine.range.equals(new ActionRange(MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT))
-                || mine.range.equals(new ActionRange(9981)));
+        assertTrue(mine.range.start >= 7700 || mine.range.start == 1820);
     }
 
     public List<Action> checkPositionAvailable(Player mine) throws AssertionError {
         Action startAction = mine.script.actions.get(position + 1000);
-        Assume.assumeFalse("Position " + position + " not implemented yet", startAction == null);
-        Action action1 = mine.script.actions.get(position + POSITION_TO_SELECT_OFFSET);
+        assertTrue("Position " + position + " not implemented yet", startAction != null);
 
-        Action action = action1;
+        Action action = getExecutablePositionAction();
+
         List<Action> positionActions = mine.range(new ActionRange(position + POSITION_TO_SELECT_OFFSET));
+
+        if (positionActions.isEmpty()) {
+            for (Enum<?> toy : TOYS) {
+                if (position != 641 || toy != Toys.Ankle_Restraints)
+                    mine.item(toy).apply();
+            }
+            positionActions = mine.range(new ActionRange(position + POSITION_TO_SELECT_OFFSET));
+        }
+
         if (positionActions.isEmpty()) {
             List<Condition> unmatchedconditions = pcm.util.TestUtils.umatchedConditions(action, mine.state);
             throw new AssertionError(
@@ -123,14 +143,28 @@ public class MineMaidPositionNoToysTest {
         return positionActions;
     }
 
-    private static void playPosition(Action positionAction) throws ScriptExecutionException, AllActionsSetException {
-        selectSinglePosition(positionAction);
-        mine.playRange(new ActionRange(1, 9950));
-        assertThatAllActionsSetDidntOccur(mine);
+    public Action getExecutablePositionAction() {
+        Action action = mine.script.actions.get(position + POSITION_TO_SELECT_OFFSET);
+
+        if (action.conditions.contains(new Must(MAID_TRAINING_PUNISHMENT_FLAG))) {
+            mine.state.set(MAID_TRAINING_PUNISHMENT_FLAG);
+        } else {
+            mine.state.unset(MAID_TRAINING_PUNISHMENT_FLAG);
+        }
+
+        if (action.conditions.contains(new Must(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED))) {
+            preset.strictSelfBondage(2);
+            mine.state.set(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED);
+        } else {
+            preset.strictSelfBondage(0);
+            mine.state.unset(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED);
+        }
+
+        mine.state.set(POSITION_NOT_CONTINUEABLE);
+        return action;
     }
 
-    private static void selectSinglePosition(Action positionAction)
-            throws AllActionsSetException, ScriptExecutionException {
+    private void selectSinglePosition(Action positionAction) throws AllActionsSetException, ScriptExecutionException {
         mine.state.overwrite(148, ScriptState.UNSET);
 
         ActionRange allPositionsRange = new ActionRange(1400, 1699);
@@ -154,7 +188,7 @@ public class MineMaidPositionNoToysTest {
             return n;
     }
 
-    public static void selectPositionsBydisablingllUnwanted(Action positionAction, ActionRange allPositionsRange,
+    public void selectPositionsBydisablingllUnwanted(Action positionAction, ActionRange allPositionsRange,
             List<Action> allPositions) throws ScriptExecutionException {
         for (Action action : allPositions) {
             if (action.number != positionAction.number) {
@@ -165,15 +199,11 @@ public class MineMaidPositionNoToysTest {
         assertEquals(1, mine.range(new ActionRange(positionAction.number)).size());
     }
 
-    public static void undoDisableUnwantedPositions(Action positionAction, List<Action> allPositions) {
+    public void undoDisableUnwantedPositions(Action positionAction, List<Action> allPositions) {
         for (Action action : allPositions) {
             if (action.number != positionAction.number) {
                 mine.state.unset(action.number);
             }
         }
-    }
-
-    private static void assertThatAllActionsSetDidntOccur(Mine mine) {
-        assertNotEquals("All actions set handler invoked", new ActionRange(9999), mine.range);
     }
 }
