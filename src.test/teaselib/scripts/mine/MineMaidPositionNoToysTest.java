@@ -20,13 +20,17 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.Condition;
-import pcm.state.conditions.Must;
 import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
 
+/**
+ * @author Citizen-Cane
+ *
+ */
 @RunWith(Parameterized.class)
-public class MineMaidPositionCoverageTest {
+public class MineMaidPositionNoToysTest {
+    private static final int MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT = 9730;
     private static final int POSITION_NOT_CONTINUEABLE = 146;
     private static final int MAID_TRAINING_PUNISHMENT_FLAG = 179;
     private static final int SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED = 277;
@@ -36,7 +40,6 @@ public class MineMaidPositionCoverageTest {
     private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Toys.Wrist_Restraints, Toys.Ankle_Restraints,
             Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Blindfold };
 
-    private static Preset preset;
     private static Mine mine;
 
     @Parameters(name = "Position {0} @ difficulty={1}")
@@ -56,8 +59,7 @@ public class MineMaidPositionCoverageTest {
 
     public static void initScriptPlayer()
             throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
-        preset = new Preset();
-        mine = preset.script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGood()).mine();
+        mine = new Preset().script(Mine.MAID).clearHandlers().responses(MinePrompts.maidNoToys()).mine();
 
         for (Enum<?> toy : TOYS) {
             mine.item(toy).setAvailable(true);
@@ -77,41 +79,39 @@ public class MineMaidPositionCoverageTest {
     final int position;
     final int difficulty;
 
-    public MineMaidPositionCoverageTest(int position, int difficulty) {
+    public MineMaidPositionNoToysTest(int position, int difficulty) {
         this.position = position;
         this.difficulty = difficulty;
     }
 
     @Test
-    public void testActivityPosition() throws AllActionsSetException, ScriptExecutionException {
+    public void testActivityPositionNoToys() throws AllActionsSetException, ScriptExecutionException {
         mine.state.resetRange(new ActionRange(0, 389));
-        // Exclude save range because some positions are successor of other positions
         mine.state.resetRange(new ActionRange(700, 9999));
 
         mine.state.set(100);
         mine.state.set(110 + difficulty);
         mine.state.set(ENABLE_MINE_MAID_DEBUGGING);
 
-        Action startAction = mine.script.actions.get(position + 1000);
-        Assume.assumeFalse("Position " + position + " not implemented yet", startAction == null);
-
         List<Action> positionActions = checkPositionAvailable(mine);
+
+        mine.breakPoints.add(Mine.MAID, MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT);
+        mine.breakPoints.add(Mine.MAID, 9981);
 
         playPosition(positionActions.get(0));
 
-        assertEquals("Script not ended as expected:", ScriptState.SET, mine.state.get(9950));
-        assertEquals("Position not completed:", ScriptState.SET, mine.state.get(position));
+        assertTrue(mine.range.equals(new ActionRange(MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT)));
 
-        for (Enum<?> toy : TOYS) {
-            assertFalse("Toys still applied: " + mine.item(toy), mine.item(toy).applied());
-        }
+        assertTrue(mine.range.equals(new ActionRange(MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT))
+                || mine.range.equals(new ActionRange(9981)));
     }
 
     public List<Action> checkPositionAvailable(Player mine) throws AssertionError {
         Action startAction = mine.script.actions.get(position + 1000);
         Assume.assumeFalse("Position " + position + " not implemented yet", startAction == null);
+        Action action1 = mine.script.actions.get(position + POSITION_TO_SELECT_OFFSET);
 
-        Action action = getExecutablePositionAction();
+        Action action = action1;
         List<Action> positionActions = mine.range(new ActionRange(position + POSITION_TO_SELECT_OFFSET));
         if (positionActions.isEmpty()) {
             List<Condition> unmatchedconditions = pcm.util.TestUtils.umatchedConditions(action, mine.state);
@@ -121,27 +121,6 @@ public class MineMaidPositionCoverageTest {
             assertEquals(1, positionActions.size());
         }
         return positionActions;
-    }
-
-    public Action getExecutablePositionAction() {
-        Action action = mine.script.actions.get(position + POSITION_TO_SELECT_OFFSET);
-
-        if (action.conditions.contains(new Must(MAID_TRAINING_PUNISHMENT_FLAG))) {
-            mine.state.set(MAID_TRAINING_PUNISHMENT_FLAG);
-        } else {
-            mine.state.unset(MAID_TRAINING_PUNISHMENT_FLAG);
-        }
-
-        if (action.conditions.contains(new Must(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED))) {
-            preset.strictSelfBondage(2);
-            mine.state.set(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED);
-        } else {
-            preset.strictSelfBondage(0);
-            mine.state.unset(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED);
-        }
-
-        mine.state.set(POSITION_NOT_CONTINUEABLE);
-        return action;
     }
 
     private static void playPosition(Action positionAction) throws ScriptExecutionException, AllActionsSetException {

@@ -48,6 +48,12 @@ public class Preset {
         return this;
     }
 
+    public Preset clearHandlers() {
+        mine.script.onAllSet = null;
+        mine.script.onClose = null;
+        return this;
+    }
+
     public Preset submitted() {
         if (mine.script.name != "Mine") {
             throw new IllegalStateException("Wrong script");
@@ -65,13 +71,27 @@ public class Preset {
         return mine;
     }
 
-    public Preset punishmentAcceptance(int punishmentAcceptance) {
-        if (punishmentAcceptance < 0 || punishmentAcceptance > 5)
-            throw new IllegalArgumentException("Out of range: " + punishmentAcceptance);
+    public Preset punishmentAcceptance(int value) {
+        return setLevel(711, value);
+    }
 
-        for (int i = 0; i < punishmentAcceptance; i++) {
-            mine.state.set(711 + i);
+    public Preset strictSelfBondage(int value) {
+        return setLevel(741, value);
+    }
+
+    public Preset setLevel(int setting, int value) {
+        if (value < 0 || value > 5)
+            throw new IllegalArgumentException("Out of range: " + value);
+
+        int i = 0;
+        for (; i < value; i++) {
+            mine.state.set(setting + i);
         }
+
+        for (; i <= 5; i++) {
+            mine.state.unset(setting + i);
+        }
+
         return this;
     }
 }

@@ -755,13 +755,13 @@ If you do not have the correct equipment for a position, you must also admit you
 
 [Action 1012]
 .NumberOfActionsSet 400 699 3
-Let's continue practising your slave positions.
+Let's continue practicing your slave positions.
 .range 1190 1199
 
 ' maid training level 2
 [Action 1013]
 .must 771
-Let's continue practising your slave positions.
+Let's continue practicing your slave positions.
 As usual, follow my instructions and hold each position until I tell you to move.
 If you fail to maintain the position, you're going to tell me.
 If you do not have the correct equipment for a position, you must also admit your failure.
@@ -8858,6 +8858,7 @@ Oh, goody.
 This will be a particularly uncomfortable position for you to endure.
 .range 6501 6502
 
+
 [Action 6501]
 '.else
 .item Toys.Buttplug available
@@ -8886,7 +8887,9 @@ Put on your slave collar, and attach the snap hook to it.
 Then fetch your wrist restraints, and put them on as well.
 Make sure you can chain your wrists to your collar later on,
 and report back to me.
-.pause I'm dressed up and ready, Miss 
+.item Toys.Collar apply 
+.item Toys.Wrist_Restraints apply 
+.pause I'm dressed up and ready, Miss
 .range 6508
 
 [Action 6505]
@@ -8898,6 +8901,7 @@ Fetch your wrist restraints, and put them on.
 Attach the snap hook to your collar,
 and make sure you can chain your wrists to your collar later on.
 Report back to me, when you're ready.
+.item Toys.Wrist_Restraints apply 
 .pause I'm dressed up and ready, Miss 
 .range 6508
 
@@ -8908,6 +8912,7 @@ Excellent.
 Put on your slave collar, and attach the snap hook to it.
 Make sure you can attach your wrists to your collar later on,
 and report back to me.
+.item Toys.Wrist_Restraints apply 
 .pause I'm dressed up and ready, Miss 
 .range 6508
 
@@ -9313,10 +9318,11 @@ delay 10
 
 
 ' TODO dildo or plug as default: dildo would be better - look at the images
-
+' TODO But it would be more fun with the plug since it shouldn't slide in completly
 
 [Action 7000]
 .range 7001 7002
+
 
 [Action 7001]
 .must 6501                   ' Buttplug selected 
@@ -9329,6 +9335,7 @@ delay 60
 EMSTsmpl00a.jpg
 Slide the upper half of the plug up to the thickest part into your ass and hold it there.
 I'll give you a minute to work it in there and to get used to it.
+.item Toys.Buttplug apply 
 delay 60
 []
 EMSTsmpl02a.jpg
@@ -9344,6 +9351,7 @@ Now lube up your tight little asshole.
 Get it good and slippery.
 Get some on that dildo, too.
 I'll give you one minute exactly.
+.item Toys.Dildo apply to Body.InButt
 delay 60
 []
 EMSTsmpl00a.jpg
@@ -9841,6 +9849,44 @@ you'd want to be especially careful not to waste all the effort.
 
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
 [Action 7586]
+.must 1586
+.range 9700             ' do another position or generic toy removal
+
+
+' position entries for fully equipped slaves, otherwise we might run out of positions
+' 638-641 - slaves are already equipment, so the toys question is not asked 
+
+
+' These actions are copies of the pussy clamps positions,
+' used as a punishment if the slave has dedicated pussy clamps,
+
+' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+[Action 7642]
+.must 1579
+.range 9700             ' do another position or generic toy removal
+
+' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
+[Action 7643]
+.must 1582
+.range 9700             ' do another position or generic toy removal
+
+' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 7644]
+.must 1583
+.range 9700             ' do another position or generic toy removal
+
+' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
+[Action 7645]
+.must 1584
+.range 9700             ' do another position or generic toy removal
+
+' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 7646]
+.must 1585
+.range 9700             ' do another position or generic toy removal
+
+' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
+[Action 7647]
 .must 1586
 .range 9700             ' do another position or generic toy removal
 
@@ -11102,6 +11148,73 @@ I'd say you really got used to that taste.
 .range 9700             ' do another position or generic toy removal
 
 
+' position entries for fully equipped slaves, otherwise we might run out of positions 
+
+' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
+[Action 8638]
+.must 1582
+.set 582
+.range 9700             ' do another position or generic toy removal
+
+' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 8639]
+.must 1583
+.set 583
+.range 9700             ' do another position or generic toy removal
+
+' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
+[Action 8640]
+.must 1584
+.set 584
+.range 9700             ' do another position or generic toy removal
+
+' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 8641]
+.must 1585
+.set 585
+.range 9700             ' do another position or generic toy removal
+
+
+' These actions are copies of the pussy clamps positions,
+' used as a punishment if the slave has dedicated pussy clamps,
+
+' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
+[Action 8642]
+.must 1642
+.set 579 642
+.range 9700             ' do another position or generic toy removal
+
+' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
+[Action 8643]
+.must 1582
+.set 582 643
+.range 9700             ' do another position or generic toy removal
+
+' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 8644]
+.must 1583
+.set 583 644
+.range 9700             ' do another position or generic toy removal
+
+' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
+[Action 8645]
+.must 1584
+.set 584 645
+.range 9700             ' do another position or generic toy removal
+
+' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
+[Action 8646]
+.must 1585
+.set 585 646
+.range 9700             ' do another position or generic toy removal
+
+' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
+[Action 8647]
+.must 1586
+.set 586 647
+.range 9700             ' do another position or generic toy removal
+
+
 ' These actions are forwarded from the moderate level, since we need some pussy punishments but don't want to reveal pussy clamps to early 
 
 ' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
@@ -11124,7 +11237,7 @@ I'd say you really got used to that taste.
 I hope your ass is feeling well-used.
 .must 1650
 .set 650
-.range 8860 8879        ' Remvoe wrist restraints and dildo or buttplug, dildo preferred
+.range 8860 8879        ' Remove collar & wrist restraints, dildo or buttplug
 
 ' 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
 [Action 8651]
@@ -11185,9 +11298,56 @@ Go ahead, return the book and detach the leash.
 .range 9700
 
 
-' Remove wrist restraints and dildo or buttplug, dildo preferred
+' Remove collar & wrist restraints, dildo or buttplug
 
 [Action 8860]
+.item Toys.Collar is applied.by.me
+.item Toys.Wrist_Restraints is applied.by.me
+.item Toys.Buttplug applied
+Go ahead and remove the butt plug, the wrist restraints, and your collar.
+Then clean up,
+and sit back down for the rest of the session.
+.item Toys.Buttplug remove
+.item Toys.Wrist_Restraints remove
+.pause All removed and cleaned up, Miss
+.range 9700
+
+[Action 8861]
+.item Toys.Collar is applied.by.me
+.item Toys.Wrist_Restraints is applied.by.me
+.item Toys.Dildo applied to Body.InButt
+Go ahead and remove the dildo, the wrist restraints, and your collar.
+Then clean up,
+and sit back down for the rest of the session.
+.item Toys.Wrist_Restraints remove
+.item Toys.Dildo remove from Body.InButt
+.pause All removed and cleaned up, Miss
+.range 9700
+
+[Action 8862]
+.item Toys.Collar is applied.by.me
+.item Toys.Wrist_Restraints is not applied.by.me
+.item Toys.Buttplug applied
+Go ahead and remove the butt plug as well as your collar,
+clean up,
+and sit back down for the rest of the session.
+.item Toys.Buttplug remove
+.pause All done, Miss
+.range 9700
+
+[Action 8863]
+.item Toys.Collar is applied.by.me
+.item Toys.Wrist_Restraints is not applied.by.me
+.item Toys.Dildo applied to Body.InButt
+Go ahead and remove the dildo as well as your collar,
+clean up,
+and sit back down for the rest of the session.
+.item Toys.Dildo remove from Body.InButt
+.pause All done, Miss
+.range 9700
+
+[Action 8864]
+.item Toys.Collar is not applied.by.me
 .item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Buttplug applied
 Go ahead and remove the butt plug and your wrist restraints,
@@ -11197,7 +11357,8 @@ clean up, and sit back down for the rest of the session.
 .pause All removed and cleaned up, Miss
 .range 9700
 
-[Action 8861]
+[Action 8865]
+.item Toys.Collar is not applied.by.me
 .item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Dildo applied to Body.InButt
 Go ahead and remove the dildo and your wrist restraints,
@@ -11207,8 +11368,9 @@ clean up, and sit back down for the rest of the session.
 .pause All removed and cleaned up, Miss
 .range 9700
 
-[Action 8862]
-.not .item Toys.Wrist_Restraints is applied.by.me
+[Action 8866]
+.item Toys.Collar is not applied.by.me
+.item Toys.Wrist_Restraints is not applied.by.me
 .item Toys.Buttplug applied
 Go ahead and remove the butt plug, clean up,
 and sit back down for the rest of the session.
@@ -11216,14 +11378,16 @@ and sit back down for the rest of the session.
 .pause All done, Miss
 .range 9700
 
-[Action 8863]
-.not .item Toys.Wrist_Restraints is applied.by.me
+[Action 8867]
+.item Toys.Collar is not applied.by.me
+.item Toys.Wrist_Restraints is not applied.by.me
 .item Toys.Dildo applied to Body.InButt
 Go ahead and remove the dildo, clean up,
 and sit back down for the rest of the session.
 .item Toys.Dildo remove from Body.InButt
 .pause All done, Miss
 .range 9700
+
 
 '[action 8879]
 

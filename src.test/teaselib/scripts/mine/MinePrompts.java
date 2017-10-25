@@ -135,4 +135,10 @@ public class MinePrompts {
 
         return all;
     }
+
+    public static Collection<ResponseAction> maidNoToys() {
+        ArrayList<ResponseAction> all = new ArrayList<>();
+        all.add(new ResponseAction("*haven't*", Debugger.Response.Choose));
+        return all;
+    }
 }
