@@ -15,6 +15,8 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
+import teaselib.Household;
+import teaselib.Toys;
 import teaselib.util.Interval;
 
 @RunWith(Parameterized.class)
@@ -26,6 +28,9 @@ public class MaidTrainingPunishmentTest {
     private static final int MAID_POSITION_SUCCESS = 8300;
     private static final int PUNISHMENT_FINAL_FAILURE = 9769;
     private static final int MAID_TRAINING_GOOD_END = 9950;
+
+    private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Toys.Wrist_Restraints, Toys.Ankle_Restraints,
+            Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Blindfold };
 
     @Parameters(name = "Punishment acceptance={0}")
     public static Iterable<Integer> data() {
@@ -93,5 +98,7 @@ public class MaidTrainingPunishmentTest {
 
         assertEquals(PUNISHMENT_FINAL_FAILURE, mine.range.start);
         assertEquals(PUNISHMENT_FINAL_FAILURE, mine.range.end);
+
+        assertFalse(mine.items(TOYS).applied());
     }
 }
