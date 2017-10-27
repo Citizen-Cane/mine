@@ -99,6 +99,6 @@ public class MaidTrainingPunishmentTest {
         assertEquals(PUNISHMENT_FINAL_FAILURE, mine.range.start);
         assertEquals(PUNISHMENT_FINAL_FAILURE, mine.range.end);
 
-        assertFalse(mine.items(TOYS).applied());
+        assertFalse(mine.items(TOYS).allApplied().toString(), mine.items(TOYS).applied());
     }
 }
