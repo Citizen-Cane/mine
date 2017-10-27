@@ -8942,7 +8942,7 @@ Report back to me, when you're ready.
 .not .item Toys.Collar applied
 This is a tough one.
 You'll need a gag, a collar, some beads, six clothes pegs,
-a weight for the clamps, and of course your nipple clamps.
+your nipple clamps, and a weight for the clamps.
 Got all that?
 .yesno 6514 6514 8280 8298
 
@@ -8951,7 +8951,7 @@ Got all that?
 .not .item Toys.Collar applied
 This is a tough one.
 You'll need a collar, some beads, six clothes pegs,
-a weight for the clamps, and of course your nipple clamps.
+your nipple clamps, and a weight for the clamps.
 Got all that?
 .yesno 6514 6514 8280 8298
 
@@ -8960,7 +8960,7 @@ Got all that?
 .item Toys.Collar applied
 This is a tough one.
 You'll need a gag, some beads, six clothes pegs,
-a weight for the clamps, and of course your nipple clamps.
+your nipple clamps, and a weight for the clamps.
 Got all that?
 .yesno 6514 6514 8280 8298
 
@@ -8969,7 +8969,7 @@ Got all that?
 .item Toys.Collar applied
 This is a tough one.
 You'll need some beads, six clothes pegs,
-a weight for the clamps, and of course your nipple clamps.
+your nipple clamps, and a weight for the clamps.
 Got all that?
 .yesno 6514 6514 8280 8298
 
@@ -9865,32 +9865,32 @@ you'd want to be especially careful not to waste all the effort.
 
 ' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
 [Action 7642]
-.must 1579
+.must 1642
 .range 9700             ' do another position or generic toy removal
 
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
 [Action 7643]
-.must 1582
+.must 1643
 .range 9700             ' do another position or generic toy removal
 
 ' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 7644]
-.must 1583
+.must 1644
 .range 9700             ' do another position or generic toy removal
 
 ' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
 [Action 7645]
-.must 1584
+.must 1645
 .range 9700             ' do another position or generic toy removal
 
 ' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 7646]
-.must 1585
+.must 1646
 .range 9700             ' do another position or generic toy removal
 
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
 [Action 7647]
-.must 1586
+.must 1647
 .range 9700             ' do another position or generic toy removal
 
 
@@ -11155,25 +11155,25 @@ I'd say you really got used to that taste.
 
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
 [Action 8638]
-.must 1582
+.must 1638
 .set 582
 .range 9700             ' do another position or generic toy removal
 
 ' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 8639]
-.must 1583
+.must 1639
 .set 583
 .range 9700             ' do another position or generic toy removal
 
 ' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
 [Action 8640]
-.must 1584
+.must 1640
 .set 584
 .range 9700             ' do another position or generic toy removal
 
 ' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 8641]
-.must 1585
+.must 1641
 .set 585
 .range 9700             ' do another position or generic toy removal
 
@@ -11189,31 +11189,31 @@ I'd say you really got used to that taste.
 
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
 [Action 8643]
-.must 1582
+.must 1643
 .set 582 643
 .range 9700             ' do another position or generic toy removal
 
 ' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 8644]
-.must 1583
+.must 1644
 .set 583 644
 .range 9700             ' do another position or generic toy removal
 
 ' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
 [Action 8645]
-.must 1584
+.must 1645
 .set 584 645
 .range 9700             ' do another position or generic toy removal
 
 ' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 8646]
-.must 1585
+.must 1646
 .set 585 646
 .range 9700             ' do another position or generic toy removal
 
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
 [Action 8647]
-.must 1586
+.must 1647
 .set 586 647
 .range 9700             ' do another position or generic toy removal
 
@@ -12642,7 +12642,7 @@ Remove your gag, slave.
 ' np
 
 [Action 9560]
-.range 9561 9568
+.range 9561 9569
 
 ' nc pc
 [Action 9561]
@@ -12690,8 +12690,9 @@ You may remove both the clamps and the pegs now.
 
 ' nc
 [Action 9565]
+.state Body.OnNipples is not Household.Clothes_Pegs
 .item Toys.Nipple_Clamps is applied.by.me
-.not .state Body.OnBalls is applied.by.me
+.state Body.OnBalls is not applied.by.me
 You may remove your nipple clamps now.
 .item Toys.Nipple_Clamps remove
 .pause Thank you, Miss
@@ -12700,7 +12701,7 @@ You may remove your nipple clamps now.
 
 '    pc
 [Action 9566]
-.not .state Body.OnNipples is applied.by.me
+.state Body.OnNipples is not applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 You may remove your pussy clamps now.
 .item Toys.Pussy_Clamps remove
@@ -12709,7 +12710,7 @@ You may remove your pussy clamps now.
 
 '    pp
 [Action 9567]
-.not .state Body.OnNipples is applied.by.me
+.state Body.OnNipples is not applied.by.me
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 You may remove the pegs from your "pussy" now.
 .item Household.Clothes_Pegs remove from Body.OnBalls
@@ -12719,13 +12720,25 @@ You may remove the pegs from your "pussy" now.
 ' np
 [Action 9568]
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
-.not .state Body.OnBalls is applied.by.me
+.item Toys.Nipple_Clamps is not applied.by.me
+.state Body.OnBalls is not applied.by.me
 You may remove the clothes pegs now.
 .item Household.Clothes_Pegs remove from Body.OnNipples
 .pause Thank you, Miss
 .set 812                ' Done nipple training activity
 .return
 
+' np nc
+[Action 9569]
+.state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
+.item Toys.Nipple_Clamps is applied.by.me
+.state Body.OnBalls is not applied.by.me
+You may remove your nipple clamps and the clothes pegs now.
+.item Household.Clothes_Pegs remove from Body.OnNipples
+.item Toys.Nipple_Clamps remove
+.pause Thank you, Miss
+.set 812                ' Done nipple training activity
+.return
 
 ' end of putting away toys, either succeeded or failed to hold position
 ' end of  posture 9700
@@ -12778,6 +12791,7 @@ I think we should do another.
 
 [Action 9712]
 .must 179               ' punishment flag
+.gosub 9400             ' generic toy removal - none if toys have been removed already
 .range 9950
 
 ' Another one but not possible
