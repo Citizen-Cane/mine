@@ -2694,7 +2694,6 @@ Let's continue your slave training.
 [Action 1811]
 .mustnot 121            ' debug 
 .must 1810
-.set 147                ' position successful
 .unset 148              ' Don't do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
@@ -2711,7 +2710,6 @@ Let's continue your slave training.
 .mustnot 179            ' not for a punishment
 .must 1810
 .NumActionsAvailable 1400 1499 1       ' at least one position to perform
-.set 147                ' position successful
 .set 148                ' do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
@@ -2726,7 +2724,6 @@ Let's continue your slave training.
 .mustnot 179            ' not for a punishment
 .must 1810
 .NumActionsAvailable 1500 1574 1       ' at least one position to perform
-.set 147                ' position successful
 .set 148                ' do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
@@ -2741,7 +2738,6 @@ Let's continue your slave training.
 .mustnot 179            ' not for a punishment
 .must 1810
 .NumActionsAvailable 1575 1649 1       ' at least one position to perform
-.set 147                ' position successful
 .set 148                ' do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
@@ -2756,7 +2752,6 @@ Let's continue your slave training.
 .mustnot 179            ' not for a punishment
 .must 1810
 .NumActionsAvailable 1600 1649 1       ' at least one position to perform
-.set 147                ' position successful
 .set 148                ' do another position
 .range 8300             ' success for this pose -> comment and cleanup
 
@@ -9616,7 +9611,7 @@ Since you are such a disobedient and incompetent slave it is especially importan
 ' 408 standing, legs together, hands behind head, blindfolded
 [Action 7408]
 .must 1408
-.range 9700             ' Technically we have to remove the blindfold, but the slave probably did this already before pressing the "STOP" button
+.range 9076 9079        ' Remove blindfold
 
 ' 409 standing, legs together, hands behind head
 [Action 7409]
@@ -10465,6 +10460,7 @@ That's pathetic, slave, and I'm just fed up with you.
 ' Finished position - generic compliment
 
 [Action 8300]
+.set 147                ' position successful
 .unset 8300
 .keyrelease release
 .range 8301 8398
@@ -11718,14 +11714,15 @@ Go ahead and detach the leash, slave.
 
 [Action 9076]
 .item Toys.Blindfold is applied.by.me
-You may remove the blindfold, slave.
+You may remove the blindfold, If you haven't yet.
 .item Toys.Blindfold remove
 .pause Thank you, Miss
 .range 9700
 
 [Action 9077]
 .item Toys.Blindfold is applied.by.me
-Go ahead and remove the blindfold.
+If you haven't yet,
+go ahead and remove the blindfold.
 .item Toys.Blindfold remove
 .pause Thank you, Miss
 .range 9700
@@ -12825,7 +12822,7 @@ That's enough for now.
 I've had it, you disobedient cunt.
 You are obviously not capable to perform the simplest tasks,
 and I'm not going to waste any more time on you.
-.else                 ' First decrease difficulty or increase duration
+.else                   ' First decrease difficulty or increase duration
 .must 110               ' Decrease to easy level first, then increase duration up to three chances
 .must 113               ' Increase duration
 .must 179               ' Punishment flag
@@ -12941,6 +12938,7 @@ necessary items for your punishment and let you suffer a little longer instead.
 I've had it, you disobedient cunt.
 You are obviously not in the mood to accept a well deserved punishment,
 and I'm not going to waste any more time on you, bitch. 
+.gosub 9400             ' generic toy removal - none if toys have been removed already
 .range 9769             ' Exit to main script 2499, but can't dislay message and .loadbsd in the same action
 
 ' Easy level contains poses that can be done entirely without toys,
