@@ -1,4 +1,4 @@
-package teaselib.scripts.mine;
+package teaselib.scripts.mine.test;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,7 +13,7 @@ import teaselib.core.Debugger.ResponseAction;
  */
 public class MinePrompts {
 
-    static Collection<ResponseAction> all() {
+    public static Collection<ResponseAction> all() {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
         all.addAll(mine());
@@ -23,7 +23,7 @@ public class MinePrompts {
         return all;
     }
 
-    static Collection<ResponseAction> defaults() {
+    public static Collection<ResponseAction> defaults() {
         ArrayList<ResponseAction> all = new ArrayList<>();
 
         all.add(new ResponseAction("Yes, Miss", Debugger.Response.Choose));
@@ -32,7 +32,7 @@ public class MinePrompts {
         return all;
     }
 
-    static Collection<ResponseAction> mine() {
+    public static Collection<ResponseAction> mine() {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 
@@ -79,15 +79,15 @@ public class MinePrompts {
         return all;
     }
 
-    static Collection<ResponseAction> maidGood() {
+    public static Collection<ResponseAction> maidGood() {
         return maid(Debugger.Response.Ignore, Debugger.Response.Ignore);
     }
 
-    static Collection<ResponseAction> maidGivingUp() {
+    public static Collection<ResponseAction> maidGivingUp() {
         return maid(Debugger.Response.Choose, Debugger.Response.Ignore);
     }
 
-    static Collection<ResponseAction> maidSpurtedOff() {
+    public static Collection<ResponseAction> maidSpurtedOff() {
         return maid(Debugger.Response.Ignore, Debugger.Response.Choose);
     }
 
@@ -117,7 +117,7 @@ public class MinePrompts {
         return all;
     }
 
-    static Collection<ResponseAction> td() {
+    public static Collection<ResponseAction> td() {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 
@@ -127,7 +127,7 @@ public class MinePrompts {
         return all;
     }
 
-    static Collection<? extends ResponseAction> paddle() {
+    public static Collection<? extends ResponseAction> paddle() {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 

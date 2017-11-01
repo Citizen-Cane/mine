@@ -1,7 +1,7 @@
 /**
  * 
  */
-package teaselib.scripts.mine;
+package teaselib.scripts.mine.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +15,7 @@ import teaselib.core.Debugger.ResponseAction;
 import teaselib.core.TeaseLib;
 import teaselib.core.debug.DebugHost;
 import teaselib.core.debug.DebugPersistence;
+import teaselib.scripts.mine.Mine;
 import teaselib.test.DebugSetup;
 
 /**
@@ -39,7 +40,7 @@ public class Preset {
         debugger = new Debugger(mine.teaseLib);
     }
 
-    protected Preset set(int... n) {
+    public Preset set(int... n) {
         for (int i : n) {
             mine.state.set(i);
         }

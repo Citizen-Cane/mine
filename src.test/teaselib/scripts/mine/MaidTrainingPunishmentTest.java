@@ -17,6 +17,8 @@ import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
+import teaselib.scripts.mine.test.MinePrompts;
+import teaselib.scripts.mine.test.Preset;
 import teaselib.util.Interval;
 
 @RunWith(Parameterized.class)

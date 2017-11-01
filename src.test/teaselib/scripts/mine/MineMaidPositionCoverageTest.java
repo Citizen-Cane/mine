@@ -24,6 +24,8 @@ import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.core.debug.DebugPersistence;
+import teaselib.scripts.mine.test.MinePrompts;
+import teaselib.scripts.mine.test.Preset;
 
 @RunWith(Parameterized.class)
 public class MineMaidPositionCoverageTest {
