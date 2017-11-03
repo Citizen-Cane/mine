@@ -16,7 +16,7 @@ import teaselib.Actor;
 import teaselib.Features;
 import teaselib.Household;
 import teaselib.Images;
-import teaselib.Sexuality;
+import teaselib.Sexuality.Sex;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
 import teaselib.core.TeaseLib;
@@ -46,7 +46,7 @@ public class Mine extends Player {
     private static final String Namespace = "Mine";
     private static final String ResourcesRoot = "Mine";
 
-    private static final Actor MineMistress = new Actor("Mistress", "Miss,", Voice.Gender.Female, Locale.UK,
+    private static final Actor MineMistress = new Actor("Mistress", "Miss,", Voice.Female, Locale.UK,
             Actor.Key.DominantFemale, Images.None);
     private static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip", "Mine Mistress.zip" };
     private static final String[] OptionalAssets = { "Mine Speech.zip" };
@@ -113,7 +113,7 @@ public class Mine extends Player {
                 new MappedScriptItemValue(380, item(Toys.Chastity_Device)));
 
         Items dildos;
-        if (persistentEnum(Sexuality.Sex.class).value() == Sexuality.Sex.Female) {
+        if (persistentEnum(Sex.class).value() == Sex.Female) {
             dildos = items(Toys.Dildo).all(Features.Anal);
         } else {
             dildos = items(Toys.Dildo).all();
