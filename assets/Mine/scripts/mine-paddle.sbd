@@ -1606,28 +1606,28 @@ I hope so, slut!
 .range 1751 1752
 
 
-' Not kneeling
+' Not kneeling - 50% if unset
 [Action 1751]
-.mustnot 121            ' kneeling (can be preset)
+.shouldnot 121                         ' kneeling (can be preset)
 .range 1753 1754
 
-' Kneeling
+' Kneeling - 50% if unset, 100% if set
 [Action 1752]
 .state Body.CantKneel free
-.set 121                ' Kneeling 
-.unset 122              ' Tip toes
+.set 121                               ' Kneeling 
+.unset 122                             ' Tip toes
 .range 1755 1759
 
 
-' Not on tiptoes
+' Not on tiptoes - 50% if unset
 [Action 1753]
-.mustnot 122            ' Not on tiptoes (can be preset)
+.shouldnot 122                         ' Not on tiptoes (can be preset)
 .range 1755 1759
 
-' On tiptoes
+' On tiptoes - 50% if unset, 100% if set, up to 10 minutes - how long can one do this?
 [Action 1754]
 .state Body.CantStand free
-.mustnot 114 115 116 117 118 119 120   ' less than 15m  - how long can one do this?
+.mustnot 113 114 115 116 117 118 119 120
 .must 721                              ' Not the first time (at beginner level)
 .set 122                               ' Tip toes
 .unset 121                             ' Kneeling
@@ -1698,14 +1698,17 @@ I hope so, slut!
 
 [action 1826]
 .must 810               ' Corner time already given
+.must 2200              ' shame yourself
 .range 9800 9899        ' return to main script
 
 [action 1827]
 .must 519               ' p. o. for cumming without permission - relies on corner time so skip until performed
+.must 2200              ' shame yourself
 .range 9800 9899        ' return to main script
 
 [action 1828]
 .must 502 503           ' both not-naked punishments - defer corner time to second
+.must 2200              ' shame yourself
 .range 9800 9899        ' return to main script
 
 [Action 1829]
@@ -1987,13 +1990,13 @@ You aren't allowed to give yourself a reach-around, either!
 
 
 [Action 1961]
-.mustnot 113 114 115 116 117 118 119 120
+.mustnot 112 113 114 115 116 117 118 119 120
 You'll be in the corner for five minutes today.
 I guess I'm just in a forgiving mood.
 .range 1980
 
 [Action 1962]
-.mustnot 113 114 115 116 117 118 119 120
+.mustnot 112 113 114 115 116 117 118 119 120
 I think about five minutes in the corner should be enough for you today.
 I guess I'm just in a forgiving mood.
 .range 1980
@@ -2366,7 +2369,7 @@ Good boy, slave.
 ' limit corner time extras (cuffs, clamps) to what's possible
 
 [Action 2180]
-.range 2181 2186
+.range 2181 2189
 
 
 [Action 2181]
