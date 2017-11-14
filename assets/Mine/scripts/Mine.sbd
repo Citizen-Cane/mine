@@ -865,9 +865,6 @@ Would you be so kind and tell me what you've got exactly?
 .unset 810 811 812 813 814 815 816 817 818 819   ' session global variables
 .unset 820 821 822 823 824 825 826 827 828 829   ' session global variables
 .unset 830 831 832 833 834 835 836 837 838 839   ' session global variables
-' save the "Quick without permission" check
-' in order to to catch abnormal process termination
-.save 90 799
 .range 848 849
 
 
@@ -882,7 +879,7 @@ Would you be so kind and tell me what you've got exactly?
 .range 844	            ' debug menu
 
 
-' quit range:
+' quit ranges:
 
 ' 850 good end
 ' 860 onAllSet
@@ -890,73 +887,117 @@ Would you be so kind and tell me what you've got exactly?
 ' 880 thrown out for stupidity - didn't prepare
 ' 890 onClose
 
+' Resolve Save statement performance issue:
+' in order to hide the save statement behind text,
+' either call an action that saves while speaking a message started in an earlier action
+' When exiting after a prompt, call the special entries
 
-' good end
+' good end - prompt
 
 [Action 850]
-.gosub 895              ' reset quit check
-.unset 850
-.unset 851
-.range 851 859
+.gosub 895              ' save session - regular end
+.range 851 854
 
 
 [Action 851]
+.noimage
 Goodbye, slave...
 .pause Goodbye, Miss
-.noimage
 .range 899              ' final quit
 
-'[Action 859]
+'[Action 854]
+
+
+' good end - no prompt
+
+' from introduction, 1st failure
+' harness assignment not completed
+[Action 855]
+.gosub 895              ' save session - regular end
+.range 856 859
+
+
+[Action 856]
+.noimage
+.delay 7
+Goodbye, slave...
+.gosub 895              ' save session - regular end
+.range 899              ' final quit
 
 
 ' onAllSet
 
 [Action 860]
-.gosub 895              ' reset quit check
-.unset 860
-.unset 861
 .range 861
 
+
 [Action 861]
+.noimage
+.delay 10
 Something went wrong [with Mine.sbd].
 We'll be forced to stop today.
-.noimage
-.pause Oh dear!
-.noimage
+.gosub 895              ' save session - regular end
 .range 899              ' final quit
 
 
-' thrown out for disobedience
+' thrown out for disobedience - prompt
 
 [Action 870]
-.gosub 895              ' reset quit check
-.unset 870
-.unset 871
-.range 871 879
+.gosub 895              ' save session - regular end
+.range 871 874
 
 
 [Action 871]
+.noimage
 Now get out of My sight!
 .pause As you wish, Miss
+.range 899              ' final quit
+
+'[Action 874]
+
+
+' thrown out for disobedience - no prompt
+
+[Action 875]
+.range 876 879
+
+
+[Action 876]
 .noimage
+.delay 7
+Now get out of My sight!
+.gosub 895              ' save session - regular end
 .range 899              ' final quit
 
 '[Action 879]
 
 
+
 ' thrown out for stupidity 
 
 [Action 880]
-.gosub 895              ' don't reset quit check
-.unset 880
-.unset 881
-.range 881 889
+.gosub 895              ' save session - regular end
+.range 881 884
 
 
 [Action 881]
-Goodbye, you stupid slut.
-.delay 5
 .noimage
+Goodbye, you stupid slut.
+.pause Goodbye, Miss
+.range 899              ' final quit
+
+'[Action 884]
+
+
+[Action 885]
+.range 886 889
+
+
+[Action 886]
+.noimage
+.delay 7
+Goodbye, you stupid slut.
+.gosub 895              ' save session - regular end
 .range 899              ' final quit
 
 '[Action 889]
@@ -966,16 +1007,15 @@ Goodbye, you stupid slut.
 
 [Action 890]
 .set 102 274            ' left without permission, quit check
-.gosub 896              ' Don't reset quit check
-.unset 890
-.unset 891 892 893 894
+.resetrange 890 894
 .range 891 894
 
 [Action 891]
+.noimage
+.delay 7
 You will regret this,
 you stupid cunt.
-.pause I'm so sorry, Miss
-.noimage
+.gosub 896              ' save session - on close
 .range 899              ' final quit
 
 '[Action 892]
@@ -983,27 +1023,32 @@ you stupid cunt.
 '[Action 894]
 
 
-' save the session - regular end
+' save session - may take a few seconds
+' -> call while displaying message (especially when invoked by OnClose handler) to avoid delay 
 
+' save session - regular end
 [Action 895]
 .unset 102 274          ' reset quit check
 .unset 895
-.unset 896
-.unset 898
 .range 896
 
+' save session - on close
 [Action 896]
 .set 100                ' Now you've run the script
+.unset 896
 .range 898
+
 
 ' Save
 [Action 898]
+.unset 898
 .save 90 799
 .return
 
 
 ' The .quit command doesn't display any message
 [Action 899]
+.unset 899
 .noimage
 .quit
 
@@ -1179,7 +1224,7 @@ and I meant it.
 I'll make sure to punish you for disturbing me when you return at the proper time.
 .pause Please forgive me, Miss
 .set 505                ' premature retry punishment
-.range 870
+.range 875
 
 [Action 991]
 .else
@@ -1191,7 +1236,7 @@ Now get out of here.
 You can look forward to some extra punishment when you return at the correct time.
 .pause Please Miss, forgive me
 .set 505
-.range 870
+.range 875
 
 [Action 992]
 .else
@@ -1203,7 +1248,7 @@ Get the hell out of here and don't come back until you're due.
 Also, remind me to give you some extra punishment to help you remember your place.
 .pause Please forgive me, Miss
 .set 505
-.range 870
+.range 875
 
 
 ' slave tries to attend again after being warned 
@@ -1220,7 +1265,7 @@ you little whore!
 .pause Please Miss, forgive me
 .set 501 504            ' additional general punishment, imp.
 .settime 95 01:00"00
-.range 870
+.range 875
 
 [Action 997]
 .else
@@ -1235,7 +1280,7 @@ Get out of here and stop pestering me, slave!
 .pause Please forgive me, Miss
 .set 501 504            ' additional general punishment, imp.
 .settime 95 12:00"00
-.range 870
+.range 875
 
 [Action 998]
 .else
@@ -1249,7 +1294,7 @@ Get the hell out of here!
 .pause Please Miss, forgive me
 .set 501 504            ' additional general punishment, imp.
 .settime 95 24:00"00
-.range 870
+.range 875
 
 
 ' Submission sequence
@@ -1379,7 +1424,7 @@ Come back in an hour, wench!
 .pause Thank you, Miss
 .set 90
 .settime 95 01:00"00
-.range 850
+.range 855
 
 
 [Action 1015]
@@ -1424,7 +1469,7 @@ Maybe I'll reconsider!
 .set 92                 ' 12 hours
 .settime 95 12:00"00
 .set 103                ' Mistress impatient
-.range 870              ' Save and exit
+.range 870              ' thrown out for disobedience
 
 [Action 1020]
 .must 103
@@ -1433,7 +1478,7 @@ You can come back in 24 hours,
 if you want to convince Me to take you back!
 .set 94
 .settime 95 24:00"00
-.range 870
+.range 870              ' thrown out for disobedience
 
 
 ' retry to submit
@@ -1476,7 +1521,7 @@ if you want to try to change my mind with a little suffering!
 .pause Thank you very much, Miss
 .set 94
 .settime 95 24:00"00
-.range 870
+.range 875
 
 
 [Action 1025]
@@ -1692,8 +1737,10 @@ We'll start out fairly harshly, then.
 
 
 ' Naked query
-' todo Variations
 [Action 1090]
+' persist "Quit without permission" check
+' in order to to catch abnormal process termination
+.save 90 799
 .range 1091 1099
 
 
@@ -1730,6 +1777,7 @@ Are you totally naked right now?
 .gosub 11000                 ' toys at startup - implies being naked and wearing toys
 .range 1200                  ' on to being-hard question
 
+' todo Variations
 
 
 
@@ -1767,7 +1815,7 @@ And for your own good, you'll better stay bare naked that hour.
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 90                      ' come back in an hour
 .settime 95 01:00"00
-.range 880
+.range 885
 
 
 ' Retry
@@ -1896,7 +1944,7 @@ so that you learn the importance of being bare-ass naked!
 .set 504                          ' general disobedience
 .set 90                           ' 1 hour wait
 .settime 95 01:00"00
-.range 870
+.range 875
 
 [Action 1122]
 .mustnot 608                      ' Naked-week assignment
@@ -1911,7 +1959,7 @@ if you want to beg me for forgiveness and accept your punishment!
 .set 508                          ' inattentiveness
 .set 90                           ' 1 hour wait
 .settime 95 01:00"00
-.range 870
+.range 875
 
 [Action 1123]
 .mustnot 608                      ' Naked-week assignment
@@ -1924,7 +1972,7 @@ You can come back in 12 hours if you want to beg me for forgiveness and accept y
 .set 516                          ' excessive disobedience
 .set 92                           ' 12 hours wait
 .settime 95 12:00"00
-.range 870
+.range 875
 
 [Action 1124]
 .must 608                         ' Naked-week assignment
@@ -1939,7 +1987,7 @@ You can come back tomorrow if you want to beg me for forgiveness and accept your
 .set 516                          ' excessive disobedience
 .set 94                           ' 24 hours wait
 .settime 95 24:00"00
-.range 870
+.range 875
 
 
 ' Naked-rule lecture
@@ -2251,7 +2299,7 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 .set 508                     ' Inattentiveness
 .set 90
 .settime 95 01:00"00
-.range 870
+.range 875
 
 '[Action 1193]
 
@@ -2290,7 +2338,7 @@ Maybe some rugburn on your knees will remind you to pay attention to your Mistre
 .set 508                     ' Inattentiveness
 .set 90
 .settime 95 01:00"00
-.range 870
+.range 875
 
 
 ' Being hard question, answered too late
@@ -2483,7 +2531,7 @@ you worthless cunt.
 .set 501                          ' impatience punishment
 .set 512                          ' not being hard punishment 2
 .unset 707 708 709 710            ' clear advancement
-.range 870                        ' exit
+.range 875                        ' thrown out for disobedience
 
 [Action 1222]
 .must 709
@@ -2805,7 +2853,7 @@ Well, slave, you'll be punished for ruining the session, of course.
 Don't come back until you have plenty of rope.
 .pause As you wish, Miss
 .set 509                ' wasting Mistress's time
-.range 880              ' thrown out for stupidity 
+.range 885              ' thrown out for stupidity 
 
 [Action 1268]
 .must 104               ' Return with enough rope for harness
@@ -2818,7 +2866,7 @@ and be prepared for a rough session!
 .set 94
 .settime 95 24:00"00
 .set 516                ' excessive disobedience
-.range 880              ' thrown out for stupidity 
+.range 885              ' thrown out for stupidity 
 
 
 ' The action contains multiple inline replies - [....]
@@ -4641,13 +4689,13 @@ Well, slave, you'll be punished for ruining the session, of course.
 Don't come back until you have prepared your enema,
 you lazy slut.
 .pause Yes, Miss
-.range 880
+.range 885
 
 [Action 1679]
 .must 103
 Don't dare you to come back until you have prepared your enema!
 .pause Yes, Miss
-.range 880
+.range 885
 
 
 [Action 1680]
@@ -5451,7 +5499,7 @@ You can come back tomorrow, and be prepared for a rough session!
 .set 94
 .set 501
 .settime 95 24:00"00
-.range 870
+.range 875
 
 [Action 2019]
 .must 103
@@ -10235,7 +10283,7 @@ Do not return until you have finished My assignment!
 .image babc-alt.jpg
 .set 504 509 517
 .pause I'm tied up, Miss
-.range 850
+.range 855
 
 
 [Action 4040]
@@ -10249,7 +10297,7 @@ Do not return until you have finished the assignment!
 .image babc.jpg
 .set 504 509 518
 .pause I'm tied up, Miss
-.range 870
+.range 875              ' thrown out for disobedience
 
 
 ' Naked-week assignment 
@@ -14775,7 +14823,7 @@ Let's find out which kind you are, My pussy!
 [Action 7611]
 You've got one demerit, naughty boy.
 .must 800
-800stnot 200 201 202 203 204
+.mustnot 200 201 202 203 204
 .set 200
 .range 7649
 
@@ -16783,7 +16831,7 @@ And for your own good, you'll better stay bare naked and locked up that hour.
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 90                      ' come back in an hour
 .settime 95 01:00"00
-.range 880
+.range 885
 
 
 ' retry
@@ -16943,7 +16991,7 @@ And I hope for your own sake that you will still be wearing it when you come bac
 .set 90                 ' come back in an hour
 .settime 95 01:00"00
 .set 508                ' inattentiveness punishment
-.range 870
+.range 875
 
 ' neutral
 [Action 9221]
@@ -16960,7 +17008,7 @@ And I hope for your own sake that you will still be wearing it when you crawl ba
 .settime 95 01:00"00
 .set 508                ' inattentiveness punishment
 .set 516                ' excessive disobedience punishment
-.range 870
+.range 875
 
 ' confessed to remember orders
 [Action 9222]
@@ -19377,7 +19425,7 @@ and put on the proper getup for tonight?
 You've ruined the session, slave, before it even has begun!
 Don't come back without wearing the proper getup..." 
 .pause Of course, Miss
-.range 870
+.range 875
 
 
 ' specific assignments given at the end of the session, or
