@@ -1,6 +1,9 @@
 .declare teaselib.Body Enum
 .define Body teaselib.Body
 
+.declare teaselib.Posture Enum
+.define Posture teaselib.Posture
+
 .declare teaselib.Household Enum
 .define Household teaselib.Household
 
@@ -781,7 +784,7 @@ You may want to put some towels here on the floor now to drip on.
 .item Toys.Rope available
 You must shower with your wrists tied together with rope.
 Tie them together now.
-.item Toys.Rope apply to Body.WristsTied
+.item Toys.Rope apply to Body.WristsTied Posture.WristsTiedInFront 
 .pause Wrists tied, Miss
 .range 1631 1633
 
@@ -793,7 +796,7 @@ Tie them together now.
 You must shower with your wrists tied together with rope.
 Don't use metal or it will corrode.
 Tie them together now.
-.item Toys.Rope apply to Body.WristsTied
+.item Toys.Rope apply to Body.WristsTied Posture.WristsTiedInFront
 .pause Wrists tied, Miss
 .range 1631 1633
 
@@ -804,7 +807,7 @@ Tie them together now.
 .item Toys.Rope not available
 You must shower with your wrists tied together.
 Get some rope or shoelace and tie them together now.
-.item Toys.Rope apply to Body.WristsTied
+.item Toys.Rope apply to Body.WristsTied Posture.WristsTiedInFront
 .pause Wrists tied, Miss
 .range 1631 1633
 
@@ -816,7 +819,7 @@ Get some rope or shoelace and tie them together now.
 You must shower with your wrists tied together.
 Use rope or shoelace, not something that will rust (like your handcuffs, stupid bitch).
 Tie them together now.
-.item Toys.Rope apply to Body.WristsTied
+.item Toys.Rope apply to Body.WristsTied Posture.WristsTiedInFront
 .pause Wrists tied, Miss
 .range 1631 1633
 
@@ -872,7 +875,7 @@ Tie them together now.
 You will bind your hands and ankles together with rope for this shower.
 Don't use metal or it will corrode.
 Tie your wrists and ankles now.
-.item Toys.Rope apply to Body.AnklesTied Body.WristsTied
+.item Toys.Rope apply to Body.AnklesTied Body.WristsTied Posture.AnklesTied Posture.WristsTiedInFront
 .pause All tied up, Miss
 .range 1627
 
@@ -882,7 +885,7 @@ Tie your wrists and ankles now.
 You will bind your hands and ankles together with rope or shoe lace for this shower.
 Don't use something that will rust (like your handcuffs, stupid bitch).
 Tie your wrists and ankles now.
-.item Toys.Rope apply to Body.AnklesTied Body.WristsTied
+.item Toys.Rope apply to Body.AnklesTied Body.WristsTied Posture.AnklesTied Posture.WristsTiedInFront
 .pause All tied up, Miss
 .range 1627
 
@@ -1613,7 +1616,7 @@ I hope so, slut!
 
 ' Kneeling - 50% if unset, 100% if set
 [Action 1752]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .set 121                               ' Kneeling 
 .unset 122                             ' Tip toes
 .range 1755 1759
@@ -1626,7 +1629,7 @@ I hope so, slut!
 
 ' On tiptoes - 50% if unset, 100% if set, up to 10 minutes - how long can one do this?
 [Action 1754]
-.state Body.CantStand free
+.state Posture.CantStand free
 .mustnot 113 114 115 116 117 118 119 120
 .must 721                              ' Not the first time (at beginner level)
 .set 122                               ' Tip toes

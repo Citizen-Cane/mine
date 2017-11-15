@@ -5,6 +5,9 @@
 .declare teaselib.Body Enum
 .define Body teaselib.Body
 
+.declare teaselib.Posture Enum
+.define Posture teaselib.Posture
+
 .declare teaselib.Household Enum
 .define Household teaselib.Household
 
@@ -671,7 +674,7 @@ delay 10
 
 ' wrists behind back
 [Action 3101]
-.item Toys.Wrist_Restraints canApply to Body.WristsTied
+.item Toys.Wrist_Restraints canApply
 .item Toys.Wrist_Restraints available
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 267 268        ' Enema carrying out or holding
@@ -699,7 +702,7 @@ delay 10
 [Action 3102]
 .item Toys.Ankle_Restraints canApply
 .item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints canApply to Body.WristsTied
+.item Toys.Wrist_Restraints canApply
 .item Toys.Wrist_Restraints available
 .mustnot 267 268        ' Enema carrying out or holding
 .must 737               ' Restraints acceptance 2
@@ -725,7 +728,7 @@ delay 10
 
 ' wrists to ball sack
 [Action 3103]
-.item Toys.Wrist_Restraints canApply to Body.WristsTied
+.item Toys.Wrist_Restraints canApply
 .item Toys.Wrist_Restraints available
 .state Body.OnBalls free
 .must 170               ' achievement 1, or we might not be able to start the first scenario
@@ -753,7 +756,7 @@ delay 10
 ' wrists to collar
 [Action 3104]
 .item Toys.Collar applied
-.item Toys.Wrist_Restraints canApply to Body.WristsTied
+.item Toys.Wrist_Restraints canApply
 .item Toys.Wrist_Restraints available
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 267 268        ' Enema carrying out or holding
@@ -847,7 +850,7 @@ and tie your hands on your back.
 delay 10
 .item Toys.Gag remove
 .set -22                ' something in mouth, remember
-.item Toys.Wrist_Restraints apply to Body.WristsTiedBehindBack Body.CantJerkOff
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
 .pause I'm tied up, Miss
 .set 10                 ' wrists tied to back
 .return
@@ -858,7 +861,7 @@ delay 10
 Well, we won't need your hands right now, just your lips and tongue.
 Go get your wrist restraints and tie your hands on your back.
 delay 10
-.item Toys.Wrist_Restraints apply to Body.WristsTiedBehindBack Body.CantJerkOff
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
 .pause I'm tied up, Miss
 .set 10                 ' wrists tied to back
 .return
@@ -881,7 +884,7 @@ Keep the connecting chains short, my pet.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
 .item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Body.WristsTied Body.CantStand
+.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand
 .pause I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
 .return
@@ -897,7 +900,7 @@ and your left hand to your left ankle.
 delay 10
 Keep the connecting chains short, my pet.
 .item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Body.WristsTied Body.CantStand
+.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand
 .pause I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
 .return
@@ -1293,50 +1296,50 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' are used for scenario selection throughout the activity
 
 ' 3220 lie down on the floor, riding fully penetrated on the floor
-' The scenario requires just to sit down, so Body.CantStand & Body.CantKneel can be relaxed once 180 is set
+' The scenario requires just to sit down, so Posture.CantStand & Posture.CantKneel can be relaxed once 180 is set
 [Action 3200]
 .state Body.OnNipples free
-.state Body.CantStand free
-.state Body.CantKneel free
+.state Posture.CantStand free
+.state Posture.CantKneel free
 .set 3220
 .return
 
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
-' The scenario requires just to kneel, so Body.CantStand & Body.CantKneel can be relaxed once 180 is set
+' The scenario requires just to kneel, so Posture.CantStand & Posture.CantKneel can be relaxed once 180 is set
 [Action 3201]
 .state Body.OnNipples free
-.state Body.CantStand free
-.state Body.CantKneel free
+.state Posture.CantStand free
+.state Posture.CantKneel free
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model), and 3220 should be the introduction scenario
 .set 3221
 .return
 
 ' 3222 On stool, kneeling, riding on stool
 [Action 3202]
-.state Body.CantSitOnChair free
-.state Body.CantKneel free
+.state Posture.CantSitOnChair free
+.state Posture.CantKneel free
 .must 170               ' achievement 1, full penetration
 .set 3222
 .return
 
 ' 3223 Kneeling upright in front of desk, squatting down to ride, worshiping version
 [Action 3203]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .must 171               ' achievement 2, full penetration, nice exercise
 .set 3223
 .return
 
 ' 3224 Mount dildo on wall or cupboard, suck kneeling upright, ride standing, bending forward, supported by chair or opposite wall
 [Action 3204]
-.state Body.CantStand free
-.state Body.CantKneel free
+.state Posture.CantStand free
+.state Posture.CantKneel free
 .must 171               ' achievement 2, full penetration
 .set 3224
 .return
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
 [Action 3205]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .must 172               ' achievement 3, full penetration
 .set 3225
 .return
@@ -1345,24 +1348,24 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 [Action 3206]
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.state Body.CantStand free
-.state Body.CantKneel free
+.state Posture.CantStand free
+.state Posture.CantKneel free
 .must 172               ' achievement 3, full penetration
 .set 3226
 .return
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 3207]
-.state Body.CantStand free
-.state Body.CantKneel free
+.state Posture.CantStand free
+.state Posture.CantKneel free
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model), and 3220 should be the introduction scenario
 .set 3227
 .return
 
 ' 3228 Suck standing, ride on all four
 [Action 3208]
-.state Body.CantStand free
-.state Body.CantKneel free
+.state Posture.CantStand free
+.state Posture.CantKneel free
 .must 174               ' achievement 5
 .set 3228
 .return
@@ -1371,8 +1374,8 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 [Action 3209]
 .item Household.Clothes_Pegs available
 .state Body.OnNipples free
-.state Body.CantStand free
-.state Body.CantKneel free
+.state Posture.CantStand free
+.state Posture.CantKneel free
 .must 173               ' achievement 4, full penetration
 .set 3229
 .return
@@ -1391,39 +1394,39 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' 3220 lie down on the floor, riding fully penetrated on the floor
 [Action 3220]
 .state Body.OnNipples free
-' restriction would be Body.CantStand, assuming standing and lying have the same restrictions,
+' restriction would be Posture.CantStand, assuming standing and lying have the same restrictions,
 ' but since lower legs can point upwards (as the model does) we are good to go
 .return
 
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
 [Action 3221]
 .state Body.OnNipples free
-' restriction would be Body.CantStand, assuming standing and lying have the same restrictions,
+' restriction would be Posture.CantStand, assuming standing and lying have the same restrictions,
 ' but since lower legs can point upwards (as the model does) we are good to go
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model)
 .return
 
 ' 3222 On stool, kneeling, riding on stool
 [Action 3222]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .must 170               ' advancement 1, full penetration
 .return
 
 ' 3223 Kneeling upright in front of desk, squatting down to ride, worshiping version
 [Action 3223]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .must 171               ' advancement 2, full penetration, nice exercise
 .return
 
 ' 3224 Mount dildo on wall or cupboard, suck kneeling upright, ride standing, bending forward, supported by chair or opposite wall
 [Action 3224]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .must 171               ' advancement 2, full penetration
 .return
 
 ' 3225 Mount dildo on door frame, suck kneeling, kneel on all four to ride
 [Action 3225]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .must 172               ' advancement 3, full penetration
 .return
 
@@ -1433,13 +1436,13 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 3227]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .must 180               ' achievement 1, sucking only, because it's a variation of 3220 (same model)
 .return
 
 ' 3228 Suck standing, ride on all four
 [Action 3228]
-.state Body.CantStand free
+.state Posture.CantStand free
 .must 174               ' advancement 5, full penetration
 .return
 
@@ -1447,7 +1450,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 [Action 3229]
 .item Household.Clothes_Pegs available
 .state Body.OnNipples free
-.state Body.CantStand free
+.state Posture.CantStand free
 .must 173               ' advancement 4, full penetration
 .return
 
@@ -1466,19 +1469,19 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' 3235 Mount dildo on floor, kneel down, arms straight on the floor
 [Action 3235]
 .must 103               ' Mistress impatient
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .mustnot 140            ' Worshiping activity
 .return
 
 ' 3236 Mount dildo on a wall or cupboard, kneel upright, arms behind head
 [Action 3236]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .mustnot 140            ' Worshiping activity
 .return
 
 ' 3237 Mount dildo on a window pane or mirror, sit on heels, nipple clamps
 [Action 3237]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .mustnot 42             ' clothes pegs on nipples
 .mustnot 140            ' Worshiping activity
 .item Toys.Nipple_Clamps available
@@ -1486,7 +1489,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3238 Kneeling upright in front of desk - punishment version
 [Action 3238]
-.state Body.CantKneel free
+.state Posture.CantKneel free
 .mustnot 140            ' Worshiping activity
 .return
 
@@ -1935,7 +1938,7 @@ Then go ahead, and attach the dildo to the wall.
 
 [Action 3367]
 .item Toys.Wrist_Restraints available
-.item Toys.Wrist_Restraints canApply to Body.WristsTied
+.item Toys.Wrist_Restraints canApply
 .item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
 .must 742               ' Strict self-bondage 2

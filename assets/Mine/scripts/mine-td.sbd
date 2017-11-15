@@ -6,6 +6,9 @@
 .declare teaselib.Body Enum
 .define Body teaselib.Body
 
+.declare teaselib.Posture Enum
+.define Posture teaselib.Posture
+
 .declare teaselib.Household Enum
 .define Household teaselib.Household
 
@@ -858,7 +861,7 @@ We both looked at each other, smiled behind our gags and locked them."
 [Action 2100]
 Okay, slave, your turn now - cuff'em behind your back.
 delay 10
-.item Toys.Wrist_Restraints apply to Body.WristsTiedBehindBack
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack
 .keyrelease start 1800
 .range 2101
 
@@ -1811,12 +1814,12 @@ Go fetch your blindfold, and make sure you can hear my voice.
 .item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
 .item Toys.Wrist_Restraints available
-.item Toys.Wrist_Restraints canApply to Body.WristsTied
+.item Toys.Wrist_Restraints canApply
 .item Toys.Chains available
 .item Toys.Blindfold available
 .item Toys.Blindfold canApply
-.state Body.CantStand free
-.state Body.CantSitOnChair free
+.state Posture.CantStand free
+.state Posture.CantSitOnChair free
 .must 104                    ' Punishment wank
 .mustnot 267 268             ' Enema carrying out or holding
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
@@ -1844,12 +1847,12 @@ Go fetch your blindfold, and make sure you can hear my voice.
 .item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
 .item Toys.Wrist_Restraints available
-.item Toys.Wrist_Restraints canApply to Body.WristsTied
+.item Toys.Wrist_Restraints canApply
 .item Toys.Chains available
 .item Toys.Blindfold available
 .item Toys.Blindfold canApply
-.state Body.CantStand free
-.state Body.CantSitOnChair free
+.state Posture.CantStand free
+.state Posture.CantSitOnChair free
 .mustnot 104                 ' Punishment wank
 .mustnot 267 268             ' Enema carrying out or holding
 .must 727                    ' Denial and self-control 2
