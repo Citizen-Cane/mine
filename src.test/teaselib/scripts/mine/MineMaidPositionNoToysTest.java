@@ -6,20 +6,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.AssumptionViolatedException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import pcm.controller.AllActionsSetException;
-import pcm.controller.Player;
 import pcm.model.Action;
 import pcm.model.ActionRange;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.Condition;
+import pcm.state.conditions.ItemCondition;
 import pcm.state.conditions.Must;
+import pcm.state.conditions.MustNot;
 import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
@@ -107,7 +109,7 @@ public class MineMaidPositionNoToysTest {
         mine.state.set(110 + difficulty);
         mine.state.set(ENABLE_MINE_MAID_DEBUGGING);
 
-        List<Action> positionActions = checkPositionAvailable(mine);
+        List<Action> positionActions = checkPositionAvailable();
 
         mine.breakPoints.add(Mine.MAID, MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT);
         mine.breakPoints.add(Mine.MAID, 9981);
@@ -119,24 +121,55 @@ public class MineMaidPositionNoToysTest {
         assertTrue(mine.range.start >= 7700 || mine.range.start == 1820);
     }
 
-    public List<Action> checkPositionAvailable(Player mine) throws AssertionError {
-        Action startAction = mine.script.actions.get(position + 1000);
-        assertTrue("Position " + position + " not implemented yet", startAction != null);
+    public List<Action> checkPositionAvailable() throws AssertionError {
+        Action startAction = mine.script.actions.get(position + POSITION_TO_SELECT_OFFSET);
+        if (startAction == null) {
+            throw new AssumptionViolatedException("Position " + position + " not implemented yet");
+        }
 
-        Action action = getExecutablePositionAction();
+        if (startAction.conditions.contains(new Must(MAID_TRAINING_PUNISHMENT_FLAG))) {
+            mine.state.set(MAID_TRAINING_PUNISHMENT_FLAG);
+        } else {
+            mine.state.unset(MAID_TRAINING_PUNISHMENT_FLAG);
+        }
 
-        List<Action> positionActions = mine.range(new ActionRange(position + POSITION_TO_SELECT_OFFSET));
+        if (startAction.conditions.contains(new Must(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED))) {
+            preset.strictSelfBondage(2);
+            mine.state.set(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED);
+        } else {
+            preset.strictSelfBondage(0);
+            mine.state.unset(SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED);
+        }
 
+        mine.state.set(POSITION_NOT_CONTINUEABLE);
+
+        List<Action> positionActions = mine.range(new ActionRange(startAction.number));
         if (positionActions.isEmpty()) {
-            for (Enum<?> toy : TOYS) {
-                if (position != 641 || toy != Toys.Ankle_Restraints)
-                    mine.item(toy).apply();
-            }
-            positionActions = mine.range(new ActionRange(position + POSITION_TO_SELECT_OFFSET));
+            startAction.conditions.stream().filter(x -> x instanceof ItemCondition).forEach(x -> {
+                ((ItemCondition) x).items().stream().forEach(item -> {
+                    mine.item(item).apply();
+                });
+            });
+            positionActions = mine.range(new ActionRange(startAction.number));
         }
 
         if (positionActions.isEmpty()) {
-            List<Condition> unmatchedconditions = pcm.util.TestUtils.umatchedConditions(action, mine.state);
+            startAction.conditions.stream().filter(c -> (c instanceof Must)).forEach(m -> {
+                ((Must) m).stream().forEach(n -> {
+                    mine.state.set(n);
+                });
+            });
+
+            startAction.conditions.stream().filter(c -> (c instanceof MustNot)).forEach(m -> {
+                ((MustNot) m).stream().forEach(n -> {
+                    mine.state.set(n);
+                });
+            });
+            positionActions = mine.range(new ActionRange(startAction.number));
+        }
+
+        if (positionActions.isEmpty()) {
+            List<Condition> unmatchedconditions = pcm.util.TestUtils.umatchedConditions(startAction, mine.state);
             throw new AssertionError(
                     "Position " + position + " not available: " + pcm.util.TestUtils.toString(unmatchedconditions));
         } else {
