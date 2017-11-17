@@ -3,59 +3,30 @@
  */
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import pcm.model.ActionRange;
-import pcm.model.ScriptExecutionException;
-import pcm.model.ScriptParsingException;
-import pcm.model.ValidationIssue;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.core.Debugger.Response;
 import teaselib.core.Debugger.ResponseAction;
+import teaselib.scripts.mine.test.ActivityTest;
 import teaselib.scripts.mine.test.MinePrompts;
-import teaselib.scripts.mine.test.Preset;
+import teaselib.scripts.mine.test.TestParameters;
 
 /**
  * @author Citizen-Cane
  *
  */
 @RunWith(Parameterized.class)
-public class TeaseAndDenialActivities {
+public class TeaseAndDenialActivities extends ActivityTest {
     private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Toys.Wrist_Restraints, Toys.Ankle_Restraints,
             Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Blindfold };
-
-    static class TestParameters {
-        public final String name;
-        public final int start;
-        public final int end;
-
-        public final List<ResponseAction> responseActions;
-        public final List<Enum<?>> toys;
-
-        public TestParameters(String name, int start, int end, List<Enum<?>> toys, ResponseAction... responseActions) {
-            this.name = name;
-            this.start = start;
-            this.end = end;
-            this.responseActions = Arrays.asList(responseActions);
-            this.toys = toys;
-        }
-
-        @Override
-        public String toString() {
-            return name + " " + start + " " + end + " toys=" + toys;
-        }
-    }
 
     @Parameters(name = "Activity {0}")
     public static Iterable<TestParameters> tests() {
@@ -100,33 +71,11 @@ public class TeaseAndDenialActivities {
                 new ResponseAction("It's enough, Miss", Response.Ignore)));
         tests.add(new TestParameters("slavesinlove bd186 punishment failure", 1116, 9416, Arrays.asList(TOYS),
                 new ResponseAction("It's enough, Miss", Response.Choose)));
+
         return tests;
     }
 
-    public static Mine createPlayer(Preset preset)
-            throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
-        Mine mine = preset.script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGood()).mine();
-
-        return mine;
-    }
-
-    private final TestParameters testParameters;
-
     public TeaseAndDenialActivities(TestParameters testParameters) {
-        this.testParameters = testParameters;
-    }
-
-    @Test
-    public void test() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Mine mine = new Preset().script(Mine.TD).clearHandlers().responses(MinePrompts.td())
-                .responses(testParameters.responseActions).mine();
-        mine.breakPoints.add(mine.script.name, testParameters.end);
-
-        for (Enum<?> toy : testParameters.toys) {
-            mine.item(toy).setAvailable(true);
-        }
-
-        mine.play(new ActionRange(testParameters.start), new ActionRange(testParameters.start, testParameters.end));
-        assertEquals(new ActionRange(testParameters.end), mine.range);
+        super(testParameters, Mine.TD, MinePrompts.td());
     }
 }

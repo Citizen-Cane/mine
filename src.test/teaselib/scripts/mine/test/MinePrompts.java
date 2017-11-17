@@ -127,6 +127,13 @@ public class MinePrompts {
         return all;
     }
 
+    public static Collection<ResponseAction> nipt() {
+        ArrayList<ResponseAction> all = new ArrayList<>();
+        all.addAll(defaults());
+
+        return all;
+    }
+
     public static Collection<? extends ResponseAction> paddle() {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
