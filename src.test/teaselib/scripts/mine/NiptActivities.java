@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import pcm.controller.Player;
+import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.core.Debugger.Response;
@@ -28,7 +30,22 @@ public class NiptActivities extends ActivityTest {
     @Parameters(name = "Activity {0}")
     public static Iterable<TestParameters> tests() {
         List<TestParameters> tests = new ArrayList<>();
-        // tests.add(new TestParameters("Quick Pins", 1014, 9014, Arrays.asList(TOYS)));
+
+        tests.add(new TestParameters("Quick Pins", 1014, 9014, Arrays.asList(TOYS),
+                new ResponseAction("Yes Miss, please", Response.Choose)) {
+            @Override
+            public List<ResponseAction> getResponseActions(Player player) {
+                List<ResponseAction> responseActions = new ArrayList<>(super.getResponseActions(player));
+
+                // Question 7400-7409 -> yes/no 7410 * 4 , even correct, odd wrong , testing 7300-7309
+                responseActions.add(new ResponseAction("Yes, Miss", allOnQuickPins(player)));
+                responseActions.add(new ResponseAction("No, Miss", allOnQuickPins(player)));
+
+                responseActions.add(new ResponseAction("Please stop, Miss", allOnQuickPins(player)));
+                return responseActions;
+            }
+        });
+
         // tests.add(new TestParameters("Quick Pins 16", 1015, 9015, Arrays.asList(TOYS)));
 
         tests.add(new TestParameters("Nipple Clamp Weight Lifting", 1016, 9016, Arrays.asList(TOYS),
@@ -48,6 +65,16 @@ public class NiptActivities extends ActivityTest {
                 new ResponseAction("*pleases*", Response.Choose)));
 
         return tests;
+    }
+
+    protected static Response allOnQuickPins(Player player) {
+        int[] allOn = { 7300, 7301, 7302, 7303, 7304, 7305, 7306, 7307, 7308, 7309 };
+        for (int n : allOn) {
+            if (player.state.get(n).equals(ScriptState.UNSET)) {
+                return Response.Ignore;
+            }
+        }
+        return Response.Choose;
     }
 
     public NiptActivities(TestParameters testParameters) {
