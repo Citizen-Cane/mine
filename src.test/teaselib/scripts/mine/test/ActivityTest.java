@@ -1,6 +1,6 @@
 package teaselib.scripts.mine.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -31,8 +31,7 @@ public class ActivityTest {
 
     @Test
     public void test() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Mine mine = new Preset().script(script).clearHandlers().responses(responses)
-                .responses(testParameters.responseActions).mine();
+        Mine mine = new Preset().script(script).clearHandlers().responses(responses).responses(testParameters).mine();
         mine.breakPoints.add(mine.script.name, testParameters.end);
 
         for (Enum<?> toy : testParameters.toys) {

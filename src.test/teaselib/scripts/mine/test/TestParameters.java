@@ -6,6 +6,7 @@ package teaselib.scripts.mine.test;
 import java.util.Arrays;
 import java.util.List;
 
+import pcm.controller.Player;
 import teaselib.core.Debugger.ResponseAction;
 
 public class TestParameters {
@@ -13,7 +14,7 @@ public class TestParameters {
     public final int start;
     public final int end;
 
-    public final List<ResponseAction> responseActions;
+    private final List<ResponseAction> responseActions;
     public final List<Enum<?>> toys;
 
     public TestParameters(String name, int start, int end, List<Enum<?>> toys, ResponseAction... responseActions) {
@@ -22,6 +23,10 @@ public class TestParameters {
         this.end = end;
         this.responseActions = Arrays.asList(responseActions);
         this.toys = toys;
+    }
+
+    public List<ResponseAction> getResponseActions(Player player) {
+        return responseActions;
     }
 
     @Override

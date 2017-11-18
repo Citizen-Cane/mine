@@ -72,6 +72,11 @@ public class Preset {
         return this;
     }
 
+    public Preset responses(TestParameters testParameters) {
+        debugger.addResponses(testParameters.getResponseActions(mine));
+        return this;
+    }
+
     public Mine mine() {
         return mine;
     }
@@ -99,4 +104,5 @@ public class Preset {
 
         return this;
     }
+
 }
