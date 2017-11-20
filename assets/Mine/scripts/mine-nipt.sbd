@@ -26,8 +26,16 @@
 
 .yestext Yes, Mistress
 .notext No, Mistress
-'.resumetext Ready, Mistress
 .stoptext Please stop, Miss
+
+' Quick Pins / Quick Pins 15 additions:
+' TODO Change to "I have them all on, Miss", since this would be the correct answer
+' TODO Implement stop as .break statement
+' TODO Add "Giving up" button
+' TODO Also allow to complete QuickPins successfully when told to remove the fifth pin
+' - in fact the fifth pin is on when told to remove, so the answer is ok
+' currently the stop button is removed, so it indicates the right thing,
+
 
 .onClose 9998
 .onAllSet 9999
@@ -44,7 +52,7 @@
 '                               Returns
 '   #   Entry       From        Good    Bad     +   -   Desc
 '   114 1014    5814 -> 5964    5864    5914    2   3   quick pins
-'   115 1015    5815 -> 5965    5865    5915    2   3   quick pins 16
+'   115 1015    5815 -> 5965    5865    5915    2   3   quick pins 15
 '   116 1016    5816 -> 5966    5866    5916    3   3   nipple clamp weight-lifting
 '   117 1017    5805 -> 5955                    1   -   light cardio nips
 '   118 1018    5817 -> 5967    5867    -       2   -   shake those titties
@@ -53,7 +61,7 @@
 ' Debug
 
 .menu 40  7310 7310 quick pins
-.menu 41  7020 7020 quick pins 16
+.menu 41  7020 7020 quick pins 15
 .menu 42  7500 7500 nipple clamp weight-lifting
 .menu 43  5000 5000 light cardio nips
 .menu 44  6500 6500 shake those titties
@@ -103,7 +111,7 @@
 .set 114
 .range 7310 7311
 
-' quick pins 16
+' quick pins 15
 [Action 1015]
 .set 115
 .range 7020
@@ -863,7 +871,7 @@ with one of the most versatile of all toys:
 Clothes pegs!
 You will need fifteen clothes pegs for this "activity", my pet.
 Go fetch then now!
-.pause I have them ready, Miss
+.pause I have them, Miss
 .unset 6999
 .unset 7000 7001 7002 7003 7004
 .unset 7005 7006 7007 7008 7009
@@ -903,7 +911,8 @@ delay 2
 So don't lie!
 When you have five clothes pegs on each of your nipples and your balls,
 then hit the stop button.
-Again, if you hit it prematurely, we have to go back to the beginning.
+Again, if you hit it prematurely,
+we have to go back to the beginning.
 .pause Okay, Miss
 .range 7026
 
@@ -1651,12 +1660,17 @@ Remove a clothespin from your balls!
 .delay 6 6 STOP 7131
 .range 7130
 
+
+' correct number of pins applied?
 [Action 7130]
 '.ask 50 65
 .range 7140 7141
 
+
+' stop -> all pegs on handling
 [Action 7131]
 .range 7132 7135
+
 
 [Action 7132]
 .must 7004 7009 7014
@@ -1706,12 +1720,14 @@ Unless you'd like to pussy out?
 .yestext I like to pussy out, Miss
 .notext No Miss, I want to try again
 
+
 [Action 7140]
 .range 7029
 
 [Action 7141]
-.poss 5
+.poss 10
 .range 7145 7174
+
 
 [Action 7145]
 Do you have exactly one clothespin on your left nipple?
@@ -1726,7 +1742,7 @@ Do you have exactly one clothes peg on your left nipple?
 'no
 .mustnot 7000
 .yesno 7180 7180 7181 7181
-.yestext Yes Miss, one exactly
+.yestext Yes Miss, just one
 .notext No Miss, I haven't
 
 [Action 7147]
@@ -1742,7 +1758,7 @@ Do you have exactly two clothes pegs on your left nipple?
 'no
 .mustnot 7001
 .yesno 7180 7180 7181 7181
-.yestext Yes Miss, exactly two
+.yestext Yes Miss, two exactly
 .notext No Miss, I haven't
 
 [Action 7149]
@@ -1758,8 +1774,105 @@ Do you have exactly three clothes pegs on your left nipple?
 'no
 .mustnot 7002
 .yesno 7180 7180 7181 7181
-.yestext Yes Miss, exactly three
+.yestext Yes Miss, three pegs
 .notext No Miss, I haven't
+
+[Action 7151]
+Do you have exactly one clothespin on your right nipple?
+'yes
+.must 7005
+.yesno 7181 7181 7180 7180
+.yestext Yes Miss, one pin
+.notext No Miss, I haven't
+
+[Action 7152]
+Do you have exactly one clothes peg on your right nipple?
+'no
+.mustnot 7005
+.yesno 7180 7180 7181 7181
+.yestext Yes Miss, one pin
+.notext No Miss, I haven't
+
+[Action 7153]
+Do you have exactly two clothes pegs on your right nipple?
+'yes
+.must 7006
+.yesno 7181 7181 7180 7180
+.yestext Yes Miss, two exactly
+.notext No Miss, I haven't
+
+[Action 7154]
+Do you have exactly two clothes pegs on your right nipple?
+'no
+.mustnot 7006
+.yesno 7180 7180 7181 7181
+.yestext Yes Miss, two exactly
+.notext No Miss, I haven't
+
+[Action 7155]
+Do you have exactly three clothes pegs on your right nipple?
+'yes
+.must 7007
+.yesno 7181 7181 7180 7180
+.yestext Yes Miss, three pegs
+.notext No Miss, I haven't
+
+[Action 7156]
+Do you have exactly three clothes pegs on your right nipple?
+'no
+.mustnot 7007
+.yesno 7180 7180 7181 7181
+.yestext Yes Miss, three pegs
+.notext No Miss, I haven't
+
+[Action 7157]
+Do you have exactly one clothespin on your ball sack?
+'yes
+.must 7010
+.yesno 7181 7181 7180 7180
+.yestext Yes Miss, one exactly
+.notext No Miss, I haven't
+
+[Action 7158]
+Do you have exactly one clothes peg on your ball sack?
+'no
+.mustnot 7010
+.yesno 7180 7180 7181 7181
+.yestext Yes Miss, one exactly
+.notext No Miss, I haven't
+
+[Action 7159]
+Do you have exactly two clothes pegs on your ball sack?
+'yes
+.must 7011
+.yesno 7181 7181 7180 7180
+.yestext Yes Miss, two pins
+.notext No Miss, I haven't
+
+[Action 7160]
+Do you have exactly two clothes pegs on your ball sack?
+'no
+.mustnot 7011
+.yesno 7180 7180 7181 7181
+.yestext Yes Miss, two pins
+.notext No Miss, I haven't
+
+[Action 7161]
+Do you have exactly three clothes pegs on your ball sack?
+'yes
+.must 7012
+.yesno 7181 7181 7180 7180
+.yestext Yes Miss, three pegs
+.notext No Miss, I haven't
+
+[Action 7162]
+Do you have exactly three clothes pegs on your ball sack?
+'no
+.mustnot 7012
+.yesno 7180 7180 7181 7181
+.yestext Yes Miss, three pegs
+.notext No Miss, I haven't
+
 
 [Action 7180]
 Sorry, slave, that's not correct.
@@ -1773,6 +1886,7 @@ Unless you'd like to pussy out?
 .yestext Yes Miss, I'd like to pussy out
 .notext No Miss, I want to start over
 
+
 [Action 7181]
 Very good, slave, that's right.
 .range 7182
@@ -1783,14 +1897,17 @@ Let's just rest a moment, shall we?
 .range 7183
 
 [Action 7183]
-Keep in mind that when you have five clothes pegs on each of your
-nipples and your balls, you're to hit the stop button.
-Again, if you hit it prematurely, we have to go back to the beginning.
+Keep in mind that when you have five clothes pegs
+on each of your nipples and your balls,
+you're to hit the stop button.
+Again, if you hit it prematurely,
+we have to go back to the beginning.
 .range 7029
 
 
 [Action 7190]
-I'll just let you sit there for a minute or two and suffer, just for fun.
+I'll just let you sit there for a minute or two and suffer,
+just for fun.
 .delay 30 60
 .range 7191
 
@@ -3617,7 +3734,7 @@ What a sad spectacle.
 '   "Good" exit points
 
 '   114 1014    5814 -> 5964    5864    5914    2   3   quick pins
-'   115 1015    5815 -> 5965    5865    5915    2   3   quick pins 16
+'   115 1015    5815 -> 5965    5865    5915    2   3   quick pins 15
 '   116 1016    5816 -> 5966    5866    5916    3   3   nipple clamp weight-lifting
 '   117 1017    5805 -> 5955                    1   -   light cardio nips
 '   118 1018    5817 -> 5967    5867    -       2   -   shake those titties
@@ -3635,7 +3752,7 @@ What a sad spectacle.
 .set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5864 5864
 
-' quick pins 16
+' quick pins 15
 [Action 9015]
 .must 115
 .set 812                ' Done nipple training activity
@@ -3679,7 +3796,7 @@ What a sad spectacle.
 .set 812                ' Done nipple training activity
 .loadsbd Mine.sbd 5914 5914
 
-' quick pins 16
+' quick pins 15
 [Action 9115]
 .must 115
 .set 812                ' Done nipple training activity

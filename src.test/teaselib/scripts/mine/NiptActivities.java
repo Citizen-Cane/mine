@@ -24,6 +24,8 @@ import teaselib.scripts.mine.test.TestParameters;
  */
 @RunWith(Parameterized.class)
 public class NiptActivities extends ActivityTest {
+    private static final int QUICK_PINMS_STATE_RANGE_START = 7300;
+    private static final int QUICK_PINS_QUESTION_RANGE_START = 7400;
     private static final Enum<?>[] TOYS = { Toys.Ankle_Restraints, Toys.Nipple_Clamps, Toys.Pussy_Clamps,
             Household.Clothes_Pegs };
 
@@ -31,22 +33,52 @@ public class NiptActivities extends ActivityTest {
     public static Iterable<TestParameters> tests() {
         List<TestParameters> tests = new ArrayList<>();
 
-        tests.add(new TestParameters("Quick Pins", 1014, 9014, Arrays.asList(TOYS),
-                new ResponseAction("Yes Miss, please", Response.Choose)) {
+        tests.add(new TestParameters("Quick Pins", 1014, 9014, Arrays.asList(TOYS)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
                 List<ResponseAction> responseActions = new ArrayList<>(super.getResponseActions(player));
 
-                // Question 7400-7409 -> yes/no 7410 * 4 , even correct, odd wrong , testing 7300-7309
-                responseActions.add(new ResponseAction("Yes, Miss", allOnQuickPins(player)));
-                responseActions.add(new ResponseAction("No, Miss", allOnQuickPins(player)));
+                responseActions.add(new ResponseAction("Yes Miss, please"));
+                responseActions.add(new ResponseAction("Yes Miss", () -> pinAttached(player)));
+                responseActions.add(new ResponseAction("No Miss", () -> pinNotAttached(player)));
 
-                responseActions.add(new ResponseAction("Please stop, Miss", allOnQuickPins(player)));
+                responseActions.add(new ResponseAction("Please stop, Miss", () -> allOnQuickPins(player)));
                 return responseActions;
             }
         });
 
-        // tests.add(new TestParameters("Quick Pins 16", 1015, 9015, Arrays.asList(TOYS)));
+        tests.add(new TestParameters("Quick Pins 15", 1015, 9015, Arrays.asList(TOYS)) {
+            @Override
+            public List<ResponseAction> getResponseActions(Player player) {
+                List<ResponseAction> responseActions = new ArrayList<>(super.getResponseActions(player));
+
+                responseActions.add(new ResponseAction("Yes Miss, please"));
+                responseActions.add(new ResponseAction("Yes Miss, I'm ready"));
+
+                responseActions.add(new ResponseAction("Yes Miss, just one", position(player, 7000)));
+                responseActions.add(new ResponseAction("Yes Miss, one pin", position(player, 7005)));
+                responseActions.add(new ResponseAction("Yes Miss, one exactly", position(player, 7010)));
+
+                responseActions.add(new ResponseAction("Yes Miss, two exactly", position(player, 7001)));
+                responseActions.add(new ResponseAction("Yes Miss, two exactly", position(player, 7006)));
+                responseActions.add(new ResponseAction("Yes Miss, two pins", position(player, 7011)));
+
+                responseActions.add(new ResponseAction("Yes Miss, three pegs", position(player, 7002)));
+                responseActions.add(new ResponseAction("Yes Miss, three pegs", position(player, 7007)));
+                responseActions.add(new ResponseAction("Yes Miss, three pegs", position(player, 7012)));
+
+                responseActions.add(new ResponseAction("No Miss, I haven't"));
+
+                responseActions.add(new ResponseAction("Please stop, Miss", () -> allOnQuickPins15(player)));
+                return responseActions;
+            }
+
+            private Response position(Player player, int n) {
+                if (player.range == null)
+                    return Response.Ignore;
+                return player.range.start == n ? Response.Choose : Response.Ignore;
+            }
+        });
 
         tests.add(new TestParameters("Nipple Clamp Weight Lifting", 1016, 9016, Arrays.asList(TOYS),
                 new ResponseAction("Yes please*", Response.Choose), new ResponseAction("Yes Miss*", Response.Choose),
@@ -75,6 +107,30 @@ public class NiptActivities extends ActivityTest {
             }
         }
         return Response.Choose;
+    }
+
+    protected static Response allOnQuickPins15(Player player) {
+        int[] allAttached = { 7004, 7009, 7014 };
+        for (int n : allAttached) {
+            if (player.state.get(n).equals(ScriptState.UNSET)) {
+                return Response.Ignore;
+            }
+        }
+        return Response.Choose;
+    }
+
+    protected static Response pinAttached(Player player) {
+        return isPinAttached(player) ? Response.Choose : Response.Ignore;
+    }
+
+    protected static Response pinNotAttached(Player player) {
+        return !isPinAttached(player) ? Response.Choose : Response.Ignore;
+    }
+
+    private static boolean isPinAttached(Player player) {
+        int n = player.range.start;
+        return player.state.get(n - QUICK_PINS_QUESTION_RANGE_START + QUICK_PINMS_STATE_RANGE_START)
+                .equals(ScriptState.SET);
     }
 
     public NiptActivities(TestParameters testParameters) {
