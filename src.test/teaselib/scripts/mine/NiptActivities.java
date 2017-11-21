@@ -9,6 +9,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import pcm.controller.Player;
+import pcm.model.ActionRange;
 import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
@@ -45,6 +46,16 @@ public class NiptActivities extends ActivityTest {
                 responseActions.add(new ResponseAction("Please stop, Miss", () -> allOnQuickPins(player)));
                 return responseActions;
             }
+
+            Response allOnQuickPins(Player player) {
+                int[] allOn = { 7300, 7301, 7302, 7303, 7304, 7305, 7306, 7307, 7308, 7309 };
+                for (int n : allOn) {
+                    if (player.state.get(n).equals(ScriptState.UNSET)) {
+                        return Response.Ignore;
+                    }
+                }
+                return Response.Choose;
+            }
         });
 
         tests.add(new TestParameters("Quick Pins 15", 1015, 9015, Arrays.asList(TOYS)) {
@@ -54,6 +65,8 @@ public class NiptActivities extends ActivityTest {
 
                 responseActions.add(new ResponseAction("Yes Miss, please"));
                 responseActions.add(new ResponseAction("Yes Miss, I'm ready"));
+
+                responseActions.add(new ResponseAction("No Miss, I want to start over"));
 
                 responseActions.add(new ResponseAction("Yes Miss, just one", position(player, 7000)));
                 responseActions.add(new ResponseAction("Yes Miss, one pin", position(player, 7005)));
@@ -73,11 +86,26 @@ public class NiptActivities extends ActivityTest {
                 return responseActions;
             }
 
-            private Response position(Player player, int n) {
+            Response position(Player player, int n) {
                 if (player.range == null)
                     return Response.Ignore;
                 return player.range.start == n ? Response.Choose : Response.Ignore;
             }
+
+            Response allOnQuickPins15(Player player) {
+                if (new ActionRange(7029, 7124).contains(player.range.start)) {
+                    int[] allAttached = { 7004, 7009, 7014 };
+                    for (int n : allAttached) {
+                        if (player.state.get(n).equals(ScriptState.UNSET)) {
+                            return Response.Ignore;
+                        }
+                    }
+                    return Response.Choose;
+                } else {
+                    return Response.Ignore;
+                }
+            }
+
         });
 
         tests.add(new TestParameters("Nipple Clamp Weight Lifting", 1016, 9016, Arrays.asList(TOYS),
@@ -97,26 +125,6 @@ public class NiptActivities extends ActivityTest {
                 new ResponseAction("*pleases*", Response.Choose)));
 
         return tests;
-    }
-
-    protected static Response allOnQuickPins(Player player) {
-        int[] allOn = { 7300, 7301, 7302, 7303, 7304, 7305, 7306, 7307, 7308, 7309 };
-        for (int n : allOn) {
-            if (player.state.get(n).equals(ScriptState.UNSET)) {
-                return Response.Ignore;
-            }
-        }
-        return Response.Choose;
-    }
-
-    protected static Response allOnQuickPins15(Player player) {
-        int[] allAttached = { 7004, 7009, 7014 };
-        for (int n : allAttached) {
-            if (player.state.get(n).equals(ScriptState.UNSET)) {
-                return Response.Ignore;
-            }
-        }
-        return Response.Choose;
     }
 
     protected static Response pinAttached(Player player) {
