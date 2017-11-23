@@ -31,7 +31,7 @@ public class ActivityTest {
 
     @Test
     public void test() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Mine mine = new Preset().script(script).clearHandlers().responses(responses).responses(testParameters).mine();
+        Mine mine = new Preset().script(script).clearHandlers().responses(testParameters).responses(responses).mine();
         mine.breakPoints.add(mine.script.name, testParameters.end);
 
         for (Enum<?> toy : testParameters.toys) {
