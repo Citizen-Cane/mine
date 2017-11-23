@@ -66,8 +66,6 @@ public class NiptActivities extends ActivityTest {
                 responseActions.add(new ResponseAction("Yes Miss, please"));
                 responseActions.add(new ResponseAction("Yes Miss, I'm ready"));
 
-                responseActions.add(new ResponseAction("No Miss, I want to start over"));
-
                 responseActions.add(new ResponseAction("Yes Miss, just one", position(player, 7000)));
                 responseActions.add(new ResponseAction("Yes Miss, one pin", position(player, 7005)));
                 responseActions.add(new ResponseAction("Yes Miss, one exactly", position(player, 7010)));

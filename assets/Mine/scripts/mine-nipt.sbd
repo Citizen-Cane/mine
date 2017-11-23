@@ -28,13 +28,18 @@
 .notext No, Mistress
 .stoptext Please stop, Miss
 
-' Quick Pins / Quick Pins 15 additions:
-' TODO Change to "I have them all on, Miss", since this would be the correct answer
+' Quick Pins 
 ' TODO Implement stop as .break statement
+' TODO Change to "I have them all on, Miss", since this would be the correct answer
 ' TODO Add "Giving up" button
 ' TODO Also allow to complete QuickPins successfully when told to remove the fifth pin
 ' - in fact the fifth pin is on when told to remove, so the answer is ok
 ' currently the stop button is removed, so it indicates the right thing,
+
+' Quick Pins 15 additions:
+' TODO Implement stop as .break statement
+' TODO Change to "I have them all on, Miss", since this would be the correct answer
+' TODO Add "Giving up" button
 
 
 .onClose 9998
@@ -932,7 +937,7 @@ Are you ready to begin?
 
 [Action 7029]
 .resetrange 7020 7199
-.range 7030 7129
+.range 7030 7119
 
 
 '   delays of 2, 3, 5, 8
