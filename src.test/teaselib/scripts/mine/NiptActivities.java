@@ -66,17 +66,25 @@ public class NiptActivities extends ActivityTest {
                 responseActions.add(new ResponseAction("Yes Miss, please"));
                 responseActions.add(new ResponseAction("Yes Miss, I'm ready"));
 
-                responseActions.add(new ResponseAction("Yes Miss, just one", () -> answerCorrectly(player, 7000)));
-                responseActions.add(new ResponseAction("Yes Miss, one pin", () -> answerCorrectly(player, 7005)));
-                responseActions.add(new ResponseAction("Yes Miss, one exactly", () -> answerCorrectly(player, 7010)));
+                responseActions
+                        .add(new ResponseAction("Yes Miss, just one", () -> answerCorrectly(player, 7145, 7000)));
+                responseActions.add(new ResponseAction("Yes Miss, one pin", () -> answerCorrectly(player, 7151, 7005)));
+                responseActions
+                        .add(new ResponseAction("Yes Miss, one exactly", () -> answerCorrectly(player, 7157, 7010)));
 
-                responseActions.add(new ResponseAction("Yes Miss, two exactly", () -> answerCorrectly(player, 7001)));
-                responseActions.add(new ResponseAction("Yes Miss, two exactly", () -> answerCorrectly(player, 7006)));
-                responseActions.add(new ResponseAction("Yes Miss, two pins", () -> answerCorrectly(player, 7011)));
+                responseActions
+                        .add(new ResponseAction("Yes Miss, two exactly", () -> answerCorrectly(player, 7147, 7001)));
+                responseActions
+                        .add(new ResponseAction("Yes Miss, two exactly", () -> answerCorrectly(player, 7153, 7006)));
+                responseActions
+                        .add(new ResponseAction("Yes Miss, two pins", () -> answerCorrectly(player, 7159, 7011)));
 
-                responseActions.add(new ResponseAction("Yes Miss, three pegs", () -> answerCorrectly(player, 7002)));
-                responseActions.add(new ResponseAction("Yes Miss, three pegs", () -> answerCorrectly(player, 7007)));
-                responseActions.add(new ResponseAction("Yes Miss, three pegs", () -> answerCorrectly(player, 7012)));
+                responseActions
+                        .add(new ResponseAction("Yes Miss, three pegs", () -> answerCorrectly(player, 7149, 7002)));
+                responseActions
+                        .add(new ResponseAction("Yes Miss, three pegs", () -> answerCorrectly(player, 7155, 7007)));
+                responseActions
+                        .add(new ResponseAction("Yes Miss, three pegs", () -> answerCorrectly(player, 7161, 7012)));
 
                 responseActions.add(new ResponseAction("No Miss, I haven't"));
 
@@ -84,10 +92,11 @@ public class NiptActivities extends ActivityTest {
                 return responseActions;
             }
 
-            Response answerCorrectly(Player player, int n) {
-                if (player.range == null)
+            Response answerCorrectly(Player player, int promptAction, int n) {
+                if (player.action == null)
                     return Response.Ignore;
-                return player.state.get(n) == ScriptState.SET ? Response.Choose : Response.Ignore;
+                return player.action.number == promptAction && player.state.get(n) == ScriptState.SET ? Response.Choose
+                        : Response.Ignore;
             }
 
             Response allOnQuickPins15(Player player) {
