@@ -3,6 +3,7 @@
  */
 package teaselib.scripts.mine;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +12,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import pcm.model.ScriptExecutionException;
+import pcm.model.ScriptParsingException;
+import pcm.model.ValidationIssue;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.core.Debugger.Response;
@@ -75,7 +79,8 @@ public class TeaseAndDenialActivities extends ActivityTest {
         return tests;
     }
 
-    public TeaseAndDenialActivities(TestParameters testParameters) {
+    public TeaseAndDenialActivities(TestParameters testParameters)
+            throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         super(testParameters, Mine.TD, MinePrompts.td());
     }
 }

@@ -38,6 +38,7 @@ public class Preset {
     private Preset(Mine mine) {
         this.mine = mine;
         debugger = new Debugger(mine.teaseLib);
+        mine.teaseLib.globals.store(debugger);
     }
 
     public Preset set(int... n) {
@@ -104,5 +105,4 @@ public class Preset {
 
         return this;
     }
-
 }

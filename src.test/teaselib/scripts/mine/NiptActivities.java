@@ -1,5 +1,6 @@
 package teaselib.scripts.mine;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,11 +9,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import pcm.controller.LambdaTrigger;
 import pcm.controller.Player;
-import pcm.model.ActionRange;
+import pcm.model.ScriptExecutionException;
+import pcm.model.ScriptParsingException;
+import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
+import teaselib.core.Debugger;
 import teaselib.core.Debugger.Response;
 import teaselib.core.Debugger.ResponseAction;
 import teaselib.scripts.mine.test.ActivityTest;
@@ -88,7 +93,13 @@ public class NiptActivities extends ActivityTest {
 
                 responseActions.add(new ResponseAction("No Miss, I haven't"));
 
-                responseActions.add(new ResponseAction("Please stop, Miss", () -> allOnQuickPins15(player)));
+                player.breakPoints.add(Mine.NIPT, new LambdaTrigger(7120, () -> {
+                    if (allOnQuickPins15(player) == Response.Choose) {
+                        player.teaseLib.globals.get(Debugger.class).replyScriptFunction("Please stop, Miss");
+                    }
+                }));
+
+                responseActions.add(new ResponseAction("Please stop, Miss", Response.Ignore));
                 return responseActions;
             }
 
@@ -100,19 +111,14 @@ public class NiptActivities extends ActivityTest {
             }
 
             Response allOnQuickPins15(Player player) {
-                if (new ActionRange(7029, 7124).contains(player.range.start)) {
-                    int[] allAttached = { 7004, 7009, 7014 };
-                    for (int n : allAttached) {
-                        if (player.state.get(n).equals(ScriptState.UNSET)) {
-                            return Response.Ignore;
-                        }
+                int[] allAttached = { 7004, 7009, 7014 };
+                for (int n : allAttached) {
+                    if (player.state.get(n).equals(ScriptState.UNSET)) {
+                        return Response.Ignore;
                     }
-                    return Response.Choose;
-                } else {
-                    return Response.Ignore;
                 }
+                return Response.Choose;
             }
-
         });
 
         tests.add(new TestParameters("Nipple Clamp Weight Lifting", 1016, 9016, Arrays.asList(TOYS),
@@ -148,7 +154,8 @@ public class NiptActivities extends ActivityTest {
                 .equals(ScriptState.SET);
     }
 
-    public NiptActivities(TestParameters testParameters) {
+    public NiptActivities(TestParameters testParameters)
+            throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         super(testParameters, Mine.NIPT, MinePrompts.nipt());
     }
 }

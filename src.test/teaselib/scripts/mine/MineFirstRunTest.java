@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.junit.Test;
 
 import pcm.controller.AllActionsSetException;
-import pcm.controller.Trigger;
+import pcm.controller.CheckPointTrigger;
 import pcm.model.ActionRange;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
@@ -17,8 +17,8 @@ import teaselib.scripts.mine.test.Triggers;
 public class MineFirstRunTest {
     private Mine mine;
 
-    Triggers triggers = new Triggers(new Trigger("good end", 850, true), new Trigger("saved", 898, true),
-            new Trigger("All actions set - see console output for offending action", 860, false));
+    Triggers triggers = new Triggers(new CheckPointTrigger("good end", 850, true), new CheckPointTrigger("saved", 898, true),
+            new CheckPointTrigger("All actions set - see console output for offending action", 860, false));
 
     @Test
     public void testFirstTime() throws AllActionsSetException, ScriptExecutionException, IOException,

@@ -11,6 +11,7 @@ import pcm.model.ActionRange;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
+import teaselib.core.Debugger;
 import teaselib.core.Debugger.ResponseAction;
 import teaselib.scripts.mine.Mine;
 
@@ -19,19 +20,23 @@ import teaselib.scripts.mine.Mine;
  *
  */
 public class ActivityTest {
+    private final Preset preset;
     protected final TestParameters testParameters;
-    protected final String script;
     protected final Collection<ResponseAction> responses;
+    protected final Debugger debugger;
 
-    public ActivityTest(TestParameters testParameters, String script, Collection<ResponseAction> responses) {
+    public ActivityTest(TestParameters testParameters, String script, Collection<ResponseAction> responses)
+            throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
+        this.preset = new Preset().script(script).clearHandlers();
+        this.debugger = preset.debugger;
+
         this.testParameters = testParameters;
-        this.script = script;
         this.responses = responses;
     }
 
     @Test
-    public void test() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Mine mine = new Preset().script(script).clearHandlers().responses(testParameters).responses(responses).mine();
+    public void test() throws ScriptParsingException, ValidationIssue, ScriptExecutionException {
+        Mine mine = preset.responses(testParameters).responses(responses).mine();
         mine.breakPoints.add(mine.script.name, testParameters.end);
 
         for (Enum<?> toy : testParameters.toys) {

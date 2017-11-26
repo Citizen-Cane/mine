@@ -1,6 +1,6 @@
 package teaselib.scripts.mine.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,8 +29,7 @@ public class Triggers extends ArrayList<Trigger> {
 
     public void assertExpected() {
         for (Trigger trigger : this) {
-            assertEquals(trigger.message, trigger.expected, trigger.actual);
+            assertTrue(trigger.getMessage(), trigger.assertExpected());
         }
     }
-
 }
