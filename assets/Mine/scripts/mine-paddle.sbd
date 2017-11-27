@@ -95,13 +95,14 @@
 '	Remember to set the session you want *and all the previous ones*. 
 '	Not setting any will probably default to an easy session.
 
+'               100 decrementer for weights from balls, timer for spanking marathon
 .askcheck	11	101	An easy session.
 .askcheck	12	102	A medium session.
 .askcheck	13	103	A tough session.
 .askcheck	14	104	A very tough session.
 .askcheck	15	105	An extrememly tough session.
 
-'          TODO? 110 special cumming-without-permission corner punishment
+' TODO? 110 special cumming-without-permission corner punishment
 .askcheck   16  111  5 min. corner
 .askcheck   17  112 10 min. corner
 .askcheck   18  113 15 min. corner
@@ -202,6 +203,7 @@ So, what will you be wearing, slave?
 [Action 990]
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
+.set 109                ' debug / quit afterwards
 .unset 990
 .popup 30 42
 
@@ -250,7 +252,7 @@ Use your dominant hand to spank yourself.
 
 [Action 1505]
 We'll be going for a good half hour today, so prepare yourself.
-If it becomes too much for you mayt tell me to stop,
+If it becomes too much for you may tell me to stop,
 but you'll just be drawing more punishment and delaying your advancement.
 .range 1506 1507
 
@@ -267,6 +269,7 @@ Oh, and keep that cock hard inside that cage the whole time.
 
 
 [Action 1509]
+.settime 100
 .break 1511 1516 STOP 1518
 .stoptext Please stop it, Miss
 .range 1511 1515
@@ -315,26 +318,28 @@ Rest for a moment, slave.
 .range 1510 1517
 
 [Action 1516]
+.timefrom 100 00:15"00
+.delay 60
 We're about halfway through, slave.
 Rest your bottom for a minute, 
 and rub it if you like.
 Then we'll start again.
-.timefrom 1502 00:15
-.delay 60
 .range 1510 1515
 
 
 [Action 1517]
+.timefrom 100 00:31"00  '   one minute for the halfway break
+.delay 60
 Very good, slave.
 We're finally finished.
 Does that naughty bottom hurt real good?
 Go ahead and rub it for a minute and then we'll get back to our session.
-.timefrom 1502 00:31    '   one minute for the halfway break.
-.delay 60
 .range 1519
+
 
 [Action 1518]
 .loadsbd Mine.sbd 5704 5704
+
 
 [Action 1519]
 .loadsbd Mine.sbd 5654 5654 
@@ -347,6 +352,7 @@ Okay, slave, now we're going to have a long marathon spanking session.
 For a full hour you'll be beating that naughty enslaved bottom.
 .set 181
 .range 1521 1523
+
 
 [Action 1521]
 .item Toys.Spanking_Implement available
@@ -365,6 +371,7 @@ You'll need your hair brush, of course.
 You'll need your wooden spoon, of course.
 .pause I have it, Miss
 .range 1524
+
 
 [Action 1524]
 I'll be varying the rhythm of your whipping,
@@ -385,14 +392,16 @@ but you'll just be drawing more punishment and delaying your advancement.
 [Action 1526]
 .item Toys.Chastity_Device not applied
 Oh, and keep that cock hard the whole time.
-.range 1531 1535
+.range 1529
 
 [Action 1527]
 .item Toys.Chastity_Device applied
 Oh, and keep that cock hard inside that cage the whole time.
-.range 1531 1535
+.range 1529
+
 
 [Action 1529]
+.settime 100
 .break 1531 1536 STOP 1538
 .stoptext Please stop it, Miss
 .range 1531 1535
@@ -440,25 +449,27 @@ Rest for a moment, slave.
 .range 1530 1537
 
 [Action 1536]
+.timefrom 100 00:30"00
+.delay 60
 We're about halfway through, slave.
 Rest your bottom for a minute, and rub it if you like.
-Then we'll start again
-- one half hour to go.
-.timefrom 1522 00:30"00
-.delay 60
+Then we'll start again -
+one half hour to go.
 .range 1530 1535
 
 [Action 1537]
+.timefrom 100 00:61"00  ' one minute for the halfway break
+.delay 60
 Well, slave, you made it the whole hour.
 What a good slave boy!
 You're quite a little trooper, and I'm proud of you.
 Give that red butt a good rubdown now.
-.timefrom 1522 00:61"00 ' one minute for the halfway break
-.delay 60
 .range 1539
+
 
 [Action 1538]
 .loadsbd Mine.sbd 5705 5705
+
 
 [Action 1539]
 .loadsbd Mine.sbd 5655 5655
@@ -4678,13 +4689,16 @@ You may remove the weight, the rope, and the ball harness, slave.
 .must 171
 .loadsbd Mine.sbd 2418
 
+[action 9899]
+.must 109
+.quit
 
 
 ' Bad exits 9900-9990
 
 ' Debug
 [Action 9909]
-.must 100
+.must 109
 .quit
 
 
