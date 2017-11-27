@@ -431,7 +431,7 @@ So, what will you be wearing, slave?
 
 ' level 5 punishment
 [Action 998]
-.unset 140                   ' Worshiping punishment
+.unset 140                   ' Worshiping activity
 .set 756                     ' Anal training 1
 .set 776 777
 .unset         778 779 780   ' Dildo worshiping 2
@@ -474,13 +474,13 @@ Your punishment will be to give your dildo a decent blow job.
 [Action 3005]
 .mustnot 170            ' beginner
 .gosub 3030             ' introduction
-.range 3249             ' on to scenario
+.range 3090             ' on to scenario
 
 ' revisit
 [Action 3006]
 .must 170               ' advanced sucking
 .gosub 3040 3044        ' revisit
-.range 3249             ' on to scenario
+.range 3090             ' on to scenario
 
 
 ' Activity entries
@@ -499,13 +499,13 @@ We will now train your dildo worshiping skills.
 [action 3015]
 .mustnot 170            ' beginner
 .gosub 3030             ' introduction
-.range 3249             ' on to scenario
+.range 3090             ' on to scenario
 
 ' revisit
 [action 3016]
 .must 170               ' advanced sucking
 .gosub 3040 3044        ' revisit
-.range 3249             ' on to scenario
+.range 3090             ' on to scenario
 
 '[Action 3017]
 '[Action 3018]
@@ -526,7 +526,7 @@ We will now deepen your dildo worshiping skills.
 
 [Action 3025]
 .gosub 3050             ' revisit after punishment
-.range 3249             ' on to scenario
+.range 3090             ' on to scenario
 
 '[Action 3026]
 '[Action 3027]
@@ -543,8 +543,8 @@ delay 5
 Not with your hands of course!
 A good slut such as yourself uses just lips and tongue.
 So keep those naughty hands off this precious phallus,
- and fetch it how it is deserved to be fetched
-- just by using your mouth. 
+and fetch it how it is deserved to be fetched -
+by using your mouth. 
 .pause I've placed the dildo on the desk, Miss
 .range 3031
 
@@ -561,8 +561,10 @@ is to give it a decent blow job.
 And to be decent, slave,
 you will keep teasing that tip at all times until I tell you otherwise.
 []
-You may also never touch the dildo with your hands during our worshiping sessions.
-The only excuse I'll make is to detach the suction cup,
+You may also never touch the dildo with your hands during our worshiping sessions,
+unless I explicitly tell you to.
+[Yes, Miss]
+The only exception I make is to detach the suction cup,
 which can make it very difficult to remove the dildo from a flat surface,
 and I don't want to see bite marks on the shaft.
 .pause Understood, Miss
@@ -583,17 +585,18 @@ and I don't want to see bite marks on the shaft.
 
 [Action 3045]
 .mustnot 10 11 16 17    ' hands tied 
-Go fetch your dildo - of course just with your mouth,
-place it on your desk and start teasing the tip.
+Go fetch your dildo -
+of course just with your mouth,
+place it on your desk and start teasing the tip with your tongue.
 delay 10
 .pause I'm teasing the tip, Miss
 .return
 
 [Action 3046]
 .mustnot 10 11 16 17    ' hands tied 
-Get those lips and tongue to work and go fetch your dildo
-- of course just with your mouth,
-place it on your desk and start teasing the tip.
+Get those lips and tongue to work and go fetch your dildo -
+of course just with your mouth,
+place it on your desk and start teasing the tip with your tongue.
 delay 10
 .pause I'm teasing the tip, Miss
 .return
@@ -663,6 +666,58 @@ Place it here on the desk, you slobby slut!
 delay 10
 .pause I'm teasing the tip, Miss
 .return
+
+
+' listen to instructions
+[action 3090]
+.range 3091 3098
+
+
+' introduction
+[action 3091]
+.must 140          ' activity
+Excellent!
+Now put your lips over the dildo's tip,
+and don't move while you listen to the rest of My instructions.
+delay 5
+.range 3099
+
+' revisit
+[action 3092]
+.must 140          ' activity
+.mustnot 3030      ' introduction
+Excellent.
+Put your lips over the dildo's tip then,
+and don't move.
+.range 3099
+
+' introduction as punishment
+[action 3093]
+.mustnot 140       ' activity
+Shut up, put your lips over the dildo's tip,
+and listen to the rest of My instructions.
+delay 5
+.range 3099
+
+' revisit
+[action 3094]
+.mustnot 140       ' activity
+.mustnot 3030      ' introduction
+Now put your lips over the tip,
+and don't move while you listen to the rest of My instructions.
+.range 3099
+
+' worshiping after punishment
+[action 3098]
+.must 3050
+.poss 100
+' just move on to the scenario
+.range 3099
+
+
+' on to scenario selection
+[action 3099]
+.range 3249             ' on to scenario
 
 
 ' Restraints, remove gag
@@ -804,7 +859,7 @@ But keep it handy, because you're to put it back in right after you've finished 
 .range 3119
 
 
-' TODO assignment conflicts with optional key release 
+' TODO message conflicts with optional key release -> check key release available and armed 
 [Action 3110]
 Leave the keys to your restraints on the desk, you may need them later.
 .must 140
@@ -814,7 +869,8 @@ Leave the keys to your restraints on the desk, you may need them later.
 .mustnot 140
 .range 3119
 
-' TODO assignment conflicts with optional key release
+
+' TODO message conflicts with optional key release -> check key release available and armed
 [Action 3112]
 .must 140
 Leave the keys to your restraints on the floor in front of your desk,
@@ -884,7 +940,7 @@ Keep the connecting chains short, my pet.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
 .item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand
+.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand Body.CantJerkOff
 .pause I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
 .return
@@ -900,7 +956,7 @@ and your left hand to your left ankle.
 delay 10
 Keep the connecting chains short, my pet.
 .item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand
+.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand Body.CantJerkOff
 .pause I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
 .return
@@ -1017,7 +1073,7 @@ well, after taking your gag out -
 go ahead and lock your wrist restraints to your collar.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
-.item Toys.Wrist_Restraints apply to Toys.Collar
+.item Toys.Wrist_Restraints apply to Toys.Collar Body.CantJerkOff
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1028,7 +1084,7 @@ go ahead and lock your wrist restraints to your collar.
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go ahead and lock your wrists to your collar.
-.item Toys.Wrist_Restraints apply to Toys.Collar
+.item Toys.Wrist_Restraints apply to Toys.Collar Body.CantJerkOff
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1043,8 +1099,7 @@ so fetch your wrists restraints, snap them on and
 lock'em to your collar.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
-.item Toys.Wrist_Restraints apply
-.item Toys.Wrist_Restraints apply to Toys.Collar
+.item Toys.Wrist_Restraints apply to Toys.Collar Body.CantJerkOff
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1055,8 +1110,7 @@ lock'em to your collar.
 .keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go fetch your wrist restraints, snap them on and lock'em to your collar.
-.item Toys.Wrist_Restraints apply
-.item Toys.Wrist_Restraints apply to Toys.Collar
+.item Toys.Wrist_Restraints apply to Toys.Collar Body.CantJerkOff
 .pause Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1546,7 +1600,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' 3226 Dildo yoga
 [Action 3256]
 .must 3226 
-.range 3310
+.range 3310 3311
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 3257]
@@ -1600,20 +1654,22 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3220 lie down on the floor, riding sitting on the floor fully penetrated
 [Action 3280]
-.delay 15
-.image dildo_worshiping_suck_lying_ride_sitting_suck_position.jpg
-This time, you're going to lie down on the floor.
+.delay 10
+This time,
+dildo_worshiping_suck_lying_ride_sitting_suck_position.jpg
+you're going to lie down on the floor.
 .set 12                 ' rub on floor
 .range 3281
 
 [Action 3281]
-.delay 15
-.image dildo_worshiping_suck_lying_ride_sitting_suck_position.jpg
-Keep your arms next to you, to support your movements.
+.delay 10
+dildo_worshiping_suck_lying_ride_sitting_suck_position.jpg
+Keep your arms next to you,
+to support your movements.
 .range 3282
 
 [Action 3282]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_lying_ride_sitting_suck_position.jpg
 Lift your upper body to tease the tip and lower down to blow.
 .range 3399
@@ -1622,22 +1678,22 @@ Lift your upper body to tease the tip and lower down to blow.
 ' This is the beginner scenario with introduction:
 ' 3221 Lie down on the floor or table, grabbing the shaft, ride kneeling
 [Action 3285]
-.delay 15
+.delay 10
 This time, my pet,
 dildo_worshiping_suck_lying_ride_kneeling_suck_position.jpg
-you will mount your dildo on the floor or a table.
+you will mount your dildo on the floor.
 .set 12                 ' Rub on floor
 .range 3286
 
 [Action 3286]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_lying_ride_kneeling_suck_position.jpg
-You'll going to lie down in front of the dildo, grab the shaft with your hands,
-and put up your lower legs so that your feet point towards the ceiling.
+You're going to prone in front of the dildo, grab the shaft,
+and bend your knees to point your feet towards the ceiling.
 .range 3287
 
 [Action 3287]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_lying_ride_kneeling_suck_lick.jpg
 Lift your head so that you can easily tease the tip.
 .range 3399
@@ -1652,16 +1708,14 @@ Head off -
 with your dildo in your mouth of course -
 to fetch the stool and place it in front of your desk!
 .pause Stool ready, Miss
-.must 3222
-.set 15                 ' Wank
 .range 3291
 
 [Action 3291]
 Well done, my pet.
-Now sit down on your heels in front of that stool.
+Now kneel down on your heels in front of that stool.
 delay 5
 dildo_worshiping_suck_stool_ride_stool_suck.jpg
-Mount the dildo on the middle of the stool's seat and keep your lips over the tip.
+Mount the dildo on the middle of the stool's seat and put your lips over the tip.
 delay 15
 .set 15                 ' Can't rub
 .range 3399
@@ -1715,13 +1769,12 @@ delay 5
 
 [Action 3303]
 .state Body.OnPenis not applied
-.state Body.CantJerkOff not applied
-.state Body.WristsTied applied
-Keep your member stiff by rubbing it against the wall.
+.state Body.CantJerkOff applied
+You may keep your member stiff by rubbing it against the wall.
 .set 13                           ' Rub against wall
 .range 3399
 
-' otherwise jerk off
+' otherwise jerk off or do nothing
 [Action 3304]
 .else
 .range 3399
@@ -1734,6 +1787,7 @@ Today, you will mount your dildo at a door frame at about hip height,
 delay 2
 dildo_worshiping_suck_kneeling_ride_all_four_suck_ready.jpg
 and you'll be sitting on your heels to worship it.
+delay 5
 .set 15                 ' Can't rub, wank
 .range 3399
 
@@ -1748,25 +1802,40 @@ Clear some space on the floor,
 then go fetch your yoga mat,
 your lube and a good piece of rope.
 Of course all with the dildo between your lips.
+Report back to me when you have it all ready.
 delay 10
 .pause I have it all ready, Miss
-.range 3311 3312
-
+.range 3312 3313
 
 [Action 3311]
-.mustnot 188            ' achievement 4, indicates dildo yoga first time 
+You certainly remember your recent yoga workout,
+don't you, slave.
+delay 2
+I hope you've enjoyed it,
+because tonight, you'll do it again.
+[]
+Go fetch your yoga mat,
+your lube and a good piece of rope - 
+Of course all with the dildo between your lips -
+and report back to me when you have it all ready.
+delay 10
+.pause I have it all ready, Miss
+.range 3312 3313
+
+
+[Action 3312]
 Very good, my pet.
 Now place the dildo at the top of your yoga mat,
 release it from your lips,
 and give it a tenderly kiss on the tip.
 delay 7
 .gosub 5000             ' Yoga warm up
-.range 3313
+.range 3314
 
-[Action 3312]
+[Action 3313]
 .must 188               ' achievement 4, indicates dildo yoga first time 
 Very good, my pet.
-I think tonight you'll keep the dildo in your mouth.
+This time you'll keep the dildo in your mouth.
 It will make this workout so much more memorable!
 delay 2
 Don't you think, my pet? 
@@ -1775,7 +1844,7 @@ delay 2
 .range 3399
 
 
-[Action 3313]
+[Action 3314]
 Very good, slave.
 Now lower your head over your dildo
 until you can enclose the tip with your lips.
@@ -1791,19 +1860,19 @@ How will you worship your dildo today?
 .range 3316
 
 [Action 3316]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_allfour_ride_sitting_suck_position.jpg
 This time, you're going to kneel down on all four.
 .range 3317
 
 [Action 3317]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_allfour_ride_sitting_suck_lick_tip.jpg
 Place your dildo in front of you so that you can easily tease the tip.
 .range 3318
 
 [Action 3318]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_allfour_ride_sitting_suck_position_detail.jpg
 Place your arms and legs aside and
 lower down your head to enclose the shaft with your lips and tongue.
@@ -1825,15 +1894,15 @@ This time, you're going to stand.
 .range 3322
 
 [Action 3322]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_standing_ride_on_all_four_suck_position_detail.jpg
 You'll mount your dildo on a nearby vertical smooth surface.
 Make sure you can stand straight right in front of it.
 .range 3323
 
 [Action 3323]
-.image dildo_worshiping_suck_standing_ride_on_all_four_suck_position.jpg
 A nearby cupboard door would be awesome.
+dildo_worshiping_suck_standing_ride_on_all_four_suck_position.jpg
 But everything else would of course be fine too.
 delay 5
 Have you figured out a place, slave?
@@ -1847,8 +1916,8 @@ Have you figured out a place, slave?
 .state Body.OnNipples free
 It's so much more fun to watch a slave worshiping his precious dildo
 with clothes pegs on his nipples!
-So go fetch some
-- with the dildo in your mouth of course -
+So go fetch some -
+with the dildo in your mouth of course -
 and snap them on your nipples, one per.
 .pause Done, Miss
 .item Household.Clothes_Pegs apply to Body.OnNipples over 00:30"00  ' to choose an activity duration later
@@ -1878,9 +1947,9 @@ such as a door or a cupboard door.
 .must 9                 ' ride
 dildo_worshiping_sucking_on_all_four_riding_on_all_four_suck_detail.jpg
 You'll be kneeling on all four this time.
-delay 10
+delay 5
 dildo_worshiping_sucking_on_all_four_riding_on_all_four_suck.jpg
-You're going to mount your dildo on a nearby vertical smooth surface.
+You will mount your dildo on a nearby vertical smooth surface.
 A door frame or a cupboard door with some space beneath it will be fine.
 delay 10
 ActorImage
@@ -2000,7 +2069,8 @@ Are you ready, slave?
 
 [Action 3370]
 .delay 10
-You have been a real bitch recently, and today, you will learn a lesson to remember.
+You have been a real bitch recently, and today,
+I'll teach you a lesson to remember.
 .range 3371
 
 [Action 3371]
@@ -2038,8 +2108,8 @@ I don't want you to touch your dick.
 [Action 3377]
 .item Toys.Chastity_Device applied
 .delay 10
-.image Charlies-AMATEUR-Potpourri-2009-Un-1.jpg
 Since your silly slave penis is locked up,
+Charlies-AMATEUR-Potpourri-2009-Un-1.jpg
 you won't need your hands and are to keep them behind your head at all times, slut.
 .range 3399
 
@@ -2050,7 +2120,7 @@ you won't need your hands and are to keep them behind your head at all times, sl
 .state Body.OnNipples free
 Pick up your dildo and keep it in your mouth while you fetch your nipple clamps.
 delay 10
-When you have them, go ahead and snap them on your poor little slave titties.
+When you have them, snap them on your poor little slave titties.
 delay 10
 Report back to me when the clamps sit tight on your nipples
 and you're back at the desk teasing the dildo.
@@ -2062,17 +2132,19 @@ and you're back at the desk teasing the dildo.
 .state Body.OnNipples applied
 .range 3382
 
+
 [Action 3382]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_kneeling_window_pane_intro.jpg
 Today, you're going to mount your dildo at a window pane.
 .set 15                 ' Wank
 .range 3383
 
 [Action 3383]
-.delay 15
+.delay 10
 .image dildo_worshiping_suck_kneeling_window_pane_suck_position.jpg
-You'll sit down on your heels alongside the window, turning your torso towards it.  
+You'll sit down on your heels alongside the window,
+turning your torso towards the pane.  
 .range 3384
 
 [Action 3384]
@@ -2086,7 +2158,7 @@ If you can't reach the pane kneeling, you may kneel on a chair.
 [Action 3385]
 This time, you will worship your dildo right here on your desk.
 Of course you won't sit on your chair.
-.image Charlies-AMATEUR-FEMALE-SUBMISSION-Potpourri-2007-91.jpg
+Charlies-AMATEUR-FEMALE-SUBMISSION-Potpourri-2007-91.jpg
 You'll be kneeling as you already do.
 delay 5
 .set 15                 ' Wank
@@ -2098,7 +2170,7 @@ delay 5
 [Action 3387]
 .mustnot 10 11 16 17    ' Wrists tied to back, to ankles, to ball sack
 .item Toys.Chastity_Device applied
-.delay 15
+.delay 10
 Since your silly slave penis is safely locked up,
 you won't need your hands and are to keep them on the desk's edge at all times.
 .range 3399
@@ -2106,7 +2178,7 @@ you won't need your hands and are to keep them on the desk's edge at all times.
 [Action 3388]
 .mustnot 10 11 16 17    ' Wrists tied to back, to ankles, to ball sack
 .item Toys.Chastity_Device not applied
-.delay 15
+.delay 10
 Of course you are to keep your hands on the desk at all times, my pet,
 to prevent you from doing anything naughty.
 .range 3399
@@ -2136,15 +2208,16 @@ Tell me when you're ready for your punishment.
 .state Body.OnNipples applied
 I want you to take the the connecting chain of your nipple clamps,
 and loop them around the dildo's shaft.
-I want you to carry out a persistent pull on your nipples,
+The clamps should carry out a persistent pull on your nipples,
 so keep the chain short!
 Tell me when you're ready for your punishment.
 .pause I'm ready, Miss
 .range 3391
 
+
 [Action 3392]
 Very good, slave!
-I hope these clamps sting.
+I hope those clamps sting.
 delay 1
 When I give the OK, you'll head off and mount your dildo at a nearby wall or door frame.
 Make sure it's mounted high enough to make you stand straight and the clamps pull at your nipples.
@@ -2272,7 +2345,7 @@ delay 3
 [Action 3420]
 .must 3220
 .image dildo_worshiping_suck_lying_ride_sitting_suck.jpg
-.delay 15
+.delay 8
 Now grab the dildo with your mouth and get down on the floor.
 .range 3442
 
@@ -2280,7 +2353,7 @@ Now grab the dildo with your mouth and get down on the floor.
 [Action 3421]
 .must 3221
 .image dildo_worshiping_suck_lying_ride_kneeling_suck_position.jpg
-.delay 15
+.delay 8
 Now grab the dildo with your mouth and get down on the floor.
 .range 3442
 
@@ -2288,7 +2361,7 @@ Now grab the dildo with your mouth and get down on the floor.
 [Action 3422]
 .must 3222
 .image dildo_worshiping_suck_stool_ride_stool_suck.jpg
-.delay 10
+.delay 5
 Are you kneeling in front of that stool, slave?
 .range 3442
 
@@ -2296,7 +2369,7 @@ Are you kneeling in front of that stool, slave?
 [Action 3423]
 .must 3223
 .image Charlies-AMATEUR-FEMALE-SUBMISSION-Potpourri-2007-91.jpg
-.delay 10
+.delay 5
 Are you ready, slut?
 .range 3442
 
@@ -2304,7 +2377,7 @@ Are you ready, slut?
 [Action 3424]
 .must 3224
 .image Charlies-AMATEUR-Potpourri-2009-Un-73.jpg
-.delay 15
+.delay 12
 Now grab the dildo with your mouth and head off to the wall.
 .range 3442
 
@@ -2312,7 +2385,7 @@ Now grab the dildo with your mouth and head off to the wall.
 [Action 3425]
 .must 3225 
 .image dildo_worshiping_suck_kneeling_ride_all_four_suck.jpg 
-.delay 15
+.delay 12
 Now grab the dildo with your mouth and get to the door frame.
 .range 3442
 
@@ -2320,29 +2393,29 @@ Now grab the dildo with your mouth and get to the door frame.
 [Action 3426]
 .must 3226 
 .image RebeccaYoga(03).jpg
-.delay 10
-Suck that dildo into your mouth and get ready to worship.
+.delay 5
+Put your lips on the shaft and get ready to worship.
 .range 3442
 
 ' 3227 Suck Kneeling on all four, ride sitting on the floor
 [Action 3427]
 .must 3227
 .image dildo_worshiping_suck_lying_ride_sitting_suck.jpg
-.delay 15
+.delay 8
 Now grab the dildo with your mouth and get down on the floor.
 .range 3442
 
 [Action 3428]
 .must 3228
 .image dildo_worshiping_suck_standing_ride_on_all_four_suck_position.jpg
-.delay 15
-Now grab the dildo with your mouth and mount it on the wall.
+.delay 12
+Now grab the dildo with your lips and tongue, head over and mount it on the wall.
 .range 3442
 
 [Action 3429]
 .must 3229
 .image dildo_worshiping_sucking_on_all_four_riding_on_all_four_suck.jpg
-.delay 15
+.delay 12
 Now grab the dildo with your mouth, mount it on the wall,
 and assume your worshiping position.
 .range 3442
@@ -2352,7 +2425,7 @@ and assume your worshiping position.
 [Action 3434]
 .must 3234
 .image Punishment Suck lying at wall, blindfolded.jpg 
-.delay 15
+.delay 6
 Now slave!
 Crawl forward and suck your dildo!
 .range 3442
@@ -2361,7 +2434,7 @@ Crawl forward and suck your dildo!
 [Action 3435]
 .must 3235
 .image Charlies-AMATEUR-Potpourri-2009-Deux-2a.jpg 
-.delay 15
+.delay 8
 Now grab the dildo with your mouth,
 place it on the floor and
 get into your worshiping position.
@@ -2371,7 +2444,7 @@ get into your worshiping position.
 [Action 3436]
 .must 3236
 .image Charlies-AMATEUR-Potpourri-2009-Un-1.jpg 
-.delay 15
+.delay 12
 Now grab the dildo with your mouth,
 mount it to the wall and lift your arms behind your head.
 .range 3442
@@ -2380,22 +2453,22 @@ mount it to the wall and lift your arms behind your head.
 [Action 3437]
 .must 3237
 .image dildo_worshiping_suck_kneeling_window_pane_suck_position.jpg
-.delay 15
-Now grab the dildo with your mouth, mount it at the window pane, and kneel alongside.
+.delay 12
+Now grab the dildo with your mouth, mount it at the window pane, and kneel down alongside.
 .range 3442
 
 ' 3238 Kneeling upright in front of desk - punishment version
 [Action 3438]
 .must 3238
 .image Charlies-AMATEUR-FEMALE-SUBMISSION-Potpourri-2007-91.jpg
-.delay 10
+.delay 5
 Are you ready, slut?
 .range 3442
 
 ' 3239 wall mounted, nipple clamps attached to dildo 
 [Action 3439]
 .must 3239 
-.delay 15
+.delay 12
 Now grab the dildo with your mouth and get into your worshiping position.
 .range 3442
 
@@ -2879,7 +2952,7 @@ I'll let you relax a bit to collect yourself.
 [Action 3506]
 .else
 .playwav whip.mp3
-.delay 15
+.delay 7
 Pick up the dildo and get back to your desk.
 .range 3515
 
@@ -2911,7 +2984,7 @@ Keep teasing with your tongue, my dirty slut.
 [Action 3510]
 .must 3239                   ' wall mounted, nipple clamps attached to dildo - punishment only
 .playwav whip.mp3
-.delay 15
+.delay 7
 Slave, pick up the dildo and come over here to your desk!
 .range 3515
 
@@ -2923,23 +2996,31 @@ Slave, pick up the dildo and come over here to your desk!
 
 ' Back to desk
 [Action 3515]
-Remember slave:
+.delay 8
+Remember, my pet:
 Besides detaching the suction cup, you may just use your mouth.
-.delay 10
 .range 3516
 
 [Action 3516]
-.delay 20
 Place the dildo carefully on the desk,
 put your lips over the tip,
 and resume teasing it with your tongue.
 .pause At your service, Miss
-.range 3517
+.range 3517 3518
+
 
 [Action 3517]
+.delay 20
 Very good.
 Carry on teasing, my dirty slut.
+.range 3519
+
+[Action 3518]
+.must 140               ' activity
 .delay 20
+Carry on teasing, my dear.
+delay 5
+Show me your passion.
 .range 3519
 
 
@@ -3487,8 +3568,9 @@ lean back, support your torso with your arms, and spread your legs.
 .else
 Finally sit down on on the dildo to let it gently slide into your back door.
 dildo_worshiping_suck_lying_ride_sitting_ride.jpg
-When you've settled, lean back, support your
-torso with your arms, and spread your legs out.
+When you've settled, lean back,
+support your torso with your arms,
+and spread your legs out.
 .delay 30 30 confirm yes 3769 3769 
 .yestext I'm fully penetrated, Miss
 .range 3769
