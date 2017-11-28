@@ -4166,18 +4166,18 @@ We will be talking of this in a minute.
 '.range 1571 1575
 '
 '[Action 1567]
-'I'm glad to see you managed to get a XXX, sweetheart.
 '.must 386
 '.must 680
+'I'm glad to see you managed to get a XXX, sweetheart.
 '.unset 680
 '.set XXX                ' 
 '.range 1571 1575
 ''
 '[Action 1568]
-'Slave, you were to get a XXX, and you haven't.
-'That means you have to be punished.
 '.mustnot 386
 '.must 680
+'Slave, you were to get a XXX, and you haven't.
+'That means you have to be punished.
 '.set 510
 '.range 1571 1575
 ''
@@ -4187,12 +4187,13 @@ We will be talking of this in a minute.
 '.range 1571 1575
 
 '[Action 1570]
-'In order to enhance your XXX training, you'l need to get or make
-'a XXX. We will talk about this in a minute.
 '.mustnot 386
 '.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 '.mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 '.must XXX      ' 
+'In order to enhance your XXX training,
+' you'l need to get or make a XXX.
+' We will talk about this in a minute.
 '.set 680
 '.poss 10
 '.range 1571 1575
@@ -6607,20 +6608,22 @@ each about one foot long!
 [Action 2518]
 .item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
-I want you to get on your knees, fetch your ball harness and put it on in order to enslave your slutty balls.
+I want you to get on your knees,
+fetch your ball harness and put it on in order to enslave your slutty balls.
 This time, you're going to make the straps extra tight.
-Then crawl over and fetch a piece of rope or shoe lace and connect it to your ball harness,
+Then crawl over,
+fetch a piece of rope or shoe lace and connect it to your ball harness,
 leaving two equal lengths of rope dangling down,
 each about a foot long.
 .item Toys.Ball_Stretcher apply to Toys.Rope Posture.CantSitOnChair Posture.CantStand
-.pause My balls are tied up tightly, Miss
+.pause My balls are enslaved, Miss
 .set 746 747                 ' CBT 2
 .range 2509
 
 [Action 2519]
 .else
 I want you to get on your knees and fetch a long piece of rope or shoe lace
-to tie up your slutty ball sack.
+for tying up your slutty ball sack.
 Make it tight enough so that the rope doesn't slip off.
 When finished, you should have two  pieces of left-over,
 each about one foot long.
@@ -6781,7 +6784,8 @@ I guess you're off the hook, you lucky slave boy.
 .item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
-Instead of beating you raw, I'm going to have you put in a punishment plug today.
+Instead of beating you raw,
+I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
@@ -6857,13 +6861,14 @@ Go get your gag and stuff it in your mouth
 .item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
-Instead of beating you raw, I'm going to have you put in a punishment plug today.
+Instead of beating you raw,
+I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause I'm plugged, Miss
 .item Toys.Buttplug apply
 .set 756 757            ' Anal training 2
-.range 2406
+.range 2568
 
 [Action 2564]
 .item Toys.Nipple_Clamps canApply
@@ -6889,6 +6894,12 @@ I'll tell you when you may take them off.
 .save 90 799
 .loadsbd mine-paddle.sbd 2984 2984
 
+
+[Action 2568]
+Hopefully that plug will cast out any desire you have to tell Me falsehoods, 
+but if I catch you again there will be plenty more punishment for you.
+.unset 506
+.range 2151
 
 [Action 2569]
 Hopefully that'll cast out any desire you have to tell Me falsehoods, 
@@ -6976,7 +6987,8 @@ I'll get you next time, you dirty slave!
 .item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
-Instead of beating you raw, I'm going to have you put in a punishment plug today.
+Instead of beating you raw,
+I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .pause In plugged, Miss
@@ -7973,7 +7985,8 @@ I'll get you next time, you dirty slave!
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 757               ' Anal training 2
-Instead of beating you raw, I'm going to have you put in a punishment plug today.
+Instead of beating you raw,
+I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .item Toys.Buttplug apply
@@ -7982,11 +7995,12 @@ You can leave it in there for our entire session, slave.
 .range 2448
 
 [Action 2982]
+.mustnot 698 699        ' Not allowed to cum (cleared after denial), Not allowed to cum in general
 Instead of beating you raw, I'm going to take away your next cumming opportunity.
 In other words, I'm going to get you as worked up as possible,
 and then leave you hanging.
 Hopefully this will get through to you!
-.mustnot 698 699        ' Not allowed to cum (cleared after denial), Not allowed to cum in general
+.pause Yes, Miss
 .set 698                ' Not allowed to cum (cleared after denial)
 .range 2448
 
@@ -8026,7 +8040,8 @@ I'll get you next time, you dirty slave!
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 757               ' Anal training 2
-Instead of beating you raw, I'm going to have you put in a punishment plug today.
+Instead of beating you raw,
+I'm going to have you put in a punishment plug today.
 Fetch your largest butt plug and stuff it up into your naughty slave ass.
 You can leave it in there for our entire session, slave.
 .item Toys.Buttplug apply
@@ -16576,7 +16591,7 @@ Hmm.
 [action 8995]
 .mustnot 113 114 115 116
 Well, I think in order to prevent unauthorized orgasms,
-I order you to use a tighter ring around the base of your cock.
+I'll have you wear a tighter ring around the base of your cock.
 This will restrict the blood flow a bit,
 causing your silly slave penis to fill out the tube more completely,
 thereby preventing masturbation.
@@ -16590,8 +16605,8 @@ Sort it out until next time!
 .must 113
 .mustnot 114 115 116
 Well, I think in order to prevent unauthorized orgasms,
-you'll need to have a shorter tube for your cage.
-This will keep your silly slave penis from being moved inside the tube,
+your cage needs a shorter tube.
+This will keep your silly slave penis from moving inside the tube,
 resulting in less arousal.
 Sort it out until next time.
 .pause Yes Miss, I'll sort it out
@@ -16603,7 +16618,7 @@ Sort it out until next time.
 .must 113 114
 .mustnot 115 116
 Well, I think in order to keep you from stroking your encageed prick,
-we must restrict the desire to arouse yourself.
+we have to restrict the desire to arouse yourself.
 A couple of spikes around the tip,
 the base or the shaft of your cock
 will painfully remind you to the fact that arousal has to be avoided.
@@ -19827,21 +19842,24 @@ Now slave, do you enjoy wearing your clothes pegs for my pleasure?
 
 ' Painful waiting with nipple clamps, like
 [Action 11080]
-Well let's hope you do, because you're going to keep those clamps
+Well let's hope you do,
+because you're going to keep those clamps
 on your little slave titties for quite some time in order to
 make up for the time you were supposed to already wear them.
 .range 11099
 
 ' Painful waiting with nipple clamps, don't like
 [Action 11081]
-Well you better do, because you're going to keep those clamps
+Well you better do,
+because you're going to keep those clamps
 on your little slave titties for quite some time in order to
 make up for the time you were supposed to already wear them. 
 .range 11099
 
 ' Painful waiting with nipple pegs, like
 [Action 11082]
-Well let's hope you do, because you're going to keep
+Well let's hope you do,
+because you're going to keep
 them on for quite some time in order to make up for
 the time you were supposed to already wear them. 
 .set 1852               ' 5 to 10 minutes less waiting
@@ -19849,7 +19867,8 @@ the time you were supposed to already wear them.
 
 ' Painful waiting with nipple pegs, don't like
 [Action 11083]
-Well you better do, because you're going to keep them on
+Well you better do,
+because you're going to keep them on
 for quite some time in order to make up for the time you
 were supposed to already wear them. 
 .range 11099
@@ -19857,21 +19876,24 @@ were supposed to already wear them.
 
 ' Painful waiting with pussy clamps, like
 [Action 11084]
-Well let's hope you do, because you're going to keep those clamps
+Well let's hope you do,
+because you're going to keep those clamps
 on your slutty ball sack for quite some time in order to
 make up for the time you were supposed to already wear them.
 .range 11099
 
 ' Painful waiting with pussy clamps, don't like
 [Action 11085]
-Well you better do, because you're going to keep those clamps
+Well you better do,
+because you're going to keep those clamps
 on your slutty ball sack for quite some time in order to
 make up for the time you were supposed to already wear them. 
 .range 11099
 
 ' Painful waiting with pussy pegs, like
 [Action 11086]
-Well let's hope you do, because you're going to keep
+Well let's hope you do,
+because you're going to keep
 them on for quite some time in order to make up for
 the time you were supposed to already wear them. 
 .set 1852               ' 5 to 10 minutes less waiting
@@ -19879,7 +19901,8 @@ the time you were supposed to already wear them.
 
 ' Painful waiting with pussy pegs, don't like
 [Action 11087]
-Well you better do, because you're going to keep them on
+Well you better do,
+because you're going to keep them on
 for quite some time in order to make up for the time you
 were supposed to already wear them. 
 .range 11099
