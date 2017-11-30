@@ -1877,7 +1877,7 @@ I'm feeling generous today,
 so I'll give you thirty seconds to strip those offending clothes off.
 delay 2
 Hurry up!
-.unset 400 408 705                ' void naked day assignment, maked week, naked training 5
+.unset 400 408 705                ' void naked day assignment, naked week, naked training 5
 .range 1117 1119
 
 [Action 1111]
@@ -10327,9 +10327,9 @@ Do not return until you have finished the assignment!
 
 [Action 4051]
 Tell me about your naked-week assignment, slave!
-Have you completed your first day of your "naked-week" assignment?
-Have you followed my rules to remain
-naked at all times when you were at home?
+Have you completed the first day of your "naked-week"?
+Have you followed my rules to
+remain naked at all times when you were at home?
 .must 601                    ' Day 1
 .must 608                    ' naked-week
 .unset 597
@@ -10339,19 +10339,19 @@ naked at all times when you were at home?
 .notext I'm sorry Miss, but I didn't
 
 [Action 4052]
-Tell me slave!
+Tell me, slave:
 Have you completed the second day of your "naked-week" assignment?
 .must 602                    ' Day 2
 .must 608                    ' naked-week
 .unset 602
 .set 603                     ' Day 3
 .yesno 4060 4064 4070 4070 
-.yestext Yes Miss, I've been naked inside all day
+.yestext Yes Miss, I've been naked inside all the time
 .notext I'm sorry Miss, but I haven't
 
 [Action 4053]
 Tell me about the third day of your naked week assignment, slave!
-Have you remained naked at all times when you were at home?
+Did you remain naked inside your home at all times as I ordered you?
 .must 603                    ' Day 3
 .must 608                    ' naked-week
 .unset 603
@@ -10362,7 +10362,9 @@ Have you remained naked at all times when you were at home?
 
 [Action 4054]
 Tell me, slave:
-Have you completed the forth day of your "naked-week" assignment, slave?
+Have you completed the forth day of your "naked-week"?
+Have you followed my rules to
+remain naked at all times when you were at home?
 .must 604                    ' Day 4
 .must 608                    ' naked-week
 .unset 604
@@ -10373,7 +10375,7 @@ Have you completed the forth day of your "naked-week" assignment, slave?
 
 [Action 4055]
 Tell me about the fifth day of your naked week assignment, slave!
-Have you remained naked at all times when you were at home?
+Have you remained naked at home at all times?
 .must 605                    ' Day 5
 .must 608                    ' naked-week
 .unset 605
@@ -10384,6 +10386,9 @@ Have you remained naked at all times when you were at home?
 
 [Action 4056]
 Have you completed the sixth day of your "naked-week" assignment, slave?
+Have you followed my rules to
+remain naked at all times when you were at home?
+Tell me!
 .must 606                    ' Day 6
 .must 608                    ' naked-week
 .unset 606
@@ -10393,8 +10398,9 @@ Have you completed the sixth day of your "naked-week" assignment, slave?
 .notext I'm sorry Miss, but I haven't
 
 [Action 4057]
-Tell me about the seventh day of your naked week assignment, slave!
-Have you remained naked at all times when you were at home?
+Slave!
+Tell me about the seventh day of your naked week assignment.
+Have you remained nakedat home at all times as I ordered you?
 .must 607                    ' Day 7
 .must 608                    ' naked-week
 .unset 607
