@@ -134,7 +134,7 @@ public class MinePrompts {
         return all;
     }
 
-    public static Collection<? extends ResponseAction> paddle() {
+    public static Collection<ResponseAction> paddle() {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 
@@ -147,6 +147,22 @@ public class MinePrompts {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.add(new ResponseAction("*haven't*", Debugger.Response.Choose));
         all.add(new ResponseAction("*sorry*", Debugger.Response.Choose));
+        return all;
+    }
+
+    public static Collection<ResponseAction> sb() {
+        ArrayList<ResponseAction> all = new ArrayList<>();
+        all.addAll(defaults());
+
+        all.add(new ResponseAction("Yes Mistress, I have them", Debugger.Response.Choose));
+        all.add(new ResponseAction("Yes Miss, I have", Debugger.Response.Choose));
+        all.add(new ResponseAction("Yes Miss, I'm prepared", Debugger.Response.Choose));
+
+        all.add(new ResponseAction("Again please, Miss", Debugger.Response.Ignore));
+        all.add(new ResponseAction("I've given up, Miss", Debugger.Response.Ignore));
+        all.add(new ResponseAction("I've freed myself, Miss", Debugger.Response.Choose));
+        all.add(new ResponseAction("Yes Miss, I did", Debugger.Response.Choose));
+
         return all;
     }
 }
