@@ -1099,7 +1099,7 @@ delay 15
 Okay, slave, you have five minutes to get back here.
 Tell me when you return.
 Better hurry up!
-.delay 300 300 STOP 1660
+.delay 300 300 confirm STOP 1660
 .stoptext I'm back, Miss
 .range 1680            ' Too late
 
@@ -1108,7 +1108,7 @@ Better hurry up!
 Better move your butt, slave.
 You have seven minutes to be back here, starting now.
 Tell me when you get back.
-.delay 420 420 STOP 1660
+.delay 420 420 confirm STOP 1660
 .stoptext I'm back, Miss
 .range 1680            ' Too late
 
@@ -1117,7 +1117,7 @@ Tell me when you get back.
 Okay, cunt, you've got ten minutes to finish up.
 Better move your ass!
 Tell me when you return.
-.delay 600 600 STOP 1660
+.delay 600 600 confirm STOP 1660
 .stoptext I've finished my shower, Miss
 .range 1680            ' Too late
 
@@ -1126,7 +1126,7 @@ Tell me when you return.
 You have exactly 12 minutes to finish your shower, slave.
 Better hurry up!
 Tell me when you're done.
-.delay 720 720 STOP 1660
+.delay 720 720 confirm STOP 1660
 .stoptext I've finished my shower, Miss
 .range 1680            ' Too late
 
@@ -1135,7 +1135,7 @@ Tell me when you're done.
 Time for your punishment shower, slave.
 You have fifteen minutes exactly.
 Tell me when you're done.
-.delay 900 900 STOP 1660
+.delay 900 900 confirm STOP 1660
 .stoptext I've finished my shower, Miss
 .range 1680            ' Too late
 
@@ -1153,7 +1153,7 @@ Tell me when you're done.
 I hope you're nice and clean,
 my pretty little slave boy.
 .pause Yes, Miss
-.range 1699
+.range 1690 1699
 
 [Action 1662]
 .item Toys.Gag applied
@@ -1165,7 +1165,7 @@ You may take off any punishment items you have on now.
 Well, you can leave your gag in,
 I just want you to moan.
 .pause Thank you, Miss
-.range 1699
+.range 1690 1699
 
 [Action 1663]
 .else
@@ -1174,7 +1174,7 @@ I hope you're nice and clean,
 my pretty little slave boy.
 You may take off any punishment items you have on now.
 .pause Thank you, Miss
-.range 1699
+.range 1690 1699
 
 [action 1664]
 .must 147               ' No drying afterwards
@@ -1194,10 +1194,10 @@ I hope you're nice and clean too,
 my pretty little slave boy.
 You may place your towel on the floor to drip on.
 .pause Thank you, Miss
-.range 1699
+.range 1690 1699
 
 [Action 1671]
-Toys.Gag applied 
+.item Toys.Gag applied 
 .not .item Toys.Gag is applied.by.me 
 Very good!
 I hope you're nice and clean too,
@@ -1207,7 +1207,7 @@ and take off any punishment items you have on now.
 And you can leave your gag in,
 I just want you to moan.
 .pause As you wish, Miss
-.range 1699
+.range 1690 1699
 
 [Action 1672]
 .else
@@ -1217,7 +1217,7 @@ my pretty little slave boy.
 You may place your towel on the floor to drip on
 and take off any punishment items you have on now.
 .pause Thank you, Miss
-.range 1699
+.range 1690 1699
 
 
 [Action 1675]
