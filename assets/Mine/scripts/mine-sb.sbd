@@ -179,10 +179,10 @@ writhing slave, which is just how I like it.
 This technique requires a few lengths of rope and an escape knife, My dear.
 You will also need a place to lie down,
 and you will need to be able to cut the rope with the knife with your hands behind your back.
-In addition, you should have an emergency release set up in case you screw up
-- which wouldn't surprise me a bit.
+In addition, you should have an emergency release set up in case you screw up -
+which wouldn't surprise me a bit.
 Do you have all these things, My pet?
-.yestext Yes, Mistress, of course
+.yestext Yes, Mistress, I have them
 .notext No, Mistress, I'm sorry
 .yesno 2013 2013 2012 2012
 
@@ -229,7 +229,7 @@ You're going to put your arms behind your back and through the coils, as shown.
 Don't cinch it up until I tell you to.
 I'll give you a minute to work all this out.
 .delay 60
-.range 2016
+.range 2017
 
 [Action 2017]
 That was tricky, wasn't it?
@@ -632,10 +632,14 @@ I think you're good for a half hour or so.
 
 ' 20 minutes or so
 [Action 8000]
-.unset 8000
+.range 8001
+
+
+[Action 8001]
+.unset 8001
 .stoptext I've given up, Miss
 .delay 25 35 STOP 7999
-.range 8000 8099
+.range 8001 8099
 
 [Action 8099]
 .numactionsfrom 8000 29
@@ -646,10 +650,14 @@ I think you're good for a half hour or so.
 
 '30 min
 [Action 8100]
-.unset 8100
+.range 8101
+
+
+[Action 8101]
+.unset 8101
 .stoptext I've given up, Miss
 .delay 25 35 STOP 7999
-.range 8100 8199
+.range 8101 8199
 
 [Action 8199]
 .numactionsfrom 8100 59
@@ -660,10 +668,14 @@ I think you're good for a half hour or so.
 
 '45 min
 [Action 8200]
-.unset 8200
+.range 8201
+
+
+[Action 8201]
+.unset 8201
 .stoptext I've given up, Miss
 .delay 25 35 STOP 7999
-.range 8200 8299
+.range 8201 8299
 
 [Action 8299]
 .numactionsfrom 8200 89
@@ -674,10 +686,14 @@ I think you're good for a half hour or so.
 
 '60 min
 [Action 8300]
-.unset 8300
+.range 8301
+
+
+[Action 8301]
+.unset 8301
 .stoptext I've given up, Miss
 .delay 25 35 STOP 7999
-.range 8300 8399
+.range 8301 8399
 
 [Action 8399]
 .numactionsfrom 8300 119
@@ -688,10 +704,14 @@ I think you're good for a half hour or so.
 
 ' ice cube or other timed release
 [Action 8800]
-.unset 8800
+.range 8801
+
+
+[Action 8801]
+.unset 8801
 .stoptext I've freed myself, Miss
 .delay 20 40 STOP 8899
-.range 8800
+.range 8801
 
 [Action 8899]
 .range 9001 9099
