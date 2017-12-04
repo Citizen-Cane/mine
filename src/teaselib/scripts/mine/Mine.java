@@ -42,6 +42,8 @@ public class Mine extends Player {
     public static final String TD = "mine-td";
     public static final String SB = "mine-sb";
     public static final String DILDO = "mine-dildo";
+    public static final String EQUIP = "mine-equip";
+    public static final String OOE = "mine-ooe";
 
     private static final String Namespace = "Mine";
     private static final String ResourcesRoot = "Mine";

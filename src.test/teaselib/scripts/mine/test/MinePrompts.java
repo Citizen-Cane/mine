@@ -134,6 +134,13 @@ public class MinePrompts {
         return all;
     }
 
+    public static Collection<ResponseAction> equip() {
+        ArrayList<ResponseAction> all = new ArrayList<>();
+        all.addAll(defaults());
+
+        return all;
+    }
+
     public static Collection<ResponseAction> paddle() {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
@@ -145,8 +152,10 @@ public class MinePrompts {
 
     public static Collection<ResponseAction> maidNoToys() {
         ArrayList<ResponseAction> all = new ArrayList<>();
+
         all.add(new ResponseAction("*haven't*", Debugger.Response.Choose));
         all.add(new ResponseAction("*sorry*", Debugger.Response.Choose));
+
         return all;
     }
 
@@ -162,6 +171,24 @@ public class MinePrompts {
         all.add(new ResponseAction("I've given up, Miss", Debugger.Response.Ignore));
         all.add(new ResponseAction("I've freed myself, Miss", Debugger.Response.Choose));
         all.add(new ResponseAction("Yes Miss, I did", Debugger.Response.Choose));
+
+        return all;
+    }
+
+    public static Collection<ResponseAction> ooe() {
+        ArrayList<ResponseAction> all = new ArrayList<>();
+        all.addAll(defaults());
+
+        return all;
+    }
+
+    public static Collection<ResponseAction> dildo() {
+        ArrayList<ResponseAction> all = new ArrayList<>();
+
+        all.add(new ResponseAction("*slipped out*", Debugger.Response.Ignore));
+        all.add(new ResponseAction("*spurted off*", Debugger.Response.Ignore));
+
+        all.add(new ResponseAction("Of course, Miss", Debugger.Response.Choose));
 
         return all;
     }
