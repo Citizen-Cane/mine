@@ -35,15 +35,15 @@ public class ActivityTest {
     }
 
     @Test
-    public void test() throws ScriptParsingException, ValidationIssue, ScriptExecutionException {
+    public void test() throws ScriptExecutionException {
         Mine mine = preset.responses(testParameters).responses(responses).mine();
-        mine.breakPoints.add(mine.script.name, testParameters.end);
+        mine.breakPoints.add(mine.script.name, testParameters.playRange.end);
 
         for (Enum<?> toy : testParameters.toys) {
             mine.item(toy).setAvailable(true);
         }
 
-        mine.play(new ActionRange(testParameters.start), new ActionRange(testParameters.start, testParameters.end));
-        assertEquals(new ActionRange(testParameters.end), mine.range);
+        mine.play(new ActionRange(testParameters.start), testParameters.playRange);
+        assertEquals(new ActionRange(testParameters.playRange.end), mine.range);
     }
 }
