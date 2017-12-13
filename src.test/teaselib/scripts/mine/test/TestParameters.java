@@ -14,28 +14,31 @@ public class TestParameters {
     public final String name;
     public final ActionRange playRange;
     public final int start;
+    public final int end;
 
     private final List<ResponseAction> responseActions;
     public final List<Enum<?>> toys;
 
     public TestParameters(String name, int start, int end, List<Enum<?>> toys, ResponseAction... responseActions) {
-        this.name = name;
-        this.start = start;
-        this.playRange = new ActionRange(start, end);
-        this.responseActions = Arrays.asList(responseActions);
-        this.toys = toys;
+        this(name, new ActionRange(start, end), start, end, toys, responseActions);
     }
 
     public TestParameters(String name, ActionRange playRange, int start, List<Enum<?>> toys,
             ResponseAction... responseActions) {
+        this(name, playRange, start, playRange.end, toys, responseActions);
+    }
+
+    public TestParameters(String name, ActionRange playRange, int start, int end, List<Enum<?>> toys,
+            ResponseAction... responseActions) {
         this.name = name;
         this.start = start;
+        this.end = end;
         this.playRange = playRange;
         this.responseActions = Arrays.asList(responseActions);
         this.toys = toys;
     }
 
-    public List<ResponseAction> getResponseActions(Player player) {
+    public List<ResponseAction> getResponseActions(@SuppressWarnings("unused") Player player) {
         return responseActions;
     }
 

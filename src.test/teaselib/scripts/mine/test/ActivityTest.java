@@ -1,6 +1,6 @@
 package teaselib.scripts.mine.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -37,13 +37,13 @@ public class ActivityTest {
     @Test
     public void test() throws ScriptExecutionException {
         Mine mine = preset.responses(testParameters).responses(responses).mine();
-        mine.breakPoints.add(mine.script.name, testParameters.playRange.end);
+        mine.breakPoints.add(mine.script.name, testParameters.end);
 
         for (Enum<?> toy : testParameters.toys) {
             mine.item(toy).setAvailable(true);
         }
 
         mine.play(new ActionRange(testParameters.start), testParameters.playRange);
-        assertEquals(new ActionRange(testParameters.playRange.end), mine.range);
+        assertEquals(testParameters.end, mine.action.number);
     }
 }
