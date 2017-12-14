@@ -1416,7 +1416,7 @@ Very well,
 I've made My decision.
 Would you like to hear it?
 .relaxedSpeechRecognitionConfidence
-.delay 15 15 confirm indubiomitius resume 1015 1015
+.delay 15 15 confirm InDubioMitius resume 1015 1015
 .resumetext Yes please, Miss
 .range 1014
 
@@ -1512,7 +1512,7 @@ You can kneel there like a patient slave and await My decision.
 I've made my decision, slut.
 Would you like to hear it?
 .relaxedSpeechRecognitionConfidence
-.delay 15 15 confirm indubiomitius resume 1025 1025
+.delay 15 15 confirm InDubioMitius resume 1025 1025
 .resumetext Yes please, Miss
 .range 1024
 
@@ -1763,7 +1763,7 @@ Right now, are you totally naked?
 .mustnot 211
 Now tell your Mistress:
 Right now, are you totally naked?
-.delay 15 15 confirm yes 1150 1154 no 1105 1109 
+.delay 15 15 confirm InDubioMitius yes 1150 1154 no 1105 1109 
 .yestext Yes Miss, I'm naked right now
 .notext No Miss, I'm still clothed
 .range 1101 1103
@@ -1773,7 +1773,7 @@ Right now, are you totally naked?
 .mustnot 211
 Tell me:
 Are you totally naked right now?
-.delay 15 15 confirm yes 1150 1154 no 1105 1109 
+.delay 15 15 confirm InDubioMitius yes 1150 1154 no 1105 1109 
 .yestext Yes Miss, I'm naked right now
 .notext No Miss, I'm still clothed
 .range 1101 1103
@@ -1828,7 +1828,7 @@ And for your own good, you'll better stay bare naked that hour.
 .unset 1104
 Well, then tell your Mistress:
 Are you totally naked right now, or are you still clothed?
-.delay 15 15 confirm yes 1150 1154 no 1105 1109 
+.delay 15 15 confirm InDubioMitius yes 1150 1154 no 1105 1109 
 .yestext Yes Miss, I'm naked right now
 .notext No Miss, I'm still clothed
 .range 1101 1103
@@ -2376,7 +2376,7 @@ for pity's sake.
 .unset 1199
 And now tell your Mistress:
 Have you been keeping yourself nice and hard since you came into my presense?
-.delay 15 15 confirm yes 1237 1237 no 1212 1212
+.delay 15 15 confirm InDubioMitius yes 1237 1237 no 1212 1212
 .yestext Yes Miss, of course I have!
 .notext I'm sorry Miss, but I haven't
 .range 1197 1198
@@ -2417,7 +2417,7 @@ Have you been touching yourself since you came into My presence?
 Have you been keeping yourself nice and hard for your Mistress?
 .set 256                     ' Hardness question one-time per session     
 .unset 1202
-.delay 15 15 confirm yes 1237 1237 no 1212 1212 
+.delay 15 15 confirm InDubioMitius yes 1237 1237 no 1212 1212 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
 .range 1197 1198
@@ -5111,7 +5111,7 @@ delay 15
 Do you feel the water flowing into your colon, slave?
 .yestext Yes, Miss, I do
 .notext No Miss, I don't
-.delay 15 25 autoconfirm yes 1744 1745 no 1739 1741
+.delay 15 25 autoconfirm InDubioProDuriore yes 1744 1745 no 1739 1741
 .range 1744 1745
 ' TODO mention "totaly at my mercy" on yes branch
 ' TODO the yes-branch is a bit short
@@ -5169,7 +5169,7 @@ You certainly won't mind continuing our session
 while the enema sinks in a bit, will you, slave?
 .yestext Please Miss!
 .notext No Miss, I don't
-.delay 15 25 autoconfirm yes 1746 1746 no 1751 1753
+.delay 15 25 autoconfirm InDubioProDuriore yes 1746 1746 no 1751 1753
 .range 1751 1753
 
 
@@ -14423,15 +14423,14 @@ Now, My dear slut, tell Me the truth...
 [Action 7502]
 .mustnot 111                 ' masturbation lecture
 Have you been touching yourself since you came into My presence?
-.delay 15 15 confirm yes 7517 7518 no 7512 7512 
+.yesno 7517 7518 7512 7512 
 .yestext Yes, Miss, I have
 .notext  Of course not, Miss
-.range 7507 7509
 
 [Action 7503]
 .must 111                    ' masturbation lecture
 Are you keeping yourself nice and hard for your Mistress?
-.delay 15 15 confirm yes 7517 7518 no 7514 7514 
+.delay 15 15 confirm InDubioMitius yes 7517 7518 no 7514 7514 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I havent't
 .range 7507 7509
@@ -14439,7 +14438,7 @@ Are you keeping yourself nice and hard for your Mistress?
 [Action 7504]
 .must 111                    ' masturbation lecture
 Are you keeping that little penis hard and stiff for your Mistress?
-.delay 15 15 confirm yes 7517 7518 no 7514 7514 
+.delay 15 15 confirm InDubioMitius yes 7517 7518 no 7514 7514 
 .yestext Of course, Miss, all the time
 .notext I'm sorry  Miss, but I haven't
 .range 7507 7509
@@ -14448,8 +14447,7 @@ Are you keeping that little penis hard and stiff for your Mistress?
 .must 111                    ' masturbation lecture
 Are you following my orders to play with that slave-penis
 at all times to keep it hard and erect?
-.unset 7542
-.delay 15 15 confirm yes 7517 7518 no 7514 7514 
+.delay 15 15 confirm InDubioMitius yes 7517 7518 no 7514 7514 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
 .range 7507 7509
@@ -14498,7 +14496,7 @@ Hopefully this will help you to answer my questions promptly.
 .unset 7548
 And now tell your Mistress:
 Have you been keeping yourself nice and hard for your mistress?
-.delay 15 15 confirm yes 7517 7518 no 7514 7514 
+.delay 15 15 confirm InDubioMitius yes 7517 7518 no 7514 7514 
 .yestext Of course, Miss, all the time
 .notext I'm sorry Miss, but I haven't
 .range 7507 7509
@@ -16891,7 +16889,7 @@ And for your own good, you'll better stay bare naked and locked up that hour.
 .unset 9199
 Well, then tell your Mistress:
 Are you wearing your chastity cage right now?
-.delay 15 15 confirm yes 9251 9254 no 9215 9216
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
@@ -17335,7 +17333,7 @@ What a poor slut you are.
 [Action 9291]
 Oh, slave, by the way -
 Are you wearing your chastity cage right now?
-.delay 15 15 confirm yes 9251 9254 no 9215 9216
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
@@ -17343,7 +17341,7 @@ Are you wearing your chastity cage right now?
 [Action 9292]
 Apropos, slave!
 Are you wearing your chastity cage?
-.delay 15 15 confirm yes 9251 9254 no 9215 9216
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
@@ -17351,14 +17349,14 @@ Are you wearing your chastity cage?
 [Action 9293]
 What about your chastity cage, sweetie?
 Are you wearing it?
-.delay 15 15 confirm yes 9251 9254 no 9215 9216
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
 
 [Action 9294]
 Right now, slave, are you wearing your chastity cage?
-.delay 15 15 confirm yes 9251 9254 no 9215 9216
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
 .yestext Yes Miss, I'm locked up
 .notext No Miss, I don't
 .range 9196 9198
