@@ -46,7 +46,6 @@ public class Mine extends Player {
     public static final String OOE = "mine-ooe";
 
     private static final String Namespace = "Mine";
-    private static final String ResourcesRoot = "Mine";
 
     private static final Actor MineMistress = new Actor("Mistress", "Miss,", Voice.Female, Locale.UK,
             Actor.Key.DominantFemale, Images.None);
@@ -67,7 +66,7 @@ public class Mine extends Player {
 
     public static void main(String argv[]) {
         try {
-            recordVoices(MineMistress, MAIN, new File(argv[0]), ResourcesRoot, Assets);
+            recordVoices(MineMistress, MAIN, new File(argv[0]), Namespace, Assets);
         } catch (ScriptParsingException e) {
             logger.error(e.getMessage(), e);
         } catch (ValidationIssue e) {
@@ -93,7 +92,7 @@ public class Mine extends Player {
     }
 
     public Mine(TeaseLib teaseLib, File basePath, String mistressPath) {
-        super(teaseLib, new ResourceLoader(basePath, ResourcesRoot, Assets, OptionalAssets), MineMistress, Namespace,
+        super(teaseLib, new ResourceLoader(basePath, Namespace, Assets, OptionalAssets), MineMistress, Namespace,
                 mistressPath);
 
         mapToysToMultipleItems();
