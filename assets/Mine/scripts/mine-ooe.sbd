@@ -1,3 +1,19 @@
+.declare teaselib.Body Enum
+.define Body teaselib.Body
+
+.declare teaselib.Posture Enum
+.define Posture teaselib.Posture
+
+.declare teaselib.Household Enum
+.define Household teaselib.Household
+
+.declare teaselib.Toys Enum
+.define Toys teaselib.Toys
+
+.declare applied.by String
+.define applied.by.me applied.by.mine-nipt
+
+
 .backcolor 127 127 127
 .textcolor 0 0 0
 .ssdir ooe
@@ -21,27 +37,31 @@
 
 ' Omnibus games of chance
 
-' TODO pegs to nips and nuts, 15 or up to ten if toys applied to ball sack already
+' TODO 404 pegs to nips and nuts, 15 or up to ten if toys applied to ball sack already
 '      support nipple and pussy clamps
-'      if lost, then wear them a couple of minutes
+'      if slave looses, then wear them a couple of minutes
 ' TODO .set 259                ' Ball sack pegs or pussy clamps one-time per session
 ' TODO .set 812                ' Done nipple training activity
-' TODO Add spanking game to Mine-activities, as alternative to spanking marathon
 ' TODO count smacks while spanking - as in mine-paddle
 
 
 '    10       Odds and evens, s is odd, M is even.
 '    11       Odds and evens, other way around.
 
+' Scoring:
+' different scores are not supported - seem to have been planned but never supported
+' it also makes more sense to play the game longer in order to pile up more weights, pegs or smacks
+
 '    160      s plays to 15
-'    161      s plays to 10
-'    162      s plays to  5
+'    161      s plays to 10 - not supported yet
+'    162      s plays to  5 - not supported yet
 
 '    170      M plays to 15
-'    171      M plays to 10
-'    172      M plays to  5
+'    171      M plays to 10 - not supported yet
+'    172      M plays to  5 - not supported yet
 
-'   101 - 115 are set in sequence to represent slave's points
+
+'   101 - 115 represent slave's points
 '   201 - 215 likewise for Mistress's points
 '   300 - 302 indicate the type of entry. 300 means a standalone run
 '
@@ -49,14 +69,15 @@
 '   401       Nothing
 '   402       Paddle x times
 '   403       Add a clamp/weight
-'   404       Add pin
+'   404       Add peg
 '   405       Paddle 20 times
 '
 '   501 - 515 is what happens when you win a round:
-'   501       Nothing
+'   501       Nothing - more seem to have planned here too, maybe this once was meant to be a stand-alone script
 
 
 .asktitle   10      slave points:
+
 .askcheck   11  101 One.
 .askcheck   12  102 Two.
 .askcheck   13  103 Three.
@@ -78,6 +99,7 @@
 .askcheck   29   10 Odds.
 
 .asktitle   40      Mistress points:
+
 .askcheck   41  201 One.
 .askcheck   42  202 Two.
 .askcheck   43  203 Three.
@@ -98,26 +120,32 @@
 .askcheck   58  170 Playing to fifteen.
 .askcheck   59   11 Odds.
 
+
 .asktitle   60  Misc.
+
 .askcheck   61 401 Nothing.
 .askcheck   62 402 Paddle x times.
 .askcheck   63 403 Add a clamp/weight.
-.askcheck   64 404 Add pin.
+.askcheck   64 404 Add peg.
 .askcheck   65 405 20 swats.
-.askcheck   66 300 300 Standalone run
-.askcheck   67 301 301 spanking
-.askcheck   68 302 302 nipple clamps
 
-'   401       Nothing.
-'   402       Paddle x times.
-'   403       Add a clamp/weight, each clamp has its own chain.
-'   404       Add pin.
-'   405       Paddle 20 times.
-'   406       Add a clamp/weight, clamps connected via chain.
+.askcheck   66 300 300 Standalone run.
+.askcheck   67 301 301 spanking.
+.askcheck   68 302 302 nipple clamps.
+
+
+'   401       Nothing
+'   402       Paddle x times
+'   403       Add a clamp/weight, each clamp has its own chain
+'   404       Add pins to nipples and nuts
+'   405       Paddle 20 times
+'   406       Add a clamp/weight, clamps connected via chain
+'   407       Add pins to nipples only
+'   408       Add pins to nuts only
 
 
 '   #   Entry       From        Good    Bad     +   -   Desc
-'   301 1001    ???? -> ????    ????    ????    2   1   to 15, spank
+'   301 1001    5606 -> 5756    5656    5706    2   1   to 15, spank
 '   302 1002    5801 -> 5951    5851    5901    2   1   to 15, clamps
 
 
@@ -138,15 +166,15 @@
 [Action 999]
 .quit
 
-'   Entry point for a standalone run.
+'   Entry point for a stand-alone run.
 [Action 1000]
-So you'd like to play a game a chance, slave? Let me think...
+So you'd like to play a game of chance, slave?
+Let me think...
 .unset 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
 .unset 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
 .unset 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415
 .unset 501 502 503 504 505 506 507 508 509 510 511 512 513 514 515
 .set 300 160 170
-.set 401 501
 .range 1100 
 
 [Action 1001]
@@ -165,10 +193,10 @@ I think a nipple-torture game would be fun, don't you?
 Naturally, it'll be your nipples being tortured, slave.
 .unset 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
 .unset 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
-.unset 401 402     404 405     407 408 409 410 411 412 413 414 415
+.unset 401 402     404 405             409 410 411 412 413 414 415
 .unset     502 503 504 505 506 507 508 509 510 511 512 513 514 515
-.set           403         406    ' nipple clamps weights
-.set 302 501 160 170              ' activity, nothing, 15 rounds
+.set           403         406 407 408       ' nipple clamps weights
+.set 302 501 160 170                         ' activity, nothing, 15 rounds
 '.set 10 302 403 501 162 172 101 102 103 104 201 202 203 204
 .range 1102
 
@@ -189,40 +217,56 @@ We'll play odds-and-evens, My pussy.
 
 ' Select a game
 [Action 1150]
-.range 1151 1169
+.range 1152 1169
 
 
-' paddle n times
-[Action 1151]
-.set 402
-.range 1200
-
-' nipple clamps, connected via chain
-[Action 1152]
-.set 403
-.range 1200
-
-' Add pin
-'[Action 1153]
-'.set 404
-'.delay 20
-'.range 1200
-
-' Paddle 20 times
-[Action 1154]
-.set 405
-.range 1200
-
-' nipple clamps, each clamp with its own chain
-[Action 1155]
-.set 406
-.range 1200
-
-'[Action 1169]
+'[Action 1151]
 'Lucky slave.
 'This time, there's no penalty for losing a round.
 '.set 401
 '.range 1200
+
+' paddle n times
+[Action 1152]
+.set 402
+.range 1200
+
+' nipple clamps, connected via chain
+[Action 1153]
+.set 403
+.range 1200
+
+' Add peg to nipples and nuts
+[Action 1154]
+.state Body.OnBalls free
+.state Body.OnNipples free
+.set 404
+.unset 407 408
+.range 1200
+
+' Paddle 20 times
+[Action 1155]
+.set 405
+.range 1200
+
+' nipple clamps, each clamp with its own chain
+[Action 1156]
+.set 406
+.range 1200
+
+' Add peg to nipples only
+[Action 1157]
+.state Body.OnNipples free
+.set 407
+.unset 404 408
+.range 1200
+
+' Add peg to nuts only
+[Action 1158]
+.state Body.OnBalls free
+.set 408
+.unset 404 407
+.range 1200
 
 
 [Action 1200]
@@ -235,56 +279,87 @@ I'll be odds, which makes you evens, slave.
 .range 1300
 
 [Action 1202]
-I'll be evens - you're odds.
+I'll be evens -
+you're odds.
 .set 10
 .range 1300
 
+
 ' instructions for loosing and activity specialization 
 [Action 1300]
-.range 1301 1319
+.range 1302 1319
 
 
-[Action 1301]
+[Action 1302]
 .must 402
 Get your paddle, slave, and get down on your knees.
-When you lose a round, you will paddle yourself.
-The number of times you must smack your butt will be the
-number of points I have.
+When you lose a round,
+you will paddle yourself.
+The number of times you must smack your butt
+will be the number of points I have.
+.unset 405
 .range 1400
 
 ' nipple clamps, each with their own chain
-[Action 1302]
+[Action 1303]
 .must 403
+.item Toys.Nipple_Clamps canApply
 The first two rounds you lose you will be ordered to attach your nipple clamps.
-Every lost round from then on, you will be ordered to add a weight.
+Every lost round from then on,
+you will be ordered to add a weight.
 Make sure there's plenty of room for those clamps to swing free.
-.unset 406
+.unset 404 406
 .range 1400
 
-'[Action 1303]
-'.must 404
-'Every round you lose, you will be ordered to place a
-'clothespin somewhere on your body, slave boy.
-'.delay 20
-'.range 1400
-
 [Action 1304]
+.must 404
+.item Household.Clothes_Pegs available
+Every round you lose,
+you will be ordered to place a clothes peg somewhere on your body, slave boy.
+.unset 403 406
+.unset 407 408
+.range 1400
+
+[Action 1305]
 .must 405
-For every round that I win, you will paddle your buns twenty times, slave.
+For every round that I win,
+you will paddle your buns twenty times, slave.
 Get on your knees, and make sure you have your paddle ready to go.
+.unset 402
 .range 1400
 
 ' nipple clamps, connected with chain
-[Action 1305]
+[Action 1306]
 .must 406
+.item Toys.Nipple_Clamps canApply
 The first two rounds you lose you will be ordered to attach your nipple clamps.
-Every lost round from then on, you will be ordered to add a weight.
+Every lost round from then on,
+you will be ordered to add a weight.
 Make sure there's plenty of room for those clamps to swing free.
-.unset 403
+.unset 403 404
+.range 1400
+
+[Action 1307]
+.must 407
+.item Household.Clothes_Pegs available
+Every round you lose,
+you will be ordered to place a clothes peg on your tits, slave boy.
+.unset 403 406
+.unset 404 408
+.range 1400
+
+[Action 1308]
+.must 408
+.item Household.Clothes_Pegs available
+Every round you lose,
+you will be ordered to place a clothes peg on your slutty ball sack, slave boy.
+.unset 403 406
+.unset 404 407
 .range 1400
 
 '[Action 1319]
-'Lucky slave. This time, there's no penalty for losing a round.
+'Lucky slave.
+'This time, there's no penalty for losing a round.
 '.set 401
 '.range 1400
 
@@ -340,14 +415,14 @@ Go fetch them, slave!
 .must 403
 Now this time, you need to connect your nipple clamps with a chain
 and add the weights to the middle of the chain.
-.pause Alright, Miss
+.pause Alright, Miss, chains connected
 .range 1500
 
 [Action 1456]
 .must 406
-Now this time, you add a single chain to each clamps.
+Now this time, you'll add a single chain to each clamp.
 This means you'll add the weight to the clamp that I order you to, my pussy.
-.pause Alright, Miss
+.pause Alright, Miss, chains added
 .range 1500
 
 
@@ -677,127 +752,127 @@ You've got fifteen points, you dirty little whore!
 .mustnot 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
 I've got one lousy point, slut.
 .set 201
-.range 3290 3299
 .unset 3201
+.range 3290 3299
 
 [Action 3202]
 .must 201
 Your Mistress has two points now.
 .unset 201
 .set 202
-.range 3290 3299
 .unset 3202
+.range 3290 3299
 
 [Action 3203]
 .must 202
 I've got three points, boy-whore.
 .unset 202
 .set 203
-.range 3290 3299
 .unset 3203
+.range 3290 3299
 
 [Action 3204]
 .must 203
 That's four points, My little bitch.
 .unset 203
 .set 204
-.range 3290 3299
 .unset 3204
+.range 3290 3299
 
 [Action 3205]
 .must 204
 Five points for the Mistress.
 .unset 204
 .set 205
-.range 3290 3299
 .unset 3205
+.range 3290 3299
 
 [Action 3206]
 .must 205
 That's six for Me, slave.
 .unset 205
 .set 206
-.range 3290 3299
 .unset 3206
+.range 3290 3299
 
 [Action 3207]
 .must 206
 Lucky seven for Me, slut.
 .unset 206
 .set 207
-.range 3290 3299
 .unset 3207
+.range 3290 3299
 
 [Action 3208]
 .must 207
 That's my eight point, slave.
 .unset 207
 .set 208
-.range 3290 3299
 .unset 3208
+.range 3290 3299
 
 [Action 3209]
 .must 208
 Nine points now, slave.
 .unset 208
 .set 209
-.range 3290 3299
 .unset 3209
+.range 3290 3299
 
 [Action 3210]
 .must 209
 Ten points for the Mistress.
 .unset 209
 .set 210
-.range 3290 3299
 .unset 3210
+.range 3290 3299
 
 [Action 3211]
 .must 210
 That's eleven for Me.
 .unset 210
 .set 211
-.range 3290 3299
 .unset 3211
+.range 3290 3299
 
 [Action 3212]
 .must 211
 A even dozen for your Mistress.
 .unset 211
 .set 212
-.range 3290 3299
 .unset 3212
+.range 3290 3299
 
 [Action 3213]
 .must 212
 Thirteen for Me, My slave boy.
 .unset 212
 .set 213
-.range 3290 3299
 .unset 3213
+.range 3290 3299
 
 [Action 3214]
 .must 213
 That's my fourteenth, My little bitch.
 .unset 213
 .set 214
-.range 3290 3299
 .unset 3214
+.range 3290 3299
 
 [Action 3215]
 .must 214
 Finally, fifteen points for Me.
 .unset 214
 .set 215
-.range 3290 3299
 .unset 3215
+.range 3290 3299
 
 [Action 3290]
 .must 162
 .mustnot 205
 Now for your penalty...
-.range 3800 3999
 .unset 3290
+.range 3800 3999
 
 [Action 3291]
 .must 162
@@ -809,8 +884,8 @@ Now for your penalty...
 .must 161
 .mustnot 210
 Now for your penalty...
-.range 3800 3999
 .unset 3292
+.range 3800 3999
 
 [Action 3293]
 .must 161
@@ -835,6 +910,7 @@ Now for your penalty...
 [Action 3600]
 .unset 3600
 .range 2000
+
 
 [Action 3800]
 .must 401
@@ -939,6 +1015,7 @@ Give that saucy butt fourteen more, slave.
 .unset 3814
 .range 2000
 
+
 [Action 3816]
 .must 403 201
 Put a clamp on your left nipple, and make sure it's nice and tight.
@@ -976,6 +1053,7 @@ Add a weight to your left slave-nipple!
 .unset 3820
 .range 2000
 
+
 [Action 3821]
 .must 405
 Smack that slave butt twenty times!
@@ -1010,6 +1088,7 @@ Give that pink slave-butt twenty smacks!
 .pause Done, Miss
 .unset 3825
 .range 2000
+
 
 [Action 3826]
 .must 406 201
@@ -1074,7 +1153,7 @@ Add another weight, slave!
 
 [Action 3834]
 .mustnot 201 202 203
-.must 403
+.must 406
 Add another weight to your right nipple, slave!
 .pause Done, Miss
 .unset 3834
@@ -1082,11 +1161,312 @@ Add another weight to your right nipple, slave!
 
 [Action 3835]
 .mustnot 201 202 203
-.must 403
+.must 406
 Add another weight to your left slave-nipple!
 .pause Done, Miss
 .unset 3835
 .range 2000
+
+
+' tits and ball sack
+
+[Action 3841]
+.must 404 201
+Put a peg on your right nipple!
+[Done, Miss]
+.range 2000
+
+[Action 3842]
+.must 404 202
+Put a peg on your left nipple!
+[Done, Miss]
+That's two pins on your nipples, slave. 
+.range 2000
+
+[Action 3843]
+.must 404 203
+Now put a peg on your ball sack.
+[Done, Miss]
+.range 2000
+
+[Action 3844]
+.must 404 204
+Put another peg on your ball sack.
+[Done, Miss]
+That was your fourth.
+.range 2000
+
+[Action 3845]
+.must 404 205
+Hmm, where do we place your fifth peg?
+Put it on your left tit.
+[Done, Miss]
+.range 2000
+
+[Action 3846]
+.must 404 206
+I like symmetry:
+Put a peg on your right tit.
+[Done, Miss]
+.range 2000
+
+[Action 3847]
+.must 404 207
+Put another peg on your right tit.
+[Done, Miss]
+.range 2000
+
+[Action 3848]
+.must 404 208
+Put another peg on your left tit.
+[Done, Miss]
+That's your eight peg.
+Does it hurt?
+.range 2000
+
+[Action 3849]
+.must 404 209
+Put a peg on your ball sack.
+.pause Done, Miss
+.range 2000
+
+[Action 3850]
+.must 404 210
+Put a peg on your ball sack.
+[Done, Miss]
+That's ten pins.
+.range 2000
+
+[Action 3851]
+.must 404 211
+Where shall we place youe eleventh peg?
+On your ball sack, of course.
+[Done, Miss]
+.range 2000
+
+[Action 3852]
+.must 404 212
+I begin to think those pins decorate you nicely.
+Put the twelfth on your ball sack.
+[Done, Miss]
+.range 2000
+
+[Action 3853]
+.must 404 213
+That's your thirteenth.
+Put it on your ball sack.
+[Done, Miss]
+Does it hurt?
+I hope so, since you've earned it.
+.range 2000
+
+[Action 3854]
+.must 404 214
+You'll seem to be out of luck,
+because you'll to put another peg on your slutty ball sack. 
+[Done, Miss]
+.range 2000
+
+
+' tits only
+
+[Action 3861]
+.must 407 201
+Put a peg on your right nipple!
+[Done, Miss]
+.range 2000
+
+[Action 3862]
+.must 407 202
+Put a peg on your left nipple!
+[Done, Miss]
+That's two pins on your nipples, slave. 
+.range 2000
+
+[Action 3863]
+.must 407 203
+Now put a peg on your right tit.
+[Done, Miss]
+.range 2000
+
+[Action 3864]
+.must 407 204
+Put another peg on your left tit.
+[Done, Miss]
+Well, That was your fourth peg.
+.range 2000
+
+[Action 3865]
+.must 407 205
+Hmm, where do we place your fifth peg?
+Put it on your left tit.
+[Done, Miss]
+.range 2000
+
+[Action 3866]
+.must 407 206
+I like symmetry:
+Put a peg on your right tit.
+[Done, Miss]
+.range 2000
+
+[Action 3867]
+.must 407 207
+Put another peg on your right tit.
+[Done, Miss]
+.range 2000
+
+[Action 3868]
+.must 407 208
+Put another peg on your left tit.
+[Done, Miss]
+That's your eight peg.
+Does it hurt?
+.range 2000
+
+[Action 3869]
+.must 407 209
+Put one more peg on your left tit.
+.pause Done, Miss
+.range 2000
+
+[Action 3870]
+.must 407 210
+Put another peg on your right tit.
+[Done, Miss]
+That's ten pins.
+.range 2000
+
+[Action 3871]
+.must 407 211
+Where shall we place your eleventh peg?
+On your right tit, of course.
+[Done, Miss]
+.range 2000
+
+[Action 3872]
+.must 407 212
+I begin to think those pins decorate you nicely.
+Put another on your left tit.
+[Done, Miss]
+.range 2000
+
+[Action 3873]
+.must 407 213
+That's your thirteenth.
+Put it on your right tit.
+[Done, Miss]
+Does it hurt?
+I hope so, since you've earned it.
+.range 2000
+
+[Action 3874]
+.must 407 214
+You'll seem to be out of luck,
+because you'll to put another peg on your left tit. 
+[Done, Miss]
+.range 2000
+
+
+' ball sack only
+
+[Action 3881]
+.must 408 201
+Put a peg on your ball sack!
+[Done, Miss]
+.range 2000
+
+[Action 3882]
+.must 408 202
+Put another peg on your ball sack!
+[Done, Miss]
+That's two pins on your ball sack, slave. 
+.range 2000
+
+[Action 3883]
+.must 408 203
+Put one more peg on your ball sack.
+[Done, Miss]
+.range 2000
+
+[Action 3884]
+.must 408 204
+Put another peg on your ball sack.
+[Done, Miss]
+That was your fourth.
+.range 2000
+
+[Action 3885]
+.must 408 205
+Hmm, where do we place your fifth peg?
+On your ball sack, of course.
+[Done, Miss]
+.range 2000
+
+[Action 3886]
+.must 408 206
+Put a peg to your ball sack.
+[Done, Miss]
+.range 2000
+
+[Action 3887]
+.must 408 207
+Put another peg to your ball sack, my dear.
+[Done, Miss]
+.range 2000
+
+[Action 3888]
+.must 408 208
+Put another peg to your ball sack.
+[Done, Miss]
+That's your eight peg.
+Does it hurt?
+.range 2000
+
+[Action 3889]
+.must 408 209
+Put a peg on your ball sack.
+.pause Done, Miss
+.range 2000
+
+[Action 3890]
+.must 408 210
+Put another peg on your ball sack.
+[Done, Miss]
+That's ten pins now.
+Are you in pain yet?
+.range 2000
+
+[Action 3891]
+.must 408 211
+Where shall we place your eleventh nipple?
+On your ball sack, of course.
+[Done, Miss]
+.range 2000
+
+[Action 3892]
+.must 408 212
+I begin to think those pins decorate you nicely.
+Put another on your ball sack.
+[Done, Miss]
+.range 2000
+
+[Action 3893]
+.must 408 213
+That's your thirteenth.
+Put it on your ball sack as well.
+[Done, Miss]
+Does it hurt?
+I hope so, since you've earned it.
+.range 2000
+
+[Action 3894]
+.must 408 214
+You'll seem to be out of luck,
+because you'll to put another peg on your slutty ball sack. 
+[Done, Miss]
+.range 2000
+
 
 
 [Action 5020]
@@ -1109,12 +1489,14 @@ It looks like you won the game, slave!
 
 [Action 5060]
 .must 300
-I won, and the game is over, slut. Too bad!
+I won, and the game is over, slut.
+Too bad!
 .range 9500 9599
 
 [Action 5061]
 .must 301
-I won, and the game is over, slut. Too bad!
+I won, and the game is over, slut.
+Too bad!
 .range 9500 9599
 
 [Action 5062]
@@ -1131,8 +1513,7 @@ It looks like I won the game, slave!
 
 [Action 9001]
 .must 301
-.quit
-'.loadsbd Mine.sbd ????
+.loadsbd Mine.sbd 5656
 
 [Action 9002]
 .must 302
@@ -1147,8 +1528,7 @@ It looks like I won the game, slave!
 
 [Action 9501]
 .must 301
-.quit
-'.loadsbd Mine.sbd ????
+.loadsbd Mine.sbd 5706
 
 [Action 9502]
 .must 302
