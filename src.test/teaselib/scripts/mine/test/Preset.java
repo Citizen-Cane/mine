@@ -10,6 +10,7 @@ import java.util.Collection;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
+import teaselib.core.Configuration.Setup;
 import teaselib.core.Debugger;
 import teaselib.core.Debugger.ResponseAction;
 import teaselib.core.TeaseLib;
@@ -30,8 +31,16 @@ public class Preset {
         this(new DebugPersistence.Storage());
     }
 
+    public Preset(Setup setup) throws IOException {
+        this(new DebugPersistence.Storage(), setup);
+    }
+
     public Preset(DebugPersistence.Storage storage) throws IOException {
-        this(new Mine(new TeaseLib(new DebugHost(), new DebugPersistence(storage), new DebugSetup()),
+        this(storage, new DebugSetup());
+    }
+
+    public Preset(DebugPersistence.Storage storage, Setup setup) throws IOException {
+        this(new Mine(new TeaseLib(new DebugHost(), new DebugPersistence(storage), setup),
                 new File("../SexScripts/scripts/")));
     }
 
