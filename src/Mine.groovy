@@ -18,12 +18,15 @@ def mainScriptClass = 'teaselib.scripts.mine.Mine'
 // Bootstrap TeaseLib
 ///////////////////////////////////////////////
 
-def classLoader = ClassLoader.getSystemClassLoader()
 def teaselibClasspath = new File('lib/TeaseLib/TeaseLib.jar')
 if (!teaselibClasspath.exists()) {
 	showButton(teaselibClasspath.getAbsolutePath() + " not found - bailing out")
 }
-classLoader.addURL(teaselibClasspath.toURI().toURL())
+
+URL[] urls = [teaselibClasspath.toURI().toURL()]
+
+def classLoader = new URLClassLoader(urls, ClassLoader.getSystemClassLoader())
+Thread.currentThread().setContextClassLoader(classLoader);
 
 
 ///////////////////////////////////////////////
