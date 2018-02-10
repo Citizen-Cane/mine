@@ -10,8 +10,10 @@ setInfos(1, "Mine", "Remastered and extended version of the classic PCM script '
 // Set the project location
 ///////////////////////////////////////////////
 
-def scriptResources = new File('scripts', 'Mine.jar')
-def mainScriptClass = 'teaselib.scripts.mine.Mine'
+def scriptFolder = 'scripts'
+def packageName = 'teaselib.scripts.mine'
+def mainScriptClass = packageName + '.' + 'Mine'
+def scriptResources = new File(scriptFolder, 'Mine.jar')
 
 
 ///////////////////////////////////////////////
