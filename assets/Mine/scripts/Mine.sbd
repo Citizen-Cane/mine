@@ -8733,8 +8733,8 @@ I don't think I'll add anything more to today's session.
 ' 3110-3139 unique add-ons
 
 [Action 3110]
-.item Toys.Dildo canApply to Body.InButt
 .state Body.CrotchRoped free
+.item Toys.Dildo canApply to Body.InButt
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .item Toys.Rope available
 .item Toys.Dildo available
@@ -8743,15 +8743,16 @@ I don't think I'll add anything more to today's session.
 I feel like filling that slutty little butthole
 of yours up today, My dear little ass slave.
 []
-I want you to fetch your dildo, lube it up good, and slide it gently
-into your back door, where you will keep it for today's session.
+I want you to fetch your dildo, lube it up good,
+and slide it gently into your back door,
+where you will keep it for today's session.
 delay 30
 .item Toys.Dildo apply to Body.InButt
 .set 758	            ' anal training 3
 []
 image bd227_18.jpg     ' crotch rope close-up
-Since you're certainly aren't going to be able to hold that dildo all
-through the session you're going to tie yourself with a crotch rope. 
+Since you're certainly aren't going to be able to hold that dildo in
+throughout the session you're going to tie yourself with a crotch rope. 
 []
 Double the rope through your crotch before looping it around
 your waist and through your crotch, to ensure the dildo doesn't slip out.
@@ -8770,18 +8771,21 @@ Let me know when you've finished, my pet.
 I feel like filling that slutty little butthole
 of yours up today, My dear little ass slave.
 []
-I want you to fetch your butt plug, lube it up good, and slide it gently
-into your back door, where you will keep it for today's session.
+I want you to fetch your butt plug, lube it up good,
+and slide it gently into your back door,
+where you will keep it for today's session.
 .yes I'm plugged, Miss
 .item Toys.Buttplug apply
 .set 758	            ' anal training 3
 .range 3116 3118
+
 
 [Action 3116]
 .must 3114
 .return
 
 [Action 3117]
+.state Body.CrotchRoped not applied
 .item Toys.Rope available
 .must 3114
 .image bd227_18.jpg     ' crotch rope close-up
@@ -8793,14 +8797,11 @@ you are going to tie yourself with a nice and tight crotch rope.
 
 [Action 3118]
 .item Toys.Rope available
+.item Toys.Rope canApply to Body.Harnessed
 .must 3114
 To make sure the plug stays inside your anus all through the session,
 I suggest you'll tie yourself with a nice rope harness as you have done before.
-.range 3119
-
-[Action 3119]
-.must 3118
-.image babc-alt.jpg
+image babc-alt.jpg
 Go ahead and put on the harness now,
 and don't remove it until the end of the session.
 .item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped Body.Harnessed
@@ -8810,6 +8811,7 @@ and don't remove it until the end of the session.
 
 [Action 3120]
 .item Toys.Rope available
+.item Toys.Rope canApply to Body.Harnessed
 .state Body.InButt free
 .state Body.WristsTied free
 .state Posture.CantSitOnChair free
@@ -8823,7 +8825,8 @@ and don't remove it until the end of the session.
 I don't doubt that you remember sleeping in your bondage harness.
 I hope you enjoyed it because you're doing it again tonight.
 babc-alt.jpg
-Go ahead and put on the harness now, and don't remove it until morning.
+Go ahead and put on the harness now,
+and don't remove it until morning.
 I know you like it, you bondage slut!
 .item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped Body.Harnessed
 .yes I'm tied up, Miss
@@ -8832,6 +8835,7 @@ I know you like it, you bondage slut!
 
 [Action 3122]
 .item Toys.Rope available
+.item Toys.Rope canApply to Body.Harnessed
 .item Body.InButt applied
 .state Body.WristsTied free
 .state Posture.CantSitOnChair free
@@ -14112,19 +14116,21 @@ It seems that you've voided the enema completely.
 .range 7479
 
 [Action 7431]
+.state Body.WristsTied free       ' blocks making a crotch rope
 .item Toys.Buttplug canApply
 .item Toys.Buttplug available
-You may lube up your slave ass and insert your buttplug now, slave.
+You may lube up your slave ass now and insert your buttplug, slave.
 I want your ass pleasantly filled.
 .item Toys.Buttplug apply
 .yes I'm plugged, Miss
 .range 7450 7454
 
 [Action 7432]
+.state Body.WristsTied free       ' blocks making a crotch rope
 .item Toys.Buttplug canApply
 .item Toys.Buttplug available
 I'm sure you enjoy being an anal slut for your Mistress.
-Lube up that buttplug and insert it into your bottom now.
+Lube up that buttplug and insert it into your bottom.
 .item Toys.Buttplug apply
 .yes I'm plugged, Miss
 .range 7450 7454
@@ -14134,10 +14140,10 @@ Lube up that buttplug and insert it into your bottom now.
 
 
 [Action 7435]
-.state Body.WristsTied free       ' block making a crotch rope
+.state Body.WristsTied free       ' blocks making a crotch rope
 .item Toys.Dildo canApply
 .item Toys.Dildo available
-You may lube up your slave ass and insert your anal dildo now, slave.
+You may lube up your slave ass now and insert your anal dildo, slave.
 I want your ass pleasantly filled.
 .item Toys.Dildo apply to Body.InButt
 .yes I'm plugged, Miss
@@ -14145,11 +14151,11 @@ I want your ass pleasantly filled.
 
 
 [Action 7436]
-.state Body.WristsTied free       ' block making a crotch rope
+.state Body.WristsTied free       ' blocks making a crotch rope
 .item Toys.Dildo canApply
 .item Toys.Dildo available
 I'm sure you enjoy being an anal slut for your Mistress.
-Lube up that dildo and insert it into your bottom now.
+Lube up that dildo and insert it into your bottom.
 .item Toys.Dildo apply to Body.InButt
 .yes I'm plugged, Miss
 .range 7455 7459        ' fix dildo with crotch rope or harness
@@ -14161,12 +14167,15 @@ Lube up that dildo and insert it into your bottom now.
 
 
 [Action 7450]
+.item Toys.Rope available
+.item Toys.Rope canApply to Body.CrotchRoped
 I want to make sure that butt plug sits extra tight in your anus. 
 For that reason you're going to tie yourself a tight crotch rope now, slave.
 .range 7460
 
 [Action 7451]
 .item Toys.Rope available
+.item Toys.Rope canApply to Body.Harnessed
 .must 426               ' Sleep in harness assignment completed 
 I want to make sure that butt plug sits extra tight in your anus.
 For that reason you're going to tie yourself a nice rope harness now, slave.
@@ -14182,12 +14191,15 @@ For that reason you're going to tie yourself a nice rope harness now, slave.
 
 
 [Action 7455]
+.item Toys.Rope available
+.item Toys.Rope canApply to Body.CrotchRoped
 I want to make sure that dildo sits extra tight in your anus. 
 For that reason you're going to tie yourself a tight crotch rope now, slave.
 .range 7465
 
 [Action 7456]
 .item Toys.Rope available
+.item Toys.Rope canApply to Body.Harnessed
 .must 426               ' Sleep in harness assignment completed 
 I want to make sure that dildo sits extra tight in your anus.
 For that reason you may tie yourself a nice rope harness now, slave.
@@ -14202,7 +14214,8 @@ For that reason you may tie yourself a nice rope harness now, slave.
 .image bd227_18.jpg     ' crotch rope close-up
 As usual, tie a knot in such a way that, when the rope is taut,
 it rests directly on your anus -
-or as of now - on your butt plug.
+or as of now -
+on your butt plug.
 .item Toys.Rope apply to Body.AroundWaist Body.CrotchRoped
 .yes I'm tied up, Miss
 .range 7478
@@ -21034,6 +21047,13 @@ arranged way in front of me for inspection before you approach me.
 .unset 11810
 .range 11811 11819
 
+' dispatch table for clothes/pegs combinations
+' followed by one block of 10 actions per combination
+' 1st five: teasing questions about pain
+' 2nd five: conclusion from mistress (remove or not)
+' action are reset after all questions have been asked
+' maximum variance, but there must be as many answers as questions to avoid all actions set
+' negative conclusions are followed by the reason - if wearing clamps/pegs is a punishment
 
 [action 11811]
 .not .painToysOnBalls
@@ -21102,7 +21122,7 @@ arranged way in front of me for inspection before you approach me.
 
 [action 11820]
 Are you enjoying the clothes pegs on your nipples, my pet?
-Or would you like to take of them off now?
+Or would you like to take them off now?
 .yes Yes please, Miss
 .range 11825 11829
 
@@ -21143,8 +21163,16 @@ That hurts good, doesn't it?
 Well, I don't see why I should let you take them off right now.
 .range 11900            ' comment punishment in progress
 
-'[action 11827]
-'[action 11828]
+[action 11827]
+No, you'll wear them as long as I see fit.
+.range 11900            ' comment punishment in progress
+
+[action 11828]
+I don't think so.
+As I see it, you deserve to wear them a little longer.
+.yes Yes, Miss
+.range 11900            ' comment punishment in progress
+
 '[action 11829]
 
 
@@ -21152,7 +21180,7 @@ Well, I don't see why I should let you take them off right now.
 
 [action 11830]
 Are you enjoying your nipple clamps, slave?
-Or would you like to take of them off now?
+Or would you like to take them off now?
 .yes Yes please, Miss
 .range 11835 11839
 
@@ -21193,8 +21221,16 @@ That hurts good, doesn't it?
 Well, I don't see why I should let you take them off right now.
 .range 11900            ' comment punishment in progress
 
-'[action 11837]
-'[action 11838]
+[action 11837]
+No, you'll wear them as long as I see fit.
+.range 11900            ' comment punishment in progress
+
+[action 11838]
+I don't think so.
+As I see it, you deserve to wear them a little longer.
+.yes Yes, Miss
+.range 11900            ' comment punishment in progress
+
 '[action 11839]
 
 
@@ -21202,7 +21238,7 @@ Well, I don't see why I should let you take them off right now.
 
 [action 11840]
 Are you enjoying the clothes pegs on your ball sack, my pet?
-Or would you like to take of them off now?
+Or would you like to take them off now?
 .yes Yes please, Miss
 .range 11845 11849
 
@@ -21243,8 +21279,16 @@ That hurts good, doesn't it?
 Well, I don't see why I should let you take them off right now.
 .range 11900            ' comment punishment in progress
 
-'[action 11847]
-'[action 11848]
+[action 11847]
+No, you'll wear them as long as I see fit.
+.range 11900            ' comment punishment in progress
+
+[action 11848]
+I don't think so.
+As I see it, you deserve to wear them a little longer.
+.yes Yes, Miss
+.range 11900            ' comment punishment in progress
+
 '[action 11849]
 
 
@@ -21252,7 +21296,7 @@ Well, I don't see why I should let you take them off right now.
 
 [action 11850]
 Are you enjoying your pussy clamps, my pet?
-Or would you like to take of them off now?
+Or would you like to take them off now?
 .yes Yes please, Miss
 .range 11855 11859
 
@@ -21293,8 +21337,16 @@ That hurts good, doesn't it?
 Well, I don't see why I should let you take them off right now.
 .range 11900            ' comment punishment in progress
 
-'[action 11857]
-'[action 11858]
+[action 11857]
+No, you'll wear them as long as I see fit.
+.range 11900            ' comment punishment in progress
+
+[action 11858]
+I don't think so.
+As I see it, you deserve to wear them a little longer.
+.yes Yes, Miss
+.range 11900            ' comment punishment in progress
+
 '[action 11859]
 
 
@@ -21344,8 +21396,16 @@ That hurts good, doesn't it?
 Well, I don't see why I should let you take them off right now.
 .range 11900            ' comment punishment in progress
 
-'[action 11867]
-'[action 11868]
+[action 11867]
+No, you'll wear them as long as I see fit.
+.range 11900            ' comment punishment in progress
+
+[action 11868]
+I don't think so.
+As I see it, you deserve to wear them a little longer.
+.yes Yes, Miss
+.range 11900            ' comment punishment in progress
+
 '[action 11869]
 
 
@@ -21397,8 +21457,16 @@ That hurts good, doesn't it?
 Well, I don't see why I should let you take them off right now.
 .range 11900            ' comment punishment in progress
 
-'[action 11877]
-'[action 11878]
+[action 11877]
+No, you'll wear them as long as I see fit.
+.range 11900            ' comment punishment in progress
+
+[action 11878]
+I don't think so.
+As I see it, you deserve to wear them a little longer.
+.yes Yes, Miss
+.range 11900            ' comment punishment in progress
+
 '[action 11879]
 
 
@@ -21450,8 +21518,16 @@ That hurts good, doesn't it?
 Well, I don't see why I should let you take them off right now.
 .range 11900            ' comment punishment in progress
 
-'[action 11887]
-'[action 11888]
+[action 11887]
+No, you'll wear them as long as I see fit.
+.range 11900            ' comment punishment in progress
+
+[action 11888]
+I don't think so.
+As I see it, you deserve to wear them a little longer.
+.yes Yes, Miss
+.range 11900            ' comment punishment in progress
+
 '[action 11889]
 
 
@@ -21503,8 +21579,16 @@ That hurts good, doesn't it?
 Well, I don't see why I should let you take them off right now.
 .range 11900            ' comment punishment in progress
 
-'[action 11897]
-'[action 11898]
+[action 11897]
+No, you'll wear them as long as I see fit.
+.range 11900            ' comment punishment in progress
+
+[action 11898]
+I don't think so.
+As I see it, you deserve to wear them a little longer.
+.yes Yes, Miss
+.range 11900            ' comment punishment in progress
+
 '[action 11899]
 
 
