@@ -46,6 +46,7 @@ public class Mine extends Player {
     public static final String OOE = "mine-ooe";
 
     private static final String Namespace = "Mine";
+    private static final String MainScript = "Mine";
 
     private static final Actor MineMistress = new Actor("Mistress", "Miss,", Voice.Female, Locale.UK,
             Actor.Key.DominantFemale, Images.None);
@@ -93,7 +94,7 @@ public class Mine extends Player {
 
     public Mine(TeaseLib teaseLib, File basePath, String mistressPath) {
         super(teaseLib, new ResourceLoader(basePath, Namespace, Assets, OptionalAssets), MineMistress, Namespace,
-                mistressPath);
+                mistressPath, MainScript);
 
         mapToysToMultipleItems();
         mapToysToSingleItem();
@@ -160,11 +161,6 @@ public class Mine extends Player {
             setScriptState(MAIN, 267, 1);
             triggerCarryOutEnema.clear();
         }
-    }
-
-    @Override
-    public void run() {
-        play(MAIN);
     }
 
     public void punish(Punishment punishment) {
