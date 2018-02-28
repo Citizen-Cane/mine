@@ -431,7 +431,7 @@ This means you'll add the weight to the clamp that I order you to, my pussy.
 
 
 [Action 1501]
-.mustnot 30             ' can't jerk off
+.item Toys.Chastity_Device not applied
 .must 300               ' standalone run
 Remember, My standard rules apply.
 You'd better be naked,
@@ -439,15 +439,16 @@ and you'd better keep that little cock hard.
 .range 1997
 
 [Action 1502]
-.mustnot 30             ' can't jerk off
+.item Toys.Chastity_Device not applied
 .mustnot 300            ' standalone run
 Remember, My standard rules apply,
 so you'd better keep that little cock hard.
 .range 1997
 
 [Action 1503]
-' TODO handle chastity cage
-.must 30                ' can't jerk off
+.item Toys.Chastity_Device not applied
+Remember, My standard rules apply,
+so you'd better keep that little encaged cock hard inside its cage.
 .range 1997
 
 
@@ -543,6 +544,8 @@ Two - evens!
 .range 2120 2129
 
 
+' Mistress is evens - comment win or loose
+
 [Action 2120]
 .must 10
 I'm evens, so this round goes to your Mistress.
@@ -555,6 +558,8 @@ You're evens, slave, so you win this round.
 .unset 2121
 .range 3020 3059
 
+
+' Mistress is odds - comment win or loose
 
 [Action 2130]
 .must 11
@@ -574,11 +579,15 @@ You're odds, so you win, slave.
 .unset 3020
 .range 3100
 
+'[action 3059]
+
 
 [Action 3060]
 'You've lost this round.
 .unset 3060
 .range 3200
+
+'[action 3099]
 
 
 ' Give point to s

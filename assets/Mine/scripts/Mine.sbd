@@ -5663,6 +5663,7 @@ Today I believe a series of sessions is in order, don't you?
 .set 513 514 515
 .range 2150
 
+
 [Action 2100]
 .mustnot 9
 Aren't you a lucky slave boy!
@@ -5698,6 +5699,23 @@ It would please your Mistress very much, and it would do you a world of good.
 .yestext Please Miss, Punish me!
 .notext No, thanks Miss
 
+'[Action 2104]
+'[Action 2105]
+
+
+' punishments functions (checked via .numactionsavailable)
+
+' No more outstanding punishments left
+[Action 2145]
+.poss 100
+.mustnot 500 501 502 503 504 505 506 507 508 509 
+.mustnot 510 511 512 513 514 515 516 517 518 519
+.mustnot 520 521 522 523 524 525 526 527 528 529
+.mustnot 530 531 532 533 534 535 536 537 538 539
+.mustnot 540 541 542 543 544 545 546 547 548 549
+.unset 9
+.range 2265 2269
+
 
 ' Punishment dispatcher
 
@@ -5725,7 +5743,13 @@ Let's see if I can remember what punishments you've earned.
 .gosub 11800            ' pegs/clamps tracking, comment and removal
 .range 2159
 
+' No more outstanding punishments left
 [action 2157]
+.poss 100
+.numactionsavailable 2145 2145 1
+.range 2265 2269
+
+[action 2158]
 .else
 .range 2159
 
@@ -6102,7 +6126,7 @@ and that Mistresses are to be obeyed without question!
 '[Action 2259]
 
 
-' Enema exit from punishment cycle
+' Exit from punishment cycle (enema, took care of a couple of punishments)
 
 [Action 2260]
 .range 2261 2264
@@ -6118,18 +6142,15 @@ However, I think we'll save those sessions until next time.
 '[Action 2263]
 
 ' No more outstanding punishments left
-' ".poss 100" is used as a "else"-hint for the java player 
 [Action 2264]
 .poss 100
-.mustnot 500 501 502 503 504 505 506 507 508 509 
-.mustnot 510 511 512 513 514 515 516 517 518 519
-.mustnot 520 521 522 523 524 525 526 527 528 529
-.mustnot 530 531 532 533 534 535 536 537 538 539
-.mustnot 540 541 542 543 544 545 546 547 548 549
+.numactionsavailable 2145 2145 1
 .unset 9
 .range 2265 2269
 
  
+' all outstanding punishments resolved
+
 [Action 2265]
 It looks like your punishment account is paid in full, My dear pain slave.
 I certainly hope you learned your lesson!
@@ -12345,10 +12366,17 @@ I like a clean slave.
 .range 5554
 
 
+[Action 5448]
+.item Toys.Gag applied
+.poss 100
+No -
+not while you're wearing the gag.
+.range 5040
+
 [Action 5449]
+.else                   ' Fallback
 Never mind, slave.
 I've decided against self-bondage today.
-.else                   ' Fallback
 .range 5040
 
 
