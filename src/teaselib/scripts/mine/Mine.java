@@ -45,13 +45,15 @@ public class Mine extends Player {
     public static final String EQUIP = "mine-equip";
     public static final String OOE = "mine-ooe";
 
+    public static final String[] Scripts = { MAIN, MAID, PADDLE, NIPT, TD, SB, DILDO, EQUIP, OOE };
+
     private static final String Namespace = "Mine";
     private static final String MainScript = "Mine";
 
-    private static final Actor MineMistress = new Actor("Mistress", "Miss,", Voice.Female, Locale.UK,
+    public static final Actor MineMistress = new Actor("Mistress", "Miss,", Voice.Female, Locale.UK,
             Actor.Key.DominantFemale, Images.None);
-    private static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip", "Mine Mistress.zip" };
-    private static final String[] OptionalAssets = { "Mine Speech.zip" };
+    public static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip", "Mine Mistress.zip" };
+    public static final String[] OptionalAssets = { "Mine Speech.zip" };
     private static final String MistressVanaImageResources = "mistress/Vana/";
 
     public enum Punishment {
@@ -67,7 +69,7 @@ public class Mine extends Player {
 
     public static void main(String argv[]) {
         try {
-            recordVoices(MineMistress, MAIN, new File(argv[0]), Namespace, Assets);
+            recordVoices(MineMistress, new File(argv[0]), Namespace, Scripts, Assets);
         } catch (ScriptParsingException e) {
             logger.error(e.getMessage(), e);
         } catch (ValidationIssue e) {
