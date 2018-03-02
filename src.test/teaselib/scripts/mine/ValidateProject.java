@@ -22,6 +22,7 @@ import pcm.model.Symbols;
 import pcm.model.ValidationIssue;
 import teaselib.Message;
 import teaselib.Message.Type;
+import teaselib.MessagePart;
 import teaselib.core.ResourceLoader;
 import teaselib.core.texttospeech.ScriptScanner;
 import teaselib.core.texttospeech.TextToSpeechPlayer;
@@ -93,7 +94,7 @@ public class ValidateProject {
         logger.info("{}: scanned {} messages, {} resources", dominantSubmissiveRelations, messageCount, resourceCount);
     }
 
-    private static void testSpeechResource(ResourceLoader resources, Message.Part part) {
+    private static void testSpeechResource(ResourceLoader resources, MessagePart part) {
         try {
             resources.getResource(part.value).close();
         } catch (IOException e) {
