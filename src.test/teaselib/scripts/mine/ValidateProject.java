@@ -1,6 +1,6 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -69,10 +69,10 @@ public class ValidateProject {
                 ScriptScanner scriptScanner = new PCMScriptScanner(script);
                 for (Message message : scriptScanner) {
                     Message speech = tts.prerenderedSpeechMessage(message, resources);
-                    speech.getParts().stream().filter(part -> part.type == Type.Speech)
+                    speech.stream().filter(part -> part.type == Type.Speech)
                             .forEach(part -> testSpeechResource(resources, part));
                     messageCount++;
-                    resourceCount += speech.getParts().stream().filter(part -> part.type == Type.Speech).count();
+                    resourceCount += speech.stream().filter(part -> part.type == Type.Speech).count();
                 }
             }
 
