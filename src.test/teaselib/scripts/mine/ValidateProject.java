@@ -20,6 +20,7 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.Symbols;
 import pcm.model.ValidationIssue;
+import teaselib.AbstractMessage;
 import teaselib.Message;
 import teaselib.Message.Type;
 import teaselib.MessagePart;
@@ -68,7 +69,7 @@ public class ValidateProject {
                 Script script = scripts.get(Mine.MineMistress, scriptName);
                 ScriptScanner scriptScanner = new PCMScriptScanner(script);
                 for (Message message : scriptScanner) {
-                    Message speech = tts.prerenderedSpeechMessage(message, resources);
+                    AbstractMessage speech = tts.prerenderedSpeechMessage(message.actor, message, resources);
                     speech.stream().filter(part -> part.type == Type.Speech)
                             .forEach(part -> testSpeechResource(resources, part));
                     messageCount++;
