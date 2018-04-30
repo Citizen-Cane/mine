@@ -64,6 +64,7 @@ public class ValidateProject {
 
             int messageCount = 0;
             int resourceCount = 0;
+            logger.info("Testing symbol set {}", dominantSubmissiveRelation);
             ScriptCache scripts = new ScriptCache(resources, Player.ScriptFolder, dominantSubmissiveRelation);
             for (String scriptName : Mine.Scripts) {
                 Script script = scripts.get(Mine.MineMistress, scriptName);
