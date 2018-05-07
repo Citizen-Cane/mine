@@ -98,7 +98,7 @@ public class ValidateProject {
 
     private static void testSpeechResource(ResourceLoader resources, MessagePart part) {
         try {
-            resources.getResource(part.value).close();
+            resources.get(part.value).close();
         } catch (IOException e) {
             throw new AssertionError("Speech audio not found: " + part.value, e);
         }
