@@ -41,6 +41,7 @@ public class DildoActivities extends ActivityTest {
                 List<ResponseAction> responseActions = new ArrayList<>(super.getResponseActions(player));
 
                 responseActions.add(new ResponseAction("Dildo inserted all the way, Miss", Response.Choose));
+                responseActions.add(new ResponseAction("Yes Miss, it's all the way in", Response.Choose));
                 responseActions.add(new ResponseAction("Yes please, Mistress", Response.Choose));
 
                 return responseActions;
