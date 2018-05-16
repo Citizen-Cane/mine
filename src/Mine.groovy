@@ -20,7 +20,7 @@ def scriptResources = new File(scriptFolder, 'Mine.jar')
 // Bootstrap TeaseLib
 ///////////////////////////////////////////////
 
-def teaselibClasspath = new File('lib/TeaseLib/TeaseLib.jar')
+def teaselibClasspath = new File('lib/TeaseLib/lib/TeaseLib.jar')
 if (!teaselibClasspath.exists()) {
 	showButton(teaselibClasspath.getAbsolutePath() + " not found - bailing out")
 }
