@@ -118,16 +118,16 @@ public class Mine extends Player {
 
         Items dildos;
         if (persistentEnum(Sex.class).value() == Sex.Female) {
-            dildos = items(Toys.Dildo).all(Features.Anal);
+            dildos = items(Toys.Dildo).getAll(Features.Anal);
         } else {
             dildos = items(Toys.Dildo).all();
         }
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(388, dildos));
 
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(389, items(Toys.Cockring).all(Features.Vibrating),
-                        items(Toys.VaginalInsert).all(Features.Vibrating),
-                        items(Toys.Vibrator).all(Toys.Vibrators.HandsFree), items(Toys.EStim_Device)));
+                new MappedScriptItemValue(389, items(Toys.Cockring).getAll(Features.Vibrating),
+                        items(Toys.VaginalInsert).getAll(Features.Vibrating),
+                        items(Toys.Vibrator).getAll(Toys.Vibrators.HandsFree), items(Toys.EStim_Device)));
     }
 
     private void mapToysToSingleItem() {

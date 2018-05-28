@@ -117,7 +117,7 @@ public class MineMaidPositionCoverageTest {
         assertEquals("Position not completed:", ScriptState.SET, mine.state.get(position));
 
         for (Enum<?> toy : TOYS) {
-            assertTrue("Toy(s) still applied: " + mine.items(TOYS).allApplied(), !mine.item(toy).applied()
+            assertTrue("Toy(s) still applied: " + mine.items(TOYS).getApplied(), !mine.item(toy).applied()
                     || (mine.item(toy).applied() && !mine.item(toy).is(mine.namespaceApplyAttribute)));
         }
     }
