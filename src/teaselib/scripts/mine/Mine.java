@@ -13,6 +13,7 @@ import pcm.model.ValidationIssue;
 import pcm.state.persistence.MappedScriptItemValue;
 import pcm.state.persistence.MappedScriptState;
 import teaselib.Actor;
+import teaselib.Body;
 import teaselib.Features;
 import teaselib.Household;
 import teaselib.Images;
@@ -118,16 +119,16 @@ public class Mine extends Player {
 
         Items dildos;
         if (persistentEnum(Sex.class).value() == Sex.Female) {
-            dildos = items(Toys.Dildo).query(Features.Anal);
+            dildos = items(Toys.Dildo).query(Body.Orifice.Anal);
         } else {
             dildos = items(Toys.Dildo).all();
         }
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(388, dildos));
 
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(389, items(Toys.Cockring).query(Features.Vibrating),
+                new MappedScriptItemValue(389, items(Toys.Cock_Ring).query(Features.Vibrating),
                         items(Toys.VaginalInsert).query(Features.Vibrating),
-                        items(Toys.Vibrator).query(Toys.Vibrators.HandsFree), items(Toys.EStim_Device)));
+                        items(Toys.Vibrator).query(Features.HandsFree), items(Toys.EStim_Device)));
     }
 
     private void mapToysToSingleItem() {
