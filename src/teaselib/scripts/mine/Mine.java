@@ -13,11 +13,9 @@ import pcm.model.ValidationIssue;
 import pcm.state.persistence.MappedScriptItemValue;
 import pcm.state.persistence.MappedScriptState;
 import teaselib.Actor;
-import teaselib.Body;
 import teaselib.Features;
 import teaselib.Household;
 import teaselib.Images;
-import teaselib.Sexuality.Sex;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
 import teaselib.core.TeaseLib;
@@ -117,12 +115,7 @@ public class Mine extends Player {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(380, item(Toys.Chastity_Device)));
 
-        Items dildos;
-        if (persistentEnum(Sex.class).value() == Sex.Female) {
-            dildos = items(Toys.Dildo).query(Body.Orifice.Anal);
-        } else {
-            dildos = items(Toys.Dildo).all();
-        }
+        Items dildos = items(Toys.Dildo);
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(388, dildos));
 
         state.addScriptValueMapping(MappedScriptState.Global,
