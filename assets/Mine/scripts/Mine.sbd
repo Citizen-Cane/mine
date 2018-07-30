@@ -455,21 +455,36 @@
 
 ' up to 549, the last possible punishment 
 
-
+' completed assignments
 '.askcheck      91      400     400: done w/ 600: naked day assignment
-' ...                           401-406 can be used for completing other assignments
+' ...                           401-406 can be used for completing other assignments (601-606 used as naked week counter)
 '.askcheck      91      408     408: done w/ 608: naked week assignment
-
+'.askcheck      62      420     420: TODO done w/ 620: chastity week daytime
+'.askcheck      62      421     421: TODO done w/ 621: chastity week night and day
+'.askcheck      60      422     422: done w/ 622: buttplug all day
+'.askcheck      61      423     423: done w/ 623: sleep with butt plug   
+'.askcheck      62      424     424: TODO done w/ 624: chastity cage for a day
+'.askcheck      63      425     425: TODO done w/ 625: chastity cage for a night and day       
 '.askcheck      91      426     426: done w/ 626: sleep in harness
 '.askcheck      92      427     427: done w/ 627: harness under clothes for day
+'.askcheck      66      428     428: TODO done w/ 628: chastity cage for a night
+'.askcheck      67      429     429: done w/ 629: buttplug 4 hours
+'.askcheck      68      430     430: done w/ 630: buttplug 8 hours   
+'.askcheck      69      431     431: done w/ 631: dildo 4 hours
+'.askcheck      70      432     432: done w/ 632: dildo 8 hours
+'.askcheck      71      433     433: done w/ 633: dildo until bedtime
+'.askcheck      71      434     434: done w/ 634: Butt plug until bedtime
+'.askcheck      60      435     ç35: done w/ 635: dildo all day
+'.askcheck      61      436     436: done w/ 636: sleep with dildo   
 
-' 590-599 local variables used to trigger or skip something later in the script
+' 590-599 local variables are used to trigger or skip something later in the script
 ' necessary for assignments that are started before their completion point
-' 596 butt plug night/day assignment punishment skipper
-' 597 start naked week assignment tracking
-' 598 harness order temp (day and night) (punishment is given before tracked)
-' 599 start naked day assignment tracking (punishment is given before tracked)
+' - 596 butt plug night/day assignment punishment skipper
+' - 597 start naked day/week assignment tracking
+' - 598 harness order temp (day and night) (punishment is given before tracked)
+' - 599 start naked day assignment tracking (punishment is given before tracked)
  
+' assignments in progress
 '.askcheck      91      600     600: AO "naked day"; 400 when finished
 '.askcheck      92      601     601: AO "week assignment counter, day 1"
 '.askcheck      93      602     602: AO                               2
@@ -482,23 +497,23 @@
 '.askcheck      58      618     618: AO spend day in bondage; 418 when finished
 '.askcheck      59      619     619: AO spend night tied; 419
 
-'.askcheck      62      620     620: AO chastity week daytime; 420
-'.askcheck      62      621     621: AO chastity week night and day; 421
-.askcheck      60      622     622: AO buttplug all day; 422
-.askcheck      61      623     623: AO sleep with butt plug; 423   
-.askcheck      62      624     624: AO chastity cage for a day; 424
-.askcheck      63      625     625: AO chastity cage for a night and day: 425       
-.askcheck      64      626     626: AO sleep in harness 736 -> 737; 426
-.askcheck      65      627     627: AO harness under clothes for day 737 -> 738; 427
-'.askcheck      66      628     628: AO chastity cage for a night; 428
+'.askcheck      62      620     620: TODO AO chastity week daytime; 420
+'.askcheck      62      621     621: TODO AO chastity week night and day; 421
+'.askcheck      60      622     622: AO buttplug all day; 422
+'.askcheck      61      623     623: AO sleep with butt plug; 423   
+'.askcheck      62      624     624: TODO AO chastity cage for a day; 424
+'.askcheck      63      625     625: TODO AO chastity cage for a night and day: 425       
+'.askcheck      64      626     626: AO sleep in harness 736 -> 737; 426
+'.askcheck      65      627     627: AO harness under clothes for day 737 -> 738; 427
+'.askcheck      66      628     628: TODO AO chastity cage over night; 428
 '.askcheck      67      629     629: AO buttplug 4 hours; 429
 '.askcheck      68      630     630: AO buttplug 8 hours; 430   
 '.askcheck      69      631     631: AO dildo 4 hours; 431
 '.askcheck      70      632     632: AO dildo 8 hours; 432
 '.askcheck      71      633     633: AO dildo until bedtime; 433
 '.askcheck      71      634     634: AO Butt plug until bedtime; 434
-.askcheck      60      635     635: AO dildo all day; 435
-.askcheck      61      636     636: AO sleep with dildo; 436   
+'.askcheck      60      635     635: AO dildo all day; 435
+'.askcheck      61      636     636: AO sleep with dildo; 436   
 
 .askcheck      66      667     667: Get some chains (360)
 .askcheck      67      668     668: Get or make nipple clamps (361)
@@ -2184,8 +2199,10 @@ I know it will be fun for Me!
 .range 1200
 
 [Action 1173]
-.mustnot 267       ' Carry out enema - advance as fast s possible
-.mustnot 600 400   ' naked day not already happening, and not completed
+.mustnot 267       ' Carry out enema -> advance as fast s possible
+.mustnot 400 408   ' naked day/week already completed
+.mustnot 597       ' Just started over
+.mustnot 600 608   ' naked day/week already in progress
 .must 702          ' naked acceptance 2
 .mustnot 703       ' naked acceptance 3
 To further humiliate you, and remind you of your inferiority and your slave status,
@@ -2194,9 +2211,10 @@ You must complete this assignment before you return for your next session.
 .range 1176
 
 [Action 1174]
-.mustnot 267       ' Carry out enema - advance as fast s possible
-.mustnot 408 608   ' naked week assignment not happening already, and not completed
+.mustnot 267       ' Carry out enema -> advance as fast as possible
+.mustnot 400 408   ' naked day/week already completed
 .mustnot 597       ' Just started over
+.mustnot 600 608   ' naked day/week already in progress
 .mustnot 698 699   ' cum-denial will be used as punishment during the naked-week
 .must 703          ' naked acceptance 3
 .mustnot 704       ' naked acceptance 4
@@ -10486,7 +10504,7 @@ Tell me!
 [Action 4057]
 Slave!
 Tell me about the seventh day of your naked week assignment.
-Have you remained nakedat home at all times as I ordered you?
+Have you remained naked at home at all times as I ordered you?
 .must 607                    ' Day 7
 .must 608                    ' naked-week
 .unset 607
