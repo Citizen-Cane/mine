@@ -25,10 +25,10 @@ import teaselib.Message.Type;
 import teaselib.MessagePart;
 import teaselib.core.AbstractMessage;
 import teaselib.core.ResourceLoader;
+import teaselib.core.configuration.DebugSetup;
 import teaselib.core.texttospeech.ScriptScanner;
 import teaselib.core.texttospeech.TextToSpeechPlayer;
 import teaselib.scripts.mine.test.Preset;
-import teaselib.test.DebugSetup;
 
 public class ValidateProject {
     private static final Logger logger = LoggerFactory.getLogger(ValidateProject.class);

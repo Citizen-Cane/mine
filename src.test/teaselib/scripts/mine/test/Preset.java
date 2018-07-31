@@ -10,14 +10,14 @@ import java.util.Collection;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
-import teaselib.core.Configuration.Setup;
 import teaselib.core.Debugger;
 import teaselib.core.Debugger.ResponseAction;
 import teaselib.core.TeaseLib;
+import teaselib.core.configuration.DebugSetup;
+import teaselib.core.configuration.Setup;
 import teaselib.core.debug.DebugHost;
 import teaselib.core.debug.DebugPersistence;
 import teaselib.scripts.mine.Mine;
-import teaselib.test.DebugSetup;
 
 /**
  * @author Citizen-Cane
