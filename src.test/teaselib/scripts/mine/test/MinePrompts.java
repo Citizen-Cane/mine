@@ -72,6 +72,7 @@ public class MinePrompts {
 
         // TODO Add some wait time before dismissing the button
         all.add(new ResponseAction("I came, Miss", Debugger.Response.Choose));
+        all.add(new ResponseAction("I'm afraid I didn't, Miss", Debugger.Response.Choose));
 
         // epilogue
         all.add(new ResponseAction("Yes Miss, I obeyed you all the time", Debugger.Response.Choose));

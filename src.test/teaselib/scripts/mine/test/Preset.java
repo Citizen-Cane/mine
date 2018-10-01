@@ -17,6 +17,7 @@ import teaselib.core.configuration.DebugSetup;
 import teaselib.core.configuration.Setup;
 import teaselib.core.debug.DebugHost;
 import teaselib.core.debug.DebugPersistence;
+import teaselib.core.debug.DebugStorage;
 import teaselib.scripts.mine.Mine;
 
 /**
@@ -28,18 +29,18 @@ public class Preset {
     final Debugger debugger;
 
     public Preset() throws IOException {
-        this(new DebugPersistence.Storage());
+        this(new DebugStorage());
     }
 
     public Preset(Setup setup) throws IOException {
-        this(new DebugPersistence.Storage(), setup);
+        this(new DebugStorage(), setup);
     }
 
-    public Preset(DebugPersistence.Storage storage) throws IOException {
+    public Preset(DebugStorage storage) throws IOException {
         this(storage, new DebugSetup());
     }
 
-    public Preset(DebugPersistence.Storage storage, Setup setup) throws IOException {
+    public Preset(DebugStorage storage, Setup setup) throws IOException {
         this(new Mine(new TeaseLib(new DebugHost(), new DebugPersistence(storage), setup),
                 new File("../SexScripts/scripts/")));
     }
