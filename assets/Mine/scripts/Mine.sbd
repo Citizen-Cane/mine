@@ -23,6 +23,9 @@
 .declare applied.by String
 .define applied.by.me applied.by.Mine
 
+.declare teaselib.State String
+.define State teaselib.State
+
 
 ' shortcuts
 
@@ -16804,7 +16807,7 @@ Sort it out until next time!
 ' confess 9050 9053
 ' assignment continuation 9900 (all subs)
 ' chastity 9940 9945
-' exit 9994 9998
+' exit 9990
 '
 ' but should be
 ' 
@@ -16812,7 +16815,7 @@ Sort it out until next time!
 ' assignment decision 9000
 ' assignment continuation 9900 (all subs)
 ' confess 9050 9053
-' exit 9994 9998
+' exit 9990
 '
 '
 
@@ -19141,10 +19144,11 @@ I give you permission to tie yourself with a nice crotch rope.
 [action 9911]
 .mustnot 204            ' 5 demerits - it's clear slave didn't obey but was at least honestly
 .gosub 9050 9053        ' confession about honesty in the session
-.range 9994 9999        ' on to last words and final exit
+.range 9990             ' on to last words and final exit
 
 [action 9912]
-.range 9994 9999        ' on to last words and final exit
+.else
+.range 9990             ' on to last words and final exit
 
 '[action 9913]
 '[action 9914]
@@ -19514,47 +19518,57 @@ For that reason you'll be wearing your chastity cage all the time until our next
 .return
 
 
-' final exit range 9994 9998,
-' must handle 24 hours set in chastity belt section
+' final exit
+
+[Action 9990]
+.prepend
+' TODO more comments would be nice, wouldn't they? -> implement line operator '|' for alternative messages
+I think that's enough for today's session, My slave.
+.gosub 13080
+' TODO release other toys as well -> will look nice once show(Item ... items) has been implemented
+.range 9994 9999        ' on to last words and final exit
+
+
+'  handle wait time (12/24 hours) as set in earlier part of the script (chastity belt section, etc.)
 
 ' next-session-toy exit
 [Action 9994]
-I think that's enough for today's session, My slave.
-Do as told, and don't disturb Me for at least twelve hours.
 .must 211               ' next-session toy
 .mustnot 94             ' Only if 24 hours wait hasn't been enabled elsewhere
+Do as told, and don't disturb Me for at least twelve hours.
+.unset 90 91    93 94
 .set 92                 ' 12 hours
 .settime 95 12:00"00
 .range 850
 
 ' next-session-toy exit
 [Action 9995]
-I think that's enough for today's session, My slave.
-Do as told, and don't disturb Me for at least 24 hours.
 .must 211               ' next-session toy
 .must 94                ' 24 hours set before
+Do as told, and don't disturb Me for at least 24 hours.
+.unset 90 91 92 93
 .settime 95 24:00"00
 .range 850
 
 
 ' original exit from 9000
 [Action 9996]
-I think that's enough for today's session, My slave.
-You can take off any toys that you still have on and go about your business,
-but don't disturb Me for at least twelve hours.
 .mustnot 211            ' next-session toy
 .mustnot 94             ' Only if 24 hours wait hasn't been enabled elsewhere
+You can take off any toys that you still have on and go about your business,
+but don't disturb Me for at least twelve hours.
+.unset 90 91    93 94
 .set 92                 ' 12 hours
 .settime 95 12:00"00    ' update time
 .range 850
 
 ' original exit from 9000
 [Action 9997]
-I think that's enough for today's session, My slave.
-You can take off any toys that you still have on and go about your business,
-but don't disturb Me for at least 24 hours.
 .mustnot 211            ' next-session toy
 .must 94                ' 24 hours set before
+You can take off any toys that you still have on and go about your business,
+but don't disturb Me for at least 24 hours.
+.unset 90 91 92 93
 .settime 95 24:00"00    ' update time 
 .range 850
 
@@ -22011,19 +22025,7 @@ Take the chain between your ankles and tie it to your ball sack.
 .return
 
 
-' activateKeyReleaseAction_ankles - key release activation
-
-' DONE Assign actuator to script
-' DONE implement .keyrelease connected condition -> keyrelease action applied
-' DONE implement .item variable integrated in state command and condition
-' DONE implement applying the release action
-' DONE implement .prepend/.append
-' TODO implement releasing the restraints at the end of the script -> automatically by release item, but comments would be nice
-
-' TODO For more we would need a key-release-connected handler
-' .onKeyReleaseConnected gosub range
-' -> similar to quit handler while active prompt
-' -> show device request - when activated say instructions to hand over key  
+' key release activation section
 
 
 ' Attach release action to ankle restraints
@@ -22033,7 +22035,7 @@ Take the chain between your ankles and tie it to your ball sack.
 
 
 [action 13001]
-.state $(Key_Release.Action) is available
+.state $(Key_Release.Action) is State.Available
 .state $(Key_Release.Action) apply to Toys.Ankle_Restraints
 .gosub 13090       ' update release timer
 .return
@@ -22050,7 +22052,7 @@ Take the chain between your ankles and tie it to your ball sack.
 
 
 [action 13011]
-.state $(Key_Release.Action) is available
+.state $(Key_Release.Action) is State.Available
 .state $(Key_Release.Action) apply to Toys.Wrist_Restraints
 .gosub 13090       ' update release timer
 .return
@@ -22067,7 +22069,7 @@ Take the chain between your ankles and tie it to your ball sack.
 
 
 [action 13021]
-.state $(Key_Release.Action) is available
+.state $(Key_Release.Action) is State.Available
 .state $(Key_Release.Action) apply to Toys.Collar
 .gosub 13090       ' update release timer
 .return
@@ -22084,7 +22086,7 @@ Take the chain between your ankles and tie it to your ball sack.
 
 
 [action 13031]
-.state $(Key_Release.Action) is available
+.state $(Key_Release.Action) is State.Available
 .state $(Key_Release.Action) apply to Toys.Chains
 .gosub 13090       ' update release timer
 .return
@@ -22101,7 +22103,7 @@ Take the chain between your ankles and tie it to your ball sack.
 
 
 [action 13041]
-.state $(Key_Release.Action) is available
+.state $(Key_Release.Action) is State.Available
 .state $(Key_Release.Action) apply to Toys.Humbler
 .gosub 13090       ' update release timer
 .return
@@ -22118,7 +22120,8 @@ Take the chain between your ankles and tie it to your ball sack.
 
 
 [action 13051]
-.state $(Key_Release.Action) is available
+' TODO available only for items
+.state $(Key_Release.Action) is State.Available
 .state $(Key_Release.Action) apply to Toys.Ball_Stretcher
 .gosub 13090       ' update release timer
 .return
@@ -22127,6 +22130,55 @@ Take the chain between your ankles and tie it to your ball sack.
 .else
 .return
  
+ 
+' release restraints and other potentially lockable toys
+
+[action 13080]
+.range 13081 13089
+
+
+[action 13081]
+.state $(Key_Release.Action) applied
+.item Toys.Ankle_Restraints applied
+.item Toys.Ankle_Restraints remove
+.range 13081 13089
+
+[action 13082]
+.state $(Key_Release.Action) applied
+.item Toys.Wrist_Restraints applied
+.item Toys.Wrist_Restraints remove
+.range 13081 13089
+
+[action 13083]
+.state $(Key_Release.Action) applied
+.item Toys.Collar applied
+.item Toys.Collar remove
+.range 13081 13089
+
+[action 13084]
+.state $(Key_Release.Action) applied
+.item Toys.Chains applied
+.item Toys.Chains remove
+.range 13081 13089
+
+[action 13085]
+.state $(Key_Release.Action) applied
+.item Toys.Humbler applied
+.item Toys.Humbler remove
+.range 13081 13089
+
+[action 13086]
+.state $(Key_Release.Action) applied
+.item Toys.Ball_Stretcher applied
+.item Toys.Ball_Stretcher remove
+.range 13081 13089
+
+'[action 13087]
+'[action 13088]
+
+[action 13089]
+.else
+.return
 
 
 ' update release timer
