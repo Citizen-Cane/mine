@@ -1,6 +1,6 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,8 +34,13 @@ public class ValidateProject {
     private static final Logger logger = LoggerFactory.getLogger(ValidateProject.class);
 
     @Test
-    public void testSyntaxAndResources()
-            throws ScriptExecutionException, IOException, ScriptParsingException, ValidationIssue {
+    public void testSyntax() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
+        Mine mine = new Preset(new DebugSetup().ignoreMissingResources()).script(Mine.MAIN).mine();
+        mine.validateProject();
+    }
+
+    @Test
+    public void testResources() throws ScriptExecutionException, IOException, ScriptParsingException, ValidationIssue {
         Mine mine = new Preset(new DebugSetup().withOutput()).script(Mine.MAIN).mine();
         mine.validateProject();
     }
