@@ -1,7 +1,5 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -56,8 +54,6 @@ public class ValidateProject {
         // but this leads to errors -> check for specific resource in asset right at the start
 
         TextToSpeechPlayer tts = new TextToSpeechPlayer(DebugSetup.getConfiguration());
-        assertNotNull(tts);
-        tts.load();
         tts.acquireVoice(Mine.MineMistress, resources);
 
         Symbols dominantSubmissiveRelations = Symbols.getDominantSubmissiveRelations();
