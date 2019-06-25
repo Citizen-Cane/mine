@@ -22117,41 +22117,49 @@ Take the chain between your ankles and tie it to your ball sack.
 [action 13080]
 .range 13081 13089
 
+' TODO remove runtime variable check
+' TODO change actuator handling to apply events
 
 [action 13081]
-.state $(Key_Release.Action) applied
+.item Toys.Ankle_Restraints is applied.by.me
 .item Toys.Ankle_Restraints applied
 .item Toys.Ankle_Restraints remove
+.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13082]
-.state $(Key_Release.Action) applied
+.item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Wrist_Restraints applied
 .item Toys.Wrist_Restraints remove
+.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13083]
-.state $(Key_Release.Action) applied
+.item Toys.Collar is applied.by.me
 .item Toys.Collar applied
 .item Toys.Collar remove
+.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13084]
-.state $(Key_Release.Action) applied
+.item Toys.Chains is applied.by.me
 .item Toys.Chains applied
 .item Toys.Chains remove
+.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13085]
-.state $(Key_Release.Action) applied
+.item Toys.Humbler is applied.by.me
 .item Toys.Humbler applied
 .item Toys.Humbler remove
+.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13086]
-.state $(Key_Release.Action) applied
+.item Toys.Ball_Stretcher is applied.by.me
 .item Toys.Ball_Stretcher applied
 .item Toys.Ball_Stretcher remove
+.gosub 13095                      ' release key
 .range 13081 13089
 
 '[action 13087]
@@ -22162,19 +22170,17 @@ Take the chain between your ankles and tie it to your ball sack.
 .return
 
 
-' update release timer
+' start release timer
 
 [action 13090]
-.range 13091 13092
-
-
-[action 13091]
-.state $(Key_Release.Action) applied
 .keyrelease start max
 .return
 
-[action 13092]
-.else
+
+' release key
+
+[action 13095]
+.keyrelease release
 .return
 
 
