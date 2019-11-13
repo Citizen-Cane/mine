@@ -50,7 +50,7 @@ public class ValidateProject {
 
     @Test
     public void testCoverage() throws ScriptExecutionException, IOException, ScriptParsingException, ValidationIssue {
-        Mine mine = new Preset(new DebugSetup().withOutput()).script(Mine.MAIN).mine();
+        Mine mine = new Preset(new DebugSetup().ignoreMissingResources()).script(Mine.MAIN).mine();
         mine.loadScripts();
         List<ValidationIssue> validationIssues = mine.validateCoverage();
         mine.reportValidationIssues(validationIssues);
