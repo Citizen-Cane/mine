@@ -3,6 +3,7 @@ package teaselib.scripts.mine;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -34,13 +35,25 @@ public class ValidateProject {
     @Test
     public void testSyntax() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         Mine mine = new Preset(new DebugSetup().ignoreMissingResources()).script(Mine.MAIN).mine();
-        mine.validateProject();
+        mine.loadScripts();
+        List<ValidationIssue> validationIssues = mine.validateProject();
+        mine.reportValidationIssues(validationIssues);
     }
 
     @Test
     public void testResources() throws ScriptExecutionException, IOException, ScriptParsingException, ValidationIssue {
         Mine mine = new Preset(new DebugSetup().withOutput()).script(Mine.MAIN).mine();
-        mine.validateProject();
+        mine.loadScripts();
+        List<ValidationIssue> validationIssues = mine.validateResources();
+        mine.reportValidationIssues(validationIssues);
+    }
+
+    @Test
+    public void testCoverage() throws ScriptExecutionException, IOException, ScriptParsingException, ValidationIssue {
+        Mine mine = new Preset(new DebugSetup().withOutput()).script(Mine.MAIN).mine();
+        mine.loadScripts();
+        List<ValidationIssue> validationIssues = mine.validateCoverage();
+        mine.reportValidationIssues(validationIssues);
     }
 
     @Test
