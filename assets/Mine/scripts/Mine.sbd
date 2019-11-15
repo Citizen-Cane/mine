@@ -906,7 +906,7 @@ Would you be so kind and tell me what you've got exactly?
 ' either call an action that saves while speaking a message started in an earlier action
 ' When exiting after a prompt, call the special prompt entries
 
-' good end - prompt
+' good end - no prompt -> prompt
 
 [Action 850]
 .gosub 895              ' save session - regular end
@@ -930,12 +930,11 @@ Goodbye, slave...
 '[Action 854]
 
 
-' good end - no prompt
+' good end - prompt -> no prompt
 
 ' from introduction, 1st failure
 ' harness assignment not completed
 [Action 855]
-.gosub 895              ' save session - regular end
 .range 856 859
 
 
@@ -962,7 +961,7 @@ We'll be forced to stop today.
 .range 899              ' final quit
 
 
-' thrown out for disobedience - prompt
+' thrown out for disobedience - no prompt -> prompt
 
 [Action 870]
 .gosub 895              ' save session - regular end
@@ -978,7 +977,7 @@ Now get out of My sight!
 '[Action 874]
 
 
-' thrown out for disobedience - no prompt
+' thrown out for disobedience - prompt -> no prompt
 
 [Action 875]
 .range 876 879
@@ -995,7 +994,7 @@ Now get out of My sight!
 
 
 
-' thrown out for stupidity 
+' thrown out for impatience or stupidity - no prompt -> prompt
 
 [Action 880]
 .gosub 895              ' save session - regular end
@@ -1004,12 +1003,15 @@ Now get out of My sight!
 
 [Action 881]
 .noimage
-Goodbye, you stupid slut.
+Goodbye,
+you stupid slut.
 .yes Goodbye, Miss
 .range 899              ' final quit
 
 '[Action 884]
 
+
+' thrown out for impatience or stupidity - prompt -> no prompt
 
 [Action 885]
 .range 886 889
@@ -1018,7 +1020,8 @@ Goodbye, you stupid slut.
 [Action 886]
 .noimage
 .delay 7
-Goodbye, you stupid slut.
+Goodbye,
+you stupid slut.
 .gosub 895              ' save session - regular end
 .range 899              ' final quit
 
@@ -1030,6 +1033,7 @@ Goodbye, you stupid slut.
 [Action 890]
 .set 102 274            ' left without permission, quit check
 .resetrange 890 894
+.gosub 896              ' save session - on close - no quit check reset
 .range 891 894
 
 [Action 891]
@@ -1037,7 +1041,6 @@ Goodbye, you stupid slut.
 .delay 7
 You will regret this,
 you stupid cunt.
-.gosub 896              ' save session - on close
 .range 899              ' final quit
 
 '[Action 892]
@@ -1060,7 +1063,6 @@ you stupid cunt.
 .unset 896
 .range 898
 
-
 ' Save
 [Action 898]
 .unset 898
@@ -1071,7 +1073,6 @@ you stupid cunt.
 ' The .quit command doesn't display any message
 [Action 899]
 .unset 899
-.noimage
 .quit
 
 
