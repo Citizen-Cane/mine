@@ -741,7 +741,7 @@ and don't move while you listen to the rest of My instructions.
 '.mustnot 3238
 '.mustnot 3239
 .gosub 3120 3127
-.range 3112 3113        ' keys on floor
+.range 3110 3111        ' keys on desk
 
 ' wrists to ankles
 [Action 3102]
@@ -796,7 +796,7 @@ and don't move while you listen to the rest of My instructions.
 '.mustnot 3238
 '.mustnot 3239
 .gosub 3134 3135
-.range 3112 3113        ' keys on floor
+.range 3110 3111        ' keys on desk
 
 ' wrists to collar
 [Action 3104]
@@ -823,12 +823,12 @@ and don't move while you listen to the rest of My instructions.
 '.mustnot 3238
 '.mustnot 3239
 .gosub 3144 3151
-.range 3112 3113        ' keys on floor
+.range 3110 3111        ' keys on desk
 
 ' ???
 '[Action 3105]
 '.gosub 3152 3158        ' just seven slots
-'.range 3112 3113        ' keys on floor
+'.range 3110 3111        ' keys on floor
 
 
 ' Defaults
@@ -851,7 +851,8 @@ But keep it handy, because you're to put it back in right after you've finished 
 
 ' TODO message conflicts with optional key release -> check key release available and armed 
 [Action 3110]
-Leave the keys to your restraints on the desk, you may need them later.
+Place the keys to your restraints on the desk,
+you may need them later.
 .must 140
 .range 3119
 
@@ -863,7 +864,7 @@ Leave the keys to your restraints on the desk, you may need them later.
 ' TODO message conflicts with optional key release -> check key release available and armed
 [Action 3112]
 .must 140
-Leave the keys to your restraints on the floor in front of your desk,
+Place the keys to your restraints on the floor in front of your desk,
 you may need them later.
 .keyrelease start 3600
 .range 3119
@@ -959,11 +960,11 @@ Keep the connecting chains short, my pet.
 Well, we won't need your hands right now, just your lips and tongue,
 so get your wrist restraints and put them on.
 .item Toys.Wrist_Restraints apply 
-.range 3138
+.range 3138 3143
 
 [action 3135]
 .item Toys.Wrist_Restraints applied
-.range 3138
+.range 3138 3143
 
 
 ' TODO comment and give instructions regarding the Humbler,
@@ -1124,9 +1125,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 .range 3160 3169
 
 
-' It's suck or suck & ride
-' just riding had been thought of, but the mouth has to be free
-' TODO Now that the gag is removed, re-think - maybe if sucked earlier on?
+' It's suck or suck & ride, or ride only
 
 ' no restrictions - suck and ride
 [Action 3160]
@@ -1153,6 +1152,19 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 .set 9                            ' can ride - but ask later
 .range 3170 3171                  ' sucking and riding
 
+' just ride
+' not called since the gag is always removed
+' TODO remove gag if we have to (s.o. in butt or harnessed), otherwise just ride
+' TODO Don't call dildo-worshiping with plug or harness when the gag has been put on for a single activity - makes no sense
+' TODO If the gag is put on for punishment or for the session, remove it for the activity
+[Action 3168]
+.item Toys.Gag applied
+.item Toys.Dildo canApply to Body.InButt
+.unset 8                ' can't suck
+.set 9                  ' can ride
+.range 3190 3195        ' riding only
+
+' just suck
 [Action 3169]
 .else
 .set 8                  ' can suck
@@ -2196,7 +2208,7 @@ so keep the chain short!
 Tell me when you're ready for your punishment.
 .yes I'm ready, Miss
 .item Toys.Nipple_Clamps apply over 00:30"00     ' to choose an activity duration later
-.range 3391
+.range 3392
 
 [Action 3391]
 .state Body.OnNipples applied
@@ -2206,7 +2218,7 @@ The clamps should carry out a persistent pull on your nipples,
 so keep the chain short!
 Tell me when you're ready for your punishment.
 .yes I'm ready, Miss
-.range 3391
+.range 3392
 
 
 [Action 3392]
@@ -4003,12 +4015,12 @@ delay 15
 ' TODO Decide about 3801
 ' around the clock and so on has more variation, 
 ' but just back and forth / up and down feels more like riding  
-.range 3802 3808
+.range 3801 3808
 
-
+' TODO works with standing scenarios - check for those and apply
 ' around the clock, against the clock, back & forth, up and down
 [Action 3801]
-You will ride your dildo by tilting, rotating and lifting your pelvis.
+This time, you will ride your dildo by tilting, rotating and lifting your pelvis.
 During that exercise, your torso will maintain its position at all times. 
 []
 Now, I may tell you to tilt Back and Forth.
@@ -4032,7 +4044,7 @@ make sure the dildo impales you as deep as possible.
 
 ' back & forth, up and down
 [Action 3802]
-You will ride your dildo by tilting and lifting your pelvis.
+This time, you will ride your dildo by tilting and lifting your pelvis.
 During that exercise, your torso will maintain its position at all times. 
 []
 Now, I may tell you to tilt Back and Forth.
