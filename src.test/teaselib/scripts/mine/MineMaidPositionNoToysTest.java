@@ -1,6 +1,7 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -118,7 +119,7 @@ public class MineMaidPositionNoToysTest {
         mine.playRange(new ActionRange(1, 3999));
         mine.playRange(new ActionRange(4000, 6999));
 
-        assertTrue(mine.range.start >= 7700 || mine.range.start == 1820);
+        assertTrue(mine.action.number >= 7700 || mine.action.number == 1820);
     }
 
     public List<Action> checkPositionAvailable() throws AssertionError {

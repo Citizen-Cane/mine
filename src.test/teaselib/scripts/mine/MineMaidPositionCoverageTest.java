@@ -1,6 +1,8 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -229,6 +231,6 @@ public class MineMaidPositionCoverageTest {
     }
 
     private static void assertThatAllActionsSetDidntOccur(Mine mine) {
-        assertNotEquals("All actions set handler invoked", new ActionRange(9999), mine.range);
+        assertNotEquals("All actions set handler invoked", 9999, mine.action.number);
     }
 }

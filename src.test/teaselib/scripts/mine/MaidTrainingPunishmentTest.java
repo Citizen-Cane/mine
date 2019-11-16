@@ -1,6 +1,7 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.io.IOException;
 
@@ -98,8 +99,8 @@ public class MaidTrainingPunishmentTest {
 
         mine.play(new ActionRange(start), new ActionRange(1000, 9950));
 
-        assertEquals(PUNISHMENT_FINAL_FAILURE, mine.range.start);
-        assertEquals(PUNISHMENT_FINAL_FAILURE, mine.range.end);
+        assertEquals(PUNISHMENT_FINAL_FAILURE, mine.action.number);
+        assertEquals(PUNISHMENT_FINAL_FAILURE, mine.action.number);
 
         assertFalse(mine.items(TOYS).getApplied().toString(), mine.items(TOYS).anyApplied());
     }

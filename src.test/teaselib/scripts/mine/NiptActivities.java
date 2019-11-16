@@ -149,7 +149,7 @@ public class NiptActivities extends ActivityTest {
     }
 
     private static boolean isPinAttached(Player player) {
-        int n = player.range.start;
+        int n = player.action.number;
         return player.state.get(n - QUICK_PINS_QUESTION_RANGE_START + QUICK_PINMS_STATE_RANGE_START)
                 .equals(ScriptState.SET);
     }
