@@ -468,7 +468,7 @@
 '.askcheck      70      432     432: done w/ 632: dildo 8 hours
 '.askcheck      71      433     433: done w/ 633: dildo until bedtime
 '.askcheck      71      434     434: done w/ 634: Butt plug until bedtime
-'.askcheck      60      435     ç35: done w/ 635: dildo all day
+'.askcheck      60      435     435: done w/ 635: dildo all day
 '.askcheck      61      436     436: done w/ 636: sleep with dildo   
 
 ' 590-599 local variables are used to trigger or skip something later in the script
@@ -4507,7 +4507,7 @@ We'll talk about this in a minute.
 [Action 1623]
 .item Toys.Chastity_Device available
 .must 112
-.gosub 9291 9294             ' Ask whether slave wears it regardless of the current state
+.gosub 9200                  ' Ask whether slave wears it regardless of the current state
 .range 1651
 
 ' Have it, lecture not heard yet
@@ -4531,10 +4531,12 @@ Are you already wearing it?
 In that case you can just crawl over to the bathroom and
 cool down your slave penis with ice cold water.
 When it looks like a shriveled prick,
-you may put the cage on, lock it up, and crawl back to me.
+you may put the cage on, lock it up,
+and crawl back to me.
 delay 30
 .yes I'm locked up, Miss
-.range 1635
+.range 1635 1636
+
 
 [Action 1635]
 Excellent, my pet.
@@ -4545,8 +4547,9 @@ You'll be wearing that cage until further notice.
 
 
 [Action 1636]
-I'll see you're enjoying it already.
-And you will continue to do so until further notice, slave.
+Very good, my pet.
+Don't expect any release soon.
+You'll be wearing that cage until further notice.
 .gosub 11990            ' something on penis, can't jerk off, chastified
 .range 1637 1639
 
@@ -5417,7 +5420,7 @@ But are you saying you haven't done anything I don't know about?
 delay 2
 You're quite sure you don't deserve any extra punishment?
 .set 10
-.yesno 2004 2007 2011 2011
+.yesno 2004 2007 2011 2012
 .yestext Yes Miss, I'm sure
 .notext No Miss, I'm not
 
@@ -5439,8 +5442,8 @@ Would you like a touch of My whip to help you toe the line?
 Hmm.
 You're not forgetting anything, are you?
 Are you absolutely certain your Mistress hasn't given you any extra punishment recently?
-.yesno 2004 2006 2011 2011
-.yestext Yes Miss, I am
+.yesno 2004 2006 2011 2012
+.yestext Yes Miss, I'm sure
 .notext No Miss, I'm not
 
 '	answered no, and no POs, moving on without incident
@@ -5497,6 +5500,7 @@ I'm sure we can find some suitable punishment for you, then.
 
 '	answered yes, with some POs out there
 [Action 2012]
+.must 9
 Yes, you have been a disobedient slave.
 And you know what happens to bad sluts who belong to Me, don't you?
 .yes Yes, Miss
@@ -5727,20 +5731,6 @@ It would please your Mistress very much, and it would do you a world of good.
 '[Action 2105]
 
 
-' punishments functions (checked via .numactionsavailable)
-
-' No more outstanding punishments left
-[Action 2145]
-.poss 100
-.mustnot 500 501 502 503 504 505 506 507 508 509 
-.mustnot 510 511 512 513 514 515 516 517 518 519
-.mustnot 520 521 522 523 524 525 526 527 528 529
-.mustnot 530 531 532 533 534 535 536 537 538 539
-.mustnot 540 541 542 543 544 545 546 547 548 549
-.unset 9
-.range 2265 2269
-
-
 ' Punishment dispatcher
 
 ' First punishment entry point
@@ -5755,22 +5745,29 @@ Let's see if I can remember what punishments you've earned.
 .range 2155 2158
 
 
+' remove clamps & pegs before processing the next punishment
 [action 2155]
 .painToysOnNipples
 .state Body.OnNipples expired
 .gosub 11800            ' pegs/clamps tracking, comment and removal
-.range 2159
+.range 2157 2158
 
+' remove clamps & pegs before processing the next punishment
 [action 2156]
 .painToysOnBalls
 .state Body.OnBalls expired
 .gosub 11800            ' pegs/clamps tracking, comment and removal
-.range 2159
+.range 2157 2158
 
 ' No more outstanding punishments left
 [action 2157]
 .poss 100
-.numactionsavailable 2145 2145 1
+.mustnot 500 501 502 503 504 505 506 507 508 509 
+.mustnot 510 511 512 513 514 515 516 517 518 519
+.mustnot 520 521 522 523 524 525 526 527 528 529
+.mustnot 530 531 532 533 534 535 536 537 538 539
+.mustnot 540 541 542 543 544 545 546 547 548 549
+.unset 9
 .range 2265 2269
 
 [action 2158]
@@ -6110,7 +6107,8 @@ and that Mistresses are to be obeyed without question!
 .mustnot 506 516 519 520 525                ' Severe punishments
 .mustnot 510 513 514 515                    ' punishments related to this session
 .mustnot 2150                               ' must have processed at least one punishment
-.range 2260
+.range 2260 2264
+
 
 
 ' Postpone outstanding punishments due to planned enema voiding
@@ -6149,28 +6147,22 @@ and that Mistresses are to be obeyed without question!
 '[Action 2258]
 '[Action 2259]
 
+' end of punishment dispatcher
+
+
 
 ' Exit from punishment cycle (enema, took care of a couple of punishments)
 
 [Action 2260]
-.range 2261 2264
-
-
-[Action 2261]
 .else
 You've been quite a naughty slave boy, and you've still got some punishment coming to you.
 However, I think we'll save those sessions until next time.
 .range 2300        ' Punishment exit
 
+'[Action 2261]
 '[Action 2262]
 '[Action 2263]
-
-' No more outstanding punishments left
-[Action 2264]
-.poss 100
-.numactionsavailable 2145 2145 1
-.unset 9
-.range 2265 2269
+'[Action 2264]
 
  
 ' all outstanding punishments resolved
@@ -7881,9 +7873,9 @@ I guess you've gotten away with one this time.
 ' 524 free
 
 ' Corner time + marker
-[Action 2740]
-.save 90 799
-.loadsbd mine-paddle.sbd 2620 2620
+'[Action 2740]
+'.save 90 799
+'.loadsbd mine-paddle.sbd 2620 2620
 
 
 ' corner time return
@@ -9444,10 +9436,10 @@ Leave your chains on for the whole session, slave.
 ' 3180-3199 free category
 
 ' fallback - select different category
-[Action 3199]
-.else
-.unset 3199
-.range 3100 3107
+'[Action 3199]
+'.else
+'.unset 3199
+'.range 3100 3107
 
 
 
@@ -9944,7 +9936,7 @@ Did you follow my orders, bitch?
 .must 636
 Did you follow my instructions last time,
 and slept with your dildo plugged inside your slave anus, slave?
-.yesno 3920 3920 3921 3921 
+.yesno 3936 3936 3937 3937 
 .yestext Yes Miss, I've kept it in all night
 .notext I'm sorry Miss, but I didn't make it
 
@@ -9954,7 +9946,7 @@ and slept with your dildo plugged inside your slave anus, slave?
 In My last session, I ordered you to wear your dildo over the course of a day,
 for a solid twelve hours, indoors and out, to train you to be a more subservient slave.
 Well, did you follow my orders, bitch?
-.yesno 3922 3922 3923 3923
+.yesno 3938 3938 3939 3939
 .yestext Yes, I've been plugged all day, Miss
 .notext I'm sorry Miss, but I didn't make it
 
@@ -10069,7 +10061,7 @@ You may make a good slave yet!
 .range 3960
 
 [Action 3931]
-.range 3940        ' try again assignment
+.range 3940        ' re-try assignment right now
 
 
 ' dildo 4 hours
@@ -10088,7 +10080,7 @@ Well slave, I'm not pleased to hear that.
 But I understand that you need more training than I thought. 
 .unset 631
 .yes Thank you, Miss
-.range 3950        ' restart
+.range 3955        ' restart
 
 
 ' dildo 8 hours
@@ -10108,7 +10100,7 @@ I'm not pleased that you gave up,
 but I understand that you need more training than I thought. 
 .unset 632
 .yes Thank you, Miss
-.range 3950        ' restart
+.range 3955        ' restart
 
 
 ' dildo over night
@@ -10124,7 +10116,7 @@ importance of humiliation in your slavery.
 .range 3960
 
 [Action 3937]
-.range 3940        ' try again assignment
+.range 3940        ' re-try assignment right now
 
 
 ' dildo all day
@@ -10144,13 +10136,13 @@ Well slave, it was a tough assignment.
 I'm not pleased that you gave up, but I understand that you need more training than I thought. 
 .yes Thank you, Miss
 .unset 635         ' day with dildo
-.range 3950
+.range 3955
 
 
-' Plug or dildo for bed time handling
+' retry Butt-plug or dildo bed time, 4h, 8h  overnight handling
 
 ' todo handle harness explicitly, check all conditions
-' todo handle no buttplug or dildo anymore
+' todo handle no buttplug or dildo anymore -> possibly earlier in script
 ' todo when giving or repeating assignment, have slave repeat assignment in answer - "Yes Miss, I have to sleep plugged all night"
 
 ' works with intensified enema training because intensified enema is triggered only when the enema has been voided early,
@@ -10270,8 +10262,8 @@ and don't take it off before.
 ' Restart training with butt-plugged to bedtime after failing assignment
 
 [action 3950]
-.unset 422 423 429 430 431 432 433 434 435 436 
-.unset 759 760                                   ' Anal training 4 & 5
+.unset 422 423 429 430 434    ' Clear previous buttplug-achievements              
+.unset 759 760                ' Anal training 4 & 5
 .range 3951 3954
 
 
@@ -10312,7 +10304,7 @@ and don't take it off before.
 .range 3960
 
 
-' Skip if butt plug not available anymore
+' Skip if butt-plug not available anymore
 [action 3954]
 .else
 .range 3960
@@ -10321,8 +10313,8 @@ and don't take it off before.
 ' Restart training with dildo-plugged to bedtime when failed assignment
 
 [action 3955]
-.unset 422 423 429 430 431 432 433 434 435 436   ' Clear previous achievements
-.unset 759 760                                   ' Anal training 4 & 5
+.unset 431 432 433 435 436    ' Clear previous dildo-achievements
+.unset 759 760                ' Anal training 4 & 5
 .range 3956 3959
 
 
@@ -10590,12 +10582,12 @@ Have you remained naked at home at all times as I ordered you?
 .unset 602 603 604
 .unset 605 606 607
 .set 608                     ' start naked-week
-.range 4100
+.range 4090
 
 ' Skip altogether
 [Action 4059]
 .mustnot 597 608             ' naked-week assignment
-.range 4100
+.range 4090
 
 
 ' naked-week advance
@@ -10603,7 +10595,7 @@ Have you remained naked at home at all times as I ordered you?
 [Action 4060]
 Very good, my pet.
 I see that you're taking your assignment serious.
-.range 4100
+.range 4090
 
 '[Action 4061]
 '[Action 4062]
@@ -10619,7 +10611,7 @@ Being bare-naked is essential to being a good slave boy.
 .set 408           ' naked week assignment completed
 .unset 608         ' clear naked-week assignment
 .set 704           ' Naked acceptance 4
-.range 4100
+.range 4090
 
 '[Action 4066]
 
@@ -13777,14 +13769,14 @@ Now take your "paddle" and carefully listen to my instructions.
 .else
 .item Toys.enema_bulb free
 .state Body.CrotchRoped applied
-.range 7320 7324
+.range 7325 7329
 
 ' still time left - inflatable nozzle
 [Action 7308]
 .else
 .item Toys.enema_bulb applied
 .state Body.CrotchRoped free
-.range 7325 7329
+.range 7330 7334
 
 '[Action 7309]
 
@@ -15707,9 +15699,9 @@ Cum, My dear slave, cum for your Mistress!
 
 [Action 8010]
 Cum now, My slave. Quickly!
-.delay 35 45 STOP 8222 8224       ' Came in time, good
+.delay 35 45 CUM 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext I came, Miss
+.cumtext I came, Miss
 .must 8092                        ' cum in time
 .mustnot 691 692 693 694 695 696 697 698 699 726
 .mustnot 726
@@ -15718,9 +15710,9 @@ Cum now, My slave. Quickly!
 [Action 8011]
 Cum now, My slave.
 Quickly!
-.delay 30 40 STOP 8222 8224       ' Came in time, good
+.delay 30 40 CUM 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext I came, Miss
+.cumtext I came, Miss
 .must 8092                        ' cum in time
 .must 726                         ' denial and self control 1
 .mustnot 691 692 693 694 695 696 697 698 699 727
@@ -15729,9 +15721,9 @@ Quickly!
 [Action 8012]
 Cum now, My slave.
 Quickly!
-.delay 25 35 STOP 8222 8224       ' Came in time, good
+.delay 25 35 CUM 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext I came, Miss
+.cumtext I came, Miss
 .must 8092                        ' cum in time
 .must 727                         ' denial and self control 2
 .mustnot 691 692 693 694 695 696 697 698 699 728
@@ -15740,9 +15732,9 @@ Quickly!
 [Action 8013]
 Cum now, My slave.
 Quickly!
-.delay 20 30 STOP 8222 8224       ' Came in time, good
+.delay 20 30 CUM 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext I came, Miss
+.cumtext I came, Miss
 .must 8092                        ' cum in time
 .must 728                         ' denial and self control 3
 .mustnot 691 692 693 694 695 696 697 698 699 729
@@ -15751,9 +15743,9 @@ Quickly!
 [Action 8014]
 Cum now, My slave.
 Quickly!
-.delay 15 25 STOP 8222 8224       ' Came in time, good
+.delay 15 25 CUM 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext I came, Miss
+.cumtext I came, Miss
 .must 8092                        ' cum in time
 .must 729                         ' denial and self control 4
 .mustnot 691 692 693 694 695 696 697 698 699 730
@@ -15762,9 +15754,9 @@ Quickly!
 [Action 8015]
 Cum now, My slave.
 Quickly!
-.delay 15 20 STOP 8222 8224       ' Came in time, good
+.delay 15 20 CUM 8222 8224       ' Came in time, good
 '.txt When you've finished, press the "STOP" button at once.
-.stoptext I came, Miss
+.cumtext I came, Miss
 .must 8092                        ' cum quick
 .must 730                         ' denial and self control 5
 .mustnot 691 692 693 694 695 696 697 698 699
@@ -16341,7 +16333,7 @@ Keep yourself fully aroused, slave, and wait for my command...
 .range 8090
 
 
-' Cum!
+' Cum! - not timed
 
 ' todo Distinguish between stop (in cage) and cum (with or without cage)
 
@@ -16415,6 +16407,8 @@ Tell me when you've finished, My pet.
 '[Action 8207]
 
 
+' Cum! timed - end
+' replace break range button "I came" with "stop"
 
 ' Putting hands behind head can also be done with wrist restraints, but not with chains
 [Action 8208]
@@ -16423,10 +16417,10 @@ Tell me when you've finished, My pet.
 Stop it, slave!
 Hands off your hot cock!
 'and press the "STOP" button at once.
-.delay 15 20 STOP 8213 CUM 8215
+.delay 15 20 STOP 8213 8216 CUM 8220 8221
 .stoptext I've stopped, Miss
-.cumtext I spurted off, Miss
-.range 8210 8212                                 ' Ask whether slave came when to late
+.cumtext I've spurted off, Miss
+.range 8210 8212                       ' Too late: Ask whether slave came when too late
 '.txt Press the "STOP" button at once.
 
 [Action 8209]
@@ -16434,93 +16428,100 @@ Hands off your hot cock!
 .mustnot 691 692 693 694 695 696 697 698 699
 Stop it, slave!
 Hands behind your head!
-.delay 15 20 STOP 8213 CUM 8215
+.delay 15 20 STOP 8213 8216 CUM 8220 8221
 .stoptext I've stopped, Miss
-.cumtext I spurted off, Miss
-.range 8210 8212                                 ' Ask whether slave came when to late
+.cumtext I've spurted off, Miss
+.range 8210 8212                       ' Too late: Ask whether slave came when too late
 '.txt Press the "STOP" button at once.
 
 
-' Too late: schedule for disobedience punishment
+' Too late: schedule for disobedience punishment, trick question
 
 [Action 8210]
-Well, that was too late.
-You'll be punished for this act of imprudence.
 .mustnot 504
 .set 504                ' p.o. for general disobedience
-.range 8214
+That was too late, slave.
+You'll be punished for this act of imprudence.
+Did you cum at least, my pet?
+.yesno 8220 8221 8217 8219
+.yestext Yes Miss, I did
+.notext No Miss, I didn't 
 
 [Action 8211]
-Too late, cunt.
-You can expect punishment for your negligence next time.
 .must 504
 .set 508                ' p.o. for Inattentiveness
-.range 8214
+Too late, cunt.
+You can expect punishment for your negligence next time.
+Did you actually cum at least?
+.yesno 8220 8221 8227 8227
+.yestext Yes Miss, I did
+.notext Sadly not, Miss 
 
 '[Action 8212]
 
 
-' Ask whether slave came although too late
+' stopped in time: trick question - Ask whether slave came
 
 [Action 8213]
 Well, that was close, wasn't it, slave?
-.range 8214
+[]
+Did you cum at least, my pet?
+.yesno 8220 8221 8217 8219
+.yestext Yes Miss, I did
+.notext No Miss, I didn't 
 
 [Action 8214]
-Did you cum at least, my pet?
-.yesno 8215 8215 8217 8217
+Well my dear pet, did you actually cum?
+.yesno 8220 8221 8227 8227
 .yestext Yes Miss, I did
-.notext I'm afraid I didn't, Miss 
+.notext No Miss, I didn't 
+
+'[Action 8215]
+
+[Action 8216]
+That was close.
+I'm proud you showed some self control.
+.range 9000
 
 
-' Slave was too late but spurted off nevertheless
+' Slave was too late, but didn't spurt off
 
-[Action 8215]
+[Action 8217]
+Oh, slave!
+I'm so sorry for you.
+[]
+But if you didn't make it until now,
+you didn't deserve it anyway.
+You're going to stay horny tonight.
+[]
+But if you continue to show such good behaviour in the future,
+I might let you cum next time.
+.range 9000
+
+'[Action 8218]
+'[Action 8219]
+
+
+' Slave came too late
+
+[Action 8220]
 So, did you, slave?
 You might remember that I ordered you to get your hands
 off your hot cock immediately when time was up.
 But you didn't!
-.range 8216
-
-[Action 8216]
+[]
 I guess I'll let you off the hook today,
 but I'll mark you down for some punishment next time.
 delay 2
 .set 525                ' interrogate next time, P.O. for cumming after denial
 .range 9000	            ' this jumps to the good ending, just to make the slave feel safe 
 
+'[Action 8221]
 
-' Slave was too late, but didn't spurt off
-
-[Action 8217]
-Oh!
-I'm so sorry for you.
-.range 8218
-
-[Action 8218]
-But if you didn't make it until now,
- you didn't deserve it anyway.
-You're going to stay horny tonight.
-.range 8219
-
-[Action 8219]
-But if you continue to show such good behaviour in the future,
-I might let you cum next time.
-.range 9000
-
-
-' Hit the STOP button in time
-
-[Action 8220]
-Well. That was close.
-But I'm proud you showed some self control.
-.range 9000
-
-[Action 8221]
-Well my dear pet, did you actually cum?
-.yesno 8222 8224 8227 8227
-.yestext Yes Miss, I did
-.notext Sadly not, Miss 
+' cum-slut activity cannot be announced before timed cum-denial
+' since the slave may not come, and the activity couldn't be continued
+' but licking up cum can be used as an immediate punishemnt when being a cum slut already
+' TODO add cum-slut activities without preparations "lick it all up..."
 
 
 ' slave came in time
@@ -16934,15 +16935,40 @@ Are you wearing your chastity cage right now?
 
 ' Chastity cage check when having toy, called after toy setup
 ' all paths return with wearing the cage
-' additional entries 9291-9294 because chastity device might be set already 
 
 [Action 9200]
-.item Toys.Chastity_Device applied
-.return
+.range 9201 9204
 
 [Action 9201]
-.item Toys.Chastity_Device not applied
-.range 9291 9294             ' ask slave
+Oh, slave, by the way -
+Are you wearing your chastity cage right now?
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
+.yestext Yes Miss, I'm locked up
+.notext No Miss, I don't
+.range 9196 9198
+
+[Action 9202]
+Apropos, slave!
+Are you wearing your chastity cage?
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
+.yestext Yes Miss, I'm locked up
+.notext No Miss, I don't
+.range 9196 9198
+
+[Action 9203]
+What about your chastity cage, sweetie?
+Are you wearing it?
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
+.yestext Yes Miss, I'm locked up
+.notext No Miss, I don't
+.range 9196 9198
+
+[Action 9204]
+Right now, slave, are you wearing your chastity cage?
+.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
+.yestext Yes Miss, I'm locked up
+.notext No Miss, I don't
+.range 9196 9198
 
 
 ' slave is fine with being locked up
@@ -17366,41 +17392,6 @@ What a poor slut you are.
 '[Action 9279]
 
 
-' weaaring chastity cage questions
-' - called from 9201 and directly from 1620-1629
-
-[Action 9291]
-Oh, slave, by the way -
-Are you wearing your chastity cage right now?
-.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
-.yestext Yes Miss, I'm locked up
-.notext No Miss, I don't
-.range 9196 9198
-
-[Action 9292]
-Apropos, slave!
-Are you wearing your chastity cage?
-.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
-.yestext Yes Miss, I'm locked up
-.notext No Miss, I don't
-.range 9196 9198
-
-[Action 9293]
-What about your chastity cage, sweetie?
-Are you wearing it?
-.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
-.yestext Yes Miss, I'm locked up
-.notext No Miss, I don't
-.range 9196 9198
-
-[Action 9294]
-Right now, slave, are you wearing your chastity cage?
-.delay 15 15 confirm InDubioMitius yes 9251 9254 no 9215 9216
-.yestext Yes Miss, I'm locked up
-.notext No Miss, I don't
-.range 9196 9198
-
-
 ' Mistress is done with the slave
 
 [Action 9500]
@@ -17498,7 +17489,7 @@ I guess you're so horny that your cage will burst!
 [Action 9544]
 .must 731 732 733 734
 .mustnot 735
-.range 9590
+.range 9590 9593
 
 '[Action 9545]
 '[Action 9546]
@@ -17658,7 +17649,7 @@ Today, I will teach you to clean cock.
 For that purpose,
 you'll need your dildo.
 .yes I have it, Miss
-.range 9599
+.range 9599 9599
 
 [Action 9591]
 .item Toys.Dildo available AND applied to Body.InButt
@@ -17668,10 +17659,10 @@ you need second dildo or a dildo-shaped object.
 It can be anything,
 as long as it fits into your mouth.
 Do you have something?
-.yesno 9598 9598 9595 9595
+.yesno 9599 9599 9594 9595
 ' TODO three choices: Dildo, something, nothing
 .yestext Yes, Miss, I have something
-.notext I'm sorry, Miss, but I haven't
+.notext Yes Miss, in my slave cunt
 
 [Action 9592]
 .else
@@ -17683,8 +17674,8 @@ you need a dildo or dildo-shaped object.
 It can be anything,
 as long as it fits into your mouth.
 Do you have something?
-' TODO three choices: Dildo, something, nothing
-.yesno 9599 9599 9596 9596
+' TODO three choices: real Dildo, something, nothing
+.yesno 9598 9599 9596 9596
 .yestext Yes, Miss, I have something
 .notext I'm sorry, Miss, but I haven't
 
@@ -17696,52 +17687,62 @@ Do you have something?
 
 ' slave is missing dildo altogether
 [Action 9594]
+.item Toys.Dildo not available
 That's too bad slave,
-because I'm really curious to see you licking up cum from a dildo. 
+because I'm really curious to see you licking up cum from a real dildo. 
 Well, if you want to cum tonight,
-you must promise me to get a real dildo for next time.
+you must promise me to get one for next time.
 .yesno 9597 9597 9596 9596 
-.yestext I promise to get a  Dildo
-.notext Please Miss, I don't want to
+.yestext Yes Miss, I promise to get a real Dildo
+.notext Please Miss, I want to cum
 
 ' slave has dildo but applied to Backdoor
 [Action 9595]
+.item Toys.Dildo available
 That's too bad slave,
-because I'm really curious to see you licking up cum from a dildo. 
-Well, if you want to cum tonight,
-you must promise me to get a second dildo for next time.
+because I really like to see you licking up cum from a dildo
+while you have another one in your backdoor. 
+Well, if you want me to let you cum tonight,
+you must promise me to get a another dildo for next time.
 .yes I promise, Miss
 .unset 9544             ' reset since checked later
-.range 9600 9603 
+' skip toy assignment and lecture since the slave already heard it
+.range 9600 9603        ' choose easier scenario without dildo
 
 
 [Action 9596]
-Sorry then, no release for an unwilling slave tonight.
-.yes Yes, Miss
+Sorry then,
+if you're so unwilling to procure some simple training equiment,
+there's no release for an unwilling slave tonight.
+.yes As you wish, Mistress
 .range 9000
 
 
 [Action 9597]
 Excellent!
-Of course you have to follow my requirements,
+Of course I have some requiremnts regarding this elementary training utility,
 so listen carefully.
-.set 684                ' get a dildo
+.set 684                ' get a dildo assignment
 .unset 9544             ' reset since checked later
 .gosub 4800
 .range 9600 9603        ' choose random scenario level 1-4
 
 
-' dildo or similar
+' have dildo or similar
 [Action 9598]
+.item Toys.Dildo not available
 Okay.
-When I tell you to cum, you'll spurt off as much of your load as possible on your "dildo".
+When I tell you to cum,
+you'll spurt off as much of your load as possible on your "dildo".
 And make sure you'll aim good.
 .range 9629
 
-' dildo
+' have real dildo
 [Action 9599]
+.item Toys.Dildo available
 Okay.
-When I tell you to cum, you'll spurt off as much of your load as possible on your dildo.
+When I tell you to cum,
+you'll spurt off as much of your load as possible on your dildo.
 And make sure you'll aim good.
 .range 9629
 
@@ -19095,7 +19096,7 @@ I give you permission to tie yourself with a nice crotch rope.
 ' next-session-toy ending continuation 
 [Action 9902]
 .must 211               ' next-session-toy ending, continue next session
-.gosub 11800
+.gosub 11700
 .range 9910
 
 ' Enema preparation

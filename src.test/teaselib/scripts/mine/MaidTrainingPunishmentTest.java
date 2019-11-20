@@ -89,8 +89,8 @@ public class MaidTrainingPunishmentTest {
         testMaidTrainingPunishmentFinalFailure(MAID_TRAINIMG_FAILURE_2_PUNISHMENT);
     }
 
-    public void testMaidTrainingPunishmentFinalFailure(int start) throws ScriptParsingException, ValidationIssue,
-            ScriptExecutionException, IOException, AllActionsSetException {
+    public void testMaidTrainingPunishmentFinalFailure(int start)
+            throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         Mine mine = new Preset().script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGivingUp())
                 .punishmentAcceptance(punishmentAcceptance).mine();
 
