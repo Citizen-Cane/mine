@@ -1403,7 +1403,7 @@ I hope so, slut!
 ' lms 20-25m	"about twenty minutes"		> 114 115
 ' lms 25-30m	"about a half hour long" 	> 115-116
 '  ms 30-35m	"half hour.../a good forty"	> 116-117
-'   s    40m    "about fort yminutes"       > 118
+'   s    40m    "about forty minutes"       > 118
 '
 ' 519 cumming without permission 45 minutes kneeling > 119
 ' and a one hour corner time                         > 120
@@ -1541,10 +1541,12 @@ I hope so, slut!
 .mustnot 725
 .range 1736 1737
 
-' 40 minutes
+' 35-40 minutes
 [Action 1726]
 .must 725
-.range 1738
+.range 1737 1738
+
+' 45 minutes & one hour is reserved for cumming without permission
 
 
 ' Corner time entry range
@@ -1591,6 +1593,9 @@ I hope so, slut!
 .set 118
 .range 1750
 
+
+' reserved for cumming without permission
+
 ' 45 minutes
 [Action 1739]
 .set 119
@@ -1616,6 +1621,7 @@ I hope so, slut!
 ' Kneeling - 50% if unset, 100% if set
 [Action 1752]
 .state Posture.CantKneel free
+.mustnot 120                           ' one hour
 .set 121                               ' Kneeling 
 .unset 122                             ' Tip toes
 .range 1755 1759
@@ -1861,6 +1867,7 @@ Grab your nipple clamps and keep them handy.
 
 ' TODO 186 + toys more severe bondage in corner for cumming w/o permission
 
+
 ' Kneeling/tip toes
 
 [Action 1870]
@@ -1992,77 +1999,77 @@ You aren't allowed to give yourself a reach-around, either!
 
 
 [Action 1961]
-.mustnot 112 113 114 115 116 117 118 119 120
+.mustnot     112 113 114 115 116 117 118 119 120
 You'll be in the corner for five minutes today.
 I guess I'm just in a forgiving mood.
 .range 1980
 
 [Action 1962]
-.mustnot 112 113 114 115 116 117 118 119 120
+.mustnot     112 113 114 115 116 117 118 119 120
 I think about five minutes in the corner should be enough for you today.
 I guess I'm just in a forgiving mood.
 .range 1980
 
 
 [Action 1963]
-.mustnot 113 114 115 116 117 118 119 120
+.mustnot         113 114 115 116 117 118 119 120
 I think five or ten minutes in the corner should be enough for you today.
 I guess I'm just in a forgiving mood.
 .range 1980
 
 [Action 1964]
-.mustnot 111 114 115 116 117 118 119 120
+.mustnot 111         114 115 116 117 118 119 120
 You'll be in the corner for ten or fifteen minutes today.
 .range 1980
 
 [Action 1965]
-.mustnot 111 114 115 116 117 118 119 120
+.mustnot 111         114 115 116 117 118 119 120
 I think ten or fifteen minutes of corner time is about right,
 give or take.
 .range 1980
 
 [Action 1966]
-.mustnot 111 112 116 117 118 119 120
+.mustnot 111 112             116 117 118 119 120
 You'll be in the corner for fifteen or twenty minutes today.
 .range 1980
 
 [Action 1967]
-.mustnot 111 112 116 117 118 119 120
+.mustnot 111 112             116 117 118 119 120
 I think fifteen or twenty minutes of corner time is about right,
 give or take.
 .range 1980
 
 [Action 1968]
-.mustnot 111 112 116 117 118 119 120
+.mustnot 111 112             116 117 118 119 120
 I think about twenty minutes of corner time is about right,
 give or take.
 .range 1980
 
 [Action 1969]
-.mustnot 111 112 113 114 118 119 120
-I'm quite angry at you today,
+.mustnot 111 112 113 114             118 119 120
+I'm quite angry at you,
 so I think I'll make today's corner time about a half hour long.
 I hope you use that time wisely, slut.
 .range 1980
 
 [Action 1970]
-.mustnot 111 112 113 114 115 118 119 120
-I'm quite angry at you today,
+.mustnot 111 112 113 114 115         118 119 120
+I'm quite angry at you,
 so you'll be in that corner for a good half hour.
 I hope you use that time wisely, slut.
 .range 1980
 
 [Action 1971]
-.mustnot 111 112 113 114 115 116 120
-You've made me very angry today, slave,
+.mustnot 111 112 113 114 115 116             120
+You've made me very angry, slave,
 so you'll be in that corner for about forty minutes.
 That should give you plenty of time to think about the ways in which you've displeasured me,
 and how to make amends.
 .range 1980
 
 [Action 1972]
-.mustnot 111 112 113 114 115 116 117 120
-You've made me very very angry today, slave,
+.mustnot 111 112 113 114 115 116 117         120
+You've made me very very angry, slave,
 so you'll be in that corner for a good forty minutes.
 That should give you plenty of time to think about the ways in which you've displeasured me,
 and how to make amends.
@@ -2070,7 +2077,7 @@ and how to make amends.
 
 [Action 1973]
 .must 120
-You've been a complete cunt today, slave,
+You've been a complete cunt, slave,
 and I think I'll reward you with a full hour in the corner.
 I'm sure you'll have a much better attitude after that! 
 .range 1980
@@ -2812,55 +2819,51 @@ And bad slaves are going to be punished.
 ' 519 cumming without permission
 
 [Action 2300]
-.range 2301
-
-[Action 2301]
 I want you to take your marker,
 write the word "BAD" on your right ball,
 and the word "GIRL" on your left ball.
 Understand, slave?
 You have been a bad girl for spurting your load when you were not to do so.
 .chat I've written "Bad Girl" on my balls, Miss
-.range 2302
+.range 2301
 
-[Action 2302]
+[Action 2301]
 Next, I want you to write "DISOBEDIENT" below your belly button half way down to your cock,
 and "SLAVE" right below.
 Understand?
 You've been a very disobedient slave when you came without my permission.
 .chat I've written "Disobedient slave" below my belly, Miss
-.range 2303 2304
+.range 2302 2303
 
 
-[Action 2303]
+[Action 2302]
 .state Body.OnPenis free
 Now go ahead and write the word "CUNT" on your cock,
 vertically in large bold letters.
 Understand, slave?
 You are a cunt, and so is that filthy prick of yours.
 .chat I've written "CUNT" on my cock, Miss
-.range 2306
+.range 2305
 
-[Action 2304]
+[Action 2303]
 .else
 Now go ahead and write the word "CUNT" right above your cock,
 in large bold letters.
 Understand, slave?
 You are a cunt, and so is that filthy prick of yours.
 .chat I've written "CUNT" on my cock, Miss
-.range 2306
+.range 2305
 
 
-[Action 2306]
+[Action 2305]
 Finally, write "NAUGHTY" on your right thigh,
 and "SLUTTY" on your left.
 Understand slave?
 It was very naughty of you to spurt your load without permission and you are a slutty slave for doing so.
 .chat I've written it on my thighs, Miss
-.range 2307
+.range 2306
 
-
-[Action 2307]
+[Action 2306]
 So, what have you been?
 .chat I've been a bad girl for spurting my load!
 []
@@ -2870,25 +2873,33 @@ And, what else?
 And what are you?
 .chat I'm a naughty slutty cunt!
 []
-.range 2308 2309
+.range 2307 2309
 
 
 ' 35 minutes with clamps, avoid applying clamps any longer!
-[Action 2308]
+[Action 2307]
 .must 129          ' Clamps %100% chance
 Very good!
 Now you are properly shamed for your lack of self control.
 .set 811           ' Magic marker applied
 .range 1737        ' 35 minutes corner time kneeling
 
-' 45 minutes without toys
-[Action 2309]
+' 45 minutes kneeling without toys
+[Action 2308]
+.must 121          ' kneeling
 .mustnot 129       ' Clamps %100 chance
 Very good!
 Now you are properly shamed for your lack of self control.
 .set 811           ' Magic marker applied
 .range 1739        ' 45 minutes corner time kneeling
 
+' one hour
+[Action 2309]
+.mustnot 129       ' Clamps %100 chance
+Very good!
+Now you are properly shamed for your lack of self control.
+.set 811           ' Magic marker applied
+.range 1740        ' one hour corner time standing
 
 
 ' 520 wearing wrong toys at the beginning of the session
@@ -2931,30 +2942,30 @@ because you've ignored my precise orders.
 Very good.
 Now tell me what you are!
 .pause I am a slutty cunt
-.range 2318 2319
+.range 2317 2319
 
 [Action 2315]
 Very good.
 Now tell me what you are!
 .pause I am a disobedient slut
-.range 2318 2319
+.range 2317 2319
 
 [Action 2316]
 Very good.
 Now tell me what you are!
 .pause I am a stupid slave
-.range 2318 2319
+.range 2317 2319
 
 
-' one of the "before session" assignments is to
-' wear pegs on balls, so we have to account for it
+' some of the "before session" assignments are to wear
+' pegs/clamps on balls or nipples, so we have to account for it
 
 [Action 2317]
 .painToysOnNipples
 Indeed you are!
 .unset 725         ' Limit corner time 25m
 .set 811           ' Magic marker applied
-.range 1700        ' Light punishment
+.range 1710        ' Medium punishment
 
 [Action 2318]
 .painToysOnBalls
@@ -2967,7 +2978,7 @@ Indeed you are!
 .else
 Indeed you are!
 .set 811           ' Magic marker applied
-.range 1710        ' medium punishment
+.range 1720        ' Severe punishment
 
 
 ' 521 Failed to perform assignment
@@ -3276,9 +3287,9 @@ A disobedient slut that's going to be punished.
 
 ' Punishment showers
 
-[Action 2980]
-.set 190
-.range 1549
+'[Action 2980]
+'.set 190
+'.range 1549
 
 ' from 518
 [Action 2981]
@@ -3300,9 +3311,9 @@ A disobedient slut that's going to be punished.
 .set 194
 .range 1549
 
-[Action 2985]
-.set 195
-.range 1549
+'[Action 2985]
+'.set 195
+'.range 1549
 
 ' 503
 [Action 2986]

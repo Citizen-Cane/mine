@@ -777,11 +777,12 @@ Let's practice your slave positions.
 
 ' determine current level 170-176 of this session from punishment acceptance 711 715
 
-' light punishment
+' light punishment (level 1-6)
 
 [Action 1160]
 .unset 170 171 172 173 174 175 176
-.range 1161 1165
+.range 1161 1166
+
 
 [Action 1161]
 .mustnot 711 712 713 714 715
@@ -814,11 +815,12 @@ Let's practice your slave positions.
 .range 1200
 
 
-' medium punishment
+' medium punishment (level 2-7)
 
 [Action 1170]
 .unset 170 171 172 173 174 175 176
-.range 1171 1175
+.range 1171 1176
+
 
 [Action 1171]
 .mustnot 711 712 713 714 715
@@ -842,7 +844,7 @@ Let's practice your slave positions.
 
 [Action 1175]
 .must 714
-.set 174           ' Level 6
+.set 175           ' Level 6
 .range 1200
 
 [Action 1176]
@@ -851,11 +853,12 @@ Let's practice your slave positions.
 .range 1200
 
 
-' severe punishment
+' severe punishment (level 3-7)
 
 [Action 1180]
 .unset 170 171 172 173 174 175 176
-.range 1181 1185
+.range 1181 1186
+
 
 [Action 1181]
 .mustnot 711 712 713 714 715
@@ -1425,10 +1428,10 @@ Let's practice your slave positions.
 .should .state Body.OnBalls free
 .shouldnot 267 268      ' Enema carrying out or holding
 .shouldnot 419          ' prefer a position that hasn't been done before
-.mustnot 4190           ' just once
+.mustnot 4190 4191      ' just once
 .set 146                ' position is not continueable, because restraints are not generic
 .set 181                ' convenient
-.range 4190
+.range 4190 4191
 
 
 ' Moderate positions 500-574
@@ -1680,9 +1683,9 @@ Let's practice your slave positions.
 .state Posture.CantStand free
 .should .state Body.OnBalls free
 .shouldnot 517          ' prefer a position that hasn't been done before
-.mustnot 5160 5161      ' just once
+.mustnot 5170 5171      ' just once
 .set 181                ' Convenient
-.range 5160 5163
+.range 5170 5171
 
 ' 518 standing, nipple clamps, collar, wrist restraints, legs wide, heels, hands behind butt, elbows out
 [Action 1518]
@@ -1694,7 +1697,7 @@ Let's practice your slave positions.
 .should .state Body.OnBalls free
 .shouldnot 518          ' prefer a position that hasn't been done before
 .mustnot 5180 5181 5182 5183 ' just once
-.set 146                ' position is not continueable, as hands are tied on back
+.set 146                ' position is not continuable, as hands are tied on back
 .set 181                ' Convenient
 .range 5180 5183
 
@@ -1778,11 +1781,11 @@ Let's practice your slave positions.
 .should .state Body.OnBalls free
 .must 277               ' semi-safe self bondage features enabled
 .shouldnot 577          ' prefer a position that hasn't been done before
-.mustnot 5770           ' just once
+.mustnot 5770 5771 5772 5773 ' just once
 .must 742               ' Strict self-bondage 2
 .set 146                ' position is not continueable
 .set 180                ' Comfortable
-.range 5770
+.range 5770 5773
 
 ' 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
 [Action 1578]
@@ -4913,78 +4916,78 @@ say your Mistress "thank you" for this honour.
 ' 3300 ?? 133
 
 ' Fallback: No comment, just wait an let the slave suffer
-[Action 3399]
-.else
-.delay 20
-.txt
-.unset 3399
-.range 3990
+'[Action 3399]
+'.else
+'.delay 20
+'.txt
+'.unset 3399
+'.range 3990
 
 
 ' 3400 ?? 134
 
 ' Fallback: No comment, just wait an let the slave suffer
-[Action 3499]
-.else
-.delay 20
-.txt
-.unset 3499
-.range 3990
+'[Action 3499]
+'.else
+'.delay 20
+'.txt
+'.unset 3499
+'.range 3990
 
 
 ' 3500 ?? 135
 
 ' Fallback: No comment, just wait an let the slave suffer
-[Action 3599]
-.else
-.delay 20
-.txt
-.unset 3599
-.range 3990
+'[Action 3599]
+'.else
+'.delay 20
+'.txt
+'.unset 3599
+'.range 3990
 
 
 ' 3600 ?? 136
 
 ' Fallback: No comment, just wait an let the slave suffer
-[Action 3699]
-.else
-.delay 20
-.txt
-.unset 3699
-.range 3990
+'[Action 3699]
+'.else
+'.delay 20
+'.txt
+'.unset 3699
+'.range 3990
 
 
 ' 3700 ?? 137
 
 ' Fallback: No comment, just wait an let the slave suffer
-[Action 3799]
-.else
-.delay 20
-.txt
-.unset 3799
-.range 3990
+'[Action 3799]
+'.else
+'.delay 20
+'.txt
+'.unset 3799
+'.range 3990
 
 
 ' 3800 ?? 138
 
 ' Fallback: No comment, just wait an let the slave suffer
-[Action 3899]
-.else
-.delay 20
-.txt
-.unset 3899
-.range 3990
+'[Action 3899]
+'.else
+'.delay 20
+'.txt
+'.unset 3899
+'.range 3990
 
 
 ' 3900 ?? 139
 
 ' Fallback: No comment, just wait an let the slave suffer
-[Action 3989]
-.else
-.delay 20
-.txt
-.unset 3989
-.range 3990
+'[Action 3989]
+'.else
+'.delay 20
+'.txt
+'.unset 3989
+'.range 3990
 
 
 ' Loop repeat
@@ -7356,6 +7359,7 @@ You do have these items, don't you, slave?
 .item Toys.Nipple_Clamps applied
 I bet you'll enjoy this position as much as I do.
 .range 5174
+
 
 [Action 5174]
 .gosub 1820                  ' setup break buttons and vibrator

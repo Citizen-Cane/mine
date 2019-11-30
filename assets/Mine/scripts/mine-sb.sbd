@@ -71,7 +71,7 @@
 '                                 Returns
 '   #   Entry       From             Good    Bad     +   -   Description
 '   101 1101    5401 -> 5551  2010   5451    5501    2   2   bondage life simple hogtie 30m
-'   102 1102    5402 -> 5552  2020   5452    5502    3   2   " indefinate
+'   102 1102    5402 -> 5552  2030   5452    5502    3   2   " indefinate
 '   103 1103    5403 -> 5553  2100   5453    5503    2   2   internet classic self-bondage photos complete
 '   104 1104    5405 -> 5555  2040   5454    5504    2   2   internet classic self-bondage photos simple version
    
@@ -113,7 +113,7 @@
 ' Debug
 
 .menu 40  2010 2010 bondage life simple hogtie 30m
-.menu 41  2020 2020 " indefinate
+.menu 41  2030 2030 " indefinate
 .menu 42  2040 2040 internet classic self-bondage photos simple version
 .menu 43  2100 2100 internet classic self-bondage photos complete
 .menu 44  1000 1000 Exit
@@ -139,7 +139,7 @@
 ' bondage life simple hogtie indefinate
 [Action 1102]
 .set 102
-.range 2020
+.range 2030
 
 ' internet classic self-bondage photos complete
 [Action 1103]
@@ -212,12 +212,12 @@ Place your escape knife in a place where you will easily be able to reach it fro
 .range 2016
 
 [Action 2016]
+.delay 60
 .image blbasics_3.jpg
 Now examine the illustration.
 You're going to put your arms behind your back and through the coils, as shown.
 Don't cinch it up until I tell you to.
 I'll give you a minute to work all this out.
-.delay 60
 .range 2017
 
 [Action 2017]
@@ -232,56 +232,78 @@ Otherwise, just wait for My signal.
 .range 2018
 
 [Action 2018]
+.delay 20
 .image simplehogtie_3.jpg
 Lie down on your stomach and pull that noose tight, slave!
 If you've done it correctly, you should resemble the picture -
 except for the tits.
-.delay 20
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
 .range 2019
 
 [Action 2019]
-.keyrelease start 1800
 .delay 20
 Mmm, I like that.
+.range 2020
+
+[Action 2020]
+.range 2021 2023
+
+
+[Action 2021]
+.else
+.keyrelease start 1800
 I think I'll leave you there for a half hour or so, My slave.
 I hope you enjoy your bondage as much as I like watching it!
-.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
 .range 8100
+
+[Action 2022]
+.must 744               ' strict self bondage 4
+.keyrelease start 2400
+I think I'll leave you there for about 40 minutes or so, My slave.
+I hope you enjoy your bondage as much as I like watching it!
+.range 8200
+
+[Action 2023]
+.must 745               ' strict self bondage 5
+.keyrelease start 3600
+I think I'll leave you there for an hour or so, My slave.
+I hope you enjoy your bondage as much as I like watching it!
+.range 8300
 
 
 ' bondage life simple hogtie indefinate
 
-[Action 2020]
+[Action 2030]
 Now, my dear slave, I want you tied up for a while, but I'm feeling a bit lazy today.
 You're gaining a little experience at this, as well.
-.range 2021
+.range 2031
 
-[Action 2021]
+[Action 2031]
 Therefore, slave, today you're going to tie yourself up however you like.
 You're also going to set your own release method.
 I want your self-bondage to be as inescapable as you can make it.
-.range 2022
+.range 2032
 
-[Action 2022]
+[Action 2032]
 Your release method should keep you bound for at least 40 minutes or so.
 Now, get everything you need and start getting ready.
 .yes I have everything I need, Miss
-.range 2023
+.range 2033
 
-[Action 2023]
+[Action 2033]
 .keyrelease prepare 3600
 Make sure your release method is set and you have at least one backup ready to go.
 deleay 15
 Tie yourself up as much as possible, and tell me when you're almost ready to go.
 .yes I'm ready to go, Miss
-.range 2024
+.range 2034
 
-[Action 2024]
+[Action 2034]
 .delay 120
 Okay, slave, I'll give you two minutes to make your final preparations.
-.range 2025
+.range 2035
 
-[Action 2025]
+[Action 2035]
 .keyrelease start 2400
 You should be locked in now, slave!
 lock.mp3
@@ -643,6 +665,7 @@ I think you're good for a half hour or so.
 
 
 ' key nearby, wait for mistress' order
+' TODO check key nearby, release device, ice release for timing and prompt
 
 ' TODO Timing not 100% correct because of the looping -> use timer
 
@@ -719,7 +742,8 @@ I think you're good for a half hour or so.
 .range 9001 9099
    
 
-' ice cube or other timed release
+' ice cube or other timed release - no limit
+
 [Action 8800]
 .range 8801
 
