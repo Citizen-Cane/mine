@@ -28,29 +28,7 @@
 
 '   #   Entry       From        Good    Bad     +   -   Description
 '   --- ------- --------------- ------- ------- -   -   -----------
-' *
-'                                                                        Non-kneeling corner time might be on tiptoes
 '
-' * 180 2500    2501            2505                    bad introduction (500): corner (10-15 min) + marker
-' * 180 2501    2501            2505                                          : corner (15-20 min) + 50% cuffs + marker
-' * 181 2512    2522            2529                    nudity 1: corner time (10-15 min) + marker
-' * 182 2516    2532            2539                    nudity 2: corner time (20-30 min) + marker
-' * 183 2525    2551            2559    -               patience (505): corner time (5-10 min)
-' * 183 2525    2551            2559    -                               corner time (10-15 min)
-' * 183 2525    2551            2559    -                               corner time (15-30 min) + 50% cuffs
-' * 183 2525    2551            2559    -                               corner time (15-35 min) + cuffs + 50% clamps
-' * 183 2525    2551            2559    -                               corner time (15-30 min) + cuffs + clamps
-' * 184 2555    2617            2619                    lack of hardness, level 1
-' * 185 2560    2617            2619                    lack of hardness, level 2
-' * 186 2596    ????            2699                    45 min, kneeling (for cumming w/o perm), or 35m kneeling with clamps
-' * 187 2600    2701            2709                    Wrong toys at session start
-' * 188 2605    2711            2719                    Didn't perform assignment
-' * 189 2620    2740            2749                    -
-
-'   176 3002   5802 -> 5952     5852   -       1       weight from balls easy
-'   177 3003   5803 -> 5953     5853   -       1       weight from balls medium
-'   178 3004   5804 -> 5954     5854   -       2       weight from balls hard
-'   179 3005   5805 -> 5955     5855   -       2       weight from balls very hard
 '   160 3010   5601 -> 5751     5651   -       1       paddle x40
 '   161 3011   5602 -> 5752     5652   -               paddle x60
 '   162 3012   5603 -> 5753     5653   -               paddle x100
@@ -66,6 +44,31 @@
 '   170 3021   2984             2449   -               paddle x400
 '   171 3023   2681             2418   -               paddle x400    
 
+'   174 1500   5604 -> 5754     5654   5704            spanking marathon, 30 min.
+'   175 1520   5605 -> 5754     5655   5705            spanking marathon, 1 hr.
+
+'   176 3002   5802 -> 5952     5852   -       1       weight from balls easy
+'   177 3003   5803 -> 5953     5853   -       1       weight from balls medium
+'   178 3004   5804 -> 5954     5854   -       2       weight from balls hard
+'   179 3005   5805 -> 5955     5855   -       2       weight from balls very hard
+
+' * corner times
+' * 180 2500    2501            2505                    bad introduction (500): corner (10-15 min) + marker
+' * 180 2501    2501            2505                                          : corner (15-20 min) + 50% cuffs + marker
+' * 181 2512    2522            2529                    nudity 1: corner time (10-15 min) + marker
+' * 182 2517    2532            2539                    nudity 2: corner time (20-30 min) + marker
+' * 183 2525    2551            2559    -               patience (505): corner time (5-10 min)
+' * 183 2525    2551            2559    -                               corner time (10-15 min)
+' * 183 2525    2551            2559    -                               corner time (15-30 min) + 50% cuffs
+' * 183 2525    2551            2559    -                               corner time (15-35 min) + cuffs + 50% clamps
+' * 183 2525    2551            2559    -                               corner time (15-30 min) + cuffs + clamps
+' * 184 2555    2617            2619                    lack of hardness, level 1
+' * 185 2560    2617            2619                    lack of hardness, level 2
+' * 186 2690    ????            2699                    1h standing, 45 min, kneeling (for cumming w/o perm), or 35m kneeling with clamps
+' * 187 2600    2701            2709                    Wrong toys at session start
+' * 188 2605    2711            2719                    Didn't perform assignment
+' * 189 2620    2740            2749                    -
+
 '   190 2980    
 '   191 2981    2682            2418   -               shower 10m, 50 whacks, nips, kneeling
 '   192 2982    5202 -> 5352    5252   -          1    shower 10m, 50 paddles
@@ -76,9 +79,6 @@
 '   197 2987    2511            2402   -               shower 10m, wet, wrists, nips
 '   198 2988    5201 -> 5351    5251   -          2    shower 10m, 100 paddles, nips
 '   199 2989    2576            2415   -               shower 15m, 200 paddles, clamps
-
-'   180 Handled locally, not via dispatcher             spanking marathon, 30 min.
-'   181                                                 spanking marathon, 1 hr.
 
 
 '	Remember to set the session you want *and all the previous ones*. 
@@ -208,7 +208,7 @@ So, what will you be wearing, slave?
 [Action 1500]
 Slave, in order to prove to me that you're really serious about your enslavement,
 you're going to have to endure a marathon spanking session.
-.set 180
+.set 174
 .range 1501 1503
 
 
@@ -327,11 +327,11 @@ Go ahead and rub it for a minute and then we'll get back to our session.
 
 
 [Action 1518]
-.loadsbd Mine.sbd 5704 5704
+.range 9900 9989        ' bad exit
 
 
 [Action 1519]
-.loadsbd Mine.sbd 5654 5654 
+.range 9800 9899        ' return to main script
 
 
 ' marathon spanking 1 hr.
@@ -339,7 +339,7 @@ Go ahead and rub it for a minute and then we'll get back to our session.
 [Action 1520]
 Okay, slave, now we're going to have a long marathon spanking session.
 For a full hour you'll be beating that naughty enslaved bottom.
-.set 181
+.set 175
 .range 1521 1523
 
 
@@ -457,11 +457,11 @@ Give that red butt a good rubdown now.
 
 
 [Action 1538]
-.loadsbd Mine.sbd 5705 5705
+.range 9900 9989        ' bad exit
 
 
 [Action 1539]
-.loadsbd Mine.sbd 5655 5655
+.range 9800 9899        ' return to main script
 
 
 ' Punishment showers (from entry points 2980-2989, 190-199 set according to desired toys/rules)
@@ -1358,7 +1358,7 @@ I hope so, slut!
  
 [Action 1699]
 .else
-.range 9800 9899
+.range 9800 9899        ' return to main script
 
 
 ' Corner time
@@ -2372,7 +2372,7 @@ Good boy, slave.
 ' corner time exit
 [Action 2140]
 .set 810                ' Corner time applied
-.range 9800 9899
+.range 9800 9899        ' return to main script
 
 
 ' limit corner time extras (cuffs, clamps) to what's possible
@@ -4202,9 +4202,8 @@ That naughty slave butt should be good and red now!
 '[Action 9148]
 
 
-' You're done with that set, My little spanking slave
 [Action 9149]
-.range 9800 9899
+.range 9800 9899        ' return to main script
 
 
 ' Punishment spanking
@@ -4390,7 +4389,7 @@ Take a rest.
 
 
 [Action 9199]
-.range 9800 9899
+.range 9800 9899        ' return to main script
 
 
 ' Ball weight lifting
@@ -4516,7 +4515,7 @@ That slave sack of yours should be nicely stretched out now, slave.
 You may remove the weight and untie the rope from your ball sack.
 .item Toys.Rope remove from Body.OnBalls Hosehold.Weight
 .yes Thank you, Miss
-.range 9800 9899
+.range 9800 9899        ' return to main script
 
 [Action 9231]
 .item Toys.Ball_Stretcher applied
@@ -4524,7 +4523,7 @@ You may remove the weight and untie the rope from your ball sack.
 You may remove the weight now, slave.
 .item Toys.Rope remove from Toys.BallStretcher Hosehold.Weight
 .yes Thank you, Miss
-.range 9800 9899
+.range 9800 9899        ' return to main script
 
 [Action 9232]
 .item Toys.Ball_Stretcher applied
@@ -4533,7 +4532,7 @@ You may remove the weight, the rope, and the ball harness, slave.
 .item Toys.Rope remove from Toys.BallStretcher Hosehold.Weight
 .item Toys.Ball_Stretcher remove
 .yes Thank you, Miss
-.range 9800 9899
+.range 9800 9899        ' return to main script
 
 
 ' Good exits 9800-9899
@@ -4674,15 +4673,31 @@ You may remove the weight, the rope, and the ball harness, slave.
 .must 171
 .loadsbd Mine.sbd 2418
 
+[Action 9844]
+.must 174
+.loadsbd Mine.sbd 5654
+
+[Action 9845]
+.must 175
+.loadsbd Mine.sbd 5655
+
 [action 9899]
 .must 109
 .quit
 
 
-' Bad exits 9900-9990
+' Bad exits 9900-9989
+
+[Action 9900]
+.must 174
+.loadsbd Mine.sbd 5704
+
+[Action 9901]
+.must 175
+.loadsbd Mine.sbd 5705
 
 ' Debug
-[Action 9909]
+[Action 9989]
 .must 109
 .quit
 
