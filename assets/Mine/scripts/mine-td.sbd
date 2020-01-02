@@ -1965,7 +1965,7 @@ You are also going to need some beads or peppercorns, or something like that.
 .range 2302
 
 [Action 2302]
-.break 2304 2345 STOP 2349
+.break 2304 2345 STOP 2350
 .stopText It's enough, Miss 
 .range 2304
 
@@ -2073,6 +2073,7 @@ Okay, slave, stop pulling, and get the clothes pegs out.
 .delay 15
 Put three on each tit:
 Two to either side of the clamp, and one above.
+.item Household.Clothes_Pegs apply to Body.OnNipples
 .range 2321
 
 [Action 2321]
@@ -2250,6 +2251,7 @@ I want you to pick up the beads first.
 Very good.
 You may get up and take all the equipment off now.
 Begin with removing the pegs, then the clamps, and finish with your gag.
+.item Household.Clothes_Pegs remove from Body.OnNipples
 .item Toys.Nipple_Clamps remove
 .item Toys.Gag remove
 .yes Thank you very much, Miss
@@ -2258,11 +2260,41 @@ Begin with removing the pegs, then the clamps, and finish with your gag.
 
 
 ' Cancelled
-[Action 2349]
+[Action 2350]
 You're such a pussy!
-.item Toys.Nipple_Clamps remove
-.item Toys.Gag remove
 .set 812                ' Done nipple training activity
+.range 2351 2355
+
+
+[Action 2351]
+.item Household.Clothes_Pegs not applied to Body.OnNipples
+.item Toys.Nipple_Clamps not applied
+.item Toys.Gag not applied
+.range 9400 9499
+
+[Action 2352]
+.item Household.Clothes_Pegs applied to Body.OnNipples
+.item Household.Clothes_Pegs remove from Body.OnNipples
+.range 2351 2355
+
+[Action 2353]
+.item Toys.Nipple_Clamps applied
+.item Toys.Nipple_Clamps remove
+.range 2351 2355
+
+[Action 2354]
+.item Toys.Gag applied
+.item Toys.Gag remove
+.range 2351 2355
+
+[Action 2355]
+.else
+.range 2360
+
+
+[Action 2360]
+Get up and take all the equipment off.
+.yes Yes, Miss
 .range 9400 9499
 
 

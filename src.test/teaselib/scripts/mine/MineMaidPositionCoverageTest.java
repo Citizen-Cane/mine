@@ -1,8 +1,6 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,7 +64,7 @@ public class MineMaidPositionCoverageTest {
 
         for (Enum<?> toy : TOYS) {
             mine.item(toy).setAvailable(true);
-            mine.item(toy).remove();
+            assertFalse(mine.item(toy).applied());
         }
 
         return mine;
