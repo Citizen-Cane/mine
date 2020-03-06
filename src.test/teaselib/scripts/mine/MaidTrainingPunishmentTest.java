@@ -102,6 +102,6 @@ public class MaidTrainingPunishmentTest {
         assertEquals(PUNISHMENT_FINAL_FAILURE, mine.action.number);
         assertEquals(PUNISHMENT_FINAL_FAILURE, mine.action.number);
 
-        assertFalse(mine.items(TOYS).getApplied().toString(), mine.items(TOYS).anyApplied());
+        assertFalse("Toy(s) still applied: " + mine.items(TOYS).getApplied(), mine.items(TOYS).anyApplied());
     }
 }

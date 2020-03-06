@@ -1,6 +1,9 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +32,7 @@ import teaselib.Toys;
 import teaselib.core.debug.DebugStorage;
 import teaselib.scripts.mine.test.MinePrompts;
 import teaselib.scripts.mine.test.Preset;
+import teaselib.util.Item;
 
 @RunWith(Parameterized.class)
 public class MineMaidPositionCoverageTest {
@@ -117,8 +121,9 @@ public class MineMaidPositionCoverageTest {
         assertEquals("Position not completed:", ScriptState.SET, mine.state.get(position));
 
         for (Enum<?> toy : TOYS) {
-            assertTrue("Toy(s) still applied: " + mine.items(TOYS).getApplied(), !mine.item(toy).applied()
-                    || (mine.item(toy).applied() && !mine.item(toy).is(mine.namespaceApplyAttribute)));
+            Item toyItem = mine.item(toy);
+            assertTrue("Toy(s) still applied: " + mine.items(TOYS).getApplied(),
+                    !toyItem.applied() || (toyItem.applied() && !toyItem.is(mine.namespaceApplyAttribute)));
         }
     }
 
