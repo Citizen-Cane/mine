@@ -332,6 +332,7 @@ So, what will you be wearing, slave?
 .range 990
 
 [Action 990]
+.debug
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
 .set 100
@@ -866,13 +867,11 @@ you may need them later.
 .must 140
 Place the keys to your restraints on the floor in front of your desk,
 you may need them later.
-.keyrelease start 3600
 .range 3119
 
 
 [Action 3113]
 .mustnot 140
-.keyrelease start 3600
 .range 3119
 
 
@@ -889,26 +888,26 @@ you may need them later.
 
 [action 3120]
 .item Toys.Gag applied
-.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue.
 So after taking your gag out,
 I want you to pick up your wrist restraints
 and tie your hands on your back.
-delay 10
 .item Toys.Gag remove
-.set -22                ' something in mouth, remember
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
+delay 10
+.set -22                ' something in mouth, remember
 .yes I'm tied up, Miss
 .set 10                 ' wrists tied to back
 .return
 
 [action 3121]
 .not .item Toys.Gag applied
-.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue.
 Go get your wrist restraints and tie your hands on your back.
-delay 10
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
+delay 10
 .yes I'm tied up, Miss
 .set 10                 ' wrists tied to back
 .return
@@ -918,36 +917,36 @@ delay 10
 
 [action 3128]
 .item Toys.Gag applied
-.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go get your wrist and ankle restraints, and
 - after taking your gag out -
 tie each wrist to the corresponding ankle.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 delay 10
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand Body.CantJerkOff
 Lock your right hand to your right ankle,
 and your left hand to your left ankle.
 delay 10
 Keep the connecting chains short, my pet.
 .set -22                ' something in mouth, remember
 .item Toys.Gag remove
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand Body.CantJerkOff
 .yes I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
 .return
 
 [action 3129]
 .not .item Toys.Gag applied
-.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go get your wrist and ankle restraints and tie each wrist to the corresponding ankle.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand Body.CantJerkOff
 delay 10
 Lock your right hand to your right ankle,
 and your left hand to your left ankle.
 delay 10
 Keep the connecting chains short, my pet.
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply to Toys.Ankle_Restraints Posture.CantStand Body.CantJerkOff
 .yes I'm tied up as ordered, Miss
 .set 11                 ' Wrist to ankles tied together on each side
 .return
@@ -978,13 +977,13 @@ so get your wrist restraints and put them on.
 .item Toys.Gag applied
 .state Body.OnBalls free
 .item Toys.Chastity_Device not applied
-.keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
-to your slutty ball sack.
-.set -22                ' something in mouth, remember
 .item Toys.Gag remove
+to your slutty ball sack.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Body.OnBalls
+.set -22                ' something in mouth, remember
 .yes Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -993,9 +992,9 @@ to your slutty ball sack.
 .not .item Toys.Gag applied
 .state Body.OnBalls free
 .item Toys.Chastity_Device not applied
-.keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your slutty ball sack.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Body.OnBalls
 .yes Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
@@ -1004,13 +1003,13 @@ tie them to your slutty ball sack.
 [action 3140]
 .item Toys.Gag applied
 .item Toys.Chastity_Device applied
-.keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
-tie them to your chastity cage.
-.set -22                ' something in mouth, remember
 .item Toys.Gag remove
+tie them to your chastity cage.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Toys.Chastity_Device
+.set -22                ' something in mouth, remember
 .yes Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -1018,9 +1017,9 @@ tie them to your chastity cage.
 [action 3141]
 .not .item Toys.Gag applied
 .item Toys.Chastity_Device applied
-.keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your chastity cage.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Toys.Chastity_Device
 .yes Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
@@ -1030,13 +1029,13 @@ tie them to your chastity cage.
 [action 3142]
 .item Toys.Gag applied
 .item Toys.Ball_Stretcher applied
-.keyrelease prepare 3600
 Now, to actually get them out of the way, tie them - 
 well, after taking out your gag -
-to your ball harness.
-.set -22                ' something in mouth, remember
 .item Toys.Gag remove
+to your ball harness.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
 .item Toys.Wrist_Restraints apply to Toys.Ball_Stretcher
+.set -22                ' something in mouth, remember
 .yes Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
 .return
@@ -1044,9 +1043,9 @@ to your ball harness.
 [action 3143]
 .not .item Toys.Gag applied
 .item Toys.Ball_Stretcher applied
-.keyrelease prepare 3600
 Now, to actually get them out of the way,
 tie them to your ball harness.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Toys.Ball_Stretcher
 .yes Done as ordered, Miss
 .set 16                 ' Wrists tied, to ball sack 
@@ -1058,13 +1057,13 @@ tie them to your ball harness.
 [action 3144]
 .item Toys.Gag applied
 .item Toys.Wrist_Restraints applied
-.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue, so -
 well, after taking your gag out -
-go ahead and lock your wrist restraints to your collar.
-.set -22                ' something in mouth, remember
 .item Toys.Gag remove
+go ahead and lock your wrist restraints to your collar.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Toys.Collar Body.CantJerkOff
+.set -22                ' something in mouth, remember
 .yes Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1072,9 +1071,9 @@ go ahead and lock your wrist restraints to your collar.
 [action 3145]
 .not .item Toys.Gag applied
 .item Toys.Wrist_Restraints applied
-.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go ahead and lock your wrists to your collar.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Toys.Collar Body.CantJerkOff
 .yes Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
@@ -1083,14 +1082,14 @@ so go ahead and lock your wrists to your collar.
 [action 3146]
 .item Toys.Gag applied
 .not .item Toys.Wrist_Restraints applied
-.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so fetch your wrists restraints, snap them on and
 - well, after taking out your gag -
-lock'em to your collar.
-.set -22                ' something in mouth, remember
 .item Toys.Gag remove
+lock'em to your collar.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Toys.Collar Body.CantJerkOff
+.set -22                ' something in mouth, remember
 .yes Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
 .return
@@ -1098,9 +1097,9 @@ lock'em to your collar.
 [action 3147]
 .not .item Toys.Gag applied
 .not .item Toys.Wrist_Restraints applied
-.keyrelease prepare 3600
 Well, we won't need your hands right now, just your lips and tongue,
 so go fetch your wrist restraints, snap them on and lock'em to your collar.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply to Toys.Collar Body.CantJerkOff
 .yes Done as ordered, Miss
 .set 17                 ' wrists tied, to collar
@@ -1966,7 +1965,6 @@ Have you figured out a place, slave?
 .item Toys.Ankle_Restraints available
 .item Toys.Wrist_Restraints available
 .must 742               ' Strict self-bondage 2
-.keyrelease prepare 3600
 This time I want to make absolutely sure you're attaining full focus while carrying out your ordeal, slave.
 delay 2
 []
@@ -2015,18 +2013,31 @@ Then go ahead, and attach the dildo to the wall.
 .item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
 .must 742               ' Strict self-bondage 2
-.keyrelease start 3600
 Before we start, I want you to take care of the keys to your cuffs.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+' TODO implement key release instructions command to be able to arm
+' without applying - this should be done later (see TODOs below)
+' apply here to arm the key release
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply
+' TODO exact preparation instructions when using key release hook o ice cube
+' usually hang them at the ceiling, then at the hook
+' - this way they can't slide out of reach
 You have to find them blindfolded later on,
 so let's make sure they don't slide out of reach when you search for them:
 Get a rope or shoe lace and tie the keys to some larger object,
-like a table leg or a balloon,
+like a cupboard top, table leg or use a balloon,
 just to be on the safe side.
 .yes Key prepared, Miss
 []
 Now get on the floor,
 put on your ankle cuffs,
+' TODO show ankle restraints item again
 then prepare your blindfold and your wrist cuffs.
+' TODO show wrist restraints item again
+' TODO implement tying wrist to each other and ankles to each other
+' text in [Action 4323] works for both variants
+.set 11                 ' Wrist to ankles tied together on each side
 .yes I'm ready to be tied up, Miss
 []
 Punishment Suck lying at wall, blindfolded.jpg
@@ -2034,6 +2045,7 @@ Tonight, you're going to worship your dildo blindfolded and chained, lying prone
 Get into your worshiping position now,
 put on the blindfold,
 and lock your wrists behind you.
+' TODO show wrist restraints item again
 Then grab your ankles as shown,
 and wait for my command!
 I give you a minute to sort it all out.
@@ -4932,7 +4944,6 @@ You're a bit of a disappointment tonight, aren't you, slave?
 
 [Action 4322]
 .must 10                ' Wrists tied on back 
-.keyrelease release
 You can untie your wrists, slave.
 .item Toys.Wrist_Restraints remove
 .yes Thank you, Miss
@@ -4944,7 +4955,6 @@ You can untie your wrists, slave.
 
 [Action 4323]
 .must 11                ' Wrist to ankles tied together on each side 
-.keyrelease release
 You can untie your wrists and ankles, slave.
 .item Toys.Ankle_Restraints remove
 .item Toys.Wrist_Restraints remove
@@ -4960,7 +4970,6 @@ You can untie your wrists and ankles, slave.
 .must 16                ' Wrists to ball sack
 .item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Wrist_Restraints is applied to Body.OnBalls
-.keyrelease release
 You can untie your wrists from your ball sack, slave.
 .item Toys.Wrist_Restraints remove
 .yes Thank you, Miss
@@ -4972,7 +4981,6 @@ You can untie your wrists from your ball sack, slave.
 .must 16                ' Wrists to ball sack
 .item Toys.Wrist_Restraints not is applied.by.me
 .item Toys.Wrist_Restraints applied to Body.OnBalls
-.keyrelease release
 You may untie your wrists from your ball sack, slave,
 but keep the restraints on.
 .item Toys.Wrist_Restraints remove from Body.OnBalls
@@ -4985,7 +4993,6 @@ but keep the restraints on.
 .must 16                ' Wrists to ball sack
 .item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Wrist_Restraints applied to Toys.Chastity_Device
-.keyrelease release
 You can detach your wrists from your chastity cage, slave.
 .item Toys.Wrist_Restraints remove
 .yes Thank you, Miss
@@ -4997,7 +5004,6 @@ You can detach your wrists from your chastity cage, slave.
 .must 16                ' Wrists to ball sack
 .item Toys.Wrist_Restraints not is applied.by.me
 .item Toys.Wrist_Restraints applied to Toys.Chastity_Device
-.keyrelease release
 You may detach your wrists from your chastity cage, slave,
 but keep them tied.
 .item Toys.Wrist_Restraints remove from Toys.Chastity_Device
@@ -5009,7 +5015,6 @@ but keep them tied.
 .must 16                ' Wrists to ball sack
 .item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Wrist_Restraints applied to Toys.Ball_Stretcher
-.keyrelease release
 You can untie your wrists from the ball harness, slave.
 .yes Thank you, Miss
 .unset 16
@@ -5020,7 +5025,6 @@ You can untie your wrists from the ball harness, slave.
 .item Toys.Wrist_Restraints not is applied.by.me
 .item Toys.Wrist_Restraints applied to Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher applied
-.keyrelease release
 You may detach your wrists restraints from the ball harness, slave,
 but keep them tied.
 .yes Thank you, Miss
@@ -5042,7 +5046,6 @@ but keep them tied.
 .item Toys.Wrist_Restraints applied to Toys.Collar
 .item Toys.Wrist_Restraints not is applied.by.me
 .item Toys.Collar is applied.by.me
-.keyrelease release
 You can untie your wrists from your collar and take it off,
 but keep your wrists tied.
 .yes Done, Miss
@@ -5054,7 +5057,6 @@ but keep your wrists tied.
 .item Toys.Wrist_Restraints applied to Toys.Collar
 .item Toys.Wrist_Restraints not is applied.by.me
 .item Toys.Collar not is applied.by.me
-.keyrelease release
 You can untie your wrists from your collar,
 but keep your wrists tied.
 I also want you to keep wearing your slave collar, so leave it on. 
@@ -5067,7 +5069,6 @@ I also want you to keep wearing your slave collar, so leave it on.
 .item Toys.Wrist_Restraints applied to Toys.Collar 
 .item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
-.keyrelease release
 You can untie your wrist restraints from your collar, and take off both. 
 .yes Thank you, Miss
 .unset 17
@@ -5078,7 +5079,6 @@ You can untie your wrist restraints from your collar, and take off both.
 .item Toys.Wrist_Restraints applied to Toys.Collar
 .item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Collar not is applied.by.me
-.keyrelease release
 You can untie your wrists from your collar and take the restraints off.
 But I want you to keep wearing your slave collar. 
 .yes Thank you, Miss
@@ -6880,11 +6880,9 @@ Came, did you, you disobedient slut!
 ' Slave closed
 [Action 9998]
 .save 180 199
-.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 ' Abnormal ending, bailing out
 [Action 9999]
 .save 180 199
-.keyrelease release
 .loadsbd Mine.sbd 5009 5009

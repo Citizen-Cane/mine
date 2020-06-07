@@ -90,6 +90,7 @@
 
 
 [Action 990]
+.debug
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
 .set 100
@@ -3217,15 +3218,15 @@ Tell me when you've retrieved it, slave boy.
 .range 7506
 
 [Action 7506]
-.keyrelease prepare 3600
 Now, cross your ankles and tie them together, nice and tight.
+.keyrelease prepare Toys.Ankle_Restraints
+.item Toys.Ankle_Restraints apply
 There shouldn't be more than an inch of play between them.
 Report to me when you've finished.
 .yes My ankles are tied up, Miss
 .range 7507
 
 [Action 7507]
-.keyrelease start 3600
 All secure?
 Good.
 Those clamps should be settling in nicely by now.
@@ -3675,19 +3676,19 @@ Rub those nipples and get the blood flowing again!
 [Action 7567]
 Now put your toys away like a good little boy,
 and come back when you're done.
+.item Toys.Ankle_Restraints remove
 delay 10
-.keyrelease release
 .yes All put away, Miss
 .range 9000 9099
 
 
 [Action 7590]
-.keyrelease release
 I'm very disappointed in you, slave.
 delay 2
 You've failed me again.
 Take those clamps off your nipples now, slut,
 and if your ankles are still tied you may untie them.
+.item Toys.Ankle_Restraints remove
 .delay 20
 .range 7591
 
@@ -3818,10 +3819,8 @@ What a sad spectacle.
 
 ' Slave closed
 [Action 9998]
-.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 ' Abnormal ending, bailing out
 [Action 9999]
-.keyrelease release
 .loadsbd Mine.sbd 5012 5012

@@ -119,6 +119,7 @@
 .menu 44  1000 1000 Exit
 
 [Action 990]
+.debug
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
 .set 100
@@ -181,10 +182,10 @@ I'm very disappointed in you, slave.
 
 
 [Action 2013]
-.keyrelease prepare 3600
 Very good, slave.
 Get the rope, and pay attention.
 I want you to tie your ankles together,
+.keyrelease prepare Toys.Wrist_Restraints
 and leave a generous length left over,
 simplehogtie_1a.jpg
 as shown on the left side of the picture.
@@ -237,7 +238,6 @@ Otherwise, just wait for My signal.
 Lie down on your stomach and pull that noose tight, slave!
 If you've done it correctly, you should resemble the picture -
 except for the tits.
-.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
 .range 2019
 
 [Action 2019]
@@ -251,22 +251,22 @@ Mmm, I like that.
 
 [Action 2021]
 .else
-.keyrelease start 1800
 I think I'll leave you there for a half hour or so, My slave.
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff over 00:31'00
 I hope you enjoy your bondage as much as I like watching it!
 .range 8100
 
 [Action 2022]
 .must 744               ' strict self bondage 4
-.keyrelease start 2400
 I think I'll leave you there for about 40 minutes or so, My slave.
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff over 00:41'00
 I hope you enjoy your bondage as much as I like watching it!
 .range 8200
 
 [Action 2023]
 .must 745               ' strict self bondage 5
-.keyrelease start 3600
 I think I'll leave you there for an hour or so, My slave.
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff over 00:61'00
 I hope you enjoy your bondage as much as I like watching it!
 .range 8300
 
@@ -291,7 +291,7 @@ Now, get everything you need and start getting ready.
 .range 2033
 
 [Action 2033]
-.keyrelease prepare 3600
+.keyrelease prepare Toys.Wrist_Restraints
 Make sure your release method is set and you have at least one backup ready to go.
 deleay 15
 Tie yourself up as much as possible, and tell me when you're almost ready to go.
@@ -304,10 +304,9 @@ Okay, slave, I'll give you two minutes to make your final preparations.
 .range 2035
 
 [Action 2035]
-.keyrelease start 2400
 You should be locked in now, slave!
 lock.mp3
-.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff over 00:41
 delay 10
 Now you'll just have to wait it out.
 .range 8800
@@ -347,8 +346,8 @@ a weight for the clamps, and your wrist restraints.
 .range 2046
 
 [Action 2046]
-.keyrelease prepare 3600
 Your hands will be locked behind you, slave,
+.keyrelease prepare Toys.Wrist_Restraints
 and attached to the harness so that you are unable to move them very far.
 You will need to be able to use your handcuff key, or an escape knife,
 with your hands in the small of your back.
@@ -388,11 +387,10 @@ Lock your wrists together behind your back!
 delay 10
 lock.mp3
 delay 10
-.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff over 00:21
 .range 2052
 
 [Action 2052]
-.keyrelease start 1200
 Now you're my prisoner, slave.
 I hope those nipple clamps are feeling good,
 because you will be wearing them for about twenty minutes.
@@ -514,10 +512,10 @@ You'll need to have some way to connect it to your nipple clamp chain, too.
 .notext I'm sorry, but it doesn't work 
 
 [Action 2116]
-.keyrelease prepare 3600
 That's too bad, slave,
 but we can work with that.
 Make sure you have a key to your handcuffs handy and put it somewhere you can get to it.
+.keyrelease prepare Toys.Wrist_Restraints
 If you have another,
 go freeze it right now, so we have it for next time!
 In the meantime,
@@ -624,7 +622,7 @@ Hands behind your back, slave, and lock'em up!
 delay 10
 lock.mp3
 delay 10
-.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
+' TODO show item - locked later with count-down
 .range 2129 2130
 
 
@@ -633,6 +631,7 @@ delay 10
 .image isb2k.jpg
 .delay 30
 Now just lay back and enjoy your self-bondage, slave.
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff
 When the ice melts you can free yourself,
 and tell me to let Me know you've finished freeing yourself.
 .range 8800
@@ -641,12 +640,13 @@ and tell me to let Me know you've finished freeing yourself.
 .must 211           ' key nearby
 .image isb2k.jpg
 .delay 30
-.keyrelease start 1800
+.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack Body.CantJerkOff over 00:31
 Just lay back and enjoy yourself, slave.
 I think you're good for a half hour or so.
 .range 8100
 
-
+' TODO just wait until wrist restraints are expired - 60s
+'
 '	8000	15 minutes
 '	8100	30 m
 '	8200	45 m
@@ -660,7 +660,10 @@ I think you're good for a half hour or so.
 
 ' bad ending
 [Action 7999]
-.keyrelease release
+.item Toys.Wrist_Restraints remove
+' TODO only remove items if applied in this sub-script and/or expired (clamps, pegs)
+' TODO give instructions what items to remove
+.item Toys.Nipple_Clamps Household.Clothes_Pegs Toys.Gag remove
 .range 9400 9599
 
 
@@ -773,32 +776,29 @@ I think you're good for a half hour or so.
 
 [Action 9001]
 .must 101
-.keyrelease release
 Very good, slave.
 You may use the knife to release yourself.
-.yes I'm free, Miss
 .item Toys.Wrist_Restraints remove
+.yes I'm free, Miss
 .range 9106 9109
 
 [Action 9020]
 .must 102
-.keyrelease release
 That's a good slave.
-.yes I'm free, Miss
 .item Toys.Wrist_Restraints remove
+.yes I'm free, Miss
 .range 9107 9109
 
 [Action 9030]
 .must 103
 .item Toys.Gag is not applied
-.keyrelease release
 Good boy, slave.
 You may free yourself and remove the clamps, pegs and ropes,
 with the exception of the rope harness,
 which you may wear for the rest of the session.
+.item Toys.Wrist_Restraints remove
 .item Toys.Nipple_Clamps remove
 .item Household.Clothes_Pegs remove from Body.OnBalls
-.item Toys.Wrist_Restraints remove
 .set 259                ' Done ball sack pegs or pussy clamps
 .yes I'm free, Miss
 .set 812                ' Done nipple training activity
@@ -807,7 +807,6 @@ which you may wear for the rest of the session.
 [Action 9031]
 .must 103
 .item Toys.Gag is applied
-.keyrelease release
 Good boy, slave.
 You may free yourself and remove the gag, the clamps, pegs and ropes,
 with the exception of the rope harness,
@@ -815,7 +814,7 @@ which you may wear for the rest of the session.
 .item Toys.Nipple_Clamps remove
 .item Household.Clothes_Pegs remove from Body.OnBalls
 .item Toys.Wrist_Restraints remove
-.item Toys.Gag matching Toys.Gags.Ring_Gag remove
+.item Toys.Gag remove
 .set 259                ' Done ball sack pegs or pussy clamps
 .yes I'm free, Miss
 .set 812                ' Done nipple training activity
@@ -823,7 +822,6 @@ which you may wear for the rest of the session.
 
 [Action 9040]
 .must 104
-.keyrelease release
 That's a good boy, slave.
 You may free yourself and remove the nipple clamps and ropes,
 with the exception of the rope harness.
@@ -926,11 +924,9 @@ Now, did you faithfully execute all my instructions, slave?
 
 ' Slave closed
 [Action 9998]
-.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 
 ' Abnormal ending, bailing out
 [Action 9999]
-.keyrelease release
 .loadsbd Mine.sbd 5015

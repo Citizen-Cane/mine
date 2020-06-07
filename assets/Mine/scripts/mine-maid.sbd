@@ -363,14 +363,11 @@
 ' key release handling:
 ' - key release statements are ignored when there's no key release device present,
 '   so they can just be placed in the script where they're needed
-' .keyrelease prepare 1800
-' -> selects an actuator that will be capable of holding a key over half an hour and arms the device for hooking the key up
-' .keyrelease start 615 -> will set the actual duration, and releaee the key after that duration
-' .keyrelease release -> releases the key
-' The point of the two duration is that you can setup a long time for preparing the bondage or locking yourself up,
-' then set the actual duration until release when ready.
-' if the computer fails to start the second countdown after hooking up the key,
-' the key will be released anyway when the preparation duration ends
+' .keyrelease prepare item ...
+' -> selects an actuator that will be capable of holding a key over an hour and arms the device for hooking the key up
+' the actuator is armed when an item is applied, and released when the item is remove
+' The device expects periodic hold events or will drop the key after an hour
+' if the item is applied for a given time, the key release will countdown and release the key automatically
 
 
 .askcheck 11 100    100: position short duration
@@ -2260,7 +2257,6 @@ Let's practice your slave positions.
 .repeatadd 1808 2 2
 .repeatadd 1809 3 3
 .repeatadd 1810 2 2
-.keyrelease start 495
 .range 1790
 
 ' 36 * 20 = 720s -> 12 minutes
@@ -2277,7 +2273,6 @@ Let's practice your slave positions.
 .repeatadd 1808 4 4
 .repeatadd 1809 3 3
 .repeatadd 1810 4 4
-.keyrelease start 735
 .range 1790
 
 ' 48 * 20 = 960s -> 16 minutes
@@ -2294,7 +2289,6 @@ Let's practice your slave positions.
 .repeatadd 1808 5 5
 .repeatadd 1809 5 5
 .repeatadd 1810 4 4
-.keyrelease start 975
 .range 1790
 
 ' 60 * 20 = 1200s -> 20 minutes
@@ -2311,7 +2305,6 @@ Let's practice your slave positions.
 .repeatadd 1808 6 6
 .repeatadd 1809 6 6
 .repeatadd 1810 6 6
-.keyrelease start 1215
 .range 1790
 
 
@@ -2331,7 +2324,6 @@ Let's practice your slave positions.
 .repeatadd 1808 2 2
 .repeatadd 1809 2 2
 .repeatadd 1810 2 2
-.keyrelease start 435
 .range 1790
 
 ' 33 * 20 = 660s -> 11 minutes
@@ -2348,7 +2340,6 @@ Let's practice your slave positions.
 .repeatadd 1808 3 3
 .repeatadd 1809 4 4
 .repeatadd 1810 3 3
-.keyrelease start 675
 .range 1790
 
 ' 42 * 20 = 840s -> 14 minutes
@@ -2365,7 +2356,6 @@ Let's practice your slave positions.
 .repeatadd 1808 4 4
 .repeatadd 1809 4 4
 .repeatadd 1810 4 4
-.keyrelease start 855
 .range 1790
 
 ' 54 * 20 = 1080s -> 18 minutes
@@ -2382,7 +2372,6 @@ Let's practice your slave positions.
 .repeatadd 1808 6 6
 .repeatadd 1809 5 5
 .repeatadd 1810 5 5
-.keyrelease start 1095
 .range 1790
 
 
@@ -2402,7 +2391,6 @@ Let's practice your slave positions.
 .repeatadd 1808 2 2
 .repeatadd 1809 2 2
 .repeatadd 1810 2 2
-.keyrelease start 435
 .range 1790
 
 ' 30 * 20 = 600s -> 10 minutes
@@ -2419,7 +2407,6 @@ Let's practice your slave positions.
 .repeatadd 1808 3 3
 .repeatadd 1809 3 3
 .repeatadd 1810 3 3
-.keyrelease start 615
 .range 1790
 
 ' 39 * 20 = 780s -> 13 minutes
@@ -2436,7 +2423,6 @@ Let's practice your slave positions.
 .repeatadd 1808 4 4
 .repeatadd 1809 4 4
 .repeatadd 1810 4 4
-.keyrelease start 795
 .range 1790
 
 ' 48 * 20 = 960s -> 16 minutes
@@ -2453,7 +2439,6 @@ Let's practice your slave positions.
 .repeatadd 1808 4 4
 .repeatadd 1809 5 5
 .repeatadd 1810 5 5
-.keyrelease start 975
 .range 1790
 
 
@@ -2473,7 +2458,6 @@ Let's practice your slave positions.
 .repeatadd 1808 2 2
 .repeatadd 1809 2 2
 .repeatadd 1810 2 2
-.keyrelease start 375
 .range 1790
 
 ' 27 * 20 = 540s -> 9 minutes
@@ -2490,7 +2474,6 @@ Let's practice your slave positions.
 .repeatadd 1808 3 3
 .repeatadd 1809 2 2
 .repeatadd 1810 3 3
-.keyrelease start 555
 .range 1790
 
 ' 36 * 20 = 720s -> 12 minutes
@@ -2507,7 +2490,6 @@ Let's practice your slave positions.
 .repeatadd 1808 3 3
 .repeatadd 1809 4 4
 .repeatadd 1810 3 3
-.keyrelease start 735
 .range 1790
 
 ' 42 * 20 = 840s -> 14 minutes
@@ -2524,7 +2506,6 @@ Let's practice your slave positions.
 .repeatadd 1808 5 5
 .repeatadd 1809 4 4
 .repeatadd 1810 4 4
-.keyrelease start 855
 .range 1790
 
 
@@ -2544,7 +2525,6 @@ Let's practice your slave positions.
 .repeatadd 1808 2 2
 .repeatadd 1809 2 2
 .repeatadd 1810 2 2
-.keyrelease start 375
 .range 1790
 
 ' 24 * 20 = 480s -> 8 minutes
@@ -2561,7 +2541,6 @@ Let's practice your slave positions.
 .repeatadd 1808 2 2
 .repeatadd 1809 3 3
 .repeatadd 1810 2 2
-.keyrelease start 495
 .range 1790
 
 ' 30 * 20 = 600s -> 10 minutes
@@ -2578,7 +2557,6 @@ Let's practice your slave positions.
 .repeatadd 1808 3 3
 .repeatadd 1809 3 3
 .repeatadd 1810 3 3
-.keyrelease start 615
 .range 1790
 
 ' 36 * 20 = 720s -> 12 minutes
@@ -2595,7 +2573,6 @@ Let's practice your slave positions.
 .repeatadd 1808 3 3
 .repeatadd 1809 4 4
 .repeatadd 1810 3 3
-.keyrelease start 735
 .range 1790
 
 ' up to 1789 for ten duration sets
@@ -5229,27 +5206,28 @@ This is a very simple submissive position.
 
 
 [Action 4034]
-.keyrelease prepare 1800
+bd066_24.jpg
 Then go ahead and put them on.
-.yes I'm cuffed and collared, Miss
-.image bd066_24.jpg
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
+.item Toys.Wrist_Restraints apply
+.yes I'm cuffed and collared, Miss
 .range 4038
 
 [Action 4035]
+bd066_24.jpg
 Go ahead and put it on.
-.yes I'm collared, Miss
-.image bd066_24.jpg
+.keyrelease prepare Toys.Collar
 .item Toys.Collar apply
+.yes I'm collared, Miss
 .range 4038
 
 [Action 4036]
-.keyrelease prepare 1800
+bd066_24.jpg
 Go ahead and put them on.
-.yes My wrists are cuffed, Miss
-.image bd066_24.jpg
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply
+.yes My wrists are cuffed, Miss
 .range 4038
 
 [Action 4037]
@@ -5701,26 +5679,26 @@ You do have wristlets handy, don't you, slave?
 
 
 [Action 4144]
-.keyrelease prepare 1800
 bd066_21.jpg
 Then go ahead,
 snap on the wristlets,
 and put the collar around your neck.
+.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.item Toys.Wrist_Restraints apply
+.item Toys.Collar apply
 delay 15
 bd066_23.jpg
 Tell me when you're ready.
-.item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
 .yes I'm cuffed and collared, Miss
 .range 4148
 
 [Action 4145]
-.keyrelease prepare 1800
 Then go ahead and snap them on.
+.keyrelease prepare Toys.Collar
+.item Toys.Collar apply
 delay 15
 bd066_23.jpg
 Tell me when you're ready.
-.item Toys.Collar apply
 .yes I'm ready, Miss
 .range 4148
 
@@ -5813,13 +5791,14 @@ You do have a crop, don't you, slave?
 
 
 [Action 4164]
-.keyrelease prepare 1800
-If you haven't yet, slave, go ahead and put on the restraints.
+If you haven't yet, slave,
+go ahead and put on the restraints.
+.keyrelease prepare Toys.Wrist_Restraints
+.item Toys.Wrist_Restraints apply
 .yes I'm tied up and ready, Miss
 []
 Now go fetch your crop!
 .yes I have it, Miss
-.item Toys.Wrist_Restraints apply
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4167
 
@@ -5884,23 +5863,23 @@ You do have these items, slave, don't you?
 
 [Action 4175]
 .not .item Toys.Collar applied
-.keyrelease prepare 1800
 Excellent.
 bd037_13.jpg
 Let's put on your collar,
 then continue with the restraints.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
 .yes I'm collared and cuffed, Miss
 .range 4177
 
 [Action 4176]
 .item Toys.Collar applied
-.keyrelease prepare 1800
 Excellent.
 bd037_13.jpg
 Let's put on your restraints now. 
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .yes I'm tied up, Miss
@@ -5959,64 +5938,64 @@ You do have wrist restraints, don't you, slave?
 
 
 [Action 4184]
-.keyrelease prepare 1800
 Very good.
 bd037_06.jpg
 Start with the collar.
 delay 10
 bd037_13.jpg
 Then go ahead and put on the restraints.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply
 ShowChoices
 delay 12
 ActorImage
 Tell me when you're finished, my pet!
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
 .yes I'm cuffed and collared, Miss
 .range 4188
 
 [Action 4185]
-.keyrelease prepare 1800
 Very good.
 bd037_13.jpg
 Then go ahead and put on the restraints.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply
 ShowChoices
 delay 15
 ActorImage
 Tell me when you're finished, my pet!
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
 .yes I'm cuffed, Miss
 .range 4188
 
 [Action 4186]
-.keyrelease prepare 1800
 Very good.
 bd037_06.jpg
 Start with the collar.
 delay 10
 bd037_13.jpg
 Then go ahead and put on the wrist restraints.
+.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply
+.item Toys.Wrist_Restraints apply
 ShowChoices
 delay 10
 ActorImage
 Tell me when you're finished, my pet!
-.item Toys.Collar apply
 .yes I'm cuffed and collared, Miss
 .range 4188
 
 [Action 4187]
-.keyrelease prepare 1800
 Very good.
 bd037_13.jpg
 Go ahead and snap them on your wrists.
+.keyrelease prepare Toys.Wrist_Restraints
+.item Toys.Wrist_Restraints apply
 ShowChoices
 delay 15
 ActorImage
 Tell me when you're finished, my pet!
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
 .yes I'm cuffed, Miss
 .range 4188
 
@@ -6080,15 +6059,16 @@ Excellent, slave.
 
 
 [Action 4196]
-.keyrelease prepare 1800
 Very good.
 bd023_25.jpg
 Now I want you to take your ankle and wrist restraints,
 and chain each wrist to the corresponding ankle.
-delay 10
-I don't want you to have too much wiggle room, so keep the chains between them short.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
+delay 10
+I don't want you to have too much wiggle room,
+so keep the chains between them short.
 .yes I'm chained up, Miss
 .range 4197
 
@@ -6153,46 +6133,45 @@ You'll need a tray of some kind
 
 
 [Action 5004]
-.keyrelease prepare 1800
 .delay 20
 bd259_00.jpg
 Start with putting on your wrist and ankle restraints.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply
 ActorImage
 Go into the kitchen and fetch the tray.
 Also fetch a glass, and fill it with water.
 bd259_01.jpg
 Place the glass on the tray and return to Me.
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
 .yes I'm back with the tray, Miss
 .range 5008
 
 [Action 5005]
-.keyrelease prepare 1800
 bd259_00.jpg
 Start with putting on your wrist restraints.
+.keyrelease prepare Toys.Wrist_Restraints
+.item Toys.Wrist_Restraints apply
 delay 15
 ActorImage
 Go into the kitchen and fetch the tray.
 Also fetch a glass, and fill it with water.
 bd259_01.jpg
 Place the glass on the tray and return to Me.
-.item Toys.Wrist_Restraints apply
 .yes I'm back with the tray, Miss
 .range 5008
 
 [Action 5006]
-.keyrelease prepare 1800
 bd259_00.jpg
 Start with putting on your ankle restraints.
+.keyrelease prepare Toys.Ankle_Restraints
+.item Toys.Ankle_Restraints apply
 delay 15
 ActorImage
 Go into the kitchen and fetch the tray.
 Also fetch a glass, and fill it with water.
 bd259_01.jpg
 Place the glass on the tray and return to Me.
-.image bd259_01.jpg
-.item Toys.Ankle_Restraints apply
 .yes I'm back with the tray, Miss
 .range 5008
 
@@ -6698,9 +6677,9 @@ Snap them on your poor little titties.
 
 
 [Action 5076]
-.keyrelease prepare 1800
 Very good, my pet.
 Complete your maid dress by putting on the restraints.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .yes I'm dressed up, Miss
@@ -7058,20 +7037,20 @@ Perfect!
 
 [Action 5125]
 .not .item Toys.Collar applied
-.keyrelease prepare 1800
 bd037_13.jpg
 Go ahead, put on your collar and the restraints. 
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
 .yes I'm collared and chained up, Miss
 .range 5127
 
 [Action 5126]
 .item Toys.Collar applied
-.keyrelease prepare 1800
 bd037_13.jpg
 Go ahead and put on the restraints. 
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .yes I'm chained up, Miss
@@ -7114,25 +7093,25 @@ You do have these items, slave, don't you?
 
 [Action 5135]
 .not .item Toys.Collar applied
-.keyrelease prepare 1800
 Excellent.
 bd037_13.jpg
-Let's put on your collar, then continue with your restraints. 
+Let's put on your collar,
+then continue with your restraints. 
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
 .yes I'm collared and chained up, Miss
 .range 5137
 
 [Action 5136]
 .item Toys.Collar applied
-.keyrelease prepare 1800
 Excellent.
 bd037_13.jpg
 Let's put on your restraints now.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
 .yes I'm chained up, Miss
 .range 5137
 
@@ -7177,20 +7156,20 @@ Excellent, my pet.
 
 [Action 5145]
 .not .item Toys.Collar applied
-.keyrelease prepare 1800
 bd037_13.jpg
 Let's put on your collar, then continue with your restraints. 
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
 .yes I'm collared and chained up, Miss
 .range 5147
 
 [Action 5146]
 .item Toys.Collar applied
-.keyrelease prepare 1800
 bd037_13.jpg
 Let's put on your restraints. 
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .yes I'm chained up, Miss
@@ -7252,19 +7231,19 @@ You do have nipple clamps, don't you, slave?
 
 [Action 5155]
 .must 5150
-.keyrelease prepare 1800
 bd022_46.jpg
 Go ahead, put on the restraints, and pop those clamps on your nipples, slave.
-.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .yes All done, Miss
 .range 5159
 
 [Action 5156]
 .must 5151
-.keyrelease prepare 1800
 bd022_46.jpg
 Go ahead and put on your restraints, slave.
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply
 .yes I'm chained up, Miss
 .range 5159
@@ -7461,15 +7440,15 @@ Go ahead and pop those clamps on your nipples, slave.
 
 
 [Action 5188]
-.keyrelease prepare 1800
 bd028_38.jpg
 Put on your wrist restraints and lock your hands behind you.
+.keyrelease prepare Toys.Wrist_Restraints
+.item Toys.Wrist_Restraints apply
 delay 15
 You may leave the key to your cuffs on the desk.
 delay 20
 bd028_35.jpg
 Tell me when you're finished, my pet.
-.item Toys.Wrist_Restraints apply
 .yes I'm cuffed, Miss 
 .range 5189
 
@@ -7998,9 +7977,10 @@ Then place the rug or towel on the ground.
 
 
 [Action 5787]
-.not .item Toys.Wrist_Restraints applied
-.keyrelease prepare 1800
+.item Toys.Wrist_Restraints not applied
 Now put the handcuffs on.
+.keyrelease prepare Toys.Wrist_Restraints
+.item Toys.Wrist_Restraints apply
 .yes Cuffed and Ready, Miss
 []
 bd159_25.jpg
@@ -8008,7 +7988,6 @@ Kneel on the rug as shown.
 Your knees should be spread as wide as possible and
 your toes should be curled under your feet.
 Your feet should be touching each other. 
-.item Toys.Wrist_Restraints apply
 .range 5789
 
 [Action 5788]
@@ -8407,59 +8386,60 @@ Have you got all that?
 
 
 [Action 5834]
-.keyrelease prepare 1800
 bd021_18.jpg
 First, put the collar around your neck, and cuff your wrists.
+.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply
+.item Toys.Wrist_Restraints apply
 delay 30
 bd021_36.jpg
 Then insert your gag, and snap the clamps on your nipples and your "pussy".
-delay 10
-.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .item Toys.Gag apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
+delay 10
 .yes All done, Miss
 .range 5838
 
 [Action 5835]
 bd021_35.jpg
 First, put the collar around your neck and insert your gag.
+.keyrelease prepare Toys.Collar
+.item Toys.Collar apply
+.item Toys.Gag apply
 delay 20
 bd021_36.jpg
 Then pop the clamps on your nipples and your "pussy".
-delay 20
 .item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Gag apply
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Collar apply
+delay 20
 .yes All done, Miss
 .range 5838
 
 [Action 5836]
-.keyrelease prepare 1800
 bd021_18.jpg
 Start with cuffing your wrists.
+.keyrelease prepare Toys.Wrist_Restraints
+.item Toys.Wrist_Restraints apply
 delay 20
 bd021_36.jpg
 Then insert your gag, and snap the clamps on your nipples and your "pussy".
-delay 10
-.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .item Toys.Gag apply
+.item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Wrist_Restraints apply
+delay 10
 .yes All done, Miss
 .range 5838
 
 [Action 5837]
 bd021_35.jpg
 First, insert your gag.
+.item Toys.Gag apply
 delay 15
 bd021_36.jpg
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Gag apply
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .yes All done, Miss
 .range 5838
@@ -8626,56 +8606,58 @@ Have you got all that?
 
 
 [Action 5854]
-.keyrelease prepare 1800
 bd021_36.jpg
-First, put the collar around your neck, cuff your wrists and insert your gag.
+First, put the collar around your neck,
+cuff your wrists and insert your gag.
+.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply
+.item Toys.Wrist_Restraints apply
+.item Toys.Gag apply
 delay 30
 Then pop the clamps on your nipples and your "pussy".
 delay 10
 .item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Gag apply
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Wrist_Restraints apply
-.item Toys.Collar apply
 .yes All done, Miss
 .range 5858
 
 [Action 5855]
 bd021_36.jpg
 First, put the collar around your neck and insert your gag.
+.keyrelease prepare Toys.Collar
+.item Toys.Collar apply
+.item Toys.Gag apply
 delay 10
 Then pop the clamps on your nipples and your "pussy".
-delay 20
 .item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Gag apply
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Collar apply
+delay 20
 .yes All done, Miss
 .range 5858
 
 [Action 5856]
-.keyrelease prepare 1800
 bd021_36.jpg
 First, cuff your wrists and insert your gag.
+.keyrelease prepare Toys.Wrist_Restraints
+.item Toys.Wrist_Restraints apply
+.item Toys.Gag apply
 delay 20
 Then pop the clamps on your nipples and your "pussy".
-delay 10
 .item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Gag apply
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Wrist_Restraints apply
+delay 10
 .yes All done, Miss
 .range 5858
 
 [Action 5857]
 bd021_36.jpg
 First, insert your gag.
+.item Toys.Gag apply
 delay 15
 Then pop the clamps on your nipples and your "pussy".
-delay 10
 .item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
-.item Toys.Gag apply
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
+delay 10
 .yes All done, Miss
 .range 5858
 
@@ -8882,27 +8864,27 @@ You do have these items, I hope?
 [Action 6504]
 .not .item Toys.Wrist_Restraints applied
 .not .item Toys.Collar applied
-.keyrelease prepare 1800
 Excellent.
 Put on your slave collar, and attach the snap hook to it.
 Then fetch your wrist restraints, and put them on as well.
+.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.item Toys.Collar apply 
+.item Toys.Wrist_Restraints apply
 Make sure you can chain your wrists to your collar later on,
 and report back to me.
-.item Toys.Collar apply 
-.item Toys.Wrist_Restraints apply 
 .yes I'm dressed up and ready, Miss
 .range 6508
 
 [Action 6505]
 .not .item Toys.Wrist_Restraints applied
 .item Toys.Collar applied
-.keyrelease prepare 1800
 Excellent.
 Fetch your wrist restraints, and put them on.
+.keyrelease prepare Toys.Wrist_Restraints
+.item Toys.Wrist_Restraints apply 
 Attach the snap hook to your collar,
 and make sure you can chain your wrists to your collar later on.
 Report back to me, when you're ready.
-.item Toys.Wrist_Restraints apply 
 .yes I'm dressed up and ready, Miss 
 .range 6508
 
@@ -8911,9 +8893,10 @@ Report back to me, when you're ready.
 .not .item Toys.Collar applied
 Excellent.
 Put on your slave collar, and attach the snap hook to it.
+.keyrelease prepare Toys.Collar
+.item Toys.Collar apply 
 Make sure you can attach your wrists to your collar later on,
 and report back to me.
-.item Toys.Wrist_Restraints apply 
 .yes I'm dressed up and ready, Miss 
 .range 6508
 
@@ -9122,9 +9105,9 @@ Snap them on your poor little titties.
 
 
 [Action 6526]
-.keyrelease prepare 1800
 Very good, my pet.
 Complete your maid dress by putting on the restraints.
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .yes I'm cuffed and ready, Miss
@@ -9232,14 +9215,16 @@ Snap them on your poor little slave titties and make sure they sit tight.
 
 [Action 6535]
 .else
-.keyrelease prepare 1800
 If you haven't yet, put on our ankle cuffs.
+.keyrelease prepare Toys.Ankle_Restraints
+.item Toys.Ankle_Restraints apply
 .delay 30
 bd645_012.jpg
 Then crawl over and fetch your pussy clamps.
 delay 20
 bd645_014.jpg
 Snap them on your slutty ball sack, and make sure they sit tight.
+.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 delay 20
 bd645_049.jpg
 Now kneel down and attach the connecting chain to your ankle cuffs.
@@ -9249,8 +9234,6 @@ bd645_044.jpg
 If you don't have snap hooks or padlocks handy,
 you may just entwine the connecting chains.
 Report back to be when you have all items on, slave!
-.item Toys.Ankle_Restraints apply
-.item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
 .yes I'm ready, Miss
 .range 6536 6537
 
@@ -9399,7 +9382,6 @@ then you've failed this position!
 ' Entry point
 [Action 7300]
 .unset 7300
-.keyrelease release
 .range 7301 7302
 
 
@@ -10465,7 +10447,6 @@ That's pathetic, slave, and I'm just fed up with you.
 [Action 8300]
 .set 147                ' position successful
 .unset 8300
-.keyrelease release
 .range 8301 8398
 
 
@@ -13343,10 +13324,8 @@ Came, did you, you disobedient slut!
 
 ' Slave closed
 [Action 9998]
-.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 ' Abnormal ending, bailing out
 [Action 9999]
-.keyrelease release
 .loadsbd Mine.sbd 5011 5011

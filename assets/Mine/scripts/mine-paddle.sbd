@@ -1837,19 +1837,19 @@ uncomfortable, and it will make you feel very stupid and naughty.
 
 [Action 1861]
 .must 123 130
-.keyrelease prepare 3600
 I want you to have something extra to think about over in the corner,
 so go fetch me your nipple clamps,
 and grab your handcuffs while you're at it.
+.keyrelease prepare Toys.Wrist_Restraints
 .yes I have them ready, Miss
 .range 1870
 
 [Action 1862]
 .must 123
 .mustnot 130
-.keyrelease prepare 3600
 I don't want you touching yourself in the corner,
 so go fetch your handcuffs before we get started.
+.keyrelease prepare Toys.Wrist_Restraints
 .yes I have them ready, Miss
 .range 1870
 
@@ -2109,10 +2109,11 @@ and make sure they're nice and tight.
 [Action 1991]
 .must 123
 Now put your handcuffs on, behind your back.
+.item Toys.Wrist_Restraints apply
+' TODO comment conflicts with optional key release device - key already prepared
 Make sure that the key is somewhere you can get at it
 - of course, not anywhere near the corner.
 .yes I've cuffed my hands behind my back, Miss
-.keyrelease start 3600
 .range 2000
 
 [Action 1992]
@@ -2330,7 +2331,6 @@ Now tiptoe over to that corner, you naughty boy, and think about the error of yo
 [Action 2131]
 .must 123 130
 .playwav whip.mp3
-.keyrelease release
 Very good, slave.
 You may now take off your handcuffs and nipple clamps.
 .item Toys.Wrist_Restraints remove
@@ -2354,7 +2354,6 @@ You may take off those nipple clamps now.
 .must 123
 .mustnot 130
 .playwav whip.mp3
-.keyrelease release
 Good boy.
 You may take off the handcuffs.
 .item Toys.Wrist_Restraints remove
@@ -4704,10 +4703,8 @@ You may remove the weight, the rope, and the ball harness, slave.
 
 ' Slave closed
 [Action 9998]
-.keyrelease release
 .loadsbd Mine.sbd 5020 5029
 
 ' Abnormal ending, bailing out
 [Action 9999]
-.keyrelease release
 .loadsbd Mine.sbd 5014

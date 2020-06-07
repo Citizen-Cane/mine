@@ -19,13 +19,6 @@
 
 .define .noActiveToyAssignment .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
 
-.define .activateKeyReleaseAction_ankles .gosub 13000
-.define .activateKeyReleaseAction_wrists .gosub 13010
-.define .activateKeyReleaseAction_collar .gosub 13020
-.define .activateKeyReleaseAction_chains .gosub 13030
-.define .activateKeyReleaseAction_humbler .gosub 13040
-.define .activateKeyReleaseAction_ballstretcher .gosub 13050
-
 
 ' This restores range 90 to 799
 .restore
@@ -823,6 +816,7 @@ Would you be so kind and tell me what you've got exactly?
 
 ' Debug entry from mine.debug.sbd
 [Action 840]
+.debug
 .set 848				' debug code path, no release checks
 .range 847
 
@@ -6650,11 +6644,10 @@ each about a foot long.
 I want you to get on your knees, fetch your humbler, and put it on.
 You'll be wearing it for the whole session,
 which will hopefully go a long way in teaching you not to irritate me!
-.keyrelease prepare max
+.keyrelease prepare Toys.Humbler
 .item Toys.Humbler apply
 .set 746 747 748             ' CBT 3
 .yes I'm wearing it, Miss
-.activateKeyReleaseAction_humbler
 .range 2401
 
 [Action 2517]
@@ -6681,10 +6674,10 @@ Then crawl over,
 fetch a piece of rope or shoe lace and connect it to your ball harness,
 leaving two equal lengths of rope dangling down,
 each about a foot long.
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply to Toys.Rope Posture.CantSitOnChair Posture.CantStand
 .yes My balls are enslaved, Miss
 .set 746 747                 ' CBT 2
-.activateKeyReleaseAction_ballstretcher
 .range 2509
 
 [Action 2519]
@@ -7019,10 +7012,9 @@ You stay like this the whole session.
 .mustnot 267 268             ' Enema carrying out or holding
 Get your wrist restraints and snap them on.
 Maybe wearing them during the session helps you to focus on the job.
-.keyrelease prepare max
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply
 .yes Done, Miss
-.activateKeyReleaseAction_wrists
 .range 2407
 
 [Action 2574]
@@ -7120,10 +7112,9 @@ Go fetch your humbler,
 trap your slutty balls in it and place it behind your thighs,
 stretching them taut.
 You'll stay on your knees for the whole session, cunt. 
-.keyrelease prepare max
+.keyrelease prepare Toys.Humbler
 .item Toys.Humbler apply
 .yes Done, Miss
-.activateKeyReleaseAction_humbler
 .range 2599
 
 [Action 2593]
@@ -7132,10 +7123,9 @@ You'll stay on your knees for the whole session, cunt.
 Get your ankle restraints and tie up your ankles.
 And don't you dare to leave any play between them -
 I just want you to hump.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints
 .item Toys.Ankle_Restraints apply
 .yes Done, Miss
-.activateKeyReleaseAction_ankles
 .range 2594 2599
 
 
@@ -7146,10 +7136,9 @@ Very good, slave.
 Now fetch some rope or a chain,
 and tie your ankle restraints to your chastity cage. 
 I don't want you to be able to stand, so keep the connecting rope short.
-.keyrelease prepare max
+.keyrelease prepare Toys.Chains
 .item Toys.Chains apply to Toys.Chastity_Device Toys.Ankle_Restraints
 .yes Done, Miss
-.activateKeyReleaseAction_chains
 .range 2599
 
 // TODO Explicitely tying ankles to ball harness is missing, although handled by 2595-2596
@@ -7324,10 +7313,10 @@ Make sure the rope won't slip off.
 .shouldnot 706               ' entitled for lighter punishment
 You certainly don't mind putting on your ball harness, do you?
 Put it on now, and make sure it sits tight.
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply
 .yes Done, Miss
 .gosub 2624 2627             ' weight to ball harness
-.activateKeyReleaseAction_ballstretcher
 .range 2628 2629
 
 ' Fallback if there's something on balls already
@@ -7918,10 +7907,9 @@ Hopefully this will get through to you!
 Fetch a chain, loop it tightly around the base of your flacid penis and lock it up.
 But be careful to not restrict the flow of blood too much.
 I still want you to work hard to stay hard, slave.
-.keyrelease prepare max
+.keyrelease prepare Toys.Chains
 .item Toys.Chains apply to Body.AroundCockBase
 .yes Finished, Miss
-.activateKeyReleaseAction_chains
 .range 2964
 
 [Action 2961]
@@ -7939,10 +7927,9 @@ I still want you to work hard to stay hard, slave.
 .item Toys.Ball_Stretcher canApply
 Go fetch your ball harness, and put it on.
 Pull the straps tight, slave!
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply
 .yes Done, Miss
-.activateKeyReleaseAction_ballstretcher
 .range 2963
 
 [Action 2963]
@@ -8922,10 +8909,9 @@ I know you like it, you bondage slut!
 .mustnot 102            ' Wearing the collar is a honor, so don't give it away as a punishment
 I think you're going to wear your slave collar for today.
 Put it on now, slave.
-.keyrelease prepare max
+.keyrelease prepare Toys.Collar
 .item Toys.Collar apply
 .yes I'm collared, Miss
-.activateKeyReleaseAction_collar
 .range 3290
 
 
@@ -9065,10 +9051,9 @@ Snap on your wrist restraints, bitch.
 ShowChoices
 delay 12
 Hurry up, slave!
-.keyrelease prepare max
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply
 .yes Ready, Miss
-.activateKeyReleaseAction_wrists
 .range 3145 3147
 
 [Action 3143]
@@ -9079,10 +9064,9 @@ Snap on your ankle restraints, bitch.
 ShowChoices
 delay 12
 Hurry up, slave!
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints
 .item Toys.Ankle_Restraints apply
 .yes Ready, Miss
-.activateKeyReleaseAction_ankles
 .range 3145 3147
 
 [Action 3144]
@@ -9093,12 +9077,10 @@ Put on your ankle and wrist restraints.
 ShowChoices
 delay 12
 Hurry up, slave!
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .yes Ready, Miss
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_wrists
 .range 3145 3147
 
 
@@ -9113,11 +9095,10 @@ Then tie up your slutty ball sack and tie the leftover to your slave chains.
 You should have just enough play so that you can kneel straight
 and rub your little slave titties,
 but no more.
-.keyrelease prepare max
+.keyrelease prepare Toys.Chains
 .item Toys.Chains apply to Body.OnBalls Posture.CantSitOnChair Posture.CantStand
 .set 736 737 746 747    ' Restraint acceptance 2, CBT 2
 .yes I'm chained up, Miss
-.activateKeyReleaseAction_chains
 .range 3290
 
 ' put on ball harness
@@ -9129,10 +9110,9 @@ but no more.
 .item Toys.Ball_Stretcher canApply
 I also want you to wear your ball harness for todays session.
 Go ahead and put it on.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply
 .yes I'm wearing it, Miss
-.activateKeyReleaseAction_ballstretcher
 .range 3148
 
 ' wearing ball harness on already
@@ -9152,11 +9132,10 @@ Then attach the connecting chain to your ball harness.
 You should have just enough play so that you can kneel straight
 and rub your little slave titties,
 but no more.
-.keyrelease prepare max
+.keyrelease prepare Toys.Chains
 .item Toys.Chains apply to Toys.Wrist_Restraints Toys.Ankle_Restraints Toys.Ball_Stretcher Posture.CantStand
 .set 737 747            ' Restraint acceptance 2, CBT 2
 .yes I'm chained up, Miss
-.activateKeyReleaseAction_chains
 .range 3290
 
 
@@ -9172,11 +9151,10 @@ and I think I'll take it out on those poor nuts of yours.
 I want you to get on your knees, fetch your humbler, and put it on.
 You'll be wearing it for the whole session, which will hopefully
 go a long way in teaching you not to irritate me!
-.keyrelease prepare max
+.keyrelease prepare Toys.Humbler
 .item Toys.Humbler apply
 .set 749                ' CBT 4
 .yes I'm wearing it, Miss
-.activateKeyReleaseAction_humbler
 .return
 
 
@@ -9200,10 +9178,9 @@ Then, tie a rope to your gag, leaving some left over.
 .must 3150
 Now that you're unable to complain, you may put on your ball harness.
 And you better pull the straps tight, slave.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply
 .yes Finished, Miss
-.activateKeyReleaseAction_ballstretcher
 []
 Bend over as far as you can and fasten your gag to your ball harness.
 Don't leave yourself more than 18 inches or so of rope, you dirty cunt.
@@ -9248,10 +9225,9 @@ You can stare at that silly penis for the rest of the session.
 .must 736 737 746       ' restraint acceptance 1 & 2, cbt 1
 Now, slave, go put on your ball harness.
 Pull the straps extra tight, just to make sure the harness won't slip off.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply
 .yes I've put it on, Miss
-.activateKeyReleaseAction_ballstretcher
 .range 3156
 
 [Action 3156]
@@ -9259,10 +9235,9 @@ Pull the straps extra tight, just to make sure the harness won't slip off.
 Put on your collar and get yourself some rope.
 Tie it to your collar to make a leash,
 and let the end dangle down in front of your belly.
-.keyrelease prepare max
+.keyrelease prepare Toys.Collar
 .item Toys.Collar apply
 .yes I'm collared and leashed, Miss
-.activateKeyReleaseAction_collar
 .range 3157
 
 [Action 3157]
@@ -9314,11 +9289,10 @@ some rope and tie your ankles together for today's session.
 .mustnot 267 268        ' Enema carrying out or holding
 I don't want you running off, slave, so snap on
 those ankle restraints for today's session.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints
 .item Toys.Ankle_Restraints apply
 .set 736                ' restraint acceptance 1
 .yes Tied up, Miss
-.activateKeyReleaseAction_ankles
 .return
 
 [Action 3164]
@@ -9328,11 +9302,10 @@ those ankle restraints for today's session.
 Today I want you to pop those handcuffs on your wrists, My pet,
 just as a bit of a reminder.
 Leave them on for today's session.
-.keyrelease prepare max
+.keyrelease prepare Toys.Wrist_Restraints
 .item Toys.Wrist_Restraints apply
 .yes Done, Miss
 .set 736                ' restraint acceptance 1
-.activateKeyReleaseAction_wrists
 .return
 
 
@@ -9352,15 +9325,12 @@ and chain them together.
 Give yourself enough play so that you can kneel comfortably,
 but not enough so that you can stand up straight.
 Leave your chains on for the whole session, slave.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Chains
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .item Toys.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Posture.CantStand
 .set 737	            ' restraint acceptance 2
 .yes I'm chained up, Miss
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_wrists
-.activateKeyReleaseAction_chains
 .return
 
 
@@ -9385,7 +9355,7 @@ but not enough so that you can stand up straight.
 []
 Now chain your wrists to your collar.
 You should just be able to wank, but no more.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar Toys.Chains
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .item Toys.Collar apply
@@ -9393,10 +9363,6 @@ You should just be able to wank, but no more.
 .item Toys.Chains apply to Toys.Collar
 .set 738	            ' restraint acceptance 3
 .yes All chained up, Miss
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_wrists
-.activateKeyReleaseAction_collar
-.activateKeyReleaseAction_chains
 .range 3290
 
 
@@ -9417,13 +9383,12 @@ Give yourself enough play so that
 you can stand straight with your hands on your dick,
 but no more.
 Leave your chains on for the whole session, slave.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Chains
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
+.item Toys.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints
 .set 737	            ' restraint acceptance 2
 .yes I'm chained up, Miss
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_wrists
 .return
 
 
@@ -9611,10 +9576,9 @@ You are not allowed to rest the weight on the ground, My pet, so don't leave too
 [Action 3250]
 One thing I like is a slutty little slave boy wearing his tight ball harness.
 Put it on now, slave.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply
 .yes I'm wearing it, Miss
-.activateKeyReleaseAction_ballstretcher
 .range 3290
 
 
@@ -9631,9 +9595,10 @@ You know one thing I like is a slutty little slave boy wearing his slave chains.
 []
 For today's session I want you to put on your
 wrist and ankle restraints and chain them together.
-.keyrelease prepare max
-.item Toys.Ankle_Restraints apply to Toys.Chains
-.item Toys.Wrist_Restraints apply to Toys.Chains
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Chains Toys.Ball_Stretcher 
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply
+.item Toys.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints
 .yes I'm chained up, Miss
 []
 Almost, my pet, almost.
@@ -9642,13 +9607,10 @@ Now put on your ball harness and attach it to your slave chains.
 Give yourself enough play so that you can comfortably kneel
 or grab your little slave titties,
 but not enough to stand up straight or reach your neck.
-.keyrelease prepare max
-.item Toys.Ball_Stretcher apply to Posture.CantStand Posture.CantSitOnChair
+.item Toys.Ball_Stretcher apply
+.item Toys.Chains apply to Toys.Ball_Stretcher Posture.CantStand Posture.CantSitOnChair
 .set 3124               ' Can't put on slave collar anymore 
 .yes Finished, Miss
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_wrists
-.activateKeyReleaseAction_ballstretcher
 .range 3290
 
 
@@ -9665,7 +9627,7 @@ Go grab a convenient weight -
 about a pound or so -
 and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply to Household.Weight
 .yes Weight attached, Miss
 .set 748                ' cbt 3
@@ -9683,7 +9645,7 @@ Now slave, grab a convenient weight -
 about two pound or so -
 and attach it to the harness.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply to Household.Weight
 .yes Weight attached, Miss
 .set 749                ' cbt 4
@@ -9700,7 +9662,7 @@ Put it on now, slave.
 Now grab a good weight of three to four pounds and attach it to the harness.
 Leave it there for the whole session.
 When you kneel, you are not allowed to rest the weight on the ground, My pet.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply to Household.Weight
 .yes Weight attached, Miss
 .set 750                ' cbt 5
@@ -9716,14 +9678,11 @@ When you kneel, you are not allowed to rest the weight on the ground, My pet.
 .must 747               ' cbt 2
 Get your ankle restraints, slave chains, and your ball harness.
 Chain each ankle to your slutty ball sack so that you can just kneel straight.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Chains Toys.Ball_Stretcher 
 .item Toys.Ankle_Restraints apply
 .item Toys.Ball_Stretcher apply
 .item Toys.Chains apply to Body.AnklesTied Body.OnBalls Posture.AnklesTiedTogether Posture.CantStand 
 .yes Ankles chained to balls, Miss
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_ballstretcher
-.activateKeyReleaseAction_chains
 .range 3290
 
 
@@ -11335,12 +11294,10 @@ Lube up that plug and insert it into your bottom now.
 .item Toys.Ball_Stretcher canApply
 I want your balls stand out nicely for out next activity,
 my dear slave, so let's put on your ball harness.
-' TODO extend wearing harness to end of session if key release already running
-' .keyrelease prepare max
+ .keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply
 .set 219                ' Let's do this
 .yes Done as ordered, Miss
-' .activateKeyReleaseAction_ballstretcher
 .range 4985
 
 [Action 4956]
@@ -11362,9 +11319,7 @@ Open your mouth and insert your gag now, slave.
 .must 746               ' cbt level 1
 I want you to assume the right position for our next activity.
 Get down on your knees and put on your humbler, slave.
-' TODO skip key release here and remove TODO, or extend wearing humbler to the end of the session
-' .keyrelease prepare max
-' .activateKeyReleaseAction_humbler
+.keyrelease prepare Toys.Humbler
 .item Toys.Humbler apply
 .yes I'm wearing it, Miss
 .set 217                ' humbler
@@ -13475,6 +13430,7 @@ Well, I hope you enjoyed it,
 because you won't be doing it again for a while.
 .range 6141 6148
 
+
 [Action 6141]
 I can't believe you would disobey me like this.
 You won't be cumming until further notice.
@@ -13488,18 +13444,21 @@ You won't be cumming until further notice.
 [Action 6143]
 Cumming without any permission is such an affront.
 You'll be sorry for this!
-As partial punishment, you won't be cumming until further notice.
+As partial punishment,
+you won't be cumming until further notice.
 .range 6149
 
 [Action 6144]
 You'll pay for this mistake, My dear.
-For one thing, you aren't allowed to cum until further notice.
+For one thing,
+you aren't allowed to cum until further notice.
 .range 6149
 
 [Action 6145]
 Cumming without permission!
 You've done it this time, you stupid slut.
-There will be punishment for this, and in addition you aren't allowed to cum until further notice.
+There will be punishment for this,
+and in addition you aren't allowed to cum until further notice.
 .range 6149
 
 
@@ -14623,11 +14582,10 @@ Make sure the rope won't slip off.
 .shouldnot 706               ' entitled for lighter punishment
 You certainly don't mind putting on your ball harness, do you?
 Put it on now, and make sure it sits tight.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Ball_Stretcher apply
 .yes Done, Miss
 .gosub 2624 2627             ' weight to ball harness
-.activateKeyReleaseAction_ballstretcher
 .range 7528 7529
 
 
@@ -19607,12 +19565,13 @@ Don't come back without wearing the proper getup..."
 ' assignment to appear in full getup when attending the session a but to early
 
 ' set assignments accordingly in 325-349 -> 25 slots
+' some items may be loackable but are to be removed as a reward if put on before the session
+' -> forgotten toys will be ordered to be put on, and properly locked (if lockable)
 
 ' ask for assignments from last session
 [action 11031]
 Very good, my little pet.
 Would you mind telling me what you are wearing right now?
-.keyrelease prepare max      ' TODO a little late, should init this at the beginning of the script
 .ask 224 249 LEFT CENTER
 .unset 11031
 .range 11035 11059
@@ -19626,7 +19585,6 @@ ShowChoices
 delay 2
 And don't forget to put on all the other stuff I've told you to wear,
 because I don't want to waste any more of my valuable time on you tonight.
-.keyrelease prepare max
 .ask 224 249 LEFT CENTER
 .unset 11033
 .range 11035 11059
@@ -19784,7 +19742,10 @@ Make up for it, and keep the straps extra tight, you disobedient cunt!
 Slave!
 For tonight, you're supposed to put on your wrist and ankle restraints!
 Put them on now, you sloppy slut.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply
+.item Toys.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints
 .yes Done, Miss
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 233
@@ -19802,7 +19763,10 @@ you're supposed to chain your wrist and ankle restraints together!
 But you didn't.
 Chain them together now, you sloppy slut.
 And keep the chains short, I want to see you on your knees tonight.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply
+.item Toys.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Posture.CantStand
 .yes I'm chained up and on my knees, Miss
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 234
@@ -19820,7 +19784,10 @@ But you didn't!
 Put on your wrist and ankle restraints, and chain them together now,
 you sloppy slut.
 And keep the chains short, I want to see you on your knees tonight.
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
+.item Toys.Ankle_Restraints apply
+.item Toys.Wrist_Restraints apply
+.item Toys.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Posture.CantStand
 .yes I'm chained up and on my knees, Miss
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 234
@@ -19837,7 +19804,9 @@ But you didn't, you disobedient cunt!
 Well, you can chain up your enslaved ball sack now. 
 And keep the chains short,
 I want to see you on your bare knees tonight!
-.keyrelease prepare max
+.keyrelease prepare Toys.Ankle_Restraints Toys.Ball_Stretcher
+.item Toys.Ankle_Restraints apply
+.item Toys.Ball_Stretcher apply to Toys.Ankle_Restraints Posture.CantStand
 .yes I'm on my knees, Miss
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 235
@@ -20498,7 +20467,14 @@ Especically if he's chained and shackled so well.
 
 
 ' map assignments to toys
-
+' TODO add key release handling 
+' - provide dialogs and decision logic as the user has put on the toys before the session
+'   and it might not be possible to attach them to a key release
+' - make sure all lockable toys are bound to the same key
+' - check which are about to be removed as a rewards, and which are to be worn throughout the session 
+' The problem has been partially been solved by preparing items the use did not wear at session start
+' -> TODO check what startup-toys are actually worn throughout the session
+ 
 [action 11300]
 .unset 211
 .resetrange 325 349
@@ -20561,14 +20537,12 @@ Especically if he's chained and shackled so well.
 .must 231
 .item Toys.Humbler apply
 .unset 231
-.activateKeyReleaseAction_humbler
 .range  11324
 
 [action 11332]
 .must 232
 .item Toys.Ball_Stretcher apply
 .unset 232
-.activateKeyReleaseAction_ballstretcher
 .range  11324
 
 [action 11333]
@@ -20576,18 +20550,13 @@ Especically if he's chained and shackled so well.
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
 .unset 233
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_wrists
 .range  11324
 
 [action 11334]
 .must 234
 .item Toys.Ankle_Restraints apply
 .item Toys.Wrist_Restraints apply
-.state Posture.CantStand free
 .unset 234
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_wrists
 .range  11324
 
 [action 11335]
@@ -20595,8 +20564,6 @@ Especically if he's chained and shackled so well.
 .item Toys.Ankle_Restraints apply
 .item Toys.Ball_Stretcher apply to Toys.Ankle_Restraints Posture.CantStand
 .unset 235
-.activateKeyReleaseAction_ankles
-.activateKeyReleaseAction_ballstretcher
 .range  11324
 
 [action 11336]
@@ -20613,7 +20580,6 @@ Especically if he's chained and shackled so well.
 .must 240
 .item Toys.Collar apply
 .unset 240
-.activateKeyReleaseAction_collar
 .range  11324
 
 [action 11341]
@@ -21979,14 +21945,14 @@ what else is there for a slave to do than to concentrate on his Mistress?
 
 [action 11995]
 .item Toys.Chastity_Device applied
-.range 11997 11999
+.range 11996 11999
 
 
-[action 11997]
+[action 11996]
 .item Toys.Chains not is Toys.Chastity_Device Toys.Ankle_Restraints
 .return
 
-[action 11998]
+[action 11997]
 .item Toys.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
 Well slave,
 you may also remove the connecting chain between your ankle restraints and the cage.
@@ -21996,173 +21962,72 @@ I guess I'll have you stand again.
 .yes Thank you, Miss
 .return
 
-[action 11999]
+[action 11998]
 .item Toys.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
-Well, you haven't earned the privilege to stand today, slave!
+.item Toys.Ball_Stretcher is not available
+You haven't earned the privilege to stand today, slave!
 Take the chain between your ankles and tie it to your ball sack.
 .item Toys.Chains remove from Toys.Chastity_Device 
 .item Toys.Chastity_Device remove
-.keyrelease prepare max
+.keyrelease prepare Toys.Ball_Stretcher
 .item Toys.Chains apply to Body.OnBalls Posture.CantStand
 .yes Thank you, Miss
-.activateKeyReleaseAction_chains
 .return
 
-
-' key release activation section
-
-
-' Attach release action to ankle restraints
- 
-[action 13000]
-.range 13001 13002
-
-
-[action 13001]
-.state $(Key_Release.Action) is State.Available
-.state $(Key_Release.Action) apply to Toys.Ankle_Restraints
-.gosub 13090       ' update release timer
+[action 11999]
+.item Toys.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
+.item Toys.Ball_Stretcher is available
+You haven't earned the privilege to stand today, slave!
+Go fetch your ball-stretcher and put it on.
+Then take the chain between your ankles and connect it to your slutty ball sack.
+.item Toys.Chains remove from Toys.Chastity_Device 
+.item Toys.Chastity_Device remove
+.keyrelease prepare Toys.Ball_Stretcher
+.item Toys.Chains apply to Toys.Ball_Stretcher
+.yes Thank you, Miss
 .return
 
-[action 13002]
-.else
-.return
-
-
-' Attach release action to wrist restraints
-
-[action 13010]
-.range 13011 13012
-
-
-[action 13011]
-.state $(Key_Release.Action) is State.Available
-.state $(Key_Release.Action) apply to Toys.Wrist_Restraints
-.gosub 13090       ' update release timer
-.return
-
-[action 13012]
-.else
-.return
-
-
-' Attach release action to collar
-
-[action 13020]
-.range 13021 13022
-
-
-[action 13021]
-.state $(Key_Release.Action) is State.Available
-.state $(Key_Release.Action) apply to Toys.Collar
-.gosub 13090       ' update release timer
-.return
-
-[action 13022]
-.else
-.return
-
-
-' Attach release action to chains
-
-[action 13030]
-.range 13031 13032
-
-
-[action 13031]
-.state $(Key_Release.Action) is State.Available
-.state $(Key_Release.Action) apply to Toys.Chains
-.gosub 13090       ' update release timer
-.return
-
-[action 13032]
-.else
-.return
- 
-
-' Attach release action to humbler
-
-[action 13040]
-.range 13041 13042
-
-
-[action 13041]
-.state $(Key_Release.Action) is State.Available
-.state $(Key_Release.Action) apply to Toys.Humbler
-.gosub 13090       ' update release timer
-.return
-
-[action 13042]
-.else
-.return
-
-
-' Attach release action to ball stretcher
-
-[action 13050]
-.range 13051 13052
-
-
-[action 13051]
-' TODO available only for items
-.state $(Key_Release.Action) is State.Available
-.state $(Key_Release.Action) apply to Toys.Ball_Stretcher
-.gosub 13090       ' update release timer
-.return
-
-[action 13052]
-.else
-.return
- 
  
 ' release restraints and other potentially lockable toys
 
 [action 13080]
 .range 13081 13089
 
-' TODO remove runtime variable check
-' TODO change actuator handling to apply events
 
 [action 13081]
 .item Toys.Ankle_Restraints is applied.by.me
 .item Toys.Ankle_Restraints applied
 .item Toys.Ankle_Restraints remove
-.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13082]
 .item Toys.Wrist_Restraints is applied.by.me
 .item Toys.Wrist_Restraints applied
 .item Toys.Wrist_Restraints remove
-.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13083]
 .item Toys.Collar is applied.by.me
 .item Toys.Collar applied
 .item Toys.Collar remove
-.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13084]
 .item Toys.Chains is applied.by.me
 .item Toys.Chains applied
 .item Toys.Chains remove
-.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13085]
 .item Toys.Humbler is applied.by.me
 .item Toys.Humbler applied
 .item Toys.Humbler remove
-.gosub 13095                      ' release key
 .range 13081 13089
 
 [action 13086]
 .item Toys.Ball_Stretcher is applied.by.me
 .item Toys.Ball_Stretcher applied
 .item Toys.Ball_Stretcher remove
-.gosub 13095                      ' release key
 .range 13081 13089
 
 '[action 13087]
@@ -22171,22 +22036,6 @@ Take the chain between your ankles and tie it to your ball sack.
 [action 13089]
 .else
 .return
-
-
-' start release timer
-
-[action 13090]
-.keyrelease start max
-.return
-
-
-' release key
-
-[action 13095]
-.keyrelease release
-.return
-
-
 
 
 [action 999900]
