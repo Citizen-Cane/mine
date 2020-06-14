@@ -1792,12 +1792,44 @@ Are you totally naked right now?
 .yestext Yes Miss, I'm naked right now
 .notext No Miss, I'm still clothed
 .range 1101 1103
+
+' TODO generic check for lingerie worn at night
+[Action 1096]
+.must 100                    ' First time through
+.item teaselib.Clothes.Dress not applied
+.item teaselib.Clothes.Nightie applied
+I see that your Mistress made you wear
+a nightgown for todays session.
+.range 1200                  ' on to being-hard question
+
+' TODO generic check for lingerie
+[Action 1097]
+.must 100                    ' First time through
+.item teaselib.Clothes.Dress not applied
+.item teaselib.Clothes.Stockings applied
+I see that your Mistress made you wear
+a nice set of lingerie for todays session.
+.range 1200                  ' on to being-hard question
+
+' TODO generic check for outer garments
+[Action 1098]
+.must 100                    ' First time through
+.item teaselib.Clothes.Dress applied
+.item teaselib.Clothes.Nightie not applied
+I see that your Mistress made you wear
+a nice slut attire for todays session.
+.range 1200                  ' on to being-hard question
+
+' todo Variations
+
 [Action 1099]
 .must 211                    ' toys-at-startup assignment
 .gosub 11000                 ' toys at startup - implies being naked and wearing toys
 .range 1200                  ' on to being-hard question
 
-' todo Variations
+
+' TODO when telling slave to undress, remove items for book keeping
+
 
 
 
