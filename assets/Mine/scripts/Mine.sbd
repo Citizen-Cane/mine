@@ -989,18 +989,19 @@ Now get out of My sight!
 
 
 ' thrown out for impatience or stupidity - no prompt -> prompt
+' disabled until we have a noprompt->prompt dialog
+' TODO implement Message.AppendParagraph and optimize [Action 1267] [Action 1268]
+'[Action 880]
+'.gosub 895              ' save session - regular end
+'.range 881 884
 
-[Action 880]
-.gosub 895              ' save session - regular end
-.range 881 884
 
-
-[Action 881]
-.noimage
-Goodbye,
-you stupid slut.
-.yes Goodbye, Miss
-.range 899              ' final quit
+'[Action 881]
+'.noimage
+'Goodbye,
+'you stupid slut.
+'.yes Goodbye, Miss
+'.range 899              ' final quit
 
 '[Action 884]
 
@@ -1862,7 +1863,8 @@ Little cunt!
 It surely doesn't take so long to answer such a simple question
 and I've had enough of your lazy and sluggish attitude.
 You can come back in an hour or so when you're ready to pay attention to your Mistress!
-And for your own good, you'll better stay bare naked that hour.
+And for your own good,
+you'll better stay bare naked that hour.
 .yes Please forgive me, Miss
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 90                      ' come back in an hour
@@ -16904,7 +16906,8 @@ Little cunt!
 It surely doesn't take so long to answer such a simple question
 and I've had enough of your lazy and sluggish attitude.
 You can come back in an hour or so when you're ready to pay attention to your Mistress!
-And for your own good, you'll better stay bare naked and locked up that hour.
+And for your own good,
+you'll better stay bare naked and locked up that hour.
 .yes Sorry, Miss, I'm so sorry
 .set 501                     ' mistress impatient after waiting so long for this easy question
 .set 90                      ' come back in an hour
