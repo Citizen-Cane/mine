@@ -2,7 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry excluding="**" kind="src" path="assets"/>
-	<classpathentry kind="src" path="src.test"/>
+	<classpathentry kind="src" output="bin.test" path="src.test">
+		<attributes>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/PCMPlayer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/TeaseLib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
