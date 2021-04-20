@@ -19,10 +19,11 @@ import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
 import teaselib.scripts.mine.test.MinePrompts;
-import teaselib.scripts.mine.test.Preset;
+import teaselib.scripts.mine.test.PresetTestable;
 
 @RunWith(Parameterized.class)
-public class MinePunishments {
+public class MinePunishmentTest extends PresetTestable {
+
     @Parameters(name = "Punishment {0}")
     public static Iterable<Integer> data() {
         List<Integer> punishments = Arrays.asList(500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513,
@@ -30,28 +31,23 @@ public class MinePunishments {
         return punishments;
     }
 
+    private Mine mine;
     final int punishment;
 
-    public MinePunishments(int punishment) {
+    public MinePunishmentTest(int punishment)
+            throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
+        super();
+        mine = preset.script(Mine.MAIN).submitted().set(punishment).responses(MinePrompts.all()).mine();
         this.punishment = punishment;
     }
 
-    private Mine mine;
-
     @Test
-    public void testPunishments() throws AllActionsSetException, ScriptExecutionException, ScriptParsingException,
-            ValidationIssue, IOException {
-        mine = new Preset().script(Mine.MAIN).submitted().set(punishment).responses(MinePrompts.all()).mine();
-
+    public void testPunishments() throws AllActionsSetException, ScriptExecutionException {
         assertEquals("Punishment pending", ScriptState.SET, mine.state.get(punishment));
         mine.breakPoints.add(mine.script.name, 3000, BreakPoint.STOP);
         mine.playFrom(new ActionRange(845, 846));
         assertEquals("Punishment executed", ScriptState.UNSET, mine.state.get(punishment));
+        assertEquals("Punishment section not finished", 3000, mine.action.number);
     }
 
-    protected void assertScriptEndedGracefully() {
-        assertEquals("All actions set - see console output for offending action", ScriptState.UNSET,
-                mine.state.get(861));
-        assertEquals("Save and quit", ScriptState.SET, mine.state.get(898));
-    }
 }

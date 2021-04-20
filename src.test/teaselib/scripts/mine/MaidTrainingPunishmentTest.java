@@ -1,7 +1,6 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 
@@ -19,11 +18,11 @@ import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.scripts.mine.test.MinePrompts;
-import teaselib.scripts.mine.test.Preset;
+import teaselib.scripts.mine.test.PresetTestable;
 import teaselib.util.Interval;
 
 @RunWith(Parameterized.class)
-public class MaidTrainingPunishmentTest {
+public class MaidTrainingPunishmentTest extends PresetTestable {
     private static final int MAID_TRAINIMG_EXCESSIVE_DISOBEDIENCE_PUNISHMENT = 1003;
     private static final int MAID_TRAINIMG_FAILURE_1_PUNISHMENT = 1002;
     private static final int MAID_TRAINIMG_FAILURE_2_PUNISHMENT = 1005;
@@ -42,7 +41,7 @@ public class MaidTrainingPunishmentTest {
 
     final int punishmentAcceptance;
 
-    public MaidTrainingPunishmentTest(int punishmentAcceptance) {
+    public MaidTrainingPunishmentTest(int punishmentAcceptance) throws IOException {
         this.punishmentAcceptance = punishmentAcceptance;
     }
 
@@ -64,9 +63,9 @@ public class MaidTrainingPunishmentTest {
         testMaidTrainingGoodEnd(MAID_TRAINIMG_FAILURE_2_PUNISHMENT);
     }
 
-    private static void testMaidTrainingGoodEnd(int trainigFailure2) throws ScriptParsingException, ValidationIssue,
+    private void testMaidTrainingGoodEnd(int trainigFailure2) throws ScriptParsingException, ValidationIssue,
             ScriptExecutionException, IOException, AllActionsSetException {
-        Mine mine = new Preset().script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGood()).mine();
+        Mine mine = preset.script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGood()).mine();
         mine.play(new ActionRange(trainigFailure2), new ActionRange(1000, 9950));
         assertEquals(ScriptState.SET, mine.state.get(MAID_TRAINING_GOOD_END));
     }
@@ -91,7 +90,7 @@ public class MaidTrainingPunishmentTest {
 
     public void testMaidTrainingPunishmentFinalFailure(int start)
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Mine mine = new Preset().script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGivingUp())
+        Mine mine = preset.script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGivingUp())
                 .punishmentAcceptance(punishmentAcceptance).mine();
 
         mine.breakPoints.add(Mine.MAID, PUNISHMENT_FINAL_FAILURE);
@@ -104,4 +103,5 @@ public class MaidTrainingPunishmentTest {
 
         assertFalse("Toy(s) still applied: " + mine.items(TOYS).getApplied(), mine.items(TOYS).anyApplied());
     }
+
 }

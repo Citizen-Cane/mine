@@ -1,9 +1,6 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,10 +29,11 @@ import teaselib.Toys;
 import teaselib.core.debug.DebugStorage;
 import teaselib.scripts.mine.test.MinePrompts;
 import teaselib.scripts.mine.test.Preset;
+import teaselib.scripts.mine.test.PresetTestable;
 import teaselib.util.Item;
 
 @RunWith(Parameterized.class)
-public class MineMaidPositionCoverageTest {
+public class MineMaidPositionCoverageTest extends PresetTestable {
     private static final int POSITION_NOT_CONTINUEABLE = 146;
     private static final int MAID_TRAINING_PUNISHMENT_FLAG = 179;
     private static final int SEMI_SAFE_SELF_BONDAGE_SCENARIOS_ENABLED = 277;
@@ -45,7 +43,7 @@ public class MineMaidPositionCoverageTest {
     private static final Enum<?>[] TOYS = { Toys.Nipple_Clamps, Toys.Pussy_Clamps, Toys.Collar, Toys.Gag,
             Toys.Wrist_Restraints, Toys.Ankle_Restraints, Household.Clothes_Pegs, Toys.Blindfold };
 
-    private static DebugStorage storage = new DebugStorage();
+    private static final DebugStorage storage = new DebugStorage();
 
     @Parameters(name = "Position {0} @ difficulty={1}")
     public static Iterable<Integer[]> data()
@@ -87,12 +85,10 @@ public class MineMaidPositionCoverageTest {
     final int position;
     final int difficulty;
 
-    Preset preset;
     Mine mine;
 
     public MineMaidPositionCoverageTest(int position, int difficulty)
             throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
-        this.preset = new Preset(storage);
         this.mine = createPlayer(preset);
 
         this.position = position;

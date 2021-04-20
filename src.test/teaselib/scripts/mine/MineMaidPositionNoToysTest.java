@@ -1,7 +1,6 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,13 +28,14 @@ import teaselib.Toys;
 import teaselib.core.debug.DebugStorage;
 import teaselib.scripts.mine.test.MinePrompts;
 import teaselib.scripts.mine.test.Preset;
+import teaselib.scripts.mine.test.PresetTestable;
 
 /**
  * @author Citizen-Cane
  *
  */
 @RunWith(Parameterized.class)
-public class MineMaidPositionNoToysTest {
+public class MineMaidPositionNoToysTest extends PresetTestable {
     private static final int MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT = 9730;
     private static final int POSITION_NOT_CONTINUEABLE = 146;
     private static final int MAID_TRAINING_PUNISHMENT_FLAG = 179;
@@ -87,12 +87,11 @@ public class MineMaidPositionNoToysTest {
     final int position;
     final int difficulty;
 
-    Preset preset;
     Mine mine;
 
     public MineMaidPositionNoToysTest(int position, int difficulty)
             throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
-        this.preset = new Preset(storage);
+        super(new Preset(storage));
         this.mine = createPlayer(preset);
 
         this.position = position;

@@ -24,9 +24,12 @@ import teaselib.scripts.mine.Mine;
  * @author Citizen-Cane
  *
  */
-public class Preset {
-    final Mine mine;
-    final Debugger debugger;
+public class Preset implements teaselib.core.Closeable {
+
+    private DebugHost host;
+    private final TeaseLib teaseLib;
+    private final Mine mine;
+    private final Debugger debugger;
 
     public Preset() throws IOException {
         this(new DebugStorage());
@@ -41,12 +44,9 @@ public class Preset {
     }
 
     public Preset(DebugStorage storage, Setup setup) throws IOException {
-        this(new Mine(new TeaseLib(new DebugHost(), new DebugPersistence(storage), setup),
-                new File("../SexScripts/scripts/")));
-    }
-
-    private Preset(Mine mine) {
-        this.mine = mine;
+        this.host = new DebugHost();
+        this.teaseLib = new TeaseLib(this.host, new DebugPersistence(storage), setup);
+        this.mine = new Mine(teaseLib, new File("../SexScripts/scripts/"));
         debugger = new Debugger(mine.teaseLib);
         mine.teaseLib.globals.store(debugger);
     }
@@ -74,8 +74,7 @@ public class Preset {
         if (mine.script.name != "Mine") {
             throw new IllegalStateException("Wrong script");
         }
-        set(100, 101);
-        return this;
+        return set(100, 101);
     }
 
     public Preset responses(Collection<ResponseAction> responses) {
@@ -115,4 +114,11 @@ public class Preset {
 
         return this;
     }
+
+    @Override
+    public void close() {
+        teaseLib.close();
+        host.close();
+    }
+
 }

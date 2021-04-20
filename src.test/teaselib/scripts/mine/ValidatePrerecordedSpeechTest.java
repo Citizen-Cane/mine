@@ -3,7 +3,6 @@ package teaselib.scripts.mine;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -15,7 +14,6 @@ import pcm.controller.PCMScriptScanner;
 import pcm.controller.Player;
 import pcm.controller.ScriptCache;
 import pcm.model.Script;
-import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.Symbols;
 import pcm.model.ValidationIssue;
@@ -27,34 +25,13 @@ import teaselib.core.ResourceLoader;
 import teaselib.core.configuration.DebugSetup;
 import teaselib.core.texttospeech.ScriptScanner;
 import teaselib.core.texttospeech.TextToSpeechPlayer;
-import teaselib.scripts.mine.test.Preset;
 
-public class ValidateProject {
-    private static final Logger logger = LoggerFactory.getLogger(ValidateProject.class);
-
-    @Test
-    public void testSyntax() throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        Mine mine = new Preset(new DebugSetup().ignoreMissingResources()).script(Mine.MAIN).mine();
-        mine.loadScripts();
-        List<ValidationIssue> validationIssues = mine.validateProject();
-        mine.reportValidationIssues(validationIssues);
-    }
-
-    @Test
-    public void testResources() throws ScriptExecutionException, IOException, ScriptParsingException, ValidationIssue {
-        Mine mine = new Preset(new DebugSetup().withOutput()).script(Mine.MAIN).mine();
-        mine.loadScripts();
-        List<ValidationIssue> validationIssues = mine.validateResources();
-        mine.reportValidationIssues(validationIssues);
-    }
-
-    @Test
-    public void testCoverage() throws ScriptExecutionException, IOException, ScriptParsingException, ValidationIssue {
-        Mine mine = new Preset(new DebugSetup().ignoreMissingResources()).script(Mine.MAIN).mine();
-        mine.loadScripts();
-        List<ValidationIssue> validationIssues = mine.validateCoverage();
-        mine.reportValidationIssues(validationIssues);
-    }
+/**
+ * @author Citizen Cane
+ *
+ */
+public class ValidatePrerecordedSpeechTest {
+    private static final Logger logger = LoggerFactory.getLogger(ValidatePrerecordedSpeechTest.class);
 
     @Test
     public void testPrerecordedSpeech() throws IOException, ScriptParsingException, ValidationIssue {
@@ -117,4 +94,5 @@ public class ValidateProject {
             throw new AssertionError("Speech audio not found: " + part.value, e);
         }
     }
+
 }
