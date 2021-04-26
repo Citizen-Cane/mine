@@ -11,6 +11,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 import pcm.controller.LambdaTrigger;
 import pcm.controller.Player;
+import pcm.controller.TestFailureTrigger;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
@@ -30,6 +31,9 @@ import teaselib.scripts.mine.test.TestParameters;
  */
 @RunWith(Parameterized.class)
 public class NiptActivities extends ActivityTest {
+
+    private static final String STOP_MISTRESS = "Stop, Mistress";
+
     private static final int QUICK_PINMS_STATE_RANGE_START = 7300;
     private static final int QUICK_PINS_QUESTION_RANGE_START = 7400;
     private static final Enum<?>[] TOYS = { Toys.Ankle_Restraints, Toys.Nipple_Clamps, Toys.Pussy_Clamps,
@@ -48,18 +52,9 @@ public class NiptActivities extends ActivityTest {
                 responseActions.add(new ResponseAction("Yes Miss", () -> pinAttached(player)));
                 responseActions.add(new ResponseAction("No Miss", () -> pinNotAttached(player)));
 
-                responseActions.add(new ResponseAction("Please stop, Miss", () -> allOnQuickPins(player)));
+                int[] allPins = { 7300, 7301, 7302, 7303, 7304, 7305, 7306, 7307, 7308, 7309 };
+                responseActions.add(new ResponseAction(STOP_MISTRESS, () -> pinsAttached(player, allPins)));
                 return responseActions;
-            }
-
-            Response allOnQuickPins(Player player) {
-                int[] allOn = { 7300, 7301, 7302, 7303, 7304, 7305, 7306, 7307, 7308, 7309 };
-                for (int n : allOn) {
-                    if (player.state.get(n).equals(ScriptState.UNSET)) {
-                        return Response.Ignore;
-                    }
-                }
-                return Response.Choose;
             }
         });
 
@@ -93,13 +88,18 @@ public class NiptActivities extends ActivityTest {
 
                 responseActions.add(new ResponseAction("No Miss, I haven't"));
 
-                player.breakPoints.add(Mine.NIPT, new LambdaTrigger(7120, () -> {
-                    if (allOnQuickPins15(player) == Response.Choose) {
-                        player.teaseLib.globals.get(Debugger.class).replyScriptFunction("Please stop, Miss");
+                int[] allPins = { 7004, 7009, 7014 };
+                player.breakPoints.add(Mine.NIPT, new LambdaTrigger(player.script.actions.get(7120), () -> {
+                    if (pinsAttached(player, allPins) == Response.Choose) {
+                        player.teaseLib.globals.get(Debugger.class).replyScriptFunction(STOP_MISTRESS);
                     }
                 }));
 
-                responseActions.add(new ResponseAction("Please stop, Miss", Response.Ignore));
+                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", 7133));
+                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", 7134));
+                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", 7135));
+
+                responseActions.add(new ResponseAction(STOP_MISTRESS, Response.Ignore));
                 return responseActions;
             }
 
@@ -109,21 +109,13 @@ public class NiptActivities extends ActivityTest {
                 return player.action.number == promptAction && player.state.get(n) == ScriptState.SET ? Response.Choose
                         : Response.Ignore;
             }
-
-            Response allOnQuickPins15(Player player) {
-                int[] allAttached = { 7004, 7009, 7014 };
-                for (int n : allAttached) {
-                    if (player.state.get(n).equals(ScriptState.UNSET)) {
-                        return Response.Ignore;
-                    }
-                }
-                return Response.Choose;
-            }
         });
 
         tests.add(new TestParameters("Nipple Clamp Weight Lifting", 1016, 9016, Arrays.asList(TOYS),
                 new ResponseAction("Yes please*", Response.Choose), new ResponseAction("Yes Miss*", Response.Choose),
-                new ResponseAction("Please stop*", Response.Ignore)));
+                new ResponseAction("Please stop*", Response.Ignore) //
+        ));
+
         tests.add(new TestParameters("Nipple Clamp Weight Lifting failure 1st", 1016, 9116, Arrays.asList(TOYS),
                 new ResponseAction("Yes please*", Response.Choose), new ResponseAction("Yes Miss*", Response.Choose),
                 new ResponseAction("Please stop it*", Response.Ignore)));
@@ -154,8 +146,18 @@ public class NiptActivities extends ActivityTest {
                 .equals(ScriptState.SET);
     }
 
+    private static Response pinsAttached(Player player, int[] pins) {
+        for (int n : pins) {
+            if (player.state.get(n).equals(ScriptState.UNSET)) {
+                return Response.Ignore;
+            }
+        }
+        return Response.Choose;
+    }
+
     public NiptActivities(TestParameters testParameters)
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         super(testParameters, Mine.NIPT, MinePrompts.nipt());
     }
+
 }

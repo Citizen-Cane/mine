@@ -15,18 +15,15 @@
 
 .yestext Yes, Mistress
 .notext No, Mistress
-.stoptext Please stop, Miss
 
 ' Quick Pins 
-' TODO Implement stop as .break statement
 ' TODO Change to "I have them all on, Miss", since this would be the correct answer
 ' TODO Add "Giving up" button
 ' TODO Also allow to complete QuickPins successfully when told to remove the fifth pin
-' - in fact the fifth pin is on when told to remove, so the answer is ok
-' currently the stop button is removed, so it indicates the right thing,
+' - in fact the fifth pin is on when told to remove, so the (late)answer would be right
+
 
 ' Quick Pins 15 additions:
-' TODO Implement stop as .break statement
 ' TODO Change to "I have them all on, Miss", since this would be the correct answer
 ' TODO Add "Giving up" button
 
@@ -924,8 +921,11 @@ Are you ready to begin?
 
 [Action 7028]
 .break 7029 7124 STOP 7131
+.stoptext Stop, Mistress
 .range 7029
 
+
+' game loop 
 
 [Action 7029]
 .resetrange 7020 7199
@@ -1983,14 +1983,23 @@ and tell me when you're ready to go.
 [Action 7315]
 .unset 7300 7301 7302 7303 7304
 .unset 7305 7306 7307 7308 7309
+.range 7316
+
+
+' game loop 
+
+[Action 7316]
+.unset 7316
+.break 7317 7399 STOP 7479
+.stoptext Stop, Mistress
 .range 7317 7319
 
 
 [Action 7317]
-.NumActionsFrom 7318 10
+.NumActionsFrom 7316 10
 .poss 12
-.range 7450
 .unset 7317
+.range 7450
 
 'Fast
 [Action 7318]
@@ -2107,7 +2116,7 @@ Remove the clamp on your left nipple!
 
 [Action 7330]
 Attach a pin below your right nipple!
-.delay 2 2 STOP 7479
+.delay 2 2
 .mustnot 7300
 .set 7300
 .range 7317 7319
@@ -2115,7 +2124,7 @@ Attach a pin below your right nipple!
 
 [Action 7331]
 Attach a pin to the right of your right nipple!
-.delay 2 2 STOP 7479
+.delay 2 2
 .mustnot 7301
 .set 7301
 .range 7317 7319
@@ -2123,7 +2132,7 @@ Attach a pin to the right of your right nipple!
 
 [Action 7332]
 Attach a pin above your right nipple!
-.delay 2 2 STOP 7479
+.delay 2 2
 .mustnot 7302
 .set 7302
 .range 7317 7319
@@ -2131,7 +2140,7 @@ Attach a pin above your right nipple!
 
 [Action 7333]
 Attach a pin to the left of your right nipple!
-.delay 2 2 STOP 7479
+.delay 2 2
 .mustnot 7303
 .set 7303
 .range 7317 7319
@@ -2139,7 +2148,7 @@ Attach a pin to the left of your right nipple!
 
 [Action 7334]
 Attach the clamp to your right nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7304
 .set 7304
 .range 7317 7319
@@ -2147,7 +2156,7 @@ Attach the clamp to your right nipple!
 
 [Action 7335]
 Attach a pin below your left nipple!
-.delay 2 2 STOP 7479
+.delay 2 2
 .mustnot 7305
 .set 7305
 .range 7317 7319
@@ -2155,7 +2164,7 @@ Attach a pin below your left nipple!
 
 [Action 7336]
 Attach a pin to the left of your left nipple!
-.delay 2 2 STOP 7479
+.delay 2 2
 .mustnot 7306
 .set 7306
 .range 7317 7319
@@ -2163,7 +2172,7 @@ Attach a pin to the left of your left nipple!
 
 [Action 7337]
 Attach a pin above your left nipple!
-.delay 2 2 STOP 7479
+.delay 2 2
 .mustnot 7307
 .set 7307
 .range 7317 7319
@@ -2171,7 +2180,7 @@ Attach a pin above your left nipple!
 
 [Action 7338]
 Attach a pin to the right of your left nipple!
-.delay 2 2 STOP 7479
+.delay 2 2
 .mustnot 7308
 .set 7308
 .range 7317 7319
@@ -2179,7 +2188,7 @@ Attach a pin to the right of your left nipple!
 
 [Action 7339]
 Attach the clamp to your left nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7309
 .set 7309
 .range 7317 7319
@@ -2281,7 +2290,7 @@ Remove the clamp on your left nipple!
 
 [Action 7350]
 Attach a pin below your right nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7300
 .set 7300
 .range 7317 7319
@@ -2289,7 +2298,7 @@ Attach a pin below your right nipple!
 
 [Action 7351]
 Attach a pin to the right of your right nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7301
 .set 7301
 .range 7317 7319
@@ -2297,7 +2306,7 @@ Attach a pin to the right of your right nipple!
 
 [Action 7352]
 Attach a pin above your right nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7302
 .set 7302
 .range 7317 7319
@@ -2305,7 +2314,7 @@ Attach a pin above your right nipple!
 
 [Action 7353]
 Attach a pin to the left of your right nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7303
 .set 7303
 .range 7317 7319
@@ -2313,7 +2322,7 @@ Attach a pin to the left of your right nipple!
 
 [Action 7354]
 Attach a clamp to your right nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7304
 .set 7304
 .range 7317 7319
@@ -2321,7 +2330,7 @@ Attach a clamp to your right nipple!
 
 [Action 7355]
 Attach a pin below your left nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7305
 .set 7305
 .range 7317 7319
@@ -2329,7 +2338,7 @@ Attach a pin below your left nipple!
 
 [Action 7356]
 Attach a pin to the left of your left nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7306
 .set 7306
 .range 7317 7319
@@ -2337,7 +2346,7 @@ Attach a pin to the left of your left nipple!
 
 [Action 7357]
 Attach a pin above your left nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7307
 .set 7307
 .range 7317 7319
@@ -2345,7 +2354,7 @@ Attach a pin above your left nipple!
 
 [Action 7358]
 Attach a pin to the right of your left nipple!
-.delay 3 3 STOP 7479
+.delay 3 3
 .mustnot 7308
 .set 7308
 .range 7317 7319
@@ -2353,7 +2362,7 @@ Attach a pin to the right of your left nipple!
 
 [Action 7359]
 Attach a clamp to your left nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7309
 .set 7309
 .range 7317 7319
@@ -2455,7 +2464,7 @@ Remove the clamp on your left nipple!
 
 [Action 7370]
 Attach a pin below your right nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7300
 .set 7300
 .range 7317 7319
@@ -2463,7 +2472,7 @@ Attach a pin below your right nipple!
 
 [Action 7371]
 Attach a pin to the right of your right nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7301
 .set 7301
 .range 7317 7319
@@ -2471,7 +2480,7 @@ Attach a pin to the right of your right nipple!
 
 [Action 7372]
 Attach a pin above your right nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7302
 .set 7302
 .range 7317 7319
@@ -2479,7 +2488,7 @@ Attach a pin above your right nipple!
 
 [Action 7373]
 Attach a pin to the left of your right nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7303
 .set 7303
 .range 7317 7319
@@ -2487,7 +2496,7 @@ Attach a pin to the left of your right nipple!
 
 [Action 7374]
 Attach the clamp to your right nipple!
-.delay 5 5 STOP 7479
+.delay 5 5
 .mustnot 7304
 .set 7304
 .range 7317 7319
@@ -2495,7 +2504,7 @@ Attach the clamp to your right nipple!
 
 [Action 7375]
 Attach a pin below your left nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7305
 .set 7305
 .range 7317 7319
@@ -2503,7 +2512,7 @@ Attach a pin below your left nipple!
 
 [Action 7376]
 Attach a pin to the left of your left nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7306
 .set 7306
 .range 7317 7319
@@ -2511,7 +2520,7 @@ Attach a pin to the left of your left nipple!
 
 [Action 7377]
 Attach a pin above your left nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7307
 .set 7307
 .range 7317 7319
@@ -2519,7 +2528,7 @@ Attach a pin above your left nipple!
 
 [Action 7378]
 Attach a pin to the right of your left nipple!
-.delay 4 4 STOP 7479
+.delay 4 4
 .mustnot 7308
 .set 7308
 .range 7317 7319
@@ -2527,7 +2536,7 @@ Attach a pin to the right of your left nipple!
 
 [Action 7379]
 Attach the clamp to your left nipple!
-.delay 5 5 STOP 7479
+.delay 5 5
 .mustnot 7309
 .set 7309
 .range 7317 7319
@@ -2629,7 +2638,7 @@ Remove the clamp on your left nipple!
 
 [Action 7390]
 Attach a pin below your right nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7300
 .set 7300
 .range 7317 7319
@@ -2637,7 +2646,7 @@ Attach a pin below your right nipple!
 
 [Action 7391]
 Attach a pin to the right of your right nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7301
 .set 7301
 .range 7317 7319
@@ -2645,7 +2654,7 @@ Attach a pin to the right of your right nipple!
 
 [Action 7392]
 Attach a pin above your right nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7302
 .set 7302
 .range 7317 7319
@@ -2653,7 +2662,7 @@ Attach a pin above your right nipple!
 
 [Action 7393]
 Attach a pin to the left of your right nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7303
 .set 7303
 .range 7317 7319
@@ -2661,7 +2670,7 @@ Attach a pin to the left of your right nipple!
 
 [Action 7394]
 Attach the clamp to your right nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7304
 .set 7304
 .range 7317 7319
@@ -2669,7 +2678,7 @@ Attach the clamp to your right nipple!
 
 [Action 7395]
 Attach a pin below your left nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7305
 .set 7305
 .range 7317 7319
@@ -2677,7 +2686,7 @@ Attach a pin below your left nipple!
 
 [Action 7396]
 Attach a pin to the left of your left nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7306
 .set 7306
 .range 7317 7319
@@ -2685,7 +2694,7 @@ Attach a pin to the left of your left nipple!
 
 [Action 7397]
 Attach a pin above your left nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7307
 .set 7307
 .range 7317 7319
@@ -2693,7 +2702,7 @@ Attach a pin above your left nipple!
 
 [Action 7398]
 Attach a pin to the right of your left nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7308
 .set 7308
 .range 7317 7319
@@ -2701,12 +2710,14 @@ Attach a pin to the right of your left nipple!
 
 [Action 7399]
 Attach the clamp to your left nipple!
-.delay 9 9 STOP 7479
+.delay 9 9
 .mustnot 7309
 .set 7309
 .range 7317 7319
 .unset 7399
 
+
+' validation questions
 
 [Action 7400]
 Is there a clothespin below your right nipple?
@@ -3032,7 +3043,6 @@ Wrong, slave!
 
 
 [Action 7450]
-.range 7400 7409
 '.ask 50 59
 '.askcheck 50 7300 Bottom Right
 '.askcheck 51 7301 Right Right
@@ -3045,13 +3055,14 @@ Wrong, slave!
 '.askcheck 58 7308 Right Left
 '.askcheck 59 7309 Left Nipple
 .unset 7450
+.range 7400 7409
 
 
 ' Correct answer
 [Action 7460]
 Let's wait for a moment and then continue, slave.
 .delay 10
-.range 7318 7319
+.range 7316
 .unset 7460
 
 ' Wrong answer
@@ -3658,10 +3669,13 @@ Doesn't it feel good to follow orders and please the Mistress?
 I want those poor slave nipples pinched just a little bit longer.
 Why don't you look at some pictures and play with that little penis?
 .delay 30
+.break 7565 7565 STOP 7590
+.stoptext Please stop, Mistress
 .range 7565
 
+
 [Action 7565]
-.delay 10 10 STOP 7590
+.delay 10 10
 .repeat 15
 .range 7565 7566
 
@@ -3672,6 +3686,7 @@ delay 2
 Rub those nipples and get the blood flowing again!
 .NumActionsFrom 7564 10
 .range 7567
+
 
 [Action 7567]
 Now put your toys away like a good little boy,

@@ -132,6 +132,12 @@ public class MinePrompts {
         ArrayList<ResponseAction> all = new ArrayList<>();
         all.addAll(defaults());
 
+        // TODO retries for the various games -> fail a few times, then win
+        // all.add(new ResponseAction("I want to give up, Miss", Debugger.Response.Choose));
+        // all.add(new ResponseAction("Yes please, Miss", Debugger.Response.Choose));
+        // all.add(new ResponseAction("I like to pussy out, Miss", Debugger.Response.Choose));
+        // all.add(new ResponseAction("No Miss, I want to try again", Debugger.Response.Choose));
+
         return all;
     }
 

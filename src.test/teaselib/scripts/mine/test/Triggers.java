@@ -29,7 +29,7 @@ public class Triggers extends ArrayList<Trigger> {
 
     public void assertExpected() {
         for (Trigger trigger : this) {
-            assertTrue(trigger.getMessage(), trigger.assertExpected());
+            assertTrue(trigger.getMessage(), trigger.expected());
         }
     }
 }
