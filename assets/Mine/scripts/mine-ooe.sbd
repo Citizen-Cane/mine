@@ -60,7 +60,10 @@
 '   403       Add a clamp/weight
 '   404       Add peg
 '   405       Paddle 20 times
-'
+'   406       nipple clamps, each with its own chain
+'   407       Add peg to nipples only
+'   408       Add peg to nuts only
+
 '   501 - 515 is what happens when you win a round:
 '   501       Nothing - more seem to have planned here too, maybe this once was meant to be a stand-alone script
 
@@ -140,15 +143,16 @@
 
 ' Debug
 
-.menu 40  1000 1000 Generic version, random rules
-.menu 41  1001 1001 Spanking game, up to 15
-.menu 42  1002 1002 Nipple torture game, up to 15, clamps and weights
-.menu 43  1000 1000 Exit
+.menu 40  1100 1100 Generic version, random rules
+.menu 41  1101 1101 Spanking game, up to 15
+.menu 42  1102 1102 Nipple torture game, up to 15, clamps and weights
+.menu 43   999  999 Exit
 
 [Action 990]
 .debug
 .txt Welcome to debug my code, But don't try to cheat on me.
 .txt What would you like to do today?
+.set 300      ' debug mode
 .unset 990
 .popup 40 43
 
@@ -156,56 +160,50 @@
 [Action 999]
 .quit
 
-'   Entry point for a stand-alone run.
+' Entry point for a stand-alone test-run.
 [Action 1000]
 So you'd like to play a game of chance, slave?
 Let me think...
-.unset 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
-.unset 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
-.unset 401 402 403 404 405 406 407 408 409 410 411 412 413 414 415
-.unset 501 502 503 504 505 506 507 508 509 510 511 512 513 514 515
-.set 300 160 170
+.set 300                ' standalone
 .range 1100 
 
+' entry from Mine
 [Action 1001]
-A spanking game would be fun, don't you think?
-Naturally, it'll be your bums being spanked, slave.
-.unset 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
-.unset 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
-.unset 401     403 404     406 407 408 409 410 411 412 413 414 415
-.unset     502 503 504 505 506 507 508 509 510 511 512 513 514 515
-.set       402         405        ' spank x times or 20 times
-.set 301 501 160 170              ' activity, nothing, 15 rounds
+.set 301                ' activity
 .range 1101
 
+' entry from Mine
 [Action 1002]
-I think a nipple-torture game would be fun, don't you?
-Naturally, it'll be your nipples being tortured, slave.
-.unset 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
-.unset 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215
-.unset 401 402     404 405             409 410 411 412 413 414 415
-.unset     502 503 504 505 506 507 508 509 510 511 512 513 514 515
-.set           403         406 407 408       ' nipple clamps weights
-.set 302 501 160 170                         ' activity, nothing, 15 rounds
-'.set 10 302 403 501 162 172 101 102 103 104 201 202 203 204
+.set 302                ' activity
 .range 1102
 
 
 [Action 1100]
 Let's play odds and evens, slut.
 .unset 10 11
+.set 160 170                           ' nothing, 15 rounds
 .range 1150
 
+
 [Action 1101]
+A spanking game would be fun, don't you think?
+Naturally, it'll be your bums being spanked, slave.
 We're playing odds-and-evens, My dear.
+.set       402         405             ' spank x times or 20 times
+.set 501 160 170                       ' nothing, 15 rounds
 .range 1200
+
 
 [Action 1102]
+I think a nipple-torture game would be fun, don't you?
+Naturally, it'll be your nipples being tortured, slave.
 We'll play odds-and-evens, My pussy.
+.set           403 404     406 407 408 ' nipple clamps weights
+.set 501 160 170                       ' nothing, 15 rounds
 .range 1200
 
 
-' Select a game
+' Select a random game
 [Action 1150]
 .range 1152 1169
 
@@ -219,11 +217,14 @@ We'll play odds-and-evens, My pussy.
 ' paddle n times
 [Action 1152]
 .set 402
+.unset 405
 .range 1200
 
 ' nipple clamps, connected via chain
 [Action 1153]
+.item Toys.Nipple_Clamps canApply
 .set 403
+.unset 404 406
 .range 1200
 
 ' Add peg to nipples and nuts
@@ -231,23 +232,28 @@ We'll play odds-and-evens, My pussy.
 .state Body.OnBalls free
 .state Body.OnNipples free
 .set 404
+.unset 403 406
 .unset 407 408
 .range 1200
 
 ' Paddle 20 times
 [Action 1155]
 .set 405
+.unset 402
 .range 1200
 
 ' nipple clamps, each clamp with its own chain
 [Action 1156]
+.item Toys.Nipple_Clamps canApply
 .set 406
+.unset 403 404 407 408
 .range 1200
 
 ' Add peg to nipples only
 [Action 1157]
 .state Body.OnNipples free
 .set 407
+.unset 403 406
 .unset 404 408
 .range 1200
 
@@ -255,7 +261,7 @@ We'll play odds-and-evens, My pussy.
 [Action 1158]
 .state Body.OnBalls free
 .set 408
-.unset 404 407
+.unset 403 404 406 407
 .range 1200
 
 
@@ -293,12 +299,14 @@ will be the number of points I have.
 ' nipple clamps, each with their own chain
 [Action 1303]
 .must 403
+.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 The first two rounds you lose you will be ordered to attach your nipple clamps.
 Every lost round from then on,
 you will be ordered to add a weight.
 Make sure there's plenty of room for those clamps to swing free.
 .unset 404 406
+.unset 407 408
 .range 1400
 
 [Action 1304]
@@ -321,12 +329,14 @@ Get on your knees, and make sure you have your paddle ready to go.
 ' nipple clamps, connected with chain
 [Action 1306]
 .must 406
+.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 The first two rounds you lose you will be ordered to attach your nipple clamps.
 Every lost round from then on,
 you will be ordered to add a weight.
 Make sure there's plenty of room for those clamps to swing free.
 .unset 403 404
+.unset 407 408
 .range 1400
 
 [Action 1307]
@@ -866,6 +876,7 @@ Finally, fifteen points for Me.
 .unset 3215
 .range 3290 3299
 
+
 [Action 3290]
 .must 162
 .mustnot 205
@@ -1019,34 +1030,31 @@ Give that saucy butt fourteen more, slave.
 .must 403 201
 Put a clamp on your left nipple, and make sure it's nice and tight.
 .yes Done, Miss
-.unset 3816
 .range 2000
 
 [Action 3817]
 .must 403 201
 Put a clamp on your right nipple, slave, and make sure it's tight!
 .yes Done, Miss
-.unset 3817
 .range 2000
 
 [Action 3818]
 .must 403 202
 Now put a clamp on your other nipple, slut.
 .yes Done, Miss
-.unset 3818
 .range 2000
 
 [Action 3819]
 .mustnot 201 202
-.must 403 203
+.must 403
 Add a weight to your right nipple, slave!
 .yes Done, Miss
 .unset 3819
 .range 2000
 
 [Action 3820]
-.must 403 203
 .mustnot 201 202
+.must 403
 Add a weight to your left slave-nipple!
 .yes Done, Miss
 .unset 3820

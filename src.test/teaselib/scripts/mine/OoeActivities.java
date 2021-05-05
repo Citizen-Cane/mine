@@ -4,17 +4,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import pcm.controller.Assertion;
 import pcm.controller.Player;
 import pcm.model.ActionRange;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
+import teaselib.Accessoires;
+import teaselib.Body;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.core.Debugger.Response;
@@ -42,6 +46,7 @@ public class OoeActivities extends ActivityTest {
                 Arrays.asList(TOYS)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
+                asserteSingleGameFlag(player);
                 return win(player);
             }
         });
@@ -50,6 +55,7 @@ public class OoeActivities extends ActivityTest {
                 Arrays.asList(TOYS)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
+                asserteSingleGameFlag(player);
                 return loose(player);
             }
         });
@@ -58,6 +64,7 @@ public class OoeActivities extends ActivityTest {
                 Arrays.asList(TOYS)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
+                asserteSingleGameFlag(player);
                 return win(player);
             }
         });
@@ -66,27 +73,98 @@ public class OoeActivities extends ActivityTest {
                 Arrays.asList(TOYS)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
+                asserteSingleGameFlag(player);
                 return loose(player);
             }
         });
 
-        tests.add(new TestParameters("Nipple torture game - win", new ActionRange(1000, 9999), 1002, 9002,
-                Arrays.asList(TOYS)) {
+        tests.add(new TestParameters("Nipple torture game - nipple clamps - win", new ActionRange(1000, 9999), 1002,
+                9002, Arrays.asList(Toys.Nipple_Clamps)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
+                asserteSingleGameFlag(player);
                 return win(player);
+            }
+
+        });
+
+        tests.add(new TestParameters("Nipple torture game - nipple clamps - loose", new ActionRange(1000, 9999), 1002,
+                9502, Arrays.asList(Toys.Nipple_Clamps)) {
+            @Override
+            public List<ResponseAction> getResponseActions(Player player) {
+                asserteSingleGameFlag(player);
+                return loose(player);
             }
         });
 
-        tests.add(new TestParameters("Nipple torture game - loose", new ActionRange(1000, 9999), 1002, 9502,
-                Arrays.asList(TOYS)) {
+        tests.add(new TestParameters("Nipple torture game - clothes pegs - win", new ActionRange(1000, 9999), 1002,
+                9002, Arrays.asList(Toys.Nipple_Clamps)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
+                asserteSingleGameFlag(player);
+                return win(player);
+            }
+
+        });
+
+        tests.add(new TestParameters("Nipple torture game - clothes pegs - loose", new ActionRange(1000, 9999), 1002,
+                9502, Arrays.asList(Household.Clothes_Pegs)) {
+            @Override
+            public List<ResponseAction> getResponseActions(Player player) {
+                asserteSingleGameFlag(player);
+                return loose(player);
+            }
+        });
+
+        tests.add(new TestParameters("Nipple torture game - clothes pegs on titties - win", new ActionRange(1000, 9999),
+                1002, 9002, Arrays.asList(Household.Clothes_Pegs, Toys.Pussy_Clamps)) {
+            @Override
+            public List<ResponseAction> getResponseActions(Player player) {
+                player.item(Toys.Pussy_Clamps).apply();
+                asserteSingleGameFlag(player);
+                return win(player);
+            }
+
+        });
+
+        tests.add(new TestParameters("Nipple torture game - clothes pegs on titties - loose",
+                new ActionRange(1000, 9999), 1002, 9502, Arrays.asList(Household.Clothes_Pegs, Toys.Pussy_Clamps)) {
+            @Override
+            public List<ResponseAction> getResponseActions(Player player) {
+                player.item(Toys.Pussy_Clamps).apply();
+                asserteSingleGameFlag(player);
+                return loose(player);
+            }
+        });
+
+        tests.add(new TestParameters("Nipple torture game - clothes pegs on pussy - win", new ActionRange(1000, 9999),
+                1002, 9002, Arrays.asList(Household.Clothes_Pegs, Accessoires.Breast_Forms)) {
+            @Override
+            public List<ResponseAction> getResponseActions(Player player) {
+                player.item(Accessoires.Breast_Forms).applyTo(Body.OnNipples);
+                asserteSingleGameFlag(player);
+                return win(player);
+            }
+
+        });
+
+        tests.add(new TestParameters("Nipple torture game - clothes pegs on pussy - loose", new ActionRange(1000, 9999),
+                1002, 9502, Arrays.asList(Household.Clothes_Pegs, Accessoires.Breast_Forms)) {
+            @Override
+            public List<ResponseAction> getResponseActions(Player player) {
+                player.item(Accessoires.Breast_Forms).applyTo(Body.OnNipples);
+                asserteSingleGameFlag(player);
                 return loose(player);
             }
         });
 
         return tests;
+    }
+
+    static void asserteSingleGameFlag(Player player) {
+        player.breakPoints.add("mine-ooe", new Assertion("Single game flag", player.script.actions.get(1400), //
+                () -> Stream.of(401, 402, 403, 404, 405, 406, 407, 408).map(player.state::get)
+                        .filter(ScriptState.SET::equals).count() == 1));
     }
 
     static List<ResponseAction> win(Player player) {
