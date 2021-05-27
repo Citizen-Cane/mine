@@ -13,6 +13,7 @@ import pcm.model.ValidationIssue;
 import pcm.state.persistence.MappedScriptItemValue;
 import pcm.state.persistence.MappedScriptState;
 import teaselib.Actor;
+import teaselib.Bondage;
 import teaselib.Features;
 import teaselib.Household;
 import teaselib.Images;
@@ -128,8 +129,8 @@ public class Mine extends Player {
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(361, item(Toys.Nipple_Clamps)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(362, item(Household.Clothes_Pegs)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(366, item(Toys.Rope)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(360, item(Toys.Chains)));
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(366, item(Bondage.Rope)));
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(360, item(Bondage.Chains)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(382, item(Toys.Blindfold)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(384, item(Toys.Humbler)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(383, item(Toys.Enema_Kit)));

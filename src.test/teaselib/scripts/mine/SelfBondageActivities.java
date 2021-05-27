@@ -12,6 +12,7 @@ import org.junit.runners.Parameterized.Parameters;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
+import teaselib.Bondage;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.scripts.mine.test.ActivityTest;
@@ -24,7 +25,7 @@ import teaselib.scripts.mine.test.TestParameters;
  */
 @RunWith(Parameterized.class)
 public class SelfBondageActivities extends ActivityTest {
-    private static final Enum<?>[] TOYS = { Toys.Rope, Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs,
+    private static final Enum<?>[] TOYS = { Bondage.Rope, Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs,
             Toys.Gag };
 
     @Parameters(name = "Activity {0}")
