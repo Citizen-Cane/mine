@@ -103,7 +103,8 @@
 ' 19 - -
 
 ' local slave state
-' -22 is set if the gag(22) must be put back in
+' -21 is set if the butt plug(formerly action 21) must be put back in
+' -22 is set if the gag(formerly action 22) must be put back in
 
 ' 180-199 persistent slave advancement
 
@@ -1131,6 +1132,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 .item Toys.Dildo canApply to Body.InButt
 .state Body.CrotchRoped free
 .must 140                         ' Only ride in activity
+.mustnot 221                      ' Gag single-activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
 .must 756                         ' Anal training 1
 .NumActionsAvailable 3200 3219 1  ' only if at least one of the scenarios can be performed
@@ -1138,37 +1140,50 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 .set 9                            ' can ride
 .range 3170 3171                  ' sucking and riding
 
-' no restrictions - Not interested in anal training (yet)
+' no restrictions - cleaned & plugged - suck and ride
 [Action 3161]
+.mustnot 220                      ' Buttplug single-activity
+.mustnot 221                      ' Gag single-activity
+.item Toys.Anal_Douche removed LessThan 04:00"00
+.item Toys.Buttplug applied
+.state Body.CrotchRoped free
+.must 140                         ' Only ride in activity
+.mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
+.NumActionsAvailable 3200 3219 1  ' only if at least one of the scenarios can be performed
+.set 8                            ' can suck
+.set 9                            ' can ride
+.range 3170 3171                  ' sucking and riding
+
+' no restrictions - Not interested in anal training (yet)
+[Action 3162]
 .poss 10
 .item Toys.Dildo canApply to Body.InButt
 .state Body.CrotchRoped free
 .must 140                         ' Only ride in activity
+.mustnot 221                      ' Gag single-activity
 .mustnot 267 268 269              ' Enema carrying out or holding, voided completely, to favor butt plug assignments
 .mustnot 756                      ' Anal training 1 
 .NumActionsAvailable 3200 3219 1  ' only if at least one of the scenarios can be performed
 .set 8                            ' can suck
-.set 9                            ' can ride - but ask later
+.set 9                            ' can ride - but ask later to start anal training
 .range 3170 3171                  ' sucking and riding
 
 ' just ride
-' not called since the gag is always removed
-' TODO remove gag if we have to (s.o. in butt or harnessed), otherwise just ride
-' TODO Don't call dildo-worshiping with plug or harness when the gag has been put on for a single activity - makes no sense
-' TODO If the gag is put on for punishment or for the session, remove it for the activity
 [Action 3168]
 .item Toys.Gag applied
+.must 221                         ' Gag single-activity
 .item Toys.Dildo canApply to Body.InButt
-.unset 8                ' can't suck
-.set 9                  ' can ride
-.range 3190 3195        ' riding only
+.state Body.CrotchRoped free
+.unset 8                          ' can't suck
+.set 9                            ' can ride
+.range 3190 3195                  ' riding only
 
 ' just suck
 [Action 3169]
 .else
-.set 8                  ' can suck
-.unset 9                ' can't ride
-.range 3180 3185        ' sucking only
+.set 8                            ' can suck
+.unset 9                          ' can't ride
+.range 3180 3185                  ' sucking only
 
 
 ' sucking & riding : copy minimum of 180-184 and 185-189 to 170-174 
@@ -1325,20 +1340,17 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' debug - scenario already selected
 [Action 3197]
 .NumberOfActionsSet 3220 3239 1
+.poss 100
 .return
 
-' sucking & riding
+' sucking & riding or riding only
 [Action 3198]
-.else
-.must 8
-.must 9
+.must 9                 ' can ride
 .range 3200 3219
 
 ' sucking only
 [Action 3199]
-.else
-.must 8
-.mustnot 9
+.mustnot 9              ' can't ride
 .range 3220 3239
 
 
@@ -1401,10 +1413,13 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3226 Dildo yoga
 [Action 3206]
+.must 8
+.must 9
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Posture.CantStand free
 .state Posture.CantKneel free
+.item Toys.Buttplug not applied   ' taking out the plug interrupts the flow of this scenario too much
 .must 172               ' achievement 3, full penetration
 .set 3226
 .return
@@ -1915,8 +1930,8 @@ Have you figured out a place, slave?
 
 [Action 3325]
 .state Body.OnNipples free
-It's so much more fun to watch a slave worshiping his precious dildo
-with clothes pegs on his nipples!
+It's so much more fun to watching you worshiping your dildo
+with clothes pegs on your nipples!
 So go fetch some -
 with the dildo in your mouth of course -
 and snap them on your nipples, one per.
@@ -3163,7 +3178,8 @@ Well slave, you surely want to ride your dildo, won't you?
 
 [Action 3564]
 .must 186               ' Dildo worshiping 2
-Well slave, you surely want to ride your dildo, won't you?
+Tell me slave:
+Do you want to ride your dildo today?
 .range 3610 3611
 
 [Action 3565]
@@ -3222,16 +3238,52 @@ Very good, my pet.
 ' Stage 2a:	Lube up backdoor
 
 [action 3612]
+.item Toys.Buttplug free
 I suggest you'll lube up your back door first.
 Keep teasing the dildo while you do!
 delay 5
 Get it all good and slippery.
 .yes I'm lubed up, Miss
+.unset -21                ' don't put the butt plug back in
 .range 3616 3619
 
-'[action 3613]
-'[action 3614]
-'[action 3615]
+[action 3613]
+.item Toys.Buttplug free
+Then fetch some lube and get your back door all good and slippery.
+Keep teasing the dildo while you do!
+delay 5
+.yes I'm lubed up, Miss
+.unset -21                ' don't put the butt plug back in
+.range 3616 3619
+
+[action 3614]
+.item Toys.Buttplug applied
+I suggest you'll remove your butt plug and lube up your back door.
+delay 5
+Keep teasing the dildo while you do!
+delay 5
+Get it all good and slippery.
+delay 5
+And keep the plug around,
+because you will put it back where it belongs when I'm done with you, slut.
+.yes I'm lubed up, Miss
+.item Toys.Buttplug remove
+.set -21                ' remember to put butt plug back in
+.range 3616 3619
+
+[action 3615]
+.item Toys.Buttplug applied
+Then fetch some lube,
+remove your butt plug and get your back door all good and slippery.
+delay 5
+Keep teasing the dildo while you do!
+delay 5
+And keep the plug around,
+because you will put it back where it belongs when I'm done with you, slut.
+.yes I'm lubed up, Miss
+.item Toys.Buttplug remove
+.set -21                ' remember to put butt plug back in
+.range 3616 3619
 
 
 ' scenario introduction teaser, exceptions
@@ -5150,7 +5202,7 @@ Take the blindfold off!
 [Action 4402]
 .item Toys.Dildo is Body.InButt OR is Body.InMouth
 .must 4300              ' Cancelled
-.range 4415 4419
+.range 4415 4418
 
 ' Successfully finished activity but unable to fully insert dildo
 [Action 4403]
@@ -5183,17 +5235,33 @@ delay 5
 ' Just put dildo away after canceling sucking or riding
 
 [Action 4415]
+.mustnot -21
 You can put the dildo away, you lazy slut.
 .item Toys.Dildo remove
 .yes Done, Miss
 .range 4460
 
-' Just put dildo away after canceling
-
 [Action 4416]
+.mustnot -21
 Crawl off and put the dildo away, cunt.
-.yes Done, Miss
 .item Toys.Dildo remove
+.yes Done, Miss
+.range 4460
+
+[Action 4417]
+.must -21
+What a lazy slut you are.
+Get the dildo out and stuff your buttplug back into your backdoor.
+.yes I'm plugged again, Miss
+.item Toys.Dildo remove from Body.InButt
+.unset -21
+.item Toys.Buttplug apply over 01:00"00
+.range 4419
+
+
+[Action 4419]
+And now crawl off and put the dildo away, cunt.
+.yes Done, Miss
 .range 4460
 
 
@@ -5204,11 +5272,9 @@ Crawl off and put the dildo away, cunt.
 You did a good job, my dear.
 But you'll need either a little more training or a shorter dildo.
 Sort it out til next time.
-.item Toys.Dildo remove from Body.InButt
 .yes Alright Miss
-.range 4425
+.range 4425 4427
 
-'[Action 4421]
 '[Action 4422]
 '[Action 4423]
 '[Action 4424]
@@ -5217,6 +5283,7 @@ Sort it out til next time.
 ' take it out and clean it up
 
 [Action 4425]
+.mustnot -21
 You may go to the bath room and take the dildo out, my pet.
 And off course you may use your hands for cleaning it up.
 Keeping your toys clean and tidy is a virtue.
@@ -5224,17 +5291,44 @@ Keep this in mind when you clean up your dildo,
 because you're to come back with it in your mouth,
 as you're supposed to.
 delay 10
-.item Toys.Dildo apply to Body.InMouth
+.item Toys.Dildo remove from Body.InButt
+.item Toys.Dildo apply from Body.InMouth
 .yes Done as ordered, Miss
-.range 4426
+.range 4429
 
 [Action 4426]
-Well done, my little pet.
-Now crawl off and put the dildo away. 
-.item Toys.Dildo remove from Body.InMouth
-.yes Done, Miss
-.range 4460
+.mustnot -21
+.must 186            ' Dildo worshiping 2
+Crawl to the bath room to remove and clean the dildo, my pet.
+then crawl back with it in your mouth,
+as you're supposed to.
+delay 10
+.item Toys.Dildo remove from Body.InButt
+.item Toys.Dildo apply from Body.InMouth
+.yes Done as ordered, Miss
+.range 4429
 
+[Action 4427]
+.must -21
+Crawl to the bath room,
+remove the dildo and put your buttplug back in place.
+When you have everything cleaned up,
+return with the dildo in your mouth,
+as you're supposed to.
+delay 10
+.item Toys.Dildo remove from Body.InButt
+.item Toys.Dildo apply from Body.InMouth
+.item Toys.Buttplug apply
+.yes I'm plugged again, Miss
+.range 4429
+
+
+[Action 4429]
+Well done, my little pet.
+You may put the dildo away. 
+.item Toys.Dildo remove from Body.InMouth
+.yes Thank you, Miss
+.range 4460
 
 
 ' Successfully finished activity and be able to fully insert dildo
@@ -5249,12 +5343,15 @@ Now crawl off and put the dildo away.
 
 
 [Action 4435]
+.mustnot -21
 .state Body.CrotchRoped free
-Well, I feel like keeping you impaled for the rest of the session. 
+Well,
+I feel like keeping you impaled for the rest of the session. 
 .gosub 4440
 .range 4460
 
 [Action 4436]
+.mustnot -21
 .state Body.CrotchRoped free
 Before we continue, we have to take care of your dildo as you're going to
 keep your little friend buried inside your slave anus until the end of the session.
@@ -5262,6 +5359,7 @@ keep your little friend buried inside your slave anus until the end of the sessi
 .range 4460
 
 [Action 4437]
+.mustnot -21
 .state Body.CrotchRoped free
 By the way, your little friend will stay
 inside your slave anus for the rest of the session.
@@ -5269,17 +5367,30 @@ inside your slave anus for the rest of the session.
 .range 4460
 
 [Action 4438]
+.mustnot -21
 .state Body.CrotchRoped applied
 You will keep your little friend buried in your slave anus for the rest of the session.
 By the way, slave,
 your crotch rope appears to be a bit loose.
-Tighten it up to achieve a stronger pull on the crotch -
-I don't want your little friend to accidently slip out.
+Tighten it up, slave!
+You don't want your little friend accidently slip out.
 delay 7
 .yes Is it tight enough now, Miss?
 .range 4455 4459
 
-'[Action 4439]
+[Action 4439]
+.must -21
+Crawl to the bath room,
+remove the dildo and put your buttplug back in place.
+When you have everything cleaned up,
+return with the dildo in your mouth,
+as you're supposed to.
+delay 10
+.item Toys.Dildo remove from Body.InButt
+.item Toys.Dildo apply from Body.InMouth
+.item Toys.Buttplug apply
+.yes I'm plugged again, Miss
+.range 4429
 
 
 ' Tie crotch rope sub routine

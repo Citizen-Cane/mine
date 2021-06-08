@@ -1,6 +1,6 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -44,7 +44,7 @@ public class MinePunishmentTest extends PresetTestable {
     @Test
     public void testPunishments() throws AllActionsSetException, ScriptExecutionException {
         assertEquals("Punishment pending", ScriptState.SET, mine.state.get(punishment));
-        mine.breakPoints.add(mine.script.name, 3000, BreakPoint.STOP);
+        mine.breakPoints.add(mine.script.name, mine.script.actions.get(3000), BreakPoint.STOP);
         mine.playFrom(new ActionRange(845, 846));
         assertEquals("Punishment executed", ScriptState.UNSET, mine.state.get(punishment));
         assertEquals("Punishment section not finished", 3000, mine.action.number);

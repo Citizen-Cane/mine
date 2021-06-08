@@ -1,6 +1,7 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.io.IOException;
 
@@ -93,13 +94,13 @@ public class MaidTrainingPunishmentTest extends PresetTestable {
         Mine mine = preset.script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGivingUp())
                 .punishmentAcceptance(punishmentAcceptance).mine();
 
-        mine.breakPoints.add(Mine.MAID, PUNISHMENT_FINAL_FAILURE);
-        mine.breakPoints.add(Mine.MAID, MAID_POSITION_SUCCESS);
+        mine.breakPoints.add(Mine.MAID, mine.script.actions.get(PUNISHMENT_FINAL_FAILURE));
+        mine.breakPoints.add(Mine.MAID, mine.script.actions.get(MAID_POSITION_SUCCESS));
 
         mine.play(new ActionRange(start), new ActionRange(1000, 9950));
 
-        assertEquals(PUNISHMENT_FINAL_FAILURE, mine.action.number);
-        assertEquals(PUNISHMENT_FINAL_FAILURE, mine.action.number);
+        assertEquals(mine.script.actions.get(PUNISHMENT_FINAL_FAILURE), mine.action);
+        assertEquals(mine.script.actions.get(PUNISHMENT_FINAL_FAILURE), mine.action);
 
         assertFalse("Toy(s) still applied: " + mine.items(TOYS).getApplied(), mine.items(TOYS).anyApplied());
     }

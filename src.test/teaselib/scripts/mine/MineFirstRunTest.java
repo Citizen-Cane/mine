@@ -1,6 +1,6 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
@@ -19,18 +19,23 @@ import teaselib.scripts.mine.test.Triggers;
 
 public class MineFirstRunTest extends PresetTestable {
     private Mine mine;
-
-    Triggers triggers = new Triggers(new CheckPointTrigger("good end", 850, true),
-            new CheckPointTrigger("saved", 898, true),
-            new CheckPointTrigger("All actions set - see console output for offending action", 860, false));
+    Triggers triggers;
 
     public MineFirstRunTest() throws IOException {
+    }
+
+    private Triggers triggers() {
+        return new Triggers(new CheckPointTrigger("good end", mine.script.actions.get(850), true),
+                new CheckPointTrigger("saved", mine.script.actions.get(898), true),
+                new CheckPointTrigger("All actions set - see console output for offending action",
+                        mine.script.actions.get(860), false));
     }
 
     @Test
     public void testFirstTime() throws AllActionsSetException, ScriptExecutionException, IOException,
             ScriptParsingException, ValidationIssue {
         mine = preset.script(Mine.MAIN).responses(MinePrompts.all()).mine();
+        triggers = triggers();
 
         mine.breakPoints.add(Mine.MAIN, triggers);
         mine.playFrom(new ActionRange(845, 846));
@@ -44,6 +49,7 @@ public class MineFirstRunTest extends PresetTestable {
     public void testSubmitted() throws AllActionsSetException, ScriptExecutionException, ScriptParsingException,
             ValidationIssue, IOException {
         mine = preset.script(Mine.MAIN).submitted().responses(MinePrompts.all()).mine();
+        triggers = triggers();
 
         mine.breakPoints.add(Mine.MAIN, triggers);
         mine.playFrom(new ActionRange(845, 846));

@@ -89,15 +89,15 @@ public class NiptActivities extends ActivityTest {
                 responseActions.add(new ResponseAction("No Miss, I haven't"));
 
                 int[] allPins = { 7004, 7009, 7014 };
-                player.breakPoints.add(Mine.NIPT, new LambdaTrigger(player.script.actions.get(7120), () -> {
+                player.breakPoints.add(Mine.NIPT, new LambdaTrigger(action(player, 7120), () -> {
                     if (pinsAttached(player, allPins) == Response.Choose) {
                         player.teaseLib.globals.get(Debugger.class).replyScriptFunction(STOP_MISTRESS);
                     }
                 }));
 
-                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", 7133));
-                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", 7134));
-                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", 7135));
+                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", action(player, 7133)));
+                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", action(player, 7134)));
+                player.breakPoints.add(Mine.NIPT, new TestFailureTrigger("Wrong number of pins", action(player, 7135)));
 
                 responseActions.add(new ResponseAction(STOP_MISTRESS, Response.Ignore));
                 return responseActions;

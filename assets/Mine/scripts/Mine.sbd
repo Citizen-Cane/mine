@@ -360,7 +360,7 @@
 '              TODO Some are used as assignments (enema) -> move these to 600 assignment range
 '              TODO move session-scope variables to session global space
 
-' 251          Buttplug single-event
+' 251          Buttplug single-activity
 ' 252          Free
 ' 253          Ball harness one-time per session
 ' 254          Gag one-time per session
@@ -11491,7 +11491,7 @@ that shriveled old prick of yours deserves to be released.
 .item Toys.Chastity_Device available
 .must 4951              ' Toy selection
 As it looks, your silly slave penis is well placed,
-so let's leave that shriveld old prick locked up.
+so let's keep that shriveled old prick locked up.
 .unset 4992
 .range 5005
 
@@ -11516,8 +11516,8 @@ so let's remove the chastity cage.
 .item Toys.Chastity_Device expired
 .item Toys.Chastity_Device available
 .must 4951              ' Toy selection
-And I want you your cock hard and wet,
-so let's take the cage off.
+And take that cage off, slave!
+I want you your cock hard and wet.
 .yes Thank you, Miss
 .gosub 11995            ' remove something on penis, chastified
 .range 5000
@@ -11605,7 +11605,7 @@ Now carry on wanking your silly slave penis while we go on with the session.
 '   BAILOUT REENTRY POINTS  ------------------------------------------
 
 [Action 5009]
-Hmm, it seems something went wrong [with mine-dildo.sbd], but I think we can continue.
+Hmm, it seems something went wrong [with mmeineine-dildo.sbd], but I think we can continue.
 .range 5018 5019
 
 [Action 5010]
@@ -11788,6 +11788,10 @@ I think that ass could use another good tanning.
 .range 5600
 
 
+' TODO Don't call dildo-worshiping
+' - riding only with harness
+' - when the gag has been put on for a single activity and riding-only is not possible
+
 ' Dildo worshiping
 [Action 5054]
 .canWorshipDildo
@@ -11796,7 +11800,8 @@ I think that ass could use another good tanning.
 .item Toys.Nipple_Clamps free or remaining greaterThan 00:07"00
 .item Toys.Pussy_Clamps free or remaining greaterThan 00:07"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:07"00
-.item Toys.enema_kit free or remaining greaterThan 00:07"00
+.item Toys.Enema_Kit free or remaining greaterThan 00:07"00
+.item Toys.Anal_Douche free or remaining greaterThan 00:07"00
 I think you're going to worship your dildo.
 .range 5140 5148
 
@@ -11808,7 +11813,8 @@ I think you're going to worship your dildo.
 .item Toys.Nipple_Clamps free or remaining greaterThan 00:07"00
 .item Toys.Pussy_Clamps free or remaining greaterThan 00:07"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:07"00
-.item Toys.enema_kit free or remaining greaterThan 00:07"00
+.item Toys.Enema_Kit free or remaining greaterThan 00:07"00
+.item Toys.Anal_Douche free or remaining greaterThan 00:07"00
 I think you're going to worship your dildo some more.
 .range 5140 5148
 
@@ -11824,7 +11830,7 @@ I think you deserve a teasing session.
 .item Toys.Nipple_Clamps free or remaining greaterThan 00:11"00
 .item Toys.Pussy_Clamps free or remaining greaterThan 00:11"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:11"00
-.item Toys.enema_kit free or remaining greaterThan 00:11"00
+.item Toys.Enema_Kit free or remaining greaterThan 00:11"00
 I think you're a dirty cunt,
 and you need a shower.
 .range 5200
@@ -11838,7 +11844,7 @@ and you need a shower.
 .item Toys.Nipple_Clamps free or remaining greaterThan 00:11"00
 .item Toys.Pussy_Clamps free or remaining greaterThan 00:11"00
 .item Household.Clothes_Pegs free or remaining greaterThan 00:11"00
-.item Toys.enema_kit free or remaining greaterThan 00:11"00
+.item Toys.Enema_Kit free or remaining greaterThan 00:11"00
 I think you're a dirty cunt,
 and you need a shower.
 .range 5200

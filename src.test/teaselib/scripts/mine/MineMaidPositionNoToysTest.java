@@ -1,6 +1,7 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -111,8 +112,8 @@ public class MineMaidPositionNoToysTest extends PresetTestable {
 
         List<Action> positionActions = checkPositionAvailable();
 
-        mine.breakPoints.add(Mine.MAID, MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT);
-        mine.breakPoints.add(Mine.MAID, 9981);
+        mine.breakPoints.add(Mine.MAID, mine.script.actions.get(MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT));
+        mine.breakPoints.add(Mine.MAID, mine.script.actions.get(9981));
 
         selectSinglePosition(positionActions.get(0));
         mine.playRange(new ActionRange(1, 3999));
