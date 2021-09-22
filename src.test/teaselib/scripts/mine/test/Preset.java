@@ -16,8 +16,6 @@ import teaselib.core.TeaseLib;
 import teaselib.core.configuration.DebugSetup;
 import teaselib.core.configuration.Setup;
 import teaselib.core.debug.DebugHost;
-import teaselib.core.debug.DebugPersistence;
-import teaselib.core.debug.DebugStorage;
 import teaselib.scripts.mine.Mine;
 
 /**
@@ -32,20 +30,12 @@ public class Preset implements teaselib.core.Closeable {
     private final Debugger debugger;
 
     public Preset() throws IOException {
-        this(new DebugStorage());
+        this(new DebugSetup());
     }
 
     public Preset(Setup setup) throws IOException {
-        this(new DebugStorage(), setup);
-    }
-
-    public Preset(DebugStorage storage) throws IOException {
-        this(storage, new DebugSetup());
-    }
-
-    public Preset(DebugStorage storage, Setup setup) throws IOException {
         this.host = new DebugHost();
-        this.teaseLib = new TeaseLib(this.host, new DebugPersistence(storage), setup);
+        this.teaseLib = new TeaseLib(this.host, setup);
         this.mine = new Mine(teaseLib, new File("../SexScripts/scripts/"));
         debugger = new Debugger(mine.teaseLib);
         mine.teaseLib.globals.store(debugger);

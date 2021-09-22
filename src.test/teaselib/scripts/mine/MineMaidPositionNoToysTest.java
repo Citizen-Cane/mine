@@ -26,7 +26,6 @@ import pcm.state.conditions.MustNot;
 import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
-import teaselib.core.debug.DebugStorage;
 import teaselib.scripts.mine.test.MinePrompts;
 import teaselib.scripts.mine.test.Preset;
 import teaselib.scripts.mine.test.PresetTestable;
@@ -46,8 +45,6 @@ public class MineMaidPositionNoToysTest extends PresetTestable {
 
     private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Toys.Wrist_Restraints, Toys.Ankle_Restraints,
             Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Blindfold };
-
-    private static DebugStorage storage = new DebugStorage();
 
     @Parameters(name = "Position {0} @ difficulty={1}")
     public static Iterable<Integer[]> data()
@@ -92,7 +89,7 @@ public class MineMaidPositionNoToysTest extends PresetTestable {
 
     public MineMaidPositionNoToysTest(int position, int difficulty)
             throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
-        super(new Preset(storage));
+        super(new Preset());
         this.mine = createPlayer(preset);
 
         this.position = position;
