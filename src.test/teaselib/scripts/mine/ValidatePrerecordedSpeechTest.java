@@ -43,48 +43,49 @@ public class ValidatePrerecordedSpeechTest {
         // to let user unpack and change scripts as well as resources
         // but this leads to errors -> check for specific resource in asset right at the start
 
-        TextToSpeechPlayer tts = new TextToSpeechPlayer(DebugSetup.getConfiguration());
-        tts.acquireVoice(Mine.MineMistress, resources);
+        try (TextToSpeechPlayer tts = new TextToSpeechPlayer(DebugSetup.getConfiguration())) {
+            tts.acquireVoice(Mine.MineMistress, resources);
 
-        Symbols dominantSubmissiveRelations = Symbols.getDominantSubmissiveRelations();
-        Map<Symbols, Integer> processedMessages = new LinkedHashMap<>();
-        Map<Symbols, Integer> processedResources = new LinkedHashMap<>();
-        for (Entry<String, String> entry : dominantSubmissiveRelations.entrySet()) {
-            Symbols dominantSubmissiveRelation = new Symbols();
-            dominantSubmissiveRelation.put(entry.getKey(), entry.getValue());
+            Symbols dominantSubmissiveRelations = Symbols.getDominantSubmissiveRelations();
+            Map<Symbols, Integer> processedMessages = new LinkedHashMap<>();
+            Map<Symbols, Integer> processedResources = new LinkedHashMap<>();
+            for (Entry<String, String> entry : dominantSubmissiveRelations.entrySet()) {
+                Symbols dominantSubmissiveRelation = new Symbols();
+                dominantSubmissiveRelation.put(entry.getKey(), entry.getValue());
+
+                int messageCount = 0;
+                int resourceCount = 0;
+                logger.info("Testing symbol set {}", dominantSubmissiveRelation);
+                ScriptCache scripts = new ScriptCache(resources, Player.ScriptFolder, dominantSubmissiveRelation);
+                for (String scriptName : Mine.Scripts) {
+                    Script script = scripts.get(Mine.MineMistress, scriptName);
+                    ScriptScanner scriptScanner = new PCMScriptScanner(script);
+                    for (Message message : scriptScanner) {
+                        AbstractMessage speech = tts.prerenderedSpeechMessage(message.actor, message, resources);
+                        speech.stream().filter(part -> part.type == Type.Speech)
+                                .forEach(part -> testSpeechResource(resources, part));
+                        messageCount++;
+                        resourceCount += speech.stream().filter(part -> part.type == Type.Speech).count();
+                    }
+                }
+
+                processedMessages.put(dominantSubmissiveRelation, messageCount);
+                processedResources.put(dominantSubmissiveRelation, resourceCount);
+            }
 
             int messageCount = 0;
             int resourceCount = 0;
-            logger.info("Testing symbol set {}", dominantSubmissiveRelation);
-            ScriptCache scripts = new ScriptCache(resources, Player.ScriptFolder, dominantSubmissiveRelation);
-            for (String scriptName : Mine.Scripts) {
-                Script script = scripts.get(Mine.MineMistress, scriptName);
-                ScriptScanner scriptScanner = new PCMScriptScanner(script);
-                for (Message message : scriptScanner) {
-                    AbstractMessage speech = tts.prerenderedSpeechMessage(message.actor, message, resources);
-                    speech.stream().filter(part -> part.type == Type.Speech)
-                            .forEach(part -> testSpeechResource(resources, part));
-                    messageCount++;
-                    resourceCount += speech.stream().filter(part -> part.type == Type.Speech).count();
-                }
+
+            for (Entry<Symbols, Integer> result : processedMessages.entrySet()) {
+                Integer processedResourcesCount = processedResources.get(result.getKey());
+                logger.info("{}: scanned {} messages, {} resources", result.getKey(), result.getValue(),
+                        processedResourcesCount);
+                messageCount += result.getValue();
+                resourceCount += processedResourcesCount;
             }
 
-            processedMessages.put(dominantSubmissiveRelation, messageCount);
-            processedResources.put(dominantSubmissiveRelation, resourceCount);
+            logger.info("{}: scanned {} messages, {} resources", dominantSubmissiveRelations, messageCount, resourceCount);
         }
-
-        int messageCount = 0;
-        int resourceCount = 0;
-
-        for (Entry<Symbols, Integer> result : processedMessages.entrySet()) {
-            Integer processedResourcesCount = processedResources.get(result.getKey());
-            logger.info("{}: scanned {} messages, {} resources", result.getKey(), result.getValue(),
-                    processedResourcesCount);
-            messageCount += result.getValue();
-            resourceCount += processedResourcesCount;
-        }
-
-        logger.info("{}: scanned {} messages, {} resources", dominantSubmissiveRelations, messageCount, resourceCount);
     }
 
     private static void testSpeechResource(ResourceLoader resources, MessagePart part) {

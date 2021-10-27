@@ -26,7 +26,6 @@ import pcm.state.conditions.MustNot;
 import pcm.state.persistence.ScriptState;
 import teaselib.Household;
 import teaselib.Toys;
-import teaselib.core.debug.DebugStorage;
 import teaselib.scripts.mine.test.MinePrompts;
 import teaselib.scripts.mine.test.Preset;
 import teaselib.scripts.mine.test.PresetTestable;
@@ -42,8 +41,6 @@ public class MineMaidPositionCoverageTest extends PresetTestable {
 
     private static final Enum<?>[] TOYS = { Toys.Nipple_Clamps, Toys.Pussy_Clamps, Toys.Collar, Toys.Gag,
             Toys.Wrist_Restraints, Toys.Ankle_Restraints, Household.Clothes_Pegs, Toys.Blindfold };
-
-    private static final DebugStorage storage = new DebugStorage();
 
     @Parameters(name = "Position {0} @ difficulty={1}")
     public static Iterable<Integer[]> data()
