@@ -16,7 +16,7 @@ import teaselib.Actor;
 import teaselib.Bondage;
 import teaselib.Features;
 import teaselib.Household;
-import teaselib.Images;
+import teaselib.ActorImages;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
 import teaselib.core.TeaseLib;
@@ -51,7 +51,7 @@ public class Mine extends Player {
     private static final String MainScript = "Mine";
 
     public static final Actor MineMistress = new Actor("Mistress", "Miss,", Voice.Female, Locale.UK,
-            Actor.Key.DominantFemale, Images.None);
+            Actor.Key.DominantFemale, ActorImages.None);
     public static final String[] Assets = { "Mine Scripts.zip", "Mine Resources.zip", "Mine Mistress.zip" };
     public static final String[] OptionalAssets = { "Mine Speech.zip" };
     private static final String MistressVanaImageResources = "mistress/Vana/";
