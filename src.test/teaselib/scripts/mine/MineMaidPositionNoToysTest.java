@@ -24,6 +24,7 @@ import pcm.state.conditions.ItemCondition;
 import pcm.state.conditions.Must;
 import pcm.state.conditions.MustNot;
 import pcm.state.persistence.ScriptState;
+import pcm.util.TestPlayer;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.scripts.mine.test.MinePrompts;
@@ -167,9 +168,9 @@ public class MineMaidPositionNoToysTest extends PresetTestable {
         }
 
         if (positionActions.isEmpty()) {
-            List<Condition> unmatchedconditions = pcm.util.TestUtils.umatchedConditions(startAction, mine.state);
+            List<Condition> unmatchedconditions = TestPlayer.umatchedConditions(startAction, mine.state);
             throw new AssertionError(
-                    "Position " + position + " not available: " + pcm.util.TestUtils.toString(unmatchedconditions));
+                    "Position " + position + " not available: " + TestPlayer.toString(unmatchedconditions));
         } else {
             assertEquals(1, positionActions.size());
         }

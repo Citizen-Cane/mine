@@ -30,7 +30,7 @@ public class Preset implements teaselib.core.Closeable {
     private final Debugger debugger;
 
     public Preset() throws IOException {
-        this(new DebugSetup());
+        this(new DebugSetup().ignoreMissingResources());
     }
 
     public Preset(Setup setup) throws IOException {

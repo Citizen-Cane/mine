@@ -1,6 +1,9 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,6 +27,7 @@ import pcm.state.conditions.ItemCondition;
 import pcm.state.conditions.Must;
 import pcm.state.conditions.MustNot;
 import pcm.state.persistence.ScriptState;
+import pcm.util.TestPlayer;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.scripts.mine.test.MinePrompts;
@@ -168,9 +172,9 @@ public class MineMaidPositionCoverageTest extends PresetTestable {
         }
 
         if (positionActions.isEmpty()) {
-            List<Condition> unmatchedconditions = pcm.util.TestUtils.umatchedConditions(startAction, mine.state);
+            List<Condition> unmatchedconditions = TestPlayer.umatchedConditions(startAction, mine.state);
             throw new AssertionError(
-                    "Position " + position + " not available: " + pcm.util.TestUtils.toString(unmatchedconditions));
+                    "Position " + position + " not available: " + TestPlayer.toString(unmatchedconditions));
         } else {
             assertEquals(1, positionActions.size());
         }
