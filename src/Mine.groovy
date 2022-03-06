@@ -15,14 +15,16 @@ def mainScriptClass = packageName + '.' + 'Mine'
 // Bootstrap TeaseLib
 ///////////////////////////////////////////////
 
-def teaselibClasspath = new File('lib/TeaseLib/lib/TeaseLib.jar')
+def teaselibClasspath = new File('lib/TeaseLib.jar')
 if (!teaselibClasspath.exists()) {
 	showButton(teaselibClasspath.getAbsolutePath() + " not found - bailing out")
 }
 
 URL[] urls = [
 	teaselibClasspath.toURI().toURL(),
-	new File('scripts', projectFolder).toURI().toURL()]
+	new File('scripts', projectFolder).toURI().toURL(),
+	new File('scripts', 'Mine.jar').toURI().toURL()
+]
 
 def classLoader = new URLClassLoader(urls, ClassLoader.getSystemClassLoader())
 Thread.currentThread().setContextClassLoader(classLoader);
@@ -32,10 +34,6 @@ Thread.currentThread().setContextClassLoader(classLoader);
 // run the script
 ///////////////////////////////////////////////
 
-try {
-	Class TeaseLib = Class.forName('teaselib.core.TeaseLib', true, classLoader)
-	Class SexScriptsHost = Class.forName('teaselib.hosts.SexScriptsHost', true, classLoader)
-	TeaseLib.run(SexScriptsHost.from(this), mainScriptClass)
-} catch(teaselib.core.ScriptInterruptedException e) {
-	// Ignore
-}
+Class TeaseLib = Class.forName('teaselib.core.TeaseLib', true, classLoader)
+Class SexScriptsHost = Class.forName('teaselib.hosts.SexScriptsHost', true, classLoader)
+TeaseLib.run(SexScriptsHost.from(this), mainScriptClass)
