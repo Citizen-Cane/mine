@@ -55,7 +55,7 @@
     		<arg value="png"/>
     		<arg value="jpg"/>
     			<classpath>
-    				<pathelement location="${basedir}/../teaselib//lib/TeaseLib.jar"/>
+    				<pathelement location="${basedir}/../teaselib/lib/TeaseLib.jar"/>
     				<pathelement path="$(java.class.path}"/>
     			</classpath>
     	</java>
@@ -101,8 +101,8 @@
 	        <sysproperty key="TeaseLib.Config.Assets" value="${destination}/scripts/"/>
     		<arg value="${destination}/scripts/"/>
 			<classpath>
-				<pathelement location="${destination}/lib/teaselib/lib/TeaseLib.jar"/>
-				<pathelement location="${destination}/lib/teaselib/lib/jump3r-1.0.3.jar"/>
+				<pathelement location="${destination}/lib/TeaseLib.jar"/>
+				<pathelement location="${destination}/lib/jump3r-1.0.3.jar"/>
 				<pathelement location="${destination}/scripts/Mine.jar"/>
 				<pathelement location="${basedir}/../SexScripts/lib/slf4j-api-1.7.2.jar"/>
 				<pathelement location="${basedir}/../SexScripts/lib/slf4j-simple-1.7.10.jar"/>
