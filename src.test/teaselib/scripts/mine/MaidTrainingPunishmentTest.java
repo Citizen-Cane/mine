@@ -16,8 +16,6 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
-import teaselib.Household;
-import teaselib.Toys;
 import teaselib.scripts.mine.test.MinePrompts;
 import teaselib.scripts.mine.test.PresetTestable;
 import teaselib.util.Interval;
@@ -31,9 +29,6 @@ public class MaidTrainingPunishmentTest extends PresetTestable {
     private static final int MAID_POSITION_SUCCESS = 8300;
     private static final int PUNISHMENT_FINAL_FAILURE = 9769;
     private static final int MAID_TRAINING_GOOD_END = 9950;
-
-    private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Toys.Wrist_Restraints, Toys.Ankle_Restraints,
-            Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Blindfold };
 
     @Parameters(name = "Punishment acceptance={0}")
     public static Iterable<Integer> data() {
@@ -93,6 +88,7 @@ public class MaidTrainingPunishmentTest extends PresetTestable {
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         Mine mine = preset.script(Mine.MAID).clearHandlers().responses(MinePrompts.maidGivingUp())
                 .punishmentAcceptance(punishmentAcceptance).mine();
+        MaidPositionAbstractTest.setToysAvailable(mine, true);
 
         mine.breakPoints.add(Mine.MAID, mine.script.actions.get(PUNISHMENT_FINAL_FAILURE));
         mine.breakPoints.add(Mine.MAID, mine.script.actions.get(MAID_POSITION_SUCCESS));
@@ -102,7 +98,8 @@ public class MaidTrainingPunishmentTest extends PresetTestable {
         assertEquals(mine.script.actions.get(PUNISHMENT_FINAL_FAILURE), mine.action);
         assertEquals(mine.script.actions.get(PUNISHMENT_FINAL_FAILURE), mine.action);
 
-        assertFalse("Toy(s) still applied: " + mine.items(TOYS).getApplied(), mine.items(TOYS).anyApplied());
+        assertFalse("Toy(s) still applied: " + mine.items(MaidPositionAbstractTest.TOYS).getApplied(),
+                mine.items(MaidPositionAbstractTest.TOYS).anyApplied());
     }
 
 }

@@ -1506,7 +1506,7 @@ Let's practice your slave positions.
 
 ' 505 4pt kneel 1x, hands behind back, nipple clamps, gag, heels
 [Action 1505]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
@@ -1537,7 +1537,7 @@ Let's practice your slave positions.
 
 ' 507 2pt kneel, ank/wrst/collar, nipple clamps, presenting tray, knees 1x
 [Action 1507]
-.item Toys.Nipple_Clamps canApply
+.state Body.OnNipples free 
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
@@ -1550,7 +1550,7 @@ Let's practice your slave positions.
 
 ' 508 2pt sit on knees, hands on knees, knees wide, nipple clamps, collar, leash
 [Action 1508]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
@@ -1564,7 +1564,7 @@ Let's practice your slave positions.
 
 ' 509 2pt sit on knees, hands behind head, knees wide, nipple clamps, collar, leash
 [Action 1509]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
@@ -1578,7 +1578,7 @@ Let's practice your slave positions.
 
 ' 510 4pt kneel, knees 1.5x, hands on thighs, collar, leash, nipple clamps
 [Action 1510]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
@@ -1645,7 +1645,7 @@ Let's practice your slave positions.
 
 ' 515 6pt kneelover on knuckles, knees 1.5x/hands 2x, nipple clamps, head up, wrist restraints, heels
 [Action 1515]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .should .state Body.AroundNeck free
@@ -1658,7 +1658,7 @@ Let's practice your slave positions.
 
 ' 516 standing, nipple clamps, hands behind head, legs 2x, heels
 [Action 1516]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .should .state Body.WristsTied free
@@ -1672,7 +1672,7 @@ Let's practice your slave positions.
 
 ' 517 standing, nipple clamps, hands folded behind back, legs 2x, heels
 [Action 1517]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
@@ -1686,16 +1686,16 @@ Let's practice your slave positions.
 
 ' 518 standing, nipple clamps, collar, wrist restraints, legs wide, heels, hands behind butt, elbows out
 [Action 1518]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
-.state Body.AnklesTied free
-.item Toys.Wrist_Restraints canApply
+.state Body.AnklesTied free       ' legs wide
+.state Body.WristsTied free
 .state Posture.CantStand free
 .should .state Body.OnBalls free
-.shouldnot 518          ' prefer a position that hasn't been done before
-.mustnot 5180 5181 5182 5183 ' just once
-.set 146                ' position is not continuable, as hands are tied on back
-.set 181                ' Convenient
+.shouldnot 518                    ' prefer a position that hasn't been done before
+.mustnot 5180 5181 5182 5183      ' just once
+.set 146                          ' position is not continuable, as hands are tied on back
+.set 181                          ' Convenient
 .range 5180 5183
 
 ' 519 2pt kneel, knees wide, ankles together, hands behind butt, nipple & pussy clips
@@ -1752,7 +1752,7 @@ Let's practice your slave positions.
 
 ' 576 On table, crouch on toes, hands behind butt, legs wide, nipple clamps, collar, heels, big smile, crotch rope
 [Action 1576]
-.item Toys.Pussy_Clamps canApply OR applied
+.state Body.OnBalls free OR is Toys.Pussy_Clamps 
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
@@ -1786,7 +1786,7 @@ Let's practice your slave positions.
 
 ' 578 4pt kneel, knees wide, ankles together, nipple clamps & weight, hands near belly, handcuffs
 [Action 1578]
-.item Toys.Pussy_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .should .state Body.AroundNeck free
@@ -1798,13 +1798,13 @@ Let's practice your slave positions.
 
 ' 579 standing, legs 2x, hands behind head, nipple & pussy clamps, heels
 [Action 1579]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
+.state Body.OnBalls free OR is Toys.Pussy_Clamps 
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
 .state Posture.CantStand free
-.item Toys.Pussy_Clamps canApply OR applied
 .mustnot 179            ' not suitable as punishment, since we decided to threat pussy clamps as a surprise
 .shouldnot 579          ' prefer a position that hasn't been done before
 .mustnot 5790 5791 5792 5793     ' just once
@@ -1831,7 +1831,7 @@ Let's practice your slave positions.
 
 ' 581 standing, heels, hands behind butt, legs together, nipple clamps w/ chain in mouth, collar
 [Action 1581]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
@@ -1844,26 +1844,27 @@ Let's practice your slave positions.
 
 ' 582 2pt kneel, hands behind butt, knees 2x, nipple & pussy clamps, collar
 [Action 1582]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.AroundNeck free OR is Toys.Collar 
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
+.state Body.OnBalls free 
 .should .state Body.InMouth free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Posture.CantKneel free
-.item Toys.Pussy_Clamps canApply
-.mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
-.must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
-.shouldnot 582          ' prefer a position that hasn't been done before
+.mustnot 179                 ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
+.must 579                    ' First pussy clamps scene to explain that the clamps end up on the ball sack
+.shouldnot 582               ' prefer a position that hasn't been done before
 .mustnot 5820 5821 5822 5823 ' just once
-.set 180                ' Comfortable
+.set 180                     ' Comfortable
 .range 5820 5823
 
 ' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 1583]
-.item Toys.Nipple_Clamps canApply
-.item Toys.Gag canApply
+.state Body.OnNipples free
+.state Body.OnBalls free
+.state Body.InMouth free 
 .should .state Body.AnklesTied free
 .state Posture.CantKneel free
-.item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .shouldnot 583          ' prefer a position that hasn't been done before
@@ -1873,11 +1874,11 @@ Let's practice your slave positions.
 
 ' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
 [Action 1584]
-.item Toys.Nipple_Clamps canApply
+.state Body.OnNipples free
+.state Body.OnBalls free
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Posture.CantKneel free
-.item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .must 277               ' semi-safe self bondage features enabled
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -1890,12 +1891,12 @@ Let's practice your slave positions.
 
 ' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 1585]
-.item Toys.Nipple_Clamps canApply
-.item Toys.Gag canApply
+.state Body.OnNipples free 
+.state Body.OnBalls free 
+.state Body.InMouth free
 .state Body.AnklesTied free
-.item Toys.Wrist_Restraints applied OR canApply
+.state Body.WristsTied free or is Toys.Wrist_Restraints
 .state Posture.CantStand free
-.item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .shouldnot 585          ' prefer a position that hasn't been done before
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -1905,13 +1906,13 @@ Let's practice your slave positions.
 
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
 [Action 1586]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
+.state Body.OnBalls free
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
 .state Posture.CantStand free
-.item Toys.Pussy_Clamps canApply
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .shouldnot 586          ' prefer a position that hasn't been done before
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -2000,7 +2001,10 @@ Let's practice your slave positions.
 
 ' These actions are copies of the pussy clamps positions,
 ' used as a punishment if the slave has dedicated pussy clamps,
-' otherwise we want to keep them as a surprise until the assignment to get some is given
+' otherwise we want to keep them as a surprise until the assignment to get some is given.
+' 
+' To that end, all toys are checked being available with canApply, to avoid the slave slipping out of the punishment.
+'
 ' code duplication occurs, this could be better done if I had implemented the [^ or action] feature,
 ' but by simply copying the actions, that feature can be postponed.
 ' update NumberActionsSet range in 9806 when changing this range
@@ -2015,7 +2019,6 @@ Let's practice your slave positions.
 .should .state Body.WristsTied free
 .should .state Body.AroundNeck free
 .state Posture.CantStand free
-.item Toys.Pussy_Clamps available
 .item Toys.Pussy_Clamps canApply OR applied
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
 .shouldnot 579          ' prefer a position that hasn't been done before
@@ -2031,7 +2034,6 @@ Let's practice your slave positions.
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Posture.CantKneel free
-.item Toys.Pussy_Clamps available
 .item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -2043,12 +2045,11 @@ Let's practice your slave positions.
 
 ' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 1644]
+.item Toys.Pussy_Clamps canApply
 .item Toys.Nipple_Clamps canApply
 .item Toys.Gag canApply
 .should .state Body.AnklesTied free
 .state Posture.CantKneel free
-.item Toys.Pussy_Clamps available
-.item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .shouldnot 583          ' prefer a position that hasn't been done before
@@ -2059,12 +2060,11 @@ Let's practice your slave positions.
 
 ' 584 2pt crouch, knees wide, nipple & pussy clamps, hands folded behind back, collar, heels, wristlets, gag
 [Action 1645]
+.item Toys.Pussy_Clamps canApply
 .item Toys.Nipple_Clamps canApply
 .should .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Posture.CantKneel free
-.item Toys.Pussy_Clamps available
-.item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
 .must 277               ' semi-safe self bondage features enabled
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -2077,13 +2077,12 @@ Let's practice your slave positions.
 
 ' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 [Action 1646]
+.item Toys.Pussy_Clamps canApply
 .item Toys.Nipple_Clamps canApply
 .item Toys.Gag canApply
 .state Body.OnBalls free
 .state Body.AnklesTied free
 .state Posture.CantStand free
-.item Toys.Pussy_Clamps available
-.item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
 .shouldnot 585          ' prefer a position that hasn't been done before
@@ -2094,14 +2093,13 @@ Let's practice your slave positions.
 
 ' 586 standing, legs apart 2x, hands behind back, nipple and pussy clamps, weights, heels
 [Action 1647]
+.item Toys.Pussy_Clamps canApply
 .item Toys.Nipple_Clamps canApply OR applied
 .should .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .should .state Body.AroundNeck free
 .state Posture.CantStand free
-.item Toys.Pussy_Clamps available
-.item Toys.Pussy_Clamps canApply
 .must 179               ' here suitable as punishment, since we decided to threat pussy clamps as a surprise
 .shouldnot 586          ' prefer a position that hasn't been done before
 .must 579               ' First pussy clamps scene to explain that the clamps end up on the ball sack
@@ -2152,7 +2150,7 @@ Let's practice your slave positions.
 ' - require collar and restraints to simplify conditions
 [Action 1650]
 .shouldnot .state Body.OnNipples applied
-.item Toys.Dildo canApply to Body.InButt
+.state Body.InButt free
 .should .state Body.InMouth free
 .should .state Body.OnBalls free
 .should .state Body.AnklesTied free
@@ -2169,8 +2167,6 @@ Let's practice your slave positions.
 ' 651 4pt kneel on peppercorns, nipple clips & clamps & weight, collar, gag, hands on thighs
 [Action 1651]
 .state Body.OnNipples free ' position features both clamps and pegs on tits
-.item Household.CLothes_Pegs canApply
-.item Toys.Nipple_Clamps canApply
 .should .state Body.AnklesTied free
 .should .state Body.WristsTied free
 .should .state Body.OnBalls free
@@ -2181,10 +2177,10 @@ Let's practice your slave positions.
 
 ' 652 hands and knees, hands wide, knees 1x, collar wrist ank, nipple clamps, balancing glass on ass
 [Action 1652]
-.item Toys.Nipple_Clamps canApply OR applied
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
 .should .state Body.InMouth free
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.state Body.AnklesTied free 
+.state Body.WristsTied free
 .should .state Body.OnBalls free
 .mustnot 143            ' position with tray already done
 .shouldnot 652          ' prefer a position that hasn't been done before
@@ -2194,9 +2190,9 @@ Let's practice your slave positions.
 
 ' 653 crouching on toes, legs wide spread, wrist & ankle restraints, collar, leash, nipple and pussy clamps, sucking dildo
 [Action 1653]
-.item Toys.Nipple_Clamps canApply OR applied
-.item Toys.Gag canApply
-.item Toys.Pussy_Clamps canApply
+.state Body.OnNipples free OR is Toys.Nipple_Clamps 
+.state Body.InMouth free 
+.state Body.OnBalls free 
 .state Body.AnklesTied free
 .state Body.WristsTied free
 .state Posture.CantKneel free

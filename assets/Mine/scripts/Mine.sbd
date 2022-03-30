@@ -512,7 +512,7 @@
 .askcheck      73      674     674: Get a gag (367)
 .askcheck      74      675     675: Get a butt plug (368)
 .askcheck      75      676     676: Get or make a paddle (370)
-.askcheck      76      677     677: Get or make a chastity device (380)
+.askcheck      76      677     677: Get a chastity device (380)
 .askcheck      77      678     678: Get or make a humbler (384)
 .askcheck      78      679     679: Get or make ball harness (385)
 .askcheck      79      680     680: free
@@ -722,12 +722,15 @@
 
 ' Toy category setters:
 '
+' mapped in Mine.java - called by Ask statement when a toy has multiple instances
+' - Ask statement will render message & visuals plus state, but neither conditions nor ranges
+'
 ' Called when a toy category is set but all toys are unset
 ' -> invoke selection dialog for category items
 ' These are not usual actions:
 ' - The message is rendered before invoking the mapped-items dialog in .ask
-' - the commands are executed only if the slave actually added items
-' - the range is not used, just to be there to produce a valid action
+' - the commands are executed only if the slave has actually added items
+' - the range is not used, it's just there to produce a valid action
 ' - instead the range that opened the ask-dialog is used (as it should be)
 ' + The assignment is set to completed here to skip the achievement message in the toy selection section
 
@@ -739,6 +742,32 @@
 ' - requires playing a gosub until return
 '   but the player can just play ranges
 '.  -> introduce ExitPlayRange stack element
+
+' Slave chains
+[action 360]
+I'm delighted you managed to procure some slave chains, as per My orders.
+We'll have a lot of fun with those.
+ShowChoices
+Can you tell me what you've got exactly?
+.unset 667              ' Completed
+.range 860
+
+' Nipple clamps
+[action 361]
+It's wonderful that you've finally gotten some nipple clamps, slave.
+I can't think of anything I enjoy more.
+ShowChoices
+Would you mind and telling me what kind you've got exactly?
+.unset 668              ' Completed
+.range 860
+
+' Clothes pegs
+[action 362]
+I'm glad to see that you've finally gotten yourself some clothes pegs.
+ShowChoices
+Would you mind and telling me what kind you've got exactly?
+.unset 669              ' Completed
+.range 860
 
 ' Wrist restraints
 [action 363]
@@ -765,6 +794,14 @@ Can you tell me what you've got exactly?
 .unset 672              ' Completed
 .range 860
 
+' Rope
+[action 366]
+Good job getting that rope, slave.
+ShowChoices
+Would you be so kind and tell me what you've got?
+.unset 673              ' Completed
+.range 860
+
 ' Gag
 [action 367]
 I'm glad to see you were able to get a gag, slave.
@@ -788,6 +825,46 @@ I see you were able to get a spanking implement.
 ShowChoices
 Would you be so kind and tell me what you've got exactly?
 .unset 676              ' Completed
+.range 860
+
+' Blindfold
+[action 382]
+I'm glad to see you've gotten that blindfold, sweetheart.
+ShowChoices
+What kind of blindfold have you got?
+.unset 682              ' Completed
+.range 860
+
+' Enema kit
+[action 383]
+I'm glad to see you've gotten that enema kit, slave.
+ShowChoices
+What kind of enema kit have you got?
+.unset 681              ' Completed
+.range 860
+
+' Humbler
+[action 384]
+I'm glad to see you've gotten a humbler, sweetheart.
+ShowChoices
+Would you be so kind and tell me what you've got exactly?
+.unset 678              ' Completed
+.range 860
+
+' Ball harness
+[action 385]
+I'm glad to see you've gotten your ball harness ready, sweetheart.
+ShowChoices
+Would you be so kind and tell me what you've got exactly?
+.unset 679              ' Completed
+.range 860
+
+' Pussy clamps
+[action 387]
+I'm glad to see you've gotten those pussy clamps, sweetheart.
+ShowChoices
+Would you be so kind and tell me what kind of clamps you've got exactly?
+.unset 683              ' Completed
 .range 860
 
 ' Anal Dildo
@@ -4198,7 +4275,7 @@ Understand?
 [Action 1562]
 .item Toys.Ball_Stretcher available
 .must 679
-I'm glad to see you've gotten your ball harness, sweetheart.
+I'm glad to see you've gotten your ball harness ready, sweetheart.
 .unset 679
 .range 1566 1570
 

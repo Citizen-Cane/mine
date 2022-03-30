@@ -13,16 +13,15 @@ import pcm.model.ValidationIssue;
 import pcm.state.persistence.MappedScriptItemValue;
 import pcm.state.persistence.MappedScriptState;
 import teaselib.Actor;
+import teaselib.ActorImages;
 import teaselib.Bondage;
 import teaselib.Features;
 import teaselib.Household;
-import teaselib.ActorImages;
 import teaselib.Toys;
 import teaselib.core.ResourceLoader;
 import teaselib.core.TeaseLib;
 import teaselib.core.TeaseLib.PersistentBoolean;
 import teaselib.core.texttospeech.Voice;
-import teaselib.util.Items;
 
 /**
  * @author Citizen-Cane
@@ -98,45 +97,40 @@ public class Mine extends Player {
         super(teaseLib, new ResourceLoader(basePath, Namespace, Assets, OptionalAssets), MineMistress, Namespace,
                 mistressPath, MainScript);
 
-        mapToysToMultipleItems();
-        mapToysToSingleItem();
+        mapToysToInventoryAction();
         mapAssignments();
     }
 
-    private void mapToysToMultipleItems() {
+    private void mapToysToInventoryAction() {
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(360, items(Bondage.Chains)));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptItemValue(361, items(Toys.Nipple_Clamps)));
+        state.addScriptValueMapping(MappedScriptState.Global,
+                new MappedScriptItemValue(362, items(Household.Clothes_Pegs)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(363, items(Toys.Wrist_Restraints)));
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(364, items(Toys.Ankle_Restraints)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(365, items(Toys.Collar)));
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(366, items(Bondage.Rope)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(367, items(Toys.Gag)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(368, items(Toys.Buttplug)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(370,
                 items(Toys.Spanking_Implement, Household.Wooden_Spoon, Household.Hairbrush)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(380, item(Toys.Chastity_Device)));
-
-        Items dildos = items(Toys.Dildo);
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(388, dildos));
-
+                new MappedScriptItemValue(380, items(Toys.Chastity_Device)));
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(382, items(Toys.Blindfold)));
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(383, items(Toys.Enema_Kit)));
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(384, items(Toys.Humbler)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(389, items(Toys.Cock_Ring).matching(Features.Vibrating),
-                        items(Toys.VaginalInsert).matching(Features.Vibrating),
-                        items(Toys.Vibrator).matching(Features.HandsFree), items(Toys.EStim_Device)));
-    }
-
-    private void mapToysToSingleItem() {
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(361, item(Toys.Nipple_Clamps)));
+                new MappedScriptItemValue(385, items(Toys.Ball_Stretcher)));
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(387, items(Toys.Pussy_Clamps)));
+        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(388, items(Toys.Dildo)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(362, item(Household.Clothes_Pegs)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(366, item(Bondage.Rope)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(360, item(Bondage.Chains)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(382, item(Toys.Blindfold)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(384, item(Toys.Humbler)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(383, item(Toys.Enema_Kit)));
-        state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(387, item(Toys.Pussy_Clamps)));
-        state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(385, item(Toys.Ball_Stretcher)));
+                new MappedScriptItemValue(389,
+                        items(items(Toys.Cock_Ring).matching(Features.Vibrating),
+                                items(Toys.VaginalInsert).matching(Features.Vibrating),
+                                items(Toys.Vibrator).matching(Features.HandsFree), items(Toys.EStim_Device))));
     }
 
     private void mapAssignments() {
