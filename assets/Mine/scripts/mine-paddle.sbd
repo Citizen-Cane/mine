@@ -127,6 +127,7 @@
 .askcheck   45  156 kneeling in shower
 .askcheck   46  157 Gag in shower
 .askcheck   47  158 Balls tied up in shower
+.askcheck   48  159 balls clamped           ' TODO
 
 ' Toys
 .askcheck 75 20	20	-	free
@@ -219,7 +220,6 @@ You'll need your crop or paddle, of course.
 .range 1504
 
 [Action 1502]
-.item Household.Hairbrush available
 .item Household.Hairbrush available
 You'll need your hair brush, of course.
 .yes I have it, Miss
@@ -540,7 +540,7 @@ Give that red butt a good rubdown now.
 ' Upgrade to nipple clamps
 [Action 1561]
 .must 150               ' Pegs in shower 
-.item Toys.Nipple_Clamps available
+.item Toys.Nipple_Clamps canApply
 .unset 150
 .set 151                ' Clamps in shower
 .range 1565
@@ -548,15 +548,16 @@ Give that red butt a good rubdown now.
 ' Clothes pegs, no upgrade to clamps
 [Action 1562]
 .must 150               ' Pegs in shower
-.not .item Toys.Nipple_Clamps available
+.not .item Toys.Nipple_Clamps canApply
 .item Household.Clothes_Pegs available
+.state Body.OnNipples free
 .unset 151
 .range 1565
  
 ' No clamps, no pegs
 [Action 1563]
 .must 150               ' Pegs in shower
-.not .item Toys.Nipple_Clamps available
+.not .item Toys.Nipple_Clamps canApply
 .not .item Household.Clothes_Pegs available
 .unset 150 151
 .range 1565
@@ -644,19 +645,21 @@ Give that red butt a good rubdown now.
 .range 1580
 
 
-' Apply pegs on ball sack? 
+' Apply pegs on ball sack?
 [Action 1580]
 .range 1581 1584
 
 [Action 1581]
 .must 152               ' Balls pegged in shower 
 .item Household.Clothes_Pegs available
+.state Body.OnBalls free
 .range 1585
 
 [Action 1582]
 .must 152               ' Balls pegged in shower
-.not .item Household.Clothes_Pegs available
-.unset 152              ' No clothes pegs
+.item Household.Clothes_Pegs not available
+' TODO OR .state Body.OnBalls not free
+.unset 152              ' balls pegged in shower
 .set 158                ' Balls tied up in shower  
 .range 1585
  
@@ -666,6 +669,7 @@ Give that red butt a good rubdown now.
 .range 1585
 
 '[Action 1584]
+' TODO use 159 to upgrade to pussy clamps
 
 
 ' Put Gag in?
@@ -675,13 +679,13 @@ Give that red butt a good rubdown now.
 ' Gag requested
 [Action 1586]
 .must 157               ' Gagged in shower 
-.item Toys.Gag available
+.item Toys.Gag canApply
 .range 1590
 
-' Gag requested, doesn't have one
+' Gag requested, can't apply
 [Action 1587]
 .must 157               ' Gagged in shower
-.not .item Toys.Gag available
+.not .item Toys.Gag canApply
 .unset 157              ' No gag
 .range 1590
 
@@ -772,7 +776,7 @@ You may want to put some towels here on the floor now to drip on.
 
 
 [Action 1615]
-.mustnot 148 149
+.else
 .range 1631 1633
 
 [Action 1616]
@@ -780,6 +784,7 @@ You may want to put some towels here on the floor now to drip on.
 .mustnot 149
 .item Toys.Wrist_Restraints not available
 .item Bondage.Rope available
+.state Body.WristsTied free
 You must shower with your wrists tied together with rope.
 Tie them together now.
 .item Bondage.Rope apply to Body.WristsTied Posture.WristsTiedInFront 
@@ -791,6 +796,7 @@ Tie them together now.
 .mustnot 149
 .item Toys.Wrist_Restraints available
 .item Bondage.Rope available
+.state Body.WristsTied free
 You must shower with your wrists tied together with rope.
 Don't use metal or it will corrode.
 Tie them together now.
@@ -803,6 +809,7 @@ Tie them together now.
 .mustnot 149
 .item Toys.Wrist_Restraints not available
 .item Bondage.Rope not available
+.state Body.WristsTied free
 You must shower with your wrists tied together.
 Get some rope or shoelace and tie them together now.
 .item Bondage.Rope apply to Body.WristsTied Posture.WristsTiedInFront
@@ -814,8 +821,10 @@ Get some rope or shoelace and tie them together now.
 .mustnot 149
 .item Toys.Wrist_Restraints available
 .item Bondage.Rope not available
+.state Body.WristsTied free
 You must shower with your wrists tied together.
-Use rope or shoelace, not something that will rust (like your handcuffs, stupid bitch).
+Use rope or shoelace,
+not something that will rust (like your handcuffs, stupid bitch).
 Tie them together now.
 .item Bondage.Rope apply to Body.WristsTied Posture.WristsTiedInFront
 .yes Wrists tied, Miss
@@ -826,6 +835,7 @@ Tie them together now.
 .must 149
 .item Toys.Ankle_Restraints not available
 .item Bondage.Rope available
+.state Body.AnklesTied free
 You must shower with your ankles tied together with rope.
 Tie them together now.
 .item Bondage.Rope apply to Body.AnklesTied
@@ -837,6 +847,7 @@ Tie them together now.
 .must 149
 .item Toys.Ankle_Restraints available
 .item Bondage.Rope available
+.state Body.AnklesTied free
 You must shower with your ankles tied together with rope.
 Don't use metal or it will corrode.
 Tie them together now.
@@ -849,6 +860,7 @@ Tie them together now.
 .must 149
 .item Toys.Ankle_Restraints not available
 .item Bondage.Rope not available
+.state Body.AnklesTied free
 You must shower with your ankles tied together.
 Get some rope or shoelace and tie them together now.
 .item Bondage.Rope apply to Body.AnklesTied
@@ -860,8 +872,10 @@ Get some rope or shoelace and tie them together now.
 .must 149
 .item Toys.Ankle_Restraints available
 .item Bondage.Rope not available
+.state Body.AnklesTied free
 You must shower with your ankles tied together.
-Use rope or shoelace, not something that will rust (like your ankle cuffs, stupid bitch).
+Use rope or shoelace,
+not something that will rust (like your ankle cuffs, stupid bitch).
 Tie them together now.
 .item Bondage.Rope apply to Body.AnklesTied
 .yes Ankles tied, Miss
@@ -869,7 +883,9 @@ Tie them together now.
 
 [Action 1624]
 .must 148 149
+.item Toys.Wrist_Restraints Toys.Ankle_Restraints available
 .item Bondage.Rope available
+.state Body.AnklesTied Body.WristsTied free
 You will bind your hands and ankles together with rope for this shower.
 Don't use metal or it will corrode.
 Tie your wrists and ankles now.
@@ -879,7 +895,9 @@ Tie your wrists and ankles now.
 
 [Action 1625]
 .must 148 149
+.not .item Toys.Wrist_Restraints Toys.Ankle_Restraints available
 .item Bondage.Rope not available
+.state Body.AnklesTied Body.WristsTied free
 You will bind your hands and ankles together with rope or shoe lace for this shower.
 Don't use something that will rust (like your handcuffs, stupid bitch).
 Tie your wrists and ankles now.
@@ -2427,7 +2445,7 @@ Good boy, slave.
 
 
 [Action 2191]
-.not .item Toys.Nipple_Clamps available
+.not .item Toys.Nipple_Clamps canApply
 .set 127                          ' no clamps
 .unset 128 129                    ' 50%, 100% clamps
 .return
@@ -2451,8 +2469,7 @@ Good boy, slave.
 '[Action 2198]
 
 [Action 2199]
-.item Toys.Nipple_Clamps available
-.state Body.OnNipples free
+.item Toys.Nipple_Clamps canApply
 .mustnot 812                      ' Done nipple training activity
 .return
 
@@ -3539,7 +3556,6 @@ make sure it's tight!
 .range 3105 3109
 
 [Action 3102]
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
 I want you to fetch your ball harness and put it on, slave.
 Also fetch some rope,

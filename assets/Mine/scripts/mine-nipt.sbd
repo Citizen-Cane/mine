@@ -3197,6 +3197,8 @@ delay 5
 .must 216               ' Clamps on nips
 .range 7502
 
+' TODO improve script to deal with chastiy cage and Gates Of Hell etc.
+
 [Action 7502]
 Good boy.
 Put the clamps in your mouth for the moment.
@@ -3215,20 +3217,24 @@ delay 10
 .range 7504
 
 [Action 7504]
-Play with yourself and get used to the clamps, My poor little slave boy.
+Play with yourself and get used to the clamps,
+My poor little slave boy.
 .delay 30
 .unset 7504
 .range 7504 7505
 
 [Action 7505]
 Good.
-Now I want you to go get some rope for your ankles.
+Now I want you to go get some rope or shoelace for your ankles.
 Tell me when you've retrieved it, slave boy.
 .yes I have it, Miss
 .range 7506
 
+' TODO separate Instructions for ankle cuffs, Bondage.Anklets, rope or shoelace
+
 [Action 7506]
-Now, cross your ankles and tie them together, nice and tight.
+Now, cross your ankles and tie them together,
+nice and tight.
 .keyrelease prepare Toys.Ankle_Restraints
 .item Toys.Ankle_Restraints apply
 There shouldn't be more than an inch of play between them.

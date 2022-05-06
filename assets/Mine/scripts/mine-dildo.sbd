@@ -722,7 +722,6 @@ and don't move while you listen to the rest of My instructions.
 ' wrists behind back
 [Action 3101]
 .item Toys.Wrist_Restraints canApply
-.item Toys.Wrist_Restraints available
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 267 268        ' Enema carrying out or holding
 .must 738               ' Restraints acceptance 2
@@ -748,9 +747,7 @@ and don't move while you listen to the rest of My instructions.
 ' wrists to ankles
 [Action 3102]
 .item Toys.Ankle_Restraints canApply
-.item Toys.Ankle_Restraints available
 .item Toys.Wrist_Restraints canApply
-.item Toys.Wrist_Restraints available
 .mustnot 267 268        ' Enema carrying out or holding
 .must 737               ' Restraints acceptance 2
 .must 170               ' achievement 1, or we might not be able to start the first scenario
@@ -776,7 +773,6 @@ and don't move while you listen to the rest of My instructions.
 ' wrists to ball sack
 [Action 3103]
 .item Toys.Wrist_Restraints canApply
-.item Toys.Wrist_Restraints available
 .state Body.OnBalls free
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 267 268        ' Enema carrying out or holding
@@ -804,7 +800,6 @@ and don't move while you listen to the rest of My instructions.
 [Action 3104]
 .item Toys.Collar applied
 .item Toys.Wrist_Restraints canApply
-.item Toys.Wrist_Restraints available
 .must 170               ' achievement 1, or we might not be able to start the first scenario
 .mustnot 267 268        ' Enema carrying out or holding
 .must 737               ' Restraints acceptance 2
@@ -1529,7 +1524,7 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 [Action 3234]
-.item Toys.Blindfold available
+.item Toys.Blindfold canApply
 .state Body.WristsTied free
 .mustnot 140            ' Worshiping activity
 .mustnot 267 268        ' Enema carrying out or holding
@@ -1552,9 +1547,8 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 ' 3237 Mount dildo on a window pane or mirror, sit on heels, nipple clamps
 [Action 3237]
 .state Posture.CantKneel free
-.mustnot 42             ' clothes pegs on nipples
 .mustnot 140            ' Worshiping activity
-.item Toys.Nipple_Clamps available
+.item Toys.Nipple_Clamps canApply
 .return
 
 ' 3238 Kneeling upright in front of desk - punishment version
@@ -1565,9 +1559,8 @@ so go fetch your wrist restraints, snap them on and lock'em to your collar.
 
 ' 3239 Wall mounted, nipple clamps attached to dildo 
 [Action 3239]
-.mustnot 42             ' clothes pegs on nipples
 .mustnot 140            ' Worshping activity
-.item Toys.Nipple_Clamps available
+.item Toys.Nipple_Clamps canApply
 .return
 
 
@@ -1977,8 +1970,8 @@ Have you figured out a place, slave?
 ' 3234 Suck lying on the floor, blindfolded, hands holding heels/ankles
 
 [Action 3365]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints available
+.item Toys.Wrist_Restraints canApply
+.item Toys.Ankle_Restraints canApply
 .must 742               ' Strict self-bondage 2
 This time I want to make absolutely sure you're attaining full focus while carrying out your ordeal, slave.
 delay 2
@@ -2023,9 +2016,7 @@ Then go ahead, and attach the dildo to the wall.
 
 
 [Action 3367]
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
 .must 742               ' Strict self-bondage 2
 Before we start, I want you to take care of the keys to your cuffs.

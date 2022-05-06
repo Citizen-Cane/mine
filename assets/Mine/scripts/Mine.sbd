@@ -14,7 +14,7 @@
 .define .painToysOnNipples .state Body.OnNipples is Toys.Nipple_Clamps OR is Household.Clothes_Pegs
 .define .anyPainToy .state Body.OnBalls is Toys.Pussy_Clamps OR Body.OnBalls is Household.Clothes_Pegs OR Body.OnNipples is Toys.Nipple_Clamps OR Body.OnNipples is Household.Clothes_Pegs
 
-.define .canWorshipDildo .item Toys.Dildo available AND canApply to Body.InMouth AND not applied to Body.InButt 
+.define .canWorshipDildo .item Toys.Dildo canApply to Body.InMouth 
 .define .begKeyHolderForRelease .item Toys.Chastity_Device remaining greaterThan 03:00"00
 
 .define .noActiveToyAssignment .mustnot 667 668 669 670 671 672 673 674 675 676 677 678 679 680 681 682 683 684 685
@@ -3429,7 +3429,8 @@ and I'm very, very displeased that you have disobeyed Me in this.
 ' If the slave doesn't own a chastity cage, he's definitely able to wank
 [Action 1362]
 .item Toys.Chastity_Device not available
-Start wanking for me and rub that slave penis hard, my little cock toy.
+Start wanking for me and rub that slave penis hard,
+my little cock toy.
 .range 1363 1365
 
 
@@ -3469,7 +3470,6 @@ I want you horny, but not to cum.
 ' if the slave owns a chastity device we're skipping this tease altogether
 
 [Action 1369]
-.item Toys.Chastity_Device available
 .item Toys.Chastity_Device canApply
 .mustnot 304 305 306    ' pegs on ball sack, humbler, ball harness on session start
 .mustnot 519            ' Don't put on belt if punishment for cumming without permission outstanding - would limit punishments too much
@@ -3803,7 +3803,8 @@ Quickly, slave!
 [Action 1502]
 .item Bondage.Chains available
 .must 667
-I'm delighted you managed to procure some slave chains, as per My orders.
+I'm delighted you managed to procure some slave chains,
+as per My orders.
 We'll have a lot of fun with those.
 .unset 667
 .range 1506 1510
@@ -3846,7 +3847,7 @@ We will talk of this a little later.
 [Action 1507]
 .item Toys.Nipple_Clamps available
 .must 668
-It's wonderful that you've finally gotten some nipple  clamps, slave.
+It's wonderful that you've finally gotten some nipple clamps, slave.
 I can't think of anything I enjoy more.
 .unset 668
 .range 1511 1515
@@ -3870,8 +3871,7 @@ The fact that you don't means you will be punished.
 .noActiveToyAssignment
 Without nipple clamps,
 I'm afraid you just aren't much of a slave.
-Therefore I order you to make or buy some before our
-next session.
+Therefore I order you to make or buy some before our next session.
 We'll talk about this a little later.
 .set 668
 .poss 10
@@ -4022,7 +4022,8 @@ This means punishment.
 .item Toys.Collar not available
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .noActiveToyAssignment
-Okay, slave, I want you to get yourself an appropriate slave collar before our next visit together.
+Okay slave,
+I want you to get yourself an appropriate slave collar before our next visit together.
 We shall talk more about this in a moment.
 .set 672
 .poss 10
@@ -4135,10 +4136,10 @@ that means you need to be punished for failing to.
 
 [Action 1545]
 .item Toys.Buttplug not available
-.item Toys.Dildo not available         ' one anal toy is enough
-.mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
+.item Toys.Dildo not available    ' one anal toy is enough
+.mustnot 510                      ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .noActiveToyAssignment
-.must 756               ' Anal training 1
+.must 756                         ' Anal training 1
 To start training your butt, slave,
 we'll need a butt plug.
 Make sure you have one before our next session.
@@ -4222,7 +4223,8 @@ make progress in your chastity training.
 We've come far enough along in your chastity training that I want you to get a chastity cage.
 This can be somewhat expensive and it may take you some time to procure one,
 so it won't be necessary to have it before our next training session.
-However, it will not be possible for you to make further progress in your chastity training until you get it.
+However,
+it will not be possible for you to make further progress in your chastity training until you've got it.
 .poss 10
 .set 677
 .range 1556 1560
@@ -4298,7 +4300,7 @@ That means you have to be punished.
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .noActiveToyAssignment
 .must 749	            ' cbt 4, since this should be a surprise
-You are going to make a ball harness for our next session.
+You are going to make a ball harness for me.
 We will be talking of this in a minute.
 .set 679                ' ball harness assignment
 .poss 10
@@ -4485,7 +4487,10 @@ We will talk about this in a minute.
 .item Toys.Enema_Kit available
 .must 681
 I'm glad to see you've gotten that enema kit, slave.
-You'll be taking your first enema next time.
+I can't await using it on you, my little pet.
+[]
+Administering an enema will need some preparation in advance, 
+so you'll be getting your first one next time.
 We'll talk about this at the end of the session.
 ' where we trigger the enema assignment for the next session (in 9001)
 .unset 681
@@ -6697,9 +6702,9 @@ I guess I'll have to turn the other cheek this time.
 .poss 100
 .state Body.OnNipples free
 .state Body.InMouth free
-.item Toys.Gag available
+.item Toys.Gag canApply
 .state Posture.CantKneel free
-.item Toys.Nipple_Clamps available
+.item Toys.Nipple_Clamps canApply
 .item Household.Clothes_Pegs available
 .must 712 717 746 
 .save 90 799
@@ -6748,7 +6753,6 @@ each about a foot long.
 .range 2509
 
 [Action 2516]
-.item Toys.Humbler available
 .item Toys.Humbler canApply
 .state Body.OnPenis free
 .should 746 747              ' CBT 2
@@ -6776,7 +6780,6 @@ each about one foot long!
 .range 2509
 
 [Action 2518]
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
 I want you to get on your knees,
 fetch your ball harness and put it on in order to enslave your slutty balls.
@@ -6929,10 +6932,8 @@ I guess you're off the hook, you lucky slave boy.
 
 ' Shake those titties punishment
 [Action 2541]
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 .item Household.Clothes_Pegs available
-.state Body.OnNipples free
 .state Body.Blindfolded free
 .mustnot 812            ' Done nipple training activity already
 .must 717               ' nipple tolerance 2, gives 3.
@@ -6952,7 +6953,6 @@ I guess you're off the hook, you lucky slave boy.
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2543]
-.item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 Instead of beating you raw,
@@ -7017,7 +7017,6 @@ suitable for a lying degenerate cunt slave.
 .range 2565 2566
 
 [Action 2562]
-.item Toys.Gag available
 .item Toys.Gag canApply
 I'd much rather hear nothing at all than a bunch of lies from a filthy and ill-mannered slave.
 Go get your gag and stuff it in your mouth -
@@ -7032,7 +7031,6 @@ but if I catch you again there will be plenty more punishment for you.
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2563]
-.item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 Instead of beating you raw,
@@ -7046,7 +7044,6 @@ You can leave it in there for our entire session, slave.
 
 [Action 2564]
 .item Toys.Nipple_Clamps canApply
-.item Toys.Nipple_Clamps available
 .shouldnot 812          ' Done nipple training activity
 Instead of beating you raw,
 I'm going to have you wear your nipple clamps today.
@@ -7061,13 +7058,13 @@ I'll tell you when you may take them off.
 .item Household.Clothes_Pegs available
 .set 716 746            ' nipple tolerance 1, CBT 1
 .save 90 799
-.loadsbd mine-paddle.sbd 2984 2984
+.loadsbd mine-paddle.sbd 2984 2984     ' punishment shower
 
 [Action 2566]
 .item Household.Clothes_Pegs not available
 .poss 100
 .save 90 799
-.loadsbd mine-paddle.sbd 2984 2984
+.loadsbd mine-paddle.sbd 2984 2984     ' punishment shower - no pins
 
 
 [Action 2568]
@@ -7118,7 +7115,6 @@ You stay like this the whole session.
 
 [Action 2573]
 .poss 1                      ' fallback, because else is already in use
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
 .mustnot 267 268             ' Enema carrying out or holding
 Get your wrist restraints and snap them on.
@@ -7130,7 +7126,6 @@ Maybe wearing them during the session helps you to focus on the job.
 
 [Action 2574]
 .item Toys.Nipple_Clamps canApply
-.item Toys.Nipple_Clamps available
 .shouldnot 812               ' Done nipple training activity
 Maybe wearing your nipple clamps helps you to focus on the job.
 Snap them on your poor slave nipples now, slut!
@@ -7161,7 +7156,6 @@ I'll get you next time, you dirty slave!
 .range 2151
 
 [Action 2581]
-.item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 Instead of beating you raw,
@@ -7215,7 +7209,6 @@ I just want you to hump.
 .range 2594 2599
 
 [Action 2592]
-.item Toys.Humbler available
 .item Toys.Humbler canApply
 .state Body.OnPenis free
 .mustnot 267 268        ' Enema carrying out or holding
@@ -7229,7 +7222,6 @@ You'll stay on your knees for the whole session, cunt.
 .range 2599
 
 [Action 2593]
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
 Get your ankle restraints and tie up your ankles.
 And don't you dare to leave any play between them -
@@ -7316,7 +7308,6 @@ I don't want you to be able to stand, so keep the connecting rope short.
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with activities
 [Action 2600]
-.item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 In order to increase your attention span regarding my assignments,
@@ -7419,7 +7410,6 @@ Make sure the rope won't slip off.
 .range 2628 2629
 
 [Action 2615]
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
 .shouldnot 706               ' entitled for lighter punishment
 You certainly don't mind putting on your ball harness, do you?
@@ -7843,8 +7833,8 @@ I'll get you next time, you dirty slave!
 
 ' Fallback nipple clamps -> clothes pegs on balls
 [Action 2701]
-.state Body.OnNipples is Toys.Nipple_Clamps
-.not .item Toys.Pussy_Clamps available
+.item Toys.Nipple_Clamps applied
+.item Toys.Pussy_Clamps not canApply
 .item Household.Clothes_Pegs available
 .state Body.OnBalls is free
 A couple of clothes pegs seem about right.
@@ -7857,7 +7847,6 @@ Do it now, slave.
 ' Fallback clothes pegs on balls-> nipple clamps
 [Action 2702]
 .state Body.OnBalls is Household.Clothes_Pegs
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 .shouldnot 812          ' Done nipple training activity
 Go fetch your nipple clamps and snap them on your poor slave nipples!
@@ -7879,8 +7868,7 @@ Do it now, slave.
 
 [Action 2704]
 .state Body.OnNipples is Toys.Nipple_Clamps
-.item Toys.Pussy_Clamps available
-.state Body.OnBalls is free
+.item Toys.Pussy_Clamps canApply
 .poss 100
 Go fetch your pussy clamps and snap them on your slutty ball sack!
 .yes Done, Miss
@@ -7889,8 +7877,8 @@ Go fetch your pussy clamps and snap them on your slutty ball sack!
 
 [Action 2705]
 .state Body.OnBalls is Household.Clothes_Pegs
-.state Body.OnNipples free
 .item Household.Clothes_Pegs available
+.state Body.OnBalls is free
 .poss 100
 Some clothes pegs on your slave nipples will do this time.
 Put them on now, slave!
@@ -7899,9 +7887,8 @@ Put them on now, slave!
 .range 2708
 
 [Action 2706]
-.item Toys.Nipple_Clamps available
-.state Body.OnNipples free
-.state Body.OnBalls is Toys.Pussy_Clamps
+.item Toys.Nipple_Clamps canApply
+.item Toys.Pussy_Clamps applied
 .poss 100
 Go fetch your nipple clamps and snap them on your poor slave nipples!
 .yes Done, Miss
@@ -8013,7 +8000,6 @@ Hopefully this will get through to you!
 ' Jingle balls
 
 [Action 2960]
-.item Toys.Ball_Stretcher available
 .item Bondage.Chains available
 Fetch a chain, loop it tightly around the base of your flacid penis and lock it up.
 But be careful to not restrict the flow of blood too much.
@@ -8024,7 +8010,6 @@ I still want you to work hard to stay hard, slave.
 .range 2964
 
 [Action 2961]
-.item Toys.Ball_Stretcher not available
 .item Bondage.Chains not available
 Let's get some rope, and tie it around the base of your flacid penis.
 Be careful to not restrict the flow of blood too much.
@@ -8034,7 +8019,6 @@ I still want you to work hard to stay hard, slave.
 .range 2964
 
 [Action 2962]
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
 Go fetch your ball harness, and put it on.
 Pull the straps tight, slave!
@@ -8168,7 +8152,6 @@ I'll get you next time, you dirty slave!
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with most activities
 [Action 2981]
-.item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 757               ' Anal training 2
@@ -8223,7 +8206,6 @@ I'll get you next time, you dirty slave!
 ' I'm overusing the plug as a punishment a bit, but it's a good tool for punishment
 ' (if just chosen large enough...) and doesn't interfere with most activities
 [Action 2991]
-.item Toys.Buttplug available
 .item Toys.Buttplug canApply
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 757               ' Anal training 2
@@ -8354,8 +8336,8 @@ How about your enema, my dear anal slut?
 ' Punish bag not empty
  
 [Action 3015]
-.state Body.OnBalls is free
 .item Household.Clothes_Pegs available
+.state Body.OnBalls is free
 Well, slave, I expected you to have it all in by now.
 []
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
@@ -8365,8 +8347,8 @@ Snap four of them on your balls, slave.
 .range 3020 3021        ' Comment pegs on ball sack
 
 [Action 3016]
-.state Body.OnNipples free
 .item Household.Clothes_Pegs available
+.state Body.OnNipples free
 .shouldnot 812          ' Done nipple training activity
 Well, slave, I expected you to have it all in by now.
 []
@@ -8378,7 +8360,6 @@ Snap one on each nipple.
 
 [Action 3017]
 .item Toys.Nipple_Clamps canApply
-.item Toys.Nipple_Clamps available
 .shouldnot 812          ' Done nipple training activity
 Well, slave, I expected you to have it all in by now.
 []
@@ -8390,7 +8371,6 @@ Snap them on your slave titties and make sure they sit tight.
 
 [Action 3018]
 .item Toys.Pussy_Clamps canApply
-.item Toys.Pussy_Clamps available
 Well, slave, I expected you to have it all in by now.
 []
 Maybe a couple of clothes pegs on your slutty ball sack help the enema flowing faster.
@@ -8863,9 +8843,7 @@ humbly ask for My gracious permission to visit the toilet.
 
 ' 3250-3299 cbt with ball harness
 [Action 3105]
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
-.state Body.OnPenis free
 .range 3250 3289
 
 ' fallback if no session extra can be applied
@@ -8891,11 +8869,10 @@ I don't think I'll add anything more to today's session.
 ' 3110-3139 unique add-ons
 
 [Action 3110]
+.item Bondage.Rope available
 .state Body.CrotchRoped free
 .item Toys.Dildo canApply to Body.InButt
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
-.item Bondage.Rope available
-.item Toys.Dildo available
 .must 757               ' anal training 2
 .must 776               ' Dildo worshiping 1
 I feel like filling that slutty little butthole
@@ -8923,7 +8900,6 @@ Let me know when you've finished, my pet.
 
 [Action 3114]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 .mustnot 267 268 269    ' Enema carrying out or holding, voiding or ready to be plugged
 .must 757               ' anal training 2
 I feel like filling that slutty little butthole
@@ -8943,8 +8919,8 @@ where you will keep it for today's session.
 .return
 
 [Action 3117]
-.state Body.CrotchRoped not applied
 .item Bondage.Rope available
+.state Body.CrotchRoped free
 .must 3114
 .image bd227_18.jpg     ' crotch rope close-up
 To make sure the plug stays inside your anus all through the session,
@@ -8955,7 +8931,7 @@ you are going to tie yourself with a nice and tight crotch rope.
 
 [Action 3118]
 .item Bondage.Rope available
-.item Bondage.Rope canApply to Body.Harnessed
+.state Body.Harnessed free
 .must 3114
 To make sure the plug stays inside your anus all through the session,
 I suggest you'll tie yourself with a nice rope harness as you have done before.
@@ -8969,7 +8945,7 @@ and don't remove it until the end of the session.
 
 [Action 3120]
 .item Bondage.Rope available
-.item Bondage.Rope canApply to Body.Harnessed
+.state Body.Harnessed free
 .state Body.InButt free
 .state Body.WristsTied free
 .state Posture.CantSitOnChair free
@@ -8993,7 +8969,7 @@ I know you like it, you bondage slut!
 
 [Action 3122]
 .item Bondage.Rope available
-.item Bondage.Rope canApply to Body.Harnessed
+.state Body.Harnessed free
 .state Body.InButt applied
 .state Body.WristsTied free
 .state Posture.CantSitOnChair free
@@ -9015,7 +8991,6 @@ I know you like it, you bondage slut!
 
 
 [Action 3124]
-.item Toys.Collar available
 .item Toys.Collar canApply
 .mustnot 102            ' Wearing the collar is a honor, so don't give it away as a punishment
 I think you're going to wear your slave collar for today.
@@ -9094,7 +9069,6 @@ Put it on now, slave.
 'Leave them that way for the whole session.
 '.yes
 '.range 3300
-'.item Toys.Ankle_Restraints available
 '.item Toys.Ankle_Restraints canApply
 '.state Posture.CantKneel free
 '.state Body.Tethered free
@@ -9125,11 +9099,8 @@ Put it on now, slave.
 [Action 3140]
 .state Body.OnBalls free
 .mustnot 267 268        ' Enema carrying out or holding
-.item Bondage.Chains available
-.item Bondage.Chains canApply  
-.item Toys.Ankle_Restraints available
+.item Bondage.Chains available  
 .item Toys.Ankle_Restraints applied or canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints applied or canApply
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
@@ -9138,11 +9109,8 @@ and I want you suffer for me.
 [Action 3141]
 .item Toys.Ball_Stretcher applied or canApply
 .mustnot 267 268        ' Enema carrying out or holding
-.item Bondage.Chains available
-.item Bondage.Chains canApply  
-.item Toys.Ankle_Restraints available
+.item Bondage.Chains available  
 .item Toys.Ankle_Restraints applied or canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints applied or canApply
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
@@ -9217,7 +9185,6 @@ but no more.
 .must 3140
 .item Toys.Ankle_Restraints applied
 .item Toys.Wrist_Restraints applied
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
 I also want you to wear your ball harness for todays session.
 Go ahead and put it on.
@@ -9252,7 +9219,6 @@ but no more.
 
 ' humbler
 [Action 3149]
-.item Toys.Humbler available
 .item Toys.Humbler canApply
 .state Body.OnPenis free
 .must 748               ' CBT 3
@@ -9270,19 +9236,17 @@ go a long way in teaching you not to irritate me!
 
 
 [Action 3150]
-.item Toys.Gag available
 .item Toys.Gag canApply
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
-.item Bondage.Rope available    ' This extra is kind of advanced, so save it for when the slave has rope :^)
-.must 736 737 746 782        ' restraint acceptance 1 & 2, cbt 1, gag training 1
+.item Bondage.Rope available      ' This extra is kind of advanced, so save it for when the slave has rope :^)
+.must 736 737 746 782             ' restraint acceptance 1 & 2, cbt 1, gag training 1
 Now, slave, go get Me some rope and your gag.
 I want you to put the gag in, to begin with -
 you'll be wearing it throughout the session.
 Then, tie a rope to your gag, leaving some left over.
 .item Toys.Gag apply
 .yes I'm gagged, Miss
-.set 783                     ' something in mouth, gag training level 3
+.set 783                          ' something in mouth, gag training level 3
 .range 3151
 
 [Action 3151]
@@ -9294,7 +9258,8 @@ And you better pull the straps tight, slave.
 .yes Finished, Miss
 []
 Bend over as far as you can and fasten your gag to your ball harness.
-Don't leave yourself more than 18 inches or so of rope, you dirty cunt.
+Don't leave yourself more than 18 inches or so of rope,
+you dirty cunt.
 You can stare at that silly penis for the rest of the session.
 .item Bondage.Rope apply to Toys.Gag Toys.Ball_Stretcher
 .yes I'm fastened up, Miss
@@ -9302,12 +9267,10 @@ You can stare at that silly penis for the rest of the session.
 
 
 [Action 3153]
-.item Toys.Gag available
 .item Toys.Gag canApply
-.state Body.OnBalls free
 .item Bondage.Rope available
-.state Body.OnPenis free
-.must 736 737 746 782   ' restraint acceptance 1,2, cbt 1, gag training 2
+.state Body.OnBalls free
+.must 736 737 746 782        ' restraint acceptance 1,2, cbt 1, gag training 2
 Now, slave, go get Me some rope and your gag.
 I want you to put the gag in, to begin with -
 you'll be wearing it throughout the session.
@@ -9323,17 +9286,15 @@ Don't leave yourself more than eigthteen inches or so of rope, you dirty slut.
 You can stare at that silly penis for the rest of the session.
 .item Bondage.Rope apply to Body.OnBalls Toys.Gag Posture.CantStand
 .yes I'm fastened up, Miss
-.set 747 783	        ' somethng on balls, can't stand, cbt2, gag training 3
+.set 747 783	             ' somethng on balls, can't stand, cbt2, gag training 3
 .return
 
 
 [Action 3155]
-.item Toys.Collar available
 .item Toys.Collar canApply
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
-.state Body.OnPenis free
-.must 736 737 746       ' restraint acceptance 1 & 2, cbt 1
+.item Bondage.Rope available
+.must 736 737 746            ' restraint acceptance 1 & 2, cbt 1
 Now, slave, go put on your ball harness.
 Pull the straps extra tight, just to make sure the harness won't slip off.
 .keyrelease prepare Toys.Ball_Stretcher
@@ -9363,7 +9324,6 @@ You can stare at that silly penis for the rest of the session.
 
 
 [Action 3158]
-.item Toys.Gag available
 .item Toys.Gag canApply
 .must 782               ' gag training 2
 Now, slave, I'm not in the mood for a lot of bitching and
@@ -9386,7 +9346,7 @@ I want you to keep it there for the entire session.
 
 [Action 3160]
 .item Bondage.Rope available
-.item Toys.Ankle_Restraints canApply
+.state Body.AnklesTied free
 Just so you remember your place, slave, I want you to get
 some rope and tie your ankles together for today's session.
 .item Bondage.Rope apply to Body.AnklesTied
@@ -9395,7 +9355,6 @@ some rope and tie your ankles together for today's session.
 .return
 
 [Action 3162]
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
 .mustnot 267 268        ' Enema carrying out or holding
 I don't want you running off, slave, so snap on
@@ -9407,7 +9366,6 @@ those ankle restraints for today's session.
 .return
 
 [Action 3164]
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
 .mustnot 267 268        ' Enema carrying out or holding
 Today I want you to pop those handcuffs on your wrists, My pet,
@@ -9421,12 +9379,9 @@ Leave them on for today's session.
 
 
 [Action 3166]
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
 .item Bondage.Chains available
-.item Bondage.Chains canApply
 .mustnot 267 268        ' Enema carrying out or holding
 .must 736
 One thing I like is a slutty little slave boy wearing his slave chains.
@@ -9446,13 +9401,9 @@ Leave your chains on for the whole session, slave.
 
 
 [Action 3168]
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
 .item Bondage.Chains available
-.item Bondage.Chains canApply
-.item Toys.Collar available
 .item Toys.Collar canApply
 .mustnot 267 268        ' Enema carrying out or holding
 .must 737
@@ -9478,12 +9429,9 @@ You should just be able to wank, but no more.
 
 
 [Action 3172]
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
 .item Bondage.Chains available
-.item Bondage.Chains canApply
 .mustnot 267 268        ' Enema carrying out or holding
 .must 736
 One thing I like is a slutty little slave boy wearing his slave chains.
@@ -9694,14 +9642,11 @@ Put it on now, slave.
 
 
 [Action 3252]
-.state Body.InMouth free
-.item Toys.Ankle_Restraints available
+.state Body.InMouth free     ' TODO Would be safe with ring gag, otherwise make do with 277 semi-safe self bondage features enabled      
 .item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
 .item Bondage.Chains available
-.item Bondage.Chains canApply
-.mustnot 267 268        ' Enema carrying out or holding
+.mustnot 267 268             ' Enema carrying out or holding
 You know one thing I like is a slutty little slave boy wearing his slave chains.
 []
 For today's session I want you to put on your
@@ -9781,10 +9726,8 @@ When you kneel, you are not allowed to rest the weight on the ground, My pet.
 
 
 [Action 3270]
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
 .item Bondage.Chains available
-.item Bondage.Chains canApply
 .mustnot 267 268        ' Enema carrying out or holding
 .must 747               ' cbt 2
 Get your ankle restraints, slave chains, and your ball harness.
@@ -10224,7 +10167,6 @@ I'm not pleased that you gave up, but I understand that you need more training t
 
 [action 3941]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 .must 634               ' Butt plug until bedtime
 Oh, really?
 In that case you can complete your assignment tonight.
@@ -10236,7 +10178,6 @@ and don't take it off until bedtime.
 
 [action 3942]
 .item Toys.Dildo canApply to Body.InButt
-.item Toys.Dildo available
 .must 633               ' Butt plug until bedtime
 Oh, really?
 In that case you can complete your assignment tonight.
@@ -10283,7 +10224,6 @@ Plus some punishment next time.
 
 [action 3946]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 .must 623               ' Butt plug until morning
 Oh, really?
 In that case you can complete your assignment tonight.
@@ -10295,7 +10235,6 @@ and don't take it off until morning.
 
 [action 3947]
 .item Toys.Dildo canApply to Body.InButt
-.item Toys.Dildo available
 .must 636               ' dildo until morning
 Oh, really?
 In that case you can complete your assignment tonight.
@@ -10318,7 +10257,7 @@ and don't take it off before.
 .range 3960
 
 [action 3949]
-.item Toys.Dildo is Body.InButt
+.state Body.InButt is Toys.Dildo
 .must 636               ' Butt plug until morning
 Oh, really?
 Well slave, in this case you can complete your assignment tonight.
@@ -10339,7 +10278,6 @@ and don't take it off before.
 
 [action 3951]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 You know what?
 You can continue your anal training right now. 
 Put your butt plug in now,
@@ -10362,7 +10300,7 @@ and don't take it off before.
 .range 3960
 
 [action 3953]
-.item Toys.Dildo is Body.InButt
+.state Body.InButt is Toys.Dildo
 Oh, really?
 You know what, slave?
 You can continue your anal training right now. 
@@ -10390,7 +10328,6 @@ and don't take it off before.
 
 [action 3956]
 .item Toys.Dildo canApply to Body.InButt 
-.item Toys.Dildo available
 You know what, slave?
 You can continue your anal training right now.
 Put the dildo in now, fix it with a good crotch rope,
@@ -10414,7 +10351,6 @@ and don't take it off before.
 
 [action 3958]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 You know what, slave?
 You can continue your anal training right now. 
 Keep wearing your plug until bedtime,
@@ -11285,7 +11221,6 @@ What would you like to do today?
 
 [Action 4911]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 .poss 20
 .mustnot 220 251
 .mustnot 756                 ' Anal training level 1
@@ -11300,7 +11235,6 @@ Would you like me to fill your enslaved ass?
 
 [Action 4912]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 .mustnot 220 251             ' not already doing this
 .must 756                    ' anal training 1
 .poss 10
@@ -11313,7 +11247,6 @@ I want your ass pleasantly filled for our next activity.
 
 [Action 4913]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 .poss 10
 .mustnot 220 251             ' not already doing this
 .must 756                    ' anal training 2
@@ -11327,7 +11260,6 @@ I want your ass pleasantly filled for our next activity.
 
 [Action 4914]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 .mustnot 220 251             ' not already doing this
 .must 757                    ' additional chance at lev. 2
 .poss 10
@@ -11340,7 +11272,6 @@ I want your ass pleasantly filled for our next activity.
 
 [Action 4915]
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 .mustnot 220 251             ' not already doing this
 .must 757                    ' Anal training level 2
 .poss 10
@@ -11401,7 +11332,6 @@ Lube up that plug and insert it into your bottom now.
 
 [Action 4955]
 .mustnot 219 253        ' not already doing this, not having alreay done it
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
 I want your balls stand out nicely for out next activity,
 my dear slave, so let's put on your ball harness.
@@ -11412,7 +11342,6 @@ my dear slave, so let's put on your ball harness.
 .range 4985
 
 [Action 4956]
-.item Toys.Gag available
 .item Toys.Gag canApply
 .mustnot 221 254        ' not already doing this, not having already done it
 I want you to be quiet for our next activity.
@@ -11425,7 +11354,6 @@ Open your mouth and insert your gag now, slave.
 [Action 4957]
 .mustnot 217 255        ' not already doing this, done ball sack pulling already
 .mustnot 268            ' Holding the enema
-.item Toys.Humbler available
 .item Toys.Humbler canApply
 .must 746               ' cbt level 1
 I want you to assume the right position for our next activity.
@@ -11504,7 +11432,6 @@ Tie the left-over around the base and fix it up with a good knot.
 [Action 4987]
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device expired
-.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 It looks like your cock is well placed inside that cage.
 Let's leave there a little while and we see later whether
@@ -11516,7 +11443,6 @@ that shriveled old prick of yours deserves to be released.
 [Action 4988]
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device expired
-.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 As it looks, your silly slave penis is locked up well -
 let's leave it that way.
@@ -11528,7 +11454,6 @@ let's leave it that way.
 .poss 16
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device expired
-.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 I want you your cock hard and wet for our next activity,
 so let's remove your chastity cage.
@@ -11541,7 +11466,6 @@ so let's remove your chastity cage.
 .poss 16
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device expired
-.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 I want you your cock hard and wet,
 so let's take the cage off.
@@ -11553,7 +11477,6 @@ so let's take the cage off.
 [Action 4991]
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device expired
-.item Toys.Chastity_Device available
 .must 4951              ' Toy selection
 It looks like your cock is well placed inside that cage.
 Let's leave it there a little while and we see later whether
@@ -11565,7 +11488,6 @@ that shriveled old prick of yours deserves to be released.
 [Action 4992]
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device expired
-.item Toys.Chastity_Device available
 .must 4951              ' Toy selection
 As it looks, your silly slave penis is well placed,
 so let's keep that shriveled old prick locked up.
@@ -11578,7 +11500,6 @@ so let's keep that shriveled old prick locked up.
 .poss 16
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device expired
-.item Toys.Chastity_Device available
 .must 4951              ' Toy selection
 And I also want you your cock hard and wet for our next activity,
 so let's remove the chastity cage.
@@ -11591,7 +11512,6 @@ so let's remove the chastity cage.
 .poss 16
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device expired
-.item Toys.Chastity_Device available
 .must 4951              ' Toy selection
 And take that cage off, slave!
 I want you your cock hard and wet.
@@ -11603,7 +11523,6 @@ I want you your cock hard and wet.
 [Action 4995]
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device not expired
-.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 You'd surely like to wank your cock, won't you slave?
 Too sad you're going to stay locked up tonight.
@@ -11614,7 +11533,6 @@ Too sad you're going to stay locked up tonight.
 [Action 4996]
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device not expired
-.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 You'd surely like to yonk your hard wet cock, won't you slave?
 I'm very sorry for you - well, not really -
@@ -11626,7 +11544,6 @@ but you're going to stay locked up tonight.
 [Action 4997]
 .item Toys.Chastity_Device applied
 .item Toys.Chastity_Device not expired
-.item Toys.Chastity_Device available
 .mustnot 4951           ' Toy selection
 It looks like your cock is well placed inside that cage.
 And you know, that you are not going to get unlocked.
@@ -12359,7 +12276,6 @@ You seem to get used to getting used very well.
 .state Body.Blindfolded free
 .state Posture.CantStand free
 .state Body.Tethered free
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 ' clamps/pegs duration, already checked in 5066
 ' holding the enema already checked in 5066
@@ -12385,6 +12301,7 @@ You seem to get used to getting used very well.
 
 ' shower 15m 200 paddles nips ankles 
 [Action 5203]
+.item Household.Clothes_Pegs available
 .state Body.OnNipples free
 .state Body.OnBalls is free
 .state Body.AnklesTied free
@@ -12393,7 +12310,6 @@ You seem to get used to getting used very well.
 .state Body.Blindfolded free
 .state Posture.CantStand free
 .state Body.Tethered free
-.item Household.Clothes_Pegs available
 .item Toys.enema_kit free or remaining greaterThan 00:16"00
 .set 210                ' shower one-time only
 .set 716 736 751        ' Nipple tolerance 1, restraint acceptance 1, ass whipping 1
@@ -12470,15 +12386,15 @@ I like a clean slave.
 .state Body.OnBalls free
 .state Body.InMouth free
 .state Body.WristsTied free
-.state Body.AroundNeck free
+.state Body.AroundNeck free       ' TODO allow if 277 semi-safe self bondage features enabled
 .state Posture.CantSitOnChair free
 .state Body.Blindfolded free
 .state Posture.CantStand free
 .state Posture.CantKneel free
-.mustnot 268            ' Holding the enema
-.mustnot 269            ' ready to be plugged
-.must 741               ' strict self bondage 1
-.set 265                ' Done self bondage activity
+.mustnot 268                      ' Holding the enema
+.mustnot 269                      ' ready to be plugged
+.must 741                         ' strict self bondage 1
+.set 265                          ' Done self bondage activity
 .range 5551
 
 ' indefinate hogtie
@@ -12489,52 +12405,50 @@ I like a clean slave.
 .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.state Body.AroundNeck free
+.state Body.AroundNeck free       ' TODO allow if 277 semi-safe self bondage features enabled
 .state Posture.CantSitOnChair free
 .state Body.Blindfolded free
 .state Posture.CantStand free
 .state Posture.CantKneel free
-.mustnot 268            ' Holding the enema
-.mustnot 269            ' ready to be plugged
-.must 743               ' strict self bondage 3
-.set 265                ' Done self bondage activity
+.mustnot 268                      ' Holding the enema
+.mustnot 269                      ' ready to be plugged
+.must 743                         ' strict self bondage 3
+.set 265                          ' Done self bondage activity
 .range 5552
 
 ' diana pictures complete
 [Action 5403]
 .item Bondage.Rope available
-.item Household.CLothes_Pegs available
-.item Toys.Nipple_Clamps available
+.item Household.Clothes_Pegs available
 .item Toys.Nipple_Clamps canApply
 .state Body.OnBalls is free
 .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.state Body.AroundNeck free
+.state Body.AroundNeck free       ' TODO allow if 277 semi-safe self bondage features enabled
 .state Posture.CantKneel free
-.mustnot 268            ' Holding the enema
-.mustnot 269            ' ready to be plugged
-.must 717 743    	    ' nipple tolerance 2, strict self bondage 3
-.shouldnot 812          ' Done nipple training activity
-.set 265                ' Done self bondage activity
+.mustnot 268                      ' Holding the enema
+.mustnot 269                      ' ready to be plugged
+.must 717 743    	              ' nipple tolerance 2, strict self bondage 3
+.shouldnot 812                    ' Done nipple training activity
+.set 265                          ' Done self bondage activity
 .range 5553
 
 ' diana pictures simple
 [Action 5404]
 .item Bondage.Rope available
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 .state Body.OnBalls is free
 .state Body.InMouth free
 .state Body.AnklesTied free
 .state Body.WristsTied free
-.state Body.AroundNeck free
+.state Body.AroundNeck free       ' allow if 277 semi-safe self bondage features enabled
 .state Posture.CantKneel free
-.mustnot 268            ' Holding the enema
-.mustnot 269            ' ready to be plugged
-.shouldnot 812          ' Done nipple training activity
-.must 717 742           ' nipple tolerance 2, strict self bondage 2
-.set 265                ' Done self bondage activity
+.mustnot 268                      ' Holding the enema
+.mustnot 269                      ' ready to be plugged
+.shouldnot 812                    ' Done nipple training activity
+.must 717 742                     ' nipple tolerance 2, strict self bondage 2
+.set 265                          ' Done self bondage activity
 .range 5554
 
 
@@ -12952,8 +12866,6 @@ I will have to punish you later for failing your training.
 ' quick pins
 [Action 5814]
 .item Household.Clothes_Pegs available
-.state Body.OnNipples free
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 .state Body.AnklesTied free
 .state Body.Blindfolded free
@@ -12966,9 +12878,7 @@ I will have to punish you later for failing your training.
 ' quick pins 15
 [Action 5815]
 .item Household.Clothes_Pegs available
-.state Body.OnNipples free
 .state Body.OnBalls is free
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 .state Body.Blindfolded free
 .item Toys.enema_kit free or remaining greaterThan 00:15"00
@@ -12979,15 +12889,12 @@ I will have to punish you later for failing your training.
 
 ' nipple clamp weight lifting
 [Action 5818]
-.item Bondage.Rope available    ' Tie up ankles so slave can only hump
-.state Body.OnNipples free
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 .not .painToysOnBalls
-.state Body.AnklesTied free
+.state Body.AnklesTied free  ' required to tie up ankles tight so slave can only hump - falls back to shoelace
 .state Body.Blindfolded free
 .state Posture.CantStand free
-.state Body.CantJerkOff free
+.state Body.CantJerkOff free ' TODO activity commands to wank - add script path without wanking
 .state Body.Tethered free
 .item Toys.enema_kit free or remaining greaterThan 00:25"00
 .must 718                    ' Nipple tolerance 3
@@ -12997,9 +12904,7 @@ I will have to punish you later for failing your training.
 
 ' shake those titties
 [Action 5819]
-.state Body.OnNipples free
 .item Toys.Nipple_Clamps canApply
-.item Toys.Nipple_Clamps available
 .item Household.Clothes_Pegs available
 .state Body.Blindfolded free
 .item Toys.enema_kit free or remaining greaterThan 00:15"00
@@ -13178,25 +13083,19 @@ Meanhile, three demerits will do about right.
 
 ' Terri and Jennifer #16-21
 [Action 6002]
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
-.item Toys.Gag available
 .item Toys.Gag canApply
 .not .painToysOnBalls
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
 .not .state Body.Blindfolded applied
-.state Body.CantJerkOff free
 .state Posture.CantSitOnChair free
 .state Body.Tethered free
-.item Toys.Chastity_Device not applied
-.mustnot 266            ' Done story time activity already 
-.mustnot 267 268        ' Enema carrying out or holding
-.must 717 736           ' Nipple tolerance 2, Restraint Acceptance 1
-.shouldnot 812          ' Done nipple training activity
-.set 266                ' Done story time activity
+.mustnot 266                      ' Done story time activity already 
+.mustnot 267 268                  ' Enema carrying out or holding
+.must 717 736                     ' Nipple tolerance 2, Restraint Acceptance 1
+.shouldnot 812                    ' Done nipple training activity
+.set 266                          ' Done story time activity
 .range 6152
 
 ' Diary of Carolyn Ch. 1 excerpt
@@ -13205,18 +13104,17 @@ Meanhile, three demerits will do about right.
 ' need 4th level nipples, 2nd cbt
 [Action 6003]
 .item Toys.Nipple_Clamps canApply
-.item Toys.Nipple_Clamps available
 .item Household.Clothes_Pegs available
 .item Bondage.Rope available
 .not .painToysOnBalls
 .not .state Posture.CantStand applied
 .not .state Body.Blindfolded applied
 .state Body.Tethered free
-.mustnot 266            ' Done story time activity already
-.mustnot 267 268        ' Enema carrying out or holding
-.must 719 746           ' Nipple tolerance 4, cbt 1
-.mustnot 812            ' Done nipple training activity
-.set 266                ' Done story time activity
+.mustnot 266                      ' Done story time activity already
+.mustnot 267 268                  ' Enema carrying out or holding
+.must 719 746                     ' Nipple tolerance 4, cbt 1
+.mustnot 812                      ' Done nipple training activity
+.set 266                          ' Done story time activity
 .range 6153
 
 ' Light wanking 3x3m, gives 726, 2x5m
@@ -13347,14 +13245,11 @@ Meanhile, three demerits will do about right.
 
 ' slavesinlove 186 pictures
 [Action 6014]
-.state Body.OnNipples free
-.item Toys.Nipple_Clamps available
 .item Toys.Nipple_Clamps canApply
 .item Household.Clothes_Pegs available
-.item Toys.Gag available
 .item Toys.Gag canApply
 .item Toys.enema_kit free or remaining greaterThan 00:15"00
-.state Body.WristsTied free            ' TODO may be possible
+.state Body.WristsTied free       ' TODO may be possible but not pictured
 .state Posture.CantKneel free
 .mustnot 266            ' Done story time activity already 
 .must 712 717 746       ' punishment acceptance 2, nipple tolerance 2, cbt1
@@ -14321,7 +14216,6 @@ It seems that you've voided the enema completely.
 [Action 7431]
 .state Body.WristsTied free       ' blocks making a crotch rope
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 You may lube up your slave ass now and insert your buttplug, slave.
 I want your ass pleasantly filled.
 .item Toys.Buttplug apply
@@ -14331,7 +14225,6 @@ I want your ass pleasantly filled.
 [Action 7432]
 .state Body.WristsTied free       ' blocks making a crotch rope
 .item Toys.Buttplug canApply
-.item Toys.Buttplug available
 I'm sure you enjoy being an anal slut for your Mistress.
 Lube up that buttplug and insert it into your bottom.
 .item Toys.Buttplug apply
@@ -14344,8 +14237,7 @@ Lube up that buttplug and insert it into your bottom.
 
 [Action 7435]
 .state Body.WristsTied free       ' blocks making a crotch rope
-.item Toys.Dildo canApply
-.item Toys.Dildo available
+.item Toys.Dildo canApply to Body.InButt
 You may lube up your slave ass now and insert your anal dildo, slave.
 I want your ass pleasantly filled.
 .item Toys.Dildo apply to Body.InButt
@@ -14355,8 +14247,7 @@ I want your ass pleasantly filled.
 
 [Action 7436]
 .state Body.WristsTied free       ' blocks making a crotch rope
-.item Toys.Dildo canApply
-.item Toys.Dildo available
+.item Toys.Dildo canApply to Body.InButt
 I'm sure you enjoy being an anal slut for your Mistress.
 Lube up that dildo and insert it into your bottom.
 .item Toys.Dildo apply to Body.InButt
@@ -14371,14 +14262,14 @@ Lube up that dildo and insert it into your bottom.
 
 [Action 7450]
 .item Bondage.Rope available
-.item Bondage.Rope canApply to Body.CrotchRoped
+.state Body.CrotchRoped free
 I want to make sure that butt plug sits extra tight in your anus. 
 For that reason you're going to tie yourself a tight crotch rope now, slave.
 .range 7460
 
 [Action 7451]
 .item Bondage.Rope available
-.item Bondage.Rope canApply to Body.Harnessed
+.state Body.Harnessed free
 .must 426               ' Sleep in harness assignment completed 
 I want to make sure that butt plug sits extra tight in your anus.
 For that reason you're going to tie yourself a nice rope harness now, slave.
@@ -14395,14 +14286,14 @@ For that reason you're going to tie yourself a nice rope harness now, slave.
 
 [Action 7455]
 .item Bondage.Rope available
-.item Bondage.Rope canApply to Body.CrotchRoped
+.state Body.CrotchRoped free
 I want to make sure that dildo sits extra tight in your anus. 
 For that reason you're going to tie yourself a tight crotch rope now, slave.
 .range 7465
 
 [Action 7456]
-.item Bondage.Rope available
-.item Bondage.Rope canApply to Body.Harnessed
+.item Bondage.Rope free
+.state Body.Harnessed free
 .must 426               ' Sleep in harness assignment completed 
 I want to make sure that dildo sits extra tight in your anus.
 For that reason you may tie yourself a nice rope harness now, slave.
@@ -14693,7 +14584,6 @@ Make sure the rope won't slip off.
 .range 7528 7529
 
 [Action 7524]
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
 .item Toys.Chastity_Device not applied
 .shouldnot 706               ' entitled for lighter punishment
@@ -16269,8 +16159,8 @@ Wait for my command...
 
 [Action 8133]
 .state Body.CantJerkOff free
-.state Body.OnNipples free
 .item Household.Clothes_Pegs available
+.state Body.OnNipples free
 .delay 30
 Put a clothes peg on each nipple, slave.
 delay 5
@@ -16280,8 +16170,8 @@ Stay as close to the edge as you can and wait for My say-so...
 
 [Action 8134]
 .state Body.CantJerkOff free
-.state Body.OnBalls is free
 .item Household.Clothes_Pegs available
+.state Body.OnBalls free
 .delay 30
 Put four clothes pegs on your enslaved ball sack
 before we go on, slave.
@@ -16292,9 +16182,8 @@ Now, wait for My command...
 
 [Action 8135]
 .state Body.CantJerkOff free
-.state Body.OnNipples free
-.state Body.OnBalls is free
 .item Household.Clothes_Pegs available
+.state Body.OnNipples Body.OnBalls free
 .delay 30
 Take four clothes pegs -
 put two on your slave nipples and two on your slave balls.
@@ -16306,7 +16195,6 @@ Keep yourself on the edge and wait for my command...
 [Action 8136]
 .state Body.CantJerkOff free
 .item Toys.Nipple_Clamps canApply
-.item Toys.Nipple_Clamps available
 .shouldnot 812          ' Done nipple training activity
 .delay 30
 Snap those clamps on your nipples before we continue, slave.
@@ -16328,7 +16216,7 @@ hand while you keep yourself on the edge with the other, slut.
 [Action 8138]
 .delay 30
 .state Body.CantJerkOff free
-.item Toys.Blindfold available
+.item Toys.Blindfold canApply
 .mustnot 8118                     ' no cum-on-command (set in 8114)
 .mustnot 9540 9541 9542 9543 9544 9545 9546 9547 9548 9549 ' not if having to eat cum
 Put on your blindfold, slave, and keep yourself fully aroused.
@@ -16339,7 +16227,7 @@ Put on your blindfold, slave, and keep yourself fully aroused.
 .delay 45
 .state Body.CantJerkOff free
 .item Toys.Spanking_Implement available
-.item Toys.Blindfold available
+.item Toys.Blindfold canApply
 .must 753                         ' Ass paddling 3
 .mustnot 8118                     ' no cum-on-command (set in 8114)
 Get your paddle ready, slave, and put on your blindfold.
@@ -17728,7 +17616,7 @@ you'll need your dildo.
 .range 9599 9599
 
 [Action 9591]
-.item Toys.Dildo available AND applied to Body.InButt
+.not .canWorshipDildo
 Today, I will teach you to clean cock.
 For that purpose,
 you need second dildo or a dildo-shaped object.
@@ -17765,7 +17653,7 @@ Do you have something?
 [Action 9594]
 .item Toys.Dildo not available
 That's too bad slave,
-because I'm really curious to see you licking up cum from a real dildo. 
+because I'm really curious to see you licking up cum from a real dildo.
 Well, if you want to cum tonight,
 you must promise me to get one for next time.
 .yesno 9597 9597 9596 9596 
@@ -17806,7 +17694,7 @@ so listen carefully.
 
 ' have dildo or similar
 [Action 9598]
-.item Toys.Dildo not available
+.not .canWorshipDildo
 Okay.
 When I tell you to cum,
 you'll spurt off as much of your load as possible on your "dildo".
@@ -17815,7 +17703,7 @@ And make sure you'll aim good.
 
 ' have real dildo
 [Action 9599]
-.item Toys.Dildo available
+.canWorshipDildo
 Okay.
 When I tell you to cum,
 you'll spurt off as much of your load as possible on your dildo.
@@ -19228,7 +19116,6 @@ I give you permission to tie yourself with a nice crotch rope.
 [Action 9941]
 .poss 100
 .must 686                         ' chastity belt rules apply 1
-.item Toys.Chastity_Device available
 .item Toys.Chastity_Device canApply
 .mustnot 7715 7716 7717 7718 7719 ' Mistress grew tired of slave
 It's time to lock up your silly slave penis, slave.
@@ -19240,7 +19127,6 @@ It's time to lock up your silly slave penis, slave.
 ' Yes, put on
 [Action 9942]
 .must 686               ' chastity belt rules apply 1
-.item Toys.Chastity_Device available
 .item Toys.Chastity_Device canApply
 ' penis/balls check here, cock toys are ordered to be removed in 9953-9955
 ' next-session-toys assignment test for chastity belt rules, because they are to be worn after the session
@@ -19252,7 +19138,6 @@ your useless peace of meat will be secured well.
 ' Yes, put on
 [Action 9943]
 .must 686               ' chastity belt rules apply 1
-.item Toys.Chastity_Device available
 .item Toys.Chastity_Device canApply
 ' no penis/balls check here, cock toys are ordered to be removed in 9953-9955
 ' next-session-toys assignment test for chastity belt rules, because they are to be worn after the session
@@ -20983,7 +20868,6 @@ I want you to pop a clothes peg on each of your nipples.
 
 [Action 11611]
 .item Toys.Nipple_Clamps canApply
-.item Toys.Nipple_Clamps available
 .shouldnot 812          ' Done nipple training activity
 Slave, before we end the session,
 I want you to snap on your nipple clamps.
@@ -21006,7 +20890,6 @@ I want you to pop four clothes pegs on your ball sack.
 
 [Action 11613]
 .item Toys.Pussy_Clamps canApply
-.item Toys.Pussy_Clamps available
 '.mustnot 624 625        ' any chastity device assignment open
 '.mustnot 686            ' Chastity belt rules apply
 Slave, before we end the session,
@@ -21017,7 +20900,6 @@ I want you to snap your pussy clamps on your slutty ball sack.
 .range 11629
 
 [Action 11614]
-.item Toys.Ball_Stretcher available
 .item Toys.Ball_Stretcher canApply
 .mustnot 624 625        ' any chastity device assignment open
 .mustnot 686            ' Chastity belt rules apply
@@ -21029,7 +20911,6 @@ Slave, before we end the session, I want you to put on your ball harness.
 
 [Action 11615]
 .mustnot 686            ' Chastity belt rules apply
-.item Toys.Humbler available
 .item Toys.Humbler canApply
 .state Body.OnPenis free
 .mustnot 624 625        ' any chastity device assignment open
@@ -22082,7 +21963,7 @@ I guess I'll have you stand again.
 
 [action 11998]
 .item Bondage.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
-.item Toys.Ball_Stretcher is not available
+.item Toys.Ball_Stretcher not canApply
 You haven't earned the privilege to stand today, slave!
 Take the chain between your ankles and tie it to your ball sack.
 .item Bondage.Chains remove from Toys.Chastity_Device 
@@ -22094,7 +21975,7 @@ Take the chain between your ankles and tie it to your ball sack.
 
 [action 11999]
 .item Bondage.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
-.item Toys.Ball_Stretcher is available
+.item Toys.Ball_Stretcher canApply
 You haven't earned the privilege to stand today, slave!
 Go fetch your ball-stretcher and put it on.
 Then take the chain between your ankles and connect it to your slutty ball sack.

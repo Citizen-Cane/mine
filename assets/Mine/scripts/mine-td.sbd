@@ -1269,6 +1269,8 @@ I hope you enjoyed our fun story-time!
 .range 8969                  ' Good ending
 
 
+' Diary of Carolyn
+
 [Action 2150]
 Well, slave, it's story-time again.
 I've chosen a selection from one of my favorite stories of a girl who just loves to torture herself.
@@ -1276,18 +1278,26 @@ It's a charming tale called "Diary of Carolyn", written by Skull Duggery.
 .range 2151
 
 [Action 2151]
-As usual, all you need to do is read along with me, and do exactly what I tell you.
-Naturally, I'll probably find some inspiration in the story,
+As usual,
+all you need to do is read along with me,
+and do exactly what I tell you.
+Naturally,
+I'll probably find some inspiration in the story,
 so be prepared to have a little fun, slave!
-Also, keep yourself nice and hard for your Mistress, and try to pay attention.
+Also, keep yourself nice and hard for your Mistress,
+and try to pay attention.
 Now, let's begin.
 .range 2152
+
+' TODO code path for encaged cock
 
 [Action 2152]
 "The following account is of one particular autumn day just before
 I was to start my junior year of high school.
-If there ever was a day when Murphy's Law ruled, this was it.
-Although if it could possibly fuck up, it would fuck up,
+If there ever was a day when Murphy's Law ruled,
+this was it.
+Although if it could possibly fuck up,
+it would fuck up,
 but it was also the most wonderful,
 the most scary,
 and the most sexually satisfying day of that entire summer.
@@ -1790,7 +1800,6 @@ And as part of your punishment, you will wank your enslaved penis inside the cag
 [Action 2211]
 .must 104                    ' Punishment wank
 .mustnot 267 268             ' Enema carrying out or holding
-.item Toys.Blindfold available
 .item Toys.Blindfold canApply
 Well, let's be sure you're fully concentrated for your punishment:
 Go fetch your blindfold, and make sure you can hear my voice.
@@ -1801,26 +1810,22 @@ Go fetch your blindfold, and make sure you can hear my voice.
 ' punishment wank - blindfolded and chained ankles/wrists, can't remove without keys
 [Action 2212]
 .poss 100
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
-.item Bondage.Chains available
-.item Toys.Blindfold available
+.item Bondage.Chains canApply
 .item Toys.Blindfold canApply
 .state Posture.CantStand free
 .state Posture.CantSitOnChair free
 .must 104                    ' Punishment wank
 .mustnot 267 268             ' Enema carrying out or holding
 .must 737 742                ' restraint acceptance 2, strict self bondage 2
-I want to be sure you're totally helpless for your punishment, slave. 
+I want to be sure you're totally helpless for your punishment, slave.
 .set 171                     ' addons, remember to remove
 .unset 2212
 .range 2220
 
 ' blindfolded
 [Action 2213]
-.item Toys.Blindfold available
 .item Toys.Blindfold canApply
 .mustnot 104                 ' Punishment wank
 .mustnot 267 268             ' Enema carrying out or holding
@@ -1833,12 +1838,9 @@ Go fetch your blindfold, and make sure you can hear my voice.
 ' teasing - blindfolded and chained ankles/wrists, can't remove without keys
 [Action 2214]
 .poss 10
-.item Toys.Ankle_Restraints available
 .item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints available
 .item Toys.Wrist_Restraints canApply
-.item Bondage.Chains available
-.item Toys.Blindfold available
+.item Bondage.Chains canApply
 .item Toys.Blindfold canApply
 .state Posture.CantStand free
 .state Posture.CantSitOnChair free

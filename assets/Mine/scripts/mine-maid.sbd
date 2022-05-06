@@ -1145,6 +1145,10 @@ Let's practice your slave positions.
 ' but for the actual position (4000-6999) being set. This is because 1400-1699 is reset before each run,
 ' as it is used to determine what toys to remove at the end of the activity
 
+' None of the positions (except for the extra copies at the end of the section) is checked with canApply
+' because canApply also checks for availability.
+' But the point of the maid training is to make the slave get more toys
+' - to progress in the game and to enable more activities.
 
 ' TODO a lot of these positions can be done blindfolded -> add tests as preparation to put on blindfold in main script
 
@@ -4396,7 +4400,7 @@ Legs straight, slave!
 .must 1580
 .mustnot 190 199
 bd155_23.jpg
-Remeber to keep your arms stretched out behind your back, your hands together.
+Remember to keep your arms stretched out behind your back, your hands together.
 .delay 20
 .range 3990
 

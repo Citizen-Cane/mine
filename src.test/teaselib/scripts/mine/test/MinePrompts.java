@@ -172,6 +172,7 @@ public class MinePrompts {
 
         all.add(new ResponseAction("Yes Mistress, I have them", Debugger.Response.Choose));
         all.add(new ResponseAction("Yes Miss, I have", Debugger.Response.Choose));
+        all.add(new ResponseAction("Yes Miss, it is", Debugger.Response.Choose));
         all.add(new ResponseAction("Yes Miss, I'm prepared", Debugger.Response.Choose));
         all.add(new ResponseAction("I have everything ready, Miss", Debugger.Response.Choose));
 

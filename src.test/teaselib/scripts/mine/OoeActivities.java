@@ -141,7 +141,7 @@ public class OoeActivities extends ActivityTest {
                 1002, 9002, Arrays.asList(Household.Clothes_Pegs, Accessoires.Breast_Forms)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
-                player.item(Accessoires.Breast_Forms).applyTo(Body.OnNipples);
+                player.item(Accessoires.Breast_Forms).to(Body.OnNipples).apply();
                 asserteSingleGameFlag(player);
                 return win(player);
             }
@@ -152,7 +152,7 @@ public class OoeActivities extends ActivityTest {
                 1002, 9502, Arrays.asList(Household.Clothes_Pegs, Accessoires.Breast_Forms)) {
             @Override
             public List<ResponseAction> getResponseActions(Player player) {
-                player.item(Accessoires.Breast_Forms).applyTo(Body.OnNipples);
+                player.item(Accessoires.Breast_Forms).to(Body.OnNipples).apply();
                 asserteSingleGameFlag(player);
                 return loose(player);
             }

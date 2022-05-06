@@ -97,7 +97,7 @@
 '    going to have to pull them off.
 '
 '    By using the lark's head knot to attach the cords to the cuffs, there 
-'    is no knot  that you can untie within reach.  By tying the cords 
+'    is no knot that you can untie within reach. By tying the cords 
 '    together six inches down, you can't pull off one pin and loosen the 
 '    knot at the cuff to avoid pulling off the other pin of the pair.
 '    The longer you leave the pins on, the more they are going to hurt 
@@ -423,7 +423,7 @@ First, you must put on the rope harness as you have done before.
 
 
 [Action 2104]
-.item Toys.Gag matching Toys.Gags.Ring_Gag is available
+.item Toys.Gag matching Toys.Gags.Ring_Gag canApply
 Before we begin, collect the following items and bring them to Me:
 °
 Two clothes pegs.
@@ -461,16 +461,16 @@ Tell me when you have them all handy.
 
 
 [Action 2106]
-.item Toys.Gag available
+.item Toys.Gag canApply
 I also see that you own a gag,
 is it by any chance a ring gag, my dear?
 You know, the kind you can stick your tongue through?
-.yestext Yes Miss, I have
-.notext No Miss, I haven't
+.yestext Yes Miss, it is
+.notext No Miss, it isn't
 .yesno 2108 2108 2109 2109
 
 [Action 2107]
-.item Toys.Gag not available
+.item Toys.Gag not canApply
 .unset 212              ' ring gag not available
 .range 2110
 
