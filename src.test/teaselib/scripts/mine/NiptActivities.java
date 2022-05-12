@@ -16,6 +16,7 @@ import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
 import pcm.state.persistence.ScriptState;
+import teaselib.Bondage;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.core.Debugger;
@@ -36,7 +37,7 @@ public class NiptActivities extends ActivityTest {
 
     private static final int QUICK_PINMS_STATE_RANGE_START = 7300;
     private static final int QUICK_PINS_QUESTION_RANGE_START = 7400;
-    private static final Enum<?>[] TOYS = { Toys.Ankle_Restraints, Toys.Nipple_Clamps, Toys.Pussy_Clamps,
+    private static final Enum<?>[] TOYS = { Bondage.Ankle_Restraints, Toys.Nipple_Clamps, Toys.Pussy_Clamps,
             Household.Clothes_Pegs };
 
     @Parameters(name = "Activity {0}")

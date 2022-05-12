@@ -25,18 +25,18 @@ import pcm.state.conditions.Must;
 import pcm.state.conditions.MustNot;
 import pcm.state.persistence.ScriptState;
 import pcm.util.TestPlayer;
+import teaselib.Bondage;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.core.Debugger.ResponseAction;
 import teaselib.scripts.mine.test.Preset;
 import teaselib.scripts.mine.test.PresetTestable;
-import teaselib.util.Item;
 
 @RunWith(Parameterized.class)
 public abstract class MaidPositionAbstractTest extends PresetTestable {
 
-    static final Enum<?>[] TOYS = { Toys.Nipple_Clamps, Toys.Pussy_Clamps, Toys.Collar, Toys.Gag, Toys.Wrist_Restraints,
-            Toys.Ankle_Restraints, Household.Clothes_Pegs, Toys.Blindfold, Toys.Dildo };
+    static final Enum<?>[] TOYS = { Toys.Nipple_Clamps, Toys.Pussy_Clamps, Toys.Collar, Toys.Gag,
+            Bondage.Wrist_Restraints, Bondage.Ankle_Restraints, Household.Clothes_Pegs, Toys.Blindfold, Toys.Dildo };
 
     static final int POSITION_TO_SELECT_OFFSET = 1000;
 
@@ -187,10 +187,9 @@ public abstract class MaidPositionAbstractTest extends PresetTestable {
     }
 
     void assertToysRemoved() {
-        for (Enum<?> toy : TOYS) {
-            Item toyItem = mine.item(toy);
-            assertTrue("Toy(s) still applied: " + mine.items(TOYS).getApplied(),
-                    !toyItem.applied() || (toyItem.applied() && !toyItem.is(mine.namespaceApplyAttribute)));
+        var applied = mine.items(TOYS).getApplied();
+        for (var item : applied) {
+            assertTrue("Toy(s) still applied: " + applied, item.applied() && !item.is(mine.namespaceApplyAttribute));
         }
     }
 }

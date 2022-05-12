@@ -782,7 +782,7 @@ You may want to put some towels here on the floor now to drip on.
 [Action 1616]
 .must 148
 .mustnot 149
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .item Bondage.Rope available
 .state Body.WristsTied free
 You must shower with your wrists tied together with rope.
@@ -794,7 +794,7 @@ Tie them together now.
 [Action 1617]
 .must 148
 .mustnot 149
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Bondage.Rope available
 .state Body.WristsTied free
 You must shower with your wrists tied together with rope.
@@ -807,7 +807,7 @@ Tie them together now.
 [Action 1618]
 .must 148
 .mustnot 149
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .item Bondage.Rope not available
 .state Body.WristsTied free
 You must shower with your wrists tied together.
@@ -819,7 +819,7 @@ Get some rope or shoelace and tie them together now.
 [Action 1619]
 .must 148
 .mustnot 149
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Bondage.Rope not available
 .state Body.WristsTied free
 You must shower with your wrists tied together.
@@ -833,7 +833,7 @@ Tie them together now.
 [Action 1620]
 .mustnot 148
 .must 149
-.item Toys.Ankle_Restraints not available
+.item Bondage.Ankle_Restraints not available
 .item Bondage.Rope available
 .state Body.AnklesTied free
 You must shower with your ankles tied together with rope.
@@ -845,7 +845,7 @@ Tie them together now.
 [Action 1621]
 .mustnot 148
 .must 149
-.item Toys.Ankle_Restraints available
+.item Bondage.Ankle_Restraints available
 .item Bondage.Rope available
 .state Body.AnklesTied free
 You must shower with your ankles tied together with rope.
@@ -858,7 +858,7 @@ Tie them together now.
 [Action 1622]
 .mustnot 148
 .must 149
-.item Toys.Ankle_Restraints not available
+.item Bondage.Ankle_Restraints not available
 .item Bondage.Rope not available
 .state Body.AnklesTied free
 You must shower with your ankles tied together.
@@ -870,7 +870,7 @@ Get some rope or shoelace and tie them together now.
 [Action 1623]
 .mustnot 148
 .must 149
-.item Toys.Ankle_Restraints available
+.item Bondage.Ankle_Restraints available
 .item Bondage.Rope not available
 .state Body.AnklesTied free
 You must shower with your ankles tied together.
@@ -883,7 +883,7 @@ Tie them together now.
 
 [Action 1624]
 .must 148 149
-.item Toys.Wrist_Restraints Toys.Ankle_Restraints available
+.item Bondage.Wrist_Restraints Bondage.Ankle_Restraints available
 .item Bondage.Rope available
 .state Body.AnklesTied Body.WristsTied free
 You will bind your hands and ankles together with rope for this shower.
@@ -895,7 +895,7 @@ Tie your wrists and ankles now.
 
 [Action 1625]
 .must 148 149
-.not .item Toys.Wrist_Restraints Toys.Ankle_Restraints available
+.not .item Bondage.Wrist_Restraints Bondage.Ankle_Restraints available
 .item Bondage.Rope not available
 .state Body.AnklesTied Body.WristsTied free
 You will bind your hands and ankles together with rope or shoe lace for this shower.
@@ -1858,7 +1858,7 @@ uncomfortable, and it will make you feel very stupid and naughty.
 I want you to have something extra to think about over in the corner,
 so go fetch me your nipple clamps,
 and grab your handcuffs while you're at it.
-.keyrelease prepare Toys.Wrist_Restraints
+.keyrelease prepare Bondage.Wrist_Restraints
 .yes I have them ready, Miss
 .range 1870
 
@@ -1867,7 +1867,7 @@ and grab your handcuffs while you're at it.
 .mustnot 130
 I don't want you touching yourself in the corner,
 so go fetch your handcuffs before we get started.
-.keyrelease prepare Toys.Wrist_Restraints
+.keyrelease prepare Bondage.Wrist_Restraints
 .yes I have them ready, Miss
 .range 1870
 
@@ -2127,7 +2127,7 @@ and make sure they're nice and tight.
 [Action 1991]
 .must 123
 Now put your handcuffs on, behind your back.
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 ' TODO comment conflicts with optional key release device - key already prepared
 Make sure that the key is somewhere you can get at it
 - of course, not anywhere near the corner.
@@ -2351,7 +2351,7 @@ Now tiptoe over to that corner, you naughty boy, and think about the error of yo
 .playwav whip.mp3
 Very good, slave.
 You may now take off your handcuffs and nipple clamps.
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Nipple_Clamps remove
 .yes Thank you, Miss
 .set 812                ' Done nipple training activity
@@ -2374,7 +2374,7 @@ You may take off those nipple clamps now.
 .playwav whip.mp3
 Good boy.
 You may take off the handcuffs.
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .range 2140
 
@@ -2426,7 +2426,7 @@ Good boy, slave.
 .range 2190
 
 [Action 2185]
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .set 124                          ' no cuffs
 .unset 125 126                    ' 50%, 100% cuffs behind back
 .range 2190

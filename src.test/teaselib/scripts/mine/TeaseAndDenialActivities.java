@@ -15,6 +15,7 @@ import org.junit.runners.Parameterized.Parameters;
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
 import pcm.model.ValidationIssue;
+import teaselib.Bondage;
 import teaselib.Household;
 import teaselib.Toys;
 import teaselib.core.Debugger.Response;
@@ -29,7 +30,7 @@ import teaselib.scripts.mine.test.TestParameters;
  */
 @RunWith(Parameterized.class)
 public class TeaseAndDenialActivities extends ActivityTest {
-    private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Toys.Wrist_Restraints, Toys.Ankle_Restraints,
+    private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Bondage.Wrist_Restraints, Bondage.Ankle_Restraints,
             Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Blindfold };
 
     @Parameters(name = "Activity {0}")

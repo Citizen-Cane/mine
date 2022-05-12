@@ -1899,7 +1899,7 @@ Let's practice your slave positions.
 .state Body.OnBalls free 
 .state Body.InMouth free
 .state Body.AnklesTied free
-.state Body.WristsTied free or is Toys.Wrist_Restraints
+.state Body.WristsTied free or is Bondage.Wrist_Restraints
 .state Posture.CantStand free
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
 .shouldnot 585          ' prefer a position that hasn't been done before
@@ -1951,7 +1951,7 @@ Let's practice your slave positions.
 .item Toys.Pussy_Clamps applied
 .item Toys.Collar applied
 .item Toys.Gag applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .should .state Body.AnklesTied free
 .state Posture.CantKneel free
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
@@ -1990,7 +1990,7 @@ Let's practice your slave positions.
 .item Toys.Pussy_Clamps applied
 .item Toys.Collar applied
 .item Toys.Gag applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .state Body.AnklesTied free
 .state Posture.CantStand free
 .mustnot 179            ' not suitable as punishment, since we've decided to treat pussy clamps as a surprise
@@ -2159,7 +2159,7 @@ Let's practice your slave positions.
 .should .state Body.OnBalls free
 .should .state Body.AnklesTied free
 .should .state Body.OnBalls free
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Toys.Collar available
 .mustnot 148            ' another position, requires generic toy removal
 .shouldnot 650          ' prefer a position that hasn't been done before
@@ -4982,7 +4982,7 @@ say your Mistress "thank you" for this honour.
 ' 400 2pt kneel, hands on ground to side of hips, collar, wristlets, knees together
 
 [Action 4000]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This is a fairly easy position, slave.
 You may put a blanket or towel on the floor, if you wish.
@@ -4991,7 +4991,7 @@ You do have these items, don't you, slave?
 .yesno 4004 4004 7700 7707
 
 [Action 4001]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This is a fairly easy position, slave.
 You may put a blanket or towel on the floor, if you wish.
@@ -5000,7 +5000,7 @@ You do have wrist restraints, don't you, slave?
 .yesno 4005 4005 7700 7707
 
 [Action 4002]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This is a fairly easy position, slave.
 You may put a blanket or towel on the floor, if you wish.
@@ -5009,7 +5009,7 @@ You do have a collar, don't you, slave?
 .yesno 4006 4006 7700 7707
 
 [Action 4003]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This is a fairly easy position, slave.
 You may put a blanket or towel on the floor, if you wish.
@@ -5018,14 +5018,14 @@ You may put a blanket or towel on the floor, if you wish.
 
 [Action 4004]
 Have you put on your wristlets and your collar?
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .item Toys.Collar apply
 .yes Yes, Miss
 .range 4008
 
 [Action 4005]
 Have you put on your wristlets, slave?
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes Yes, Miss
 .range 4008
 
@@ -5175,7 +5175,7 @@ delay 5
 ' 403 2pt sit on heels, hands on legs palms down, wristlets, collar, heels
 
 [Action 4030]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This is a very simple submissive position.
 You will need your wrist restraints and your collar.
@@ -5183,7 +5183,7 @@ You do have these items handy, don't you, slave?
 .yesno 4034 4034 7700 7707
 
 [Action 4031]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This is a very simple submissive position.
 You will need your collar.
@@ -5191,7 +5191,7 @@ You do have a collar handy, don't you, slave?
 .yesno 4035 4035 7700 7707
 
 [Action 4032]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This is a very simple submissive position.
 You will need your wrist restraints.
@@ -5199,7 +5199,7 @@ You do have wrist restraints handy, don't you, slave?
 .yesno 4036 4036 7700 7707
 
 [Action 4033]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This is a very simple submissive position.
 .range 4037
@@ -5208,9 +5208,9 @@ This is a very simple submissive position.
 [Action 4034]
 bd066_24.jpg
 Then go ahead and put them on.
-.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm cuffed and collared, Miss
 .range 4038
 
@@ -5225,8 +5225,8 @@ Go ahead and put it on.
 [Action 4036]
 bd066_24.jpg
 Go ahead and put them on.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .yes My wrists are cuffed, Miss
 .range 4038
 
@@ -5662,7 +5662,7 @@ delay 15
 ' 414 crouch on toes, knees wide, hands on knees, heels, wristlets, collar
 
 [Action 4140]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This is a very simple submissive position.
 You will need your wristlets and your collar.
@@ -5670,7 +5670,7 @@ You do have these items handy, don't you, slave?
 .yesno 4144 4144 7700 7707
 
 [Action 4141]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This is going to be a very simple submissive position.
 You will need your wristlets.
@@ -5683,8 +5683,8 @@ bd066_21.jpg
 Then go ahead,
 snap on the wristlets,
 and put the collar around your neck.
-.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints Toys.Collar
+.item Bondage.Wrist_Restraints apply
 .item Toys.Collar apply
 delay 15
 bd066_23.jpg
@@ -5776,14 +5776,14 @@ That's all there is to it.
 ' 416 2pt kneel, heels, wristlets, knees 1x, presenting the crop in hands palms up
 
 [Action 4160]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 This is a fairly easy position, slave.
 You'll just need to put on your wrist restraints and fetch your crop.
 You do have these items, don't you, slave?
 .yesno 4164 4164 7784 7787
 
 [Action 4161]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 This is a fairly easy position, slave.
 You'll just need your crop.
 You do have a crop, don't you, slave?
@@ -5793,8 +5793,8 @@ You do have a crop, don't you, slave?
 [Action 4164]
 If you haven't yet, slave,
 go ahead and put on the restraints.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .yes I'm tied up and ready, Miss
 []
 Now go fetch your crop!
@@ -5867,10 +5867,10 @@ Excellent.
 bd037_13.jpg
 Let's put on your collar,
 then continue with the restraints.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm collared and cuffed, Miss
 .range 4177
 
@@ -5879,9 +5879,9 @@ then continue with the restraints.
 Excellent.
 bd037_13.jpg
 Let's put on your restraints now. 
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm tied up, Miss
 .range 4177
 
@@ -5903,7 +5903,7 @@ Now bend a bit forward and rest your knuckles on the ground.
 ' 418 kneeling prostrate, wristlets, anklets, collar, heels, hands forward and crossed, head down
 
 [Action 4180]
-.not .item Toys.Ankle_Restraints applied
+.not .item Bondage.Ankle_Restraints applied
 .not .item Toys.Collar applied
 This is a very submissive position, slave.
 You'll need to fetch your collar as well as your wrist and ankle restraints.
@@ -5911,7 +5911,7 @@ You do have these items, don't you, slave?
 .yesno 4184 4184 7700 7707
 
 [Action 4181]
-.not .item Toys.Ankle_Restraints applied
+.not .item Bondage.Ankle_Restraints applied
 .item Toys.Collar applied
 This is a very submissive position, slave,
 for which you'll just need to put on your wrist and ankle restraints.
@@ -5920,7 +5920,7 @@ You do have wrist restraints, don't you, slave?
 .yestext Yes, Miss, I do
 
 [Action 4182]
-.item Toys.Ankle_Restraints applied
+.item Bondage.Ankle_Restraints applied
 .not .item Toys.Collar applied
 This is a very submissive position, slave,
 for which you'll just need to put on your collar and your wrists restraints.
@@ -5928,7 +5928,7 @@ You do have a collar and wrist restraints, don't you, slave?
 .yesno 4186 4186 7700 7707
 
 [Action 4183]
-.item Toys.Ankle_Restraints applied
+.item Bondage.Ankle_Restraints applied
 .item Toys.Collar applied
 This is going to be a very submissive position, slave.
 You'll just need to put on your wrist restraints.
@@ -5944,10 +5944,10 @@ Start with the collar.
 delay 10
 bd037_13.jpg
 Then go ahead and put on the restraints.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 ShowChoices
 delay 12
 ActorImage
@@ -5959,9 +5959,9 @@ Tell me when you're finished, my pet!
 Very good.
 bd037_13.jpg
 Then go ahead and put on the restraints.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 ShowChoices
 delay 15
 ActorImage
@@ -5976,9 +5976,9 @@ Start with the collar.
 delay 10
 bd037_13.jpg
 Then go ahead and put on the wrist restraints.
-.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 ShowChoices
 delay 10
 ActorImage
@@ -5990,8 +5990,8 @@ Tell me when you're finished, my pet!
 Very good.
 bd037_13.jpg
 Go ahead and snap them on your wrists.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 ShowChoices
 delay 15
 ActorImage
@@ -6063,9 +6063,9 @@ Very good.
 bd023_25.jpg
 Now I want you to take your ankle and wrist restraints,
 and chain each wrist to the corresponding ankle.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 delay 10
 I don't want you to have too much wiggle room,
 so keep the chains between them short.
@@ -6085,8 +6085,8 @@ Now kneel as shown, breasts on the floor, ass up, your head aside.
 ' 500 2pt kneel, ankles & wrists, knees 1x, presenting tray
 
 [Action 5000]
-.not .item Toys.Ankle_Restraints applied
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Ankle_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 This is an excellent, much used maid position:
 bd259_01.jpg
 Presenting a tray of food or drink.
@@ -6097,8 +6097,8 @@ You do have these items, don't you, slave?
 .yesno 5004 5004 7720 7729
 
 [Action 5001]
-.item Toys.Ankle_Restraints applied
-.not .item Toys.Wrist_Restraints applied
+.item Bondage.Ankle_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 This is an excellent, much used maid position:
 bd259_01.jpg
 Presenting a tray of food or drink.
@@ -6109,8 +6109,8 @@ You do have these items, don't you, slave?
 .yesno 5005 5005 7720 7729
 
 [Action 5002]
-.not .item Toys.Ankle_Restraints applied
-.item Toys.Wrist_Restraints applied
+.not .item Bondage.Ankle_Restraints applied
+.item Bondage.Wrist_Restraints applied
 This is an excellent, much used maid position:
 .image bd259_01.jpg
 Presenting a tray of food or drink.
@@ -6121,8 +6121,8 @@ You do have these items, don't you, slave?
 .yesno 5006 5006 7720 7729
 
 [Action 5003]
-.item Toys.Ankle_Restraints applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Ankle_Restraints applied
+.item Bondage.Wrist_Restraints applied
 This is an excellent, much used maid position:
 .image bd259_01.jpg
 Presenting a tray of food or drink.
@@ -6136,9 +6136,9 @@ You'll need a tray of some kind
 .delay 20
 bd259_00.jpg
 Start with putting on your wrist and ankle restraints.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 ActorImage
 Go into the kitchen and fetch the tray.
 Also fetch a glass, and fill it with water.
@@ -6150,8 +6150,8 @@ Place the glass on the tray and return to Me.
 [Action 5005]
 bd259_00.jpg
 Start with putting on your wrist restraints.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 delay 15
 ActorImage
 Go into the kitchen and fetch the tray.
@@ -6164,8 +6164,8 @@ Place the glass on the tray and return to Me.
 [Action 5006]
 bd259_00.jpg
 Start with putting on your ankle restraints.
-.keyrelease prepare Toys.Ankle_Restraints
-.item Toys.Ankle_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints
+.item Bondage.Ankle_Restraints apply
 delay 15
 ActorImage
 Go into the kitchen and fetch the tray.
@@ -6679,9 +6679,9 @@ Snap them on your poor little titties.
 [Action 5076]
 Very good, my pet.
 Complete your maid dress by putting on the restraints.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm dressed up, Miss
 .range 5077
 
@@ -7039,10 +7039,10 @@ Perfect!
 .not .item Toys.Collar applied
 bd037_13.jpg
 Go ahead, put on your collar and the restraints. 
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm collared and chained up, Miss
 .range 5127
 
@@ -7050,9 +7050,9 @@ Go ahead, put on your collar and the restraints.
 .item Toys.Collar applied
 bd037_13.jpg
 Go ahead and put on the restraints. 
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm chained up, Miss
 .range 5127
 
@@ -7097,10 +7097,10 @@ Excellent.
 bd037_13.jpg
 Let's put on your collar,
 then continue with your restraints. 
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm collared and chained up, Miss
 .range 5137
 
@@ -7109,9 +7109,9 @@ then continue with your restraints.
 Excellent.
 bd037_13.jpg
 Let's put on your restraints now.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm chained up, Miss
 .range 5137
 
@@ -7158,10 +7158,10 @@ Excellent, my pet.
 .not .item Toys.Collar applied
 bd037_13.jpg
 Let's put on your collar, then continue with your restraints. 
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm collared and chained up, Miss
 .range 5147
 
@@ -7169,9 +7169,9 @@ Let's put on your collar, then continue with your restraints.
 .item Toys.Collar applied
 bd037_13.jpg
 Let's put on your restraints. 
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm chained up, Miss
 .range 5147
 
@@ -7193,7 +7193,7 @@ delay 5
   
 [Action 5150]
 .not .item Toys.Nipple_Clamps applied
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 Now we have another fairly basic position which we will spice
 up a little with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps, and your wrist restraints.
@@ -7202,7 +7202,7 @@ You do have these items, don't you, slave?
 
 [Action 5151]
 .item Toys.Nipple_Clamps applied
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 Now we have another fairly basic position which you will enjoy while
 enduring some light nipple torture.
 To that end, I want you to go fetch your wrist restraints.
@@ -7211,7 +7211,7 @@ You do have wrist restraints, don't you, slave?
 
 [Action 5152]
 .not .item Toys.Nipple_Clamps applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 Now we have another fairly basic position which we will spice up a little
 with some light nipple torture.
 To that end, I want you to go fetch your nipple clamps.
@@ -7220,7 +7220,7 @@ You do have nipple clamps, don't you, slave?
 
 [Action 5153]
 .item Toys.Nipple_Clamps applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .range 5154
 
 
@@ -7233,8 +7233,8 @@ You do have nipple clamps, don't you, slave?
 .must 5150
 bd022_46.jpg
 Go ahead, put on the restraints, and pop those clamps on your nipples, slave.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .item Toys.Nipple_Clamps apply over durationForAllowingAnotherPosition
 .yes All done, Miss
 .range 5159
@@ -7243,8 +7243,8 @@ Go ahead, put on the restraints, and pop those clamps on your nipples, slave.
 .must 5151
 bd022_46.jpg
 Go ahead and put on your restraints, slave.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .yes I'm chained up, Miss
 .range 5159
 
@@ -7442,8 +7442,8 @@ Go ahead and pop those clamps on your nipples, slave.
 [Action 5188]
 bd028_38.jpg
 Put on your wrist restraints and lock your hands behind you.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 delay 15
 You may leave the key to your cuffs on the desk.
 delay 20
@@ -7878,7 +7878,7 @@ delay 10
 Keep your hands behind your butt and your arms straight.
 delay 10
 .item Toys.Gag apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .range 5779
 
 [Action 5778]
@@ -7893,7 +7893,7 @@ Make sure the key is somewhere you can get it, of course.
 delay 10
 Keep your hands behind your butt and your arms straight.
 delay 10
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .range 5779
 
 
@@ -7910,7 +7910,7 @@ Head up, arms straight, eyes down.
 
 [Action 5780]
 .not .item Toys.Nipple_Clamps applied
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 It's time for a harder position, slave.
 I will need you to collect your nipple clamps,
 a good weight to hang from the clamps,
@@ -7921,7 +7921,7 @@ You do have all this stuff?
 
 [Action 5781]
 .item Toys.Nipple_Clamps applied
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 It's time for a harder position, slave.
 I will need you to collect a good weight to hang from your nipple clamps,
 your handcuffs or some other way to bind your wrists,
@@ -7931,7 +7931,7 @@ You do have all this stuff?
 
 [Action 5782]
 .not .item Toys.Nipple_Clamps applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 It's time for a harder position, slave.
 I will need you to collect your nipple clamps,
 a good weight to hang from the clamps,
@@ -7941,7 +7941,7 @@ You do have all this stuff, my pet?
 
 [Action 5783]
 .item Toys.Nipple_Clamps applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 It's time for a harder position, slave.
 I will need you to collect a good weight to hang from your nipple clamps,
 and a rug or a towel to kneel on.
@@ -7977,10 +7977,10 @@ Then place the rug or towel on the ground.
 
 
 [Action 5787]
-.item Toys.Wrist_Restraints not applied
+.item Bondage.Wrist_Restraints not applied
 Now put the handcuffs on.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .yes Cuffed and Ready, Miss
 []
 bd159_25.jpg
@@ -7991,7 +7991,7 @@ Your feet should be touching each other.
 .range 5789
 
 [Action 5788]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 bd159_25.jpg
 Kneel on the rug as shown.
 Your knees should be spread as wide as possible and
@@ -8349,7 +8349,7 @@ Keep your back straight, with your head up, and your eyes down.
 ' 583 2pt crouch, knees wide, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 
 [Action 5830]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This one is a little involved, slave.
 You will need your nipple and pussy clamps,
@@ -8358,7 +8358,7 @@ Have you got all that?
 .yesno 5834 5834 8280 8298
 
 [Action 5831]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This one is a little involved, slave.
 You will need your nipple and pussy clamps,
@@ -8367,7 +8367,7 @@ Have you got all that?
 .yesno 5835 5835 8280 8298
 
 [Action 5832]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, your gag,
@@ -8376,7 +8376,7 @@ Have you got all that?
 .yesno 5836 5836 8280 8298
 
 [Action 5833]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This one is a little involved, slave.
 You will need your nipple and pussy clamps,
@@ -8388,9 +8388,9 @@ Have you got all that?
 [Action 5834]
 bd021_18.jpg
 First, put the collar around your neck, and cuff your wrists.
-.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 delay 30
 bd021_36.jpg
 Then insert your gag, and snap the clamps on your nipples and your "pussy".
@@ -8419,8 +8419,8 @@ delay 20
 [Action 5836]
 bd021_18.jpg
 Start with cuffing your wrists.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 delay 20
 bd021_36.jpg
 Then insert your gag, and snap the clamps on your nipples and your "pussy".
@@ -8566,14 +8566,14 @@ Fold your arms in the small of your back.
 delay 5
 Keep your head up, and your eyes down!
 delay 10
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .range 1700
 
 
 ' 585 standing, legs apart 1.5x, nipple & pussy clamps, hands behind head, elbows up, collar, heels, wristlets, gag
 
 [Action 5850]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, your gag, your collar, and your wrist restraints.
@@ -8581,7 +8581,7 @@ Have you got all that?
 .yesno 5854 5854 8280 8298
 
 [Action 5851]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, your gag, and your collar.
@@ -8589,7 +8589,7 @@ Have you got all that?
 .yesno 5855 5855 8280 8298
 
 [Action 5852]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, your gag, and your wrist restraints.
@@ -8597,7 +8597,7 @@ Have you got all that?
 .yesno 5856 5856 8280 8298
 
 [Action 5853]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 This one is a little involved, slave.
 You will need your nipple and pussy clamps, and your gag.
@@ -8609,9 +8609,9 @@ Have you got all that?
 bd021_36.jpg
 First, put the collar around your neck,
 cuff your wrists and insert your gag.
-.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .item Toys.Gag apply
 delay 30
 Then pop the clamps on your nipples and your "pussy".
@@ -8638,8 +8638,8 @@ delay 20
 [Action 5856]
 bd021_36.jpg
 First, cuff your wrists and insert your gag.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .item Toys.Gag apply
 delay 20
 Then pop the clamps on your nipples and your "pussy".
@@ -8862,26 +8862,26 @@ You do have these items, I hope?
 
 
 [Action 6504]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 Excellent.
 Put on your slave collar, and attach the snap hook to it.
 Then fetch your wrist restraints, and put them on as well.
-.keyrelease prepare Toys.Wrist_Restraints Toys.Collar
+.keyrelease prepare Bondage.Wrist_Restraints Toys.Collar
 .item Toys.Collar apply 
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 Make sure you can chain your wrists to your collar later on,
 and report back to me.
 .yes I'm dressed up and ready, Miss
 .range 6508
 
 [Action 6505]
-.not .item Toys.Wrist_Restraints applied
+.not .item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 Excellent.
 Fetch your wrist restraints, and put them on.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply 
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply 
 Attach the snap hook to your collar,
 and make sure you can chain your wrists to your collar later on.
 Report back to me, when you're ready.
@@ -8889,7 +8889,7 @@ Report back to me, when you're ready.
 .range 6508
 
 [Action 6506]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .not .item Toys.Collar applied
 Excellent.
 Put on your slave collar, and attach the snap hook to it.
@@ -8901,7 +8901,7 @@ and report back to me.
 .range 6508
 
 [Action 6507]
-.item Toys.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
 Excellent.
 Go ahead and attach the snap hook to your collar,
@@ -9107,9 +9107,9 @@ Snap them on your poor little titties.
 [Action 6526]
 Very good, my pet.
 Complete your maid dress by putting on the restraints.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes I'm cuffed and ready, Miss
 .range 6527
 
@@ -9216,8 +9216,8 @@ Snap them on your poor little slave titties and make sure they sit tight.
 [Action 6535]
 .else
 If you haven't yet, put on our ankle cuffs.
-.keyrelease prepare Toys.Ankle_Restraints
-.item Toys.Ankle_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints
+.item Bondage.Ankle_Restraints apply
 .delay 30
 bd645_012.jpg
 Then crawl over and fetch your pussy clamps.
@@ -9296,7 +9296,7 @@ delay 5
 bd645_051.jpg
 If the dildo slips out of your mouth or any of the clamps slip off, you've failed this position.
 delay 10
-.item Toys.Wrist_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .range 1700
 
 
@@ -9932,7 +9932,7 @@ Return the tray and glass to their appropriate places, you sloppy cunt.
 ' Collar and wrist restraints
 
 [Action 7700]
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .item Toys.Collar not available
 Slave, it's absurd that you don't have wrist restraints and a collar.
 I certainly expect you to find these simple accessories before our next session.
@@ -9940,7 +9940,7 @@ I certainly expect you to find these simple accessories before our next session.
 .range 9730
 
 [Action 7701]
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .item Toys.Collar available
 Slave, it's absurd that you don't have wrist restraints.
 I certainly expect you to find this simple accessory before our next session.
@@ -9948,7 +9948,7 @@ I certainly expect you to find this simple accessory before our next session.
 .range 9730
 
 [Action 7702]
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Toys.Collar not available
 Slave, it's absurd that you don't have a slave collar.
 I certainly expect you to find this simple accessory before our next session.
@@ -9957,7 +9957,7 @@ I certainly expect you to find this simple accessory before our next session.
 
 ' Slave lying or confused, but we need to handle this
 [Action 7703]
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Toys.Collar available
 Slave, it's absurd that you don't have wrist restraints and a collar.
 I certainly expect you to find these simple accessories before our next session.
@@ -9966,7 +9966,7 @@ I certainly expect you to find these simple accessories before our next session.
 
 
 [Action 7704]
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .item Toys.Collar not available
 Wrist restraints and a collar are such basic items.
 It's mind-boggling that you don't have them.
@@ -9974,7 +9974,7 @@ It's mind-boggling that you don't have them.
 .range 9730
 
 [Action 7705]
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .item Toys.Collar available
 Wrist restraints are such a basic item.
 It's mind-boggling that you don't have them.
@@ -9982,7 +9982,7 @@ It's mind-boggling that you don't have them.
 .range 9730
 
 [Action 7706]
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Toys.Collar not available
 A collar is such a basic item.
 It's so mind-boggling that you don't have it.
@@ -9995,8 +9995,8 @@ It's so mind-boggling that you don't have it.
 ' Ankle restraints, wrist restraints & collar
 
 [Action 7708]
-.item Toys.Ankle_Restraints not available
-.item Toys.Wrist_Restraints not available
+.item Bondage.Ankle_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .item Toys.Collar not available
 Slave, it's absurd that you don't have restraints and a collar.
 I certainly expect you to find these simple accessories before our next session.
@@ -10004,8 +10004,8 @@ I certainly expect you to find these simple accessories before our next session.
 .range 9730
 
 [Action 7709]
-.item Toys.Ankle_Restraints not available
-.item Toys.Wrist_Restraints not available
+.item Bondage.Ankle_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .item Toys.Collar available
 Slave, it's absurd that you don't have ankle and wrist restraints.
 I certainly expect you to find this simple accessories before our next session.
@@ -10013,8 +10013,8 @@ I certainly expect you to find this simple accessories before our next session.
 .range 9730
 
 [Action 7710]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints not available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints not available
 .item Toys.Collar not available
 Slave, it's absurd that you don't have neither ankle restraints nor a slave collar.
 I certainly expect you to find this simple accessory before our next session.
@@ -10022,8 +10022,8 @@ I certainly expect you to find this simple accessory before our next session.
 .range 9730
 
 [Action 7711]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints not available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints not available
 .item Toys.Collar available
 Slave, it's absurd that you don't have ankle restraints.
 I certainly expect you to find these simple accessory before our next session.
@@ -10031,8 +10031,8 @@ I certainly expect you to find these simple accessory before our next session.
 .range 9730
 
 [Action 7712]
-.item Toys.Ankle_Restraints not available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints not available
+.item Bondage.Wrist_Restraints available
 .item Toys.Collar not available
 Slave, it's absurd that you neither have wrist restraints nor a collar.
 I certainly expect you to find these simple accessories before our next session.
@@ -10040,8 +10040,8 @@ I certainly expect you to find these simple accessories before our next session.
 .range 9730
 
 [Action 7713]
-.item Toys.Ankle_Restraints not available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints not available
+.item Bondage.Wrist_Restraints available
 .item Toys.Collar available
 Slave, it's absurd that you don't have wrist restraints.
 I certainly expect you to find this simple accessory before our next session.
@@ -10049,8 +10049,8 @@ I certainly expect you to find this simple accessory before our next session.
 .range 9730
 
 [Action 7714]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Toys.Collar not available
 Slave, it's absurd that you don't have a slave collar.
 I certainly expect you to find this simple accessory before our next session.
@@ -10059,8 +10059,8 @@ I certainly expect you to find this simple accessory before our next session.
 
 ' Slave lying or confused, but we need to handle this
 [Action 7715]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Toys.Collar available
 Slave, it's absurd that you don't have restraints and a collar.
 I certainly expect you to find these simple accessories before our next session.
@@ -10071,24 +10071,24 @@ I certainly expect you to find these simple accessories before our next session.
 ' Ankle and wrist restraints
 
 [Action 7720]
-.item Toys.Ankle_Restraints not available
-.item Toys.Wrist_Restraints not available
+.item Bondage.Ankle_Restraints not available
+.item Bondage.Wrist_Restraints not available
 Of course you will be punished for not having such
 standard items as wrist and ankle restraints!
 .yes Thank you, Miss
 .range 9730
 
 [Action 7721]
-.item Toys.Ankle_Restraints not available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints not available
+.item Bondage.Wrist_Restraints available
 Slave, it's absurd that you don't have wrist restraints.
 I certainly expect you to find this simple accessory before our next session.
 .yes I promise I'll get some, Miss
 .range 9730
 
 [Action 7722]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints not available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints not available
 Slave, it's absurd that you don't have ankle restraints.
 I certainly expect you to find this simple accessory before our next session.
 .yes I promise I'll get some, Miss
@@ -10096,8 +10096,8 @@ I certainly expect you to find this simple accessory before our next session.
 
 ' Slave lying or confused, but we need to handle this
 [Action 7723]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints available
 Of course you will be punished for not having such
 standard items as wrist and ankle restraints!
 .yes Thank you, Miss
@@ -10230,14 +10230,14 @@ I certainly expect you to get or make one before our next session.
 ' Wrist restraints and crop
 
 [Action 7784]
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 Slave, it's absurd that you don't have wrist restraints.
 I certainly expect you to find this simple accessory before our next session.
 .yes I promise I'll get some, Miss
 .range 9730
 
 [Action 7785]
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 Well, slave, a crop is such an essential item for an ignorant slut like you.
 I expect you to have one next time.
 .yes I promise I'll get one, Miss
@@ -10251,7 +10251,7 @@ I expect you to have one next time.
 
 [Action 7788]
 .not .item Toys.Nipple_Clamps available
-.not .item Toys.Wrist_Restraints available
+.not .item Bondage.Wrist_Restraints available
 Slave, it's absurd that you have neither wrist restraints nor nipple clamps.
 I certainly expect you to find these simple accessories before our next session,
 so I can punish you for not having them right now.
@@ -10260,7 +10260,7 @@ so I can punish you for not having them right now.
 
 [Action 7789]
 .item Toys.Nipple_Clamps available
-.not .item Toys.Wrist_Restraints available
+.not .item Bondage.Wrist_Restraints available
 Slave, it's absurd that you don't have wrist restraints.
 I certainly expect you to find these simple accessory before our next session.
 .yes I promise to get some, Miss.
@@ -10268,7 +10268,7 @@ I certainly expect you to find these simple accessory before our next session.
 
 [Action 7790]
 .not .item Toys.Nipple_Clamps available
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 Slave, it's absurd that you don't have nipple clamps.
 I certainly expect you to find these simple accessory before our next session,
 so I can punish you for not having some right now.
@@ -10278,7 +10278,7 @@ so I can punish you for not having some right now.
 ' Slave lying or confused, but we need to handle this
 [Action 7791]
 .item Toys.Nipple_Clamps available
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 Slave, it's absurd that you have neither wrist restraints nor nipple clamps.
 I certainly expect you to find these simple accessories before our next session,
 so I can punish you for not having them right now.
@@ -11285,31 +11285,31 @@ Go ahead, return the book and detach the leash.
 
 [Action 8860]
 .item Toys.Collar is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Buttplug applied
 Go ahead and remove the butt plug, the wrist restraints, and your collar.
 Then clean up,
 and sit back down for the rest of the session.
 .item Toys.Buttplug remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes All removed and cleaned up, Miss
 .range 9700
 
 [Action 8861]
 .item Toys.Collar is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Dildo applied to Body.InButt
 Go ahead and remove the dildo, the wrist restraints, and your collar.
 Then clean up,
 and sit back down for the rest of the session.
-.item Toys.Wrist_Restraints remove
-.item Toys.Dildo remove from Body.InButt
+.item Bondage.Wrist_Restraints remove
+.item Toys.Dildo remove
 .yes All removed and cleaned up, Miss
 .range 9700
 
 [Action 8862]
 .item Toys.Collar is applied.by.me
-.item Toys.Wrist_Restraints is not applied.by.me
+.item Bondage.Wrist_Restraints is not applied.by.me
 .item Toys.Buttplug applied
 Go ahead and remove the butt plug as well as your collar,
 clean up,
@@ -11320,40 +11320,40 @@ and sit back down for the rest of the session.
 
 [Action 8863]
 .item Toys.Collar is applied.by.me
-.item Toys.Wrist_Restraints is not applied.by.me
+.item Bondage.Wrist_Restraints is not applied.by.me
 .item Toys.Dildo applied to Body.InButt
 Go ahead and remove the dildo as well as your collar,
 clean up,
 and sit back down for the rest of the session.
-.item Toys.Dildo remove from Body.InButt
+.item Toys.Dildo remove
 .yes All done, Miss
 .range 9700
 
 [Action 8864]
 .item Toys.Collar is not applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Buttplug applied
 Go ahead and remove the butt plug and your wrist restraints,
 clean up, and sit back down for the rest of the session.
 .item Toys.Buttplug remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes All removed and cleaned up, Miss
 .range 9700
 
 [Action 8865]
 .item Toys.Collar is not applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Dildo applied to Body.InButt
 Go ahead and remove the dildo and your wrist restraints,
 clean up, and sit back down for the rest of the session.
-.item Toys.Wrist_Restraints remove
-.item Toys.Dildo remove from Body.InButt
+.item Bondage.Wrist_Restraints remove
+.item Toys.Dildo remove
 .yes All removed and cleaned up, Miss
 .range 9700
 
 [Action 8866]
 .item Toys.Collar is not applied.by.me
-.item Toys.Wrist_Restraints is not applied.by.me
+.item Bondage.Wrist_Restraints is not applied.by.me
 .item Toys.Buttplug applied
 Go ahead and remove the butt plug, clean up,
 and sit back down for the rest of the session.
@@ -11363,11 +11363,11 @@ and sit back down for the rest of the session.
 
 [Action 8867]
 .item Toys.Collar is not applied.by.me
-.item Toys.Wrist_Restraints is not applied.by.me
+.item Bondage.Wrist_Restraints is not applied.by.me
 .item Toys.Dildo applied to Body.InButt
 Go ahead and remove the dildo, clean up,
 and sit back down for the rest of the session.
-.item Toys.Dildo remove from Body.InButt
+.item Toys.Dildo remove
 .yes All done, Miss
 .range 9700
 
@@ -11424,7 +11424,7 @@ You may remove the crotch rope, slave.
 You may remove the handcuffs, collar, gag, and nipple clips, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
 .item Toys.Gag remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes All removed, Miss
 .set 812                ' Done nipple training activity
@@ -11435,7 +11435,7 @@ You may remove the handcuffs, collar, gag, and nipple clips, in that order.
 .item Toys.Collar is applied.by.me
 You may remove the handcuffs, collar, and nipple clips, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes All removed, Miss
 .set 812                ' Done nipple training activity
@@ -11447,7 +11447,7 @@ You may remove the handcuffs, collar, and nipple clips, in that order.
 You may remove the handcuffs, leash, gag, and nipple clips, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
 .item Toys.Gag remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Finished, Miss
 .set 812                ' Done nipple training activity
 .range 9700
@@ -11457,7 +11457,7 @@ You may remove the handcuffs, leash, gag, and nipple clips, in that order.
 .not .item Toys.Collar is applied.by.me
 You may remove the handcuffs, leash, and nipple clips, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Finished, Miss
 .set 812                ' Done nipple training activity
 .range 9700
@@ -11467,15 +11467,15 @@ You may remove the handcuffs, leash, and nipple clips, in that order.
 
 [Action 9040]
 .item Toys.Nipple_Clamps is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar, wrist and ankle restraints,
 as well as your nipple and pussy clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes Thank you very much, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
@@ -11484,14 +11484,14 @@ as well as your nipple and pussy clamps, in that order.
 
 [Action 9041]
 .not .item Toys.Nipple_Clamps is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar, wrist and ankle
 cuffs, as well as your pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes Thank you very much, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
@@ -11499,14 +11499,14 @@ cuffs, as well as your pussy clamps, in that order.
 
 [Action 9042]
 .item Toys.Nipple_Clamps is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar, your wrist restraints,
 as well as your nipple and pussy clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes Thank you very much, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
@@ -11515,13 +11515,13 @@ as well as your nipple and pussy clamps, in that order.
 
 [Action 9043]
 .not .item Toys.Nipple_Clamps is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar and wrist cuffs,
 as well as your pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes All done, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
@@ -11529,14 +11529,14 @@ as well as your pussy clamps, in that order.
 
 [Action 9044]
 .item Toys.Nipple_Clamps is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your ankle restraints, your collar, 
 as well as your nipple and pussy clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .item Toys.Collar remove
 .yes Thank you very much, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
@@ -11545,13 +11545,13 @@ as well as your nipple and pussy clamps, in that order.
 
 [Action 9045]
 .not .item Toys.Nipple_Clamps is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your ankle cuffs and your collar,
 as well as your pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .item Toys.Collar remove
 .yes Thank you very much, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
@@ -11559,8 +11559,8 @@ as well as your pussy clamps, in that order.
 
 [Action 9046]
 .item Toys.Nipple_Clamps is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar,
 and your nipple and pussy clamps, in that order.
@@ -11574,8 +11574,8 @@ and your nipple and pussy clamps, in that order.
 
 [Action 9047]
 .not .item Toys.Nipple_Clamps is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar and your pussy clamps.
 .item Toys.Pussy_Clamps remove
@@ -11586,15 +11586,15 @@ Go ahead and remove your collar and your pussy clamps.
 
 [Action 9048]
 .item Toys.Nipple_Clamps is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead and remove your wrist and ankle restraints,
 as well as your nipple and pussy clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you very much, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -11602,28 +11602,28 @@ as well as your nipple and pussy clamps, in that order.
 
 [Action 9049]
 .not .item Toys.Nipple_Clamps is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead and remove your wrist and ankle cuffs,
 as well as your pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .range 9700
 
 [Action 9050]
 .item Toys.Nipple_Clamps is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead and remove your wrist restraints,
 as well as your nipple and pussy clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -11631,12 +11631,12 @@ as well as your nipple and pussy clamps, in that order.
 
 [Action 9051]
 .not .item Toys.Nipple_Clamps is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead and remove your wrist restraints and your pussy clamps.
 .item Toys.Pussy_Clamps remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
@@ -11644,14 +11644,14 @@ Go ahead and remove your wrist restraints and your pussy clamps.
 
 [Action 9052]
 .item Toys.Nipple_Clamps is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead and remove your ankle restraints,
 and your nipple and pussy clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you very much, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -11659,20 +11659,20 @@ and your nipple and pussy clamps, in that order.
 
 [Action 9053]
 .not .item Toys.Nipple_Clamps is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead and remove your ankle cuffs and your pussy clamps.
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .range 9700
 
 [Action 9054]
 .item Toys.Nipple_Clamps is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead and remove your nipple and pussy clamps.
 .item Toys.Nipple_Clamps remove
@@ -11684,8 +11684,8 @@ Go ahead and remove your nipple and pussy clamps.
 
 [Action 9055]
 .not .item Toys.Nipple_Clamps is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead and remove your pussy clamps.
 .item Toys.Pussy_Clamps remove
@@ -11799,8 +11799,8 @@ You may detach the leash, slave.
 '.item Toys.Gag apply
 '.item Household.Clothes_Pegs apply to Body.OnBalls over durationForAllowingAnotherPosition
 .item Toys.Pussy_Clamps apply over durationForAllowingAnotherPosition
-'.item Toys.Ankle_Restraints apply
-'.item Toys.Wrist_Restraints apply
+'.item Bondage.Ankle_Restraints apply
+'.item Bondage.Wrist_Restraints apply
 .item Toys.Collar apply
 .set 100
 .range 9400
@@ -11819,8 +11819,8 @@ You may detach the leash, slave.
 .not .state Body.OnNipples is applied.by.me
 .not .item Toys.Gag is applied.by.me
 .not .state Body.OnBalls is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 .unset 9401
 .return
@@ -11862,8 +11862,8 @@ You may detach the leash, slave.
 ' just clamps or pegs, no other (as supported by maid training)
 [Action 9410]
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 .gosub 9560                  ' Just remove clamps
 .range 9419
@@ -11898,8 +11898,8 @@ You may detach the leash, slave.
 .item Toys.Nipple_Clamps is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, take out your gag,
 and remove all the clamps,
@@ -11917,8 +11917,8 @@ in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, take out your gag, and remove all the pegs, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
@@ -11934,8 +11934,8 @@ Go ahead, take out your gag, and remove all the pegs, in that order.
 .item Toys.Nipple_Clamps is applied.by.me
 .not .state Body.OnBalls is applied.by.me
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, take out your gag, and remove your nipple clamps, in that order.
 .item Toys.Nipple_Clamps remove
@@ -11949,8 +11949,8 @@ Go ahead, take out your gag, and remove your nipple clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .not .state Body.OnBalls is applied.by.me
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, take out your gag, and remove the pegs from your nipples, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
@@ -11964,8 +11964,8 @@ Go ahead, take out your gag, and remove the pegs from your nipples, in that orde
 .not .state Body.OnNipples is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, take out your gag, and remove the pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
@@ -11979,8 +11979,8 @@ Go ahead, take out your gag, and remove the pussy clamps, in that order.
 .not .state Body.OnNipples is applied.by.me
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, take out your gag, and remove the pegs from your slutty ball sack, in that order.
 .item Household.Clothes_Pegs remove from Body.OnBalls
@@ -11997,13 +11997,13 @@ Go ahead, take out your gag, and remove the pegs from your slutty ball sack, in 
 .item Toys.Nipple_Clamps is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your ankles, and remove all the clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -12014,13 +12014,13 @@ Go ahead, untie your ankles, and remove all the clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your ankles, and remove all the pegs, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
 .item Household.Clothes_Pegs remove from Body.OnBalls
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -12031,12 +12031,12 @@ Go ahead, untie your ankles, and remove all the pegs, in that order.
 .item Toys.Nipple_Clamps is applied.by.me
 .not .state Body.OnBalls is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your ankles, and remove your nipple clamps, in that order.
 .item Toys.Nipple_Clamps remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you, Miss
 .set 812                ' Done nipple training activity
 .return
@@ -12046,12 +12046,12 @@ Go ahead, untie your ankles, and remove your nipple clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .not .state Body.OnBalls is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your ankles, and remove the pegs from your nipples, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you, Miss
 .set 812                ' Done nipple training activity
 .return
@@ -12061,12 +12061,12 @@ Go ahead, untie your ankles, and remove the pegs from your nipples, in that orde
 .not .state Body.OnNipples is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your ankles, and remove the pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .return
@@ -12076,13 +12076,13 @@ Go ahead, untie your ankles, and remove the pussy clamps, in that order.
 .not .state Body.OnNipples is applied.by.me
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your ankles, and remove the pegs from your slutty ball sack, in that order.
 .item Household.Clothes_Pegs remove from Body.OnBalls
 .item Toys.Gag remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .return
@@ -12095,13 +12095,13 @@ Go ahead, untie your ankles, and remove the pegs from your slutty ball sack, in 
 .item Toys.Nipple_Clamps is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your wrists, and remove all the clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -12112,13 +12112,13 @@ Go ahead, untie your wrists, and remove all the clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your wrists, and remove all the pegs, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
 .item Household.Clothes_Pegs remove from Body.OnBalls
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -12129,12 +12129,12 @@ Go ahead, untie your wrists, and remove all the pegs, in that order.
 .item Toys.Nipple_Clamps is applied.by.me
 .not .state Body.OnBalls is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your wrists, and remove your nipple clamps, in that order.
 .item Toys.Nipple_Clamps remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 812                ' Done nipple training activity
 .return
@@ -12144,12 +12144,12 @@ Go ahead, untie your wrists, and remove your nipple clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .not .state Body.OnBalls is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your wrists, and remove the pegs from your nipples, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 812                ' Done nipple training activity
 .return
@@ -12159,12 +12159,12 @@ Go ahead, untie your wrists, and remove the pegs from your nipples, in that orde
 .not .state Body.OnNipples is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your wrists, and remove the pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .return
@@ -12174,12 +12174,12 @@ Go ahead, untie your wrists, and remove the pussy clamps, in that order.
 .not .state Body.OnNipples is applied.by.me
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, untie your wrists, and remove the pegs from your slutty ball sack, in that order.
 .item Household.Clothes_Pegs remove from Body.OnBalls
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .return
@@ -12192,8 +12192,8 @@ Go ahead, untie your wrists, and remove the pegs from your slutty ball sack, in 
 .item Toys.Nipple_Clamps is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar, and all the clamps, in that order.
 .item Toys.Nipple_Clamps remove
@@ -12209,8 +12209,8 @@ Go ahead and remove your collar, and all the clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar and all the pegs, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
@@ -12225,8 +12225,8 @@ Go ahead and remove your collar and all the pegs, in that order.
 .item Toys.Nipple_Clamps is applied.by.me
 .not .state Body.OnBalls is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar and your nipple clamps, in that order.
 .item Toys.Nipple_Clamps remove
@@ -12240,8 +12240,8 @@ Go ahead and remove your collar and your nipple clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .not .state Body.OnBalls is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar and the pegs from your nipples, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
@@ -12255,8 +12255,8 @@ Go ahead and remove your collar and the pegs from your nipples, in that order.
 .not .state Body.OnNipples is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar and the pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
@@ -12270,8 +12270,8 @@ Go ahead and remove your collar and the pussy clamps, in that order.
 .not .state Body.OnNipples is applied.by.me
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Go ahead and remove your collar and the pegs from your slutty ball sack, in that order.
 .item Household.Clothes_Pegs remove from Body.OnBalls
@@ -12288,14 +12288,14 @@ Go ahead and remove your collar and the pegs from your slutty ball sack, in that
 .item Toys.Nipple_Clamps is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, remove the restraints, and take off all the clamps, in that order.
 .item Toys.Nipple_Clamps remove
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -12306,14 +12306,14 @@ Go ahead, remove the restraints, and take off all the clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, remove the restraints, and take off all the pegs, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
 .item Household.Clothes_Pegs remove from Body.OnBalls
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .set 812                ' Done nipple training activity
@@ -12324,13 +12324,13 @@ Go ahead, remove the restraints, and take off all the pegs, in that order.
 .item Toys.Nipple_Clamps is applied.by.me
 .not .state Body.OnBalls is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, remove the restraints, and take off your nipple clamps, in that order.
 .item Toys.Nipple_Clamps remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 812                ' Done nipple training activity
 .return
@@ -12340,13 +12340,13 @@ Go ahead, remove the restraints, and take off your nipple clamps, in that order.
 .state Body.OnNipples is applied.by.me AND is Household.Clothes_Pegs
 .not .state Body.OnBalls is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, remove the restraints, and take off the pegs from your nipples, in that order.
 .item Household.Clothes_Pegs remove from Body.OnNipples
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 812                ' Done nipple training activity
 .return
@@ -12356,13 +12356,13 @@ Go ahead, remove the restraints, and take off the pegs from your nipples, in tha
 .not .state Body.OnNipples is applied.by.me
 .item Toys.Pussy_Clamps is applied.by.me
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, remove the restraints, and take off the pussy clamps, in that order.
 .item Toys.Pussy_Clamps remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .return
@@ -12372,13 +12372,13 @@ Go ahead, remove the restraints, and take off the pussy clamps, in that order.
 .not .state Body.OnNipples is applied.by.me
 .state Body.OnBalls is applied.by.me AND is Household.Clothes_Pegs
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Go ahead, remove the restraints, and take off the pegs from your slutty ball sack, in that order.
 .item Household.Clothes_Pegs remove from Body.OnBalls
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 259                ' Done ball sack pegs or pussy clamps
 .return
@@ -12466,82 +12466,82 @@ But I want your to remove your other toys first.
 
 [Action 9481]
 .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your collar, wrist and ankle restraints,
 as well as your gag, in that order.
 .item Toys.Gag remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes All done, Miss
 .return
 
 [Action 9482]
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your collar, wrist and ankle restraints.
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes All done, Miss
 .return
 
 [Action 9483]
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your collar, your wrist restraints,
 as well as your gag, in that order.
 .item Toys.Gag remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes All done, Miss
 .return
 
 [Action 9484]
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your collar and your wrist restraints.
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .item Toys.Collar remove
 .yes All done, Miss
 .return
 
 [Action 9485]
 .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your collar, your ankle restraints,
 as well as your gag, in that order.
 .item Toys.Gag remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .item Toys.Collar remove
 .yes All done, Miss
 .return
 
 [Action 9486]
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your collar and your ankle restraints.
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .item Toys.Collar remove
 .yes All done, Miss
 .return
 
 [Action 9487]
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your collar, and your gag, in that order.
 .item Toys.Gag remove
@@ -12551,8 +12551,8 @@ Remove your collar, and your gag, in that order.
 
 [Action 9488]
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .item Toys.Collar is applied.by.me
 Remove your collar.
 .item Toys.Collar remove
@@ -12561,74 +12561,74 @@ Remove your collar.
 
 [Action 9489]
 .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Remove your wrist and ankle restraints,
 as well as your gag, in that order.
 .item Toys.Gag remove
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes All done, Miss
 .return
 
 [Action 9490]
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Remove your wrist and ankle restraints.
-.item Toys.Ankle_Restraints remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Ankle_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Finished, Miss
 .return
 
 [Action 9491]
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Remove your wrist restraints, and your gag, in that order.
 .item Toys.Gag remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes All done, Miss
 .return
 
 [Action 9492]
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Remove your wrist restraints.
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Done, Miss
 .return
 
 [Action 9493]
 .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Remove your ankle restraints, and your gag, in that order.
 .item Toys.Gag remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Thank you, Miss
 .return
 
 [Action 9494]
 .not .item Toys.Gag is applied.by.me
-.item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Remove your ankle restraints, slave.
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .yes Done, Miss
 .return
 
 [Action 9495]
 .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 Remove your gag, slave.
 .item Toys.Gag remove
@@ -12637,8 +12637,8 @@ Remove your gag, slave.
 
 [Action 9496]
 .not .item Toys.Gag is applied.by.me
-.not .item Toys.Ankle_Restraints is applied.by.me
-.not .item Toys.Wrist_Restraints is applied.by.me
+.not .item Bondage.Ankle_Restraints is applied.by.me
+.not .item Bondage.Wrist_Restraints is applied.by.me
 .not .item Toys.Collar is applied.by.me
 .return
 

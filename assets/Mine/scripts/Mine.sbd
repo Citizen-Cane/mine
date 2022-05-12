@@ -3825,8 +3825,8 @@ You will be punished for this oversight.
 
 [Action 1505]
 .item Bondage.Chains not available
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints available
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .noActiveToyAssignment
 I notice you're lacking chains.
@@ -3918,12 +3918,12 @@ We shall talk of this more in a moment.
 
 ' Wrist restraints
 [Action 1516]
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 .mustnot 670
 .range 1521 1525
 
 [Action 1517]
-.item Toys.Wrist_Restraints available
+.item Bondage.Wrist_Restraints available
 .must 670
 It's a good thing you've followed orders and gotten some wrist restraints, slave.
 I'd hate to have to punish you for disobedience.
@@ -3931,7 +3931,7 @@ I'd hate to have to punish you for disobedience.
 .range 1521 1525
 
 [Action 1518]
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .must 670
 Slave, I'm quite sure I told you to make or buy some wrist restraints.
 You'll have to be punished for disregarding My instructions.
@@ -3939,13 +3939,13 @@ You'll have to be punished for disregarding My instructions.
 .range 1521 1525
 
 [Action 1519]
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .mustnot 670
 .range 1521 1525
 
 [Action 1520]
 .poss 10
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .noActiveToyAssignment
 I am going to need you to have some simple wrist restraints before our next session, slave.
@@ -3957,18 +3957,18 @@ We shall talk of this more in a moment.
 ' Ankle restraints
 [Action 1521]
 .mustnot 671
-.item Toys.Ankle_Restraints available
+.item Bondage.Ankle_Restraints available
 .range 1526 1530
 
 [Action 1522]
 .must 671
 Thank you for following orders and getting those ankle restraints, baby.
-.item Toys.Ankle_Restraints available
+.item Bondage.Ankle_Restraints available
 .unset 671
 .range 1526 1530
 
 [Action 1523]
-.item Toys.Ankle_Restraints not available
+.item Bondage.Ankle_Restraints not available
 .must 671
 Pardon me, slave,
 but didn't I tell you not to come back without ankle restraints?
@@ -3977,12 +3977,12 @@ You will be punished for not following orders.
 .range 1526 1530
 
 [Action 1524]
-.item Toys.Ankle_Restraints not available
+.item Bondage.Ankle_Restraints not available
 .mustnot 671
 .range 1526 1530
 
 [Action 1525]
-.item Toys.Ankle_Restraints not available
+.item Bondage.Ankle_Restraints not available
 .mustnot 510            ' Don't give assignment if punishment outstanding to avoid repeating the wrong lecture 
 .noActiveToyAssignment
 Slave, you're to procure a set of ankle restraints before our next session.
@@ -7104,7 +7104,7 @@ Unfortunately your attention deficit disorder must go unavenged today.
 .poss 1                      ' fallback, because else is already in use
 .state Body.WristsTied free
 .mustnot 267 268             ' Enema carrying out or holding
-.item Toys.Wrist_Restraints not available
+.item Bondage.Wrist_Restraints not available
 Get some rope or shoelace and tie your wrists together.
 Keep the connection short.
 Maybe this keeps you focussed on the job, slave.
@@ -7115,12 +7115,12 @@ You stay like this the whole session.
 
 [Action 2573]
 .poss 1                      ' fallback, because else is already in use
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .mustnot 267 268             ' Enema carrying out or holding
 Get your wrist restraints and snap them on.
 Maybe wearing them during the session helps you to focus on the job.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .yes Done, Miss
 .range 2407
 
@@ -7200,7 +7200,7 @@ Unfortunately there is no punishment yet for time-wasting slave boys.
 
 [Action 2591]
 .state Body.AnklesTied free
-.not .item Toys.Ankle_Restraints available
+.not .item Bondage.Ankle_Restraints available
 Get some rope or shoelace and tie up your ankles.
 And don't you dare to leave any play between them -
 I just want you to hump.
@@ -7222,12 +7222,12 @@ You'll stay on your knees for the whole session, cunt.
 .range 2599
 
 [Action 2593]
-.item Toys.Ankle_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
 Get your ankle restraints and tie up your ankles.
 And don't you dare to leave any play between them -
 I just want you to hump.
-.keyrelease prepare Toys.Ankle_Restraints
-.item Toys.Ankle_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints
+.item Bondage.Ankle_Restraints apply
 .yes Done, Miss
 .range 2594 2599
 
@@ -7240,7 +7240,7 @@ Now fetch some rope or a chain,
 and tie your ankle restraints to your chastity cage. 
 I don't want you to be able to stand, so keep the connecting rope short.
 .keyrelease prepare Bondage.Chains
-.item Bondage.Chains apply to Toys.Chastity_Device Toys.Ankle_Restraints
+.item Bondage.Chains apply to Toys.Chastity_Device Bondage.Ankle_Restraints
 .yes Done, Miss
 .range 2599
 
@@ -7266,7 +7266,7 @@ I don't want you to be able to stand, so keep the connecting rope short.
 .must 2593
 Now get some rope or a chain, and tie your slutty ballsack to your ankles.
 I don't want you to be able to stand, so keep the connecting rope short.
-.item Bondage.Rope apply to Toys.Ankle_Restraints Body.OnBalls Posture.CantStand
+.item Bondage.Rope apply to Bondage.Ankle_Restraints Body.OnBalls Posture.CantStand
 .yes Done, Miss
 .range 2599
 
@@ -7294,7 +7294,7 @@ Now get another rope, and tie up your slutty ball sack,
 with your balls separated by the rope.
 When you're finished, connect the left-over of that rope to your ankle restraints.
 I don't want you to be able to stand, so keep the connecting rope short.
-.item Bondage.Rope apply to Toys.Ankle_Restraints Body.OnBalls Posture.AnklesTiedTogether Posture.CantStand
+.item Bondage.Rope apply to Bondage.Ankle_Restraints Body.OnBalls Posture.AnklesTiedTogether Posture.CantStand
 .yes Done, Miss
 .range 2599
 
@@ -9069,7 +9069,7 @@ Put it on now, slave.
 'Leave them that way for the whole session.
 '.yes
 '.range 3300
-'.item Toys.Ankle_Restraints canApply
+'.item Bondage.Ankle_Restraints canApply
 '.state Posture.CantKneel free
 '.state Body.Tethered free
 '.item Bondage.Rope available
@@ -9100,8 +9100,8 @@ Put it on now, slave.
 .state Body.OnBalls free
 .mustnot 267 268        ' Enema carrying out or holding
 .item Bondage.Chains available  
-.item Toys.Ankle_Restraints applied or canApply
-.item Toys.Wrist_Restraints applied or canApply
+.item Bondage.Ankle_Restraints applied or canApply
+.item Bondage.Wrist_Restraints applied or canApply
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
 .range 3142 3147
@@ -9110,55 +9110,55 @@ and I want you suffer for me.
 .item Toys.Ball_Stretcher applied or canApply
 .mustnot 267 268        ' Enema carrying out or holding
 .item Bondage.Chains available  
-.item Toys.Ankle_Restraints applied or canApply
-.item Toys.Wrist_Restraints applied or canApply
+.item Bondage.Ankle_Restraints applied or canApply
+.item Bondage.Wrist_Restraints applied or canApply
 I'm in a very bad mood today, My dear,
 and I want you suffer for me.
 .set 3140
 .range 3142 3147
 
-' TODO AllActionsSet in 3142-3147 when not tied with Toys.Ankle_Restraints or Toys.Wrist_Restraints
+' TODO AllActionsSet in 3142-3147 when not tied with Bondage.Ankle_Restraints or Bondage.Wrist_Restraints
 
 
 ' complete restraints
 
 [Action 3142]
 .must 3140
-.item Toys.Ankle_Restraints applied
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints applied
+.item Bondage.Wrist_Restraints canApply
 Snap on your wrist restraints, bitch.
 ShowChoices
 delay 12
 Hurry up, slave!
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .yes Ready, Miss
 .range 3145 3147
 
 [Action 3143]
 .must 3140
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints applied
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints applied
 Snap on your ankle restraints, bitch.
 ShowChoices
 delay 12
 Hurry up, slave!
-.keyrelease prepare Toys.Ankle_Restraints
-.item Toys.Ankle_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints
+.item Bondage.Ankle_Restraints apply
 .yes Ready, Miss
 .range 3145 3147
 
 [Action 3144]
 .must 3140
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 Put on your ankle and wrist restraints.
 ShowChoices
 delay 12
 Hurry up, slave!
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .yes Ready, Miss
 .range 3145 3147
 
@@ -9166,8 +9166,8 @@ Hurry up, slave!
 ' no ball harness
 [Action 3145]
 .must 3140
-.item Toys.Ankle_Restraints applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Ankle_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .item Toys.Ball_Stretcher not available
 Go fetch your slave chains and chain your wrists and ankles together.
 Then tie up your slutty ball sack and tie the leftover to your slave chains.
@@ -9183,8 +9183,8 @@ but no more.
 ' put on ball harness
 [Action 3146]
 .must 3140
-.item Toys.Ankle_Restraints applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Ankle_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .item Toys.Ball_Stretcher canApply
 I also want you to wear your ball harness for todays session.
 Go ahead and put it on.
@@ -9196,8 +9196,8 @@ Go ahead and put it on.
 ' wearing ball harness on already
 [Action 3147]
 .must 3140
-.item Toys.Ankle_Restraints applied
-.item Toys.Wrist_Restraints applied
+.item Bondage.Ankle_Restraints applied
+.item Bondage.Wrist_Restraints applied
 .item Toys.Ball_Stretcher applied
 .range 3148
 
@@ -9211,7 +9211,7 @@ You should have just enough play so that you can kneel straight
 and rub your little slave titties,
 but no more.
 .keyrelease prepare Bondage.Chains
-.item Bondage.Chains apply to Toys.Wrist_Restraints Toys.Ankle_Restraints Toys.Ball_Stretcher Posture.CantStand
+.item Bondage.Chains apply to Bondage.Wrist_Restraints Bondage.Ankle_Restraints Toys.Ball_Stretcher Posture.CantStand
 .set 737 747            ' Restraint acceptance 2, CBT 2
 .yes I'm chained up, Miss
 .range 3290
@@ -9355,32 +9355,32 @@ some rope and tie your ankles together for today's session.
 .return
 
 [Action 3162]
-.item Toys.Ankle_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
 .mustnot 267 268        ' Enema carrying out or holding
 I don't want you running off, slave, so snap on
 those ankle restraints for today's session.
-.keyrelease prepare Toys.Ankle_Restraints
-.item Toys.Ankle_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints
+.item Bondage.Ankle_Restraints apply
 .set 736                ' restraint acceptance 1
 .yes Tied up, Miss
 .return
 
 [Action 3164]
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .mustnot 267 268        ' Enema carrying out or holding
 Today I want you to pop those handcuffs on your wrists, My pet,
 just as a bit of a reminder.
 Leave them on for today's session.
-.keyrelease prepare Toys.Wrist_Restraints
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Wrist_Restraints
+.item Bondage.Wrist_Restraints apply
 .yes Done, Miss
 .set 736                ' restraint acceptance 1
 .return
 
 
 [Action 3166]
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .item Bondage.Chains available
 .mustnot 267 268        ' Enema carrying out or holding
 .must 736
@@ -9391,18 +9391,18 @@ and chain them together.
 Give yourself enough play so that you can kneel comfortably,
 but not enough so that you can stand up straight.
 Leave your chains on for the whole session, slave.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Bondage.Chains
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
-.item Bondage.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Posture.CantStand
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Bondage.Chains
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
+.item Bondage.Chains apply to Bondage.Ankle_Restraints Bondage.Wrist_Restraints Posture.CantStand
 .set 737	            ' restraint acceptance 2
 .yes I'm chained up, Miss
 .return
 
 
 [Action 3168]
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .item Bondage.Chains available
 .item Toys.Collar canApply
 .mustnot 267 268        ' Enema carrying out or holding
@@ -9417,11 +9417,11 @@ but not enough so that you can stand up straight.
 []
 Now chain your wrists to your collar.
 You should just be able to wank, but no more.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Toys.Collar Bondage.Chains
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Toys.Collar Bondage.Chains
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .item Toys.Collar apply
-.item Bondage.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Posture.CantStand
+.item Bondage.Chains apply to Bondage.Ankle_Restraints Bondage.Wrist_Restraints Posture.CantStand
 .item Bondage.Chains apply to Toys.Collar
 .set 738	            ' restraint acceptance 3
 .yes All chained up, Miss
@@ -9429,8 +9429,8 @@ You should just be able to wank, but no more.
 
 
 [Action 3172]
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .item Bondage.Chains available
 .mustnot 267 268        ' Enema carrying out or holding
 .must 736
@@ -9442,10 +9442,10 @@ Give yourself enough play so that
 you can stand straight with your hands on your dick,
 but no more.
 Leave your chains on for the whole session, slave.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Bondage.Chains
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
-.item Bondage.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Bondage.Chains
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
+.item Bondage.Chains apply to Bondage.Ankle_Restraints Bondage.Wrist_Restraints
 .set 737	            ' restraint acceptance 2
 .yes I'm chained up, Miss
 .return
@@ -9643,18 +9643,18 @@ Put it on now, slave.
 
 [Action 3252]
 .state Body.InMouth free     ' TODO Would be safe with ring gag, otherwise make do with 277 semi-safe self bondage features enabled      
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .item Bondage.Chains available
 .mustnot 267 268             ' Enema carrying out or holding
 You know one thing I like is a slutty little slave boy wearing his slave chains.
 []
 For today's session I want you to put on your
 wrist and ankle restraints and chain them together.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Bondage.Chains Toys.Ball_Stretcher 
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
-.item Bondage.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Bondage.Chains Toys.Ball_Stretcher 
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
+.item Bondage.Chains apply to Bondage.Ankle_Restraints Bondage.Wrist_Restraints
 .yes I'm chained up, Miss
 []
 Almost, my pet, almost.
@@ -9726,14 +9726,14 @@ When you kneel, you are not allowed to rest the weight on the ground, My pet.
 
 
 [Action 3270]
-.item Toys.Ankle_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
 .item Bondage.Chains available
 .mustnot 267 268        ' Enema carrying out or holding
 .must 747               ' cbt 2
 Get your ankle restraints, slave chains, and your ball harness.
 Chain each ankle to your slutty ball sack so that you can just kneel straight.
-.keyrelease prepare Toys.Ankle_Restraints Bondage.Chains Toys.Ball_Stretcher 
-.item Toys.Ankle_Restraints apply
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Chains Toys.Ball_Stretcher 
+.item Bondage.Ankle_Restraints apply
 .item Toys.Ball_Stretcher apply
 .item Bondage.Chains apply to Body.AnklesTied Body.OnBalls Posture.AnklesTiedTogether Posture.CantStand 
 .yes Ankles chained to balls, Miss
@@ -13086,8 +13086,8 @@ Meanhile, three demerits will do about right.
 .item Toys.Nipple_Clamps canApply
 .item Toys.Gag canApply
 .not .painToysOnBalls
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .not .state Body.Blindfolded applied
 .state Posture.CantSitOnChair free
 .state Body.Tethered free
@@ -19210,7 +19210,7 @@ And now head off into the bathroom, slut.
 ' TODO explicitely mention the toys to remove
 .item Toys.Ball_Stretcher remove 
 .item Toys.Humbler remove 
-.item Bondage.Rope Bondage.Chains remove from Body.OnBalls Posture.CantStand Posture.CantSitOnChair Toys.Ankle_Restraints Toys.Ball_Stretcher 
+.item Bondage.Rope Bondage.Chains remove from Body.OnBalls Posture.CantStand Posture.CantSitOnChair Bondage.Ankle_Restraints Toys.Ball_Stretcher 
 .range 9956 9957
 
 ' Bad outcome, different tone
@@ -19745,10 +19745,10 @@ Make up for it, and keep the straps extra tight, you disobedient cunt!
 Slave!
 For tonight, you're supposed to put on your wrist and ankle restraints!
 Put them on now, you sloppy slut.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
-.item Bondage.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
+.item Bondage.Chains apply to Bondage.Ankle_Restraints Bondage.Wrist_Restraints
 .yes Done, Miss
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 233
@@ -19766,10 +19766,10 @@ you're supposed to chain your wrist and ankle restraints together!
 But you didn't.
 Chain them together now, you sloppy slut.
 And keep the chains short, I want to see you on your knees tonight.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
-.item Bondage.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Posture.CantStand
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
+.item Bondage.Chains apply to Bondage.Ankle_Restraints Bondage.Wrist_Restraints Posture.CantStand
 .yes I'm chained up and on my knees, Miss
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 234
@@ -19787,10 +19787,10 @@ But you didn't!
 Put on your wrist and ankle restraints, and chain them together now,
 you sloppy slut.
 And keep the chains short, I want to see you on your knees tonight.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
-.item Bondage.Chains apply to Toys.Ankle_Restraints Toys.Wrist_Restraints Posture.CantStand
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
+.item Bondage.Chains apply to Bondage.Ankle_Restraints Bondage.Wrist_Restraints Posture.CantStand
 .yes I'm chained up and on my knees, Miss
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 234
@@ -19807,9 +19807,9 @@ But you didn't, you disobedient cunt!
 Well, you can chain up your enslaved ball sack now. 
 And keep the chains short,
 I want to see you on your bare knees tonight!
-.keyrelease prepare Toys.Ankle_Restraints Toys.Ball_Stretcher
-.item Toys.Ankle_Restraints apply
-.item Toys.Ball_Stretcher apply to Toys.Ankle_Restraints Posture.CantStand
+.keyrelease prepare Bondage.Ankle_Restraints Toys.Ball_Stretcher
+.item Bondage.Ankle_Restraints apply
+.item Toys.Ball_Stretcher apply to Bondage.Ankle_Restraints Posture.CantStand
 .yes I'm on my knees, Miss
 .set 213           ' slave forgot to put on non-clamp/pegs toy
 .set 235
@@ -20550,22 +20550,22 @@ Especically if he's chained and shackled so well.
 
 [action 11333]
 .must 233
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .unset 233
 .range  11324
 
 [action 11334]
 .must 234
-.item Toys.Ankle_Restraints apply
-.item Toys.Wrist_Restraints apply
+.item Bondage.Ankle_Restraints apply
+.item Bondage.Wrist_Restraints apply
 .unset 234
 .range  11324
 
 [action 11335]
 .must 235
-.item Toys.Ankle_Restraints apply
-.item Toys.Ball_Stretcher apply to Toys.Ankle_Restraints Posture.CantStand
+.item Bondage.Ankle_Restraints apply
+.item Toys.Ball_Stretcher apply to Bondage.Ankle_Restraints Posture.CantStand
 .unset 235
 .range  11324
 
@@ -21095,8 +21095,8 @@ Put it on for me before we meet again.
 .range 11759
 
 [Action 11744]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints available
 .must 736               ' restraint acceptance 1
 And I also want you to put on your wrist and ankle restraints for next time.
 .yes Thank you, Miss
@@ -21104,8 +21104,8 @@ And I also want you to put on your wrist and ankle restraints for next time.
 .range 11759
 
 [Action 11745]
-.item Toys.Ankle_Restraints available
-.item Toys.Wrist_Restraints available
+.item Bondage.Ankle_Restraints available
+.item Bondage.Wrist_Restraints available
 .item Bondage.Chains available
 .must 737               ' restraint acceptance 1
 And I also want you to be bound and shackled next time.
@@ -21117,7 +21117,7 @@ And I also want you to be bound and shackled next time.
 ' chasttiy cage is handled via "chastity rules apply" flag
 
 [Action 11747]
-.item Toys.Ankle_Restraints available
+.item Bondage.Ankle_Restraints available
 .item Bondage.Chains available
 .must 737               ' restraint acceptance 1
 And I also want you to chain your ball sack to your ankles next time.
@@ -21948,11 +21948,11 @@ what else is there for a slave to do than to concentrate on his Mistress?
 
 
 [action 11996]
-.item Bondage.Chains not is Toys.Chastity_Device Toys.Ankle_Restraints
+.item Bondage.Chains not is Toys.Chastity_Device Bondage.Ankle_Restraints
 .return
 
 [action 11997]
-.item Bondage.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
+.item Bondage.Chains is Toys.Chastity_Device Bondage.Ankle_Restraints
 Well slave,
 you may also remove the connecting chain between your ankle restraints and the cage.
 I guess I'll have you stand again.
@@ -21962,7 +21962,7 @@ I guess I'll have you stand again.
 .return
 
 [action 11998]
-.item Bondage.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
+.item Bondage.Chains is Toys.Chastity_Device Bondage.Ankle_Restraints
 .item Toys.Ball_Stretcher not canApply
 You haven't earned the privilege to stand today, slave!
 Take the chain between your ankles and tie it to your ball sack.
@@ -21974,7 +21974,7 @@ Take the chain between your ankles and tie it to your ball sack.
 .return
 
 [action 11999]
-.item Bondage.Chains is Toys.Chastity_Device Toys.Ankle_Restraints
+.item Bondage.Chains is Toys.Chastity_Device Bondage.Ankle_Restraints
 .item Toys.Ball_Stretcher canApply
 You haven't earned the privilege to stand today, slave!
 Go fetch your ball-stretcher and put it on.
@@ -21994,15 +21994,15 @@ Then take the chain between your ankles and connect it to your slutty ball sack.
 
 
 [action 13081]
-.item Toys.Ankle_Restraints is applied.by.me
-.item Toys.Ankle_Restraints applied
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints is applied.by.me
+.item Bondage.Ankle_Restraints applied
+.item Bondage.Ankle_Restraints remove
 .range 13081 13089
 
 [action 13082]
-.item Toys.Wrist_Restraints is applied.by.me
-.item Toys.Wrist_Restraints applied
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints is applied.by.me
+.item Bondage.Wrist_Restraints applied
+.item Bondage.Wrist_Restraints remove
 .range 13081 13089
 
 [action 13083]

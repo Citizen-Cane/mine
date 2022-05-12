@@ -108,9 +108,9 @@ public class Mine extends Player {
         state.addScriptValueMapping(MappedScriptState.Global,
                 new MappedScriptItemValue(362, items(Household.Clothes_Pegs)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(363, items(Toys.Wrist_Restraints)));
+                new MappedScriptItemValue(363, items(Bondage.Wrist_Restraints)));
         state.addScriptValueMapping(MappedScriptState.Global,
-                new MappedScriptItemValue(364, items(Toys.Ankle_Restraints)));
+                new MappedScriptItemValue(364, items(Bondage.Ankle_Restraints)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(365, items(Toys.Collar)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(366, items(Bondage.Rope)));
         state.addScriptValueMapping(MappedScriptState.Global, new MappedScriptItemValue(367, items(Toys.Gag)));

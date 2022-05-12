@@ -30,7 +30,7 @@ import teaselib.scripts.mine.test.TestParameters;
  */
 @RunWith(Parameterized.class)
 public class DildoActivities extends ActivityTest {
-    private static final Enum<?>[] TOYS = { Toys.Ankle_Restraints, Toys.Wrist_Restraints, Toys.Nipple_Clamps,
+    private static final Enum<?>[] TOYS = { Bondage.Ankle_Restraints, Bondage.Wrist_Restraints, Toys.Nipple_Clamps,
             Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Gag, Toys.Blindfold, Toys.Dildo, Toys.Buttplug };
 
     @Parameters(name = "Activity {0}")

@@ -645,7 +645,7 @@ Now, slave, I forgot to tell you to go get your gag.
 While you're doing that,
 I want you to take your handcuff key and put it on the floor in the bathroom.
 ' TODO instructions don't honor optional key release
-.keyrelease prepare Toys.Wrist_Restraints
+.keyrelease prepare Bondage.Wrist_Restraints
 Make sure it's somewhere you can get to it when you're handcuffed.
 Understand?
 Hop to it!
@@ -726,7 +726,7 @@ Okay, slave, it's time to put your ankle restraints on, just like in the story.
 Make sure that you don't have any more than four inches of play in the line.
 Unfortunately I don't have a slavegirl handy to tie you to,
 so you'll just have to use your filthy imagination for that part.
-.item Toys.Ankle_Restraints apply
+.item Bondage.Ankle_Restraints apply
 .yes I've tied my ankles, Miss
 .range 2089
 
@@ -854,7 +854,7 @@ We both looked at each other, smiled behind our gags and locked them."
 [Action 2100]
 Okay, slave, your turn now - cuff'em behind your back.
 delay 10
-.item Toys.Wrist_Restraints apply to Posture.WristsTiedBehindBack
+.item Bondage.Wrist_Restraints apply to Posture.WristsTiedBehindBack
 .range 2101
 
 [Action 2101]
@@ -1038,7 +1038,7 @@ delay 7
 [Action 2117]
 You've been very good, so I think I'll let you be Terri.
 Go ahead and remove your handcuffs.
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes My hands are free, Miss
 .range 2119
 
@@ -1153,7 +1153,7 @@ delay 10
 [Action 2129]
 Okay, Jenny, you can take your handcuffs and nipple clamps off now.
 .item Toys.Nipple_Clamps remove
-.item Toys.Wrist_Restraints remove
+.item Bondage.Wrist_Restraints remove
 .yes Thank you, Miss
 .set 812                ' Done nipple training activity
 .range 2130
@@ -1224,7 +1224,7 @@ Okay, slave, you too may remove your gag and ankle restraints,
 and then we'll finish the story.
 .yes Thank you, Miss
 .item Toys.Gag remove
-.item Toys.Ankle_Restraints remove
+.item Bondage.Ankle_Restraints remove
 .range 2136
 
 [Action 2136]
@@ -1810,8 +1810,8 @@ Go fetch your blindfold, and make sure you can hear my voice.
 ' punishment wank - blindfolded and chained ankles/wrists, can't remove without keys
 [Action 2212]
 .poss 100
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .item Bondage.Chains canApply
 .item Toys.Blindfold canApply
 .state Posture.CantStand free
@@ -1838,8 +1838,8 @@ Go fetch your blindfold, and make sure you can hear my voice.
 ' teasing - blindfolded and chained ankles/wrists, can't remove without keys
 [Action 2214]
 .poss 10
-.item Toys.Ankle_Restraints canApply
-.item Toys.Wrist_Restraints canApply
+.item Bondage.Ankle_Restraints canApply
+.item Bondage.Wrist_Restraints canApply
 .item Bondage.Chains canApply
 .item Toys.Blindfold canApply
 .state Posture.CantStand free
@@ -1892,7 +1892,7 @@ I want you to take the the keys to your cuffs,
 and place them in the corner on the other side of the room.
 You'll be blindfolded when you retrieve your keys,
 so make sure they won't accidently slide under the furniture when you search for them.
-.keyrelease prepare Toys.Ankle_Restraints Toys.Wrist_Restraints Bondage.Chains
+.keyrelease prepare Bondage.Ankle_Restraints Bondage.Wrist_Restraints Bondage.Chains
 ' TODO instructions don't honor optional key releasee device
 Attach them to some bigger object, like a cupboard, a chair leg, or a balloon,
 just to be on the safe side.
@@ -1930,7 +1930,7 @@ Tell me when you're ready to put your blindfold on, slave!
 Now put on your blindfold,
 and prepare to lock your wrist and ankles together on my command. 
 .item Toys.Blindfold apply
-.item Toys.Ankle_Restraints Toys.Wrist_Restraints apply
+.item Bondage.Ankle_Restraints Bondage.Wrist_Restraints apply
 .unset 170                   ' select release comment
 .set 171                     ' retrieve keys to get free
 .unset 2225
@@ -2826,7 +2826,7 @@ delay 15
 .item Toys.Blindfold applied
 .must 170                     ' ankles and wrists tied
 Remove your blindfold and look into my eyes!
-.item Toys.Ankle_Restraints Toys.Wrist_Restraints Bondage.Chains remove
+.item Bondage.Ankle_Restraints Bondage.Wrist_Restraints Bondage.Chains remove
 .item Toys.Blindfold remove
 delay 60
 .range 9500 9599
@@ -2835,7 +2835,7 @@ delay 60
 .item Toys.Blindfold applied
 .must 171                     ' ankles and wrists tied, locked
 Remove your blindfold and look into my eyes!
-.item Toys.Ankle_Restraints Toys.Wrist_Restraints Bondage.Chains remove
+.item Bondage.Ankle_Restraints Bondage.Wrist_Restraints Bondage.Chains remove
 .item Toys.Blindfold remove
 delay 60
 .range 9500 9599
@@ -2843,13 +2843,13 @@ delay 60
 [Action 8954]
 .item Toys.Blindfold free
 .must 170                     ' ankles and wrists tied
-.item Toys.Ankle_Restraints Toys.Wrist_Restraints Bondage.Chains remove
+.item Bondage.Ankle_Restraints Bondage.Wrist_Restraints Bondage.Chains remove
 .range 9500 9599
 
 [Action 8955]
 .item Toys.Blindfold free
 .must 171                     ' ankles and wrists tied, locked
-.item Toys.Ankle_Restraints Toys.Wrist_Restraints Bondage.Chains remove
+.item Bondage.Ankle_Restraints Bondage.Wrist_Restraints Bondage.Chains remove
 .range 9500 9599
 
 [Action 8959]
@@ -2985,7 +2985,7 @@ By the way, you may remove your blindfold now, slave.
 .item Toys.Blindfold applied
 .must 170               ' key away, wrist & ankles tied
 By the way, you may remove the chains and take your blindfold off, slave.
-.item Bondage.Chains Toys.Ankle_Restraints Toys.Wrist_Restraints remove
+.item Bondage.Chains Bondage.Ankle_Restraints Bondage.Wrist_Restraints remove
 .item Toys.Blindfold remove
 .yes Thank you, Miss
 .unset 170
@@ -2995,7 +2995,7 @@ By the way, you may remove the chains and take your blindfold off, slave.
 .item Toys.Blindfold applied
 .must 171                ' key away, wrist & ankles tied
 By the way, you may crawl over to retrieve your keys and remove your chains and blindfold, slave.
-.item Bondage.Chains Toys.Ankle_Restraints Toys.Wrist_Restraints remove
+.item Bondage.Chains Bondage.Ankle_Restraints Bondage.Wrist_Restraints remove
 .item Toys.Blindfold remove
 .yes Thank you, Miss
 .unset 171
