@@ -35,5 +35,5 @@ Thread.currentThread().setContextClassLoader(classLoader);
 ///////////////////////////////////////////////
 
 Class TeaseLib = Class.forName('teaselib.core.TeaseLib', true, classLoader)
-Class SexScriptsHost = Class.forName('teaselib.hosts.SexScriptsHost', true, classLoader)
+Class SexScriptsHost = Class.forName('teaselib.host.sexscripts.SexScriptsHost', true, classLoader)
 TeaseLib.run(SexScriptsHost.from(this), mainScriptClass)
