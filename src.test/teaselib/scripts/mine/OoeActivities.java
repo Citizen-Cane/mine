@@ -188,7 +188,7 @@ public class OoeActivities extends ActivityTest {
         } else {
             throw new IllegalStateException();
         }
-        return player.random.item(Response.Choose, Response.Ignore);
+        return player.randomItem(Response.Choose, Response.Ignore);
     }
 
     static List<ResponseAction> loose(Player player) {
@@ -212,7 +212,7 @@ public class OoeActivities extends ActivityTest {
         } else {
             throw new IllegalStateException();
         }
-        return player.random.item(Response.Choose, Response.Ignore);
+        return player.randomItem(Response.Choose, Response.Ignore);
     }
 
     public OoeActivities(TestParameters testParameters)

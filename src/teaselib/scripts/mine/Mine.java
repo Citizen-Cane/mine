@@ -139,7 +139,7 @@ public class Mine extends Player {
     }
 
     private void clearSessionTimerCheck() {
-        PersistentBoolean clearTimeCheck = persistentBoolean(Assignments.ClearSessionTimerCheck);
+        PersistentBoolean clearTimeCheck = persistence.newBoolean(Assignments.ClearSessionTimerCheck);
         if (clearTimeCheck.isTrue()) {
             setScriptState(MAIN, 95, 0);
             clearTimeCheck.clear();
@@ -147,7 +147,7 @@ public class Mine extends Player {
     }
 
     private void triggerCarryOutEnema() {
-        PersistentBoolean triggerCarryOutEnema = persistentBoolean(Assignments.CarryOutEnema);
+        PersistentBoolean triggerCarryOutEnema = persistence.newBoolean(Assignments.CarryOutEnema);
         if (triggerCarryOutEnema.isTrue()) {
             setScriptState(MAIN, 267, 1);
             triggerCarryOutEnema.clear();
@@ -175,11 +175,11 @@ public class Mine extends Player {
     }
 
     private int getScriptState(String scriptName, long n) {
-        return getInteger(scriptName + "." + n);
+        return persistence.getInteger(scriptName + "." + n);
     }
 
     private void setScriptState(String scriptName, int n, long value) {
-        set(scriptName + "." + n, value);
+        persistence.set(scriptName + "." + n, value);
     }
 
     public <T> void override(T toy, boolean available) {
