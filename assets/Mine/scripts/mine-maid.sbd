@@ -2770,26 +2770,15 @@ Let's practice your slave positions.
 .mustnot 179            ' punishment
 Now lazy little sluts such as yourself often need a little
 extra incentive to keep it up during their training.
-So go fetch your vibrator, E-Stim device or whatever you've got,
-and attach it to your silly slave penis.
-Then set it up to a teasing, tantalizing rhythm!
-.item Toys.Vibrator apply
-.yes Vibrator attached and running, Miss 
-.range 1880
+.range 1870 1879
 
 [Action 1822]
 .item Toys.Chastity_Device not applied
 .item Toys.Vibrator available
 .item Toys.Vibrator not applied
 .mustnot 179            ' punishment
-Now lazy little sluts such as yourself often need a little
-extra incentive to keep it up during their training.
-So go fetch your vibrator, E-Stim device or whatever you've got,
-attach it to your silly slave penis,
-and set it up to a teasing, tantalizing rhythm!
-.item Toys.Vibrator apply
-.yes Vibrator attached and running, Miss 
-.range 1880
+Let's combine today's maid training with a little teasing.
+.range 1870 1879
 
 '[Action 1823]
 '[Action 1824]
@@ -2800,25 +2789,15 @@ and set it up to a teasing, tantalizing rhythm!
 .item Toys.Vibrator not applied
 .mustnot 179            ' punishment
 Well, I guess my dear maid in training deserves a little extra excitement today:
-Fetch your vibrator, E-Stim device or whatever you've got,
-attach it to your chastity cage,
-and set it up to a teasing, tantalizing rhythm!
-.item Toys.Vibrator apply
-.yes Vibrator attached and running, Miss 
-.range 1880
+.range 1870 1879
 
 [Action 1826]
 .item Toys.Chastity_Device applied
 .item Toys.Vibrator available
 .item Toys.Vibrator not applied
 .mustnot 179            ' punishment
-Well, I guess my dear maid in training deserves a little extra excitement today:
-Fetch your vibrator, E-Stim device or whatever you've got,
-attach it to your chastity cage,
-and set it up to a teasing, tantalizing rhythm!
-.item Toys.Vibrator apply
-.yes Vibrator attached and running, Miss 
-.range 1880
+Let's combine today's maid training with a little teasing.
+.range 1870 1879
 
 '[Action 1827]
 '[Action 1828]
@@ -2829,8 +2808,8 @@ and set it up to a teasing, tantalizing rhythm!
 [Action 1831]
 .item Toys.Vibrator applied
 .mustnot 179            ' punishment
-Well, I think you can ramp up the intensity of your teasing toy a couple of notches
-or choose a more tantalizing rhythm.
+Well, I think you can ramp up the intensity of your teasing toy a couple of notches,
+or change to a more tantalizing rhythm.
 What do you choose, slave?
 .yestext Increased intensity, Miss 
 .notext A more tantalizing rhythm, Miss
@@ -2846,6 +2825,24 @@ What do you choose, slave?
 .item Toys.Vibrator not available
 .unset 1839
 .range 1899
+
+[Action 1870]
+.item Toys.Chastity_Device not applied
+I want you to fetch your vibrator, E-Stim device or whatever you've got,
+attach it to your silly slave penis,
+and set it up to a teasing, tantalizing rhythm!
+.item Toys.Vibrator apply
+.yes Vibrator attached and running, Miss 
+.range 1880
+
+[Action 1871]
+.item Toys.Chastity_Device applied
+Fetch your vibrator, E-Stim device or whatever you've got,
+attach it to your chastity cage,
+and set it up to a teasing, tantalizing rhythm!
+.item Toys.Vibrator apply
+.yes Vibrator attached and running, Miss 
+.range 1880
 
 
 [Action 1880]
@@ -5011,9 +5008,8 @@ You do have a collar, don't you, slave?
 [Action 4003]
 .item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
-This is a fairly easy position, slave.
-You may put a blanket or towel on the floor, if you wish.
-.range 4008
+.gosub 1820                  ' setup break buttons and vibrator
+.range 4007
 
 
 [Action 4004]
@@ -5021,23 +5017,26 @@ Have you put on your wristlets and your collar?
 .item Bondage.Wrist_Restraints apply
 .item Toys.Collar apply
 .yes Yes, Miss
-.range 4008
+.gosub 1820                  ' setup break buttons and vibrator
+.range 4009
 
 [Action 4005]
 Have you put on your wristlets, slave?
 .item Bondage.Wrist_Restraints apply
 .yes Yes, Miss
-.range 4008
+.gosub 1820                  ' setup break buttons and vibrator
+.range 4009
 
 [Action 4006]
 Have you put on your collar, slave?
 .item Toys.Collar apply
 .yes Yes, Miss
-.range 4008
-
-
-[Action 4008]
 .gosub 1820                  ' setup break buttons and vibrator
+.range 4009
+
+[Action 4007]
+This is a fairly easy position, slave.
+You may put a blanket or towel on the floor, if you wish.
 .range 4009
 
 
@@ -5134,7 +5133,7 @@ You do have your collar, slave?
 
 [Action 4021]
 .item Toys.Collar applied
-Here's another simple, basic position, slave.
+.gosub 1820                  ' setup break buttons and vibrator
 .range 4025
 
 ' TODO check images whether position works with wrist restraints applied
@@ -5147,7 +5146,8 @@ Here's another simple, basic position, slave.
 .range 4028
 
 [Action 4025]
-.range 4028
+Here's another simple, basic position, slave.
+.range 4029
 
 
 [Action 4028]
@@ -5201,7 +5201,7 @@ You do have wrist restraints handy, don't you, slave?
 [Action 4033]
 .item Bondage.Wrist_Restraints applied
 .item Toys.Collar applied
-This is a very simple submissive position.
+.gosub 1820                  ' setup break buttons and vibrator
 .range 4037
 
 
@@ -5212,7 +5212,8 @@ Then go ahead and put them on.
 .item Toys.Collar apply
 .item Bondage.Wrist_Restraints apply
 .yes I'm cuffed and collared, Miss
-.range 4038
+.gosub 1820                  ' setup break buttons and vibrator
+.range 4039
 
 [Action 4035]
 bd066_24.jpg
@@ -5220,7 +5221,8 @@ Go ahead and put it on.
 .keyrelease prepare Toys.Collar
 .item Toys.Collar apply
 .yes I'm collared, Miss
-.range 4038
+.gosub 1820                  ' setup break buttons and vibrator
+.range 4039
 
 [Action 4036]
 bd066_24.jpg
@@ -5228,15 +5230,13 @@ Go ahead and put them on.
 .keyrelease prepare Bondage.Wrist_Restraints
 .item Bondage.Wrist_Restraints apply
 .yes My wrists are cuffed, Miss
-.range 4038
-
-[Action 4037]
-.range 4038
-
-
-[Action 4038]
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4039
+
+[Action 4037]
+This is a very simple submissive position.
+.range 4039
+
 
 [Action 4039]
 bd066_46.jpg
@@ -5313,7 +5313,9 @@ You do have all these items, don't you?
 [Action 4055] 
 .not .item Toys.Collar applied
 bd222_01.jpg
-Now kneel down, put on your collar, then attach the leash to it.
+Now kneel down,
+put on your collar,
+then attach the leash to it.
 .delay 30
 .item Toys.Collar apply
 .range 4057
@@ -5436,6 +5438,7 @@ bd218_19.jpg
 
 [Action 4080]
 .state Body.Blindfolded free
+.item Toys.Blindfold not available
 This is a fairly easy position, slave.
 All you need is a blindfold.
 You do have a blindfold, don't you, slave?
@@ -5454,7 +5457,9 @@ Go get it!
 .state Body.Blindfolded applied
 .delay 15
 Stand straight, legs together!
-.range 4084
+delay 5
+Hold your hands behind your head!
+.range 4086
 
 
 [Action 4084] 
@@ -5707,6 +5712,7 @@ Tell me when you're ready.
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4149
 
+
 [Action 4149]
 bd066_48.jpg
 Crouch down on your toes.
@@ -5747,6 +5753,7 @@ Then go ahead and put it on.
 [Action 4155]
 .gosub 1820                  ' setup break buttons and vibrator
 .range 4156
+
 
 [Action 4156]
 .delay 20
@@ -5841,7 +5848,6 @@ This is how you're are going to present yourself to me for your punishment from 
 
 [Action 4170]
 .not .item Toys.Collar applied
-This will be a fairly easy position, slave.
 For this submissive slave position,
 You'll need your collar, as well as your ankle and wrist restraints.
 You do have these items, slave, don't you?
@@ -5849,20 +5855,13 @@ You do have these items, slave, don't you?
 
 [Action 4171]
 .item Toys.Collar applied
-This will be a fairly easy position, slave.
 For this submissive slave position,
 You'll need your ankle and wrist restraints.
 You do have these items, slave, don't you?
-.yesno 4174 4174 7708 7715
+.yesno 4175 4175 7708 7715
 
 
-[Action 4174] 
-.gosub 1820                  ' setup break buttons and vibrator
-.range 4175 4176
-
-
-[Action 4175]
-.not .item Toys.Collar applied
+[Action 4174]
 Excellent.
 bd037_13.jpg
 Let's put on your collar,
@@ -5872,10 +5871,9 @@ then continue with the restraints.
 .item Bondage.Ankle_Restraints apply
 .item Bondage.Wrist_Restraints apply
 .yes I'm collared and cuffed, Miss
-.range 4177
+.range 4176
 
-[Action 4176]
-.item Toys.Collar applied
+[Action 4175]
 Excellent.
 bd037_13.jpg
 Let's put on your restraints now. 
@@ -5883,20 +5881,28 @@ Let's put on your restraints now.
 .item Bondage.Ankle_Restraints apply
 .item Bondage.Wrist_Restraints apply
 .yes I'm tied up, Miss
+.range 4176
+
+
+[Action 4176]
+.gosub 1820                  ' setup break buttons and vibrator
 .range 4177
 
 
 [Action 4177]
+.delay 30
 bd037_21.jpg
 Sit on your heels, then spread your legs as shown.
 delay 10
 Wider slave!
 I want you to spread your legs as wide as possible.
-delay 15
+.range 4178
+
+[Action 4178]
+.delay 15
 Very good, slave.
 bd037_23.jpg
 Now bend a bit forward and rest your knuckles on the ground.
-.delay 30
 .range 1700
 
 
@@ -6015,11 +6021,10 @@ delay 7
 bd037_17.jpg
 Bow and cross your arms on the floor in front,
 then slide forward until your torso rests on your thighs.
-delay 15
+delay 10
 []
 bd037_16.jpg
 Keep your face down.
-delay 5
 Your nose should touch the ground.
 delay 10
 .range 1700
@@ -6251,7 +6256,7 @@ You do have these items, don't you, slave?
 .yesno 5024 5024 8280 8298
 
 [Action 5021]
-.state Body.OnNipples is Household.CLothes_Pegs
+.state Body.OnNipples applied
 .not .item Toys.Collar applied
 Now we have a fairly basic position which you will enjoy while
 enduring some light nipple torture.
@@ -6269,9 +6274,8 @@ You do have some clothes pegs, don't you, slave?
 .yesno 5026 5026 7748 7748
 
 [Action 5023]
-.state Body.OnNipples is Household.CLothes_Pegs
+.state Body.OnNipples applied
 .item Toys.Collar applied
-I bet you'll enjoy this position as much as I do.
 .range 5027 5027
 
 
@@ -6305,7 +6309,9 @@ Go ahead and pop a clothes peg on each nipple, slave.
 .gosub 1820                  ' setup break buttons and vibrator
 .range 5029
 
+
 [Action 5029]
+I bet you'll enjoy this position as much as I do.
 bd228_08.jpg
 Kneel down on the ground.
 delay 5
@@ -6423,6 +6429,8 @@ Secure it safely as well.
 delay 10
 .item Toys.Gag apply
 .item Toys.Collar apply
+Are you properly gagged and collared, §slave?
+.yes Yes, Mistress
 .range 5048
 
 [Action 5045]
@@ -6431,6 +6439,8 @@ Wonderful.
 Put it around your neck and secure it safely.
 .image bd166_39.jpg
 .item Toys.Collar apply
+Are you properly collared, slave?
+.yes Yes, Mistress
 .range 5048
 
 [Action 5046]
@@ -6442,6 +6452,8 @@ bd166_24.jpg
 Secure it safely.
 delay 10
 .item Toys.Gag apply
+Are you properly gagged, slave?
+.yes Yes, Mistress
 .range 5048
 
 [action 5047]
