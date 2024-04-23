@@ -175,11 +175,11 @@ public class Mine extends Player {
     }
 
     private int getScriptState(String scriptName, long n) {
-        return persistence.getInteger(scriptName + "." + n);
+        return persistence.newNumber(scriptName + "." + n).intValue();
     }
 
     private void setScriptState(String scriptName, int n, long value) {
-        persistence.set(scriptName + "." + n, value);
+        persistence.newNumber(scriptName + "." + n).set(value);
     }
 
     public <T> void override(T toy, boolean available) {
