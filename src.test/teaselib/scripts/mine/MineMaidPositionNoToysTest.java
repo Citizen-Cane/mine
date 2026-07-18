@@ -1,16 +1,15 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeFalse;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Assume;
-import org.junit.Test;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assumptions;
+import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.params.ParameterizedClass;
+import org.junit.jupiter.params.provider.MethodSource;
 import pcm.controller.AllActionsSetException;
 import pcm.model.Action;
 import pcm.model.ActionRange;
@@ -26,13 +25,14 @@ import teaselib.scripts.mine.test.Preset;
  *
  */
 
+@ParameterizedClass(name = "Position {0} @ difficulty={1}")
+@MethodSource("data")
 public class MineMaidPositionNoToysTest extends MaidPositionAbstractTest {
 
     private static final List<Integer> POSITIONS_THAT_REQUIRE_TOYS = Arrays.asList(642, 643, 644, 645, 646, 647, 650);
 
     private static final int MAID_TRAINING_USER_DOESNT_HAVE_EQUIPMENT = 9730;
 
-    @Parameters(name = "Position {0} @ difficulty={1}")
     public static Iterable<Integer[]> data()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         Mine mine = createPlayer(new Preset(), MinePrompts.maidNoToys(), false);
@@ -42,7 +42,9 @@ public class MineMaidPositionNoToysTest extends MaidPositionAbstractTest {
     public MineMaidPositionNoToysTest(int position, int difficulty)
             throws IOException, ScriptParsingException, ValidationIssue, ScriptExecutionException {
         super(MinePrompts.maidNoToys(), false, position, difficulty);
-        assumeFalse("Position requires toys", POSITIONS_THAT_REQUIRE_TOYS.contains(position));
+        Assumptions.assumeFalse(
+                POSITIONS_THAT_REQUIRE_TOYS.contains(position),
+                "Position requires toys");
     }
 
     @Test
@@ -58,13 +60,15 @@ public class MineMaidPositionNoToysTest extends MaidPositionAbstractTest {
         mine.breakPoints.add(Mine.MAID, mine.script.actions.get(9981));
 
         Action startAction = mine.script.actions.get(position + POSITION_TO_SELECT_OFFSET);
-        Assume.assumeFalse("Position " + position + " not implemented yet", startAction == null);
+        Assumptions.assumeFalse(
+                startAction == null,
+                "Position " + position + " not implemented yet");
 
         Action positionAction = checkPositionAvailable();
         selectSinglePosition(positionAction);
         mine.playRange(new ActionRange(1, 3999));
         mine.playRange(new ActionRange(4000, 6999));
-        assertTrue(mine.action.number >= 7700 || mine.action.number == 1820);
+        Assertions.assertTrue(mine.action.number >= 7700 || mine.action.number == 1820);
         assertToysRemoved();
     }
 

@@ -6,9 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import pcm.controller.Assertion;
 import pcm.controller.Player;
@@ -31,15 +30,13 @@ import teaselib.scripts.mine.test.TestParameters;
  * @author Citizen-Cane
  *
  */
-@RunWith(Parameterized.class)
 public class OoeActivities extends ActivityTest {
     private static final Enum<?>[] TOYS = { Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Gag };
 
     static final int SLAVE_IS_ODDS = 10;
     static final int SLAVE_IS_EVENS = 11;
 
-    @Parameters(name = "Activity {0}")
-    public static Iterable<TestParameters> tests() {
+    public static List<TestParameters> tests() {
         List<TestParameters> tests = new ArrayList<>();
 
         tests.add(new TestParameters("Generic game, random rules - win", new ActionRange(1000, 9999), 1000, 9000,
@@ -215,8 +212,15 @@ public class OoeActivities extends ActivityTest {
         return player.randomItem(Response.Choose, Response.Ignore);
     }
 
-    public OoeActivities(TestParameters testParameters)
+    public OoeActivities()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        super(testParameters, Mine.OOE, MinePrompts.ooe());
+        super(Mine.OOE, MinePrompts.ooe());
     }
+
+    @ParameterizedTest(name = "activity {0}")
+    @MethodSource("tests")
+    public void executeActivityTest(TestParameters parameters) throws ScriptExecutionException {
+        super.testWith(parameters);
+    }
+
 }

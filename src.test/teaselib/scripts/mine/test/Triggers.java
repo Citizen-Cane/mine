@@ -1,7 +1,8 @@
 package teaselib.scripts.mine.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -12,6 +13,7 @@ import pcm.controller.Trigger;
  *
  */
 public class Triggers extends ArrayList<Trigger> {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public Triggers() {
@@ -29,7 +31,7 @@ public class Triggers extends ArrayList<Trigger> {
 
     public void assertExpected() {
         for (Trigger trigger : this) {
-            assertTrue(trigger.getMessage(), trigger.expected());
+            assertTrue(trigger.expected(), trigger.getMessage());
         }
     }
 }

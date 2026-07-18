@@ -1,16 +1,14 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.params.ParameterizedClass;
+import org.junit.jupiter.params.provider.MethodSource;
 import pcm.controller.AllActionsSetException;
 import pcm.controller.BreakPoint;
 import pcm.model.ActionRange;
@@ -21,17 +19,18 @@ import pcm.state.persistence.ScriptState;
 import teaselib.scripts.mine.test.MinePrompts;
 import teaselib.scripts.mine.test.PresetTestable;
 
-@RunWith(Parameterized.class)
+@ParameterizedClass(name = "Punishment {0}")
+@MethodSource("data")
 public class MinePunishmentTest extends PresetTestable {
 
-    @Parameters(name = "Punishment {0}")
     public static Iterable<Integer> data() {
-        List<Integer> punishments = Arrays.asList(500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513,
-                514, 515, 516, 517, 518, 519, 520, 521, 525, 548, 549);
-        return punishments;
+        return List.of(
+                500, 501, 502, 503, 504, 505, 506, 507, 508,
+                509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519,
+                520, 521, 525, 548, 549);
     }
 
-    private Mine mine;
+    private final Mine mine;
     final int punishment;
 
     public MinePunishmentTest(int punishment)
@@ -43,11 +42,11 @@ public class MinePunishmentTest extends PresetTestable {
 
     @Test
     public void testPunishments() throws AllActionsSetException, ScriptExecutionException {
-        assertEquals("Punishment pending", ScriptState.SET, mine.state.get(punishment));
+        Assertions.assertEquals(ScriptState.SET, mine.state.get(punishment),"Punishment pending");
         mine.breakPoints.add(mine.script.name, mine.script.actions.get(3000), BreakPoint.STOP);
         mine.playFrom(new ActionRange(845, 846));
-        assertEquals("Punishment executed", ScriptState.UNSET, mine.state.get(punishment));
-        assertEquals("Punishment section not finished", 3000, mine.action.number);
+        Assertions.assertEquals(ScriptState.UNSET, mine.state.get(punishment),"Punishment executed");
+        Assertions.assertEquals( 3000, mine.action.number,"Punishment section not finished");
     }
 
 }

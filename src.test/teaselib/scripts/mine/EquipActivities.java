@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
@@ -21,12 +20,10 @@ import teaselib.scripts.mine.test.TestParameters;
  * @author Citizen-Cane
  *
  */
-@RunWith(Parameterized.class)
 public class EquipActivities extends ActivityTest {
     private static final Enum<?>[] TOYS = {};
 
-    @Parameters(name = "Activity {0}")
-    public static Iterable<TestParameters> tests() {
+    public static List<TestParameters> tests() {
         List<TestParameters> tests = new ArrayList<>();
 
         tests.add(new TestParameters("Chains", 2100, 9001, Arrays.asList(TOYS)));
@@ -53,8 +50,15 @@ public class EquipActivities extends ActivityTest {
         return tests;
     }
 
-    public EquipActivities(TestParameters testParameters)
+    public EquipActivities()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        super(testParameters, Mine.EQUIP, MinePrompts.sb());
+        super( Mine.EQUIP, MinePrompts.sb());
     }
+
+    @ParameterizedTest(name = "activity {0}")
+    @MethodSource("tests")
+    public void executeActivityTest(TestParameters parameters) throws ScriptExecutionException {
+        super.testWith(parameters);
+    }
+
 }

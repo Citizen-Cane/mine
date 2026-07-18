@@ -1,14 +1,14 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.io.IOException;
 
-import org.junit.Assume;
-import org.junit.Test;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.params.ParameterizedClass;
+import org.junit.jupiter.params.provider.MethodSource;
 import pcm.controller.AllActionsSetException;
 import pcm.model.Action;
 import pcm.model.ActionRange;
@@ -19,9 +19,10 @@ import pcm.state.persistence.ScriptState;
 import teaselib.scripts.mine.test.MinePrompts;
 import teaselib.scripts.mine.test.Preset;
 
+@ParameterizedClass(name = "Position {0} @ difficulty={1}")
+@MethodSource("data")
 public class MineMaidPositionCoverageTest extends MaidPositionAbstractTest {
 
-    @Parameters(name = "Position {0} @ difficulty={1}")
     public static Iterable<Integer[]> data()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         Mine mine = createPlayer(new Preset(), MinePrompts.maidGood(), true);
@@ -43,18 +44,22 @@ public class MineMaidPositionCoverageTest extends MaidPositionAbstractTest {
         mine.state.set(ENABLE_MINE_MAID_DEBUGGING);
 
         Action startAction = mine.script.actions.get(position + 1000);
-        Assume.assumeFalse("Position " + position + " not implemented yet", startAction == null);
+        Assertions.assertNotNull(startAction, "Position " + position + " not implemented yet");
 
         Action positionAction = checkPositionAvailable();
         selectSinglePosition(positionAction);
         mine.playRange(new ActionRange(1, 9950));
         assertThatAllActionsSetDidntOccur(mine);
-        assertEquals("Script not ended as expected:", ScriptState.SET, mine.state.get(9950));
-        assertEquals("Position not completed:", ScriptState.SET, mine.state.get(position));
+        Assertions.assertEquals(
+                ScriptState.SET, mine.state.get(9950),
+                "Script not ended as expected:");
+        Assertions.assertEquals(
+                ScriptState.SET, mine.state.get(position),
+                "Position not completed:");
         assertToysRemoved();
     }
 
     private static void assertThatAllActionsSetDidntOccur(Mine mine) {
-        assertNotEquals("All actions set handler invoked", 9999, mine.action.number);
+        assertNotEquals(9999, mine.action.number,"All actions set handler invoked");
     }
 }

@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
-
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import pcm.controller.Player;
 import pcm.controller.TestFailureTrigger;
 import pcm.model.ActionRange;
@@ -28,13 +26,12 @@ import teaselib.scripts.mine.test.TestParameters;
  * @author Citizen-Cane
  *
  */
-@RunWith(Parameterized.class)
 public class DildoActivities extends ActivityTest {
+
     private static final Enum<?>[] TOYS = { Bondage.Ankle_Restraints, Bondage.Wrist_Restraints, Toys.Nipple_Clamps,
             Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Gag, Toys.Blindfold, Toys.Dildo, Toys.Buttplug };
 
-    @Parameters(name = "Activity {0}")
-    public static Iterable<TestParameters> tests() {
+    public static List<TestParameters> tests() {
         List<TestParameters> tests = new ArrayList<>();
 
         tests.add(new TestParameters("Dildo worshipping activity first time full penetration", 900, 9852,
@@ -168,8 +165,14 @@ public class DildoActivities extends ActivityTest {
         return tests;
     }
 
-    public DildoActivities(TestParameters testParameters)
-            throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        super(testParameters, Mine.DILDO, MinePrompts.dildo());
+    public DildoActivities() throws ScriptParsingException, ScriptExecutionException, IOException, ValidationIssue {
+        super(Mine.DILDO, MinePrompts.dildo());
     }
+
+    @ParameterizedTest(name = "activity {0}")
+    @MethodSource("tests")
+    public void executeActivityTest(TestParameters parameters) throws ScriptExecutionException {
+        super.testWith(parameters);
+    }
+
 }

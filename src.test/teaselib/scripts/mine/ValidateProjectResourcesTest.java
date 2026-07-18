@@ -3,7 +3,7 @@ package teaselib.scripts.mine;
 import java.io.IOException;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;

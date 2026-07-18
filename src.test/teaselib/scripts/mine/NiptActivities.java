@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
-
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import pcm.controller.LambdaTrigger;
 import pcm.controller.Player;
 import pcm.controller.TestFailureTrigger;
@@ -30,7 +28,6 @@ import teaselib.scripts.mine.test.TestParameters;
  * @author Citizen-Cane
  *
  */
-@RunWith(Parameterized.class)
 public class NiptActivities extends ActivityTest {
 
     private static final String STOP_MISTRESS = "Stop, Mistress";
@@ -40,8 +37,7 @@ public class NiptActivities extends ActivityTest {
     private static final Enum<?>[] TOYS = { Bondage.Ankle_Restraints, Toys.Nipple_Clamps, Toys.Pussy_Clamps,
             Household.Clothes_Pegs };
 
-    @Parameters(name = "Activity {0}")
-    public static Iterable<TestParameters> tests() {
+    public static List<TestParameters> tests() {
         List<TestParameters> tests = new ArrayList<>();
 
         tests.add(new TestParameters("Quick Pins", 1014, 9014, Arrays.asList(TOYS)) {
@@ -156,9 +152,15 @@ public class NiptActivities extends ActivityTest {
         return Response.Choose;
     }
 
-    public NiptActivities(TestParameters testParameters)
+    public NiptActivities()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        super(testParameters, Mine.NIPT, MinePrompts.nipt());
+        super( Mine.NIPT, MinePrompts.nipt());
+    }
+
+    @ParameterizedTest(name = "activity {0}")
+    @MethodSource("tests")
+    public void executeActivityTest(TestParameters parameters) throws ScriptExecutionException {
+        super.testWith(parameters);
     }
 
 }

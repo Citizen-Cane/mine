@@ -1,18 +1,12 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.junit.AssumptionViolatedException;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assumptions;
 import pcm.controller.AllActionsSetException;
 import pcm.model.Action;
 import pcm.model.ActionRange;
@@ -32,7 +26,6 @@ import teaselib.core.Debugger.ResponseAction;
 import teaselib.scripts.mine.test.Preset;
 import teaselib.scripts.mine.test.PresetTestable;
 
-@RunWith(Parameterized.class)
 public abstract class MaidPositionAbstractTest extends PresetTestable {
 
     static final Enum<?>[] TOYS = { Toys.Nipple_Clamps, Toys.Pussy_Clamps, Toys.Collar, Toys.Gag,
@@ -89,9 +82,7 @@ public abstract class MaidPositionAbstractTest extends PresetTestable {
 
     Action checkPositionAvailable() throws AssertionError {
         Action startAction = mine.script.actions.get(position + POSITION_TO_SELECT_OFFSET);
-        if (startAction == null) {
-            throw new AssumptionViolatedException("Position " + position + " not implemented yet");
-        }
+        Assertions.assertNotNull(startAction, "Position " + position + " not implemented yet");
 
         if (startAction.conditions.contains(new Must(MAID_TRAINING_PUNISHMENT_FLAG))) {
             mine.state.set(MAID_TRAINING_PUNISHMENT_FLAG);
@@ -136,11 +127,11 @@ public abstract class MaidPositionAbstractTest extends PresetTestable {
 
         if (positionActions.isEmpty()) {
             List<Condition> unmatchedconditions = TestPlayer.umatchedConditions(startAction, mine.state);
-            fail("Position " + position + " not available: " + TestPlayer.toString(unmatchedconditions));
+            Assertions.fail("Position " + position + " not available: " + TestPlayer.toString(unmatchedconditions));
         }
 
-        assertEquals(1, positionActions.size());
-        return positionActions.get(0);
+        Assertions.assertEquals(1, positionActions.size());
+        return positionActions.getFirst();
     }
 
     void selectSinglePosition(Action positionAction) throws AllActionsSetException, ScriptExecutionException {
@@ -155,7 +146,7 @@ public abstract class MaidPositionAbstractTest extends PresetTestable {
 
         undoDisableUnwantedPositions(positionAction, allPositions);
 
-        assertEquals(0, mine.range(new ActionRange(positionAction.number)).size());
+        Assertions.assertEquals(0, mine.range(new ActionRange(positionAction.number)).size());
     }
 
     static int forward(int n) {
@@ -174,8 +165,8 @@ public abstract class MaidPositionAbstractTest extends PresetTestable {
                 mine.state.set(action);
             }
         }
-        assertEquals(1, mine.range(allPositionsRange).size());
-        assertEquals(1, mine.range(new ActionRange(positionAction.number)).size());
+        Assertions.assertEquals(1, mine.range(allPositionsRange).size());
+        Assertions.assertEquals(1, mine.range(new ActionRange(positionAction.number)).size());
     }
 
     void undoDisableUnwantedPositions(Action positionAction, List<Action> allPositions) {
@@ -189,7 +180,9 @@ public abstract class MaidPositionAbstractTest extends PresetTestable {
     void assertToysRemoved() {
         var applied = mine.items(TOYS).getApplied();
         for (var item : applied) {
-            assertTrue("Toy(s) still applied: " + applied, item.applied() && !item.is(mine.namespaceApplyAttribute));
+            Assertions.assertTrue(
+                    item.applied() && !item.is(mine.namespaceApplyAttribute),
+                    "Toy(s) still applied: " + applied);
         }
     }
 }

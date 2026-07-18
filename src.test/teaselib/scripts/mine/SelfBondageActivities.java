@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
@@ -23,12 +22,10 @@ import teaselib.scripts.mine.test.TestParameters;
  * @author Citizen-Cane
  *
  */
-@RunWith(Parameterized.class)
 public class SelfBondageActivities extends ActivityTest {
     private static final Enum<?>[] TOYS = { Bondage.Rope, Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs,
             Toys.Gag };
 
-    @Parameters(name = "Activity {0}")
     public static Iterable<TestParameters> tests() {
         List<TestParameters> tests = new ArrayList<>();
 
@@ -41,8 +38,15 @@ public class SelfBondageActivities extends ActivityTest {
         return tests;
     }
 
-    public SelfBondageActivities(TestParameters testParameters)
+    public SelfBondageActivities()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        super(testParameters, Mine.SB, MinePrompts.sb());
+        super(Mine.SB, MinePrompts.sb());
     }
+
+    @ParameterizedTest(name = "activity {0}")
+    @MethodSource("tests")
+    public void executeActivityTest(TestParameters parameters) throws ScriptExecutionException {
+        super.testWith(parameters);
+    }
+
 }

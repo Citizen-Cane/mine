@@ -3,6 +3,7 @@ package teaselib.scripts.mine;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,8 +67,9 @@ public class Mine extends Player {
         CarryOutEnema
     }
 
-    public static void main(String argv[]) {
+    public static void main(String[] argv) {
         try {
+            if (argv.length == 0) throw new NoSuchElementException("Speech zip");
             recordVoices(MineMistress, new File(argv[0]), Namespace, Scripts, Assets);
         } catch (ScriptParsingException e) {
             logger.error(e.getMessage(), e);

@@ -1,15 +1,16 @@
 package teaselib.scripts.mine.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.params.ParameterizedTest;
 import pcm.controller.Player;
 import pcm.model.Action;
 import pcm.model.ActionRange;
@@ -25,20 +26,16 @@ import teaselib.scripts.mine.Mine;
  */
 public class ActivityTest extends PresetTestable {
 
-    protected final TestParameters testParameters;
     protected final Collection<ResponseAction> responses;
-    protected final Mine mine;
 
-    public ActivityTest(TestParameters testParameters, String script, Collection<ResponseAction> responses)
+    public ActivityTest(String script, Collection<ResponseAction> responses)
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
         preset.script(script).clearHandlers();
-        this.testParameters = testParameters;
         this.responses = responses;
-        this.mine = preset.responses(testParameters).responses(responses).mine();
     }
 
-    @Test
-    public void test() throws ScriptExecutionException {
+    protected void testWith(TestParameters testParameters) throws ScriptExecutionException {
+        var mine = preset.responses(testParameters).responses(responses).mine();
         mine.breakPoints.add(mine.script.name, action(mine, testParameters.end));
 
         for (Enum<?> toy : testParameters.toys) {
@@ -55,7 +52,7 @@ public class ActivityTest extends PresetTestable {
 
     public static Set<Action> actions(Player player, ActionRange range, Action without) {
         HashSet<Action> all = new HashSet<>(player.script.actions.getAll(range));
-        assertTrue("Action to exclude not present: " + without, all.remove(without));
+        assertTrue(all.remove(without), "Action to exclude not present: " + without);
         return all;
     }
 

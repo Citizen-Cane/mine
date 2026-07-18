@@ -1,8 +1,8 @@
 package teaselib.scripts.mine.test;
 
-import java.io.IOException;
+import org.junit.jupiter.api.AfterEach;
 
-import org.junit.After;
+import java.io.IOException;
 
 /**
  * @author Citizen Cane
@@ -20,7 +20,7 @@ public class PresetTestable {
         this.preset = preset;
     }
 
-    @After
+    @AfterEach
     public void close() {
         preset.close();
     }

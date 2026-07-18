@@ -1,10 +1,9 @@
 package teaselib.scripts.mine;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import pcm.controller.AllActionsSetException;
 import pcm.controller.CheckPointTrigger;
@@ -60,7 +59,9 @@ public class MineFirstRunTest extends PresetTestable {
     }
 
     protected void assertScriptEndedGracefully() {
-        assertEquals("All actions set - see console output for offending action", ScriptState.SET, mine.state.get(850));
+        Assertions.assertEquals(
+                ScriptState.SET, mine.state.get(850),
+                "All actions set - see console output for offending action");
     }
 
 }

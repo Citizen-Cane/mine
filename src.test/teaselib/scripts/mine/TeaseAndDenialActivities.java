@@ -8,9 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import pcm.model.ScriptExecutionException;
 import pcm.model.ScriptParsingException;
@@ -28,13 +27,10 @@ import teaselib.scripts.mine.test.TestParameters;
  * @author Citizen-Cane
  *
  */
-@RunWith(Parameterized.class)
 public class TeaseAndDenialActivities extends ActivityTest {
     private static final Enum<?>[] TOYS = { Toys.Collar, Toys.Gag, Bondage.Wrist_Restraints, Bondage.Ankle_Restraints,
             Toys.Nipple_Clamps, Toys.Pussy_Clamps, Household.Clothes_Pegs, Toys.Blindfold };
-
-    @Parameters(name = "Activity {0}")
-    public static Iterable<TestParameters> tests() {
+    public static List<TestParameters> tests() {
         List<TestParameters> tests = new ArrayList<>();
         tests.add(new TestParameters("Miss Kriss success", 1101, 9201, Arrays.asList(TOYS)));
         tests.add(new TestParameters("Miss Kriss failure", 1101, 8960, Arrays.asList(TOYS),
@@ -80,8 +76,15 @@ public class TeaseAndDenialActivities extends ActivityTest {
         return tests;
     }
 
-    public TeaseAndDenialActivities(TestParameters testParameters)
+    public TeaseAndDenialActivities()
             throws ScriptParsingException, ValidationIssue, ScriptExecutionException, IOException {
-        super(testParameters, Mine.TD, MinePrompts.td());
+        super(Mine.TD, MinePrompts.td());
     }
+
+    @ParameterizedTest(name = "activity {0}")
+    @MethodSource("tests")
+    public void executeActivityTest(TestParameters parameters) throws ScriptExecutionException {
+        super.testWith(parameters);
+    }
+
 }
