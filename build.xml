@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="deploySexScriptsDebug" name="Build Mine">
-    <!--ANT 1.7 is required -->
 
-    	  <import file="${basedir}/../TeaseLib/build.xml"/>
-	
-    <target name="deploySexScriptsRelease">
+	<import file="${basedir}/../TeaseLib/build.xml"/>
+
+	<path id="project.classpath">
+		<pathelement path="$(java.class.path}"/>
+		<pathelement location="${basedir}/../teaselib/bin"/>
+		<pathelement location="${basedir}/../PCMPlayer/bin"/>
+		<pathelement location="${basedir}/../Mine/bin"/>
+		<fileset dir="${user.home}/.m2/repository">
+			<include name="**/*.jar"/>
+		</fileset>	</path>
+
+	<target name="deploySexScriptsRelease">
         <property name="release_name" value="Mine Redux for SexScripts"/>
-        <property name="version" value="1.01"/>
+        <property name="version" value="1.02"/>
         <property name="destination" value="${basedir}/../Releases/${release_name} ${version}"/>
     	<antcall target="deployToMine"/>
         <antcall target="build"/>
@@ -21,43 +29,34 @@
     </target>
 
     <target name="syncAccessories">
-    	<java classname="teaselib.core.crypto.CryptoSync">
+    	<java classname="teaselib.core.crypto.CryptoSync" fork="true">
+			<classpath refid="project.classpath"/>
     		<arg value="${basedir}/../mine-assets/assets/Mine/accessories/"/>
     		<arg value="${basedir}/../mine-assets/assets/Mine/encrypted accessories/"/>
     		<arg value="--recursive"/>
     		<arg value="jpg"/>
-			<classpath>
-				<pathelement location="${basedir}/../teaselib/lib/TeaseLib.jar"/>
-				<pathelement path="$(java.class.path}"/>
-			</classpath>
     	</java>
 	</target>
 
     <target name="syncImages">
-    	<java classname="teaselib.core.crypto.CryptoSync">
+    	<java classname="teaselib.core.crypto.CryptoSync" fork="true">
+			<classpath refid="project.classpath"/>
     		<arg value="${basedir}/../mine-assets/assets/Mine/images/"/>
     		<arg value="${basedir}/../mine-assets/assets/Mine/encrypted images/"/>
     		<arg value="--flat"/>
     		<arg value="png"/>
     		<arg value="jpg"/>
-			<classpath>
-				<pathelement location="${basedir}/../teaselib/lib/TeaseLib.jar"/>
-				<pathelement path="$(java.class.path}"/>
-			</classpath>
     	</java>
 	</target>
 
     <target name="syncMistress">
-    	<java classname="teaselib.core.crypto.CryptoSync">
+    	<java classname="teaselib.core.crypto.CryptoSync" fork="true">
+			<classpath refid="project.classpath"/>
     		<arg value="${basedir}/../mine-assets/assets/Mine/mistress/"/>
     		<arg value="${basedir}/../mine-assets/assets/Mine/encrypted mistress/"/>
     		<arg value="--recursive"/>
     		<arg value="png"/>
     		<arg value="jpg"/>
-    			<classpath>
-    				<pathelement location="${basedir}/../teaselib/lib/TeaseLib.jar"/>
-    				<pathelement path="$(java.class.path}"/>
-    			</classpath>
     	</java>
 	</target>
 
@@ -98,16 +97,9 @@
     	<!-- TODO current dir has to contain lib/TeaseLib/ in order to load native TTS library -->
     	<!-- TODO is $(basedir) but must be ${destination} -->
     	<java classname="teaselib.scripts.mine.Mine">
+			<classpath refid="project.classpath"/>
 	        <sysproperty key="TeaseLib.Config.Assets" value="${destination}/scripts/"/>
     		<arg value="${destination}/scripts/"/>
-			<classpath>
-				<pathelement location="${destination}/lib/TeaseLib.jar"/>
-				<pathelement location="${destination}/lib/jump3r-1.0.3.jar"/>
-				<pathelement location="${destination}/scripts/Mine.jar"/>
-				<pathelement location="${basedir}/../SexScripts/lib/slf4j-api-1.7.2.jar"/>
-				<pathelement location="${basedir}/../SexScripts/lib/slf4j-simple-1.7.10.jar"/>
-				<pathelement path="$(java.class.path}"/>
-			</classpath>
     	</java>
 	</target>
 </project>

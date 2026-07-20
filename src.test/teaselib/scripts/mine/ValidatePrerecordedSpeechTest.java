@@ -37,7 +37,7 @@ public class ValidatePrerecordedSpeechTest {
     public void testPrerecordedSpeech() throws IOException, ScriptParsingException, ValidationIssue {
         String[] assets = { "Mine Scripts.zip", "Mine Resources.zip", "Mine Speech.zip" };
 
-        ResourceLoader resources = new ResourceLoader(new File("../SexScripts/scripts/"), "Mine");
+        ResourceLoader resources = new ResourceLoader(new File("./bin/scripts/"), "Mine");
         resources.addAssets(assets);
         // TODO Resource loader intentionally treats resource locations as optional,
         // to let user unpack and change scripts as well as resources
@@ -65,7 +65,7 @@ public class ValidatePrerecordedSpeechTest {
                         speech.stream().filter(part -> part.type == Type.Speech)
                                 .forEach(part -> testSpeechResource(resources, part));
                         messageCount++;
-                        resourceCount += speech.stream().filter(part -> part.type == Type.Speech).count();
+                        resourceCount += (int) speech.stream().filter(part -> part.type == Type.Speech).count();
                     }
                 }
 
