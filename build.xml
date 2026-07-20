@@ -17,20 +17,22 @@
         <property name="release_name" value="Mine Redux for SexScripts"/>
         <property name="version" value="1.02"/>
         <property name="destination" value="${basedir}/../Releases/${release_name} ${version}"/>
-    	<antcall target="deployToMine"/>
-        <antcall target="build"/>
-        <antcall target="prerecordSpeech"/>
+		<antcall target="deployToDestination"/>
     </target>
 
 	<target name="deploySexScriptsDebug">
         <property name="destination" value="${basedir}/../SexScripts"/>
-    	<antcall target="deployToSexScripts"/>
-        <antcall target="build"/>
-		<antcall target="prerecordSpeech"/>
+		<antcall target="deployToDestination"/>
         <copy file="assets/Mine/debug.txt" tofile="${destination}/scripts/Mine/debug.txt"/>
     </target>
 
-    <target name="syncAccessories">
+	<target name="deployToDestination">
+		<antcall target="deployTeaseLib"/>
+		<antcall target="build"/>
+		<antcall target="prerecordSpeech"/>
+	</target>
+
+	<target name="syncAccessories">
     	<java classname="teaselib.core.crypto.CryptoSync" fork="true">
 			<classpath refid="project.classpath"/>
     		<arg value="${basedir}/../mine-assets/assets/Mine/accessories/"/>
@@ -62,8 +64,8 @@
     	</java>
 	</target>
 
-    <target name="build" depends="syncAccessories,syncImages,syncMistress">
-        <jar destfile="${destination}/scripts/Mine.jar">
+    <target name="build" depends="checkDestination,syncAccessories,syncImages,syncMistress">
+		<jar destfile="${destination}/scripts/Mine.jar">
             <manifest>
                 <attribute name="Class-Path" value="."/>
             </manifest>
@@ -85,7 +87,6 @@
             <fileset dir="${basedir}/../mine-assets/assets" includes="Mine/accessories/**"/>
         	<fileset dir="${basedir}/assets" includes="Mine/*" excludes="Mine/debug.txt"/>
         </jar>
-    	<!-- TODO Build dir with prerecorded voices and Actor voices.properties-->
         <jar destfile="${destination}/scripts/Mine Mistress.zip">
             <manifest>
                 <attribute name="Class-Path" value="."/>
@@ -95,9 +96,7 @@
     	<copy file="src/Mine.groovy" tofile="${destination}/scripts/Mine.groovy"/>
     </target>
 
-    <target name="prerecordSpeech">
-    	<!-- TODO current dir has to contain lib/TeaseLib/ in order to load native TTS library -->
-    	<!-- TODO is $(basedir) but must be ${destination} -->
+    <target name="prerecordSpeech" depends="checkDestination">
     	<java classname="teaselib.scripts.mine.Mine">
 			<classpath refid="project.classpath"/>
 	        <sysproperty key="TeaseLib.Config.Assets" value="${destination}/scripts/"/>
